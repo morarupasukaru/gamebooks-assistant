@@ -14,9 +14,19 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div uib-collapse="vm.navCollapsed" class="collapse navbar-collapse" id="navbar-collapse-1">
             <ul class="nav navbar-nav navbar-left">
-                <li><a ui-sref="home">Home</a></li>
-                <li><a ui-sref="about">About</a></li>
-                <li><a ui-sref="theme">Theme Example</a></li>
+                <!-- Current play -->
+                <li><a ui-sref="theme">Stats</a></li>
+                <li><a ui-sref="theme">Equipment</a></li>
+                <li><a ui-sref="theme">Note</a></li>
+                <li><a ui-sref="theme">Path</a></li>
+                <li><a ui-sref="theme">Dices</a></li>
+                <li role="separator" class="divider"></li>
+                <!-- Manage play -->
+                <li><a ui-sref="theme">Gameplay</a></li>
+                <li><a ui-sref="theme">Configuration</a></li>
+
+                <!-- Misc -->
+                <li><a ui-sref="theme">Import/Export</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li ng-show="!vm.oAuthService.isLoggedIn()"><a ui-sref="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
