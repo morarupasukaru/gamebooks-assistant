@@ -5,7 +5,7 @@ import Gameplays from './gameplays/gameplays';
 import Import from './import/import';
 import Items from './items/items';
 import Notes from './notes/notes';
-import Paths from './path/paths';
+import Paths from './paths/paths';
 import Stats from './stats/stats';
 
 let gamebookModule = angular.module('app.components.gamebook', [
