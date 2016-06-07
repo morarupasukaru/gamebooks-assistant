@@ -16,17 +16,18 @@
             <ul class="nav navbar-nav navbar-left">
                 <!-- Current play -->
                 <li><a ui-sref="stats">Stats</a></li>
-                <li><a ui-sref="theme">Equipment</a></li>
-                <li><a ui-sref="theme">Note</a></li>
-                <li><a ui-sref="theme">Path</a></li>
-                <li><a ui-sref="theme">Dices</a></li>
-                <li role="separator" class="divider"></li>
+                <li><a ui-sref="items">Items</a></li>
+                <li><a ui-sref="notes">Notes</a></li>
+                <li><a ui-sref="paths">Paths</a></li>
+                <li><a ui-sref="dices">Dices</a></li>
+
                 <!-- Manage play -->
-                <li><a ui-sref="theme">Gameplay</a></li>
-                <li><a ui-sref="theme">Configuration</a></li>
+                <li><a ui-sref="gameplays">Gameplays</a></li>
+                <li><a ui-sref="gamebooks">Gamebooks</a></li>
 
                 <!-- Misc -->
-                <li><a ui-sref="theme">Import/Export</a></li>
+                <li><a ui-sref="import">Import</a></li>
+                <li><a ui-sref="export">Export</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li ng-show="!vm.oAuthService.isLoggedIn()"><a ui-sref="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
