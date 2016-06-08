@@ -3,7 +3,7 @@ import controller from './export.controller';
 
 let exportComponent = function () {
     return {
-        restrict: 'E', scope: {}, template, controller, controllerAs: 'vm', bindToController: true
+        restrict: 'E', scope: {}, template, controller, controllerAs: 'ctrl', bindToController: true
     };
 };
 
