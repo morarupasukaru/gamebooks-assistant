@@ -1,6 +1,11 @@
+let ctrl;
 class ItemsController {
     /*@ngInject*/
     constructor() {
+        ctrl = this;
+    }
+
+    addItem() {
     }
 }
 
