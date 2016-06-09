@@ -5,12 +5,14 @@
 
         <h1>Dices</h1>
 
-        <div class="row">
-            <div class="col-md-12">
-                <form>
-                    <button class="btn btn-primary" ng-click="ctrl.roll1d6()">Roll 1D6</button>
-                    <button class="btn btn-primary" ng-click="ctrl.roll2d6()">Roll 2D6</button>
-                </form>
+        <div>
+            <div class="form-group">
+                <input type="text" readonly class="form-control" id="diceValues" ng-model="ctrl.dicesValue">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" ng-click="ctrl.roll1d6()">Roll 1D6</button>
+                <button class="btn btn-primary" ng-click="ctrl.roll2d6()">Roll 2D6</button>
+                <button class="btn btn-default" ng-click="ctrl.clear()">Clear</button>
             </div>
         </div>
     </div>
