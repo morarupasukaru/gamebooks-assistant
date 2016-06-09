@@ -9,6 +9,9 @@
         <div class="row">
             <div class="col-md-12">
                 <table class="table table-striped">
+                    <col style="width:10%">
+                    <col style="width:50%">
+                    <col style="width:40%">
                     <thead>
                     <tr>
                         <th>Quantity</th>
@@ -17,30 +20,10 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>10</td>
-                        <td>Meal</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Shield</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Sword</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Leather armor</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Lantern</td>
-                        <td></td>
+                    <tr ng-repeat="row in ctrl.items">
+                        <td>{{ row.quantity }}</td>
+                        <td>{{ row.name }}</td>
+                        <td>{{ row.note }}</td>
                     </tr>
                     </tbody>
                 </table>

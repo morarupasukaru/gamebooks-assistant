@@ -3,6 +3,12 @@ class ItemsController {
     /*@ngInject*/
     constructor() {
         ctrl = this;
+        ctrl.items = [
+            { quantity : 10, name : 'Meal', note: 'regain 4 stamina points'},
+            { quantity : 1, name : 'Sword'},
+            { quantity : 1, name : 'Shieldl'},
+            { quantity : 1, name : 'Leather armor'}
+        ];
     }
 
     addItem() {
