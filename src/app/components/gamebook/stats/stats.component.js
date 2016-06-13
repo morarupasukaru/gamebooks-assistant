@@ -1,5 +1,6 @@
 import template from './stats.html';
 import controller from './stats.controller';
+import './stats.css';
 
 let statsComponent = function () {
     return {
