@@ -4,14 +4,20 @@ class ItemsController {
     constructor() {
         ctrl = this;
         ctrl.items = [
-            { quantity : 10, name : 'Meal (regain 4 stamina points)'},
-            { quantity : 1, name : 'Sword'},
-            { quantity : 1, name : 'Shield'},
-            { quantity : 1, name : 'Leather armor'}
+            { quantity : 10, description : 'Meal (regain 4 stamina points)'},
+            { quantity : 1, description : 'Sword'},
+            { quantity : 1, description : 'Shield'},
+            { quantity : 1, description : 'Leather armor'}
         ];
     }
 
     addItem() {
+        ctrl.items.push({ quantity: 1});
+    }
+
+    removeItem(removedItem) {
+        var index = ctrl.items.indexOf(removedItem);
+        ctrl.items.splice(index, 1);
     }
 }
 
