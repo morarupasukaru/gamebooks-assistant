@@ -3,7 +3,7 @@ import controller from './notes.controller';
 
 let notesComponent = function () {
     return {
-        restrict: 'E', scope: {}, template, controller, controllerAs: 'vm', bindToController: true
+        restrict: 'E', scope: {}, template, controller, controllerAs: 'ctrl', bindToController: true
     };
 };
 
