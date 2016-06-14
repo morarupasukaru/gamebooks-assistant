@@ -12,20 +12,17 @@
             <div class="col-md-12">
                 <table class="table table-striped">
                     <col style="width:10%">
-                    <col style="width:50%">
-                    <col style="width:40%">
+                    <col style="width:90%">
                     <thead>
                     <tr>
                         <th>Quantity</th>
                         <th>Name</th>
-                        <th>Note</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr ng-repeat="row in ctrl.items">
                         <td>{{ row.quantity }}</td>
                         <td>{{ row.name }}</td>
-                        <td>{{ row.note }}</td>
                     </tr>
                     </tbody>
                 </table>

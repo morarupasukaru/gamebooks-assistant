@@ -9,16 +9,18 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <table class="table">
-                    <col style="width:40%">
-                    <col style="width:30%">
-                    <col style="width:30%">
+                    <col style="width:10%">
+                    <col style="width:10%">
+                    <col style="width:10%">
+                    <col style="width:70%">
                     <thead>
                     <tr>
                         <th></th>
                         <th>Current</th>
                         <th>Initial</th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -26,6 +28,7 @@
                         <td>{{ row.name }}</td>
                         <td><input type="number" class="form-control" ng-model="row.current"></td>
                         <td><input type="number" class="form-control" ng-model="row.initial"></td>
+                        <td></td>
                     </tr>
                     </tbody>
                 </table>
