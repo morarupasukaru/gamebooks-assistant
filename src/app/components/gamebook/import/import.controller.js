@@ -1,12 +1,12 @@
-let ctrl;
+let self;
 class ImportController {
     /*@ngInject*/
     constructor() {
-        ctrl = this;
+        self = this;
     }
 
     import() {
-        alert('imported: ' + ctrl.data);
+        alert('imported: ' + self.data);
     }
 }
 

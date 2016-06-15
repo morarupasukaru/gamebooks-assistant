@@ -1,7 +1,8 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 
-import gameplaysComponent from './gameplays.component';
+import template from './gameplays.html';
+import controller from './gameplays.controller';
 
 let gameplaysModule = angular.module('gameplays', [
     uiRouter
@@ -14,6 +15,6 @@ let gameplaysModule = angular.module('gameplays', [
         });
     })
 
-    .directive('gameplays', gameplaysComponent);
+    .component('gameplays', { template, controller });
 
 export default gameplaysModule;

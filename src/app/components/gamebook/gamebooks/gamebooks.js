@@ -1,7 +1,8 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 
-import gamebooksComponent from './gamebooks.component';
+import template from './gamebooks.html';
+import controller from './gamebooks.controller';
 
 let gamebooksModule = angular.module('gamebooks', [
     uiRouter
@@ -14,6 +15,6 @@ let gamebooksModule = angular.module('gamebooks', [
         });
     })
 
-    .directive('gamebooks', gamebooksComponent);
+    .component('gamebooks', { template, controller });
 
 export default gamebooksModule;

@@ -1,7 +1,8 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 
-import statsComponent from './stats.component';
+import template from './stats.html';
+import controller from './stats.controller';
 
 let statsModule = angular.module('stats', [
     uiRouter
@@ -14,6 +15,6 @@ let statsModule = angular.module('stats', [
         });
     })
 
-    .directive('stats', statsComponent);
+    .component('stats', { template, controller });
 
 export default statsModule;

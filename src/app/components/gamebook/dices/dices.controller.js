@@ -1,25 +1,25 @@
-let ctrl;
+let self;
 class DicesController {
     /*@ngInject*/
     constructor() {
-        ctrl = this;
-        ctrl.clear();
+        self = this;
+        self.clear();
     }
 
     roll2d6() {
-        ctrl._appendToResult(ctrl._roll1d6() + ctrl._roll1d6());
+        self._appendToResult(self._roll1d6() + self._roll1d6());
     }
 
     roll1d6() {
-        ctrl._appendToResult(ctrl._roll1d6());
+        self._appendToResult(self._roll1d6());
     }
 
     clear() {
-        ctrl.dicesValue = '';
+        self.dicesValue = '';
     }
 
     _roll1d6() {
-        return ctrl._getRandomIntInclusive(1, 6);
+        return self._getRandomIntInclusive(1, 6);
     }
 
     _getRandomIntInclusive(min, max) {
@@ -27,10 +27,10 @@ class DicesController {
     }
 
     _appendToResult(value) {
-        if (ctrl.dicesValue !== '') {
-            ctrl.dicesValue = ctrl.dicesValue + ','
+        if (self.dicesValue !== '') {
+            self.dicesValue = self.dicesValue + ','
         }
-        ctrl.dicesValue = ctrl.dicesValue + value;
+        self.dicesValue = self.dicesValue + value;
     }
 
 }

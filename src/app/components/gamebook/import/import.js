@@ -1,7 +1,8 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 
-import importComponent from './import.component';
+import template from './import.html';
+import controller from './import.controller';
 
 let importModule = angular.module('import', [
     uiRouter
@@ -14,6 +15,6 @@ let importModule = angular.module('import', [
         });
     })
 
-    .directive('import', importComponent);
+    .component('import', { template, controller });
 
 export default importModule;

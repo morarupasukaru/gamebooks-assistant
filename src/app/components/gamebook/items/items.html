@@ -22,11 +22,11 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="row in ctrl.rows">
+                    <tr ng-repeat="row in $ctrl.rows">
                         <td><input type="number" class="form-control" ng-model="row.quantity"></td>
                         <td><input type="text" class="form-control" ng-model="row.description"></td>
                         <td>
-                            <button type="button" class="btn btn-danger" aria-label="Remove" ng-click="ctrl.removeRow(row)">
+                            <button type="button" class="btn btn-danger" aria-label="Remove" ng-click="$ctrl.removeRow(row)">
                                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                             </button>
                         </td>
@@ -36,7 +36,7 @@
             </div>
         </div>
 
-        <button type="button" class="btn btn-lg btn-primary" ng-click="ctrl.addRow()">Add item</button>
+        <button type="button" class="btn btn-lg btn-primary" ng-click="$ctrl.addRow()">Add item</button>
     </div>
 
 </main>

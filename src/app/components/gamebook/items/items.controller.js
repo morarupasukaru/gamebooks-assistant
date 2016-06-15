@@ -1,9 +1,9 @@
-let ctrl;
+let self;
 class ItemsController {
     /*@ngInject*/
     constructor() {
-        ctrl = this;
-        ctrl.rows = [
+        self = this;
+        this.rows = [
             { quantity : 10, description : 'Meal (regain 4 stamina points)'},
             { quantity : 1, description : 'Sword'},
             { quantity : 1, description : 'Shield'},
@@ -12,12 +12,12 @@ class ItemsController {
     }
 
     addRow() {
-        ctrl.rows.push({ quantity: 1});
+        self.rows.push({ quantity: 1});
     }
 
     removeRow(removedRow) {
-        var index = ctrl.rows.indexOf(removedRow);
-        ctrl.rows.splice(index, 1);
+        var index = self.rows.indexOf(removedRow);
+        self.rows.splice(index, 1);
     }
 }
 

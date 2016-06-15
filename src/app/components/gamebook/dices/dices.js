@@ -1,7 +1,8 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 
-import dicesComponent from './dices.component';
+import template from './dices.html';
+import controller from './dices.controller';
 
 let dicesModule = angular.module('dices', [
     uiRouter
@@ -14,6 +15,6 @@ let dicesModule = angular.module('dices', [
         });
     })
 
-    .directive('dices', dicesComponent);
+    .component('dices', { template, controller });
 
 export default dicesModule;

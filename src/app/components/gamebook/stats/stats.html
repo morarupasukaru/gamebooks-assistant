@@ -24,7 +24,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="row in ctrl.stats">
+                    <tr ng-repeat="row in $ctrl.stats">
                         <td>{{ row.name }}</td>
                         <td><input type="number" class="form-control" ng-model="row.current"></td>
                         <td><input type="number" class="form-control" ng-model="row.initial"></td>

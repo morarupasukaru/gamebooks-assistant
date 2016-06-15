@@ -1,7 +1,8 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 
-import notesComponent from './notes.component';
+import template from './notes.html';
+import controller from './notes.controller';
 
 let notesModule = angular.module('notes', [
     uiRouter
@@ -14,6 +15,6 @@ let notesModule = angular.module('notes', [
         });
     })
 
-    .directive('notes', notesComponent);
+    .component('notes', { template, controller });
 
 export default notesModule;

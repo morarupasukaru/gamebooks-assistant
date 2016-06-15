@@ -1,9 +1,7 @@
-let ctrl;
 class ExportController {
     /*@ngInject*/
     constructor() {
-        ctrl=this;
-        ctrl.data='public final class Pattern'+
+        this.data = 'public final class Pattern'+
 'extends Object'+
 'implements Serializable'+
 'A compiled representation of a regular expression.'+

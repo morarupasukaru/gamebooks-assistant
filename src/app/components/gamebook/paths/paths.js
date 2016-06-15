@@ -1,7 +1,8 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 
-import pathsComponent from './paths.component';
+import template from './paths.html';
+import controller from './paths.controller';
 
 let pathsModule = angular.module('paths', [
     uiRouter
@@ -14,6 +15,6 @@ let pathsModule = angular.module('paths', [
         });
     })
 
-    .directive('paths', pathsComponent);
+    .component('paths', { template, controller });
 
 export default pathsModule;

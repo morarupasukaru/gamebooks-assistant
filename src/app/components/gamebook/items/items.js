@@ -1,7 +1,8 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 
-import itemsComponent from './items.component';
+import template from './items.html';
+import controller from './items.controller';
 
 let itemsModule = angular.module('items', [
     uiRouter
@@ -14,6 +15,6 @@ let itemsModule = angular.module('items', [
         });
     })
 
-    .directive('items', itemsComponent);
+    .component('items', { template, controller });
 
 export default itemsModule;

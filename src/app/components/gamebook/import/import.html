@@ -15,9 +15,9 @@
                         <h3 class="panel-title">Paste text copied from export screen</h3>
                     </div>
                     <div class="panel-body">
-                        <form ng-submit="ctrl.import()">
+                        <form ng-submit="$ctrl.import()">
                             <div class="form-group">
-                                <input type="text" class="form-control" ng-model="ctrl.data" id="importData" placeholder="import text datas">
+                                <input type="text" class="form-control" ng-model="$ctrl.data" id="importData" placeholder="import text datas">
                             </div>
                             <button type="submit" class="btn btn-primary">Import</button>
                         </form>

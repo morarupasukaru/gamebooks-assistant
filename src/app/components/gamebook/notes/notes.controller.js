@@ -1,20 +1,20 @@
-let ctrl;
+let self;
 class NotesController {
     /*@ngInject*/
     constructor() {
-        ctrl = this;
-        ctrl.rows = [
+        self = this;
+        this.rows = [
             { note : 'blah blah'}
         ];
     }
 
     addRow() {
-        ctrl.rows.push({ quantity: 1});
+        self.rows.push({ quantity: 1});
     }
 
     removeRow(removedRow) {
-        var index = ctrl.rows.indexOf(removedRow);
-        ctrl.rows.splice(index, 1);
+        var index = self.rows.indexOf(removedRow);
+        self.rows.splice(index, 1);
     }
 }
 
