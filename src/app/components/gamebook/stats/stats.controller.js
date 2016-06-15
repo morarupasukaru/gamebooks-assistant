@@ -7,6 +7,14 @@ class StatsController {
             { name : 'Luck', current : 7, initial: 9 }
         ];
     }
+
+    increment(row) {
+        row.current = row.current + 1;
+    }
+
+    decrement(row) {
+        row.current = row.current - 1;
+    }
 }
 
 export default StatsController;
