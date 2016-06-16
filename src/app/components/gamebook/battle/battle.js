@@ -10,7 +10,7 @@ let battleModule = angular.module('battle', [
     .config(/*@ngInject*/($stateProvider, $urlRouterProvider) => {
         $urlRouterProvider.otherwise('/');
 
-        $stateProvider.state('battle', {
+        $stateProvider.state('battle/{id}', {
             url: '/battle', template: '<battle></battle>'
         });
     })

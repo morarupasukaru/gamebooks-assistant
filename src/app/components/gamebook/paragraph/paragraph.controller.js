@@ -3,21 +3,25 @@ class ParagraphController {
     /*@ngInject*/
     constructor() {
         self = this;
-        this.rows = [
-            { quantity : 10, description : 'Meal (regain 4 stamina points)'},
-            { quantity : 1, description : 'Sword'},
-            { quantity : 1, description : 'Shield'},
-            { quantity : 1, description : 'Leather armor'}
-        ];
+        this.paragraph = {
+            paragraphNumber : 1,
+            description : 'Start of the game',
+            choices : [
+                { paragraphNumber : 123, description : 'East'},
+                { paragraphNumber : 65, description : 'West'}
+            ]
+        };
     }
 
     addRow() {
-        self.rows.push({ quantity: 1});
+        self.paragraph.choices.push( { paragraphNumber : self.inputParagraphNumber, description : self.inputDescription });
+        self.inputParagraphNumber = '';
+        self.inputDescription = '';
     }
 
     removeRow(removedRow) {
-        var index = self.rows.indexOf(removedRow);
-        self.rows.splice(index, 1);
+        var index = self.paragraph.choices.indexOf(removedRow);
+        self.paragraph.choices.splice(index, 1);
     }
 }
 

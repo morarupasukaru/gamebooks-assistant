@@ -5,10 +5,24 @@
     <div class="container bg-white" role="main">
 
         <div class="page-header">
-            <h1>Items</h1>
+            <h1>Paragraph {{ $ctrl.paragraph.paragraphNumber }}</h1>
         </div>
 
         <div class="row">
+
+            <div class="col-md-12">
+                <form>
+                    <div class="form-group">
+                        <label for="inputCurrentParagraphNumber">Paragraph</label>
+                        <input type="number" id="inputCurrentParagraphNumber" class="form-control" ng-model="$ctrl.paragraph.paragraphNumber">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputCurrentDescription">Description</label>
+                        <input type="text" id="inputCurrentDescription" class="form-control" ng-model="$ctrl.paragraph.description">
+                    </div>
+                </form>
+            </div>
+
             <div class="col-md-12">
                 <table class="table table-striped">
                     <col style="width:10%">
@@ -16,15 +30,17 @@
                     <col style="width:5%">
                     <thead>
                     <tr>
-                        <th>Quantity</th>
+                        <th>Choice</th>
                         <th>Description</th>
                         <th></th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="row in $ctrl.rows">
-                        <td><input type="number" class="form-control" ng-model="row.quantity"></td>
-                        <td><input type="text" class="form-control" ng-model="row.description"></td>
+                    <tr ng-repeat="row in $ctrl.paragraph.choices">
+                        <td>
+                            <button type="button" class="btn btn-default" aria-label="Choice" ng-click="$ctrl.goTo(row)">{{ row.paragraphNumber }}</button>
+                        </td>
+                        <td>{{ row.description}} </td>
                         <td>
                             <button type="button" class="btn btn-danger" aria-label="Remove" ng-click="$ctrl.removeRow(row)">
                                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
@@ -34,9 +50,21 @@
                     </tbody>
                 </table>
             </div>
-        </div>
 
-        <button type="button" class="btn btn-lg btn-primary" ng-click="$ctrl.addRow()">Add item</button>
-    </div>
+            <div class="col-md-12">
+                <form>
+                    <div class="form-group">
+                        <label for="inputParagraphNumber">Paragraph</label>
+                        <input type="number" id="inputParagraphNumber" class="form-control" ng-model="$ctrl.inputParagraphNumber">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDescription">Description</label>
+                        <input type="text" id="inputDescription" class="form-control" ng-model="$ctrl.inputDescription">
+                    </div>
+                    <button type="button" class="btn btn-lg btn-primary" ng-click="$ctrl.addRow()">Add choice</button>
+                </form>
+            </div>
+        </div>
+        </div>
 
 </main>
