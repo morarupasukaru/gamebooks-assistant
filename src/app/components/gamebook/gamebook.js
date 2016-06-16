@@ -8,9 +8,10 @@ import Notes from './notes/notes';
 import Paths from './paths/paths';
 import Stats from './stats/stats';
 import Battle from './battle/battle';
+import Paragraph from './paragraph/paragraph';
 
 let gamebookModule = angular.module('app.components.gamebook', [
-    Dices.name, Export.name, Gamebooks.name, Gameplays.name, Import.name, Items.name, Notes.name, Paths.name, Stats.name, Battle.name
+    Dices.name, Export.name, Gamebooks.name, Gameplays.name, Import.name, Items.name, Notes.name, Paths.name, Stats.name, Battle.name, Paragraph.name
 ]);
 
 export default gamebookModule;
