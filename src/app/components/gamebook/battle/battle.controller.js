@@ -6,7 +6,8 @@ class BattleController {
             { name: 'Player', skill : 11, stamina : 18 },
             { name: 'Goblin 1', skill : 5, stamina : 5 },
         ];
-        self.inputName = 'Monster';
+        self.monsterCount = 1;
+        self.inputName = this.getNextMonsterName();
         self.inputSkill = 5;
         self.inputStamina = 5;
     }
@@ -30,6 +31,11 @@ class BattleController {
 
     addRow() {
         self.rows.push({ name: self.inputName, skill: self.inputSkill, stamina: self.inputStamina});
+        self.inputName = self.getNextMonsterName();
+    }
+
+    getNextMonsterName() {
+        return 'Monster ' + self.monsterCount++;
     }
 }
 
