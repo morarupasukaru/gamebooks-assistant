@@ -1,13 +1,13 @@
 let self;
 class ImportController {
     /*@ngInject*/
-    constructor(dataService, $rootScope) {
-        this.dataService = dataService;
+    constructor(persistenceService, $rootScope) {
+        this.persistenceService = persistenceService;
         self = this;
     }
 
     import() {
-        self.dataService.update('test', self.data);
+        self.persistenceService.update('test', self.data);
     }
 }
 
