@@ -1,9 +1,8 @@
 import angular from 'angular';
-import persistenceService from './persistence/persistence.service';
+import Persistence from './persistence/persistence';
 
-/*@ngInject*/
-let servicesModule = angular.module('services', [])
-
-.service('persistenceService', persistenceService);
+let servicesModule = angular.module('app.components.gamebook.services', [
+    Persistence.name
+]);
 
 export default servicesModule;
