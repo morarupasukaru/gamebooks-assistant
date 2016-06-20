@@ -3,36 +3,25 @@ let self;
 class PersistenceService {
 
     /*@ngInject*/
-    constructor($rootScope) {
+    constructor() {
         self = this;
-        self.$rootScope = $rootScope;
-        self.loadFromLocalStorage();
+    }
+
+    save(key, value) {
+        localStorage.setItem(key, JSON.stringify(value));
     }
 
     get(key) {
-        return self.$rootScope.data[key];
-    }
-
-    update(key, value) {
-        self.$rootScope.data[key] = value;
-        localStorage.setItem('data', JSON.stringify(self.$rootScope.data));
-    }
-
-    exportData() {
-        return self.$rootScope.saved;
-    }
-
-    loadFromLocalStorage() {
-        self.importData(localStorage.getItem('data'));
-    }
-
-    importData(data) {
-        if (data !== null) {
-            self.$rootScope.data = JSON.parse(data);
+        let json = localStorage.getItem(key);
+        if (json !== null && json !== "undefined") {
+            return JSON.parse(json);
         } else {
-            self.$rootScope.data = {};
+            return null;
         }
-        self.$rootScope.saved = JSON.stringify(self.$rootScope.data);
+    }
+
+    getJson(key) {
+        localStorage.getItem(key);
     }
 }
 

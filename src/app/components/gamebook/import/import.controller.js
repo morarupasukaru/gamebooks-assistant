@@ -7,7 +7,7 @@ class ImportController {
     }
 
     import() {
-        self.persistenceService.update('test', self.data);
+        self.persistenceService.save('test', self.data);
     }
 }
 
