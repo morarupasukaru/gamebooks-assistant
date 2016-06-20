@@ -1,6 +1,6 @@
 let self;
 
-class DataService {
+class PersistenceService {
 
     /*@ngInject*/
     constructor($rootScope) {
@@ -36,4 +36,4 @@ class DataService {
     }
 }
 
-export default DataService;
+export default PersistenceService;
