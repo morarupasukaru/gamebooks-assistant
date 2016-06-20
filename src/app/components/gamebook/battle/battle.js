@@ -4,17 +4,17 @@ import uiRouter from 'angular-ui-router';
 import template from './battle.html';
 import controller from './battle.controller';
 
-let battleModule = angular.module('battle', [
+let BattleModule = angular.module('battle', [
     uiRouter
 ])
     .config(/*@ngInject*/($stateProvider, $urlRouterProvider) => {
         $urlRouterProvider.otherwise('/');
 
-        $stateProvider.state('battle/{id}', {
+        $stateProvider.state('battle', {
             url: '/battle', template: '<battle></battle>'
         });
     })
 
     .component('battle', { template, controller });
 
-export default battleModule;
+export default BattleModule;

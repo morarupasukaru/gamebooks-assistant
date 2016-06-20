@@ -1,12 +1,13 @@
 let self;
 class ImportController {
     /*@ngInject*/
-    constructor() {
+    constructor(dataService, $rootScope) {
+        this.dataService = dataService;
         self = this;
     }
 
     import() {
-        alert('imported: ' + self.data);
+        self.dataService.update('test', self.data);
     }
 }
 
