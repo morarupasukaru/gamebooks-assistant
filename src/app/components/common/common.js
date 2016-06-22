@@ -10,11 +10,9 @@
  */
 import angular from 'angular';
 import Home from './home/home';
-import Navbar from './navbar/navbar';
-import Messages from './messages/messages';
 
 let commonModule = angular.module('app.components.common', [
-    Home.name, Navbar.name, Messages.name
+    Home.name
 ]);
 
 export default commonModule;
