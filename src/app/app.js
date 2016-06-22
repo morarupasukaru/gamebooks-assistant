@@ -37,13 +37,7 @@ angular.module('app', [
         $translateProvider.preferredLanguage('de').useSanitizeValueStrategy('escape');
     })
 
-    // Globale Konfigurationeinstellungen
     .constant('config', {
-        authServerUrl: 'http://localhost/',
-        authRedirectUrl: window.location.origin + '#/logincallback',
-        authLoginUrl: 'oauth/authorize?response_type=code&client_id=acme&redirect_uri=',
-        authClientId: 'acme',
-        authClientSecret: 'acmesecret'
     })
     // Die App als Direktive exportieren
     .directive('app', AppComponent);
