@@ -1,5 +1,5 @@
 import angular from 'angular';
-import Dices from './dices/dices';
+import Gui from './gui/gui';
 import Export from './export/export';
 import Gameplays from './gameplays/gameplays';
 import Import from './import/import';
@@ -13,7 +13,7 @@ import Services from './services/services';
 import Constants from './constants/constants';
 
 let gamebookModule = angular.module('app.components.gamebook', [
-    Constants.name, Services.name, Dices.name, Export.name, Gameplays.name, Import.name, Items.name, Notes.name, Paths.name, Stats.name, Battle.name, Paragraph.name
+    Constants.name, Services.name, Gui.name, Export.name, Gameplays.name, Import.name, Items.name, Notes.name, Paths.name, Stats.name, Battle.name, Paragraph.name
 ]);
 
 export default gamebookModule;
