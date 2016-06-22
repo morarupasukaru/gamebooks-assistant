@@ -35,10 +35,6 @@ angular.module('app', [
         $translateProvider.translations('de', langDe);
         $translateProvider.translations('en', langEn);
         $translateProvider.preferredLanguage('de').useSanitizeValueStrategy('escape');
-
-        // Http service settings
-        $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-        $httpProvider.interceptors.push('oAuthInterceptorService');
     })
 
     // Globale Konfigurationeinstellungen
