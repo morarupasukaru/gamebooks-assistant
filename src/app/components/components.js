@@ -10,11 +10,10 @@
  */
 import angular from 'angular';
 import commonComponents from './common/common';
-import securityComponents from './security/security';
 import gamebookComponents from './gamebook/gamebook';
 
 let componentModule = angular.module('app.components', [
-    commonComponents.name, securityComponents.name, gamebookComponents.name
+    commonComponents.name, gamebookComponents.name
 ]);
 
 export default componentModule;

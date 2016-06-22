@@ -3,10 +3,9 @@
  */
 class NavbarController {
     /*@ngInject*/
-    constructor(oAuthService) {
+    constructor() {
         this.name = 'navbar';
         this.navCollapsed = true;
-        this.oAuthService = oAuthService;
     }
 }
 
