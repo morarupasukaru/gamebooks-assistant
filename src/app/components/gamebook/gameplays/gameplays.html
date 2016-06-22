@@ -12,13 +12,13 @@
             <div class="col-md-12">
                 <table class="table table-striped">
                     <col style="width:60%">
-                    <col style="width:35%">
-                    <col style="width:5%">
+                    <col style="width:30%">
+                    <col style="width:10%">
                     <thead>
                     <tr>
                         <th>Book</th>
                         <th>Player</th>
-                        <th></th>
+                        <th>Played</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -26,12 +26,9 @@
                         <td>{{ row.bookName }}</td>
                         <td>{{ row.playerName }}</td>
                         <td>
-                            <!-- TODO selected -->
-                            <ng-if ng-model="row.selected">
-                                <button type="button" class="btn btn-default" aria-label="Remove" ng-click="$ctrl.removeRow(row)">
-                                    <span class="glyphicon glyphicon-hand-left" aria-hidden="true"></span>
-                                </button>
-                            </ng-if>
+                            <button type="button" class="btn" ng-class="{ 'btn-success' : row.selected, 'btn-default' : !row.selected}" aria-label="Remove" ng-click="$ctrl.select(row)">
+                                <span ng-class="{ 'glyphicon glyphicon-ok' : row.selected, 'glyphicon glyphicon-hand-left' : !row.selected}" aria-hidden="true"></span>
+                            </button>
                         </td>
                     </tr>
                     </tbody>
@@ -39,7 +36,7 @@
             </div>
         </div>
 
-        <button type="button" class="btn btn-lg btn-primary" ng-click="$ctrl.addRow()">Add item</button>
+        <button type="button" class="btn btn-lg btn-primary" ng-click="$ctrl.startNewGame()">Start new game</button>
     </div>
 
 </main>

@@ -1,22 +1,27 @@
 let self;
 class GameplaysController {
     /*@ngInject*/
-    constructor() {
+    constructor($location) {
         self = this;
+        self.$location = $location;
+        // TODO call game engine, get played
         this.rows = [
             { bookName : 'The Wizard of the firetop mountain', playerName : 'Pascal' },
-            { bookName : 'The Creature from Chaos', playerName : 'François' },
-            { bookName : 'The Wizard of the firetop mountain', playerName : 'Pascal', selected : true }
+            { bookName : 'The Wizard of the firetop mountain', playerName : 'Pascal 2nd try', selected : true },
+            { bookName : 'The Creature from Chaos', playerName : 'François' }
         ];
     }
 
-    addRow() {
-        self.rows.push({ quantity: 1});
+    select(row) {
+        // TODO call game engine, selected game, following code after promise result
+        for (var i = 0; i < self.rows.length; i++) {
+            self.rows[i].selected = false;
+        }
+        row.selected = true;
     }
 
-    removeRow(removedRow) {
-        var index = self.rows.indexOf(removedRow);
-        self.rows.splice(index, 1);
+    startNewGame() {
+        self.$location.url('/gameplays/create')
     }
 }
 
