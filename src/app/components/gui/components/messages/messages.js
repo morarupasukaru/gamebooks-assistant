@@ -13,10 +13,9 @@ import service from './messages.service';
 import template from './messages.html';
 import controller from './messages.controller';
 
-let messagesModule = angular.module('messages', [])
+let messagesModule = angular.module('app.components.gui.components.messages', [])
     .service('messagesService', service)
-
-    .component('messages', { template, controller });
+    .component('app.components.gui.components.messages', { template, controller });
 
 
 export default messagesModule;

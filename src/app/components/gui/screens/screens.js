@@ -10,7 +10,7 @@ import Stats from './stats/stats';
 import Battle from './battle/battle';
 import Paragraph from './paragraph/paragraph';
 
-let screensModule = angular.module('app.components.gamebook.gui.screen', [
+let screensModule = angular.module('app.components.gui.screen', [
     Home.name, Export.name, Gameplays.name, Import.name, Items.name, Notes.name, Paths.name, Stats.name, Battle.name, Paragraph.name
 ]);
 

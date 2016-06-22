@@ -3,7 +3,7 @@ import Dices from './dices/dices';
 import Messages from './messages/messages';
 import Navbar from './navbar/navbar';
 
-let guiComponentsModule = angular.module('app.components.gamebook.gui.components', [
+let guiComponentsModule = angular.module('app.components.gui.components', [
     Dices.name, Messages.name, Navbar.name
 ]);
 
