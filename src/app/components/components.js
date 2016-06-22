@@ -9,13 +9,12 @@
  * @since 04.12.2015, 2015.
  */
 import angular from 'angular';
-import commonComponents from './common/common';
 import Gui from './gui/gui';
 import Services from './services/services';
 import Constants from './constants/constants';
 
 let componentModule = angular.module('app.components', [
-    commonComponents.name, Constants.name, Services.name, Gui.name
+    Constants.name, Services.name, Gui.name
 ]);
 
 export default componentModule;

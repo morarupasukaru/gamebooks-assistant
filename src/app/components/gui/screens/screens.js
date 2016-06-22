@@ -1,4 +1,5 @@
 import angular from 'angular';
+import Home from './home/home';
 import Export from './export/export';
 import Gameplays from './gameplays/gameplays';
 import Import from './import/import';
@@ -10,7 +11,7 @@ import Battle from './battle/battle';
 import Paragraph from './paragraph/paragraph';
 
 let screensModule = angular.module('app.components.gamebook.gui.screen', [
-    Export.name, Gameplays.name, Import.name, Items.name, Notes.name, Paths.name, Stats.name, Battle.name, Paragraph.name
+    Home.name, Export.name, Gameplays.name, Import.name, Items.name, Notes.name, Paths.name, Stats.name, Battle.name, Paragraph.name
 ]);
 
 export default screensModule;
