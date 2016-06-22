@@ -4,7 +4,7 @@ import uiRouter from 'angular-ui-router';
 import template from './paths.html';
 import controller from './paths.controller';
 
-let pathsModule = angular.module('paths', [
+let pathsModule = angular.module('app.components.gui.screen.paths', [
     uiRouter
 ])
     .config(/*@ngInject*/($stateProvider, $urlRouterProvider) => {

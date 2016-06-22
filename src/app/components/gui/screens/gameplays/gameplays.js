@@ -4,7 +4,7 @@ import uiRouter from 'angular-ui-router';
 import template from './gameplays.html';
 import controller from './gameplays.controller';
 
-let gameplaysModule = angular.module('gameplays', [
+let gameplaysModule = angular.module('app.components.gui.screen.gameplays', [
     uiRouter
 ])
     .config(/*@ngInject*/($stateProvider, $urlRouterProvider) => {

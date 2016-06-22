@@ -4,7 +4,7 @@ import uiRouter from 'angular-ui-router';
 import template from './paragraph.html';
 import controller from './paragraph.controller';
 
-let paragraphModule = angular.module('paragraph', [
+let paragraphModule = angular.module('app.components.gui.screen.paragraph', [
     uiRouter
 ])
     .config(/*@ngInject*/($stateProvider, $urlRouterProvider) => {

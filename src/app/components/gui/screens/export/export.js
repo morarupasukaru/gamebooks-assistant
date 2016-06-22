@@ -4,7 +4,7 @@ import uiRouter from 'angular-ui-router';
 import template from './export.html';
 import controller from './export.controller';
 
-let exportModule = angular.module('export', [
+let exportModule = angular.module('app.components.gui.screen.export', [
     uiRouter
 ])
     .config(/*@ngInject*/($stateProvider, $urlRouterProvider) => {

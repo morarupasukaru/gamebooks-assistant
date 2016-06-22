@@ -4,7 +4,7 @@ import uiRouter from 'angular-ui-router';
 import template from './items.html';
 import controller from './items.controller';
 
-let itemsModule = angular.module('items', [
+let itemsModule = angular.module('app.components.gui.screen.items', [
     uiRouter
 ])
     .config(/*@ngInject*/($stateProvider, $urlRouterProvider) => {
