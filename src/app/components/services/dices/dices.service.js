@@ -7,21 +7,17 @@ class DicesService {
         self = this;
     }
 
-    save(key, value) {
-        localStorage.setItem(key, JSON.stringify(value));
-    }
-
-    get(key) {
-        let json = localStorage.getItem(key);
-        if (json !== null && json !== "undefined") {
-            return JSON.parse(json);
-        } else {
-            return null;
+    rollDices(qty, maxDiceValue) {
+        let i;
+        let dicesValue = 0;
+        for (i = 0; i < qty; i++) {
+            dicesValue = dicesValue + self.randomIntInclusive(1, maxDiceValue);
         }
+        return dicesValue;
     }
 
-    getJson(key) {
-        localStorage.getItem(key);
+    randomIntInclusive(min, max) {
+      return (Math.floor(Math.random() * (max - min + 1)) + min);
     }
 }
 
