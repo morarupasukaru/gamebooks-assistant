@@ -1,6 +1,6 @@
 let self;
 
-class PersistenceService {
+class TemporaryPersistenceService {
 
     /*@ngInject*/
     constructor() {
@@ -25,4 +25,4 @@ class PersistenceService {
     }
 }
 
-export default PersistenceService;
+export default TemporaryPersistenceService;

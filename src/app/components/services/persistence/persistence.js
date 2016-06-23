@@ -1,9 +1,9 @@
 import angular from 'angular';
-import persistenceService from './persistence.service';
+import TemporaryPersistence from './temporary/temporary';
+import PermanentPersistence from './permanent/permanent';
 
-/*@ngInject*/
-let persistenceModule = angular.module('app.components.services.persistence', [])
+let persistenceServicesModule = angular.module('app.components.services.persistence', [
+    TemporaryPersistence.name, PermanentPersistence.name
+]);
 
-.service('persistenceService', persistenceService);
-
-export default persistenceModule;
+export default persistenceServicesModule;

@@ -1,8 +1,8 @@
 class ExportController {
     /*@ngInject*/
-    constructor(persistenceService) {
-        this.persistenceService = persistenceService;
-        this.data = persistenceService.get('test');
+    constructor(permanentPersistenceService) {
+        this.persistenceService = permanentPersistenceService;
+        this.data = this.persistenceService.get('test');
     }
 }
 

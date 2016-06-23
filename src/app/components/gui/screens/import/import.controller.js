@@ -1,8 +1,8 @@
 let self;
 class ImportController {
     /*@ngInject*/
-    constructor(persistenceService, $rootScope) {
-        this.persistenceService = persistenceService;
+    constructor(permanentPersistenceService) {
+        this.persistenceService = permanentPersistenceService;
         self = this;
     }
 
