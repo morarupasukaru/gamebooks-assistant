@@ -7,21 +7,32 @@ class PermanentPersistenceService {
         self = this;
     }
 
+    // TODO verson?
+
     save(key, value) {
-        localStorage.setItem(key, JSON.stringify(value));
+            localStorage.setItem(key, JSON.stringify(value));
     }
 
     get(key) {
         let json = localStorage.getItem(key);
-        if (json !== null && json !== "undefined") {
+        if (json !== null && json !== "undefined" && json !== undefined) {
             return JSON.parse(json);
         } else {
             return null;
         }
     }
 
-    getJson(key) {
-        localStorage.getItem(key);
+    removeAll() {
+        let keyValues = self.$cookies.getAll();
+        let keys = Object.keys(keyValues);
+        let i;
+        for (i = 0; i < keys.length; i++) {
+            self.remove(keys[i]);
+        }
+    }
+
+    remove(key) {
+        self.localStorage.removeItem(key);
     }
 }
 
