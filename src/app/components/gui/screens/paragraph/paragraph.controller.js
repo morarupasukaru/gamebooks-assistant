@@ -4,14 +4,16 @@ class ParagraphController {
     constructor(softwareRequirementsChecksService) {
         self = this;
         self.hasSoftwareRequirements = softwareRequirementsChecksService.hasSoftwareRequirements();
-        this.paragraph = {
-            paragraphNumber : 1,
-            description : 'Start of the game',
-            choices : [
-                { paragraphNumber : 123, description : 'East'},
-                { paragraphNumber : 65, description : 'West'}
-            ]
-        };
+        if (self.hasSoftwareRequirements) {
+            this.paragraph = {
+                paragraphNumber : 1,
+                description : 'Start of the game',
+                choices : [
+                    { paragraphNumber : 123, description : 'East'},
+                    { paragraphNumber : 65, description : 'West'}
+                ]
+            };
+        }
     }
 
     addRow() {

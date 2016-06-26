@@ -5,6 +5,9 @@ class ImportController {
         self = this;
         self.hasSoftwareRequirements = softwareRequirementsChecksService.hasSoftwareRequirements();
         this.persistenceService = permanentPersistenceService;
+        if (self.hasSoftwareRequirements) {
+            // TODO
+        }
     }
 
     import() {

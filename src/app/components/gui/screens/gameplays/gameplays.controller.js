@@ -4,13 +4,15 @@ class GameplaysController {
     constructor($location, softwareRequirementsChecksService) {
         self = this;
         self.hasSoftwareRequirements = softwareRequirementsChecksService.hasSoftwareRequirements();
-        self.$location = $location;
-        // TODO call game engine, get played
-        this.rows = [
-            { bookName : 'The Wizard of the firetop mountain', playerName : 'Pascal' },
-            { bookName : 'The Wizard of the firetop mountain', playerName : 'Pascal 2nd try', selected : true },
-            { bookName : 'The Creature from Chaos', playerName : 'François' }
-        ];
+        if (self.hasSoftwareRequirements) {
+            self.$location = $location;
+            // TODO call game engine, get played
+            this.rows = [
+                { bookName : 'The Wizard of the firetop mountain', playerName : 'Pascal' },
+                { bookName : 'The Wizard of the firetop mountain', playerName : 'Pascal 2nd try', selected : true },
+                { bookName : 'The Creature from Chaos', playerName : 'François' }
+            ];
+        }
     }
 
     select(row) {

@@ -4,9 +4,11 @@ class NotesController {
     constructor(softwareRequirementsChecksService) {
         self = this;
         self.hasSoftwareRequirements = softwareRequirementsChecksService.hasSoftwareRequirements();
-        this.rows = [
-            { note : 'blah blah'}
-        ];
+        if (self.hasSoftwareRequirements) {
+            this.rows = [
+                { note : 'blah blah'}
+            ];
+        }
     }
 
     addRow() {

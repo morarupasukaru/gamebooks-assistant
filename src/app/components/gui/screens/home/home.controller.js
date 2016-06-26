@@ -3,12 +3,11 @@
  */
 class HomeController {
     constructor($location, softwareRequirementsChecksService) {
-        if (softwareRequirementsChecksService.hasSoftwareRequirements()) {
+        self = this;
+        self.hasSoftwareRequirements = softwareRequirementsChecksService.hasSoftwareRequirements();
+        if (self.hasSoftwareRequirements) {
             $location.url('/gameplays')
         }
-    }
-
-    storageAvailable(type) {
     }
 }
 
