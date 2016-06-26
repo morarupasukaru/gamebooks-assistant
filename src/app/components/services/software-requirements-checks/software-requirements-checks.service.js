@@ -13,8 +13,14 @@ class SoftwareRequirementsChecksService {
         if (!self.isLocalStorageSupported()) {
             hasSoftwareRequirements = false;
             // TODO i18n
-            self.messagesService.errorMessage('The application cannot be used because the browser does not support localStorage', false);
+            self.messagesService.errorMessage('The application cannot be used because the browser does not support localStorage.', false);
         }
+        if (!self.isCookieSupported()) {
+            hasSoftwareRequirements = false;
+            // TODO i18n
+            self.messagesService.errorMessage('The application cannot be used because cookies are not enabled in the browser.', false);
+        }
+
         return hasSoftwareRequirements;
     }
 
@@ -28,6 +34,10 @@ class SoftwareRequirementsChecksService {
     	} catch(e) {
     		return false;
     	}
+    }
+
+    isCookieSupported() {
+        return navigator.cookieEnabled;
     }
 }
 
