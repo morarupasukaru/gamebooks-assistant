@@ -1,8 +1,9 @@
 let self;
 class NotesController {
     /*@ngInject*/
-    constructor() {
+    constructor(softwareRequirementsChecksService) {
         self = this;
+        self.hasSoftwareRequirements = softwareRequirementsChecksService.hasSoftwareRequirements();
         this.rows = [
             { note : 'blah blah'}
         ];

@@ -1,6 +1,8 @@
 class PathsController {
     /*@ngInject*/
-    constructor() {
+    constructor(softwareRequirementsChecksService) {
+        self = this;
+        self.hasSoftwareRequirements = softwareRequirementsChecksService.hasSoftwareRequirements();
     }
 }
 

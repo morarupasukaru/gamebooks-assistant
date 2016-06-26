@@ -1,15 +1,11 @@
 <navbar></navbar>
 <messages></messages>
-<main>
-
+<main ng-if="$ctrl.hasSoftwareRequirements">
     <div class="container bg-white" role="main">
-
         <div class="page-header">
             <h1>Paragraph {{ $ctrl.paragraph.paragraphNumber }}</h1>
         </div>
-
         <div class="row">
-
             <div class="col-md-12">
                 <form>
                     <div class="form-group">
@@ -65,6 +61,5 @@
                 </form>
             </div>
         </div>
-        </div>
-
+    </div>
 </main>

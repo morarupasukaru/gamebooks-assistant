@@ -1,9 +1,10 @@
 let self;
 class ImportController {
     /*@ngInject*/
-    constructor(permanentPersistenceService) {
-        this.persistenceService = permanentPersistenceService;
+    constructor(softwareRequirementsChecksService, permanentPersistenceService) {
         self = this;
+        self.hasSoftwareRequirements = softwareRequirementsChecksService.hasSoftwareRequirements();
+        this.persistenceService = permanentPersistenceService;
     }
 
     import() {

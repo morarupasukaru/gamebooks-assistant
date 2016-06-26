@@ -1,8 +1,9 @@
 let self;
 class ParagraphController {
     /*@ngInject*/
-    constructor() {
+    constructor(softwareRequirementsChecksService) {
         self = this;
+        self.hasSoftwareRequirements = softwareRequirementsChecksService.hasSoftwareRequirements();
         this.paragraph = {
             paragraphNumber : 1,
             description : 'Start of the game',

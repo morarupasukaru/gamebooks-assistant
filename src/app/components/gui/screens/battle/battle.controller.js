@@ -1,7 +1,8 @@
 class BattleController {
     /*@ngInject*/
-    constructor() {
+    constructor(softwareRequirementsChecksService) {
         self = this;
+        self.hasSoftwareRequirements = softwareRequirementsChecksService.hasSoftwareRequirements();
         this.rows = [
             { name: 'Player', skill : 11, stamina : 18 },
             { name: 'Goblin 1', skill : 5, stamina : 5 },

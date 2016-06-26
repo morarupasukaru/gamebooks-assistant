@@ -15,7 +15,7 @@ class SoftwareRequirementsChecksService {
             // TODO i18n
             self.messagesService.errorMessage('The application cannot be used because the browser does not support localStorage.', true);
         }
-        if (self.isCookieSupported()) {
+        if (!self.isCookieSupported()) {
             hasSoftwareRequirements = false;
             // TODO i18n
             self.messagesService.errorMessage('The application cannot be used because cookies are not enabled in the browser.', true);

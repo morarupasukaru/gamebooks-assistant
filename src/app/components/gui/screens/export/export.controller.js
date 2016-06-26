@@ -1,6 +1,8 @@
 class ExportController {
     /*@ngInject*/
-    constructor(permanentPersistenceService) {
+    constructor(softwareRequirementsChecksService, permanentPersistenceService) {
+        self = this;
+        self.hasSoftwareRequirements = softwareRequirementsChecksService.hasSoftwareRequirements();
         this.persistenceService = permanentPersistenceService;
         this.data = this.persistenceService.get('test');
     }

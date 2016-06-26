@@ -1,8 +1,9 @@
 let self;
 class ItemsController {
     /*@ngInject*/
-    constructor() {
+    constructor(softwareRequirementsChecksService) {
         self = this;
+        self.hasSoftwareRequirements = softwareRequirementsChecksService.hasSoftwareRequirements();
         this.rows = [
             { quantity : 10, description : 'Meal (regain 4 stamina points)'},
             { quantity : 1, description : 'Sword'},

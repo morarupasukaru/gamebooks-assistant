@@ -1,6 +1,8 @@
 class StatsController {
     /*@ngInject*/
-    constructor() {
+    constructor(softwareRequirementsChecksService) {
+        self = this;
+        self.hasSoftwareRequirements = softwareRequirementsChecksService.hasSoftwareRequirements();
         this.stats = [
             { name : 'Skill', current : 11, initial: 12 },
             { name : 'Stamina', current : 18, initial: 23 },
