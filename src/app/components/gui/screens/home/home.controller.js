@@ -6,7 +6,7 @@ class HomeController {
         self = this;
         self.hasSoftwareRequirements = softwareRequirementsChecksService.hasSoftwareRequirements();
         if (self.hasSoftwareRequirements) {
-            $location.url('/gameplays')
+            $location.url('/gameplays');
         }
     }
 }
