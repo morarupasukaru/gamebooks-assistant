@@ -2,11 +2,24 @@
  * Copyright (C) Schweizerische Bundesbahnen SBB, 2016.
  */
 class HomeController {
-    constructor($location, softwareRequirementsChecksService) {
+    constructor($location, softwareRequirementsChecksService, $rootScope, temporaryPersistenceService) {
         self = this;
         self.hasSoftwareRequirements = softwareRequirementsChecksService.hasSoftwareRequirements();
         if (self.hasSoftwareRequirements) {
-            $location.url('/gameplays');
+            self.persistenceService = temporaryPersistenceService;
+            let lastUrl = self.persistenceService.get('lastUrl');
+
+            // TODO service to check null, undefined
+            if (!!lastUrl) {
+                $location.url(lastUrl);
+            } else {
+                $location.url('/gameplays');
+            }
+
+            // TODO make work event
+            $rootScope.$on('routeChangeSuccess', function(event) {
+                self.persistenceService.save('lastUrl', current);
+            });
         }
     }
 }
