@@ -19,9 +19,6 @@ class MessagesService {
         this.$rootScope.messages.forEach((msg, index, arr) => {
             if (!msg.keepAfterLocationChange) {
                 arr.splice(index, 1);
-            } else {
-                // Beim naechsten Seitenwechsel loeschen
-                msg.keepAfterLocationChange = false;
             }
         });
     }
