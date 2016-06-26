@@ -3,7 +3,9 @@
  */
 class NavbarController {
     /*@ngInject*/
-    constructor() {
+    constructor(softwareRequirementsChecksService) {
+        self = this;
+        self.hasSoftwareRequirements = softwareRequirementsChecksService.hasSoftwareRequirements();
         this.name = 'navbar';
         this.navCollapsed = true;
     }

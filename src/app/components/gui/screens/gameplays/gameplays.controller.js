@@ -1,8 +1,9 @@
 let self;
 class GameplaysController {
     /*@ngInject*/
-    constructor($location) {
+    constructor($location, softwareRequirementsChecksService) {
         self = this;
+        self.hasSoftwareRequirements = softwareRequirementsChecksService.hasSoftwareRequirements();
         self.$location = $location;
         // TODO call game engine, get played
         this.rows = [

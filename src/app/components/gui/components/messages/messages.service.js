@@ -43,11 +43,25 @@ class MessagesService {
     }
 
     _addMessage(msg, type, keepAfterLocationChange) {
-        this.$rootScope.messages.push({
-            message: msg,
-            type: type,
-            keepAfterLocationChange: keepAfterLocationChange
-        });
+        if (!this._hasMessage(msg, type)) {
+            this.$rootScope.messages.push({
+                message: msg,
+                type: type,
+                keepAfterLocationChange: keepAfterLocationChange
+            });
+        }
+    }
+
+    _hasMessage(msg, type) {
+        let hasMessage = false;
+        let i;
+        for (i = 0; i < this.$rootScope.messages.length; i++) {
+            if (this.$rootScope.messages[i].message === msg && this.$rootScope.messages[i].type === type) {
+                hasMessage = true;
+                break;
+            }
+        }
+        return hasMessage;
     }
 }
 
