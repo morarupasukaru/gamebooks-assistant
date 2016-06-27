@@ -18,6 +18,7 @@ class LanguagePickerController {
                 selected : selectedLanguage === languages[i]
             });
         }
+        self.changeLanguage(selectedLanguage);
     }
 
     getSelectedLanguage(languages) {
