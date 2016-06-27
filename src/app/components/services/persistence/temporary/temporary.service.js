@@ -3,28 +3,28 @@ let self;
 class TemporaryPersistenceService {
 
     /*@ngInject*/
-    constructor($cookies, softwareRequirementsChecksService) {
+    constructor($cookies, constants, softwareRequirementsChecksService) {
         self = this;
         self.isServiceEnabled = softwareRequirementsChecksService.isLocalStorageSupported();
         self.$cookies = $cookies;
+        self.constants = constants;
     }
 
     // TODO make cookies work between screen
-    // TODO verson?
     // TODO timeout?
 
     save(key, value) {
         if (!self.isServiceEnabled) {
             return ;
         }
-        self.$cookies.put(key, JSON.stringify(value));
+        self.$cookies.put(self.resolveKey(key), JSON.stringify(value));
     }
 
     get(key) {
         if (!self.isServiceEnabled) {
             return ;
         }
-        let json = self.$cookies.get(key);
+        let json = self.$cookies.get(self.resolveKey(key));
         if (json !== null && json !== "undefined" && json !== undefined) {
             return JSON.parse(json);
         } else {
@@ -40,7 +40,7 @@ class TemporaryPersistenceService {
         let keys = Object.keys(keyValues);
         let i;
         for (i = 0; i < keys.length; i++) {
-            self.remove(keys[i]);
+            self.$cookies.remove(key[i]);
         }
     }
 
@@ -48,7 +48,11 @@ class TemporaryPersistenceService {
         if (!self.isServiceEnabled) {
             return ;
         }
-        self.$cookies.remove(key);
+        self.$cookies.remove(self.resolveKey(key));
+    }
+
+    resolveKey(key) {
+        return self.constants.version + "." + key;
     }
 }
 

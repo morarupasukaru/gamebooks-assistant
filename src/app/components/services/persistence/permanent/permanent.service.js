@@ -3,25 +3,24 @@ let self;
 class PermanentPersistenceService {
 
     /*@ngInject*/
-    constructor(softwareRequirementsChecksService) {
+    constructor(softwareRequirementsChecksService, constants) {
         self = this;
         self.isServiceEnabled = softwareRequirementsChecksService.isLocalStorageSupported();
+        self.constants = constants;
     }
-
-    // TODO verson?
 
     save(key, value) {
         if (!self.isServiceEnabled) {
             return ;
         }
-        localStorage.setItem(key, JSON.stringify(value));
+        localStorage.setItem(self.resolveKey(key), JSON.stringify(value));
     }
 
     get(key) {
         if (!self.isServiceEnabled) {
             return ;
         }
-        let json = localStorage.getItem(key);
+        let json = localStorage.getItem(self.resolveKey(key));
         if (json !== null && json !== "undefined" && json !== undefined) {
             return JSON.parse(json);
         } else {
@@ -37,7 +36,7 @@ class PermanentPersistenceService {
         let keys = Object.keys(keyValues);
         let i;
         for (i = 0; i < keys.length; i++) {
-            self.remove(keys[i]);
+            self.localStorage.removeItem(keys[i]);
         }
     }
 
@@ -45,7 +44,11 @@ class PermanentPersistenceService {
         if (!self.isServiceEnabled) {
             return ;
         }
-        self.localStorage.removeItem(key);
+        self.localStorage.removeItem(self.resolveKey(key));
+    }
+
+    resolveKey(key) {
+        return self.constants.version + "." + key;
     }
 }
 
