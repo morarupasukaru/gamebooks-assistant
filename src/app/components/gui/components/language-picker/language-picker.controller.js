@@ -44,6 +44,7 @@ class LanguagePickerController {
 
     changeLanguage(lang) {
         self.$translate.use(lang);
+        self.permanentPersistenceService.save('language', lang);
     }
 }
 
