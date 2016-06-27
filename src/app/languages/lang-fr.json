@@ -1,3 +1,6 @@
 {
-  "Dices": "Dés"
+  "Language" : "Langue",
+  "Dices": "Dés",
+  "fr" : "Français",
+  "en" : "English"
 }

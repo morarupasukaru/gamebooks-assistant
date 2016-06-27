@@ -22,8 +22,8 @@ import Components from './components/components';
 import AppComponent from './app.component';
 
 // Language file import
-import langDe from './languages/lang-de.json';
 import langEn from './languages/lang-en.json';
+import langFr from './languages/lang-fr.json';
 
 angular.module('app', [
     uiRouter, ngTranslate, ngTranslateStaticFilesLoader, ngCookies, ngResource,
@@ -32,9 +32,9 @@ angular.module('app', [
     .config(/*@ngInject*/($translateProvider, $httpProvider) => {
 
         // Translation settings
-        $translateProvider.translations('de', langDe);
         $translateProvider.translations('en', langEn);
-        $translateProvider.preferredLanguage('de').useSanitizeValueStrategy('escape');
+        $translateProvider.translations('fr', langFr);
+        $translateProvider.preferredLanguage('en').useSanitizeValueStrategy('escape');
     })
 
     .constant('config', {
