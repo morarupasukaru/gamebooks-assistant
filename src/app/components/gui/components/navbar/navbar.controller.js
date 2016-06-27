@@ -7,7 +7,6 @@ class NavbarController {
         self = this;
         self.hasSoftwareRequirements = softwareRequirementsChecksService.hasSoftwareRequirements();
         this.name = 'navbar';
-        this.navCollapsed = true;
     }
 }
 
