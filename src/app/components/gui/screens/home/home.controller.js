@@ -2,7 +2,7 @@
  * Copyright (C) Schweizerische Bundesbahnen SBB, 2016.
  */
 class HomeController {
-    constructor($location, softwareRequirementsChecksService, $rootScope, temporaryPersistenceService) {
+    constructor($location, softwareRequirementsChecksService, $scope, temporaryPersistenceService) {
         self = this;
         self.hasSoftwareRequirements = softwareRequirementsChecksService.hasSoftwareRequirements();
         if (self.hasSoftwareRequirements) {
@@ -17,7 +17,8 @@ class HomeController {
             }
 
             // TODO make work event
-            $rootScope.$on('routeChangeSuccess', function(event) {
+            $scope.$on('$routeChangeSuccess', function(event) {
+                debugger;
                 self.persistenceService.save('lastUrl', current);
             });
         }
