@@ -14,8 +14,7 @@ class LanguagePickerController {
         let selectedLanguage = self.getSelectedLanguage(languages);
         for (i = 0; i < languages.length; i++) {
             self.supportedLanguages.push({
-                code : languages[i],
-                selected : selectedLanguage === languages[i]
+                code : languages[i]
             });
         }
         self.changeLanguage(selectedLanguage);
@@ -42,9 +41,14 @@ class LanguagePickerController {
         return language[0];
     }
 
-    changeLanguage(lang) {
-        self.$translate.use(lang);
-        self.permanentPersistenceService.save('language', lang);
+    changeLanguage(selectedLanguage) {
+        self.$translate.use(selectedLanguage);
+        self.permanentPersistenceService.save('language', selectedLanguage);
+
+        let i;
+        for (i = 0; i < self.supportedLanguages.length; i++) {
+            self.supportedLanguages[i].selected = (self.supportedLanguages[i].code === selectedLanguage);
+        }
     }
 }
 

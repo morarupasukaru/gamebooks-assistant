@@ -18,7 +18,6 @@ class HomeController {
 
             // TODO make work event
             $scope.$on('$routeChangeSuccess', function(event) {
-                debugger;
                 self.persistenceService.save('lastUrl', current);
             });
         }
