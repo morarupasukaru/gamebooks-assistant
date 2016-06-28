@@ -12,7 +12,7 @@ class DicesController {
     initData() {
         // TODO listener on change
         self.localStorageData = JSON.stringify(self.permanentPersistenceService.getAppDataFromLocalStorage());
-        self.cookiesData = self.temporaryPersistenceService.get(self.constants.version);
+        self.cookiesData = JSON.stringify(self.temporaryPersistenceService.getAppDataFromCookies());
     }
 }
 

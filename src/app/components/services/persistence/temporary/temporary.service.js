@@ -46,7 +46,7 @@ class TemporaryPersistenceService {
     getJSONDataFromCookies(key) {
         self.checkServiceAvailable();
         let json = self.$cookies.get(key);
-        if (json === null || json === "undefined" || json === undefined) {// TODO test
+        if (json === null || json === "undefined" || json === undefined) {
             return null;
         } else {
             return JSON.parse(json);

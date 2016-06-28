@@ -4,7 +4,7 @@ class LanguagePickerController {
     constructor($translate, constants, permanentPersistenceService) {
         self = this;
         self.$translate = $translate;
-        self.permanentPersistenceService = permanentPersistenceService;
+        self.persistenceService = permanentPersistenceService;
         self.initData(constants.supportedLanguages);
     }
 
@@ -21,7 +21,7 @@ class LanguagePickerController {
     }
 
     getSelectedLanguage(languages) {
-        let selectedLanguage = self.permanentPersistenceService.get('language');
+        let selectedLanguage = self.persistenceService.get('language');
         if (!!selectedLanguage) {
             return selectedLanguage;
         } else if (!!navigator.language) {
@@ -43,7 +43,7 @@ class LanguagePickerController {
 
     changeLanguage(selectedLanguage) {
         self.$translate.use(selectedLanguage);
-        self.permanentPersistenceService.save('language', selectedLanguage);
+        self.persistenceService.save('language', selectedLanguage);
 
         let i;
         for (i = 0; i < self.supportedLanguages.length; i++) {
