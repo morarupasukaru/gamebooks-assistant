@@ -25,7 +25,7 @@ class PermanentPersistenceService {
 
     getCurrentVersion(appData) {
         self.checkServiceAvailable();
-        if (!appData[self.constants.version]) { // TODO test
+        if (!appData[self.constants.version]) {
             appData[self.constants.version] = {};
         }
         return appData[self.constants.version];
