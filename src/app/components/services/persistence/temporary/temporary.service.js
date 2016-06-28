@@ -5,54 +5,59 @@ class TemporaryPersistenceService {
     /*@ngInject*/
     constructor($cookies, constants, softwareRequirementsChecksService) {
         self = this;
-        self.isServiceEnabled = softwareRequirementsChecksService.isLocalStorageSupported();
-        self.$cookies = $cookies;
+        self.isCookiesSupported = softwareRequirementsChecksService.isCookiesSupported();
         self.constants = constants;
-    }
-
-    // TODO make cookies work between screen
-    // TODO timeout?
-
-    save(key, value) {
-        if (!self.isServiceEnabled) {
-            return ;
-        }
-        self.$cookies.put(self.resolveKey(key), JSON.stringify(value));
+        self.$cookies = $cookies;
     }
 
     get(key) {
-        if (!self.isServiceEnabled) {
-            return ;
+        self.checkServiceAvailable();
+        let appData = self.getCurrentVersion(self.getAppDataFromCookies());
+        return appData[key];
+    }
+
+    save(key, value) {
+        self.checkServiceAvailable();
+        let appData = self.getAppDataFromCookies();
+        let versionData = self.getCurrentVersion(appData);
+        versionData[key] = value;
+        self.$cookies.put(self.constants.data, JSON.stringify(appData));
+    }
+
+    getCurrentVersion(appData) {
+        self.checkServiceAvailable();
+        if (!appData[self.constants.version]) {
+            appData[self.constants.version] = {};
         }
-        let json = self.$cookies.get(self.resolveKey(key));
-        if (json !== null && json !== "undefined" && json !== undefined) {
-            return JSON.parse(json);
-        } else {
+        return appData[self.constants.version];
+    }
+
+    getAppDataFromCookies() {
+        self.checkServiceAvailable();
+        let key = self.constants.data;
+        let appData = self.getJSONDataFromCookies(key);
+        if (appData === null) {
+            appData = {};
+            self.$cookies.put(key, JSON.stringify(appData));
+        }
+        return appData;
+    }
+
+    getJSONDataFromCookies(key) {
+        self.checkServiceAvailable();
+        let json = self.$cookies.get(key);
+        if (json === null || json === "undefined" || json === undefined) {// TODO test
             return null;
+        } else {
+            return JSON.parse(json);
         }
+
     }
 
-    removeAll() {
-        if (!self.isServiceEnabled) {
-            return ;
+    checkServiceAvailable() {
+        if (!self.isCookiesSupported) {
+            throw "TemporaryPersistenceService cannot be used because cookies are not enabled in the browser.";
         }
-        let keyValues = self.$cookies.getAll();
-        let keys = Object.keys(keyValues);
-        let i;
-        for (i = 0; i < keys.length; i++) {
-            self.$cookies.remove(key[i]);
-        }
-    }
-
-    remove(key) {
-        if (!self.isServiceEnabled) {
-            return ;
-        }
-        self.$cookies.remove(self.resolveKey(key));
-    }
-
-    resolveKey(key) {
-        return self.constants.version + "." + key;
     }
 }
 
