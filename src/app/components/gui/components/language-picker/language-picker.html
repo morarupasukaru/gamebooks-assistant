@@ -4,7 +4,8 @@
             <div class="form-group">
                 <label for="language">{{ 'Choose language' | translate }}</label>
                 <ul class="nav nav-pills" role="tablist" id="language">
-                    <li ng-repeat="language in $ctrl.supportedLanguages" role="button" ng-class="{ 'active' : language.selected }"><a href="" ng-click="$ctrl.changeLanguage(language.code)">{{ language.code | translate }}</a></li>
+                    <li ng-repeat="language in $ctrl.supportedLanguages" role="button" ng-class="{ 'active' : language.selected }" title="{{ 'Choice' | translate }} {{ language.code | translate }}">
+                        <a href="" ng-click="$ctrl.changeLanguage(language.code)">{{ language.code | translate }}</a></li>
                 </ul>
             </div>
         </div>
