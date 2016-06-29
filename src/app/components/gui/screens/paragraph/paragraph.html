@@ -34,11 +34,11 @@
                     <tbody>
                     <tr ng-repeat="row in $ctrl.paragraph.choices">
                         <td>
-                            <button type="button" class="btn btn-default" aria-label="{{ 'Choice' | translate}} {{ row.paragraphNumber }}" ng-click="$ctrl.goTo(row)">{{ row.paragraphNumber }}</button>
+                            <button type="button" class="btn btn-default" aria-label="{{ 'Choice' | translate}} {{ row.paragraphNumber }}" title="{{ 'Choice' | translate}} {{ row.paragraphNumber }}" ng-click="$ctrl.goTo(row)">{{ row.paragraphNumber }}</button>
                         </td>
                         <td>{{ row.description}} </td>
                         <td>
-                            <button type="button" class="btn btn-danger" aria-label="{{ 'Remove paragraph' | translate}}" ng-click="$ctrl.removeRow(row)">
+                            <button type="button" class="btn btn-danger" aria-label="{{ 'Remove paragraph' | translate}} {{ row.paragraphNumber }}" title="{{ 'Remove paragraph' | translate}} {{ row.paragraphNumber }}" ng-click="$ctrl.removeRow(row)">
                                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                             </button>
                         </td>
@@ -57,7 +57,7 @@
                         <label for="inputDescription">{{ 'Description' | translate }}</label>
                         <input type="text" id="inputDescription" class="form-control" ng-model="$ctrl.inputDescription">
                     </div>
-                    <button type="button" class="btn btn-lg btn-primary" ng-click="$ctrl.addRow()">{{ 'Add choice' | translate }}</button>
+                    <button type="button" class="btn btn-lg btn-primary" ng-click="$ctrl.addRow()" aria-label="{{ 'Add choice' | translate}}">{{ 'Add choice' | translate }}</button>
                 </form>
             </div>
         </div>
