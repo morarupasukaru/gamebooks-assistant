@@ -1,0 +1,14 @@
+complete README.md in english & french (link if possible, e.g. wikipedia)
+add i18n keys & translations
+add favicons
+add dice icons
+save current url in cookies (> messagecontoller)
+listener on appData changes (to save in localStorage)
+rename project as Gamebooks Companion (check signification, availability)
+add tooltip
+add accessibility
+configure jshint (or something like that)
+(startup progress)
+(service testing)
+(selenium/ui testing)
+initial language selection if missing in permanent persistence service

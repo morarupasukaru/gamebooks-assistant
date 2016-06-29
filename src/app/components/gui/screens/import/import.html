@@ -3,20 +3,20 @@
 <main ng-if="$ctrl.hasSoftwareRequirements">
     <div class="container bg-white" role="main">
         <div class="page-header">
-            <h1>Import</h1>
+            <h1>{{ 'Import' | translate }}</h1>
         </div>
         <div class="row">
             <div class="col-sm-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Paste text copied from export screen</h3>
+                        <h3 class="panel-title">{{ 'Paste text copied from export screen' | translate }}</h3>
                     </div>
                     <div class="panel-body">
                         <form ng-submit="$ctrl.import()">
                             <div class="form-group">
-                                <input type="text" class="form-control" ng-model="$ctrl.data" id="importData" placeholder="import text datas">
+                                <input type="text" class="form-control" ng-model="$ctrl.data" id="importData" placeholder="{{ 'import text datas' | translate }}">
                             </div>
-                            <button type="submit" class="btn btn-primary">Import</button>
+                            <button type="submit" class="btn btn-primary">{{ 'Import' | translate }}</button>
                         </form>
                     </div>
                 </div>

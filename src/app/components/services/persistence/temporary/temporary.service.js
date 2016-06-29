@@ -3,11 +3,12 @@ let self;
 class TemporaryPersistenceService {
 
     /*@ngInject*/
-    constructor($cookies, constants, softwareRequirementsChecksService) {
+    constructor($cookies, $translate, constants, softwareRequirementsChecksService) {
         self = this;
         self.isCookiesSupported = softwareRequirementsChecksService.isCookiesSupported();
         self.constants = constants;
         self.$cookies = $cookies;
+        self.$translate = $translate;
     }
 
     get(key) {
@@ -56,7 +57,7 @@ class TemporaryPersistenceService {
 
     checkServiceAvailable() {
         if (!self.isCookiesSupported) {
-            throw "TemporaryPersistenceService cannot be used because cookies are not enabled in the browser.";
+            throw self.$translate.instant('msg.error.temporaryPersistenceService_cookies_disabled');
         }
     }
 }

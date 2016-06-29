@@ -3,7 +3,7 @@
 <main ng-if="$ctrl.hasSoftwareRequirements">
     <div class="container bg-white" role="main">
         <div class="page-header">
-            <h1>Items</h1>
+            <h1>{{ 'Items' | translate }}</h1>
         </div>
         <div class="row">
             <div class="col-md-12">
@@ -13,8 +13,8 @@
                     <col style="width:5%">
                     <thead>
                     <tr>
-                        <th>Quantity</th>
-                        <th>Description</th>
+                        <th>{{ 'Quantity' | translate }}</th>
+                        <th>{{ 'Description' | translate }}</th>
                         <th></th>
                     </tr>
                     </thead>
@@ -23,7 +23,7 @@
                         <td><input type="number" class="form-control" ng-model="row.quantity"></td>
                         <td><input type="text" class="form-control" ng-model="row.description"></td>
                         <td>
-                            <button type="button" class="btn btn-danger" aria-label="Remove" ng-click="$ctrl.removeRow(row)">
+                            <button type="button" class="btn btn-danger" aria-label="{{ 'Remove' | translate }} {{ row.description | translate }}" title="{{ 'Remove' | translate }} {{ row.description | translate }}" ng-click="$ctrl.removeRow(row)">
                                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                             </button>
                         </td>
@@ -33,7 +33,7 @@
             </div>
         </div>
 
-        <button type="button" class="btn btn-lg btn-primary" ng-click="$ctrl.addRow()">Add item</button>
+        <button type="button" class="btn btn-lg btn-primary" ng-click="$ctrl.addRow()" aria-label="{{ 'Add item' | translate }}">{{ 'Add item' | translate }}</button>
     </div>
 
 </main>

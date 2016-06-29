@@ -3,7 +3,7 @@
 <main ng-if="$ctrl.hasSoftwareRequirements">
     <div class="container bg-white" role="main">
         <div class="page-header">
-            <h1>Gameplays</h1>
+            <h1>{{ 'Gameplays' | translate }}</h1>
         </div>
         <div class="row">
             <div class="col-md-12">
@@ -13,9 +13,9 @@
                     <col style="width:10%">
                     <thead>
                     <tr>
-                        <th>Book</th>
-                        <th>Player</th>
-                        <th>Played</th>
+                        <th>{{ 'Book' | translate }}</th>
+                        <th>{{ 'Player' | translate }}</th>
+                        <th>{{ 'Played' | translate }}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -23,7 +23,10 @@
                         <td>{{ row.bookName }}</td>
                         <td>{{ row.playerName }}</td>
                         <td>
-                            <button type="button" class="btn" ng-class="{ 'btn-success' : row.selected, 'btn-default' : !row.selected}" aria-label="Remove" ng-click="$ctrl.select(row)">
+                            <button type="button" class="btn" ng-class="{ 'btn-success' : row.selected, 'btn-default' : !row.selected}"
+                                    aria-label="{{ !row.selected ? 'Play' : '' | translate }} '{{ row.bookName | translate }}' {{ row.selected ? 'is currently played' : '' | translate }}"
+                                    title="{{ !row.selected ? 'Play' : '' | translate }} '{{ row.bookName | translate }}'  {{ row.selected ? 'is currently played' : '' | translate }}"
+                                    ng-click="$ctrl.select(row)">
                                 <span ng-class="{ 'glyphicon glyphicon-ok' : row.selected, 'glyphicon glyphicon-hand-left' : !row.selected}" aria-hidden="true"></span>
                             </button>
                         </td>
@@ -33,7 +36,7 @@
             </div>
         </div>
 
-        <button type="button" class="btn btn-lg btn-primary" ng-click="$ctrl.startNewGame()">Start new game</button>
+        <button type="button" class="btn btn-lg btn-primary" ng-click="$ctrl.startNewGame()">{{ 'Start new game' | translate }}</button>
     </div>
 
 </main>

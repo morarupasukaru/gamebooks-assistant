@@ -3,10 +3,11 @@ let self;
 class PermanentPersistenceService {
 
     /*@ngInject*/
-    constructor(softwareRequirementsChecksService, constants) {
+    constructor(softwareRequirementsChecksService, constants, $translate) {
         self = this;
         self.isLocalStorageSupported = softwareRequirementsChecksService.isLocalStorageSupported();
         self.constants = constants;
+        self.$translate = $translate;
     }
 
     get(key) {
@@ -55,7 +56,7 @@ class PermanentPersistenceService {
 
     checkServiceAvailable() {
         if (!self.isLocalStorageSupported) {
-            throw "PermanentPersistenceService cannot be used because localStorage is not supported or not enabled in the browser.";
+            throw self.$translate.instant('msg.error.permanentPersistenceService_localStorage_disabled');
         }
     }
 }

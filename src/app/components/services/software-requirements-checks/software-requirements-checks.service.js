@@ -3,22 +3,21 @@ let self;
 class SoftwareRequirementsChecksService {
 
     /*@ngInject*/
-    constructor(messagesService) {
+    constructor(messagesService, $translate) {
         self = this;
         self.messagesService = messagesService;
+        self.$translate = $translate;
     }
 
     hasSoftwareRequirements() {
         let hasSoftwareRequirements = true;
         if (!self.isLocalStorageSupported()) {
             hasSoftwareRequirements = false;
-            // TODO i18n
-            self.messagesService.errorMessage('The application cannot be used because localStorage is not supported or not enabled in the browser.', true);
+            self.messagesService.errorMessage(self.$translate.instant('msg.error.application_cookies_disabled'), true);
         }
         if (!self.isCookiesSupported()) {
             hasSoftwareRequirements = false;
-            // TODO i18n
-            self.messagesService.errorMessage('The application cannot be used because cookies are not enabled in the browser.', true);
+            self.messagesService.errorMessage(self.$translate.instant('msg.error.application_localStorage_disabled'), true);
         }
 
         return hasSoftwareRequirements;

@@ -3,13 +3,13 @@
 <main ng-if="$ctrl.hasSoftwareRequirements">
     <div class="container bg-white" role="main">
         <div class="page-header">
-            <h1>Export</h1>
+            <h1>{{ 'Export' | translate }}</h1>
         </div>
         <div class="row">
             <div class="col-sm-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Copy following text to import it later</h3>
+                        <h3 class="panel-title">{{ 'Copy following text to import it later' | translate }}</h3>
                     </div>
                     <div class="panel-body">
                         {{ $ctrl.data }}

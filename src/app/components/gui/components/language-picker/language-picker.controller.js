@@ -1,4 +1,3 @@
-// TODO translate all screen in french
 let self;
 class LanguagePickerController {
     /*@ngInject*/
