@@ -11,3 +11,4 @@ configure jshint (or something like that)
 initial language selection if missing in permanent persistence service
 filter before loading screen (check cookies/localStorage, language selection)
 popup before making critical action (delete, import, export)
+move import / export as component > configuration screen
