@@ -13,7 +13,7 @@ class HomeController {
             if (!!lastUrl) {
                 $location.url(lastUrl);
             } else {
-                $location.url('/gameplays');
+                $location.url('/games');
             }
 
             // TODO make work event

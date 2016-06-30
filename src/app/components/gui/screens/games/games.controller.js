@@ -1,5 +1,5 @@
 let self;
-class GameplaysController {
+class GamesController {
     /*@ngInject*/
     constructor($location, softwareRequirementsChecksService) {
         self = this;
@@ -24,8 +24,8 @@ class GameplaysController {
     }
 
     startNewGame() {
-        self.$location.url('/gameplays/create')
+        self.$location.url('/games/create')
     }
 }
 
-export default GameplaysController;
+export default GamesController;
