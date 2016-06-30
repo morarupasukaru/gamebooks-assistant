@@ -34,7 +34,6 @@
   "Add item" : "Ajoute un objet",
   "Remove item" : "Supprime l'objet",
   "Add note" : "Ajoute une note",
-  "Choice" : "Choix",
   "Remove paragraph" : "Supprime le paragraphe",
   "Add choice" : "Ajoute un choix",
   "Current" : "Actuel",
@@ -46,8 +45,6 @@
   "Roll two dices 6 faces" : "Lance deux dés 6 faces",
   "Choose language" : "Sélectionnez une langue",
   "Actually played" : "Actuellement joué",
-  "Choice" : "Sélectionne",
-  "is currently played" : "est actuellement joué",
   "Remove note" : "Supprime la note",
   "Choice paragragh" : "Sélectionne le paragraphe",
   "Copy following text to import it later" : "Copiez le texte qui suit afin de l'importer ultérieurement",
@@ -59,5 +56,7 @@
   "Clean data in Cookies" : "Supprime les cookies",
   "Empty LocalStorage" : "Efface le LocalStorage",
   "Empty Cookies" : "Efface les cookies",
-  "Application Version" : "Version de l'application"
+  "Application Version" : "Version de l'application",
+  "ChoiceGame" : "Charge le jeu {{ bookName }} de {{ playerName }}",
+  "ChoosenGame" : "La partie '{{ bookName }}' de '{{ playerName }}' est actuellement jouée"
 }
