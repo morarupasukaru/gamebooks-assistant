@@ -58,5 +58,6 @@
   "Clean data in LocalStorage" : "Supprime les données du LocalStorage",
   "Clean data in Cookies" : "Supprime les cookies",
   "Empty LocalStorage" : "Efface le LocalStorage",
-  "Empty Cookies" : "Efface les cookies"
+  "Empty Cookies" : "Efface les cookies",
+  "Application Version" : "Version de l'application"
 }
