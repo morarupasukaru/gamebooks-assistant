@@ -10,3 +10,4 @@ configure jshint (or something like that)
 (selenium/ui testing)
 initial language selection if missing in permanent persistence service
 filter before loading screen (check cookies/localStorage, language selection)
+popup before making critical action (delete, import, export)
