@@ -12,3 +12,7 @@ configure jshint (or something like that)
 (service testing)
 (selenium/ui testing)
 initial language selection if missing in permanent persistence service
+i18n message avec argument (voir tooltip dans gameplays)
+meilleur nom pour gameplays
+effacement cookies, localStorage (admin)
+filter before loading screen (check cookies/localStorage, language selection)

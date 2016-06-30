@@ -1,4 +1,6 @@
 {
   "fr": "Français",
-  "en": "English"
+  "en": "English",
+  "msg.error.permanentPersistenceService_and_localStorage_are_disabled" : "The application cannot be used because the version of the browser is too old or because it is not possible to save data in 'localStorage'.",
+  "msg.error.temporaryPersistenceService_and_cookies_are_disabled" : "The application cannot be used because it is not possible to save data in cookies."
 }

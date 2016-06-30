@@ -56,7 +56,7 @@ class PermanentPersistenceService {
 
     checkServiceAvailable() {
         if (!self.isLocalStorageSupported) {
-            throw self.$translate.instant('msg.error.permanentPersistenceService_localStorage_disabled');
+            throw self.$translate.instant('msg.error.permanentPersistenceService_and_localStorage_are_disabled');
         }
     }
 }

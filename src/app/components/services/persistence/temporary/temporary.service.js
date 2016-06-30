@@ -57,7 +57,7 @@ class TemporaryPersistenceService {
 
     checkServiceAvailable() {
         if (!self.isCookiesSupported) {
-            throw self.$translate.instant('msg.error.temporaryPersistenceService_cookies_disabled');
+            throw self.$translate.instant('msg.error.temporaryPersistenceService_and_cookies_are_disabled');
         }
     }
 }

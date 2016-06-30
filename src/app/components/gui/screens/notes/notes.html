@@ -22,7 +22,7 @@
                     <tr ng-repeat="row in $ctrl.rows">
                         <td><input type="text" class="form-control" ng-model="row.note"></td>
                         <td>
-                            <button type="button" class="btn btn-danger" aria-label="{{ 'Remove note' | translate }} {{ row.note | translate }}" title="{{ 'Remove note' | translate }} {{ row.note | translate }}" ng-click="$ctrl.removeRow(row)">
+                            <button type="button" class="btn btn-danger" aria-label="{{ 'Remove note' | translate }} {{ row.note | translate }}" title="{{ 'Remove note' | translate }} '{{ row.note | translate }}'" ng-click="$ctrl.removeRow(row)">
                                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                             </button>
                         </td>
