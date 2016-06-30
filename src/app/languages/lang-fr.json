@@ -28,8 +28,6 @@
   "Add monster" : "Ajoute un monstre",
   "Remove monster" : "Supprime le monstre",
   "Name" : "Nom",
-  "Copy following text to import it later" : "Copy following text to import it later",
-  "Paste text copied from export screen" : "Paste text copied from export screen",
   "import text datas" : "import text datas",
   "Quantity" : "Quantité",
   "Description" : "Description",
@@ -52,6 +50,13 @@
   "is currently played" : "est actuellement joué",
   "Remove note" : "Supprime la note",
   "Choice paragragh" : "Sélectionne le paragraphe",
+  "Copy following text to import it later" : "Copiez le texte qui suit afin de l'importer ultérieurement",
+  "Paste text copied from export screen" : "Collez le texte des données d'importation",
   "msg.error.permanentPersistenceService_and_localStorage_are_disabled" : "L'application ne peut pas être utilisée car le navigateur est obsolète ou car il n'est pas possible de sauver des données dans le 'localStorage'.",
-  "msg.error.temporaryPersistenceService_and_cookies_are_disabled" : "L'application ne peut pas être utilisée car il n'est pas possible de sauver des 'cookies'."
+  "msg.error.temporaryPersistenceService_and_cookies_are_disabled" : "L'application ne peut pas être utilisée car il n'est pas possible de sauver des 'cookies'.",
+  "Administration" : "Administration",
+  "Clean data in LocalStorage" : "Supprime les données du LocalStorage",
+  "Clean data in Cookies" : "Supprime les cookies",
+  "Empty LocalStorage" : "Efface le LocalStorage",
+  "Empty Cookies" : "Efface les cookies"
 }

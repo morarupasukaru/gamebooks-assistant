@@ -59,6 +59,11 @@ class PermanentPersistenceService {
             throw self.$translate.instant('msg.error.permanentPersistenceService_and_localStorage_are_disabled');
         }
     }
+
+    cleanAllData() {
+            self.checkServiceAvailable();
+            localStorage.clear();
+    }
 }
 
 export default PermanentPersistenceService;

@@ -60,6 +60,14 @@ class TemporaryPersistenceService {
             throw self.$translate.instant('msg.error.temporaryPersistenceService_and_cookies_are_disabled');
         }
     }
+
+    cleanAllData() {
+        self.checkServiceAvailable();
+        var cookies = self.$cookies.getAll();
+        angular.forEach(cookies, function (v, k) {
+            self.$cookies.remove(k);
+        });
+    }
 }
 
 export default TemporaryPersistenceService;
