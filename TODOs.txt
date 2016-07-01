@@ -1,7 +1,6 @@
 complete README.md in english & french (link if possible, e.g. wikipedia)
 add favicons
 add dice icons
-save current url in cookies (> messagecontoller)
 listener on appData changes (to save in localStorage)
 rename project as Gamebooks Companion (check signification, availability)
 configure jshint (or something like that)
@@ -12,3 +11,4 @@ initial language selection if missing in permanent persistence service
 filter before loading screen (check cookies/localStorage, language selection)
 popup before making critical action (delete, import, export)
 move import / export as component > configuration screen
+dataloading with splashscreeen (or animation)

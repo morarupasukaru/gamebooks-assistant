@@ -1,25 +1,27 @@
-/*
- * Copyright (C) Schweizerische Bundesbahnen SBB, 2016.
- */
+let self;
 class HomeController {
-    constructor($location, softwareRequirementsChecksService, $scope, temporaryPersistenceService) {
+    constructor($location, $rootScope, softwareRequirementsChecksService, permanentPersistenceService) {
         self = this;
         self.hasSoftwareRequirements = softwareRequirementsChecksService.hasSoftwareRequirements();
         if (self.hasSoftwareRequirements) {
-            self.persistenceService = temporaryPersistenceService;
-            let lastUrl = self.persistenceService.get('lastUrl');
+            self.$location = $location;
+            self.persistenceService = permanentPersistenceService;
 
-            // TODO service to check null, undefined
+            let lastUrl = self.persistenceService.get('lastUrl');
             if (!!lastUrl) {
                 $location.url(lastUrl);
             } else {
                 $location.url('/games');
             }
 
-            // TODO make work event
-            $scope.$on('$routeChangeSuccess', function(event) {
-                self.persistenceService.save('lastUrl', current);
-            });
+            $rootScope.$on('$locationChangeStart', () => this.saveUrl());
+        }
+    }
+
+    saveUrl() {
+        let currentUrl = self.$location.url();
+        if (!!currentUrl && currentUrl !== '/') {
+            self.persistenceService.save('lastUrl', currentUrl);
         }
     }
 }

@@ -16,7 +16,10 @@ class SavedDataAdminController {
     }
 
     cleanLocalStorage() {
-        self.permanentPersistenceService.cleanAllData();
+        var r = confirm(this.$translate.instant('organisationLoeschenConfirm'));
+        if (r == true) {
+            self.permanentPersistenceService.cleanAllData();
+        }
     }
 
     cleanCookies() {
