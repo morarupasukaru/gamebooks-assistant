@@ -3,9 +3,9 @@
  */
 class NavbarController {
     /*@ngInject*/
-    constructor(softwareRequirementsChecksService) {
+    constructor(preScreenLoadingInterceptorsCallerService) {
         self = this;
-        self.hasSoftwareRequirements = softwareRequirementsChecksService.hasSoftwareRequirements();
+        preScreenLoadingInterceptorsCallerService.intercept();
         this.name = 'navbar';
     }
 }

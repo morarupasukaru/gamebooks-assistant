@@ -1,13 +1,10 @@
 let self;
 class ImportController {
     /*@ngInject*/
-    constructor(softwareRequirementsChecksService, permanentPersistenceService) {
+    constructor(preScreenLoadingInterceptorsCallerService, permanentPersistenceService) {
         self = this;
-        self.hasSoftwareRequirements = softwareRequirementsChecksService.hasSoftwareRequirements();
+        preScreenLoadingInterceptorsCallerService.intercept();
         this.persistenceService = permanentPersistenceService;
-        if (self.hasSoftwareRequirements) {
-            // TODO
-        }
     }
 
     import() {

@@ -1,18 +1,16 @@
 class BattleController {
     /*@ngInject*/
-    constructor(softwareRequirementsChecksService) {
+    constructor(preScreenLoadingInterceptorsCallerService) {
         self = this;
-        self.hasSoftwareRequirements = softwareRequirementsChecksService.hasSoftwareRequirements();
-        if (self.hasSoftwareRequirements) {
-            this.rows = [
-                { name: 'Player', skill : 11, stamina : 18 },
-                { name: 'Goblin 1', skill : 5, stamina : 5 },
-            ];
-            self.monsterCount = 1;
-            self.inputName = this.getNextMonsterName();
-            self.inputSkill = 5;
-            self.inputStamina = 5;
-        }
+        preScreenLoadingInterceptorsCallerService.intercept();
+        this.rows = [
+            { name: 'Player', skill : 11, stamina : 18 },
+            { name: 'Goblin 1', skill : 5, stamina : 5 },
+        ];
+        self.monsterCount = 1;
+        self.inputName = this.getNextMonsterName();
+        self.inputSkill = 5;
+        self.inputStamina = 5;
     }
 
     increment(row) {

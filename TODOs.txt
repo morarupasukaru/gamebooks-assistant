@@ -12,3 +12,5 @@ filter before loading screen (check cookies/localStorage, language selection)
 popup before making critical action (delete, import, export)
 move import / export as component > configuration screen
 dataloading with splashscreeen (or animation)
+keeep temporaryPerstistenceService (cookie) ?
+test popup screen

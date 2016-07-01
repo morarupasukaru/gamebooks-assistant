@@ -1,18 +1,16 @@
 let self;
 class GamesController {
     /*@ngInject*/
-    constructor($location, softwareRequirementsChecksService) {
+    constructor($location, preScreenLoadingInterceptorsCallerService) {
         self = this;
-        self.hasSoftwareRequirements = softwareRequirementsChecksService.hasSoftwareRequirements();
-        if (self.hasSoftwareRequirements) {
-            self.$location = $location;
-            // TODO call game engine, get played
-            this.rows = [
-                { bookName : 'The Wizard of the firetop mountain', playerName : 'Pascal' },
-                { bookName : 'The Wizard of the firetop mountain', playerName : 'Pascal 2nd try', selected : true },
-                { bookName : 'The Creature from Chaos', playerName : 'François' }
-            ];
-        }
+        preScreenLoadingInterceptorsCallerService.intercept();
+        self.$location = $location;
+        // TODO call game engine, get played
+        this.rows = [
+            { bookName : 'The Wizard of the firetop mountain', playerName : 'Pascal' },
+            { bookName : 'The Wizard of the firetop mountain', playerName : 'Pascal 2nd try', selected : true },
+            { bookName : 'The Creature from Chaos', playerName : 'François' }
+        ];
     }
 
     select(row) {

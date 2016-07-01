@@ -1,12 +1,9 @@
 class ExportController {
     /*@ngInject*/
-    constructor(softwareRequirementsChecksService, permanentPersistenceService) {
+    constructor(preScreenLoadingInterceptorsCallerService, permanentPersistenceService) {
         self = this;
-        self.hasSoftwareRequirements = softwareRequirementsChecksService.hasSoftwareRequirements();
-        if (self.hasSoftwareRequirements) {
-            this.persistenceService = permanentPersistenceService;
-            this.data = this.persistenceService.get('test');
-        }
+        preScreenLoadingInterceptorsCallerService.intercept();
+        this.persistenceService = permanentPersistenceService;
     }
 }
 

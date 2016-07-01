@@ -1,6 +1,6 @@
 let self;
 
-class SoftwareRequirementsChecksService {
+class SoftwareRequirementsCheckerService {
 
     /*@ngInject*/
     constructor(messagesService, $translate) {
@@ -9,7 +9,7 @@ class SoftwareRequirementsChecksService {
         self.$translate = $translate;
     }
 
-    hasSoftwareRequirements() {
+    checkSoftwareRequirements() {
         let hasSoftwareRequirements = true;
         if (!self.isLocalStorageSupported()) {
             hasSoftwareRequirements = false;
@@ -19,8 +19,6 @@ class SoftwareRequirementsChecksService {
             hasSoftwareRequirements = false;
             self.messagesService.errorMessage(self.$translate.instant('msg.error.temporaryPersistenceService_and_cookies_are_disabled'), true);
         }
-
-        return hasSoftwareRequirements;
     }
 
     isLocalStorageSupported() {
@@ -40,4 +38,4 @@ class SoftwareRequirementsChecksService {
     }
 }
 
-export default SoftwareRequirementsChecksService;
+export default SoftwareRequirementsCheckerService;

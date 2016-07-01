@@ -3,22 +3,26 @@ let self;
 class TemporaryPersistenceService {
 
     /*@ngInject*/
-    constructor($cookies, $translate, constants, softwareRequirementsChecksService) {
+    constructor($cookies, $translate, constants, softwareRequirementsCheckerService) {
         self = this;
-        self.isCookiesSupported = softwareRequirementsChecksService.isCookiesSupported();
+        self.isCookiesSupported = softwareRequirementsCheckerService.isCookiesSupported();
         self.constants = constants;
         self.$cookies = $cookies;
         self.$translate = $translate;
     }
 
     get(key) {
-        self.checkServiceAvailable();
+        if (!self.isCookiesSupported) {
+            return null;
+        }
         let appData = self.getCurrentVersion(self.getAppDataFromCookies());
         return appData[key];
     }
 
     save(key, value) {
-        self.checkServiceAvailable();
+        if (!self.isCookiesSupported) {
+            return ;
+        }
         let appData = self.getAppDataFromCookies();
         let versionData = self.getCurrentVersion(appData);
         versionData[key] = value;
@@ -26,7 +30,9 @@ class TemporaryPersistenceService {
     }
 
     getCurrentVersion(appData) {
-        self.checkServiceAvailable();
+        if (!self.isCookiesSupported) {
+            return null;
+        }
         if (!appData[self.constants.version]) {
             appData[self.constants.version] = {};
         }
@@ -34,7 +40,9 @@ class TemporaryPersistenceService {
     }
 
     getAppDataFromCookies() {
-        self.checkServiceAvailable();
+        if (!self.isCookiesSupported) {
+            return null;
+        }
         let key = self.constants.data;
         let appData = self.getJSONDataFromCookies(key);
         if (appData === null) {
@@ -45,7 +53,9 @@ class TemporaryPersistenceService {
     }
 
     getJSONDataFromCookies(key) {
-        self.checkServiceAvailable();
+        if (!self.isCookiesSupported) {
+            return null;
+        }
         let json = self.$cookies.get(key);
         if (json === null || json === "undefined" || json === undefined) {
             return null;
@@ -55,14 +65,10 @@ class TemporaryPersistenceService {
 
     }
 
-    checkServiceAvailable() {
-        if (!self.isCookiesSupported) {
-            throw self.$translate.instant('msg.error.temporaryPersistenceService_and_cookies_are_disabled');
-        }
-    }
-
     cleanAllData() {
-        self.checkServiceAvailable();
+        if (!self.isCookiesSupported) {
+            return ;
+        }
         var cookies = self.$cookies.getAll();
         angular.forEach(cookies, function (v, k) {
             self.$cookies.remove(k);

@@ -1,19 +1,17 @@
 let self;
 class ParagraphController {
     /*@ngInject*/
-    constructor(softwareRequirementsChecksService) {
+    constructor(preScreenLoadingInterceptorsCallerService) {
         self = this;
-        self.hasSoftwareRequirements = softwareRequirementsChecksService.hasSoftwareRequirements();
-        if (self.hasSoftwareRequirements) {
-            this.paragraph = {
-                paragraphNumber : 1,
-                description : 'Start of the game',
-                choices : [
-                    { paragraphNumber : 123, description : 'East'},
-                    { paragraphNumber : 65, description : 'West'}
-                ]
-            };
-        }
+        preScreenLoadingInterceptorsCallerService.intercept();
+        this.paragraph = {
+            paragraphNumber : 1,
+            description : 'Start of the game',
+            choices : [
+                { paragraphNumber : 123, description : 'East'},
+                { paragraphNumber : 65, description : 'West'}
+            ]
+        };
     }
 
     addRow() {

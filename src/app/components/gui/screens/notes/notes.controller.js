@@ -1,14 +1,12 @@
 let self;
 class NotesController {
     /*@ngInject*/
-    constructor(softwareRequirementsChecksService) {
+    constructor(preScreenLoadingInterceptorsCallerService) {
         self = this;
-        self.hasSoftwareRequirements = softwareRequirementsChecksService.hasSoftwareRequirements();
-        if (self.hasSoftwareRequirements) {
-            this.rows = [
-                { note : 'blah blah'}
-            ];
-        }
+        preScreenLoadingInterceptorsCallerService.intercept();
+        this.rows = [
+            { note : 'blah blah'}
+        ];
     }
 
     addRow() {

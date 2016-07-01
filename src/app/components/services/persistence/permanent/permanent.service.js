@@ -3,21 +3,25 @@ let self;
 class PermanentPersistenceService {
 
     /*@ngInject*/
-    constructor(softwareRequirementsChecksService, constants, $translate) {
+    constructor(softwareRequirementsCheckerService, constants, $translate) {
         self = this;
-        self.isLocalStorageSupported = softwareRequirementsChecksService.isLocalStorageSupported();
+        self.isLocalStorageSupported = softwareRequirementsCheckerService.isLocalStorageSupported();
         self.constants = constants;
         self.$translate = $translate;
     }
 
     get(key) {
-        self.checkServiceAvailable();
+        if (!self.isLocalStorageSupported) {
+            return null;
+        }
         let appData = self.getCurrentVersion(self.getAppDataFromLocalStorage());
         return appData[key];
     }
 
     save(key, value) {
-        self.checkServiceAvailable();
+        if (!self.isLocalStorageSupported) {
+            return ;
+        }
         let appData = self.getAppDataFromLocalStorage();
         let versionData = self.getCurrentVersion(appData);
         versionData[key] = value;
@@ -25,7 +29,9 @@ class PermanentPersistenceService {
     }
 
     getCurrentVersion(appData) {
-        self.checkServiceAvailable();
+        if (!self.isLocalStorageSupported) {
+            return null;
+        }
         if (!appData[self.constants.version]) {
             appData[self.constants.version] = {};
         }
@@ -33,7 +39,9 @@ class PermanentPersistenceService {
     }
 
     getAppDataFromLocalStorage() {
-        self.checkServiceAvailable();
+        if (!self.isLocalStorageSupported) {
+            return null;
+        }
         let key = self.constants.data;
         let appData = self.getJSONDataFromLocalStorage(key);
         if (appData === null) {
@@ -44,7 +52,9 @@ class PermanentPersistenceService {
     }
 
     getJSONDataFromLocalStorage(key) {
-        self.checkServiceAvailable();
+        if (!self.isLocalStorageSupported) {
+            return null;
+        }
         let json = localStorage.getItem(key);
         if (json === null || json === "undefined" || json === undefined) {// TODO test
             return null;
@@ -54,15 +64,11 @@ class PermanentPersistenceService {
 
     }
 
-    checkServiceAvailable() {
-        if (!self.isLocalStorageSupported) {
-            throw self.$translate.instant('msg.error.permanentPersistenceService_and_localStorage_are_disabled');
-        }
-    }
-
     cleanAllData() {
-            self.checkServiceAvailable();
-            localStorage.clear();
+        if (!self.isLocalStorageSupported) {
+            return ;
+        }
+        localStorage.clear();
     }
 }
 

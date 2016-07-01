@@ -1,11 +1,8 @@
 class PathsController {
     /*@ngInject*/
-    constructor(softwareRequirementsChecksService) {
+    constructor(preScreenLoadingInterceptorsCallerService) {
         self = this;
-        self.hasSoftwareRequirements = softwareRequirementsChecksService.hasSoftwareRequirements();
-        if (self.hasSoftwareRequirements) {
-            // TODO
-        }
+        preScreenLoadingInterceptorsCallerService.intercept();
     }
 }
 

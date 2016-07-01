@@ -1,17 +1,15 @@
 let self;
 class ItemsController {
     /*@ngInject*/
-    constructor(softwareRequirementsChecksService) {
+    constructor(preScreenLoadingInterceptorsCallerService) {
         self = this;
-        self.hasSoftwareRequirements = softwareRequirementsChecksService.hasSoftwareRequirements();
-        if (self.hasSoftwareRequirements) {
-            this.rows = [
-                { quantity : 10, description : 'Meal (regain 4 stamina points)'},
-                { quantity : 1, description : 'Sword'},
-                { quantity : 1, description : 'Shield'},
-                { quantity : 1, description : 'Leather armor'}
-            ];
-        }
+        preScreenLoadingInterceptorsCallerService.intercept();
+        this.rows = [
+            { quantity : 10, description : 'Meal (regain 4 stamina points)'},
+            { quantity : 1, description : 'Sword'},
+            { quantity : 1, description : 'Shield'},
+            { quantity : 1, description : 'Leather armor'}
+        ];
     }
 
     addRow() {
