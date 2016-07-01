@@ -10,9 +10,11 @@ import Stats from './stats/stats';
 import Battle from './battle/battle';
 import Paragraph from './paragraph/paragraph';
 import Configuration from './configuration/configuration';
+import ChooseLanguage from './choose-language/choose-language';
+
 
 let screensModule = angular.module('app.components.gui.screens', [
-    Home.name, Export.name, Games.name, Import.name, Items.name, Notes.name, Paths.name, Stats.name, Battle.name, Paragraph.name, Configuration.name
+    Home.name, Export.name, Games.name, Import.name, Items.name, Notes.name, Paths.name, Stats.name, Battle.name, Paragraph.name, Configuration.name, ChooseLanguage.name
 ]);
 
 export default screensModule;
