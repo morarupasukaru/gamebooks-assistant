@@ -7,11 +7,11 @@ import controller from './configuration.controller';
 let configurationModule = angular.module('app.components.gui.screen.configuration', [
     uiRouter
 ])
-    .config(/*@ngInject*/($stateProvider, $urlRouterProvider) => {
+    .config(/*@ngInject*/($stateProvider, $urlRouterProvider, constants) => {
         $urlRouterProvider.otherwise('/');
 
         $stateProvider.state('configuration', {
-            url: '/configuration', template: '<configuration></configuration>'
+            url: constants.url.configuration, template: '<configuration></configuration>'
         });
     })
 

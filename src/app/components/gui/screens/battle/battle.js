@@ -7,11 +7,11 @@ import controller from './battle.controller';
 let BattleModule = angular.module('app.components.gui.screen.battle', [
     uiRouter
 ])
-    .config(/*@ngInject*/($stateProvider, $urlRouterProvider) => {
+    .config(/*@ngInject*/($stateProvider, $urlRouterProvider, constants) => {
         $urlRouterProvider.otherwise('/');
 
         $stateProvider.state('battle', {
-            url: '/battle', template: '<battle></battle>'
+            url: constants.url.battle, template: '<battle></battle>'
         });
     })
 

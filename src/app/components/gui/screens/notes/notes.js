@@ -7,11 +7,11 @@ import controller from './notes.controller';
 let notesModule = angular.module('app.components.gui.screen.notes', [
     uiRouter
 ])
-    .config(/*@ngInject*/($stateProvider, $urlRouterProvider) => {
+    .config(/*@ngInject*/($stateProvider, $urlRouterProvider, constants) => {
         $urlRouterProvider.otherwise('/');
 
         $stateProvider.state('notes', {
-            url: '/notes', template: '<notes></notes>'
+            url: constants.url.notes, template: '<notes></notes>'
         });
     })
 

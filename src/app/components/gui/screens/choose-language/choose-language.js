@@ -7,11 +7,11 @@ import controller from './choose-language.controller';
 let chooseLanguageModule = angular.module('app.components.gui.screen.choose-language', [
     uiRouter
 ])
-    .config(/*@ngInject*/($stateProvider, $urlRouterProvider) => {
+    .config(/*@ngInject*/($stateProvider, $urlRouterProvider, constants) => {
         $urlRouterProvider.otherwise('/');
 
         $stateProvider.state('choose-language', {
-            url: '/choose-language?next', template: '<choose-language></choose-language>'
+            url: constants.url.chooseLanguage + '?next', template: '<choose-language></choose-language>'
         });
     })
 

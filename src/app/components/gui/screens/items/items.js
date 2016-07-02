@@ -7,11 +7,11 @@ import controller from './items.controller';
 let itemsModule = angular.module('app.components.gui.screen.items', [
     uiRouter
 ])
-    .config(/*@ngInject*/($stateProvider, $urlRouterProvider) => {
+    .config(/*@ngInject*/($stateProvider, $urlRouterProvider, constants) => {
         $urlRouterProvider.otherwise('/');
 
         $stateProvider.state('items', {
-            url: '/items', template: '<items></items>'
+            url: constants.url.items, template: '<items></items>'
         });
     })
 

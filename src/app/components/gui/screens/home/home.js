@@ -7,11 +7,11 @@ import controller from './home.controller';
 let homeModule = angular.module('app.components.gui.screen.home', [
     uiRouter
 ])
-    .config(/*@ngInject*/($stateProvider, $urlRouterProvider) => {
+    .config(/*@ngInject*/($stateProvider, $urlRouterProvider, constants) => {
         $urlRouterProvider.otherwise('/');
 
         $stateProvider.state('home', {
-            url: '/', template: '<home></home>'
+            url: constants.url.root, template: '<home></home>'
         });
     })
 

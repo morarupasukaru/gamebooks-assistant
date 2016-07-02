@@ -7,11 +7,11 @@ import controller from './paths.controller';
 let pathsModule = angular.module('app.components.gui.screen.paths', [
     uiRouter
 ])
-    .config(/*@ngInject*/($stateProvider, $urlRouterProvider) => {
+    .config(/*@ngInject*/($stateProvider, $urlRouterProvider, constants) => {
         $urlRouterProvider.otherwise('/');
 
         $stateProvider.state('paths', {
-            url: '/paths', template: '<paths></paths>'
+            url: constants.url.paths, template: '<paths></paths>'
         });
     })
 

@@ -7,11 +7,11 @@ import controller from './export.controller';
 let exportModule = angular.module('app.components.gui.screen.export', [
     uiRouter
 ])
-    .config(/*@ngInject*/($stateProvider, $urlRouterProvider) => {
+    .config(/*@ngInject*/($stateProvider, $urlRouterProvider, constants) => {
         $urlRouterProvider.otherwise('/');
 
         $stateProvider.state('export', {
-            url: '/export', template: '<export></export>'
+            url: constants.url.export, template: '<export></export>'
         });
     })
 

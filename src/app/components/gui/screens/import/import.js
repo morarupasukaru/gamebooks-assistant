@@ -7,11 +7,11 @@ import controller from './import.controller';
 let importModule = angular.module('app.components.gui.screen.import', [
     uiRouter
 ])
-    .config(/*@ngInject*/($stateProvider, $urlRouterProvider) => {
+    .config(/*@ngInject*/($stateProvider, $urlRouterProvider, constants) => {
         $urlRouterProvider.otherwise('/');
 
         $stateProvider.state('import', {
-            url: '/import', template: '<import></import>'
+            url: constants.url.import, template: '<import></import>'
         });
     })
 

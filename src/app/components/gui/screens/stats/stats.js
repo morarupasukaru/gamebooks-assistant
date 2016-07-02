@@ -7,11 +7,11 @@ import controller from './stats.controller';
 let statsModule = angular.module('app.components.gui.screen.stats', [
     uiRouter
 ])
-    .config(/*@ngInject*/($stateProvider, $urlRouterProvider) => {
+    .config(/*@ngInject*/($stateProvider, $urlRouterProvider, constants) => {
         $urlRouterProvider.otherwise('/');
 
         $stateProvider.state('stats', {
-            url: '/stats', template: '<stats></stats>'
+            url: constants.url.stats, template: '<stats></stats>'
         });
     })
 

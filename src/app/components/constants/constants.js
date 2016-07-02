@@ -8,6 +8,21 @@ let constantsModule = angular.module('app.components.constants', [])
         supportedLanguages: ['en', 'fr'],
         preferences: {
             language: 'language'
+        },
+        url: {
+            battle : '/battle',
+            chooseLanguage : '/choose-language',
+            configuration: '/configuration',
+            export: '/export',
+            games : '/games',
+            root: '/',
+            import : '/import',
+            items : '/items',
+            notes :'/notes',
+            paragraph: '/paragraph',
+            paths: '/paths',
+            stats: '/stats',
+            createGame : '/games/create'
         }
     });
 

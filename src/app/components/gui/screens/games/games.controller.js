@@ -1,8 +1,9 @@
 let self;
 class GamesController {
     /*@ngInject*/
-    constructor($location, preScreenLoadingInterceptorsCallerService) {
+    constructor($location, preScreenLoadingInterceptorsCallerService, constants) {
         self = this;
+        self.constants = constants;
         preScreenLoadingInterceptorsCallerService.intercept();
         self.$location = $location;
         // TODO call game engine, get played
@@ -22,7 +23,7 @@ class GamesController {
     }
 
     startNewGame() {
-        self.$location.url('/games/create')
+        self.$location.url(self.constants.url.createGame)
     }
 }
 

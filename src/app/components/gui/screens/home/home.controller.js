@@ -1,6 +1,6 @@
 let self;
 class HomeController {
-    constructor($location, $rootScope, preScreenLoadingInterceptorsCallerService, persistenceService) {
+    constructor($location, $rootScope, preScreenLoadingInterceptorsCallerService, persistenceService, constants) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
         self.$location = $location;
@@ -10,7 +10,7 @@ class HomeController {
         if (!!lastUrl) {
             $location.url(lastUrl);
         } else {
-            $location.url('/games');
+            $location.url(constants.url.games);
         }
 
         $rootScope.$on('$locationChangeStart', () => this.saveUrl());

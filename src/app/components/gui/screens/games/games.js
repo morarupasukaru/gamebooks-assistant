@@ -7,11 +7,11 @@ import controller from './games.controller';
 let gamesModule = angular.module('app.components.gui.screen.games', [
     uiRouter
 ])
-    .config(/*@ngInject*/($stateProvider, $urlRouterProvider) => {
+    .config(/*@ngInject*/($stateProvider, $urlRouterProvider, constants) => {
         $urlRouterProvider.otherwise('/');
 
         $stateProvider.state('games', {
-            url: '/games', template: '<games></games>'
+            url: constants.url.games, template: '<games></games>'
         });
     })
 
