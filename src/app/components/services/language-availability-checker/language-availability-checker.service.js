@@ -1,5 +1,4 @@
 let self;
-
 class LanguageAvailabilityCheckerService {
 
     /*@ngInject*/

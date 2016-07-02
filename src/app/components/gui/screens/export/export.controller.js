@@ -1,3 +1,4 @@
+let self;
 class ExportController {
     /*@ngInject*/
     constructor(preScreenLoadingInterceptorsCallerService, persistenceService) {

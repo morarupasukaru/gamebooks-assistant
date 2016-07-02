@@ -1,6 +1,7 @@
 /*
  * Copyright (C) Schweizerische Bundesbahnen SBB, 2016.
  */
+let self;
 class NavbarController {
     /*@ngInject*/
     constructor(preScreenLoadingInterceptorsCallerService) {

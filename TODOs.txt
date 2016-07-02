@@ -12,4 +12,4 @@ move import / export as component > configuration screen
 dataloading with splashscreeen (or animation)
 test popup screen
 i18n sorted alphabetics > tool?
-self outside everywhere
+constants for url everywhere (including component?)

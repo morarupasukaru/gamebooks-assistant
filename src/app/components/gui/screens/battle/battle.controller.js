@@ -1,3 +1,4 @@
+let self;
 class BattleController {
     /*@ngInject*/
     constructor(preScreenLoadingInterceptorsCallerService) {

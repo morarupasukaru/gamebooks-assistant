@@ -1,22 +1,24 @@
 /*
  * Copyright (C) Schweizerische Bundesbahnen SBB, 2016.
  */
+let self;
 class MessagesService {
     /*@ngInject*/
     constructor($rootScope) {
-        this.$rootScope = $rootScope;
+        self = this;
+        self.$rootScope = $rootScope;
 
-        if (!this.$rootScope.messages) {
-            this.$rootScope.messages = [];
+        if (!self.$rootScope.messages) {
+            self.$rootScope.messages = [];
         }
     }
 
     getMessages() {
-        return this.$rootScope.messages || [];
+        return self.$rootScope.messages || [];
     }
 
     clearMessages() {
-        this.$rootScope.messages.forEach((msg, index, arr) => {
+        self.$rootScope.messages.forEach((msg, index, arr) => {
             if (!msg.keepAfterLocationChange) {
                 arr.splice(index, 1);
             }
@@ -24,24 +26,24 @@ class MessagesService {
     }
 
     removeMessage(index) {
-        this.$rootScope.messages.splice(index, 1);
+        self.$rootScope.messages.splice(index, 1);
     }
 
     successMessage(msg, keepAfterLocationChange) {
-        this._addMessage(msg, 'success', keepAfterLocationChange);
+        self._addMessage(msg, 'success', keepAfterLocationChange);
     }
 
     errorMessage(msg, keepAfterLocationChange) {
-        this._addMessage(msg, 'error', keepAfterLocationChange);
+        self._addMessage(msg, 'error', keepAfterLocationChange);
     }
 
     infoMessage(msg, keepAfterLocationChange) {
-        this._addMessage(msg, 'info', keepAfterLocationChange);
+        self._addMessage(msg, 'info', keepAfterLocationChange);
     }
 
     _addMessage(msg, type, keepAfterLocationChange) {
-        if (!this._hasMessage(msg, type)) {
-            this.$rootScope.messages.push({
+        if (!self._hasMessage(msg, type)) {
+            self.$rootScope.messages.push({
                 message: msg,
                 type: type,
                 keepAfterLocationChange: keepAfterLocationChange
@@ -52,8 +54,8 @@ class MessagesService {
     _hasMessage(msg, type) {
         let hasMessage = false;
         let i;
-        for (i = 0; i < this.$rootScope.messages.length; i++) {
-            if (this.$rootScope.messages[i].message === msg && this.$rootScope.messages[i].type === type) {
+        for (i = 0; i < self.$rootScope.messages.length; i++) {
+            if (self.$rootScope.messages[i].message === msg && self.$rootScope.messages[i].type === type) {
                 hasMessage = true;
                 break;
             }

@@ -14,7 +14,7 @@ class SavedDataAdminController {
     }
 
     cleanLocalStorage() {
-        var r = confirm(this.$translate.instant('organisationLoeschenConfirm'));
+        var r = confirm(self.$translate.instant('organisationLoeschenConfirm'));
         if (r == true) {
             self.persistenceService.cleanAllData();
         }

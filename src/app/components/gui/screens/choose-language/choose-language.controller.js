@@ -1,3 +1,4 @@
+let self;
 class ChooseLanguageController {
     /*@ngInject*/
     constructor(preScreenLoadingInterceptorsCallerService, persistenceService) {

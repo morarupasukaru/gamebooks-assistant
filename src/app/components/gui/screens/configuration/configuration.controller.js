@@ -1,3 +1,4 @@
+let self;
 class ConfigurationController {
     /*@ngInject*/
     constructor(preScreenLoadingInterceptorsCallerService, persistenceService) {
