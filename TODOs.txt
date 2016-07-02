@@ -7,9 +7,9 @@ configure jshint (or something like that)
 (startup progress)
 (service testing)
 (selenium/ui testing)
-initial language selection if missing in permanent persistence service
 popup before making critical action (delete, import, export)
 move import / export as component > configuration screen
 dataloading with splashscreeen (or animation)
 keeep temporaryPerstistenceService (cookie) ?
 test popup screen
+i18n sorted alphabetics > tool?
