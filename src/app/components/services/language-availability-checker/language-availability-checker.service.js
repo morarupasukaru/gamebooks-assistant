@@ -3,9 +3,9 @@ let self;
 class LanguageAvailabilityCheckerService {
 
     /*@ngInject*/
-    constructor(permanentPersistenceService, $location, constants, $translate) {
+    constructor(persistenceService, $location, constants, $translate) {
         self = this;
-        self.persistenceService = permanentPersistenceService;
+        self.persistenceService = persistenceService;
         self.$location = $location;
         self.constants = constants;
         self.$translate = $translate;

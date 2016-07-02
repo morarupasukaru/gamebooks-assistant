@@ -1,9 +1,9 @@
 class ExportController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, permanentPersistenceService) {
+    constructor(preScreenLoadingInterceptorsCallerService, persistenceService) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
-        this.persistenceService = permanentPersistenceService;
+        this.persistenceService = persistenceService;
     }
 }
 

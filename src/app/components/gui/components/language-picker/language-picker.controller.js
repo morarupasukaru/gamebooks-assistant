@@ -1,10 +1,10 @@
 let self;
 class LanguagePickerController {
     /*@ngInject*/
-    constructor($translate, constants, permanentPersistenceService) {
+    constructor($translate, constants, persistenceService) {
         self = this;
         self.$translate = $translate;
-        self.persistenceService = permanentPersistenceService;
+        self.persistenceService = persistenceService;
         self.constants = constants;
         self.initData(constants.supportedLanguages);
     }

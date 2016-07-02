@@ -1,6 +1,6 @@
 class ConfigurationController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, permanentPersistenceService) {
+    constructor(preScreenLoadingInterceptorsCallerService, persistenceService) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
     }

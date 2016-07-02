@@ -6,12 +6,7 @@
                 <input type="text" readonly class="form-control" id="localStorageData" ng-model="$ctrl.localStorageData">
             </div>
             <div class="form-group">
-                <label for="cookiesData">{{ 'Cookies' | translate }}</label>
-                <input type="text" readonly class="form-control" id="cookiesData" ng-model="$ctrl.cookiesData">
-            </div>
-            <div class="form-group">
                 <button class="btn btn-danger" ng-click="$ctrl.cleanLocalStorage()" title="{{ 'Clean data in LocalStorage' | translate }}">{{ 'Empty LocalStorage' | translate }}</button>
-                <button class="btn btn-danger" ng-click="$ctrl.cleanCookies()" title="{{ 'Clean data in Cookies' | translate }}">{{ 'Empty Cookies' | translate }}</button>
             </div>
         </div>
     </form>

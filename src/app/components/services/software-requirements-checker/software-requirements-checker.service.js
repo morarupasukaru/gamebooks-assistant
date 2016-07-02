@@ -13,11 +13,7 @@ class SoftwareRequirementsCheckerService {
         let hasSoftwareRequirements = true;
         if (!self.isLocalStorageSupported()) {
             hasSoftwareRequirements = false;
-            self.messagesService.errorMessage(self.$translate.instant('msg.error.permanentPersistenceService_and_localStorage_are_disabled'), true);
-        }
-        if (!self.isCookiesSupported()) {
-            hasSoftwareRequirements = false;
-            self.messagesService.errorMessage(self.$translate.instant('msg.error.temporaryPersistenceService_and_cookies_are_disabled'), true);
+            self.messagesService.errorMessage(self.$translate.instant('msg.error.persistenceService_and_localStorage_are_disabled'), true);
         }
     }
 
@@ -31,10 +27,6 @@ class SoftwareRequirementsCheckerService {
     	} catch(e) {
     		return false;
     	}
-    }
-
-    isCookiesSupported() {
-        return navigator.cookieEnabled;
     }
 }
 

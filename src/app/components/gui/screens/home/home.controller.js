@@ -1,10 +1,10 @@
 let self;
 class HomeController {
-    constructor($location, $rootScope, preScreenLoadingInterceptorsCallerService, permanentPersistenceService) {
+    constructor($location, $rootScope, preScreenLoadingInterceptorsCallerService, persistenceService) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
         self.$location = $location;
-        self.persistenceService = permanentPersistenceService;
+        self.persistenceService = persistenceService;
 
         let lastUrl = self.persistenceService.get('lastUrl');
         if (!!lastUrl) {

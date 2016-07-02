@@ -1,6 +1,6 @@
 let self;
 
-class PermanentPersistenceService {
+class PersistenceService {
 
     /*@ngInject*/
     constructor(softwareRequirementsCheckerService, constants, $translate) {
@@ -72,4 +72,4 @@ class PermanentPersistenceService {
     }
 }
 
-export default PermanentPersistenceService;
+export default PersistenceService;
