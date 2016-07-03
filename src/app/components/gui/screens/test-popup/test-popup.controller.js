@@ -4,24 +4,26 @@ class TestPopupController {
     constructor(preScreenLoadingInterceptorsCallerService) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
+
+        self.modalElementId = 'popupId';
+        self.text = 'A question?'
+        self.withCloseButton = false;
+        self.choices = ['Yes', 'No'];
     }
 
-    basicPopup() {
-        alert('test');
-    }
-
-    basicPopupYesNo() {
-        confirm('question?');
-    }
-
-    showPopup(modalElementId) {
-        let modalElement = window.document.getElementById(modalElementId);
+    showPopup() {
+        let modalElement = window.document.getElementById(self.modalElementId);
         modalElement.style.display = "block";
     }
 
     closePopup(modalElementId) {
-        let modalElement = window.document.getElementById(modalElementId);
+        let modalElement = window.document.getElementById(self.modalElementId);
         modalElement.style.display = "none";
+    }
+
+    clickChoice(choice) {
+        self.choosen = choice;
+        self.closePopup();
     }
 }
 

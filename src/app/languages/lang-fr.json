@@ -58,5 +58,7 @@
   "Empty Cookies" : "Efface les cookies",
   "Application Version" : "Version de l'application",
   "ChoiceGame" : "Charge le jeu {{ bookName }} de {{ playerName }}",
-  "ChoosenGame" : "La partie '{{ bookName }}' de '{{ playerName }}' est actuellement jouée"
+  "ChoosenGame" : "La partie '{{ bookName }}' de '{{ playerName }}' est actuellement jouée",
+  "Yes" : "Oui",
+  "No" : "Non"
 }
