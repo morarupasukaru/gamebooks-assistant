@@ -3,7 +3,6 @@ import uiRouter from 'angular-ui-router';
 
 import template from './test-popup.html';
 import controller from './test-popup.controller';
-import './test-popup.css';
 
 let testPopupModule = angular.module('app.components.gui.screen.test-popup', [
     uiRouter

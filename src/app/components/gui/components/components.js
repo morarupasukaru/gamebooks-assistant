@@ -5,9 +5,10 @@ import Navbar from './navbar/navbar';
 import LanguagePicker from './language-picker/language-picker';
 import SavedDataAdmin from './saved-data-admin/saved-data-admin';
 import VersionDisplay from './version-display/version-display';
+import Popup from './popup/popup';
 
 let guiComponentsModule = angular.module('app.components.gui.components', [
-    Dices.name, Messages.name, Navbar.name, LanguagePicker.name, SavedDataAdmin.name, VersionDisplay.name
+    Dices.name, Messages.name, Navbar.name, LanguagePicker.name, SavedDataAdmin.name, VersionDisplay.name, Popup.name
 ]);
 
 export default guiComponentsModule;
