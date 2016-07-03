@@ -10,5 +10,5 @@ configure jshint (or something like that)
 popup before making critical action (delete, import, export)
 move import / export as component > configuration screen
 dataloading with splashscreeen (or animation)
-test popup screen
 i18n sorted alphabetics > tool?
+space between button in popup screen

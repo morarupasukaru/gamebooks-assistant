@@ -6,8 +6,9 @@ class TestPopupController {
         preScreenLoadingInterceptorsCallerService.intercept();
 
         self.modalElementId = 'popupId';
-        self.text = 'A question?'
-        self.withCloseButton = false;
+        self.text = 'a question?';
+        self.html = '<tr><td>blah blah</td></tr>';
+        self.withCloseButton = true;
         self.choices = ['Yes', 'No'];
         self.closeOnClickOutsideModal = false;
 
