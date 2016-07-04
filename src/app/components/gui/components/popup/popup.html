@@ -2,7 +2,8 @@
     <div class="modal-content">
         <span class="close glyphicon glyphicon-remove-circle" ng-click="$ctrl.close()" ng-show="$ctrl.cfg.withCloseButton"></span>
         <p>{{ $ctrl.cfg.text }}</p>
-        <!-- TODO space between button -->
-        <button type="button" class="btn btn-default" ng-click="$ctrl.select(choice)" ng-repeat="choice in $ctrl.cfg.choices" >{{ choice | translate }}</button>
+        <span ng-repeat="choice in $ctrl.cfg.choices">
+            <button type="button" class="btn btn-default" ng-click="$ctrl.select(choice)">{{ choice | translate }}</button>&nbsp;
+        </span>
     </div>
 </div>
