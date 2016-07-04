@@ -27,7 +27,7 @@ class SavedDataAdminController {
     }
 
     callbackPopupConfirmEmptyLocalStorage(popupDomElementId, choice) {
-        if (choice === constants.choices.yes) {
+        if (choice === self.constants.choices.yes) {
             self.persistenceService.cleanAllData();
         }
     }
