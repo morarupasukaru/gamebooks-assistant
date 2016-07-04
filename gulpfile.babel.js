@@ -11,9 +11,6 @@ import gulp     from 'gulp';
 import path     from 'path';
 import webpack  from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
-import karma    from 'karma';
-import esdoc    from 'gulp-esdoc';
-import ip from 'ip';
 
 let webpackConfig = require('./webpack.config');
 let root = 'src';
@@ -47,8 +44,7 @@ let paths = {
     html: [resolveToApp('**/*.html'), path.join(root, 'index.html')],
     entry: path.join(root, 'app/app.js'),
     output: 'dist',
-    build: path.join(__dirname, 'target/build'),
-    documentation: path.join(__dirname, 'target/documentation')
+    build: path.join(__dirname, 'target/build')
 };
 
 /**
@@ -76,53 +72,12 @@ gulp.task('serve', () => {
 });
 
 /**
- * Gulp-Task: Fuehrt die Karma-Tests auf dem Selenium Webgrid aus
- */
-gulp.task('test-selenium-webgrid', (done) => {
-
-    let hostname = process.env.host || ip.address();
-    let externalport = process.env.externalport || 7777;
-
-    return new karma.Server({
-        configFile: __dirname + '/karma.conf.js',
-        hostname: hostname,
-        port: externalport,
-        browsers: ['SeleniumFF', 'SeleniumCH'] // 'SeleniumIE' zurzeit ausgeschaltet wegen Seleniumgrid-Bug
-    }, done).start();
-});
-
-/**
- * Gulp-Task: Fuehrt die Karma-Tests auf dem PhantomJS Browser aus
- */
-gulp.task('test-phantomjs', (done) => {
-
-    let hostname = process.env.host || ip.address();
-    let externalport = process.env.externalport || 7777;
-
-    return new karma.Server({
-        configFile: __dirname + '/karma.conf.js',
-        hostname: hostname,
-        port: externalport,
-        browsers: ['PhantomJS']
-    }, done).start();
-});
-
-/**
- * Gulp-Task: Fuehrt ESDoc aus um die Code-Dokumentation zu erstellen
- */
-gulp.task('doc', () => {
-    return gulp.src(root).pipe(esdoc({destination: paths.documentation, index: path.join(root, 'README.md')}));
-});
-
-/**
  * Gulp-Task: Baut die Applikation fuer das Deployment
- * - Fuehrt die Tests aus
- * - Erstellt die Code-Dokumentation
  * - Erstellt das Webpack-Bundle und kopiert es nach /target/build
  * - Kopiert index.html nach /target/build
  */
 //gulp.task('build', ['test-selenium-webgrid', 'doc'], (done) => {
-gulp.task('build', ['doc'], (done) => {
+gulp.task('build', [], (done) => {
     gulp.src(path.join(root, 'index.html')).pipe(gulp.dest(paths.build));
 
     return webpack(webpackConfig.production, done);

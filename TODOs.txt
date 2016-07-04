@@ -9,9 +9,11 @@ renommer projet en "gamebooks die & retry helper
 make map (src) work
 reduce dependencies
 if null/undefined
+correct package.json
+correct pom.xml
+link to esta web/js one time
 
 next:
-move import / export as component > configuration screen
 add favicons
 add dice icons
 complete README.md in english & french (link if possible, e.g. wikipedia)

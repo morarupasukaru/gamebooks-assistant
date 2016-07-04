@@ -14,14 +14,6 @@
     <name>${project.artifactId}</name>
 
     <properties>
-        <sonar.language>js</sonar.language>
-        <sonar.profile>sbb-it-vorgabe</sonar.profile>
-        <sonar.sources>src/app</sonar.sources>
-        <sonar.exclusions>**.spec.js</sonar.exclusions>
-        <sonar.coverage.exclusions>**.spec.js</sonar.coverage.exclusions>
-        <sonar.javascript.lcov.reportPath>target/surefire/lcov.info</sonar.javascript.lcov.reportPath>
-        <sonar.javascript.jstestdriver.reportsPath>target/surefire</sonar.javascript.jstestdriver.reportsPath>
-        <sonar.javascript.coveragePlugin>lcov</sonar.javascript.coveragePlugin>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -111,15 +103,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <distributionManagement>
-        <repository>
-            <id>hosted.esta-webjs.releases</id>
-            <url>${nexus_release_url}</url>
-        </repository>
-        <snapshotRepository>
-            <id>hosted.esta-webjs.snapshots</id>
-            <url>${nexus_snapshot_url}</url>
-        </snapshotRepository>
-    </distributionManagement>
 </project>
