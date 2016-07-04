@@ -5,18 +5,26 @@ class TestPopupController {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
 
-        self.popupConfig = {
-            id : 'popupId',
+        self.popupConfig1 = {
+            id : 'popupId1',
             text : 'a question?',
             choices : ['Yes', 'No'],
             withCloseButton : true,
             closeOnClickOutsideModal : true
         };
+
+        self.popupConfig2 = {
+            id : 'popupId2',
+            text : 'another question?',
+            choices : ['Cancel', 'OK'],
+            withCloseButton : false,
+            closeOnClickOutsideModal : false
+        };
     }
 
-    showPopup() {
+    showPopup(id) {
         // TODO easier way to display popup?
-        let modalElement = window.document.getElementById(self.popupConfig.id);
+        let modalElement = window.document.getElementById(id);
         modalElement.style.display = "block";
     }
 }

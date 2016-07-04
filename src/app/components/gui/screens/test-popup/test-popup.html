@@ -2,9 +2,11 @@
 <messages></messages>
 <main>
     <div class="container bg-white" role="main">
-        <button type="button" class="btn btn-default" ng-click="$ctrl.showPopup()">Show Yes/No Popup</button>
+        <button type="button" class="btn btn-default" ng-click="$ctrl.showPopup($ctrl.popupConfig1.id)">Show Yes/No Popup</button>
+        <button type="button" class="btn btn-default" ng-click="$ctrl.showPopup($ctrl.popupConfig2.id)">Show Cancel/OK Popup</button>
 
         <label>{{ $ctrl.choosen }}</label>
-        <popup config="{{ $ctrl.popupConfig }}"></popup>
+        <popup config="{{ $ctrl.popupConfig1 }}"></popup>
+        <popup config="{{ $ctrl.popupConfig2 }}"></popup>
     </div>
 </main>
