@@ -48,6 +48,7 @@
   "Actually played" : "Actuellement joué",
   "Remove note" : "Supprime la note",
   "Choice paragragh" : "Sélectionne le paragraphe",
+  "Choice" : "Choix",
   "Copy following text to import it later" : "Copiez le texte qui suit afin de l'importer ultérieurement",
   "Paste text copied from export screen" : "Collez le texte des données d'importation",
   "msg.error.persistenceService_and_localStorage_are_disabled" : "L'application ne peut pas être utilisée car le navigateur est obsolète ou car il n'est pas possible de sauver des données dans le 'localStorage'.",
@@ -60,5 +61,6 @@
   "ChoiceGame" : "Charge le jeu {{ bookName }} de {{ playerName }}",
   "ChoosenGame" : "La partie '{{ bookName }}' de '{{ playerName }}' est actuellement jouée",
   "Yes" : "Oui",
-  "No" : "Non"
+  "No" : "Non",
+  "Are you sure to clear all of the content of the localStorage?" : "Êtes-vous sûr de vouloir effacer tout le contenu du localStorage?"
 }

@@ -3,7 +3,7 @@ import angular from 'angular';
 /*@ngInject*/
 let constantsModule = angular.module('app.components.constants', [])
     .constant('constants', {
-        version: '20160702',
+        version: '20160704',
         data: "data",
         supportedLanguages: ['en', 'fr'],
         preferences: {
@@ -23,6 +23,10 @@ let constantsModule = angular.module('app.components.constants', [])
             paths: '/paths',
             stats: '/stats',
             createGame : '/games/create'
+        },
+        choices : {
+            yes : 'Yes',
+            no : 'No'
         }
     });
 
