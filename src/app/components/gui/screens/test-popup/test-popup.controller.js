@@ -1,9 +1,11 @@
 let self;
 class TestPopupController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService) {
+    constructor(preScreenLoadingInterceptorsCallerService, popupService) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
+
+        self.popupService = popupService;
 
         self.popupConfig1 = {
             id : 'popupId1',
@@ -23,9 +25,11 @@ class TestPopupController {
     }
 
     showPopup(id) {
-        // TODO easier way to display popup?
-        let modalElement = window.document.getElementById(id);
-        modalElement.style.display = "block";
+        self.popupService.show(id, this.callbackPopup);
+    }
+
+    callbackPopup(popupDomElementId, choice) {
+        self.choosen = popupDomElementId + ': ' + choice;
     }
 }
 

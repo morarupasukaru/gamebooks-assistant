@@ -1,26 +1,26 @@
 class PopupController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService) {
+    constructor(preScreenLoadingInterceptorsCallerService, popupService) {
         this.cfg = JSON.parse(this.config);
+        this.popupService = popupService;
         if (this.cfg.closeOnClickOutsideModal) {
+/*
             window.onclick = function(event) {
+                debugger;
                 if (!!event.target && !!event.target.id && event.target.id === this.cfg.id) {
                     this.closePopup();
                 }
             }
+                */
         }
     }
 
-
-    clickChoice(choice) {
-        // TODO how to return value? > use of a service?
-        this.choosen = choice;
-        this.closePopup();
+    select(choice) {
+        this.close(choice);
     }
 
-    closePopup() {
-        let modalElement = window.document.getElementById(this.cfg.id);
-        modalElement.style.display = "none";
+    close(choice) {
+        this.popupService.close(this.cfg.id, choice);
     }
 }
 
