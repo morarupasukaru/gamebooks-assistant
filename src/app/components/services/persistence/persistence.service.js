@@ -2,11 +2,12 @@ let self;
 class PersistenceService {
 
     /*@ngInject*/
-    constructor(softwareRequirementsCheckerService, constants, $translate) {
+    constructor(softwareRequirementsCheckerService, constants, $translate, messagesService) {
         self = this;
         self.isLocalStorageSupported = softwareRequirementsCheckerService.isLocalStorageSupported();
         self.constants = constants;
         self.$translate = $translate;
+        self.messagesService = messagesService;
     }
 
     get(key) {
@@ -50,6 +51,8 @@ class PersistenceService {
         return appData;
     }
 
+
+
     getJSONDataFromLocalStorage(key) {
         if (!self.isLocalStorageSupported) {
             return null;
@@ -61,6 +64,24 @@ class PersistenceService {
             return JSON.parse(json);
         }
 
+    }
+
+    import(dataAsString) {
+        self.messagesService.clearMessages();
+        if (!dataAsString) {
+            self.messagesService.errorMessage(self.$translate.instant('Missing import data'), false);
+            return ;
+        }
+        let importAppData = null;
+        try {
+            importAppData = JSON.parse(dataAsString);
+        } catch(err) {
+        }
+        if (!importAppData) {
+            self.messagesService.errorMessage(self.$translate.instant('Invalid import data'), false);
+            return ;
+        }
+        localStorage.setItem(self.constants.data, JSON.stringify(importAppData));
     }
 
     cleanAllData() {

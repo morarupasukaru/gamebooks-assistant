@@ -51,11 +51,14 @@
   "ChoosenGame" : "La partie '{{ bookName }}' de '{{ playerName }}' est actuellement jouée",
   "Yes" : "Oui",
   "No" : "Non",
-  "msg.error.persistenceService_and_localStorage_are_disabled" : "L'application ne peut pas être utilisée car le navigateur est obsolète ou car il n'est pas possible de sauver des données dans le 'localStorage'.",
+  "The application cannot be used because the version of the browser is too old or because it is not possible to save data in 'localStorage'." : "L'application ne peut pas être utilisée car le navigateur est obsolète ou car il n'est pas possible de sauver des données dans le 'localStorage'.",
   "Application's data" : "Données de l'application",
   "Delete application's data" : "Efface les donées de l'application",
   "Are you sure to clear the application data?" : "Êtes-vous sûr de vouloir effacer toutes les données de l'application?",
   "Paste the application's data copied from another browser" : "Collez les données de l'application copiées depuis un autre navigateur",
   "Imported data" : "Données d'importation",
-  "Import" : "Importation"
+  "Import" : "Importation",
+  "All existing application's data will be erased during the import. Are you sure to import the application data?" : "Toutes les données existantes de l'application seront effacées lors de l'importation. Êtes-vous sûr de vouloir importer les données?",
+  "Missing import data" : "Il n'y a pas de données à importer",
+  "Invalid import data" : "Les données d'importation sont invalides"
 }

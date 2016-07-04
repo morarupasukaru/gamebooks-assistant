@@ -1,7 +1,6 @@
 {
   "fr": "Français",
   "en": "English",
-  "msg.error.persistenceService_and_localStorage_are_disabled" : "The application cannot be used because the version of the browser is too old or because it is not possible to save data in 'localStorage'.",
   "ChoiceGame" : "Choose game '{{ bookName }}' of '{{ playerName }}'",
   "ChoosenGame" : "The game '{{ bookName }}' of '{{ playerName }}' is actually played"
 }

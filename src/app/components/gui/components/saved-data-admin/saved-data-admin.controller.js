@@ -8,9 +8,17 @@ class SavedDataAdminController {
         self.popupService = popupService;
         self.initData();
 
-        self.popupConfirmEmptyLocalStorageConfig = {
-            id : 'popupConfirmEmptyLocalStorage',
+        self.popupConfirmDeleteApplicationDataConfig = {
+            id : 'popupConfirmDeleteApplicationData',
             text : 'Are you sure to clear the application data?',
+            choices : [constants.choices.yes, constants.choices.no],
+            withCloseButton : false,
+            closeOnClickOutsideModal : false
+        };
+
+        self.popupConfirmImportApplicationDataConfig = {
+            id : 'popupConfirmImportApplicationData',
+            text : "All existing application's data will be erased during the import. Are you sure to import the application data?",
             choices : [constants.choices.yes, constants.choices.no],
             withCloseButton : false,
             closeOnClickOutsideModal : false
@@ -23,7 +31,7 @@ class SavedDataAdminController {
     }
 
     showPopupConfirmDeleteApplicationData() {
-        self.popupService.show(self.popupConfirmEmptyLocalStorageConfig.id, self.callbackPopupConfirmDeleteApplicationData);
+        self.popupService.show(self.popupConfirmDeleteApplicationDataConfig.id, self.callbackPopupConfirmDeleteApplicationData);
     }
 
     callbackPopupConfirmDeleteApplicationData(popupDomElementId, choice) {
@@ -31,6 +39,17 @@ class SavedDataAdminController {
             self.persistenceService.cleanAllData();
         }
     }
+
+    showPopupConfirmImportData() {
+        self.popupService.show(self.popupConfirmImportApplicationDataConfig.id, self.callbackPopupConfirmImportData);
+    }
+
+    callbackPopupConfirmImportData(popupDomElementId, choice) {
+        if (choice === self.constants.choices.yes) {
+            self.persistenceService.import(self.importData);
+        }
+    }
+
 }
 
 export default SavedDataAdminController;

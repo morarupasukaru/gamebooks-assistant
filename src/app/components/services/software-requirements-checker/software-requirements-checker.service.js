@@ -12,7 +12,7 @@ class SoftwareRequirementsCheckerService {
         let hasSoftwareRequirements = true;
         if (!self.isLocalStorageSupported()) {
             hasSoftwareRequirements = false;
-            self.messagesService.errorMessage(self.$translate.instant('msg.error.persistenceService_and_localStorage_are_disabled'), true);
+            self.messagesService.errorMessage(self.$translate.instant("The application cannot be used because the version of the browser is too old or because it is not possible to save data in 'localStorage'."), true);
         }
     }
 
