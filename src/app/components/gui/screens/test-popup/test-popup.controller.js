@@ -5,16 +5,18 @@ class TestPopupController {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
 
-        self.modalElementId = 'popupId';
-        self.text = 'a question?';
-        self.html = '<tr><td>blah blah</td></tr>';
-        self.withCloseButton = true;
-        self.choices = ['Yes', 'No'];
-        self.closeOnClickOutsideModal = false;
+        self.popupConfig = {
+            id : 'popupId',
+            text : 'a question?',
+            choices : ['Yes', 'No'],
+            withCloseButton : true,
+            closeOnClickOutsideModal : true
+        };
     }
 
     showPopup() {
-        let modalElement = window.document.getElementById(self.modalElementId);
+        // TODO easier way to display popup?
+        let modalElement = window.document.getElementById(self.popupConfig.id);
         modalElement.style.display = "block";
     }
 }

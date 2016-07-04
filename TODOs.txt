@@ -12,3 +12,5 @@ move import / export as component > configuration screen
 dataloading with splashscreeen (or animation)
 i18n sorted alphabetics > tool?
 space between button in popup screen
+popup - how to return value? > use of a service?
+popup - easier way to display popup? > service
