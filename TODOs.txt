@@ -2,7 +2,6 @@ complete README.md in english & french (link if possible, e.g. wikipedia)
 add favicons
 add dice icons
 listener on appData changes (to save in localStorage)
-rename project as Gamebooks Companion (check signification, availability)
 configure jshint (or something like that)
 (startup progress)
 (service testing)
@@ -11,3 +10,4 @@ popup before making critical action (delete, import, export)
 move import / export as component > configuration screen
 dataloading with splashscreeen (or animation)
 i18n sorted alphabetics > tool?
+renommer projet en "gamebooks die & retry helper"
