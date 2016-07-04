@@ -2,11 +2,18 @@
     <form>
         <div>
             <div class="form-group">
-                <label for="localStorageData">{{ 'Localstorage' | translate }}</label>
-                <input type="text" readonly class="form-control" id="localStorageData" ng-model="$ctrl.localStorageData">
+                <label for="applicationData">{{ "Application's data" | translate }}</label>
+                <input type="text" readonly class="form-control" id="applicationData" ng-model="$ctrl.applicationData">
             </div>
             <div class="form-group">
-                <button class="btn btn-danger" ng-click="$ctrl.showPopupConfirmEmptyLocalStorage()" title="{{ 'Clean data in LocalStorage' | translate }}">{{ 'Empty LocalStorage' | translate }}</button>
+                <button class="btn btn-danger" ng-click="$ctrl.showPopupConfirmDeleteApplicationData()" aria-label="{{ 'Delete application\'s data' | translate }}">{{ "Delete application's data" | translate }}</button>
+            </div>
+            <div class="form-group">
+                <label for="importData">{{ "Paste the application's data copied from another browser" | translate }}</label>
+                <input type="text" class="form-control" ng-model="$ctrl.importData" id="importData" placeholder="{{ 'Imported data' | translate }}">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-danger" ng-click="$ctrl.showPopupConfirmImportData()" aria-label="{{ 'Import' | translate }}">{{ 'Import' | translate }}</button>
             </div>
         </div>
     </form>
