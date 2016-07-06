@@ -5,10 +5,9 @@ import PreScreenLoadingInterceptorsCaller from './pre-screen-loading-interceptor
 import Persistence from './persistence/persistence';
 import Dices from './dices/dices';
 import Books from './books/books';
-import Warlock from './warlock/warlock';
 
 let servicesModule = angular.module('app.components.services', [
-    SoftwareRequirementsChecker.name, Persistence.name, Dices.name, LanguageAvailabilityChecker.name, PreScreenLoadingInterceptorsCaller.name, Books.name, Warlock.name
+    SoftwareRequirementsChecker.name, Persistence.name, Dices.name, LanguageAvailabilityChecker.name, PreScreenLoadingInterceptorsCaller.name, Books.name
 ]);
 
 export default servicesModule;
