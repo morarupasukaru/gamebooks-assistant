@@ -2,12 +2,18 @@ let self;
 class PersistenceService {
 
     /*@ngInject*/
-    constructor(softwareRequirementsCheckerService, constants, $translate, messagesService) {
+    constructor(softwareRequirementsCheckerService, constants, $translate, messagesService, $rootScope) {
         self = this;
         self.isLocalStorageSupported = softwareRequirementsCheckerService.isLocalStorageSupported();
         self.constants = constants;
         self.$translate = $translate;
         self.messagesService = messagesService;
+
+
+        $rootScope.appData = this.getAppDataFromLocalStorage();
+        $rootScope.$watch('appData', function(newValue, oldValue) {
+            // TODO WATCH DATA
+        });
     }
 
     get(key) {
@@ -50,8 +56,6 @@ class PersistenceService {
         }
         return appData;
     }
-
-
 
     getJSONDataFromLocalStorage(key) {
         if (!self.isLocalStorageSupported) {

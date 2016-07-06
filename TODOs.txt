@@ -6,7 +6,7 @@ configure jshint (or something like that)
 dataloading with splashscreeen (or animation)
 i18n sorted alphabetics > tool?
 renommer projet en "gamebooks die & retry helper
-make map (src) work
+make map (src) work > created with mvn?
 reduce dependencies
 if null/undefined
 correct package.json
