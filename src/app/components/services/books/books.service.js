@@ -2,9 +2,10 @@ let self;
 class BooksService {
 
     /*@ngInject*/
-    constructor() {
+    constructor(warlockService) {
         self = this;
         self.books = [];
+        self.books.push(warlockService.getBook());
     }
 
     getBooks() {
