@@ -2,10 +2,10 @@ let self;
 class BooksService {
 
     /*@ngInject*/
-    constructor(warlockService) {
+    constructor(warlockOfFiretopMountainService) {
         self = this;
         self.books = [];
-        self.books.push(warlockService.getBook());
+        self.books.push(warlockOfFiretopMountainService.getBook());
     }
 
     getBooks() {

@@ -1,5 +1,5 @@
 let self;
-class WarlockService {
+class WarlockOfFiretopMountainService {
 
     /*@ngInject*/
     constructor() {
@@ -11,4 +11,4 @@ class WarlockService {
     }
 }
 
-export default WarlockService;
+export default WarlockOfFiretopMountainService;
