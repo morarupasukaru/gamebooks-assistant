@@ -12,6 +12,9 @@ if null/undefined
 correct package.json
 correct pom.xml
 link to esta web/js one time
+understand webpack
+gamebook name in url
+display paragraph nr in "games"
 
 next:
 add favicons
