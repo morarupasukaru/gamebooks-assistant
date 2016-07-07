@@ -8,9 +8,9 @@ class GamesController {
         self.$location = $location;
         // TODO call game engine, get played
         this.rows = [
-            { bookName : 'The Wizard of the firetop mountain', playerName : 'Pascal' },
-            { bookName : 'The Wizard of the firetop mountain', playerName : 'Pascal 2nd try', selected : true },
-            { bookName : 'The Creature from Chaos', playerName : 'François' }
+            { bookName : 'The Wizard of the firetop mountain', playerName : 'Pascal', currentParagraph : 'Start' },
+            { bookName : 'The Wizard of the firetop mountain', playerName : 'Pascal 2nd try', currentParagraph : '§12', selected : true },
+            { bookName : 'The Creature from Chaos', playerName : 'François', currentParagraph : '§187' }
         ];
     }
 
