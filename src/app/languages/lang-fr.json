@@ -61,5 +61,10 @@
   "All existing application's data will be erased during the import. Are you sure to import the application data?" : "Toutes les données existantes de l'application seront effacées lors de l'importation. Êtes-vous sûr de vouloir importer les données?",
   "Missing import data" : "Il n'y a pas de données à importer",
   "Invalid import data" : "Les données d'importation sont invalides",
-  "Current Paragraph" : "Paragraphe en cours"
+  "Current Paragraph" : "Paragraphe en cours",
+  "Select Book" : "Sélection du livre-jeu",
+  "Create Player" : "Création du personnage",
+  "Start Game" : "Débute le jeu",
+  "Select a gamebook" : "Sélectionnez un livre",
+  "Next" : "Suivant"
 }
