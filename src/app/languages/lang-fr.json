@@ -66,5 +66,18 @@
   "Create Player" : "Création du personnage",
   "Start Game" : "Débute le jeu",
   "Select a gamebook" : "Sélectionnez un livre",
-  "Next" : "Suivant"
+  "Next" : "Suivant",
+  "The Warlock of Firetop Mountain" : "Le Sorcier de la Montagne de feu",
+  "sword" : "épée",
+  "shield" : "bouclier",
+  "leather armour" : "armure en cuivre",
+  "backpack" : "sac à dos",
+  "lantern" : "lanterne",
+  "meal (add 4 points to stamina)" : "repas (ajoute 4 points à l'endurance)",
+  "measure of potion of skill (restore skill points)" : "mesure de potion d'habilité (restaure les points d'habilité)",
+  "measure of potion of strength (restore stamina points)" : "mesure de potion de force (restaure les points d'endurance)",
+  "measure of potion of luck (increase initial luck by 1 point and restore luck points)" : "mesure de potion de chance (augmente de 1 point la chance initial et restaure les points de chance)",
+  "Start" : "Débute",
+  "Please choose either the potion of skill, strengh or luck (remove corresponding two unchoosen potions from items list." : "Veuilliez choisir soit la potion d'habilité, de force ou de chance (supprimez les potions non choisies de l'inventaire).",
+  "Go to Firetop Mountain" : "Se diriger vers la Montagne de feu"
 }
