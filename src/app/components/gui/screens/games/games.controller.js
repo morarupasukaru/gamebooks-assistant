@@ -23,7 +23,7 @@ class GamesController {
     }
 
     startNewGame() {
-        self.$location.url(self.constants.url.createGame)
+        self.$location.url(self.constants.url.selectBookForNewGame)
     }
 }
 

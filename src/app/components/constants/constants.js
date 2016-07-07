@@ -22,7 +22,9 @@ let constantsModule = angular.module('app.components.constants', [])
             paragraph: '/paragraph',
             paths: '/paths',
             stats: '/stats',
-            createGame : '/games/create'
+            selectBookForNewGame : '/games/create/select-book',
+            createPlayerForNewGame : '/games/create/create-player',
+            displayStartParagraphForNewGame : '/games/create/display-start-paragraph'
         },
         choices : {
             yes : 'Yes',

@@ -1,0 +1,74 @@
+<navbar></navbar>
+<messages></messages>
+<main>
+    <div class="container bg-white" role="main">
+        <div class="page-header">
+            <h1>{{ 'Battle' | translate }}</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <col style="width:10%">
+                    <col style="width:10%">
+                    <col style="width:10%">
+                    <col style="width:5%">
+                    <col style="width:5%">
+                    <col style="width:5%">
+                    <col style="width:65%">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>{{ 'Skill' | translate }}</th>
+                        <th>{{ 'Stamina' | translate }}</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="row in $ctrl.rows">
+                        <td>{{ row.name }}</td>
+                        <td>{{ row.skill }}</td>
+                        <td>{{ row.stamina }}</td>
+                        <td>
+                            <button type="button" class="btn btn-default" aria-label="{{ 'Increment' | translate }} {{ 'Stamina' | translate }}" title="{{ 'Increment' | translate }} {{ 'Stamina' | translate }}" ng-click="$ctrl.increment(row)">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-default" aria-label="{{ 'Decrement' | translate }} {{ 'Stamina' | translate }}" title="{{ 'Decrement' | translate }} {{ 'Stamina' | translate }}" ng-click="$ctrl.decrement(row)">
+                                <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger" aria-label="{{ 'Remove monster' | translate }} {{ row.name | translate }}" title="{{ 'Remove monster' | translate }} '{{ row.name | translate }}'" ng-click="$ctrl.removeRow(row)" ng-if="$ctrl.isRemoveAllowed(row)">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            </button>
+                        </td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <dices></dices>
+
+            <div class="col-md-12">
+                <form>
+                    <div class="form-group">
+                        <label for="inputName">{{ 'Name' | translate }}</label>
+                        <input type="text" id="inputName" class="form-control" ng-model="$ctrl.inputName">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputSkill">{{ 'Skill' | translate }}</label>
+                        <input type="number" id="inputSkill" class="form-control" ng-model="$ctrl.inputSkill">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputStamina">{{ 'Stamina' | translate }}</label>
+                        <input type="number" id="inputStamina" class="form-control" ng-model="$ctrl.inputStamina">
+                    </div>
+                    <button type="button" class="btn btn-primary" aria-label="{{ 'Add monster' | translate }}" ng-click="$ctrl.addRow()">{{ 'Add monster' | translate }}</button>
+                </form>
+            </div>
+        </div>
+</main>
