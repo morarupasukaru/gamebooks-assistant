@@ -11,7 +11,7 @@ let CreatePlayerModule = angular.module('app.components.gui.screen.start-game-wi
         $urlRouterProvider.otherwise('/');
 
         $stateProvider.state('create-player', {
-            url: constants.url.createPlayerForNewGame, template: '<create-player></create-player>'
+            url: constants.url.createPlayerForNewGame + "?bookName", template: '<create-player></create-player>'
         });
     })
 

@@ -14,12 +14,12 @@
 
         <div class="form-group">
             <label for="selectedBook">{{ 'Select a gamebook' | translate }}</label>
-            <select id="selectedBook" class="form-control">
+            <select id="selectedBook" class="form-control" ng-model="$ctrl.selectedBookName">
                 <option ng-repeat="book in $ctrl.getBooks()" value="{{ book.name }}">{{ book.name | translate }}</option>
             </select>
         </div>
 
-        <button type="button" class="btn btn-default">{{ 'Back' | translate }}</button>
-        <button type="button" class="btn btn-primary">{{ 'Next' | translate }}</button>
+        <button type="button" class="btn btn-default" ng-click="$ctrl.back()">{{ 'Back' | translate }}</button>
+        <button type="button" class="btn btn-primary" ng-click="$ctrl.next()">{{ 'Next' | translate }}</button>
     </div>
 </main>

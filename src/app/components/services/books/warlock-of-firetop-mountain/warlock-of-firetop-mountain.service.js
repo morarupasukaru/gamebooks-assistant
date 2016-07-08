@@ -18,7 +18,7 @@ class WarlockOfFiretopMountainService {
                     init: { sixDiceQuantity : 2, constant : 12}
                 },
                 {
-                    name : 'Skill',
+                    name : 'Luck',
                     init: { sixDiceQuantity : 1, constant : 6},
                 }
             ],

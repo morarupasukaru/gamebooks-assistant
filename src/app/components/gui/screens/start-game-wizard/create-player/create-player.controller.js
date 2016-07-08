@@ -1,43 +1,33 @@
 let self;
 class CreatePlayerController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService) {
+    constructor(preScreenLoadingInterceptorsCallerService, booksService, $stateParams, $window, $location, constants) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
-        this.rows = [
-            { name: 'Player', skill : 11, stamina : 18 },
-            { name: 'Goblin 1', skill : 5, stamina : 5 },
-        ];
-        self.monsterCount = 1;
-        self.inputName = this.getNextMonsterName();
-        self.inputSkill = 5;
-        self.inputStamina = 5;
+        self.constants = constants;
+        self.$window = $window;
+        self.$location = $location;
+
+        let book = booksService.getBook($stateParams.bookName);
+        this.loadData(book);
     }
 
-    increment(row) {
-        row.stamina = row.stamina + 1;
+    loadData(book) {
+        self.stats = book.stats;
     }
 
-    decrement(row) {
-        row.stamina = row.stamina - 1;
+    back() {
+        self.$window.history.back();
     }
 
-    removeRow(removedRow) {
-        var index = self.rows.indexOf(removedRow);
-        self.rows.splice(index, 1);
-    }
+    next(invalid) {
+        if (!!invalid) {
+            return ;
+        }
 
-    isRemoveAllowed(row) {
-        return "Player" !== row.name;
-    }
-
-    addRow() {
-        self.rows.push({ name: self.inputName, skill: self.inputSkill, stamina: self.inputStamina});
-        self.inputName = self.getNextMonsterName();
-    }
-
-    getNextMonsterName() {
-        return 'Monster ' + self.monsterCount++;
+        self.$location.url(self.constants.url.displayStartParagraphForNewGame +
+            "?bookName=" + encodeURIComponent(self.selectedBookName) +
+            "&playerName=" + encodeURIComponent(self.playerName));
     }
 }
 

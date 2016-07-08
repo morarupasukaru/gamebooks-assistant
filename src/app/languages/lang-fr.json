@@ -80,5 +80,7 @@
   "measure of potion of luck (increase initial luck by 1 point and restore luck points)" : "mesure de potion de chance (augmente de 1 point la chance initial et restaure les points de chance)",
   "Start" : "Débute",
   "Please choose either the potion of skill, strengh or luck (remove corresponding two unchoosen potions from items list." : "Veuilliez choisir soit la potion d'habilité, de force ou de chance (supprimez les potions non choisies de l'inventaire).",
-  "Go to Firetop Mountain" : "Se diriger vers la Montagne de feu"
+  "Go to Firetop Mountain" : "Se diriger vers la Montagne de feu",
+  "PlayerName" : "Nom du personnage",
+  "Random Stats" : "Générer attributs aléatoires"
 }

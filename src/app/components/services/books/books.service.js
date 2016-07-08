@@ -13,6 +13,16 @@ class BooksService {
     getBooks() {
         return self.books;
     }
+
+    getBook(bookName) {
+        let i;
+        for (i = 0; i < self.books.length; i++) {
+            if (bookName === self.books[i].name) {
+                return self.books[i];
+            }
+        }
+        return null;
+    }
 }
 
 export default BooksService;

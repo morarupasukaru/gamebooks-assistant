@@ -6,19 +6,29 @@
             <h1>{{ 'New game' | translate }}</h1>
         </div>
 
-        <ol class="breadcrumb">
-            <li>{{ 'Select Book' | translate }}</li>
-            <li class="active">{{ 'Create Player' | translate }}</li>
-            <li>{{ 'Start Game' | translate }}</li>
-        </ol>
+        <form name="playerForm">
+            <ol class="breadcrumb">
+                <li>{{ 'Select Book' | translate }}</li>
+                <li class="active">{{ 'Create Player' | translate }}</li>
+                <li>{{ 'Start Game' | translate }}</li>
+            </ol>
 
-        <div class="form-group">
-            <label for="selectedBook">{{ 'Select a gamebook' | translate }}</label>
-            <select id="selectedBook" class="form-control">
-                <option>Disabled select</option>
-            </select>
-        </div>
+            <div class="form-group">
+                <label for="playerName">{{ 'PlayerName' | translate }}</label>
+                <!-- TODO reuqired *, validation-->
+                <input type="text" required class="form-control" id="playerName" ng-model="$ctrl.playerName">
+            </div>
 
-        <button type="button" class="btn btn-default">{{ 'Next' | translate }}</button>
+            <div class="form-group" ng-repeat="stats in $ctrl.stats">
+                <label for="{{ stats.name }}">{{ stats.name | translate }}</label>
+                <input type="text" disabled class="form-control" id="{{ stats.name }}" ng-model="stats.name">
+            </div>
+
+            <div class="form-group">
+                <button type="button" class="btn btn-default" ng-click="$ctrl.back()">{{ 'Back' | translate }}</button>
+                <button type="button" class="btn btn-default" ng-click="$ctrl.back()">{{ 'Random Stats' | translate }}</button>
+                <button type="button" class="btn btn-primary" ng-click="$ctrl.next(playerForm.$invalid)">{{ 'Next' | translate }}</button>
+            </div>
+        </form>
     </div>
 </main>
