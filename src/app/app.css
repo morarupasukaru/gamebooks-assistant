@@ -7,3 +7,11 @@ body {
 table tr:hover td {
     background: lightgrey;
 }
+
+.ng-invalid:required {
+    background-color: #ff9999 ! important;
+}
+
+:required {
+    background-color: #ffff99;
+}
