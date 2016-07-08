@@ -1,19 +1,38 @@
 let self;
 class CreatePlayerController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, booksService, $stateParams, $window, $location, constants) {
+    constructor(preScreenLoadingInterceptorsCallerService, booksService, $stateParams, $window, $location, constants, dicesService) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
         self.constants = constants;
         self.$window = $window;
         self.$location = $location;
+        self.dicesService = dicesService;
 
-        let book = booksService.getBook($stateParams.bookName);
-        this.loadData(book);
+        self.book = booksService.getBook($stateParams.bookName);
+        this.loadData(self.book);
+        this.generateStats();
     }
 
     loadData(book) {
-        self.stats = book.stats;
+        self.stats = [];
+        let i;
+        for (i = 0; i < book.stats.length; i++) {
+            let currentStats = book.stats[i];
+            self.stats.push({ name : currentStats.name,
+                generate : function() {
+                        return currentStats.init.constant + self.dicesService.rollDices(currentStats.init.sixDiceQuantity, 6);
+                    }
+                });
+        }
+    }
+
+    generateStats() {
+        let i;
+        for (i = 0; i < self.stats.length; i++) {
+            let stats = self.stats[i];
+            stats.value = stats.generate();
+        }
     }
 
     back() {
@@ -25,9 +44,16 @@ class CreatePlayerController {
             return ;
         }
 
-        self.$location.url(self.constants.url.displayStartParagraphForNewGame +
-            "?bookName=" + encodeURIComponent(self.selectedBookName) +
-            "&playerName=" + encodeURIComponent(self.playerName));
+        let nextUrl = self.constants.url.displayStartParagraphForNewGame +
+          "?bookName=" + encodeURIComponent(self.book.name) +
+          "&playerName=" + encodeURIComponent(self.playerName);
+        let i;
+        for (i = 0; i < self.stats.length; i++) {
+            let stats = self.stats[i];
+            nextUrl = nextUrl + "&" + encodeURIComponent(stats.name) + "=" + encodeURIComponent(stats.value)
+        }
+
+        self.$location.url(nextUrl);
     }
 }
 
