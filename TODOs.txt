@@ -14,6 +14,8 @@ correct pom.xml
 link to esta web/js one time
 understand webpack
 gamebook name in url
+display playername in notes ? special color? editable?
+editable notes
 
 next:
 add favicons

@@ -39,6 +39,20 @@ class ChooseItemsController {
     getNextMonsterName() {
         return 'Monster ' + self.monsterCount++;
     }
+
+    isItemsDisplayed() {
+        // false if no items
+        return true;
+    }
+
+    isNotesDisplayed() {
+        // false if no notes
+        return true;
+    }
+
+    getNotes() {
+        return "note1, note2, note3";
+    }
 }
 
 export default ChooseItemsController;

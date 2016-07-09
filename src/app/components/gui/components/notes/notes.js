@@ -15,6 +15,13 @@ let notesModule = angular.module('app.components.gui.screen.notes', [
         });
     })
 
-    .component('notes', { template, controller });
+    .component('notes', {
+        template,
+        controller,
+        bindings: {
+            readonly: '@',
+            notes: '@'
+        }
+    });
 
 export default notesModule;
