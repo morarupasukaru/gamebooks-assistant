@@ -19,5 +19,3 @@ next:
 add favicons
 add dice icons
 complete README.md in english & french (link if possible, e.g. wikipedia)
-
-wizard: get username?

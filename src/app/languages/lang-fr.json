@@ -82,5 +82,6 @@
   "Please choose either the potion of skill, strengh or luck (remove corresponding two unchoosen potions from items list." : "Veuilliez choisir soit la potion d'habilité, de force ou de chance (supprimez les potions non choisies de l'inventaire).",
   "Go to Firetop Mountain" : "Se diriger vers la Montagne de feu",
   "PlayerName" : "Nom du personnage",
-  "Random Stats" : "Générer attributs aléatoires"
+  "Random Stats" : "Générer attributs aléatoires",
+  "Choose Items" : "Choix inventaire"
 }

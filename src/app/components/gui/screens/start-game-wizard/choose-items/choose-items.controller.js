@@ -1,5 +1,5 @@
 let self;
-class DisplayStartParagraphController {
+class ChooseItemsController {
     /*@ngInject*/
     constructor(preScreenLoadingInterceptorsCallerService) {
         self = this;
@@ -41,4 +41,4 @@ class DisplayStartParagraphController {
     }
 }
 
-export default DisplayStartParagraphController;
+export default ChooseItemsController;

@@ -44,7 +44,7 @@ class CreatePlayerController {
             return ;
         }
 
-        let nextUrl = self.constants.url.displayStartParagraphForNewGame +
+        let nextUrl = self.constants.url.chooseItemsForNewGame +
           "?bookName=" + encodeURIComponent(self.book.name) +
           "&playerName=" + encodeURIComponent(self.playerName);
         let i;

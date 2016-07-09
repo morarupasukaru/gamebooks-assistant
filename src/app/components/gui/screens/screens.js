@@ -1,8 +1,6 @@
 import angular from 'angular';
 import Home from './home/home';
 import Games from './games/games';
-import Items from './items/items';
-import Notes from './notes/notes';
 import Paths from './paths/paths';
 import Stats from './stats/stats';
 import Battle from './battle/battle';
@@ -13,7 +11,7 @@ import StartGameWizard from './start-game-wizard/start-game-wizard';
 
 
 let screensModule = angular.module('app.components.gui.screens', [
-    Home.name, Games.name, Items.name, Notes.name, Paths.name, Stats.name, Battle.name, Paragraph.name, Configuration.name, ChooseLanguage.name, StartGameWizard.name
+    Home.name, Games.name, Paths.name, Stats.name, Battle.name, Paragraph.name, Configuration.name, ChooseLanguage.name, StartGameWizard.name
 ]);
 
 export default screensModule;
