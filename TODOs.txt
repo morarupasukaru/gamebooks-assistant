@@ -1,9 +1,11 @@
-technical
+technical:
     save data:
         listener on appData changes (to save in localStorage)
-    build
+
+    build:
         configure jshint (or something like that)
-    misc
+
+    misc:
         startup progress / splashscreen
         i18n json sorted alphabetics?
         i18n with angular-translate?
@@ -16,20 +18,28 @@ technical
         understand node dependencies (same as mvn dependencies tree), read node documentation
         correct pom.xml (reduce useless parts)
         understand webpack & ease configuration
-    testing
+
+    testing:
         tests of services with jasmine?
         smoketests with selenium?
 
-    documentation
+    documentation:
         link to esta web/js only one time instead in several js files
         complete README.md in english & french (link if possible, e.g. wikipedia)
+
     data:
         1 pro books: paragraph (note, choice, titel, paragraphNr, description, ...)
         1 pro game: :stats, playerName, items, player notes (not associated to paragraph)
         init data: stats, rules, init items, init notes, start paragraphs (and others predifined paragraphs)
         merge between init data, book data edited by players? versions?
 
-features
+
+    out of scope:
+        import, export for end-user, the goal is to export json & a dev can edit the object and merge data between "init data"
+            => json export with end-of-line and with specific order
+
+
+features:
     in game screens?
         paragraph + dices for luck + jump to # btn + end game btn
         battle
