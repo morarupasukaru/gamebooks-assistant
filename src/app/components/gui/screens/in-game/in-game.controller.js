@@ -14,7 +14,7 @@ class InGameController {
                 { paragraphNumber : 65, description : 'West'}
             ]
         };
-        this.notes = [ {note:'note 1'}, {note:'note 2', playerName : 'Pascal'}, {note:'note 3', playerName: 'François' } ];
+        this.notes = [ {note:'note 1'}, {note:'note 2', playerName : 'Pascal'}, {note:'note 3', playerName: 'François', paragraphNumber : 123 } ];
         this.items = [
             {
                 quantity : 1,

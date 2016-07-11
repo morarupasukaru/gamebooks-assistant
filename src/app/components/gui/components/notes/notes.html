@@ -1,13 +1,15 @@
 <div class="row">
     <div class="col-md-12">
         <table class="table table-striped">
-            <col style="width:{{ !$ctrl.readonly ? '90%' : '85%' }}">
+            <col style="width:{{ !$ctrl.readonly ? '85%' : '80%' }}">
+            <col style="width:5%">
             <col style="width:10%">
             <col style="width:5%" ng-if="!$ctrl.readonly">
             <thead>
             <tr>
-                <th>Note</th>
-                <th>Player</th>
+                <th>{{ 'Note' | translate }}</th>
+                <th>{{ 'Paragraph' | translate }}</th>
+                <th>{{ 'Player' | translate }}</th>
                 <th ng-if="!$ctrl.readonly"></th>
             </tr>
             </thead>
@@ -16,15 +18,20 @@
                 <td ng-if="$ctrl.readonly">
                     {{ row.note | translate }}
                 </td>
-
                 <td ng-if="!$ctrl.readonly">
                     <input type="text" class="form-control" ng-model="row.note">
                 </td>
 
                 <td ng-if="$ctrl.readonly">
-                    {{ row.playerName }}
+                    {{ row.paragraphNumber }}
+                </td>
+                <td ng-if="!$ctrl.readonly">
+                    <input type="number" class="form-control" ng-model="row.paragraphNumber">
                 </td>
 
+                <td ng-if="$ctrl.readonly">
+                    {{ row.playerName }}
+                </td>
                 <td ng-if="!$ctrl.readonly">
                     <input type="text" class="form-control" ng-model="row.playerName">
                 </td>
