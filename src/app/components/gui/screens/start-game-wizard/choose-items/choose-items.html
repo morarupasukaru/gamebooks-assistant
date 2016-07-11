@@ -14,7 +14,7 @@
 
 
         <items ng-if="$ctrl.isItemsDisplayed()"></items>
-        <notes ng-if="$ctrl.isNotesDisplayed()" readonly="true" notes="{{ $ctrl.getNotes() }}"></notes>
+        <notes ng-if="$ctrl.isNotesDisplayed()" readonly="true" notes="$ctrl.getNotes()"></notes>
 
         <button type="button" class="btn btn-default">{{ 'Start Game' | translate }}</button>
     </div>

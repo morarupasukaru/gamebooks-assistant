@@ -11,7 +11,14 @@
             </thead>
             <tbody>
             <tr ng-repeat="row in $ctrl.rows">
-                <td><input type="text" class="form-control" ng-model="row.note"></td>
+                <td ng-if="$ctrl.readonly">
+                    {{ row.note | translate }}
+                </td>
+
+                <td ng-if="!$ctrl.readonly">
+                    <input type="text" class="form-control" ng-model="row.note">
+                </td>
+
                 <td ng-if="!$ctrl.readonly">
                     <button type="button" class="btn btn-danger" aria-label="{{ 'Remove note' | translate }} {{ row.note | translate }}" title="{{ 'Remove note' | translate }} '{{ row.note | translate }}'"
                             ng-click="$ctrl.removeRow(row)">

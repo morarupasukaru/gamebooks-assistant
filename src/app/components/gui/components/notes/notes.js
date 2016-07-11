@@ -20,7 +20,7 @@ let notesModule = angular.module('app.components.gui.screen.notes', [
         controller,
         bindings: {
             readonly: '@',
-            notes: '@'
+            notes: '='
         }
     });
 

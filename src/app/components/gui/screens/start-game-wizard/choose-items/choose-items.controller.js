@@ -17,7 +17,7 @@ class ChooseItemsController {
     }
 
     getNotes() {
-        return self.book.notes.join(',');
+        return self.book.notes;
     }
 }
 

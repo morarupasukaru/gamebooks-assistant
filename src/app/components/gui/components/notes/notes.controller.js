@@ -5,14 +5,7 @@ class NotesController {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
         this.readonly = !!this.readonly;
-        this.rows = [];
-        if (!!this.notes) {
-            let notesValues = this.notes.split(',');
-            let i;
-            for (i = 0; i < notesValues.length; i++) {
-                this.addRow(notesValues[i]);
-            }
-        }
+        this.rows = this.notes;
     }
 
     addRow(noteValue) {
