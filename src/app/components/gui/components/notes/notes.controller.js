@@ -4,7 +4,6 @@ class NotesController {
     constructor(preScreenLoadingInterceptorsCallerService) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
-        this.readonly = !!this.readonly;
         this.rows = this.notes;
     }
 

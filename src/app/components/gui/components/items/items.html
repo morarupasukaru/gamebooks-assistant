@@ -9,7 +9,11 @@
                 <tr>
                     <th>{{ 'Quantity' | translate }}</th>
                     <th>{{ 'Description' | translate }}</th>
-                    <th></th>
+                    <th>
+                        <button type="button" class="btn btn-default" aria-label="{{ 'Add item' | translate}}" title="{{ 'Add item' | translate}}" ng-click="$ctrl.addRow()">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        </button>
+                    </th>
                 </tr>
                 </thead>
                 <tbody>
@@ -24,8 +28,6 @@
                 </tr>
                 </tbody>
             </table>
-
-            <button type="button" class="btn btn-default" ng-click="$ctrl.addRow()" aria-label="{{ 'Add item' | translate }}">{{ 'Add item' | translate }}</button>
         </div>
     </div>
 

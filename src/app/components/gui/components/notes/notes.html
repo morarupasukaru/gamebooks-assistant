@@ -1,42 +1,37 @@
 <div class="row">
     <div class="col-md-12">
         <table class="table table-striped">
-            <col style="width:{{ !$ctrl.readonly ? '85%' : '80%' }}">
+            <col style="width:85%">
             <col style="width:5%">
             <col style="width:10%">
-            <col style="width:5%" ng-if="!$ctrl.readonly">
+            <col style="width:5%">
             <thead>
             <tr>
                 <th>{{ 'Note' | translate }}</th>
                 <th>{{ 'Paragraph' | translate }}</th>
                 <th>{{ 'Player' | translate }}</th>
-                <th ng-if="!$ctrl.readonly"></th>
+                <th>
+                    <button type="button" class="btn btn-default" aria-label="{{ 'Add note' | translate}}" title="{{ 'Add note' | translate}}" ng-click="$ctrl.addRow()">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    </button>
+                </th>
             </tr>
             </thead>
             <tbody>
             <tr ng-repeat="row in $ctrl.rows">
-                <td ng-if="$ctrl.readonly">
-                    {{ row.note | translate }}
-                </td>
-                <td ng-if="!$ctrl.readonly">
+                <td>
                     <input type="text" class="form-control" ng-model="row.note">
                 </td>
 
-                <td ng-if="$ctrl.readonly">
-                    {{ row.paragraphNumber }}
-                </td>
-                <td ng-if="!$ctrl.readonly">
+                <td>
                     <input type="number" class="form-control" ng-model="row.paragraphNumber">
                 </td>
 
-                <td ng-if="$ctrl.readonly">
-                    {{ row.playerName }}
-                </td>
-                <td ng-if="!$ctrl.readonly">
+                <td>
                     <input type="text" class="form-control" ng-model="row.playerName">
                 </td>
 
-                <td ng-if="!$ctrl.readonly">
+                <td>
                     <button type="button" class="btn btn-danger" aria-label="{{ 'Remove note' | translate }} {{ row.note | translate }}" title="{{ 'Remove note' | translate }} '{{ row.note | translate }}'"
                             ng-click="$ctrl.removeRow(row)">
                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
@@ -45,7 +40,5 @@
             </tr>
             </tbody>
         </table>
-
-        <button type="button" class="btn btn-default" ng-click="$ctrl.addRow()" aria-label="{{ 'Add note' | translate }}" ng-if="!$ctrl.readonly">{{ 'Add note' | translate }}</button>
     </div>
 </div>

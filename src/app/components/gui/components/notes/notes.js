@@ -9,7 +9,6 @@ let notesModule = angular.module('app.components.gui.screen.notes', [])
         template,
         controller,
         bindings: {
-            readonly: '@',
             paragraphNumber: '@',
             playerName: '@',
             notes: '='
