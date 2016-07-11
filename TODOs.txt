@@ -38,9 +38,6 @@ technical:
         import, export for end-user, the goal is to export json & a dev can edit the object and merge data between "init data"
             => json export with end-of-line and with specific order
 
-small
-    space between buttons inhttp://localhost:3001/#/games/create/choose-items?bookName=The%20Warlock%20of%20Firetop%20Mountain&playerName=d&Skill=8&Stamina=17&Luck=8 (si absence de notes)
-
 features:
     editable notes
     url: bookId unique (check during register), e.g. /warlock-of-firetop-mountain/123?player=Pascal
