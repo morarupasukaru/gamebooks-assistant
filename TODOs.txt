@@ -62,6 +62,8 @@ features:
 
     translate note, choice, items of player?
 
-v2: paragraph with images & description > can be a gamebook completelly
+v2:
+    paragraph with images & description > can be a gamebook completelly
+    paths gameplays visualizer
 
 v arena: battle between two or more players?
