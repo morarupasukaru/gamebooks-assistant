@@ -1,5 +1,4 @@
 <navbar></navbar>
-<messages></messages>
 <main>
     <div class="container bg-white" role="main">
         <div class="page-header">
@@ -12,8 +11,8 @@
             <li class="active">{{ 'Choose Items' | translate }}</li>
         </ol>
 
+        <messages></messages>
 
-        <notes ng-if="$ctrl.isNotesDisplayed()" readonly="true" notes="$ctrl.getNotes()"></notes>
         <items ng-if="$ctrl.isItemsDisplayed()" items="$ctrl.getItems()"></items>
 
         <button type="button" class="btn btn-default">{{ 'Start Game' | translate }}</button>
