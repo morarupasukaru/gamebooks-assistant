@@ -1,9 +1,11 @@
 let self;
 class InGameController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService) {
+    constructor(preScreenLoadingInterceptorsCallerService, $location, constants) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
+        self.$location = $location;
+        self.constants = constants;
         this.paragraph = {
             paragraphNumber : 1,
             description : 'Start of the game\nStart of the game\nStart of the game\nStart of the game\nStart of the game\nStart of the game\n',
@@ -45,15 +47,12 @@ class InGameController {
         ];
     }
 
-    addRow() {
-        self.paragraph.choices.push( { paragraphNumber : self.inputParagraphNumber, description : self.inputDescription });
-        self.inputParagraphNumber = '';
-        self.inputDescription = '';
+    startBattle() {
+        self.$location.url(self.constants.url.battle)
     }
 
-    removeRow(removedRow) {
-        var index = self.paragraph.choices.indexOf(removedRow);
-        self.paragraph.choices.splice(index, 1);
+    jumpToParagraph() {
+        self.$location.url(self.constants.url.paragraph + "/" + self.paragraphNumber);
     }
 }
 

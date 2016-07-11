@@ -82,5 +82,10 @@
   "Go to Firetop Mountain" : "Se diriger vers la Montagne de feu",
   "PlayerName" : "Nom du personnage",
   "Random Stats" : "Générer attributs aléatoires",
-  "Choose Items" : "Choix inventaire"
+  "Choose Items" : "Choix inventaire",
+  "Paragraph number" : "Numéro du paragraphe",
+  "Go to paragraph" : "Aller au paragraphe",
+  "Start Battle" : "Débuter un combat",
+  "End Game" : "Abandonner le jeu",
+  "Edit Paragraph" : "Editer le paragraphe"
 }

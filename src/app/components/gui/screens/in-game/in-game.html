@@ -39,15 +39,15 @@
             <div class="col-md-12">
                 <div class="input-group">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">{{ 'Jump to paragraph' | translate }}</button>
+                        <button class="btn btn-default" type="button" ng-click="$ctrl.jumpToParagraph()">{{ 'Go to paragraph' | translate }}</button>
                     </span>
-                    <input type="text" class="form-control" placeholder="paragraph number">
+                    <input type="text" class="form-control" placeholder="{{ 'Paragraph number' | translate }}" ng-model="$ctrl.paragraphNumber">
                 </div>
             </div>
 
             <div class="col-md-12">
                 <div class="spacer"></div>
-                <button type="button" class="btn btn-default" ng-click="$ctrl.back()">{{ 'Start Battle' | translate }}</button>
+                <button type="button" class="btn btn-default" ng-click="$ctrl.startBattle()">{{ 'Start Battle' | translate }}</button>
                 <button type="button" class="btn btn-default" ng-click="$ctrl.back()">{{ 'End Game' | translate }}</button>
                 <button type="button" class="btn btn-default" ng-click="$ctrl.back()">{{ 'Edit Paragraph'| translate }}</button>
                 <div class="spacer"></div>
