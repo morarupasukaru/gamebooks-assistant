@@ -3,11 +3,6 @@ body {
     padding-top: 70px;
 }
 
-/* table hover */
-table tr:hover td {
-    background: lightgrey;
-}
-
 .ng-invalid:required {
     background-color: #ff9999 ! important;
 }
@@ -18,4 +13,8 @@ table tr:hover td {
 
 .spacer {
     margin:0; padding:0; height:10px;
+}
+
+.table-borderless tbody tr td, .table-borderless tbody tr th, .table-borderless thead tr th {
+    border: none;
 }
