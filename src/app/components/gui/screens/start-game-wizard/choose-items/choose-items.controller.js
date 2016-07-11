@@ -6,6 +6,7 @@ class ChooseItemsController {
         preScreenLoadingInterceptorsCallerService.intercept();
         self.booksService = booksService;
         self.book = booksService.getBook($stateParams.bookName);
+        self.playerItems = JSON.parse(JSON.stringify(self.book.items));
     }
 
     isItemsDisplayed() {
@@ -14,6 +15,10 @@ class ChooseItemsController {
 
     isNotesDisplayed() {
         return !!self.book.notes && self.book.notes.length > 0;
+    }
+
+    getItems() {
+        return self.playerItems;
     }
 
     getNotes() {

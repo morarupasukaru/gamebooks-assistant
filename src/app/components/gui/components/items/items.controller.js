@@ -4,12 +4,7 @@ class ItemsController {
     constructor(preScreenLoadingInterceptorsCallerService) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
-        this.rows = [
-            { quantity : 10, description : 'Meal (regain 4 stamina points)'},
-            { quantity : 1, description : 'Sword'},
-            { quantity : 1, description : 'Shield'},
-            { quantity : 1, description : 'Leather armor'}
-        ];
+        this.rows = this.items;
     }
 
     addRow() {

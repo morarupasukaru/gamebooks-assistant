@@ -39,7 +39,7 @@ technical:
             => json export with end-of-line and with specific order
 
 small
-    space between buttons inhttp://localhost:3001/#/games/create/choose-items?bookName=The%20Warlock%20of%20Firetop%20Mountain&playerName=d&Skill=8&Stamina=17&Luck=8
+    space between buttons inhttp://localhost:3001/#/games/create/choose-items?bookName=The%20Warlock%20of%20Firetop%20Mountain&playerName=d&Skill=8&Stamina=17&Luck=8 (si absence de notes)
 
 features:
     editable notes
@@ -58,6 +58,9 @@ features:
     url paragraph: .../bookName/#paragraphNb?playerName
     si url paragraph inexistant > cree paragraph
     mode paragraph screen without playername > no "player data"
+
+
+    translate note, choice, items of player?
 
 v2: paragraph with images & description > can be a gamebook completelly
 

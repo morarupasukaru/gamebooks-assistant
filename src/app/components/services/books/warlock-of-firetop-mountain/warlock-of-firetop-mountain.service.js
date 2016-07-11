@@ -25,39 +25,39 @@ class WarlockOfFiretopMountainService {
             items : [
                 {
                     quantity : 1,
-                    name : 'sword'
+                    description : 'sword'
                 },
                 {
                     quantity : 1,
-                    name : 'shield'
+                    description : 'shield'
                 },
                 {
                     quantity : 1,
-                    name : 'leather armour'
+                    description : 'leather armour'
                 },
                 {
                     quantity : 1,
-                    name : 'backpack'
+                    description : 'backpack'
                 },
                 {
                     quantity : 1,
-                    name : 'lantern'
+                    description : 'lantern'
                 },
                 {
                     quantity : 10,
-                    name : 'meal (add 4 points to stamina)'
+                    description : 'meal (add 4 points to stamina)'
                 },
                 {
                     quantity : 2,
-                    name : 'measure of potion of skill (restore skill points)'
+                    description : 'measure of potion of skill (restore skill points)'
                 },
                 {
                     quantity : 2,
-                    name : 'measure of potion of strength (restore stamina points)'
+                    description : 'measure of potion of strength (restore stamina points)'
                 },
                 {
                     quantity : 2,
-                    name : 'measure of potion of luck (increase initial luck by 1 point and restore luck points)'
+                    description : 'measure of potion of luck (increase initial luck by 1 point and restore luck points)'
                 }
             ],
             paragraphs : [

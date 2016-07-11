@@ -13,8 +13,8 @@
         </ol>
 
 
-        <items ng-if="$ctrl.isItemsDisplayed()"></items>
         <notes ng-if="$ctrl.isNotesDisplayed()" readonly="true" notes="$ctrl.getNotes()"></notes>
+        <items ng-if="$ctrl.isItemsDisplayed()" items="$ctrl.getItems()"></items>
 
         <button type="button" class="btn btn-default">{{ 'Start Game' | translate }}</button>
     </div>

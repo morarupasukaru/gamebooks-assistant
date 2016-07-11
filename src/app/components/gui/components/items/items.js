@@ -15,6 +15,12 @@ let itemsModule = angular.module('app.components.gui.screen.items', [
         });
     })
 
-    .component('items', { template, controller });
+    .component('items', {
+        template,
+        controller,
+        bindings: {
+            items: '='
+        }
+     });
 
 export default itemsModule;
