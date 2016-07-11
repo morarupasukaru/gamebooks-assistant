@@ -30,7 +30,7 @@
   "Add item" : "Ajoute un objet",
   "Remove item" : "Supprime l'objet",
   "Add note" : "Ajoute une note",
-  "Remove paragraph" : "Supprime le paragraphe",
+  "Remove choice" : "Supprime le choice",
   "Add choice" : "Ajoute un choix",
   "Current" : "Actuel",
   "Initial" : "Initiale",
@@ -86,5 +86,6 @@
   "Paragraph number" : "Numéro du paragraphe",
   "Go to paragraph" : "Aller au paragraphe",
   "Start Battle" : "Débuter un combat",
-  "End Game" : "Abandonner le jeu"
+  "End Game" : "Abandonner le jeu",
+  "Edit choice" : "Edite le choix"
 }
