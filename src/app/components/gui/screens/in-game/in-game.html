@@ -37,14 +37,35 @@
             </div>
 
             <div class="col-md-12">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">{{ 'Jump to paragraph' | translate }}</button>
+                    </span>
+                    <input type="text" class="form-control" placeholder="paragraph number">
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="spacer"></div>
+                <button type="button" class="btn btn-default" ng-click="$ctrl.back()">{{ 'Start Battle' | translate }}</button>
+                <button type="button" class="btn btn-default" ng-click="$ctrl.back()">{{ 'End Game' | translate }}</button>
+                <button type="button" class="btn btn-default" ng-click="$ctrl.back()">{{ 'Edit Paragraph'| translate }}</button>
+                <div class="spacer"></div>
+            </div>
+
+            <dices></dices>
+
+            <div class="col-md-12">
                 <notes notes="$ctrl.notes"></notes>
             </div>
 
             <div class="col-md-12">
+                <div class="spacer"></div>
                 <stats></stats>
             </div>
 
             <div class="col-md-12">
+                <div class="spacer"></div>
                 <items items="$ctrl.items" readonly="true"></items>
             </div>
         </div>
