@@ -10,7 +10,7 @@
                 <form>
                     <div class="form-group">
                         <label for="inputCurrentDescription">{{ 'Description' | translate }}</label>
-                        <textarea id="inputCurrentDescription" class="form-control" ng-model="$ctrl.paragraph.description"></textarea>
+                        <textarea id="inputCurrentDescription" class="form-control" ng-model="$ctrl.paragraph.description" readonly></textarea>
                     </div>
                 </form>
             </div>
@@ -18,13 +18,11 @@
             <div class="col-md-12">
                 <table class="table table-striped">
                     <col style="width:10%">
-                    <col style="width:85%">
-                    <col style="width:5%">
+                    <col style="width:90%">
                     <thead>
                     <tr>
                         <th>{{ 'Choice' | translate }}</th>
                         <th>{{ 'Description' | translate }}</th>
-                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -33,28 +31,13 @@
                             <button type="button" class="btn btn-default" aria-label="{{ 'Choice paragragh' | translate}} {{ row.paragraphNumber }}" title="{{ 'Choice paragragh' | translate}} '{{ row.paragraphNumber }}'" ng-click="$ctrl.goTo(row)">{{ row.paragraphNumber }}</button>
                         </td>
                         <td>{{ row.description}} </td>
-                        <td>
-                            <button type="button" class="btn btn-danger" aria-label="{{ 'Remove paragraph' | translate}} {{ row.paragraphNumber }}" title="{{ 'Remove paragraph' | translate}} '{{ row.paragraphNumber }}'" ng-click="$ctrl.removeRow(row)">
-                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                            </button>
-                        </td>
                     </tr>
                     </tbody>
                 </table>
             </div>
 
             <div class="col-md-12">
-                <form>
-                    <div class="form-group">
-                        <label for="inputParagraphNumber">{{ 'Paragraph' | translate }}</label>
-                        <input type="number" id="inputParagraphNumber" class="form-control" ng-model="$ctrl.inputParagraphNumber">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputDescription">{{ 'Description' | translate }}</label>
-                        <input type="text" id="inputDescription" class="form-control" ng-model="$ctrl.inputDescription">
-                    </div>
-                    <button type="button" class="btn btn-default" ng-click="$ctrl.addRow()" aria-label="{{ 'Add choice' | translate}}">{{ 'Add choice' | translate }}</button>
-                </form>
+                <notes notes="$ctrl.notes" readonly="true"></notes>
             </div>
         </div>
     </div>
