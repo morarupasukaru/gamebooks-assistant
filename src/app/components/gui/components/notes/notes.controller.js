@@ -9,11 +9,7 @@ class NotesController {
     }
 
     addRow(noteValue) {
-        if (!!noteValue) {
-            self.rows.push({ note : noteValue});
-        } else {
-            self.rows.push({});
-        }
+        self.rows.push({ note : noteValue, paragraphNumber : Number(self.paragraphNumber), playerName : self.playerName });
     }
 
     removeRow(removedRow) {

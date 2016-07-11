@@ -10,6 +10,8 @@ let notesModule = angular.module('app.components.gui.screen.notes', [])
         controller,
         bindings: {
             readonly: '@',
+            paragraphNumber: '@',
+            playerName: '@',
             notes: '='
         }
     });

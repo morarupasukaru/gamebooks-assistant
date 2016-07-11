@@ -45,6 +45,7 @@ class InGameController {
                 description : 'measure of potion of skill (restore skill points)'
             }
         ];
+        this.playerName = 'Donald';
     }
 
     startBattle() {
