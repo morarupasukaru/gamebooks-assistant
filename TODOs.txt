@@ -38,8 +38,12 @@ technical:
         import, export for end-user, the goal is to export json & a dev can edit the object and merge data between "init data"
             => json export with end-of-line and with specific order
 
+small
+    space between buttons inhttp://localhost:3001/#/games/create/choose-items?bookName=The%20Warlock%20of%20Firetop%20Mountain&playerName=d&Skill=8&Stamina=17&Luck=8
 
 features:
+    editable notes
+    url: bookId unique (check during register), e.g. /warlock-of-firetop-mountain/123?player=Pascal
     in game screens?
         paragraph + dices for luck + jump to # btn + end game btn
         battle
@@ -53,7 +57,6 @@ features:
     button "jump to paragraphNr"
     url paragraph: .../bookName/#paragraphNb?playerName
     si url paragraph inexistant > cree paragraph
-
     mode paragraph screen without playername > no "player data"
 
 v2: paragraph with images & description > can be a gamebook completelly

@@ -64,9 +64,6 @@ class WarlockOfFiretopMountainService {
                 {
                     paragraphNr : null,
                     description : 'Start',
-                    notes : [
-                        'Please choose either the potion of skill, strengh or luck (remove corresponding two unchoosen potions from items list.'
-                    ],
                     choices : [
                         {
                             paragraphNr : 1,
@@ -75,7 +72,9 @@ class WarlockOfFiretopMountainService {
                     ]
                 }
             ],
-            notes : []
+            notes : [
+                'Please choose either the potion of skill, strengh or luck (remove corresponding two unchoosen potions from items list.'
+            ]
         };
     }
 

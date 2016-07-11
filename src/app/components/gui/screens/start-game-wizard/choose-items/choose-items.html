@@ -12,8 +12,9 @@
             <li class="active">{{ 'Choose Items' | translate }}</li>
         </ol>
 
+
         <items ng-if="$ctrl.isItemsDisplayed()"></items>
-        <notes ng-if="$ctrl.isNotesDisplayed()" readonly="false" notes="{{ $ctrl.getNotes() }}"></notes>
+        <notes ng-if="$ctrl.isNotesDisplayed()" readonly="true" notes="{{ $ctrl.getNotes() }}"></notes>
 
         <button type="button" class="btn btn-default">{{ 'Start Game' | translate }}</button>
     </div>
