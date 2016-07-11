@@ -8,9 +8,10 @@ import VersionDisplay from './version-display/version-display';
 import Popup from './popup/popup';
 import Items from './items/items';
 import Notes from './notes/notes';
+import Stats from './stats/stats';
 
 let guiComponentsModule = angular.module('app.components.gui.components', [
-    Dices.name, Messages.name, Navbar.name, LanguagePicker.name, SavedDataAdmin.name, VersionDisplay.name, Popup.name, Items.name, Notes.name
+    Dices.name, Messages.name, Navbar.name, LanguagePicker.name, SavedDataAdmin.name, VersionDisplay.name, Popup.name, Items.name, Notes.name, Stats.name
 ]);
 
 export default guiComponentsModule;
