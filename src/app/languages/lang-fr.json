@@ -88,5 +88,6 @@
   "Start Battle" : "Débuter un combat",
   "End Game" : "Abandonner le jeu",
   "Edit choice" : "Edite le choix",
-  "Are you sure to remove the enemy?" : "Voulez-vous supprimer l'enemi?"
+  "Are you sure to remove the enemy?" : "Voulez-vous supprimer l'enemi?",
+  "Are you sure to remove the item?" : "Voulez-vous supprimer l'object?"
 }

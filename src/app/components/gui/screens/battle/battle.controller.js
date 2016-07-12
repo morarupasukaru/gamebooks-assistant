@@ -36,10 +36,10 @@ class BattleController {
 
     displayRemovePopup(removedRow) {
         self.rowToBeRemoved = removedRow;
-        self.popupService.show(self.popupDeleteEnemyConfig.id, self.callbackPopupDeleteEnemy);
+        self.popupService.show(self.popupDeleteEnemyConfig.id, self.callbackRemovePopup);
     }
 
-    callbackPopupDeleteEnemy(popupDomElementId, choice) {
+    callbackRemovePopup(popupDomElementId, choice) {
         if (choice === self.constants.choices.yes) {
             self.removeRow(self.rowToBeRemoved);
         }

@@ -21,7 +21,10 @@
                     <td><input type="number" class="form-control" ng-model="row.quantity"></td>
                     <td><input type="text" class="form-control" ng-model="row.description"></td>
                     <td>
-                        <button type="button" class="btn btn-danger" aria-label="{{ 'Remove item' | translate }} {{ row.description | translate }}" title="{{ 'Remove item' | translate }} '{{ row.description | translate }}'" ng-click="$ctrl.removeRow(row)">
+                        <button type="button" class="btn btn-danger"
+                                aria-label="{{ 'Remove item' | translate }} {{ row.description | translate }}"
+                                title="{{ 'Remove item' | translate }} '{{ row.description | translate }}'"
+                                ng-click="$ctrl.displayRemovePopup(row)">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         </button>
                     </td>
