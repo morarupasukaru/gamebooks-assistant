@@ -60,7 +60,10 @@
                             </button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-danger" aria-label="{{ 'Remove choice' | translate}} {{ row.paragraphNumber }}" title="{{ 'Remove choice' | translate}} '{{ row.paragraphNumber }}'" ng-click="$ctrl.removeRow(row)">
+                            <button type="button" class="btn btn-danger"
+                                    aria-label="{{ 'Remove choice' | translate}} {{ row.paragraphNumber }}"
+                                    title="{{ 'Remove choice' | translate}} '{{ row.paragraphNumber }}'"
+                                    ng-click="$ctrl.displayRemovePopup(row)">
                                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                             </button>
                         </td>
