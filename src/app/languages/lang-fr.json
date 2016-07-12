@@ -91,5 +91,6 @@
   "Are you sure to remove the enemy?" : "Voulez-vous supprimer l'enemi?",
   "Are you sure to remove the item?" : "Voulez-vous supprimer l'object?",
   "Are you sure to remove the choice?" : "Voulez-vous supprimer le choix?",
-  "Are you sure to remove the note?" : "Voulez-vous supprimer la note?"
+  "Are you sure to remove the note?" : "Voulez-vous supprimer la note?",
+  "Are you sure to abandon this game?" : "Voulez-vous abandonner la partie en cours?"
 }
