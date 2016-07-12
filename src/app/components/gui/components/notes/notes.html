@@ -33,7 +33,7 @@
 
                 <td>
                     <button type="button" class="btn btn-danger" aria-label="{{ 'Remove note' | translate }} {{ row.note | translate }}" title="{{ 'Remove note' | translate }} '{{ row.note | translate }}'"
-                            ng-click="$ctrl.removeRow(row)">
+                            ng-click="$ctrl.displayRemovePopup(row)">
                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                     </button>
                 </td>
