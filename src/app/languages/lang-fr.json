@@ -22,8 +22,8 @@
   "Skill" : "Habilité",
   "Stamina" : "Endurance",
   "Luck" : "Chance",
-  "Add monster" : "Ajoute un monstre",
-  "Remove monster" : "Supprime le monstre",
+  "Add enemy" : "Ajoute un enemi",
+  "Remove enemy" : "Supprime l'enemi",
   "Name" : "Nom",
   "Quantity" : "Quantité",
   "Description" : "Description",
@@ -87,5 +87,6 @@
   "Go to paragraph" : "Aller au paragraphe",
   "Start Battle" : "Débuter un combat",
   "End Game" : "Abandonner le jeu",
-  "Edit choice" : "Edite le choix"
+  "Edit choice" : "Edite le choix",
+  "Are you sure to remove the enemy?" : "Voulez-vous supprimer l'enemi?"
 }

@@ -42,7 +42,7 @@
                             </button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-danger" aria-label="{{ 'Remove monster' | translate }} {{ row.name | translate }}" title="{{ 'Remove monster' | translate }} '{{ row.name | translate }}'" ng-click="$ctrl.removeRow(row)" ng-if="$ctrl.isRemoveAllowed(row)">
+                            <button type="button" class="btn btn-danger" aria-label="{{ 'Remove enemy' | translate }} {{ row.name | translate }}" title="{{ 'Remove enemy' | translate }} '{{ row.name | translate }}'" ng-click="$ctrl.displayRemovePopup(row)" ng-if="$ctrl.isRemoveAllowed(row)">
                                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                             </button>
                         </td>
@@ -69,8 +69,10 @@
                         <input type="number" id="inputStamina" class="form-control" ng-model="$ctrl.inputStamina">
                     </div>
                     <button type="button" class="btn btn-default" ng-click="$ctrl.back()">{{ 'Back' | translate }}</button>
-                    <button type="button" class="btn btn-default" aria-label="{{ 'Add monster' | translate }}" ng-click="$ctrl.addRow()">{{ 'Add monster' | translate }}</button>
+                    <button type="button" class="btn btn-default" aria-label="{{ 'Add enemy' | translate }}" ng-click="$ctrl.addRow()">{{ 'Add enemy' | translate }}</button>
                 </form>
             </div>
         </div>
+
+        <popup config="{{ $ctrl.popupDeleteEnemyConfig }}"></popup>
 </main>

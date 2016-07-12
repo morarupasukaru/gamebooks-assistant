@@ -4,9 +4,10 @@
 let self;
 class MessagesService {
     /*@ngInject*/
-    constructor($rootScope) {
+    constructor($rootScope, $translate) {
         self = this;
         self.$rootScope = $rootScope;
+        self.$translate = $translate;
 
         if (!self.$rootScope.messages) {
             self.$rootScope.messages = [];
@@ -42,9 +43,10 @@ class MessagesService {
     }
 
     _addMessage(msg, type, keepAfterLocationChange) {
-        if (!self._hasMessage(msg, type)) {
+        let translatedMsg = self.$translate.instant(msg);
+        if (!self._hasMessage(translatedMsg, type)) {
             self.$rootScope.messages.push({
-                message: msg,
+                message: translatedMsg,
                 type: type,
                 keepAfterLocationChange: keepAfterLocationChange
             });

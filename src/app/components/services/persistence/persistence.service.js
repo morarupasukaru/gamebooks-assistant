@@ -2,11 +2,10 @@ let self;
 class PersistenceService {
 
     /*@ngInject*/
-    constructor(softwareRequirementsCheckerService, constants, $translate, messagesService, $rootScope) {
+    constructor(softwareRequirementsCheckerService, constants, messagesService, $rootScope) {
         self = this;
         self.isLocalStorageSupported = softwareRequirementsCheckerService.isLocalStorageSupported();
         self.constants = constants;
-        self.$translate = $translate;
         self.messagesService = messagesService;
 
 
@@ -73,7 +72,7 @@ class PersistenceService {
     import(dataAsString) {
         self.messagesService.clearMessages();
         if (!dataAsString) {
-            self.messagesService.errorMessage(self.$translate.instant('Missing import data'), false);
+            self.messagesService.errorMessage('Missing import data', false);
             return ;
         }
         let importAppData = null;
@@ -82,7 +81,7 @@ class PersistenceService {
         } catch(err) {
         }
         if (!importAppData) {
-            self.messagesService.errorMessage(self.$translate.instant('Invalid import data'), false);
+            self.messagesService.errorMessage('Invalid import data', false);
             return ;
         }
         localStorage.setItem(self.constants.data, JSON.stringify(importAppData));

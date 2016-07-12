@@ -1,10 +1,21 @@
 let self;
 class BattleController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $window) {
+    constructor(preScreenLoadingInterceptorsCallerService, $window, popupService, constants) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
         self.$window = $window;
+        self.popupService = popupService;
+        self.constants = constants;
+
+        self.popupDeleteEnemyConfig = {
+            id : 'popupDeleteEnemy',
+            text : 'Are you sure to remove the enemy?',
+            choices : [constants.choices.yes, constants.choices.no],
+            withCloseButton : false,
+            closeOnClickOutsideModal : false
+        };
+
         this.rows = [
             { name: 'Player', skill : 11, stamina : 18 },
             { name: 'Goblin 1', skill : 5, stamina : 5 },
@@ -21,6 +32,18 @@ class BattleController {
 
     decrement(row) {
         row.stamina = row.stamina - 1;
+    }
+
+    displayRemovePopup(removedRow) {
+        self.rowToBeRemoved = removedRow;
+        self.popupService.show(self.popupDeleteEnemyConfig.id, self.callbackPopupDeleteEnemy);
+    }
+
+    callbackPopupDeleteEnemy(popupDomElementId, choice) {
+        if (choice === self.constants.choices.yes) {
+            self.removeRow(self.rowToBeRemoved);
+        }
+        self.rowToBeRemoved = null;
     }
 
     removeRow(removedRow) {
