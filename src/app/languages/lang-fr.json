@@ -92,5 +92,8 @@
   "Are you sure to remove the item?" : "Voulez-vous supprimer l'object?",
   "Are you sure to remove the choice?" : "Voulez-vous supprimer le choix?",
   "Are you sure to remove the note?" : "Voulez-vous supprimer la note?",
-  "Are you sure to abandon this game?" : "Voulez-vous abandonner la partie en cours?"
+  "Are you sure to abandon this game?" : "Voulez-vous abandonner la partie en cours?",
+  "Edit description" : "Modifie la description",
+  "Save description changes" : "Sauvegarde les changements de la description",
+  "Abort description changes" : "Annule les changements de la description"
 }

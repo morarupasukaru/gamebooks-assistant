@@ -14,17 +14,36 @@
                     <thead>
                     <tr>
                         <th>{{ 'Description' | translate }}</th>
-                        <th></th>
+                        <th>
+                        </th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
                         <td>
-                            <textarea id="inputCurrentDescription" class="form-control" ng-model="$ctrl.paragraph.description"></textarea>
+                            <textarea id="inputCurrentDescription" class="form-control" ng-model="$ctrl.paragraph.description" ng-readonly="!$ctrl.isDescriptionEditable()"></textarea>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-default" aria-label="{{ 'Edit description' | translate}}" title="{{ 'Edit description' | translate}}'" ng-click="$ctrl.editDescription()">
+                            <button type="button" class="btn btn-default"
+                                    aria-label="{{ 'Edit description' | translate}}"
+                                    title="{{ 'Edit description' | translate}}"
+                                    ng-click="$ctrl.editDescription()"
+                                    ng-show="!$ctrl.isDescriptionEditable()">
                                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                            </button>
+                            <button type="button" class="btn btn-success"
+                                    aria-label="{{ 'Save description changes' | translate}}"
+                                    title="{{ 'Save description changes' | translate}}"
+                                    ng-click="$ctrl.saveDescriptionChanges()"
+                                    ng-show="$ctrl.isDescriptionEditable()">
+                                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                            </button>
+                            <button type="button" class="btn btn-danger"
+                                    aria-label="{{ 'Abort description changes' | translate}}"
+                                    title="{{ 'Abort description changes' | translate}}"
+                                    ng-click="$ctrl.abortDescriptionChanges()"
+                                    ng-show="$ctrl.isDescriptionEditable()">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                             </button>
                         </td>
                     </tr>

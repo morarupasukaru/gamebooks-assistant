@@ -23,6 +23,8 @@ class ParagraphController {
                 { paragraphNumber : 65, description : 'West'}
             ]
         };
+
+        this.descriptionEditable = false;
     }
 
     addRow() {
@@ -46,6 +48,26 @@ class ParagraphController {
     removeRow(removedRow) {
         var index = self.paragraph.choices.indexOf(removedRow);
         self.paragraph.choices.splice(index, 1);
+    }
+
+    editDescription() {
+        self.descriptionEditable = true;
+        self.originalDescription = self.paragraph.description;
+    }
+
+    isDescriptionEditable() {
+        return self.descriptionEditable;
+    }
+
+    saveDescriptionChanges() {
+        self.originalDescription = null;
+        this.descriptionEditable = false;
+    }
+
+    abortDescriptionChanges() {
+        self.paragraph.description = self.originalDescription;
+        self.originalDescription = null;
+        this.descriptionEditable = false;
     }
 }
 
