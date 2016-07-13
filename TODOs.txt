@@ -40,6 +40,13 @@ technical:
 
     in-game: popup > how-to disable jump to text?
 
+    force tooltip "playername missing"
+    translate "Please fill the ..."
+    editable note, items in in-game screen as for choices
+    better dice > table
+    actions as table
+    editable battle as with choice (> replace icon to increment stats)
+
 features:
     editable notes
     url: bookId unique (check during register), e.g. /warlock-of-firetop-mountain/123?player=Pascal

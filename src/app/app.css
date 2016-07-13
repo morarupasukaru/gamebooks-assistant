@@ -3,14 +3,6 @@ body {
     padding-top: 70px;
 }
 
-.ng-invalid:required {
-    background-color: #ff9999 ! important;
-}
-
-:required {
-    background-color: #ffff99;
-}
-
 .spacer {
     margin:0; padding:0; height:10px;
 }
