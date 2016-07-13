@@ -9,9 +9,10 @@ import Popup from './popup/popup';
 import Items from './items/items';
 import Notes from './notes/notes';
 import Stats from './stats/stats';
+import Paragraph from './paragraph/paragraph';
 
 let guiComponentsModule = angular.module('app.components.gui.components', [
-    Dices.name, Messages.name, Navbar.name, LanguagePicker.name, SavedDataAdmin.name, VersionDisplay.name, Popup.name, Items.name, Notes.name, Stats.name
+    Dices.name, Messages.name, Navbar.name, LanguagePicker.name, SavedDataAdmin.name, VersionDisplay.name, Popup.name, Items.name, Notes.name, Stats.name, Paragraph.name
 ]);
 
 export default guiComponentsModule;

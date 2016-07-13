@@ -5,90 +5,30 @@
         <div class="page-header">
             <h1>{{ 'Paragraph' | translate }} {{ $ctrl.paragraph.paragraphNumber }}</h1>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <form>
-                    <div class="form-group">
-                        <label for="inputCurrentDescription">{{ 'Description' | translate }}</label>
-                        <textarea id="inputCurrentDescription" class="form-control" ng-model="$ctrl.paragraph.description" readonly></textarea>
-                    </div>
-                </form>
-            </div>
 
-            <div class="col-md-12">
-                <table class="table table-striped">
-                    <col style="width:10%">
-                    <col style="width:85%">
-                    <col style="width:5%">
-                    <thead>
-                    <tr>
-                        <th>{{ 'Choice' | translate }}</th>
-                        <th>{{ 'Description' | translate }}</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="row in $ctrl.paragraph.choices">
-                        <td>
-                            <button type="button" class="btn btn-default" aria-label="{{ 'Choice paragragh' | translate}} {{ row.paragraphNumber }}" title="{{ 'Choice paragragh' | translate}} '{{ row.paragraphNumber }}'" ng-click="$ctrl.goTo(row)">{{ row.paragraphNumber }}</button>
-                        </td>
-                        <td>{{ row.description}} </td>
-                        <td>
-                            <button type="button" class="btn btn-danger" aria-label="{{ 'Remove paragraph' | translate}} {{ row.paragraphNumber }}" title="{{ 'Remove paragraph' | translate}} '{{ row.paragraphNumber }}'" ng-click="$ctrl.removeRow(row)">
-                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                            </button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+        <paragraph></paragraph>
 
-            <div class="col-md-12">
-                <form>
-                    <div class="form-group">
-                        <label for="inputParagraphNumber">{{ 'Paragraph' | translate }}</label>
-                        <input type="number" id="inputParagraphNumber" class="form-control" ng-model="$ctrl.inputParagraphNumber">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputDescription">{{ 'Description' | translate }}</label>
-                        <input type="text" id="inputDescription" class="form-control" ng-model="$ctrl.inputDescription">
-                    </div>
-                    <button type="button" class="btn btn-default" ng-click="$ctrl.addRow()" aria-label="{{ 'Add choice' | translate}}">{{ 'Add choice' | translate }}</button>
-                </form>
-            </div>
-
-            <div class="col-md-12">
-                <div class="input-group">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" ng-click="$ctrl.jumpToParagraph()">{{ 'Go to paragraph' | translate }}</button>
-                    </span>
-                    <input type="text" id="test" class="form-control" placeholder="{{ 'Paragraph number' | translate }}" ng-model="$ctrl.paragraphNumber">
-                </div>
-            </div>
-
-            <div class="col-md-12">
-                <div class="spacer"></div>
-                <button type="button" class="btn btn-default" ng-click="$ctrl.startBattle()">{{ 'Start Battle' | translate }}</button>
-                <button type="button" class="btn btn-danger" ng-click="$ctrl.displayAbandonGamePopup()">{{ 'End Game' | translate }}</button>
-                <div class="spacer"></div>
-            </div>
-
-            <dices></dices>
-
-            <div class="col-md-12">
-                <notes notes="$ctrl.notes" paragraph-number="{{$ctrl.paragraph.paragraphNumber}}" player-name="{{$ctrl.playerName}}"></notes>
-            </div>
-
-            <div class="col-md-12">
-                <div class="spacer"></div>
-                <stats></stats>
-            </div>
-
-            <div class="col-md-12">
-                <div class="spacer"></div>
-                <items items="$ctrl.items" readonly="true"></items>
-            </div>
+        <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" ng-click="$ctrl.jumpToParagraph()">{{ 'Go to paragraph' | translate }}</button>
+                </span>
+            <input type="text" id="test" class="form-control" placeholder="{{ 'Paragraph number' | translate }}" ng-model="$ctrl.paragraphNumber">
         </div>
+
+        <div class="spacer"></div>
+        <button type="button" class="btn btn-default" ng-click="$ctrl.startBattle()">{{ 'Start Battle' | translate }}</button>
+        <button type="button" class="btn btn-danger" ng-click="$ctrl.displayAbandonGamePopup()">{{ 'End Game' | translate }}</button>
+        <div class="spacer"></div>
+
+        <dices></dices>
+
+        <notes notes="$ctrl.notes" paragraph-number="{{$ctrl.paragraph.paragraphNumber}}" player-name="{{$ctrl.playerName}}"></notes>
+
+        <div class="spacer"></div>
+        <stats></stats>
+
+        <div class="spacer"></div>
+        <items items="$ctrl.items" readonly="true"></items>
     </div>
 
     <popup config="{{ $ctrl.popupAbandonGameConfig }}"></popup>

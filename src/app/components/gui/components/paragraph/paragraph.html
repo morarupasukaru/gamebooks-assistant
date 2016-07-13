@@ -1,0 +1,119 @@
+<table class="table table-borderless">
+    <col style="width:95%">
+    <col style="width:5%">
+    <thead>
+    <tr>
+        <th>{{ 'Description' | translate }}</th>
+        <th>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            <textarea id="inputCurrentDescription" class="form-control" ng-model="$ctrl.paragraph.description" ng-readonly="!$ctrl.isDescriptionEditable()"></textarea>
+        </td>
+        <td>
+            <button type="button" class="btn btn-default"
+                    aria-label="{{ 'Edit description' | translate}}"
+                    title="{{ 'Edit description' | translate}}"
+                    ng-click="$ctrl.editDescription()"
+                    ng-show="!$ctrl.isDescriptionEditable()">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="btn btn-success"
+                    aria-label="{{ 'Save description changes' | translate}}"
+                    title="{{ 'Save description changes' | translate}}"
+                    ng-click="$ctrl.saveDescriptionChanges()"
+                    ng-show="$ctrl.isDescriptionEditable()">
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="btn btn-danger"
+                    aria-label="{{ 'Abort description changes' | translate}}"
+                    title="{{ 'Abort description changes' | translate}}"
+                    ng-click="$ctrl.abortDescriptionChanges()"
+                    ng-show="$ctrl.isDescriptionEditable()">
+                <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<table class="table table-striped">
+    <col style="width:10%">
+    <col style="width:80%">
+    <col style="width:5%">
+    <col style="width:5%">
+    <thead>
+    <tr>
+        <th>{{ 'Choice' | translate }}</th>
+        <th>{{ 'Description' | translate }}</th>
+        <th></th>
+        <th>
+            <button type="button" class="btn btn-default"
+                    aria-label="{{ 'Add choice' | translate}}"
+                    title="{{ 'Add choice' | translate}}"
+                    ng-click="$ctrl.addRow()"
+                    ng-show="!$ctrl.hasEditedChoice()">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </button>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="row in $ctrl.paragraph.choices">
+        <td ng-if="!$ctrl.isChoiceEditable(row) && !$ctrl.hasEditedChoice()">
+            <button type="button" class="btn btn-default" aria-label="{{ 'Choice paragragh' | translate}} {{ row.paragraphNumber }}" title="{{ 'Choice paragragh' | translate}} '{{ row.paragraphNumber }}'" ng-click="$ctrl.goTo(row)">{{ row.paragraphNumber }}</button>
+        </td>
+        <td ng-if="!$ctrl.isChoiceEditable(row)">
+            {{ row.paragraphNumber }}
+        </td>
+        <td ng-if="$ctrl.isChoiceEditable(row)">
+            <input type="number" class="form-control" ng-model="row.paragraphNumber">
+        </td>
+
+        <td ng-if="!$ctrl.isChoiceEditable(row)">
+            {{ row.description | translate }}
+        </td>
+        <td ng-if="$ctrl.isChoiceEditable(row)">
+            <input type="text" class="form-control" ng-model="row.description">
+        </td>
+
+        <td>
+            <button type="button" class="btn btn-default"
+                    aria-label="{{ 'Edit choice' | translate}} {{ row.paragraphNumber }}"
+                    title="{{ 'Edit choice' | translate}} '{{ row.paragraphNumber }}'"
+                    ng-click="$ctrl.editRow(row)"
+                    ng-show="!$ctrl.hasEditedChoice()">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="btn btn-success"
+                    aria-label="{{ 'Save choice changes' | translate}}"
+                    title="{{ 'Save choice changes' | translate}}"
+                    ng-click="$ctrl.saveChoiceChanges()"
+                    ng-show="$ctrl.isChoiceEditable(row)">
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            </button>
+        </td>
+        <td>
+            <button type="button" class="btn btn-danger"
+                    aria-label="{{ 'Remove choice' | translate}} {{ row.paragraphNumber }}"
+                    title="{{ 'Remove choice' | translate}} '{{ row.paragraphNumber }}'"
+                    ng-click="$ctrl.displayRemovePopup(row)"
+                    ng-show="!$ctrl.hasEditedChoice()">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="btn btn-danger"
+                    aria-label="{{ 'Abort choice changes' | translate}}"
+                    title="{{ 'Abort choice changes' | translate}}"
+                    ng-click="$ctrl.abortChoiceChanges()"
+                    ng-show="$ctrl.isChoiceEditable(row)">
+                <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<popup config="{{ $ctrl.popupDeleteChoiceConfig }}"></popup>

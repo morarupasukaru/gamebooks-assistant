@@ -1,46 +1,42 @@
-<div class="row">
-    <div class="col-md-12">
-        <table class="table table-striped">
-            <col style="width:85%">
-            <col style="width:5%">
-            <col style="width:10%">
-            <col style="width:5%">
-            <thead>
-            <tr>
-                <th>{{ 'Note' | translate }}</th>
-                <th>{{ 'Paragraph' | translate }}</th>
-                <th>{{ 'Player' | translate }}</th>
-                <th>
-                    <button type="button" class="btn btn-default" aria-label="{{ 'Add note' | translate}}" title="{{ 'Add note' | translate}}" ng-click="$ctrl.addRow()">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                    </button>
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="row in $ctrl.rows">
-                <td>
-                    <input type="text" class="form-control" ng-model="row.note">
-                </td>
+<table class="table table-striped">
+    <col style="width:85%">
+    <col style="width:5%">
+    <col style="width:10%">
+    <col style="width:5%">
+    <thead>
+    <tr>
+        <th>{{ 'Note' | translate }}</th>
+        <th>{{ 'Paragraph' | translate }}</th>
+        <th>{{ 'Player' | translate }}</th>
+        <th>
+            <button type="button" class="btn btn-default" aria-label="{{ 'Add note' | translate}}" title="{{ 'Add note' | translate}}" ng-click="$ctrl.addRow()">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </button>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="row in $ctrl.rows">
+        <td>
+            <input type="text" class="form-control" ng-model="row.note">
+        </td>
 
-                <td>
-                    <input type="number" class="form-control" ng-model="row.paragraphNumber">
-                </td>
+        <td>
+            <input type="number" class="form-control" ng-model="row.paragraphNumber">
+        </td>
 
-                <td>
-                    <input type="text" class="form-control" ng-model="row.playerName">
-                </td>
+        <td>
+            <input type="text" class="form-control" ng-model="row.playerName">
+        </td>
 
-                <td>
-                    <button type="button" class="btn btn-danger" aria-label="{{ 'Remove note' | translate }} {{ row.note | translate }}" title="{{ 'Remove note' | translate }} '{{ row.note | translate }}'"
-                            ng-click="$ctrl.displayRemovePopup(row)">
-                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    </button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+        <td>
+            <button type="button" class="btn btn-danger" aria-label="{{ 'Remove note' | translate }} {{ row.note | translate }}" title="{{ 'Remove note' | translate }} '{{ row.note | translate }}'"
+                    ng-click="$ctrl.displayRemovePopup(row)">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>
 
-    <popup config="{{ $ctrl.popupDeleteNoteConfig }}"></popup>
-</div>
+<popup config="{{ $ctrl.popupDeleteNoteConfig }}"></popup>

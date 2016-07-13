@@ -15,7 +15,6 @@ let constantsModule = angular.module('app.components.constants', [])
             configuration: '/configuration',
             games : '/games',
             root: '/',
-            paragraph: '/paragraph',
             selectBookForNewGame : '/games/create/select-book',
             createPlayerForNewGame : '/games/create/create-player',
             chooseItemsForNewGame : '/games/create/choose-items',

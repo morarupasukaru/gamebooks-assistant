@@ -1,39 +1,32 @@
-<div>
-    <div class="row">
-        <div class="col-md-12">
-            <table class="table table-striped">
-                <col style="width:10%">
-                <col style="width:85%">
-                <col style="width:5%">
-                <thead>
-                <tr>
-                    <th>{{ 'Quantity' | translate }}</th>
-                    <th>{{ 'Description' | translate }}</th>
-                    <th>
-                        <button type="button" class="btn btn-default" aria-label="{{ 'Add item' | translate}}" title="{{ 'Add item' | translate}}" ng-click="$ctrl.addRow()">
-                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                        </button>
-                    </th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr ng-repeat="row in $ctrl.rows">
-                    <td><input type="number" class="form-control" ng-model="row.quantity"></td>
-                    <td><input type="text" class="form-control" ng-model="row.description"></td>
-                    <td>
-                        <button type="button" class="btn btn-danger"
-                                aria-label="{{ 'Remove item' | translate }} {{ row.description | translate }}"
-                                title="{{ 'Remove item' | translate }} '{{ row.description | translate }}'"
-                                ng-click="$ctrl.displayRemovePopup(row)">
-                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                        </button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+<table class="table table-striped">
+    <col style="width:10%">
+    <col style="width:85%">
+    <col style="width:5%">
+    <thead>
+    <tr>
+        <th>{{ 'Quantity' | translate }}</th>
+        <th>{{ 'Description' | translate }}</th>
+        <th>
+            <button type="button" class="btn btn-default" aria-label="{{ 'Add item' | translate}}" title="{{ 'Add item' | translate}}" ng-click="$ctrl.addRow()">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </button>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="row in $ctrl.rows">
+        <td><input type="number" class="form-control" ng-model="row.quantity"></td>
+        <td><input type="text" class="form-control" ng-model="row.description"></td>
+        <td>
+            <button type="button" class="btn btn-danger"
+                    aria-label="{{ 'Remove item' | translate }} {{ row.description | translate }}"
+                    title="{{ 'Remove item' | translate }} '{{ row.description | translate }}'"
+                    ng-click="$ctrl.displayRemovePopup(row)">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>
 
-    <popup config="{{ $ctrl.popupDeleteItemConfig }}"></popup>
-
-</div>
+<popup config="{{ $ctrl.popupDeleteItemConfig }}"></popup>
