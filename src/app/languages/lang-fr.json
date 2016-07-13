@@ -95,5 +95,7 @@
   "Are you sure to abandon this game?" : "Voulez-vous abandonner la partie en cours?",
   "Edit description" : "Modifie la description",
   "Save description changes" : "Sauvegarde les changements de la description",
-  "Abort description changes" : "Annule les changements de la description"
+  "Abort description changes" : "Annule les changements de la description",
+  "Save choice changes" : "Sauvegarde les changements du choix",
+  "Abort choice changes" : "Annule les changements du choix"
 }

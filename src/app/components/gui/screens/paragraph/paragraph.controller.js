@@ -25,13 +25,14 @@ class ParagraphController {
         };
 
         this.descriptionEditable = false;
-        this.editedChoice = null;
     }
 
     addRow() {
-        self.paragraph.choices.push( { paragraphNumber : self.inputParagraphNumber, description : self.inputDescription });
+        let choice = { paragraphNumber : self.inputParagraphNumber, description : self.inputDescription };
+        self.paragraph.choices.push(choice);
         self.inputParagraphNumber = '';
         self.inputDescription = '';
+        self.addChoice = choice;
     }
 
     displayRemovePopup(removedRow) {
@@ -62,21 +63,47 @@ class ParagraphController {
 
     saveDescriptionChanges() {
         self.originalDescription = null;
-        this.descriptionEditable = false;
+        self.descriptionEditable = false;
     }
 
     abortDescriptionChanges() {
         self.paragraph.description = self.originalDescription;
         self.originalDescription = null;
-        this.descriptionEditable = false;
+        self.descriptionEditable = false;
+    }
+
+    editRow(choice) {
+        self.editedChoice = choice;
+        self.originalChoice = { paragraphNumber : choice.paragraphNumber, description : choice.description };
     }
 
     isChoiceEditable(choice) {
-        return choice === editedChoice;
+        return choice === self.editedChoice || choice === self.addChoice;
     }
 
     hasEditedChoice() {
-        return !!editedChoice;
+        return !!self.editedChoice || !! self.addChoice;
+    }
+
+    saveChoiceChanges() {
+        self.clearEditedChoice();
+    }
+
+    abortChoiceChanges() {
+        if (!!self.addChoice) {
+            self.removeRow(self.addChoice);
+        }
+        if (!!self.editedChoice) {
+            self.editedChoice.paragraphNumber = self.originalChoice.paragraphNumber;
+            self.editedChoice.description = self.originalChoice.description;
+        }
+        self.clearEditedChoice();
+    }
+
+    clearEditedChoice() {
+        self.addChoice = null;
+        self.editedChoice = null;
+        self.originalChoice = null;
     }
 }
 
