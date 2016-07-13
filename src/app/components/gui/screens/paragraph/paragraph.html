@@ -61,7 +61,11 @@
                         <th>{{ 'Description' | translate }}</th>
                         <th></th>
                         <th>
-                            <button type="button" class="btn btn-default" aria-label="{{ 'Add choice' | translate}}" title="{{ 'Add choice' | translate}}" ng-click="$ctrl.addRow()">
+                            <button type="button" class="btn btn-default"
+                                    aria-label="{{ 'Add choice' | translate}}"
+                                    title="{{ 'Add choice' | translate}}"
+                                    ng-click="$ctrl.addRow()"
+                                    ng-show="!$ctrl.hasEditedChoice()">
                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                             </button>
                         </th>
@@ -72,9 +76,13 @@
                         <td>
                             <button type="button" class="btn btn-default" aria-label="{{ 'Choice paragragh' | translate}} {{ row.paragraphNumber }}" title="{{ 'Choice paragragh' | translate}} '{{ row.paragraphNumber }}'" ng-click="$ctrl.goTo(row)">{{ row.paragraphNumber }}</button>
                         </td>
-                        <td>{{ row.description}} </td>
+                        <td>{{ row.description | translate }} </td>
                         <td>
-                            <button type="button" class="btn btn-default" aria-label="{{ 'Edit choice' | translate}} {{ row.paragraphNumber }}" title="{{ 'Edit choice' | translate}} '{{ row.paragraphNumber }}'" ng-click="$ctrl.editRow(row)">
+                            <button type="button" class="btn btn-default"
+                                    aria-label="{{ 'Edit choice' | translate}} {{ row.paragraphNumber }}"
+                                    title="{{ 'Edit choice' | translate}} '{{ row.paragraphNumber }}'"
+                                    ng-click="$ctrl.editRow(row)"
+                                    ng-show="!$ctrl.hasEditedChoice()">
                                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                             </button>
                         </td>
@@ -82,7 +90,8 @@
                             <button type="button" class="btn btn-danger"
                                     aria-label="{{ 'Remove choice' | translate}} {{ row.paragraphNumber }}"
                                     title="{{ 'Remove choice' | translate}} '{{ row.paragraphNumber }}'"
-                                    ng-click="$ctrl.displayRemovePopup(row)">
+                                    ng-click="$ctrl.displayRemovePopup(row)"
+                                    ng-show="!$ctrl.hasEditedChoice()">
                                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                             </button>
                         </td>

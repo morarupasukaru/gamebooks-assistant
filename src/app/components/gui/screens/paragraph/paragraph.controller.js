@@ -25,6 +25,7 @@ class ParagraphController {
         };
 
         this.descriptionEditable = false;
+        this.editedChoice = null;
     }
 
     addRow() {
@@ -68,6 +69,14 @@ class ParagraphController {
         self.paragraph.description = self.originalDescription;
         self.originalDescription = null;
         this.descriptionEditable = false;
+    }
+
+    isChoiceEditable(choice) {
+        return choice === editedChoice;
+    }
+
+    hasEditedChoice() {
+        return !!editedChoice;
     }
 }
 
