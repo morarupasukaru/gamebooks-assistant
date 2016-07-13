@@ -3,6 +3,14 @@ body {
     padding-top: 70px;
 }
 
+.ng-invalid.ng-dirty:required {
+    background-color: #ff9999 ! important;
+}
+
+.error {
+    color: #ff9999;
+}
+
 .spacer {
     margin:0; padding:0; height:10px;
 }

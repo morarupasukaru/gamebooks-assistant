@@ -6,7 +6,8 @@
             <h1>{{ 'New game' | translate }}</h1>
         </div>
 
-        <form name="playerForm">
+        <!-- novalidate="novalidate" allow to do not display untranslated tooltip "Fill out this field" -->
+        <form name="playerForm" novalidate="novalidate">
             <ol class="breadcrumb">
                 <li>{{ 'Select Book' | translate }}</li>
                 <li class="active">{{ 'Create Player' | translate }}</li>
@@ -14,8 +15,11 @@
             </ol>
 
             <div class="form-group">
-                <label for="playerName">{{ 'PlayerName' | translate }}</label>
+                <label for="playerName">{{ 'PlayerName' | translate }}*</label>
                 <input type="text" required class="form-control" id="playerName" ng-model="$ctrl.playerName">
+                <div class="error" ng-show="playerForm.$invalid">
+                    {{ 'Please fill the player name' | translate }}
+                </div>
             </div>
 
             <div class="form-group" ng-repeat="stats in $ctrl.stats">
