@@ -50,10 +50,6 @@ technical:
 features:
     editable notes
     url: bookId unique (check during register), e.g. /warlock-of-firetop-mountain/123?player=Pascal
-    in game screens?
-        paragraph + dices for luck + jump to # btn + end game btn
-        battle
-        stats, items, notes > paragraph?
     "terminate game"
     add favicons
     add dice icons
@@ -64,8 +60,6 @@ features:
     url paragraph: .../bookName/#paragraphNb?playerName
     si url paragraph inexistant > cree paragraph
     mode paragraph screen without playername > no "player data"
-
-
     translate note, choice, items of player?
 
 v2:

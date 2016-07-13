@@ -14,12 +14,10 @@
                 </span>
             <input type="text" id="test" class="form-control" placeholder="{{ 'Paragraph number' | translate }}" ng-model="$ctrl.paragraphNumber">
         </div>
-
         <div class="spacer"></div>
         <button type="button" class="btn btn-default" ng-click="$ctrl.startBattle()">{{ 'Start Battle' | translate }}</button>
         <button type="button" class="btn btn-danger" ng-click="$ctrl.displayAbandonGamePopup()">{{ 'End Game' | translate }}</button>
         <div class="spacer"></div>
-
         <dices></dices>
 
         <notes notes="$ctrl.notes" paragraph-number="{{$ctrl.paragraph.paragraphNumber}}" player-name="{{$ctrl.playerName}}"></notes>
