@@ -44,6 +44,8 @@ technical:
     actions as table
     editable battle as with choice (> replace icon to increment stats)
 
+    edit > display remove instead of remove directly available
+
 features:
     editable notes
     url: bookId unique (check during register), e.g. /warlock-of-firetop-mountain/123?player=Pascal
