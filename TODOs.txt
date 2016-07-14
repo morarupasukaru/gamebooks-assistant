@@ -40,7 +40,6 @@ technical:
 
     in-game: popup > how-to disable jump to text?
 
-    editable items in in-game screen as for choices
     better dice > table
     actions as table
     editable battle as with choice (> replace icon to increment stats)

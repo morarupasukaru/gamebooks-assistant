@@ -103,5 +103,10 @@
   "Edit note" : "Modifie la note",
   "Save note changes" : "Sauvegarde les changements de la note",
   "Abort note changes" : "Annule les changements de la note",
-  "Please fill the note" : "Veuilliez saisir la note"
+  "Please fill the note" : "Veuilliez saisir la note",
+  "Please fill the quantity" : "Veuilliez saisir la quantité",
+  "Please fill the description" : "Veuilliez saisir la description",
+  "Edit item" : "Modifie l'objet",
+  "Save item changes" : "Sauvegarde les changements de l'objet",
+  "Abort item changes" : "Annule les changements de l'objet"
 }

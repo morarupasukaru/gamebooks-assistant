@@ -18,7 +18,9 @@ class ItemsController {
     }
 
     addRow() {
-        self.rows.push({ quantity: 1});
+        let row = { quantity: 1};
+        self.rows.push(row);
+        self.addedRow = row;
     }
 
     displayRemovePopup(removedRow) {
@@ -36,6 +38,43 @@ class ItemsController {
     removeRow(removedRow) {
         var index = self.rows.indexOf(removedRow);
         self.rows.splice(index, 1);
+    }
+
+    editRow(row) {
+        self.editedRow = row;
+        self.originalRow = { quantity : row.quantity, description : row.description };
+    }
+
+    isRowEdited(row) {
+        return row === self.editedRow || row === self.addedRow;
+    }
+
+    hasEditedRow() {
+        return !!self.editedRow || !! self.addedRow;
+    }
+
+    saveRowChanges($invalid) {
+        if ($invalid) {
+            return ;
+        }
+        self.clearEditedRow();
+    }
+
+    abortRowChanges() {
+        if (!!self.addedRow) {
+            self.removeRow(self.addedRow);
+        }
+        if (!!self.editedRow) {
+            self.editedRow.quantity = self.originalRow.quantity;
+            self.editedRow.description = self.originalRow.description;
+        }
+        self.clearEditedRow();
+    }
+
+    clearEditedRow() {
+        self.addedRow = null;
+        self.editedRow = null;
+        self.originalRow = null;
     }
 }
 
