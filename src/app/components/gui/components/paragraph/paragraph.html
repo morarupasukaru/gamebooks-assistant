@@ -55,7 +55,7 @@
                     aria-label="{{ 'Add choice' | translate}}"
                     title="{{ 'Add choice' | translate}}"
                     ng-click="$ctrl.addRow()"
-                    ng-show="!$ctrl.hasEditedChoice()">
+                    ng-show="!$ctrl.hasEditedRow()">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
         </th>
@@ -63,20 +63,24 @@
     </thead>
     <tbody>
     <tr ng-repeat="row in $ctrl.paragraph.choices">
-        <td ng-if="!$ctrl.isChoiceEditable(row) && !$ctrl.hasEditedChoice()">
-            <button type="button" class="btn btn-default" aria-label="{{ 'Choice paragragh' | translate}} {{ row.paragraphNumber }}" title="{{ 'Choice paragragh' | translate}} '{{ row.paragraphNumber }}'" ng-click="$ctrl.goTo(row)">{{ row.paragraphNumber }}</button>
+        <td ng-if="!$ctrl.isRowEdited(row) && !$ctrl.hasEditedRow()">
+            <button type="button" class="btn btn-default"
+                    aria-label="{{ 'Choice paragragh' | translate}} {{ row.paragraphNumber }}"
+                    title="{{ 'Choice paragragh' | translate}} '{{ row.paragraphNumber }}'"
+                    ng-click="$ctrl.goTo(row)">{{ row.paragraphNumber }}
+            </button>
         </td>
-        <td ng-if="$ctrl.hasEditedChoice() && !$ctrl.isChoiceEditable(row)">
+        <td ng-if="!$ctrl.isRowEdited(row) && $ctrl.hasEditedRow()">
             {{ row.paragraphNumber }}
         </td>
-        <td ng-if="$ctrl.isChoiceEditable(row)">
+        <td ng-if="$ctrl.isRowEdited(row)">
             <input type="number" class="form-control" ng-model="row.paragraphNumber">
         </td>
 
-        <td ng-if="!$ctrl.isChoiceEditable(row)">
+        <td ng-if="!$ctrl.isRowEdited(row)">
             {{ row.description | translate }}
         </td>
-        <td ng-if="$ctrl.isChoiceEditable(row)">
+        <td ng-if="$ctrl.isRowEdited(row)">
             <input type="text" class="form-control" ng-model="row.description">
         </td>
 
@@ -85,14 +89,14 @@
                     aria-label="{{ 'Edit choice' | translate}} {{ row.paragraphNumber }}"
                     title="{{ 'Edit choice' | translate}} '{{ row.paragraphNumber }}'"
                     ng-click="$ctrl.editRow(row)"
-                    ng-show="!$ctrl.hasEditedChoice()">
+                    ng-show="!$ctrl.hasEditedRow()">
                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
             </button>
             <button type="button" class="btn btn-success"
                     aria-label="{{ 'Save choice changes' | translate}}"
                     title="{{ 'Save choice changes' | translate}}"
-                    ng-click="$ctrl.saveChoiceChanges()"
-                    ng-show="$ctrl.isChoiceEditable(row)">
+                    ng-click="$ctrl.saveRowChanges()"
+                    ng-show="$ctrl.isRowEdited(row)">
                 <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
             </button>
         </td>
@@ -101,14 +105,14 @@
                     aria-label="{{ 'Remove choice' | translate}} {{ row.paragraphNumber }}"
                     title="{{ 'Remove choice' | translate}} '{{ row.paragraphNumber }}'"
                     ng-click="$ctrl.displayRemovePopup(row)"
-                    ng-show="!$ctrl.hasEditedChoice()">
+                    ng-show="!$ctrl.hasEditedRow()">
                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
             </button>
             <button type="button" class="btn btn-danger"
                     aria-label="{{ 'Abort choice changes' | translate}}"
                     title="{{ 'Abort choice changes' | translate}}"
-                    ng-click="$ctrl.abortChoiceChanges()"
-                    ng-show="$ctrl.isChoiceEditable(row)">
+                    ng-click="$ctrl.abortRowChanges()"
+                    ng-show="$ctrl.isRowEdited(row)">
                 <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
             </button>
         </td>

@@ -77,19 +77,19 @@ class ParagraphController {
         self.originalChoice = { paragraphNumber : choice.paragraphNumber, description : choice.description };
     }
 
-    isChoiceEditable(choice) {
+    isRowEdited(choice) {
         return choice === self.editedChoice || choice === self.addChoice;
     }
 
-    hasEditedChoice() {
+    hasEditedRow() {
         return !!self.editedChoice || !! self.addChoice;
     }
 
-    saveChoiceChanges() {
-        self.clearEditedChoice();
+    saveRowChanges() {
+        self.clearEditedRow();
     }
 
-    abortChoiceChanges() {
+    abortRowChanges() {
         if (!!self.addChoice) {
             self.removeRow(self.addChoice);
         }
@@ -97,10 +97,10 @@ class ParagraphController {
             self.editedChoice.paragraphNumber = self.originalChoice.paragraphNumber;
             self.editedChoice.description = self.originalChoice.description;
         }
-        self.clearEditedChoice();
+        self.clearEditedRow();
     }
 
-    clearEditedChoice() {
+    clearEditedRow() {
         self.addChoice = null;
         self.editedChoice = null;
         self.originalChoice = null;
