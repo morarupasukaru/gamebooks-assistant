@@ -85,7 +85,10 @@ class ParagraphController {
         return !!self.editedRow || !! self.addedRow;
     }
 
-    saveRowChanges() {
+    saveRowChanges($invalid) {
+        if ($invalid) {
+            return ;
+        }
         self.clearEditedRow();
     }
 

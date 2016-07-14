@@ -98,5 +98,6 @@
   "Abort description changes" : "Annule les changements de la description",
   "Save choice changes" : "Sauvegarde les changements du choix",
   "Abort choice changes" : "Annule les changements du choix",
-  "Please fill the player name" : "Veuilliez saisir le nom du personnage"
+  "Please fill the player name" : "Veuilliez saisir le nom du personnage",
+  "Please fill the paragraph number" : "Veuilliez saisir le numéro du paragraphe"
 }
