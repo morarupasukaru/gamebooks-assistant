@@ -40,7 +40,7 @@
     </tbody>
 </table>
 
-<form name="choiceTableForm" novalidate="novalidate">
+<form name="choicesTableForm" novalidate="novalidate">
     <table class="table table-striped">
         <col style="width:10%">
         <col style="width:80%">
@@ -76,7 +76,7 @@
                 </td>
                 <td ng-if="$ctrl.isRowEdited(row)">
                     <input id="rowParagraphNumber" type="number" required class="form-control" ng-model="row.paragraphNumber">
-                    <div class="error" ng-show="choiceTableForm.$invalid">
+                    <div class="error" ng-show="choicesTableForm.$invalid">
                         {{ 'Please fill the paragraph number' | translate }}
                     </div>
                 </td>
@@ -99,7 +99,7 @@
                     <button type="button" class="btn btn-success"
                             aria-label="{{ 'Save choice changes' | translate}}"
                             title="{{ 'Save choice changes' | translate}}"
-                            ng-click="$ctrl.saveRowChanges(choiceTableForm.$invalid)"
+                            ng-click="$ctrl.saveRowChanges(choicesTableForm.$invalid)"
                             ng-show="$ctrl.isRowEdited(row)">
                         <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                     </button>

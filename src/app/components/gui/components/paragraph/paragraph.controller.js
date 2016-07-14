@@ -72,13 +72,13 @@ class ParagraphController {
         self.descriptionEditable = false;
     }
 
-    editRow(choice) {
-        self.editedRow = choice;
-        self.originalRow = { paragraphNumber : choice.paragraphNumber, description : choice.description };
+    editRow(row) {
+        self.editedRow = row;
+        self.originalRow = { paragraphNumber : row.paragraphNumber, description : row.description };
     }
 
-    isRowEdited(choice) {
-        return choice === self.editedRow || choice === self.addedRow;
+    isRowEdited(row) {
+        return row === self.editedRow || row === self.addedRow;
     }
 
     hasEditedRow() {

@@ -20,7 +20,9 @@ class NotesController {
     }
 
     addRow(noteValue) {
-        self.rows.push({ note : noteValue, paragraphNumber : Number(self.paragraphNumber), playerName : self.playerName });
+        let row = { note : noteValue, paragraphNumber : Number(self.paragraphNumber), playerName : self.playerName };
+        self.rows.push(row);
+        self.addedRow = row;
     }
 
     displayRemovePopup(removedRow) {
@@ -38,6 +40,44 @@ class NotesController {
     removeRow(removedRow) {
         var index = self.rows.indexOf(removedRow);
         self.rows.splice(index, 1);
+    }
+
+    editRow(row) {
+        self.editedRow = row;
+        self.originalRow = { note : row.note, paragraphNumber : row.paragraphNumber, playerName : row.playerName };
+    }
+
+    isRowEdited(row) {
+        return row === self.editedRow || row === self.addedRow;
+    }
+
+    hasEditedRow() {
+        return !!self.editedRow || !! self.addedRow;
+    }
+
+    saveRowChanges($invalid) {
+        if ($invalid) {
+            return ;
+        }
+        self.clearEditedRow();
+    }
+
+    abortRowChanges() {
+        if (!!self.addedRow) {
+            self.removeRow(self.addedRow);
+        }
+        if (!!self.editedRow) {
+            self.editedRow.note = self.originalRow.note;
+            self.editedRow.paragraphNumber = self.originalRow.paragraphNumber;
+            self.editedRow.playerName = self.originalRow.playerName;
+        }
+        self.clearEditedRow();
+    }
+
+    clearEditedRow() {
+        self.addedRow = null;
+        self.editedRow = null;
+        self.originalRow = null;
     }
 }
 

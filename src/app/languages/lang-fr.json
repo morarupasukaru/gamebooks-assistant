@@ -99,5 +99,9 @@
   "Save choice changes" : "Sauvegarde les changements du choix",
   "Abort choice changes" : "Annule les changements du choix",
   "Please fill the player name" : "Veuilliez saisir le nom du personnage",
-  "Please fill the paragraph number" : "Veuilliez saisir le numéro du paragraphe"
+  "Please fill the paragraph number" : "Veuilliez saisir le numéro du paragraphe",
+  "Edit note" : "Modifie la note",
+  "Save note changes" : "Sauvegarde les changements de la note",
+  "Abort note changes" : "Annule les changements de la note",
+  "Please fill the note" : "Veuilliez saisir la note"
 }
