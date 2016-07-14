@@ -28,11 +28,11 @@ class ParagraphController {
     }
 
     addRow() {
-        let choice = { paragraphNumber : self.inputParagraphNumber, description : self.inputDescription };
-        self.paragraph.choices.push(choice);
+        let row = { paragraphNumber : self.inputParagraphNumber, description : self.inputDescription };
+        self.paragraph.choices.push(row);
         self.inputParagraphNumber = '';
         self.inputDescription = '';
-        self.addChoice = choice;
+        self.addedRow = row;
     }
 
     displayRemovePopup(removedRow) {
@@ -73,16 +73,16 @@ class ParagraphController {
     }
 
     editRow(choice) {
-        self.editedChoice = choice;
-        self.originalChoice = { paragraphNumber : choice.paragraphNumber, description : choice.description };
+        self.editedRow = choice;
+        self.originalRow = { paragraphNumber : choice.paragraphNumber, description : choice.description };
     }
 
     isRowEdited(choice) {
-        return choice === self.editedChoice || choice === self.addChoice;
+        return choice === self.editedRow || choice === self.addedRow;
     }
 
     hasEditedRow() {
-        return !!self.editedChoice || !! self.addChoice;
+        return !!self.editedRow || !! self.addedRow;
     }
 
     saveRowChanges() {
@@ -90,20 +90,20 @@ class ParagraphController {
     }
 
     abortRowChanges() {
-        if (!!self.addChoice) {
-            self.removeRow(self.addChoice);
+        if (!!self.addedRow) {
+            self.removeRow(self.addedRow);
         }
-        if (!!self.editedChoice) {
-            self.editedChoice.paragraphNumber = self.originalChoice.paragraphNumber;
-            self.editedChoice.description = self.originalChoice.description;
+        if (!!self.editedRow) {
+            self.editedRow.paragraphNumber = self.originalRow.paragraphNumber;
+            self.editedRow.description = self.originalRow.description;
         }
         self.clearEditedRow();
     }
 
     clearEditedRow() {
-        self.addChoice = null;
-        self.editedChoice = null;
-        self.originalChoice = null;
+        self.addedRow = null;
+        self.editedRow = null;
+        self.originalRow = null;
     }
 }
 
