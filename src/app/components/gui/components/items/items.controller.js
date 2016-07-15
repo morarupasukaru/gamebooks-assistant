@@ -38,6 +38,7 @@ class ItemsController {
     removeRow(removedRow) {
         var index = self.rows.indexOf(removedRow);
         self.rows.splice(index, 1);
+        self.clearEditedRow();
     }
 
     editRow(row) {

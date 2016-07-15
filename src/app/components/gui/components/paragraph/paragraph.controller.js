@@ -50,6 +50,7 @@ class ParagraphController {
     removeRow(removedRow) {
         var index = self.paragraph.choices.indexOf(removedRow);
         self.paragraph.choices.splice(index, 1);
+        self.clearEditedRow();
     }
 
     editDescription() {

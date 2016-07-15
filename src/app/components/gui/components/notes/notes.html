@@ -1,8 +1,9 @@
 <form name="notesTableForm" novalidate="novalidate">
     <table class="table table-striped">
-        <col style="width:80%">
+        <col style="width:75%">
         <col style="width:5%">
         <col style="width:10%">
+        <col style="width:5%">
         <col style="width:5%">
         <col style="width:5%">
         <thead>
@@ -10,6 +11,7 @@
             <th>{{ 'Note' | translate }}</th>
             <th>{{ 'Paragraph' | translate }}</th>
             <th>{{ 'Player' | translate }}</th>
+            <th></th>
             <th></th>
             <th>
                 <button type="button" class="btn btn-default"
@@ -48,15 +50,7 @@
                 <input type="text" class="form-control" ng-model="row.playerName">
             </td>
 
-
             <td>
-                <button type="button" class="btn btn-default"
-                        aria-label="{{ 'Edit note' | translate}} '{{ row.note | translate }}'"
-                        title="{{ 'Edit note' | translate}} '{{ row.note | translate }}'"
-                        ng-click="$ctrl.editRow(row)"
-                        ng-show="!$ctrl.hasEditedRow()">
-                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                </button>
                 <button type="button" class="btn btn-success"
                         aria-label="{{ 'Save note changes' | translate}}"
                         title="{{ 'Save note changes' | translate}}"
@@ -68,18 +62,29 @@
 
             <td>
                 <button type="button" class="btn btn-danger"
-                        aria-label="{{ 'Remove note' | translate }} '{{ row.note | translate }}'"
-                        title="{{ 'Remove note' | translate }} '{{ row.note | translate }}'"
-                        ng-click="$ctrl.displayRemovePopup(row)"
-                        ng-show="!$ctrl.hasEditedRow()">
-                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                </button>
-                <button type="button" class="btn btn-danger"
                         aria-label="{{ 'Abort note changes' | translate}}"
                         title="{{ 'Abort note changes' | translate}}"
                         ng-click="$ctrl.abortRowChanges()"
                         ng-show="$ctrl.isRowEdited(row)">
                     <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+                </button>
+            </td>
+
+            <td>
+                <button type="button" class="btn btn-default"
+                        aria-label="{{ 'Edit note' | translate}} '{{ row.note | translate }}'"
+                        title="{{ 'Edit note' | translate}} '{{ row.note | translate }}'"
+                        ng-click="$ctrl.editRow(row)"
+                        ng-show="!$ctrl.hasEditedRow()">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="btn btn-danger"
+                        aria-label="{{ 'Remove note' | translate }} '{{ row.note | translate }}'"
+                        title="{{ 'Remove note' | translate }} '{{ row.note | translate }}'"
+                        ng-click="$ctrl.displayRemovePopup(row)"
+                        ng-disabled="$ctrl.addedRow"
+                        ng-show="$ctrl.isRowEdited(row)">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 </button>
             </td>
         </tr>
