@@ -12,7 +12,12 @@
             <th></th>
             <th></th>
             <th>
-                <button type="button" class="btn btn-default" aria-label="{{ 'Add item' | translate}}" title="{{ 'Add item' | translate}}" ng-click="$ctrl.addRow()">
+                <button type="button"
+                        class="btn btn-default"
+                        aria-label="{{ 'Add item' | translate}}"
+                        title="{{ 'Add item' | translate}}"
+                        ng-show="!$ctrl.hasEditedRow()"
+                        ng-click="$ctrl.addRow()">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </button>
             </th>

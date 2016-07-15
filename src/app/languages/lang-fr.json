@@ -108,5 +108,12 @@
   "Please fill the description" : "Veuilliez saisir la description",
   "Edit item" : "Modifie l'objet",
   "Save item changes" : "Sauvegarde les changements de l'objet",
-  "Abort item changes" : "Annule les changements de l'objet"
+  "Abort item changes" : "Annule les changements de l'objet",
+  "Edit enemy" : "Modifie l'ennemi",
+  "Save enemy changes" : "Sauvegarde les changements de l'ennemi",
+  "Abort enemy changes" : "Annule les changements de l'ennemi",
+  "Enemy" : "Ennemi",
+  "Please fill the name" : "Veuilliez saisir le nom",
+  "Please fill the stamina" : "Veuilliez compléter l'endurance",
+  "Please fill the skill" : "Veuilliez compléter l'habilité"
 }

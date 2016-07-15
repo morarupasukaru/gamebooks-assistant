@@ -20,8 +20,6 @@ class BattleController {
             { name: 'Player', skill : 11, stamina : 18 },
             { name: 'Goblin 1', skill : 5, stamina : 5 },
         ];
-        self.monsterCount = 1;
-        self.inputName = this.getNextMonsterName();
         self.inputSkill = 5;
         self.inputStamina = 5;
     }
@@ -49,23 +47,60 @@ class BattleController {
     removeRow(removedRow) {
         var index = self.rows.indexOf(removedRow);
         self.rows.splice(index, 1);
+        self.clearEditedRow();
     }
 
-    isRemoveAllowed(row) {
+    isEnemy(row) {
+        // TODO player in argument
         return "Player" !== row.name;
     }
 
     addRow() {
-        self.rows.push({ name: self.inputName, skill: self.inputSkill, stamina: self.inputStamina});
-        self.inputName = self.getNextMonsterName();
-    }
-
-    getNextMonsterName() {
-        return 'Monster ' + self.monsterCount++;
+        let row = { name: 'Enemy', skill: 1, stamina: 1};
+        self.rows.push(row);
+        self.addedRow = row;
     }
 
     back() {
         self.$window.history.back();
+    }
+
+    editRow(row) {
+        self.editedRow = row;
+        self.originalRow = { name : row.name, skill: row.skill, stamina: row.stamina};
+    }
+
+    isRowEdited(row) {
+        return row === self.editedRow || row === self.addedRow;
+    }
+
+    hasEditedRow() {
+        return !!self.editedRow || !! self.addedRow;
+    }
+
+    saveRowChanges($invalid) {
+        if ($invalid) {
+            return ;
+        }
+        self.clearEditedRow();
+    }
+
+    abortRowChanges() {
+        if (!!self.addedRow) {
+            self.removeRow(self.addedRow);
+        }
+        if (!!self.editedRow) {
+            self.editedRow.name = self.originalRow.name;
+            self.editedRow.skill = self.originalRow.skill;
+            self.editedRow.stamina = self.originalRow.stamina;
+        }
+        self.clearEditedRow();
+    }
+
+    clearEditedRow() {
+        self.addedRow = null;
+        self.editedRow = null;
+        self.originalRow = null;
     }
 }
 
