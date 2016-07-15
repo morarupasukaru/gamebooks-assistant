@@ -71,7 +71,7 @@
                                 title="{{ 'Increment' | translate }} {{ 'Stamina' | translate }}"
                                 ng-click="$ctrl.increment(row)"
                                 ng-show="!$ctrl.hasEditedRow()">
-                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
                         </button>
                         <button type="button" class="btn btn-success"
                                 aria-label="{{ 'Save enemy changes' | translate}}"
@@ -88,7 +88,7 @@
                                 title="{{ 'Decrement' | translate }} {{ 'Stamina' | translate }}"
                                 ng-click="$ctrl.decrement(row)"
                                 ng-show="!$ctrl.hasEditedRow()">
-                            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>
                         </button>
                         <button type="button" class="btn btn-danger"
                                 aria-label="{{ 'Abort enemy changes' | translate}}"
@@ -124,6 +124,8 @@
         </form>
 
         <dices></dices>
+
+        <button type="button" class="btn btn-default" ng-click="$ctrl.back()">{{ 'Back' | translate }}</button>
 
         <popup config="{{ $ctrl.popupDeleteEnemyConfig }}"></popup>
 </main>

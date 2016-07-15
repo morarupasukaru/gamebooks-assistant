@@ -16,8 +16,9 @@ class BattleController {
             closeOnClickOutsideModal : false
         };
 
+        this.playerName = 'Donald';
         this.rows = [
-            { name: 'Player', skill : 11, stamina : 18 },
+            { name: self.playerName, skill : 11, stamina : 18 },
             { name: 'Goblin 1', skill : 5, stamina : 5 },
         ];
         self.inputSkill = 5;
@@ -51,8 +52,7 @@ class BattleController {
     }
 
     isEnemy(row) {
-        // TODO player in argument
-        return "Player" !== row.name;
+        return self.playerName !== row.name;
     }
 
     addRow() {
@@ -101,6 +101,10 @@ class BattleController {
         self.addedRow = null;
         self.editedRow = null;
         self.originalRow = null;
+    }
+
+    back() {
+        self.$window.history.back();
     }
 }
 
