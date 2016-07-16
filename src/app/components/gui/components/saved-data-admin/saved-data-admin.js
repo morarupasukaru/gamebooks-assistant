@@ -1,5 +1,4 @@
 import angular from 'angular';
-import uiRouter from 'angular-ui-router';
 
 import template from './saved-data-admin.html';
 import controller from './saved-data-admin.controller';

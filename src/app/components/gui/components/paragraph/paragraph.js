@@ -1,5 +1,4 @@
 import angular from 'angular';
-import uiRouter from 'angular-ui-router';
 
 import template from './paragraph.html';
 import controller from './paragraph.controller';

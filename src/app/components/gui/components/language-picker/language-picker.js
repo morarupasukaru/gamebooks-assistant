@@ -1,5 +1,4 @@
 import angular from 'angular';
-import uiRouter from 'angular-ui-router';
 
 import template from './language-picker.html';
 import controller from './language-picker.controller';

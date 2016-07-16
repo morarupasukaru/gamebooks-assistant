@@ -18,15 +18,30 @@
             </td>
 
             <td>
-                <button class="btn btn-default" ng-click="$ctrl.roll1d6()" title="{{ 'Roll one dice 6 faces' | translate }}">{{ 'Roll 1D6' | translate }}</button>
+                <button class="btn btn-default"
+                        ng-click="$ctrl.roll1d6()"
+                        aria-label="{{ 'Roll one dice 6 faces' | translate }}"
+                        title="{{ 'Roll one dice 6 faces' | translate }}">
+                    {{ 'Roll 1D6' | translate }}
+                </button>
             </td>
 
             <td>
-                <button class="btn btn-default" ng-click="$ctrl.roll2d6()" title="{{ 'Roll two dices 6 faces' | translate }}">{{ '2D6' | translate }}</button>
+                <button class="btn btn-default"
+                        ng-click="$ctrl.roll2d6()"
+                        aria-label="{{ 'Roll two dices 6 faces' | translate }}"
+                        title="{{ 'Roll two dices 6 faces' | translate }}">
+                    {{ '2D6' | translate }}
+                </button>
             </td>
 
             <td>
-                <button class="btn btn-default glyphicon glyphicon-erase" title="{{ 'Clear values' | translate }}" ng-click="$ctrl.clear()"></button>
+                <button class="btn btn-default glyphicon glyphicon-erase"
+                        title="{{ 'Clear values' | translate }}"
+                        aria-label="{{ 'Clear values' | translate }}"
+                        ng-click="$ctrl.clear()">
+
+                </button>
             </td>
         </tr>
         </tbody>

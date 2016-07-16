@@ -102,14 +102,6 @@ class BattleController {
         self.editedRow = null;
         self.originalRow = null;
     }
-
-    isBackDisabled() {
-        return self.$window.history.length < 2;
-    }
-
-    back() {
-        self.$window.history.back();
-    }
 }
 
 export default BattleController;

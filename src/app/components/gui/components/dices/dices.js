@@ -1,5 +1,4 @@
 import angular from 'angular';
-import uiRouter from 'angular-ui-router';
 
 import template from './dices.html';
 import controller from './dices.controller';

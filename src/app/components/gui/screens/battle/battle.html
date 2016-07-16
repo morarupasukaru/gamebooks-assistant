@@ -124,8 +124,8 @@
         </form>
 
         <dices></dices>
-
-        <button type="button" class="btn btn-default" ng-click="$ctrl.back()" ng-disabled="$ctrl.isBackDisabled()">{{ 'Back' | translate }}</button>
+        <back-button></back-button>
 
         <popup config="{{ $ctrl.popupDeleteEnemyConfig }}"></popup>
+        {{ 'Back' | translate }}
 </main>

@@ -1,5 +1,4 @@
 import angular from 'angular';
-import uiRouter from 'angular-ui-router';
 
 import template from './notes.html';
 import controller from './notes.controller';
