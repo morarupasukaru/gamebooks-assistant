@@ -86,13 +86,13 @@
   "Paragraph number" : "Numéro du paragraphe",
   "Go to paragraph" : "Aller au paragraphe",
   "Start Battle" : "Débuter un combat",
-  "End Game" : "Abandonner le jeu",
+  "End Game" : "Terminer la partie",
   "Edit choice" : "Edite le choix",
   "Are you sure to remove the enemy?" : "Voulez-vous supprimer l'enemi?",
   "Are you sure to remove the item?" : "Voulez-vous supprimer l'object?",
   "Are you sure to remove the choice?" : "Voulez-vous supprimer le choix?",
   "Are you sure to remove the note?" : "Voulez-vous supprimer la note?",
-  "Are you sure to abandon this game?" : "Voulez-vous abandonner la partie en cours?",
+  "Are you sure to abandon this game?" : "Voulez-vous terminer la partie en cours?",
   "Edit description" : "Modifie la description",
   "Save description changes" : "Sauvegarde les changements de la description",
   "Abort description changes" : "Annule les changements de la description",
@@ -115,5 +115,7 @@
   "Enemy" : "Ennemi",
   "Please fill the name" : "Veuilliez saisir le nom",
   "Please fill the stamina" : "Veuilliez compléter l'endurance",
-  "Please fill the skill" : "Veuilliez compléter l'habilité"
+  "Please fill the skill" : "Veuilliez compléter l'habilité",
+  "Values" : "Valeurs",
+  "Reason" : "Raison"
 }

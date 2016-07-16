@@ -103,6 +103,10 @@ class BattleController {
         self.originalRow = null;
     }
 
+    isBackDisabled() {
+        return self.$window.history.length < 2;
+    }
+
     back() {
         self.$window.history.back();
     }

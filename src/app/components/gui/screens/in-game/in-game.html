@@ -8,16 +8,43 @@
 
         <paragraph></paragraph>
 
-        <div class="input-group">
-                <span class="input-group-btn">
+        <table class="table table-striped">
+            <col style="width:5%">
+            <col style="width:95%">
+            <thead>
+            <tr>
+                <th>{{ 'Actions' | translate }}</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <button type="button" class="btn btn-default" ng-click="$ctrl.startBattle()">{{ 'Start Battle' | translate }}</button>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
                     <button class="btn btn-default" type="button" ng-click="$ctrl.jumpToParagraph()">{{ 'Go to paragraph' | translate }}</button>
-                </span>
-            <input type="text" id="test" class="form-control" placeholder="{{ 'Paragraph number' | translate }}" ng-model="$ctrl.paragraphNumber">
-        </div>
-        <div class="spacer"></div>
-        <button type="button" class="btn btn-default" ng-click="$ctrl.startBattle()">{{ 'Start Battle' | translate }}</button>
-        <button type="button" class="btn btn-danger" ng-click="$ctrl.displayAbandonGamePopup()">{{ 'End Game' | translate }}</button>
-        <div class="spacer"></div>
+                </td>
+                <td>
+                    <input type="text" class="form-control" placeholder="{{ 'Paragraph number' | translate }}" ng-model="$ctrl.paragraphNumber">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" class="btn btn-danger" ng-click="$ctrl.displayAbandonGamePopup()">{{ 'End Game' | translate }}</button>
+                </td>
+                <td>
+                    <input type="text" class="form-control" placeholder="{{ 'Reason' | translate }}" ng-model="$ctrl.endGameReason">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+
         <dices></dices>
 
         <notes notes="$ctrl.notes" paragraph-number="{{$ctrl.paragraph.paragraphNumber}}" player-name="{{$ctrl.playerName}}"></notes>
