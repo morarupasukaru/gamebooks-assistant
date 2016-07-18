@@ -40,7 +40,6 @@ technical:
 
     in-game: popup > how-to disable jump to text?
 
-    back as component
     action as component
     need navbar?
     save action as log > selenium to replay a game

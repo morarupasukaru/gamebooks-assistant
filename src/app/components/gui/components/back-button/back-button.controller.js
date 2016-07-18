@@ -1,9 +1,9 @@
 let self;
 class BackButtonController {
     /*@ngInject*/
-    constructor($windows) {
+    constructor($window) {
         self = this;
-        self.$windows = $windows;
+        self.$window = $window;
     }
 
     isBackDisabled() {
