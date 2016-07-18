@@ -44,6 +44,8 @@ technical:
     need navbar?
     save action as log > selenium to replay a game
 
+    copyright, thanks screen
+
 features:
     url: bookId unique (check during register), e.g. /warlock-of-firetop-mountain/123?player=Pascal
     "terminate game"
