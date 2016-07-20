@@ -23,6 +23,7 @@
                         aria-label="{{ 'Roll one dice 6 faces' | translate }}"
                         title="{{ 'Roll one dice 6 faces' | translate }}">
                     {{ 'Roll 1D6' | translate }}
+                    <img src="../{{$ctrl.diceImage}}"/>
                 </button>
             </td>
 
@@ -32,6 +33,7 @@
                         aria-label="{{ 'Roll two dices 6 faces' | translate }}"
                         title="{{ 'Roll two dices 6 faces' | translate }}">
                     {{ '2D6' | translate }}
+                    <img src="../{{$ctrl.diceImage}}"/>
                 </button>
             </td>
 
@@ -46,6 +48,7 @@
         </tr>
         </tbody>
     </table>
-    <img src="../{{$ctrl.diceImage}}"/>
+
+    <input type="text" maxlength="1" readonly value="&#xe900;" class="unitRight size1of2 talign-right" />
 </form>
 
