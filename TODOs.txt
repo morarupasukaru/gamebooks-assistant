@@ -9,7 +9,6 @@ technical:
         startup progress / splashscreen
         i18n json sorted alphabetics?
         i18n with angular-translate?
-        rename project "gamebooks helper" ?
         js map? how it works?
         reduce dependencies
         upgrade bootstrap 4?
@@ -49,7 +48,6 @@ technical:
 features:
     url: bookId unique (check during register), e.g. /warlock-of-firetop-mountain/123?player=Pascal
     "terminate game"
-    add favicons
     add dice icons
     gamebook name in url
     note: flag "spoiler", configuration "display spoiler"
@@ -65,3 +63,7 @@ v2:
     paths gameplays visualizer
 
 v arena: battle between two or more players?
+
+
+bug with dice image
+bug with minify
