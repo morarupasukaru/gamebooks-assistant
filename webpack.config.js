@@ -82,7 +82,7 @@ exports.production = extend({}, commonConfig, {
             }
         }),
         new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js')
-    ], devtool: 'cheap-source-map'
+    ], devtool: 'source-map'
 });
 
 /**
@@ -93,8 +93,16 @@ exports.development = extend({}, commonConfig, {
     output: {
         path: path.resolve(__dirname, 'dist')
     }, plugins: [
+        new ngAnnotatePlugin({add: true}),
+        new webpack.optimize.DedupePlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            minimize: true, compress: {
+                warnings: true
+            }
+        }),
         new browserSyncPlugin({
             proxy: 'localhost:3000'
-        }), new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js')
+        }),
+        new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js')
     ], watch: true, devtool: 'source-map'
 });
