@@ -127,6 +127,24 @@
                     </button>
                 </td>
             </tr>
+            <tr>
+                <td>
+                    <button type="button" class="btn btn-default"
+                            aria-label="{{ 'Go to paragraph' | translate}}"
+                            title="{{ 'Go to paragraph' | translate}}"
+                            ng-click="$ctrl.goToParagraph()"
+                            ng-disabled="$ctrl.">
+                        {{ 'Go to' | translate}}
+                    </button>
+                </td>
+                <td>
+                    <input id="goToParagraphNr" type="number" required class="form-control" ng-model="$ctrl.goToParagraphNr">
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
         </tbody>
     </table>
 </form>
