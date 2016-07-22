@@ -48,7 +48,6 @@ technical:
 features:
     url: bookId unique (check during register), e.g. /warlock-of-firetop-mountain/123?player=Pascal
     "terminate game"
-    add dice icons
     gamebook name in url
     note: flag "spoiler", configuration "display spoiler"
     note: nom du joueur, configuration "display other player note"
@@ -65,5 +64,5 @@ v2:
 v arena: battle between two or more players?
 
 
-bug with dice image
+how to display image with url with webpack & angularjs correctly?
 bug with minify
