@@ -5,7 +5,6 @@ class DicesController {
         self = this;
         self.dicesService = dicesService;
         self.clear();
-        this.diceImage = require("./dice.svg");
     }
 
     roll2d6() {
