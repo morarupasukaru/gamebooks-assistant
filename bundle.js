@@ -51,17 +51,17 @@ webpackJsonp([0],[
 	
 	var _componentsComponents2 = _interopRequireDefault(_componentsComponents);
 	
-	var _appComponent = __webpack_require__(107);
+	var _appComponent = __webpack_require__(106);
 	
 	var _appComponent2 = _interopRequireDefault(_appComponent);
 	
 	// Language file import
 	
-	var _languagesLangEnJson = __webpack_require__(111);
+	var _languagesLangEnJson = __webpack_require__(110);
 	
 	var _languagesLangEnJson2 = _interopRequireDefault(_languagesLangEnJson);
 	
-	var _languagesLangFrJson = __webpack_require__(112);
+	var _languagesLangFrJson = __webpack_require__(111);
 	
 	var _languagesLangFrJson2 = _interopRequireDefault(_languagesLangFrJson);
 	
@@ -450,11 +450,11 @@ webpackJsonp([0],[
 	
 	var _guiGui2 = _interopRequireDefault(_guiGui);
 	
-	var _servicesServices = __webpack_require__(87);
+	var _servicesServices = __webpack_require__(86);
 	
 	var _servicesServices2 = _interopRequireDefault(_servicesServices);
 	
-	var _constantsConstants = __webpack_require__(106);
+	var _constantsConstants = __webpack_require__(105);
 	
 	var _constantsConstants2 = _interopRequireDefault(_constantsConstants);
 	
@@ -483,7 +483,7 @@ webpackJsonp([0],[
 	
 	var _componentsComponents2 = _interopRequireDefault(_componentsComponents);
 	
-	var _screensScreens = __webpack_require__(58);
+	var _screensScreens = __webpack_require__(57);
 	
 	var _screensScreens2 = _interopRequireDefault(_screensScreens);
 	
@@ -512,47 +512,47 @@ webpackJsonp([0],[
 	
 	var _dicesDices2 = _interopRequireDefault(_dicesDices);
 	
-	var _messagesMessages = __webpack_require__(19);
+	var _messagesMessages = __webpack_require__(18);
 	
 	var _messagesMessages2 = _interopRequireDefault(_messagesMessages);
 	
-	var _navbarNavbar = __webpack_require__(23);
+	var _navbarNavbar = __webpack_require__(22);
 	
 	var _navbarNavbar2 = _interopRequireDefault(_navbarNavbar);
 	
-	var _languagePickerLanguagePicker = __webpack_require__(26);
+	var _languagePickerLanguagePicker = __webpack_require__(25);
 	
 	var _languagePickerLanguagePicker2 = _interopRequireDefault(_languagePickerLanguagePicker);
 	
-	var _savedDataAdminSavedDataAdmin = __webpack_require__(29);
+	var _savedDataAdminSavedDataAdmin = __webpack_require__(28);
 	
 	var _savedDataAdminSavedDataAdmin2 = _interopRequireDefault(_savedDataAdminSavedDataAdmin);
 	
-	var _versionDisplayVersionDisplay = __webpack_require__(32);
+	var _versionDisplayVersionDisplay = __webpack_require__(31);
 	
 	var _versionDisplayVersionDisplay2 = _interopRequireDefault(_versionDisplayVersionDisplay);
 	
-	var _popupPopup = __webpack_require__(35);
+	var _popupPopup = __webpack_require__(34);
 	
 	var _popupPopup2 = _interopRequireDefault(_popupPopup);
 	
-	var _itemsItems = __webpack_require__(43);
+	var _itemsItems = __webpack_require__(42);
 	
 	var _itemsItems2 = _interopRequireDefault(_itemsItems);
 	
-	var _notesNotes = __webpack_require__(46);
+	var _notesNotes = __webpack_require__(45);
 	
 	var _notesNotes2 = _interopRequireDefault(_notesNotes);
 	
-	var _statsStats = __webpack_require__(49);
+	var _statsStats = __webpack_require__(48);
 	
 	var _statsStats2 = _interopRequireDefault(_statsStats);
 	
-	var _paragraphParagraph = __webpack_require__(52);
+	var _paragraphParagraph = __webpack_require__(51);
 	
 	var _paragraphParagraph2 = _interopRequireDefault(_paragraphParagraph);
 	
-	var _backButtonBackButton = __webpack_require__(55);
+	var _backButtonBackButton = __webpack_require__(54);
 	
 	var _backButtonBackButton2 = _interopRequireDefault(_backButtonBackButton);
 	
@@ -594,11 +594,11 @@ webpackJsonp([0],[
 /* 16 */
 /***/ function(module, exports) {
 
-	module.exports = "<form>\n    <table class=\"table table-striped\">\n        <col style=\"width:85%\">\n        <col style=\"width:5%\">\n        <col style=\"width:5%\">\n        <col style=\"width:5%\">\n        <thead>\n        <tr>\n            <th>{{ 'Values' | translate }}</th>\n            <th>{{ 'Dices' | translate }}</th>\n            <th></th>\n        </tr>\n        </thead>\n        <tbody>\n        <tr>\n            <td>\n                {{ $ctrl.dicesValue }}\n            </td>\n\n            <td>\n                <button class=\"btn btn-default\"\n                        ng-click=\"$ctrl.roll1d6()\"\n                        aria-label=\"{{ 'Roll one dice 6 faces' | translate }}\"\n                        title=\"{{ 'Roll one dice 6 faces' | translate }}\">\n                    {{ 'Roll 1D6' | translate }}\n                    <img src=\"../{{$ctrl.diceImage}}\"/>\n                </button>\n            </td>\n\n            <td>\n                <button class=\"btn btn-default\"\n                        ng-click=\"$ctrl.roll2d6()\"\n                        aria-label=\"{{ 'Roll two dices 6 faces' | translate }}\"\n                        title=\"{{ 'Roll two dices 6 faces' | translate }}\">\n                    {{ '2D6' | translate }}\n                    <img src=\"../{{$ctrl.diceImage}}\"/>\n                </button>\n            </td>\n\n            <td>\n                <button class=\"btn btn-default glyphicon glyphicon-erase\"\n                        title=\"{{ 'Clear values' | translate }}\"\n                        aria-label=\"{{ 'Clear values' | translate }}\"\n                        ng-click=\"$ctrl.clear()\">\n\n                </button>\n            </td>\n        </tr>\n        </tbody>\n    </table>\n\n    <input type=\"text\" maxlength=\"1\" readonly value=\"&#xe900;\" class=\"unitRight size1of2 talign-right\" />\n</form>\n\n"
+	module.exports = "<form>\n    <table class=\"table table-striped\">\n        <col style=\"width:85%\">\n        <col style=\"width:5%\">\n        <col style=\"width:5%\">\n        <col style=\"width:5%\">\n        <thead>\n        <tr>\n            <th>{{ 'Values' | translate }}</th>\n            <th>{{ 'Dices' | translate }}</th>\n            <th></th>\n        </tr>\n        </thead>\n        <tbody>\n        <tr>\n            <td>\n                {{ $ctrl.dicesValue }}\n            </td>\n\n            <td>\n                <button class=\"btn btn-default\"\n                        ng-click=\"$ctrl.roll1d6()\"\n                        aria-label=\"{{ 'Roll one dice 6 faces' | translate }}\"\n                        title=\"{{ 'Roll one dice 6 faces' | translate }}\">\n                    {{ 'Roll 1D6' | translate }}\n                    <img src=\"http://morarupasukaru.github.io/dice.svg\"/>\n                </button>\n            </td>\n\n            <td>\n                <button class=\"btn btn-default\"\n                        ng-click=\"$ctrl.roll2d6()\"\n                        aria-label=\"{{ 'Roll two dices 6 faces' | translate }}\"\n                        title=\"{{ 'Roll two dices 6 faces' | translate }}\">\n                    {{ '2D6' | translate }}\n                    <img src=\"http://morarupasukaru.github.io/dice.svg\"/>\n                </button>\n            </td>\n\n            <td>\n                <button class=\"btn btn-default glyphicon glyphicon-erase\"\n                        title=\"{{ 'Clear values' | translate }}\"\n                        aria-label=\"{{ 'Clear values' | translate }}\"\n                        ng-click=\"$ctrl.clear()\">\n\n                </button>\n            </td>\n        </tr>\n        </tbody>\n    </table>\n\n    <input type=\"text\" maxlength=\"1\" readonly value=\"&#xe900;\" class=\"unitRight size1of2 talign-right\" />\n</form>\n\n"
 
 /***/ },
 /* 17 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	'use strict';
 	
@@ -621,7 +621,6 @@ webpackJsonp([0],[
 	        self = this;
 	        self.dicesService = dicesService;
 	        self.clear();
-	        this.diceImage = __webpack_require__(18);
 	    }
 	
 	    _createClass(DicesController, [{
@@ -659,12 +658,6 @@ webpackJsonp([0],[
 /* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "61e97eefb47c3afb711e74870c99c444.svg";
-
-/***/ },
-/* 19 */
-/***/ function(module, exports, __webpack_require__) {
-
 	/**
 	 * Copyright (C) Schweizerische Bundesbahnen SBB, 2015.
 	 *
@@ -686,15 +679,15 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _messagesService = __webpack_require__(20);
+	var _messagesService = __webpack_require__(19);
 	
 	var _messagesService2 = _interopRequireDefault(_messagesService);
 	
-	var _messagesHtml = __webpack_require__(21);
+	var _messagesHtml = __webpack_require__(20);
 	
 	var _messagesHtml2 = _interopRequireDefault(_messagesHtml);
 	
-	var _messagesController = __webpack_require__(22);
+	var _messagesController = __webpack_require__(21);
 	
 	var _messagesController2 = _interopRequireDefault(_messagesController);
 	
@@ -704,7 +697,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 20 */
+/* 19 */
 /***/ function(module, exports) {
 
 	/*
@@ -805,13 +798,13 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 21 */
+/* 20 */
 /***/ function(module, exports) {
 
 	module.exports = "<div ng-repeat=\"msg in $ctrl.messages\">\n    <div class=\"alert alert-{{ msg.type === 'error' ? 'danger' : msg.type }}\">\n        {{ msg.message }}\n        <a class=\"close\" ng-click=\"$ctrl.removeMessage($index)\">&times;</a>\n    </div>\n</div>\n"
 
 /***/ },
-/* 22 */
+/* 21 */
 /***/ function(module, exports) {
 
 	/*
@@ -859,7 +852,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 23 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -887,11 +880,11 @@ webpackJsonp([0],[
 	
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 	
-	var _navbarHtml = __webpack_require__(24);
+	var _navbarHtml = __webpack_require__(23);
 	
 	var _navbarHtml2 = _interopRequireDefault(_navbarHtml);
 	
-	var _navbarController = __webpack_require__(25);
+	var _navbarController = __webpack_require__(24);
 	
 	var _navbarController2 = _interopRequireDefault(_navbarController);
 	
@@ -901,13 +894,13 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 24 */
+/* 23 */
 /***/ function(module, exports) {
 
 	module.exports = "<nav class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\">\n    <div class=\"container-fluid\">\n        <div class=\"collapse navbar-collapse\" id=\"navbar-collapse-1\">\n            <ul class=\"nav navbar-nav navbar-left\">\n                <li><a ui-sref=\"in-game\">{{ 'InGame' | translate }}</a></li>\n                <li><a ui-sref=\"games\">{{ 'Games' | translate }}</a></li>\n                <li><a ui-sref=\"configuration\">{{ 'Configuration' | translate }}</a></li>\n            </ul>\n        </div>\n    </div>\n</nav>"
 
 /***/ },
-/* 25 */
+/* 24 */
 /***/ function(module, exports) {
 
 	/*
@@ -937,7 +930,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 26 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -952,11 +945,11 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _languagePickerHtml = __webpack_require__(27);
+	var _languagePickerHtml = __webpack_require__(26);
 	
 	var _languagePickerHtml2 = _interopRequireDefault(_languagePickerHtml);
 	
-	var _languagePickerController = __webpack_require__(28);
+	var _languagePickerController = __webpack_require__(27);
 	
 	var _languagePickerController2 = _interopRequireDefault(_languagePickerController);
 	
@@ -966,13 +959,13 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 27 */
+/* 26 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"col-md-12\">\n    <form>\n        <div>\n            <div class=\"form-group\">\n                <label for=\"language\">{{ 'Choose language' | translate }}</label>\n                <ul class=\"nav nav-pills\" role=\"tablist\" id=\"language\">\n                    <li ng-repeat=\"language in $ctrl.supportedLanguages\" role=\"button\" ng-class=\"{ 'active' : language.selected }\" title=\"{{ 'Choice' | translate }} {{ language.code | translate }}\">\n                        <a href=\"\" ng-click=\"$ctrl.changeLanguage(language.code)\">{{ language.code | translate }}</a></li>\n                </ul>\n            </div>\n        </div>\n    </form>\n</div>\n"
 
 /***/ },
-/* 28 */
+/* 27 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1055,7 +1048,7 @@ webpackJsonp([0],[
 	module.exports = exports["default"];
 
 /***/ },
-/* 29 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1070,11 +1063,11 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _savedDataAdminHtml = __webpack_require__(30);
+	var _savedDataAdminHtml = __webpack_require__(29);
 	
 	var _savedDataAdminHtml2 = _interopRequireDefault(_savedDataAdminHtml);
 	
-	var _savedDataAdminController = __webpack_require__(31);
+	var _savedDataAdminController = __webpack_require__(30);
 	
 	var _savedDataAdminController2 = _interopRequireDefault(_savedDataAdminController);
 	
@@ -1084,13 +1077,13 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 30 */
+/* 29 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"col-md-12\">\n    <form>\n        <div>\n            <div class=\"form-group\">\n                <label for=\"applicationData\">{{ \"Application's data\" | translate }}</label>\n                <input type=\"text\" readonly class=\"form-control\" id=\"applicationData\" ng-model=\"$ctrl.applicationData\">\n            </div>\n            <div class=\"form-group\">\n                <button class=\"btn btn-danger\" ng-click=\"$ctrl.showPopupConfirmDeleteApplicationData()\" aria-label=\"{{ 'Delete application\\'s data' | translate }}\">{{ \"Delete application's data\" | translate }}</button>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"importData\">{{ \"Paste the application's data copied from another browser\" | translate }}</label>\n                <input type=\"text\" class=\"form-control\" ng-model=\"$ctrl.importData\" id=\"importData\" placeholder=\"{{ 'Imported data' | translate }}\">\n            </div>\n            <div class=\"form-group\">\n                <button class=\"btn btn-danger\" ng-click=\"$ctrl.showPopupConfirmImportData()\" aria-label=\"{{ 'Import' | translate }}\">{{ 'Import' | translate }}</button>\n            </div>\n        </div>\n    </form>\n\n    <popup config=\"{{ $ctrl.popupConfirmDeleteApplicationDataConfig }}\"></popup>\n\n    <popup config=\"{{ $ctrl.popupConfirmImportApplicationDataConfig }}\"></popup>\n</div>\n"
 
 /***/ },
-/* 31 */
+/* 30 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1173,7 +1166,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 32 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1188,11 +1181,11 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _versionDisplayHtml = __webpack_require__(33);
+	var _versionDisplayHtml = __webpack_require__(32);
 	
 	var _versionDisplayHtml2 = _interopRequireDefault(_versionDisplayHtml);
 	
-	var _versionDisplayController = __webpack_require__(34);
+	var _versionDisplayController = __webpack_require__(33);
 	
 	var _versionDisplayController2 = _interopRequireDefault(_versionDisplayController);
 	
@@ -1202,13 +1195,13 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 33 */
+/* 32 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"col-md-12\">\n    <form>\n        <div>\n            <div class=\"form-group\">\n                <label for=\"appVersion\">{{ 'Application Version' | translate }}</label>\n                <input type=\"text\" readonly class=\"form-control\" id=\"appVersion\" ng-model=\"$ctrl.appVersion\">\n            </div>\n        </div>\n    </form>\n</div>\n"
 
 /***/ },
-/* 34 */
+/* 33 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1234,7 +1227,7 @@ webpackJsonp([0],[
 	module.exports = exports["default"];
 
 /***/ },
-/* 35 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1249,19 +1242,19 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _popupHtml = __webpack_require__(36);
+	var _popupHtml = __webpack_require__(35);
 	
 	var _popupHtml2 = _interopRequireDefault(_popupHtml);
 	
-	var _popupController = __webpack_require__(37);
+	var _popupController = __webpack_require__(36);
 	
 	var _popupController2 = _interopRequireDefault(_popupController);
 	
-	var _popupService = __webpack_require__(38);
+	var _popupService = __webpack_require__(37);
 	
 	var _popupService2 = _interopRequireDefault(_popupService);
 	
-	__webpack_require__(39);
+	__webpack_require__(38);
 	
 	var popupModule = _angular2['default'].module('app.components.gui.components.popup', []).component('popup', {
 	    template: _popupHtml2['default'],
@@ -1275,13 +1268,13 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 36 */
+/* 35 */
 /***/ function(module, exports) {
 
 	module.exports = "<div id=\"{{$ctrl.cfg.id}}\" class=\"modal\">\n    <div class=\"modal-content\">\n        <span class=\"close glyphicon glyphicon-remove-circle\" ng-click=\"$ctrl.close()\" ng-show=\"$ctrl.cfg.withCloseButton\"></span>\n        <p>{{ $ctrl.cfg.text | translate }}</p>\n        <span ng-repeat=\"choice in $ctrl.cfg.choices\">\n            <button type=\"button\" class=\"btn btn-default\" ng-click=\"$ctrl.select(choice)\">{{ choice | translate }}</button>&nbsp;\n        </span>\n    </div>\n</div>\n"
 
 /***/ },
-/* 37 */
+/* 36 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1324,7 +1317,7 @@ webpackJsonp([0],[
 	module.exports = exports["default"];
 
 /***/ },
-/* 38 */
+/* 37 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1379,16 +1372,16 @@ webpackJsonp([0],[
 	module.exports = exports["default"];
 
 /***/ },
-/* 39 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(40);
+	var content = __webpack_require__(39);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(42)(content, {});
+	var update = __webpack_require__(41)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -1405,10 +1398,10 @@ webpackJsonp([0],[
 	}
 
 /***/ },
-/* 40 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(41)();
+	exports = module.exports = __webpack_require__(40)();
 	// imports
 	
 	
@@ -1419,9 +1412,9 @@ webpackJsonp([0],[
 
 
 /***/ },
+/* 40 */,
 /* 41 */,
-/* 42 */,
-/* 43 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1436,11 +1429,11 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _itemsHtml = __webpack_require__(44);
+	var _itemsHtml = __webpack_require__(43);
 	
 	var _itemsHtml2 = _interopRequireDefault(_itemsHtml);
 	
-	var _itemsController = __webpack_require__(45);
+	var _itemsController = __webpack_require__(44);
 	
 	var _itemsController2 = _interopRequireDefault(_itemsController);
 	
@@ -1456,13 +1449,13 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 44 */
+/* 43 */
 /***/ function(module, exports) {
 
 	module.exports = "<form name=\"itemsTableForm\" novalidate=\"novalidate\">\n    <table class=\"table table-striped\">\n        <col style=\"width:10%\">\n        <col style=\"width:75%\">\n        <col style=\"width:5%\">\n        <col style=\"width:5%\">\n        <col style=\"width:5%\">\n        <thead>\n        <tr>\n            <th>{{ 'Quantity' | translate }}</th>\n            <th>{{ 'Description' | translate }}</th>\n            <th></th>\n            <th></th>\n            <th>\n                <button type=\"button\"\n                        class=\"btn btn-default\"\n                        aria-label=\"{{ 'Add item' | translate}}\"\n                        title=\"{{ 'Add item' | translate}}\"\n                        ng-show=\"!$ctrl.hasEditedRow()\"\n                        ng-click=\"$ctrl.addRow()\">\n                    <span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span>\n                </button>\n            </th>\n        </tr>\n        </thead>\n        <tbody>\n        <tr ng-repeat=\"row in $ctrl.rows\">\n            <td ng-if=\"!$ctrl.isRowEdited(row)\">\n                {{ row.quantity }}\n            </td>\n            <td ng-if=\"$ctrl.isRowEdited(row)\">\n                <input required name=\"quantity\" type=\"number\" class=\"form-control\" ng-model=\"row.quantity\">\n                <div class=\"error\" ng-show=\"!row.quantity\">\n                    <!-- check error only on field -->\n                    {{ 'Please fill the quantity' | translate }}\n                </div>\n            </td>\n\n            <td ng-if=\"!$ctrl.isRowEdited(row)\">\n                {{ row.description | translate }}\n            </td>\n            <td ng-if=\"$ctrl.isRowEdited(row)\">\n                <input required name=\"description\" type=\"text\" class=\"form-control description\" ng-model=\"row.description\">\n                <div class=\"error\" ng-show=\"!row.description\">\n                    <!-- check error only on field -->\n                    {{ 'Please fill the description' | translate }}\n                </div>\n            </td>\n\n            <td>\n                <button type=\"button\" class=\"btn btn-success\"\n                        aria-label=\"{{ 'Save item changes' | translate}}\"\n                        title=\"{{ 'Save item changes' | translate}}\"\n                        ng-click=\"$ctrl.saveRowChanges(notesTableForm.$invalid)\"\n                        ng-show=\"$ctrl.isRowEdited(row)\">\n                    <span class=\"glyphicon glyphicon-ok\" aria-hidden=\"true\"></span>\n                </button>\n            </td>\n\n            <td>\n                <button type=\"button\" class=\"btn btn-danger\"\n                        aria-label=\"{{ 'Abort item changes' | translate}}\"\n                        title=\"{{ 'Abort item changes' | translate}}\"\n                        ng-click=\"$ctrl.abortRowChanges()\"\n                        ng-show=\"$ctrl.isRowEdited(row)\">\n                    <span class=\"glyphicon glyphicon-arrow-left\" aria-hidden=\"true\"></span>\n                </button>\n            </td>\n\n            <td>\n                <button type=\"button\" class=\"btn btn-default\"\n                        aria-label=\"{{ 'Edit item' | translate }} '{{ row.description | translate }}'\"\n                        title=\"{{ 'Edit item' | translate }} '{{ row.description | translate }}'\"\n                        ng-click=\"$ctrl.editRow(row)\"\n                        ng-show=\"!$ctrl.hasEditedRow()\">\n                    <span class=\"glyphicon glyphicon-edit\" aria-hidden=\"true\"></span>\n                </button>\n                <button type=\"button\" class=\"btn btn-danger\"\n                        aria-label=\"{{ 'Remove item' | translate }} '{{ row.description | translate }}'\"\n                        title=\"{{ 'Remove item' | translate }} '{{ row.description | translate }}'\"\n                        ng-click=\"$ctrl.displayRemovePopup(row)\"\n                        ng-disabled=\"$ctrl.addedRow\"\n                        ng-show=\"$ctrl.isRowEdited(row)\">\n                    <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>\n                </button>\n            </td>\n        </tr>\n        </tbody>\n    </table>\n</form>\n\n<popup config=\"{{ $ctrl.popupDeleteItemConfig }}\"></popup>\n"
 
 /***/ },
-/* 45 */
+/* 44 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1578,7 +1571,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 46 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1593,11 +1586,11 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _notesHtml = __webpack_require__(47);
+	var _notesHtml = __webpack_require__(46);
 	
 	var _notesHtml2 = _interopRequireDefault(_notesHtml);
 	
-	var _notesController = __webpack_require__(48);
+	var _notesController = __webpack_require__(47);
 	
 	var _notesController2 = _interopRequireDefault(_notesController);
 	
@@ -1615,13 +1608,13 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 47 */
+/* 46 */
 /***/ function(module, exports) {
 
 	module.exports = "<form name=\"notesTableForm\" novalidate=\"novalidate\">\n    <table class=\"table table-striped\">\n        <col style=\"width:75%\">\n        <col style=\"width:5%\">\n        <col style=\"width:10%\">\n        <col style=\"width:5%\">\n        <col style=\"width:5%\">\n        <col style=\"width:5%\">\n        <thead>\n        <tr>\n            <th>{{ 'Note' | translate }}</th>\n            <th>{{ 'Paragraph' | translate }}</th>\n            <th>{{ 'Player' | translate }}</th>\n            <th></th>\n            <th></th>\n            <th>\n                <button type=\"button\" class=\"btn btn-default\"\n                        aria-label=\"{{ 'Add note' | translate}}\"\n                        title=\"{{ 'Add note' | translate}}\"\n                        ng-click=\"$ctrl.addRow()\"\n                        ng-show=\"!$ctrl.hasEditedRow()\">\n                    <span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span>\n                </button>\n            </th>\n        </tr>\n        </thead>\n        <tbody>\n        <tr ng-repeat=\"row in $ctrl.rows\">\n            <td ng-if=\"!$ctrl.isRowEdited(row)\">\n                {{ row.note }}\n            </td>\n            <td ng-if=\"$ctrl.isRowEdited(row)\">\n                <input required type=\"text\" class=\"form-control\" ng-model=\"row.note\">\n                <div class=\"error\" ng-show=\"notesTableForm.$invalid\">\n                    {{ 'Please fill the note' | translate }}\n                </div>\n            </td>\n\n            <td ng-if=\"!$ctrl.isRowEdited(row)\">\n                {{ row.paragraphNumber }}\n            </td>\n            <td ng-if=\"$ctrl.isRowEdited(row)\">\n                <input type=\"number\" class=\"form-control\" ng-model=\"row.paragraphNumber\">\n            </td>\n\n            <td ng-if=\"!$ctrl.isRowEdited(row)\">\n                {{ row.playerName }}\n            </td>\n            <td ng-if=\"$ctrl.isRowEdited(row)\">\n                <input type=\"text\" class=\"form-control\" ng-model=\"row.playerName\">\n            </td>\n\n            <td>\n                <button type=\"button\" class=\"btn btn-success\"\n                        aria-label=\"{{ 'Save note changes' | translate}}\"\n                        title=\"{{ 'Save note changes' | translate}}\"\n                        ng-click=\"$ctrl.saveRowChanges(notesTableForm.$invalid)\"\n                        ng-show=\"$ctrl.isRowEdited(row)\">\n                    <span class=\"glyphicon glyphicon-ok\" aria-hidden=\"true\"></span>\n                </button>\n            </td>\n\n            <td>\n                <button type=\"button\" class=\"btn btn-danger\"\n                        aria-label=\"{{ 'Abort note changes' | translate}}\"\n                        title=\"{{ 'Abort note changes' | translate}}\"\n                        ng-click=\"$ctrl.abortRowChanges()\"\n                        ng-show=\"$ctrl.isRowEdited(row)\">\n                    <span class=\"glyphicon glyphicon-arrow-left\" aria-hidden=\"true\"></span>\n                </button>\n            </td>\n\n            <td>\n                <button type=\"button\" class=\"btn btn-default\"\n                        aria-label=\"{{ 'Edit note' | translate}} '{{ row.note | translate }}'\"\n                        title=\"{{ 'Edit note' | translate}} '{{ row.note | translate }}'\"\n                        ng-click=\"$ctrl.editRow(row)\"\n                        ng-show=\"!$ctrl.hasEditedRow()\">\n                    <span class=\"glyphicon glyphicon-edit\" aria-hidden=\"true\"></span>\n                </button>\n                <button type=\"button\" class=\"btn btn-danger\"\n                        aria-label=\"{{ 'Remove note' | translate }} '{{ row.note | translate }}'\"\n                        title=\"{{ 'Remove note' | translate }} '{{ row.note | translate }}'\"\n                        ng-click=\"$ctrl.displayRemovePopup(row)\"\n                        ng-disabled=\"$ctrl.addedRow\"\n                        ng-show=\"$ctrl.isRowEdited(row)\">\n                    <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>\n                </button>\n            </td>\n        </tr>\n        </tbody>\n    </table>\n</form>\n<popup config=\"{{ $ctrl.popupDeleteNoteConfig }}\"></popup>\n"
 
 /***/ },
-/* 48 */
+/* 47 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1740,7 +1733,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 49 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1755,11 +1748,11 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _statsHtml = __webpack_require__(50);
+	var _statsHtml = __webpack_require__(49);
 	
 	var _statsHtml2 = _interopRequireDefault(_statsHtml);
 	
-	var _statsController = __webpack_require__(51);
+	var _statsController = __webpack_require__(50);
 	
 	var _statsController2 = _interopRequireDefault(_statsController);
 	
@@ -1769,13 +1762,13 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 50 */
+/* 49 */
 /***/ function(module, exports) {
 
 	module.exports = "<table class=\"table\">\n    <col style=\"width:10%\">\n    <col style=\"width:20%\">\n    <col style=\"width:10%\">\n    <col style=\"width:5%\">\n    <col style=\"width:5%\">\n    <col style=\"width:70%\">\n    <thead>\n    <tr>\n        <th>{{ 'Stats' | translate }}</th>\n        <th>{{ 'Current' | translate }}</th>\n        <th>{{ 'Initial' | translate }}</th>\n        <th></th>\n        <th></th>\n        <th></th>\n    </tr>\n    </thead>\n    <tbody>\n    <tr ng-repeat=\"row in $ctrl.stats\">\n        <td>{{ row.name | translate }}</td>\n        <td>{{ row.current }}</td>\n        <td>{{ row.initial }}</td>\n        <td>\n            <button type=\"button\" class=\"btn btn-default\" aria-label=\"{{ 'Increment' | translate }} {{ row.name | translate }}\" title=\"{{ 'Increment' | translate }} {{ row.name | translate }}\" ng-click=\"$ctrl.increment(row)\">\n                <span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span>\n            </button>\n        </td>\n        <td>\n            <button type=\"button\" class=\"btn btn-default\" aria-label=\"{{ 'Decrement' | translate }} {{ row.name | translate }}\" title=\"{{ 'Decrement' | translate }} {{ row.name | translate }}\" ng-click=\"$ctrl.decrement(row)\">\n                <span class=\"glyphicon glyphicon-minus\" aria-hidden=\"true\"></span>\n            </button>\n        </td>\n        <td></td>\n    </tr>\n    </tbody>\n</table>\n"
 
 /***/ },
-/* 51 */
+/* 50 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1820,7 +1813,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 52 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1835,11 +1828,11 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _paragraphHtml = __webpack_require__(53);
+	var _paragraphHtml = __webpack_require__(52);
 	
 	var _paragraphHtml2 = _interopRequireDefault(_paragraphHtml);
 	
-	var _paragraphController = __webpack_require__(54);
+	var _paragraphController = __webpack_require__(53);
 	
 	var _paragraphController2 = _interopRequireDefault(_paragraphController);
 	
@@ -1849,13 +1842,13 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 53 */
+/* 52 */
 /***/ function(module, exports) {
 
 	module.exports = "<table class=\"table table-borderless\">\n    <col style=\"width:95%\">\n    <col style=\"width:5%\">\n    <thead>\n    <tr>\n        <th>{{ 'Description' | translate }}</th>\n        <th>\n        </th>\n    </tr>\n    </thead>\n    <tbody>\n    <tr>\n        <td>\n            <textarea id=\"inputCurrentDescription\" class=\"form-control\" ng-model=\"$ctrl.paragraph.description\" ng-readonly=\"!$ctrl.isDescriptionEditable()\"></textarea>\n        </td>\n        <td>\n            <button type=\"button\" class=\"btn btn-default\"\n                    aria-label=\"{{ 'Edit description' | translate}}\"\n                    title=\"{{ 'Edit description' | translate}}\"\n                    ng-click=\"$ctrl.editDescription()\"\n                    ng-show=\"!$ctrl.isDescriptionEditable()\">\n                <span class=\"glyphicon glyphicon-edit\" aria-hidden=\"true\"></span>\n            </button>\n            <button type=\"button\" class=\"btn btn-success\"\n                    aria-label=\"{{ 'Save description changes' | translate}}\"\n                    title=\"{{ 'Save description changes' | translate}}\"\n                    ng-click=\"$ctrl.saveDescriptionChanges()\"\n                    ng-show=\"$ctrl.isDescriptionEditable()\">\n                <span class=\"glyphicon glyphicon-ok\" aria-hidden=\"true\"></span>\n            </button>\n            <button type=\"button\" class=\"btn btn-danger\"\n                    aria-label=\"{{ 'Abort description changes' | translate}}\"\n                    title=\"{{ 'Abort description changes' | translate}}\"\n                    ng-click=\"$ctrl.abortDescriptionChanges()\"\n                    ng-show=\"$ctrl.isDescriptionEditable()\">\n                <span class=\"glyphicon glyphicon-arrow-left\" aria-hidden=\"true\"></span>\n            </button>\n        </td>\n    </tr>\n    </tbody>\n</table>\n\n<form name=\"choicesTableForm\" novalidate=\"novalidate\">\n    <table class=\"table table-striped\">\n        <col style=\"width:10%\">\n        <col style=\"width:75%\">\n        <col style=\"width:5%\">\n        <col style=\"width:5%\">\n        <col style=\"width:5%\">\n        <thead>\n        <tr>\n            <th>{{ 'Choice' | translate }}</th>\n            <th>{{ 'Description' | translate }}</th>\n            <th></th>\n            <th></th>\n            <th>\n                <button type=\"button\" class=\"btn btn-default\"\n                        aria-label=\"{{ 'Add choice' | translate}}\"\n                        title=\"{{ 'Add choice' | translate}}\"\n                        ng-click=\"$ctrl.addRow()\"\n                        ng-show=\"!$ctrl.hasEditedRow()\">\n                    <span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span>\n                </button>\n            </th>\n        </tr>\n        </thead>\n        <tbody>\n            <tr ng-repeat=\"row in $ctrl.paragraph.choices\">\n                <td ng-if=\"!$ctrl.isRowEdited(row) && !$ctrl.hasEditedRow()\">\n                    <button type=\"button\" class=\"btn btn-default\"\n                            aria-label=\"{{ 'Choice paragragh' | translate}} {{ row.paragraphNumber }}\"\n                            title=\"{{ 'Choice paragragh' | translate}} '{{ row.paragraphNumber }}'\"\n                            ng-click=\"$ctrl.goTo(row)\">{{ row.paragraphNumber }}\n                    </button>\n                </td>\n                <td ng-if=\"!$ctrl.isRowEdited(row) && $ctrl.hasEditedRow()\">\n                    {{ row.paragraphNumber }}\n                </td>\n                <td ng-if=\"$ctrl.isRowEdited(row)\">\n                    <input id=\"rowParagraphNumber\" type=\"number\" required class=\"form-control\" ng-model=\"row.paragraphNumber\">\n                    <div class=\"error\" ng-show=\"choicesTableForm.$invalid\">\n                        {{ 'Please fill the paragraph number' | translate }}\n                    </div>\n                </td>\n\n                <td ng-if=\"!$ctrl.isRowEdited(row)\">\n                    {{ row.description | translate }}\n                </td>\n                <td ng-if=\"$ctrl.isRowEdited(row)\">\n                    <input type=\"text\" class=\"form-control\" ng-model=\"row.description\">\n                </td>\n\n                <td>\n                    <button type=\"button\" class=\"btn btn-success\"\n                            aria-label=\"{{ 'Save choice changes' | translate}}\"\n                            title=\"{{ 'Save choice changes' | translate}}\"\n                            ng-click=\"$ctrl.saveRowChanges(choicesTableForm.$invalid)\"\n                            ng-show=\"$ctrl.isRowEdited(row)\">\n                        <span class=\"glyphicon glyphicon-ok\" aria-hidden=\"true\"></span>\n                    </button>\n                </td>\n\n                <td>\n                    <button type=\"button\" class=\"btn btn-danger\"\n                            aria-label=\"{{ 'Abort choice changes' | translate}}\"\n                            title=\"{{ 'Abort choice changes' | translate}}\"\n                            ng-click=\"$ctrl.abortRowChanges()\"\n                            ng-show=\"$ctrl.isRowEdited(row)\">\n                        <span class=\"glyphicon glyphicon-arrow-left\" aria-hidden=\"true\"></span>\n                    </button>\n                </td>\n                <td>\n                    <button type=\"button\" class=\"btn btn-default\"\n                            aria-label=\"{{ 'Edit choice' | translate}} {{ row.paragraphNumber }}\"\n                            title=\"{{ 'Edit choice' | translate}} '{{ row.paragraphNumber }}'\"\n                            ng-click=\"$ctrl.editRow(row)\"\n                            ng-show=\"!$ctrl.hasEditedRow()\">\n                        <span class=\"glyphicon glyphicon-edit\" aria-hidden=\"true\"></span>\n                    </button>\n                    <button type=\"button\" class=\"btn btn-danger\"\n                            aria-label=\"{{ 'Remove choice' | translate}} {{ row.paragraphNumber }}\"\n                            title=\"{{ 'Remove choice' | translate}} '{{ row.paragraphNumber }}'\"\n                            ng-click=\"$ctrl.displayRemovePopup(row)\"\n                            ng-disabled=\"$ctrl.addedRow\"\n                            ng-show=\"$ctrl.isRowEdited(row)\">\n                        <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>\n                    </button>\n                </td>\n            </tr>\n        </tbody>\n    </table>\n</form>\n\n<popup config=\"{{ $ctrl.popupDeleteChoiceConfig }}\"></popup>"
 
 /***/ },
-/* 54 */
+/* 53 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2004,7 +1997,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 55 */
+/* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2019,11 +2012,11 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _backButtonHtml = __webpack_require__(56);
+	var _backButtonHtml = __webpack_require__(55);
 	
 	var _backButtonHtml2 = _interopRequireDefault(_backButtonHtml);
 	
-	var _backButtonController = __webpack_require__(57);
+	var _backButtonController = __webpack_require__(56);
 	
 	var _backButtonController2 = _interopRequireDefault(_backButtonController);
 	
@@ -2033,13 +2026,13 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 56 */
+/* 55 */
 /***/ function(module, exports) {
 
 	module.exports = "<button type=\"button\"\n        class=\"btn btn-default glyphicon glyphicon-circle-arrow-left\"\n        aria-label=\"{{ 'Back' | translate }}\"\n        title=\"{{ 'Back' | translate }}\"\n        ng-click=\"$ctrl.back()\"\n        ng-disabled=\"$ctrl.isBackDisabled()\">\n    {{ 'Back' | translate }}\n</button>"
 
 /***/ },
-/* 57 */
+/* 56 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -2083,7 +2076,7 @@ webpackJsonp([0],[
 	module.exports = exports["default"];
 
 /***/ },
-/* 58 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2098,31 +2091,31 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _homeHome = __webpack_require__(59);
+	var _homeHome = __webpack_require__(58);
 	
 	var _homeHome2 = _interopRequireDefault(_homeHome);
 	
-	var _gamesGames = __webpack_require__(62);
+	var _gamesGames = __webpack_require__(61);
 	
 	var _gamesGames2 = _interopRequireDefault(_gamesGames);
 	
-	var _battleBattle = __webpack_require__(65);
+	var _battleBattle = __webpack_require__(64);
 	
 	var _battleBattle2 = _interopRequireDefault(_battleBattle);
 	
-	var _configurationConfiguration = __webpack_require__(68);
+	var _configurationConfiguration = __webpack_require__(67);
 	
 	var _configurationConfiguration2 = _interopRequireDefault(_configurationConfiguration);
 	
-	var _chooseLanguageChooseLanguage = __webpack_require__(71);
+	var _chooseLanguageChooseLanguage = __webpack_require__(70);
 	
 	var _chooseLanguageChooseLanguage2 = _interopRequireDefault(_chooseLanguageChooseLanguage);
 	
-	var _startGameWizardStartGameWizard = __webpack_require__(74);
+	var _startGameWizardStartGameWizard = __webpack_require__(73);
 	
 	var _startGameWizardStartGameWizard2 = _interopRequireDefault(_startGameWizardStartGameWizard);
 	
-	var _inGameInGame = __webpack_require__(84);
+	var _inGameInGame = __webpack_require__(83);
 	
 	var _inGameInGame2 = _interopRequireDefault(_inGameInGame);
 	
@@ -2132,7 +2125,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 59 */
+/* 58 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2151,11 +2144,11 @@ webpackJsonp([0],[
 	
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 	
-	var _homeHtml = __webpack_require__(60);
+	var _homeHtml = __webpack_require__(59);
 	
 	var _homeHtml2 = _interopRequireDefault(_homeHtml);
 	
-	var _homeController = __webpack_require__(61);
+	var _homeController = __webpack_require__(60);
 	
 	var _homeController2 = _interopRequireDefault(_homeController);
 	
@@ -2171,13 +2164,13 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 60 */
+/* 59 */
 /***/ function(module, exports) {
 
 	module.exports = "<navbar></navbar>\n<messages></messages>\n<main>\n</main>"
 
 /***/ },
-/* 61 */
+/* 60 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2232,7 +2225,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 62 */
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2251,11 +2244,11 @@ webpackJsonp([0],[
 	
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 	
-	var _gamesHtml = __webpack_require__(63);
+	var _gamesHtml = __webpack_require__(62);
 	
 	var _gamesHtml2 = _interopRequireDefault(_gamesHtml);
 	
-	var _gamesController = __webpack_require__(64);
+	var _gamesController = __webpack_require__(63);
 	
 	var _gamesController2 = _interopRequireDefault(_gamesController);
 	
@@ -2271,13 +2264,13 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 63 */
+/* 62 */
 /***/ function(module, exports) {
 
 	module.exports = "<navbar></navbar>\n<messages></messages>\n<main>\n    <div class=\"container bg-white\" role=\"main\">\n        <div class=\"page-header\">\n            <h1>{{ 'Games' | translate }}</h1>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-md-12\">\n                <table class=\"table table-striped\">\n                    <col style=\"width:40%\">\n                    <col style=\"width:30% \">\n                    <col style=\"width:15%\">\n                    <col style=\"width:15%\">\n                    <thead>\n                    <tr>\n                        <th>{{ 'Book' | translate }}</th>\n                        <th>{{ 'Player' | translate }}</th>\n                        <th>{{ 'Current Paragraph' | translate }}</th>\n                        <th>{{ 'Actually played' | translate }}</th>\n                    </tr>\n                    </thead>\n                    <tbody>\n                    <tr ng-repeat=\"row in $ctrl.rows\">\n                        <td>{{ row.bookName }}</td>\n                        <td>{{ row.playerName }}</td>\n                        <td>{{ row.currentParagraph }}</td>\n                        <td>\n                            <button type=\"button\" class=\"btn\" ng-class=\"{ 'btn-success' : row.selected, 'btn-default' : !row.selected}\"\n                                    aria-label=\"{{ !row.selected ?\n                                        ('ChoiceGame' | translate: {bookName: row.bookName, playerName: row.playerName}) :\n                                        ('ChoosenGame' | translate: {bookName: row.bookName, playerName: row.playerName}) }}\"\n                                    title=\"{{ !row.selected ?\n                                        ('ChoiceGame' | translate: {bookName: row.bookName, playerName: row.playerName}) :\n                                        ('ChoosenGame' | translate: {bookName: row.bookName, playerName: row.playerName}) }}\"\n                                    ng-click=\"$ctrl.select(row)\">\n                                <span ng-class=\"{ 'glyphicon glyphicon-ok' : row.selected, 'glyphicon glyphicon-hand-left' : !row.selected}\" aria-hidden=\"true\"></span>\n                            </button>\n                        </td>\n                    </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n\n        <button type=\"button\" class=\"btn btn-default\" ng-click=\"$ctrl.startNewGame()\">{{ 'New game' | translate }}</button>\n    </div>\n\n</main>"
 
 /***/ },
-/* 64 */
+/* 63 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2329,7 +2322,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 65 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2348,11 +2341,11 @@ webpackJsonp([0],[
 	
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 	
-	var _battleHtml = __webpack_require__(66);
+	var _battleHtml = __webpack_require__(65);
 	
 	var _battleHtml2 = _interopRequireDefault(_battleHtml);
 	
-	var _battleController = __webpack_require__(67);
+	var _battleController = __webpack_require__(66);
 	
 	var _battleController2 = _interopRequireDefault(_battleController);
 	
@@ -2368,13 +2361,13 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 66 */
+/* 65 */
 /***/ function(module, exports) {
 
 	module.exports = "<navbar></navbar>\n<messages></messages>\n<main>\n    <div class=\"container bg-white\" role=\"main\">\n        <div class=\"page-header\">\n            <h1>{{ 'Battle' | translate }}</h1>\n        </div>\n\n        <form name=\"battleTableForm\" novalidate=\"novalidate\">\n            <table class=\"table\">\n                <col style=\"width:10%\">\n                <col style=\"width:10%\">\n                <col style=\"width:10%\">\n                <col style=\"width:5%\">\n                <col style=\"width:5%\">\n                <col style=\"width:60%\">\n                <thead>\n                <tr>\n                    <th></th>\n                    <th>{{ 'Skill' | translate }}</th>\n                    <th>{{ 'Stamina' | translate }}</th>\n                    <th>\n                        <button type=\"button\" class=\"btn btn-default\"\n                                aria-label=\"{{ 'Add enemy' | translate}}\"\n                                title=\"{{ 'Add enemy' | translate}}\"\n                                ng-show=\"!$ctrl.hasEditedRow()\"\n                                ng-click=\"$ctrl.addRow()\">\n                            <span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span>\n                        </button>\n                    </th>\n                    <th></th>\n                    <th></th>\n                </tr>\n                </thead>\n                <tbody>\n                <tr ng-repeat=\"row in $ctrl.rows\">\n\n                    <td ng-if=\"!$ctrl.isRowEdited(row)\">\n                        {{ row.name }}\n                    </td>\n                    <td ng-if=\"$ctrl.isRowEdited(row)\">\n                        <input required type=\"text\" class=\"form-control\" ng-model=\"row.name\">\n                        <div class=\"error\" ng-show=\"!row.name\">\n                            {{ 'Please fill the name' | translate }}\n                        </div>\n                    </td>\n\n                    <td ng-if=\"!$ctrl.isRowEdited(row)\">\n                        {{ row.skill }}\n                    </td>\n                    <td ng-if=\"$ctrl.isRowEdited(row)\">\n                        <input required type=\"number\" class=\"form-control\" ng-model=\"row.skill\">\n                        <div class=\"error\" ng-show=\"!row.skill\">\n                            {{ 'Please fill the skill' | translate }}\n                        </div>\n                    </td>\n\n                    <td ng-if=\"!$ctrl.isRowEdited(row)\">\n                        {{ row.stamina }}\n                    </td>\n                    <td ng-if=\"$ctrl.isRowEdited(row)\">\n                        <input required type=\"number\" class=\"form-control\" ng-model=\"row.stamina\">\n                        <div class=\"error\" ng-show=\"!row.stamina\">\n                            {{ 'Please fill the stamina' | translate }}\n                        </div>\n                    </td>\n\n                    <td>\n                        <button type=\"button\" class=\"btn btn-default\"\n                                aria-label=\"{{ 'Increment' | translate }} {{ 'Stamina' | translate }}\"\n                                title=\"{{ 'Increment' | translate }} {{ 'Stamina' | translate }}\"\n                                ng-click=\"$ctrl.increment(row)\"\n                                ng-show=\"!$ctrl.hasEditedRow()\">\n                            <span class=\"glyphicon glyphicon-plus-sign\" aria-hidden=\"true\"></span>\n                        </button>\n                        <button type=\"button\" class=\"btn btn-success\"\n                                aria-label=\"{{ 'Save enemy changes' | translate}}\"\n                                title=\"{{ 'Save enemy changes' | translate}}\"\n                                ng-click=\"$ctrl.saveRowChanges(notesTableForm.$invalid)\"\n                                ng-show=\"$ctrl.isRowEdited(row)\">\n                            <span class=\"glyphicon glyphicon-ok\" aria-hidden=\"true\"></span>\n                        </button>\n                    </td>\n\n                    <td>\n                        <button type=\"button\" class=\"btn btn-default\"\n                                aria-label=\"{{ 'Decrement' | translate }} {{ 'Stamina' | translate }}\"\n                                title=\"{{ 'Decrement' | translate }} {{ 'Stamina' | translate }}\"\n                                ng-click=\"$ctrl.decrement(row)\"\n                                ng-show=\"!$ctrl.hasEditedRow()\">\n                            <span class=\"glyphicon glyphicon-minus-sign\" aria-hidden=\"true\"></span>\n                        </button>\n                        <button type=\"button\" class=\"btn btn-danger\"\n                                aria-label=\"{{ 'Abort enemy changes' | translate}}\"\n                                title=\"{{ 'Abort enemy changes' | translate}}\"\n                                ng-click=\"$ctrl.abortRowChanges()\"\n                                ng-show=\"$ctrl.isRowEdited(row)\">\n                            <span class=\"glyphicon glyphicon-arrow-left\" aria-hidden=\"true\"></span>\n                        </button>\n                    </td>\n\n                    <td>\n                        <button type=\"button\" class=\"btn btn-default\"\n                                aria-label=\"{{ 'Edit enemy' | translate }} '{{ row.name | translate }}'\"\n                                title=\"{{ 'Edit enemy' | translate }} '{{ row.name | translate }}'\"\n                                ng-click=\"$ctrl.editRow(row)\"\n                                ng-show=\"!$ctrl.hasEditedRow() && $ctrl.isEnemy(row)\">\n                            <span class=\"glyphicon glyphicon-edit\" aria-hidden=\"true\"></span>\n                        </button>\n                        <button type=\"button\" class=\"btn btn-danger\"\n                                aria-label=\"{{ 'Remove enemy' | translate }} {{ row.name | translate }}\"\n                                title=\"{{ 'Remove enemy' | translate }} '{{ row.name | translate }}'\"\n                                ng-click=\"$ctrl.displayRemovePopup(row)\"\n                                ng-disabled=\"$ctrl.addedRow\"\n                                ng-show=\"$ctrl.isRowEdited(row)\">\n                            <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>\n                        </button>\n                    </td>\n\n                    <td></td>\n                </tr>\n                </tbody>\n            </table>\n        </form>\n\n        <dices></dices>\n        <back-button></back-button>\n\n        <popup config=\"{{ $ctrl.popupDeleteEnemyConfig }}\"></popup>\n</main>"
 
 /***/ },
-/* 67 */
+/* 66 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2516,7 +2509,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 68 */
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2535,11 +2528,11 @@ webpackJsonp([0],[
 	
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 	
-	var _configurationHtml = __webpack_require__(69);
+	var _configurationHtml = __webpack_require__(68);
 	
 	var _configurationHtml2 = _interopRequireDefault(_configurationHtml);
 	
-	var _configurationController = __webpack_require__(70);
+	var _configurationController = __webpack_require__(69);
 	
 	var _configurationController2 = _interopRequireDefault(_configurationController);
 	
@@ -2555,13 +2548,13 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 69 */
+/* 68 */
 /***/ function(module, exports) {
 
 	module.exports = "<navbar></navbar>\n<messages></messages>\n<main>\n    <div class=\"container bg-white\" role=\"main\">\n        <div class=\"page-header\">\n            <h1>{{ 'Configuration' | translate }}</h1>\n        </div>\n        <version-display></version-display>\n        <language-picker></language-picker>\n\n        <h2>{{ 'Administration' | translate }}</h2>\n        <saved-data-admin></saved-data-admin>\n    </div>\n</main>"
 
 /***/ },
-/* 70 */
+/* 69 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -2587,7 +2580,7 @@ webpackJsonp([0],[
 	module.exports = exports["default"];
 
 /***/ },
-/* 71 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2606,11 +2599,11 @@ webpackJsonp([0],[
 	
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 	
-	var _chooseLanguageHtml = __webpack_require__(72);
+	var _chooseLanguageHtml = __webpack_require__(71);
 	
 	var _chooseLanguageHtml2 = _interopRequireDefault(_chooseLanguageHtml);
 	
-	var _chooseLanguageController = __webpack_require__(73);
+	var _chooseLanguageController = __webpack_require__(72);
 	
 	var _chooseLanguageController2 = _interopRequireDefault(_chooseLanguageController);
 	
@@ -2626,13 +2619,13 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 72 */
+/* 71 */
 /***/ function(module, exports) {
 
 	module.exports = "<navbar></navbar>\n<messages></messages>\n<main>\n    <div class=\"container bg-white\" role=\"main\">\n        <div class=\"page-header\">\n            <h1>{{ 'Gamebooks Companion' | translate }}</h1>\n        </div>\n        <language-picker></language-picker>\n    </div>\n</main>\n"
 
 /***/ },
-/* 73 */
+/* 72 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -2660,7 +2653,7 @@ webpackJsonp([0],[
 	module.exports = exports["default"];
 
 /***/ },
-/* 74 */
+/* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2675,15 +2668,15 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _selectBookSelectBook = __webpack_require__(75);
+	var _selectBookSelectBook = __webpack_require__(74);
 	
 	var _selectBookSelectBook2 = _interopRequireDefault(_selectBookSelectBook);
 	
-	var _createPlayerCreatePlayer = __webpack_require__(78);
+	var _createPlayerCreatePlayer = __webpack_require__(77);
 	
 	var _createPlayerCreatePlayer2 = _interopRequireDefault(_createPlayerCreatePlayer);
 	
-	var _chooseItemsChooseItems = __webpack_require__(81);
+	var _chooseItemsChooseItems = __webpack_require__(80);
 	
 	var _chooseItemsChooseItems2 = _interopRequireDefault(_chooseItemsChooseItems);
 	
@@ -2693,7 +2686,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 75 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2712,11 +2705,11 @@ webpackJsonp([0],[
 	
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 	
-	var _selectBookHtml = __webpack_require__(76);
+	var _selectBookHtml = __webpack_require__(75);
 	
 	var _selectBookHtml2 = _interopRequireDefault(_selectBookHtml);
 	
-	var _selectBookController = __webpack_require__(77);
+	var _selectBookController = __webpack_require__(76);
 	
 	var _selectBookController2 = _interopRequireDefault(_selectBookController);
 	
@@ -2732,13 +2725,13 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 76 */
+/* 75 */
 /***/ function(module, exports) {
 
 	module.exports = "<navbar></navbar>\n<messages></messages>\n<main>\n    <div class=\"container bg-white\" role=\"main\">\n        <div class=\"page-header\">\n            <h1>{{ 'New game' | translate }}</h1>\n        </div>\n\n        <ol class=\"breadcrumb\">\n            <li class=\"active\">{{ 'Select Book' | translate }}</li>\n            <li>{{ 'Create Player' | translate }}</li>\n            <li>{{ 'Choose Items' | translate }}</li>\n        </ol>\n\n        <div class=\"form-group\">\n            <label for=\"selectedBook\">{{ 'Select a gamebook' | translate }}</label>\n            <select id=\"selectedBook\" class=\"form-control\" ng-model=\"$ctrl.selectedBookName\">\n                <option ng-repeat=\"book in $ctrl.getBooks()\" value=\"{{ book.name }}\">{{ book.name | translate }}</option>\n            </select>\n        </div>\n\n        <button type=\"button\" class=\"btn btn-default\" ng-click=\"$ctrl.back()\">{{ 'Back' | translate }}</button>\n        <button type=\"button\" class=\"btn btn-primary\" ng-click=\"$ctrl.next()\">{{ 'Next' | translate }}</button>\n    </div>\n</main>"
 
 /***/ },
-/* 77 */
+/* 76 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -2792,7 +2785,7 @@ webpackJsonp([0],[
 	module.exports = exports["default"];
 
 /***/ },
-/* 78 */
+/* 77 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2811,11 +2804,11 @@ webpackJsonp([0],[
 	
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 	
-	var _createPlayerHtml = __webpack_require__(79);
+	var _createPlayerHtml = __webpack_require__(78);
 	
 	var _createPlayerHtml2 = _interopRequireDefault(_createPlayerHtml);
 	
-	var _createPlayerController = __webpack_require__(80);
+	var _createPlayerController = __webpack_require__(79);
 	
 	var _createPlayerController2 = _interopRequireDefault(_createPlayerController);
 	
@@ -2831,13 +2824,13 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 79 */
+/* 78 */
 /***/ function(module, exports) {
 
 	module.exports = "<navbar></navbar>\n<messages></messages>\n<main>\n    <div class=\"container bg-white\" role=\"main\">\n        <div class=\"page-header\">\n            <h1>{{ 'New game' | translate }}</h1>\n        </div>\n\n        <!-- novalidate=\"novalidate\" allow to do not display untranslated tooltip \"Fill out this field\" -->\n        <form name=\"playerForm\" novalidate=\"novalidate\">\n            <ol class=\"breadcrumb\">\n                <li>{{ 'Select Book' | translate }}</li>\n                <li class=\"active\">{{ 'Create Player' | translate }}</li>\n                <li>{{ 'Choose Items' | translate }}</li>\n            </ol>\n\n            <div class=\"form-group\">\n                <label for=\"playerName\">{{ 'PlayerName' | translate }}*</label>\n                <input type=\"text\" required class=\"form-control\" id=\"playerName\" ng-model=\"$ctrl.playerName\">\n                <div class=\"error\" ng-show=\"playerForm.$invalid\">\n                    {{ 'Please fill the player name' | translate }}\n                </div>\n            </div>\n\n            <div class=\"form-group\" ng-repeat=\"stats in $ctrl.stats\">\n                <label for=\"{{ stats.name }}\">{{ stats.name | translate }}</label>\n                <input type=\"text\" disabled required class=\"form-control\" id=\"{{ stats.name }}\" ng-model=\"stats.value\">\n            </div>\n\n            <div class=\"form-group\">\n                <button type=\"button\" class=\"btn btn-default\" ng-click=\"$ctrl.back()\">{{ 'Back' | translate }}</button>\n                <button type=\"button\" class=\"btn btn-default\" ng-click=\"$ctrl.generateStats()\">{{ 'Random Stats' | translate }}</button>\n                <button type=\"button\" class=\"btn btn-primary\" ng-click=\"$ctrl.next(playerForm.$invalid)\">{{ 'Next' | translate }}</button>\n            </div>\n        </form>\n    </div>\n</main>"
 
 /***/ },
-/* 80 */
+/* 79 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -2928,7 +2921,7 @@ webpackJsonp([0],[
 	module.exports = exports["default"];
 
 /***/ },
-/* 81 */
+/* 80 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2947,11 +2940,11 @@ webpackJsonp([0],[
 	
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 	
-	var _chooseItemsHtml = __webpack_require__(82);
+	var _chooseItemsHtml = __webpack_require__(81);
 	
 	var _chooseItemsHtml2 = _interopRequireDefault(_chooseItemsHtml);
 	
-	var _chooseItemsController = __webpack_require__(83);
+	var _chooseItemsController = __webpack_require__(82);
 	
 	var _chooseItemsController2 = _interopRequireDefault(_chooseItemsController);
 	
@@ -2967,13 +2960,13 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 82 */
+/* 81 */
 /***/ function(module, exports) {
 
 	module.exports = "<navbar></navbar>\n<main>\n    <div class=\"container bg-white\" role=\"main\">\n        <div class=\"page-header\">\n            <h1>{{ 'New game' | translate }}</h1>\n        </div>\n\n        <ol class=\"breadcrumb\">\n            <li>{{ 'Select Book' | translate }}</li>\n            <li>{{ 'Create Player' | translate }}</li>\n            <li class=\"active\">{{ 'Choose Items' | translate }}</li>\n        </ol>\n\n        <messages></messages>\n\n        <items ng-if=\"$ctrl.isItemsDisplayed()\" items=\"$ctrl.getItems()\"></items>\n\n        <div class=\"spacer\"></div>\n\n        <button type=\"button\" class=\"btn btn-default\" ng-click=\"$ctrl.back()\">{{ 'Back' | translate }}</button>\n        <button type=\"button\" class=\"btn btn-primary\">{{ 'Start Game' | translate }}</button>\n    </div>\n</main>"
 
 /***/ },
-/* 83 */
+/* 82 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -3037,7 +3030,7 @@ webpackJsonp([0],[
 	module.exports = exports["default"];
 
 /***/ },
-/* 84 */
+/* 83 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3056,11 +3049,11 @@ webpackJsonp([0],[
 	
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 	
-	var _inGameHtml = __webpack_require__(85);
+	var _inGameHtml = __webpack_require__(84);
 	
 	var _inGameHtml2 = _interopRequireDefault(_inGameHtml);
 	
-	var _inGameController = __webpack_require__(86);
+	var _inGameController = __webpack_require__(85);
 	
 	var _inGameController2 = _interopRequireDefault(_inGameController);
 	
@@ -3076,13 +3069,13 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 85 */
+/* 84 */
 /***/ function(module, exports) {
 
 	module.exports = "<navbar></navbar>\n<messages></messages>\n<main>\n    <div class=\"container bg-white\" role=\"main\">\n        <div class=\"page-header\">\n            <h1>{{ 'Paragraph' | translate }} {{ $ctrl.paragraph.paragraphNumber }}</h1>\n        </div>\n\n        <paragraph></paragraph>\n\n        <table class=\"table table-striped\">\n            <col style=\"width:5%\">\n            <col style=\"width:95%\">\n            <thead>\n            <tr>\n                <th>{{ 'Actions' | translate }}</th>\n                <th></th>\n                <th></th>\n            </tr>\n            </thead>\n            <tbody>\n            <tr>\n                <td>\n                    <button type=\"button\" class=\"btn btn-default\" ng-click=\"$ctrl.startBattle()\">{{ 'Start Battle' | translate }}</button>\n                </td>\n                <td></td>\n            </tr>\n            <tr>\n                <td>\n                    <button class=\"btn btn-default\" type=\"button\" ng-click=\"$ctrl.jumpToParagraph()\">{{ 'Go to paragraph' | translate }}</button>\n                </td>\n                <td>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"{{ 'Paragraph number' | translate }}\" ng-model=\"$ctrl.paragraphNumber\">\n                </td>\n            </tr>\n            <tr>\n                <td>\n                    <button type=\"button\" class=\"btn btn-danger\" ng-click=\"$ctrl.displayAbandonGamePopup()\">{{ 'End Game' | translate }}</button>\n                </td>\n                <td>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"{{ 'Reason' | translate }}\" ng-model=\"$ctrl.endGameReason\">\n                </td>\n            </tr>\n            </tbody>\n        </table>\n\n\n        <dices></dices>\n\n        <notes notes=\"$ctrl.notes\" paragraph-number=\"{{$ctrl.paragraph.paragraphNumber}}\" player-name=\"{{$ctrl.playerName}}\"></notes>\n\n        <div class=\"spacer\"></div>\n        <stats></stats>\n\n        <div class=\"spacer\"></div>\n        <items items=\"$ctrl.items\" readonly=\"true\"></items>\n        <back-button></back-button>\n    </div>\n\n    <popup config=\"{{ $ctrl.popupAbandonGameConfig }}\"></popup>\n</main>"
 
 /***/ },
-/* 86 */
+/* 85 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3179,7 +3172,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 87 */
+/* 86 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3194,27 +3187,27 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _languageAvailabilityCheckerLanguageAvailabilityChecker = __webpack_require__(88);
+	var _languageAvailabilityCheckerLanguageAvailabilityChecker = __webpack_require__(87);
 	
 	var _languageAvailabilityCheckerLanguageAvailabilityChecker2 = _interopRequireDefault(_languageAvailabilityCheckerLanguageAvailabilityChecker);
 	
-	var _softwareRequirementsCheckerSoftwareRequirementsChecker = __webpack_require__(90);
+	var _softwareRequirementsCheckerSoftwareRequirementsChecker = __webpack_require__(89);
 	
 	var _softwareRequirementsCheckerSoftwareRequirementsChecker2 = _interopRequireDefault(_softwareRequirementsCheckerSoftwareRequirementsChecker);
 	
-	var _preScreenLoadingInterceptorsCallerPreScreenLoadingInterceptorsCaller = __webpack_require__(92);
+	var _preScreenLoadingInterceptorsCallerPreScreenLoadingInterceptorsCaller = __webpack_require__(91);
 	
 	var _preScreenLoadingInterceptorsCallerPreScreenLoadingInterceptorsCaller2 = _interopRequireDefault(_preScreenLoadingInterceptorsCallerPreScreenLoadingInterceptorsCaller);
 	
-	var _persistencePersistence = __webpack_require__(94);
+	var _persistencePersistence = __webpack_require__(93);
 	
 	var _persistencePersistence2 = _interopRequireDefault(_persistencePersistence);
 	
-	var _dicesDices = __webpack_require__(96);
+	var _dicesDices = __webpack_require__(95);
 	
 	var _dicesDices2 = _interopRequireDefault(_dicesDices);
 	
-	var _booksBooks = __webpack_require__(98);
+	var _booksBooks = __webpack_require__(97);
 	
 	var _booksBooks2 = _interopRequireDefault(_booksBooks);
 	
@@ -3224,7 +3217,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 88 */
+/* 87 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3239,7 +3232,7 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _languageAvailabilityCheckerService = __webpack_require__(89);
+	var _languageAvailabilityCheckerService = __webpack_require__(88);
 	
 	var _languageAvailabilityCheckerService2 = _interopRequireDefault(_languageAvailabilityCheckerService);
 	
@@ -3250,7 +3243,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 89 */
+/* 88 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3301,7 +3294,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 90 */
+/* 89 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3316,7 +3309,7 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _softwareRequirementsCheckerService = __webpack_require__(91);
+	var _softwareRequirementsCheckerService = __webpack_require__(90);
 	
 	var _softwareRequirementsCheckerService2 = _interopRequireDefault(_softwareRequirementsCheckerService);
 	
@@ -3327,7 +3320,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 91 */
+/* 90 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3384,7 +3377,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 92 */
+/* 91 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3399,7 +3392,7 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _preScreenLoadingInterceptorsCallerService = __webpack_require__(93);
+	var _preScreenLoadingInterceptorsCallerService = __webpack_require__(92);
 	
 	var _preScreenLoadingInterceptorsCallerService2 = _interopRequireDefault(_preScreenLoadingInterceptorsCallerService);
 	
@@ -3410,7 +3403,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 93 */
+/* 92 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -3452,7 +3445,7 @@ webpackJsonp([0],[
 	module.exports = exports["default"];
 
 /***/ },
-/* 94 */
+/* 93 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3467,7 +3460,7 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _persistenceService = __webpack_require__(95);
+	var _persistenceService = __webpack_require__(94);
 	
 	var _persistenceService2 = _interopRequireDefault(_persistenceService);
 	
@@ -3478,7 +3471,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 95 */
+/* 94 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3605,7 +3598,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 96 */
+/* 95 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3620,7 +3613,7 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _dicesService = __webpack_require__(97);
+	var _dicesService = __webpack_require__(96);
 	
 	var _dicesService2 = _interopRequireDefault(_dicesService);
 	
@@ -3631,7 +3624,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 97 */
+/* 96 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -3680,7 +3673,7 @@ webpackJsonp([0],[
 	module.exports = exports["default"];
 
 /***/ },
-/* 98 */
+/* 97 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3695,19 +3688,19 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _booksService = __webpack_require__(99);
+	var _booksService = __webpack_require__(98);
 	
 	var _booksService2 = _interopRequireDefault(_booksService);
 	
-	var _warlockOfFiretopMountainWarlockOfFiretopMountain = __webpack_require__(100);
+	var _warlockOfFiretopMountainWarlockOfFiretopMountain = __webpack_require__(99);
 	
 	var _warlockOfFiretopMountainWarlockOfFiretopMountain2 = _interopRequireDefault(_warlockOfFiretopMountainWarlockOfFiretopMountain);
 	
-	var _templeOfTerrorTempleOfTerror = __webpack_require__(102);
+	var _templeOfTerrorTempleOfTerror = __webpack_require__(101);
 	
 	var _templeOfTerrorTempleOfTerror2 = _interopRequireDefault(_templeOfTerrorTempleOfTerror);
 	
-	var _creatureFromHavocCreatureFromHavoc = __webpack_require__(104);
+	var _creatureFromHavocCreatureFromHavoc = __webpack_require__(103);
 	
 	var _creatureFromHavocCreatureFromHavoc2 = _interopRequireDefault(_creatureFromHavocCreatureFromHavoc);
 	
@@ -3718,7 +3711,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 99 */
+/* 98 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -3772,7 +3765,7 @@ webpackJsonp([0],[
 	module.exports = exports["default"];
 
 /***/ },
-/* 100 */
+/* 99 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3787,7 +3780,7 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _warlockOfFiretopMountainService = __webpack_require__(101);
+	var _warlockOfFiretopMountainService = __webpack_require__(100);
 	
 	var _warlockOfFiretopMountainService2 = _interopRequireDefault(_warlockOfFiretopMountainService);
 	
@@ -3798,7 +3791,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 101 */
+/* 100 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3889,7 +3882,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 102 */
+/* 101 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3904,7 +3897,7 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _templeOfTerrorService = __webpack_require__(103);
+	var _templeOfTerrorService = __webpack_require__(102);
 	
 	var _templeOfTerrorService2 = _interopRequireDefault(_templeOfTerrorService);
 	
@@ -3915,7 +3908,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 103 */
+/* 102 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3957,7 +3950,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 104 */
+/* 103 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3972,7 +3965,7 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _creatureFromHavocService = __webpack_require__(105);
+	var _creatureFromHavocService = __webpack_require__(104);
 	
 	var _creatureFromHavocService2 = _interopRequireDefault(_creatureFromHavocService);
 	
@@ -3983,7 +3976,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 105 */
+/* 104 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -4025,7 +4018,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 106 */
+/* 105 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4069,7 +4062,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 107 */
+/* 106 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4089,11 +4082,11 @@ webpackJsonp([0],[
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _appHtml = __webpack_require__(108);
+	var _appHtml = __webpack_require__(107);
 	
 	var _appHtml2 = _interopRequireDefault(_appHtml);
 	
-	__webpack_require__(109);
+	__webpack_require__(108);
 	
 	var appComponent = function appComponent() {
 	    return {
@@ -4105,22 +4098,22 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 108 */
+/* 107 */
 /***/ function(module, exports) {
 
 	module.exports = "<div ui-view></div>"
 
 /***/ },
-/* 109 */
+/* 108 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(110);
+	var content = __webpack_require__(109);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(42)(content, {});
+	var update = __webpack_require__(41)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -4137,10 +4130,10 @@ webpackJsonp([0],[
 	}
 
 /***/ },
-/* 110 */
+/* 109 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(41)();
+	exports = module.exports = __webpack_require__(40)();
 	// imports
 	
 	
@@ -4151,7 +4144,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 111 */
+/* 110 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -4162,7 +4155,7 @@ webpackJsonp([0],[
 	};
 
 /***/ },
-/* 112 */
+/* 111 */
 /***/ function(module, exports) {
 
 	module.exports = {
