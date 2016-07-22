@@ -1,44 +1,43 @@
 <form>
     <table class="table table-striped">
+        <col style="width:5%">
+        <col style="width:5%">
         <col style="width:85%">
-        <col style="width:5%">
-        <col style="width:5%">
         <col style="width:5%">
         <thead>
         <tr>
+            <th>
+                <!-- TODO how to map correctly image with webpack & angularjs? -->
+                <!-- image come from https://commons.wikimedia.org/wiki/File:Oxygen480-actions-roll.svg -->
+                <img src="http://morarupasukaru.github.io/gamebooks-assistant/dice.svg"/>
+            </th>
+            <th></th>
             <th>{{ 'Values' | translate }}</th>
-            <th>{{ 'Dices' | translate }}</th>
+            <th></th>
             <th></th>
         </tr>
         </thead>
         <tbody>
         <tr>
             <td>
-                {{ $ctrl.dicesValue }}
-            </td>
-
-            <td>
                 <button class="btn btn-default"
                         ng-click="$ctrl.roll1d6()"
                         aria-label="{{ 'Roll one dice 6 faces' | translate }}"
                         title="{{ 'Roll one dice 6 faces' | translate }}">
-                    {{ 'Roll 1D6' | translate }}
-                    <!-- TODO how to map correctly image with webpack & angularjs? -->
-                    <img src="http://morarupasukaru.github.io/gamebooks-assistant/dice.svg"/>
+                    {{ 'x1' | translate }}
                 </button>
             </td>
-
             <td>
                 <button class="btn btn-default"
                         ng-click="$ctrl.roll2d6()"
                         aria-label="{{ 'Roll two dices 6 faces' | translate }}"
                         title="{{ 'Roll two dices 6 faces' | translate }}">
-                    {{ '2D6' | translate }}
-                    <!-- TODO how to map correctly image with webpack & angularjs? -->
-                    <img src="http://morarupasukaru.github.io/gamebooks-assistant/dice.svg"/>
+                    {{ 'x2' | translate }}
                 </button>
             </td>
-
+            <td>
+                {{ $ctrl.dicesValue }}
+            </td>
             <td>
                 <button class="btn btn-default glyphicon glyphicon-erase"
                         title="{{ 'Clear values' | translate }}"
@@ -50,7 +49,5 @@
         </tr>
         </tbody>
     </table>
-
-    <input type="text" maxlength="1" readonly value="&#xe900;" class="unitRight size1of2 talign-right" />
 </form>
 
