@@ -1,3 +1,3 @@
-# Gamebook Adventure Sheet
+# Gamebook Assistant
 
-TODO - Gamebook Companion instead of "Gamebook Adventure Sheet"
+TODO
