@@ -66,3 +66,4 @@ v arena: battle between two or more players?
 
 how to display image with url with webpack & angularjs correctly?
 bug with minify
+add 'about with credits' screen
