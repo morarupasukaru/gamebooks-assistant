@@ -3,8 +3,6 @@ class EndGamePopupController {
     constructor(preScreenLoadingInterceptorsCallerService, endGamePopupService) {
         this.cfg = JSON.parse(this.config);
         this.endGamePopupService = endGamePopupService;
-        if (this.cfg.closeOnClickOutsideModal) {
-        }
     }
 
     select(choice) {

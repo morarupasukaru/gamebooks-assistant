@@ -4,6 +4,7 @@ class PopupController {
         this.cfg = JSON.parse(this.config);
         this.popupService = popupService;
         if (this.cfg.closeOnClickOutsideModal) {
+            this.close();
         }
     }
 

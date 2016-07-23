@@ -1,11 +1,15 @@
 let self;
 class ChooseLanguageController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, persistenceService) {
+    constructor(preScreenLoadingInterceptorsCallerService, persistenceService, $location, constants) {
         self = this;
+        self.$location = $location;
+        self.constants = constants;
         preScreenLoadingInterceptorsCallerService.intercept();
+    }
 
-        // TODO event > language choosen > go next page
+    goForward() {
+        self.$location.url(self.constants.url.games)
     }
 }
 

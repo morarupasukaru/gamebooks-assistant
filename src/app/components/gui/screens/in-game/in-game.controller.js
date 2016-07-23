@@ -18,7 +18,6 @@ class InGameController {
 
         self.popupAbandonGameConfig = {
             id : 'popupAbandonGame',
-            text : 'Are you sure to abandon this game?',
             choices : [constants.choices.yes, constants.choices.no],
             withCloseButton : false,
             closeOnClickOutsideModal : false
