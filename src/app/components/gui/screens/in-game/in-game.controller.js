@@ -1,12 +1,12 @@
 let self;
 class InGameController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $location, constants, popupService) {
+    constructor(preScreenLoadingInterceptorsCallerService, $location, constants, endGamePopupService) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
         self.$location = $location;
         self.constants = constants;
-        self.popupService = popupService;
+        self.endGamePopupService = endGamePopupService;
         this.paragraph = {
             paragraphNumber : 1,
             description : 'Start of the game\nStart of the game\nStart of the game\nStart of the game\nStart of the game\nStart of the game\n',
@@ -67,12 +67,12 @@ class InGameController {
     }
 
     displayAbandonGamePopup(removedRow) {
-        self.popupService.show(self.popupAbandonGameConfig.id, self.callbackAbandonGamePopup);
+        self.endGamePopupService.show(self.popupAbandonGameConfig.id, self.callbackAbandonGamePopup);
     }
 
     callbackAbandonGamePopup(popupDomElementId, choice) {
         if (choice === self.constants.choices.yes) {
-            // TODO call abandon
+            self.$location.url(self.constants.url.games);
         }
     }
 }
