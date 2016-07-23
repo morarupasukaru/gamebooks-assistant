@@ -1,8 +1,12 @@
+let self;
 class EndGamePopupController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, endGamePopupService) {
+    constructor(preScreenLoadingInterceptorsCallerService, endGamePopupService, constants) {
         this.cfg = JSON.parse(this.config);
-        this.endGamePopupService = endGamePopupService;
+        self = this;
+        self.constants = constants;
+        self.endGamePopupService = endGamePopupService;
+        self.choices = [constants.choices.yes, constants.choices.no];
     }
 
     select(choice) {
@@ -10,7 +14,7 @@ class EndGamePopupController {
     }
 
     close(choice) {
-        this.endGamePopupService.close(this.cfg.id, choice);
+        this.endGamePopupService.close(this.cfg.id, choice, self.endGameReason);
     }
 }
 

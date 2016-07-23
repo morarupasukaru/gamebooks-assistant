@@ -16,12 +16,7 @@ class InGameController {
             ]
         };
 
-        self.popupAbandonGameConfig = {
-            id : 'popupAbandonGame',
-            choices : [constants.choices.yes, constants.choices.no],
-            withCloseButton : false,
-            closeOnClickOutsideModal : false
-        };
+        self.popupAbandonGameConfig = { id : 'popupAbandonGame' };
 
         this.notes = [ {note:'note 1'}, {note:'note 2', playerName : 'Pascal'}, {note:'note 3', playerName: 'François', paragraphNumber : 123 } ];
         this.items = [
@@ -69,10 +64,9 @@ class InGameController {
         self.endGamePopupService.show(self.popupAbandonGameConfig.id, self.callbackAbandonGamePopup);
     }
 
-    callbackAbandonGamePopup(popupDomElementId, choice) {
-        if (choice === self.constants.choices.yes) {
-            self.$location.url(self.constants.url.games);
-        }
+    callbackAbandonGamePopup(popupDomElementId, endGameReason) {
+        // TODO update game with endGameReason
+        self.$location.url(self.constants.url.games);
     }
 }
 
