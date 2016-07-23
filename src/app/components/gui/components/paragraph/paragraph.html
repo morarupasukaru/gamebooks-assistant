@@ -133,12 +133,12 @@
                             aria-label="{{ 'Go to paragraph' | translate}}"
                             title="{{ 'Go to paragraph' | translate}}"
                             ng-click="$ctrl.goToParagraph()"
-                            ng-disabled="$ctrl.">
+                            ng-disabled="!$ctrl.goToParagraphNr">
                         {{ 'Go to' | translate}}
                     </button>
                 </td>
                 <td>
-                    <input id="goToParagraphNr" type="number" required class="form-control" ng-model="$ctrl.goToParagraphNr">
+                    <input id="goToParagraphNr" type="number" class="form-control" ng-model="$ctrl.goToParagraphNr">
                 </td>
                 <td></td>
                 <td></td>

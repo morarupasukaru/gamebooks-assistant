@@ -6,55 +6,20 @@
             <h1>{{ 'Paragraph' | translate }} {{ $ctrl.paragraph.paragraphNumber }}</h1>
         </div>
 
-        <paragraph></paragraph>
+        <div id="paragraphEdit">
+            <paragraph></paragraph>
+            <notes notes="$ctrl.notes" paragraph-number="{{$ctrl.paragraph.paragraphNumber}}" player-name="{{$ctrl.playerName}}"></notes>
+        </div>
 
-        <table class="table table-striped">
-            <col style="width:5%">
-            <col style="width:95%">
-            <thead>
-            <tr>
-                <th>{{ 'Actions' | translate }}</th>
-                <th></th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>
-                    <button type="button" class="btn btn-default" ng-click="$ctrl.startBattle()">{{ 'Start Battle' | translate }}</button>
-                </td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>
-                    <button class="btn btn-default" type="button" ng-click="$ctrl.jumpToParagraph()">{{ 'Go to paragraph' | translate }}</button>
-                </td>
-                <td>
-                    <input type="text" class="form-control" placeholder="{{ 'Paragraph number' | translate }}" ng-model="$ctrl.paragraphNumber">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <button type="button" class="btn btn-danger" ng-click="$ctrl.displayAbandonGamePopup()">{{ 'End Game' | translate }}</button>
-                </td>
-                <td>
-                    <input type="text" class="form-control" placeholder="{{ 'Reason' | translate }}" ng-model="$ctrl.endGameReason">
-                </td>
-            </tr>
-            </tbody>
-        </table>
-
-
-        <dices></dices>
-
-        <notes notes="$ctrl.notes" paragraph-number="{{$ctrl.paragraph.paragraphNumber}}" player-name="{{$ctrl.playerName}}"></notes>
-
-        <div class="spacer"></div>
-        <stats></stats>
-
-        <div class="spacer"></div>
-        <items items="$ctrl.items" readonly="true"></items>
-        <back-button></back-button>
+        <div id="playerSheet" ng-if="!!$ctrl.playerName">
+            <h2>{{ 'Player' | translate }} {{ $ctrl.playerName }}</h2>
+            <stats></stats>
+            <items items="$ctrl.items" readonly="true"></items>
+            <dices></dices>
+            <back-button></back-button>
+            <button type="button" class="btn btn-default" ng-click="$ctrl.startBattle()">{{ 'Start Battle' | translate }}</button>
+            <button type="button" class="btn btn-danger" ng-click="$ctrl.displayAbandonGamePopup()">{{ 'End Game' | translate }}</button>
+        </div>
     </div>
 
     <popup config="{{ $ctrl.popupAbandonGameConfig }}"></popup>

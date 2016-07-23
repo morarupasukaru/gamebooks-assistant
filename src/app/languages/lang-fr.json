@@ -114,7 +114,9 @@
   "Please fill the name" : "Veuilliez saisir le nom",
   "Please fill the stamina" : "Veuilliez compléter l'endurance",
   "Please fill the skill" : "Veuilliez compléter l'habilité",
-  "Values" : "Valeurs",
   "Reason" : "Raison",
-  "Roll dices" : "Lance les dés"
+  "Roll dices" : "Lance les dés",
+  "Sum of dices value" : "Somme de la valeur des dés",
+  "Go to" : "Aller au",
+  "Item" : "Objet"
 }
