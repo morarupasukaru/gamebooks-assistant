@@ -25,6 +25,19 @@ class GamesController {
     startNewGame() {
         self.$location.url(self.constants.url.selectBookForNewGame)
     }
+
+    isContinueAllowed() {
+        for (var i = 0; i < self.rows.length; i++) {
+            if (!!self.rows[i].selected) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    continueGame() {
+        self.$location.url(self.constants.url.inGame)
+    }
 }
 
 export default GamesController;

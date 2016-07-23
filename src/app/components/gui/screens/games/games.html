@@ -44,6 +44,7 @@
         </div>
 
         <button type="button" class="btn btn-default" ng-click="$ctrl.startNewGame()">{{ 'New game' | translate }}</button>
+        <button type="button" class="btn btn-default" ng-disabled="!$ctrl.isContinueAllowed()" ng-click="$ctrl.continueGame()">{{ 'Continue' | translate }}</button>
         <back-button></back-button>
     </div>
 </main>
