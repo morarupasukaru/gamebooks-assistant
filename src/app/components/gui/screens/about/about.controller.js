@@ -1,9 +1,10 @@
 let self;
 class AboutController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService) {
+    constructor(preScreenLoadingInterceptorsCallerService, constants) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
+        self.appVersion = constants.version;
     }
 }
 

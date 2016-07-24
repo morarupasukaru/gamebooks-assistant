@@ -43,7 +43,6 @@
   "Choice paragragh" : "Sélectionne le paragraphe",
   "Choice" : "Choix",
   "Administration" : "Administration",
-  "Application Version" : "Version de l'application",
   "ChoiceGame" : "Charge le jeu {{ bookName }} de {{ playerName }}",
   "ChoosenGame" : "La partie '{{ bookName }}' de '{{ playerName }}' est actuellement jouée",
   "Yes" : "Oui",
@@ -121,5 +120,8 @@
   "Item" : "Objet",
   "Continue" : "Poursuivre",
   "End game's reason" : "Raison de la fin de partie",
-  "About" : "A propos"
+  "About" : "A propos",
+  "application.description" : "The 'Gamebooks Assistant' Website is an aid to play fighting fantasy gamebooks (or similar books). The app allow to keep the statistics, items and notes of the player. Paragraphs'choices & description of the book can be edited and shared between several games.",
+  "Application's description" : "Description de l'application",
+  "Application's version" : "Version de l'application"
 }

@@ -1,20 +1,20 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 
-import template from './configuration.html';
-import controller from './configuration.controller';
+import template from './about.html';
+import controller from './about.controller';
 
-let configurationModule = angular.module('app.components.gui.screen.configuration', [
+let aboutModule = angular.module('app.components.gui.screen.about', [
     uiRouter
 ])
     .config(/*@ngInject*/($stateProvider, $urlRouterProvider, constants) => {
         $urlRouterProvider.otherwise('/');
 
-        $stateProvider.state('configuration', {
-            url: constants.url.configuration, template: '<configuration></configuration>'
+        $stateProvider.state('about', {
+            url: constants.url.about, template: '<about></about>'
         });
     })
 
-    .component('configuration', { template, controller });
+    .component('about', { template, controller });
 
-export default configurationModule;
+export default aboutModule;
