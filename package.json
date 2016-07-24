@@ -1,7 +1,7 @@
 {
-  "name": "gamebook-adventure-sheet",
+  "name": "gamebooks-assistant",
   "version": "1.0.0",
-  "description": "Gamebook Adventure Sheet",
+  "description": "Gamebooks Assistant",
   "homepage": "https://github.com/SchweizerischeBundesbahnen/esta-webjs",
   "dependencies": {
     "angular": "^1.5.2",
@@ -49,17 +49,11 @@
     "browser-sync": "^2.10.0"
   },
   "keywords": [
-    "esta-webjs-starterkit"
+    "gamebooks-assistant"
   ],
   "author": {
-    "name": "Reto Lehmann",
-    "email": "reto.lehmann@sbb.ch"
+    "name": "Pascal Morard",
+    "email": "moraru.pasukaru@gmail.com"
   },
-  "contributors": [
-    {
-      "name": "Stefan Zeller",
-      "email": "stefan.zeller@sbb.ch"
-    }
-  ],
   "license": "Apache-2.0"
 }

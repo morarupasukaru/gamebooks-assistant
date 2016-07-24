@@ -67,3 +67,7 @@ v arena: battle between two or more players?
 how to display image with url with webpack & angularjs correctly?
 bug with minify
 add 'about with credits' screen
+
+todo url git project in package.json
+update licence in package.json > Apache-2.0?
+choose license > no sell
