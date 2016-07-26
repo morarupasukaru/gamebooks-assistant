@@ -8,14 +8,59 @@
 
         <div class="form-group">
             <label for="appDescription">{{ "Application's description" | translate }}</label>
-            <textarea id="appDescription" class="form-control" ng-readonly="true">{{ 'application.description' | translate }}</textarea>
+            <textarea id="appDescription" class="form-control" ng-readonly="true" rows="3">{{ 'application.description' | translate }}</textarea>
         </div>
 
         <div class="form-group">
             <label for="appVersion">{{ "Application's version" | translate }}</label>
             <input type="text" readonly class="form-control" id="appVersion" ng-model="$ctrl.appVersion">
         </div>
-        <!-- TODO credits -->
+
+        <h2>{{ 'Credits' | translate }}</h2>
+
+        <table class="table table-striped">
+            <col style="width:30%">
+            <col style="width:30%">
+            <col style="width:40%">
+            <thead>
+            <tr>
+                <th>{{ 'Who' | translate }}</th>
+                <th>{{ 'For' | translate }}</th>
+                <th>{{ 'Link' | translate }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>TODO</td>
+                <td>
+                    {{ 'map image used as favicon' | translate }}
+                    <img src="http://morarupasukaru.github.io/gamebooks-assistant/apple-touch-icon-57x57.png" />
+                </td>
+                <td><a href="//opengameart.org/content/fantasy-icon-pack-by-ravenmore-0">opengameart.org TODO page</a></td>
+            </tr>
+            <tr>
+                <td>TODO</td>
+                <td>
+                    {{ 'dice image' | translate }}
+                    <img src="http://morarupasukaru.github.io/gamebooks-assistant/dice.png" />
+                </td>
+                <td>
+                    <a href="http://opengameart.org/content/dice-4">opengameart.org TODO page</a>
+                </td>
+            </tr>
+            <tr>
+                <td>SBB (Schweizerische Bundesbahnen)</td>
+                <td>{{ 'Web/JS Framework' | translate }}</td>
+                <td><a href="https://github.com/SchweizerischeBundesbahnen/esta-webjs">esta-webjs project github page</a></td>
+            </tr>
+            <tr>
+                <td>{{ 'Developers and contributors' | translate }}</td>
+                <td>{{ 'Angular JS, Bootstrap, Webpack and all existing tools that make javascript development fun to code' | translate }}</td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+
         <back-button></back-button>
     </div>
 </main>

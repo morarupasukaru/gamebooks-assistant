@@ -121,7 +121,15 @@
   "Continue" : "Poursuivre",
   "End game's reason" : "Raison de la fin de partie",
   "About" : "A propos",
-  "application.description" : "le site ou application 'Gamebooks Assistant' est une aide afin de jouer à des livres dont vous êtes le héros du genre, TODO Website is an aid to play fighting fantasy gamebooks (or similar books). The app allow to keep the statistics, items and notes of the player. Paragraphs'choices & description of the book can be edited and shared between several games.",
+  "application.description" : "Le site ou application 'Gamebooks Assistant' est une aide afin de jouer à des livres dont vous êtes le héros du genre 'défis fantastiques'. L'application permet de stocker les caractéristiques, l'inventaire et notes du joueur. Le descriptif et choix des paragraphes du livre sont éditables et partageable entre différentes parties.",
   "Application's description" : "Description de l'application",
-  "Application's version" : "Version de l'application"
+  "Application's version" : "Version de l'application",
+  "Credits" : "Remerciements",
+  "Who" : "Qui",
+  "For" : "Pour",
+  "Link" : "Lien",
+  "map image used as favicon" : "image de carte utilisée comme 'favicon'",
+  "dice image" : "image de dé",
+  "Developers and contributors" : "Développeurs et contributeurs",
+  "Angular JS, Bootstrap, Webpack and all existing tools that make javascript development fun to code": "Angular JS, Bootstrap, Webpack et tous les outils qui font que le dévelopement javascript soit fun"
 }
