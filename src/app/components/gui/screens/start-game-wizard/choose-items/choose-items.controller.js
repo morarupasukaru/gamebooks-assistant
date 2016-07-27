@@ -7,6 +7,7 @@ class ChooseItemsController {
         self.messagesService = messagesService;
         self.booksService = booksService;
         self.$window = $window;
+        self.$stateParams = $stateParams;
         self.book = booksService.getBook($stateParams.bookName);
         self.playerItems = JSON.parse(JSON.stringify(self.book.items));
         this.displayNotes();
@@ -26,6 +27,15 @@ class ChooseItemsController {
 
     getItems() {
         return self.playerItems;
+    }
+
+    startGame() {
+        let game = {
+            playerName : $stateParams.playerName,
+            bookName : $stateParams.bookName,
+            items : self.playerItems
+        };
+        // TODO add stats
     }
 
     back() {
