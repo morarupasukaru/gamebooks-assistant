@@ -131,5 +131,6 @@
   "map image used as favicon" : "image de carte utilisée comme 'favicon'",
   "dice image" : "image de dé",
   "Developers and contributors" : "Développeurs et contributeurs",
-  "Angular JS, Bootstrap, Webpack and all existing tools that make javascript development fun to code": "Angular JS, Bootstrap, Webpack et tous les outils qui font que le dévelopement javascript soit fun"
+  "Angular JS, Bootstrap, Webpack and all existing tools that make javascript development fun to code": "Angular JS, Bootstrap, Webpack et tous les outils qui font que le dévelopement javascript soit fun",
+  "Cannot find book" : "Le livre suivant est inconnu"
 }

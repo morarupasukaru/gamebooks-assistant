@@ -2,8 +2,10 @@ let self;
 class BooksService {
 
     /*@ngInject*/
-    constructor(warlockOfFiretopMountainService, templeOfTerrorService, creatureFromHavocService) {
+    constructor(warlockOfFiretopMountainService, templeOfTerrorService, creatureFromHavocService, messagesService, $translate) {
         self = this;
+        self.messagesService = messagesService;
+        self.$translate = $translate;
         self.books = [];
         self.books.push(warlockOfFiretopMountainService.getBook());
         self.books.push(templeOfTerrorService.getBook());
@@ -14,13 +16,14 @@ class BooksService {
         return self.books;
     }
 
-    getBook(bookName) {
+    getBook(bookUrlName) {
         let i;
         for (i = 0; i < self.books.length; i++) {
-            if (bookName === self.books[i].name) {
+            if (bookUrlName === self.books[i].urlName) {
                 return self.books[i];
             }
         }
+        self.messagesService.errorMessage(self.$translate.instant('Cannot find book') + " '"  + bookUrlName + "'", false);
         return null;
     }
 }
