@@ -9,7 +9,6 @@ let inGameModule = angular.module('app.components.gui.screen.in-game', [
 ])
     .config(/*@ngInject*/($stateProvider, $urlRouterProvider, constants) => {
         $urlRouterProvider.otherwise('/');
-// TODO in-game/warlock-firetop-mountain/0/game=1469857019412"
         $stateProvider.state('in-game', {
             url: constants.url.inGame, template: '<in-game></in-game>'
         });

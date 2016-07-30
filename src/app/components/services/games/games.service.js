@@ -14,7 +14,7 @@ class GamesService {
 
     getUrlOfGame(gameId) {
         let game = self.getGame(gameId);
-        let urlOfGame = self.constants.url.inGame + "/" + encodeURIComponent(game.bookUrlName) + "/" + encodeURIComponent(game.currentParagraphNr) + "/" + "game=" + encodeURIComponent(game.id);
+        let urlOfGame = "/" + encodeURIComponent(game.bookUrlName) + "/" + encodeURIComponent(game.currentParagraphNr) + "?" + "game=" + encodeURIComponent(game.id);
         return urlOfGame;
     }
 
