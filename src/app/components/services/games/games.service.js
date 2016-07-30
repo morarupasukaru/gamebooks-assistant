@@ -12,9 +12,12 @@ class GamesService {
         return JSON.parse(JSON.stringify(self.games));
     }
 
-    getUrlOfGame(gameId) {
+    getUrlOfGame(gameId, paragraphNr) {
         let game = self.getGame(gameId);
-        let urlOfGame = "/" + encodeURIComponent(game.bookUrlName) + "/" + encodeURIComponent(game.currentParagraphNr) + "?" + "game=" + encodeURIComponent(game.id);
+        if (!paragraphNr) {
+            paragraphNr = game.currentParagraphNr;
+        }
+        let urlOfGame = "/" + encodeURIComponent(game.bookUrlName) + "/" + encodeURIComponent(paragraphNr) + "?" + "game=" + encodeURIComponent(game.id);
         return urlOfGame;
     }
 
