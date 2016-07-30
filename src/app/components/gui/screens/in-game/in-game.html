@@ -13,8 +13,8 @@
 
         <div id="playerSheet" ng-if="!!$ctrl.playerName">
             <h2>{{ 'Player' | translate }} {{ $ctrl.playerName }}</h2>
-            <stats></stats>
-            <items items="$ctrl.items" readonly="true"></items>
+            <stats stats="$ctrl.stats"></stats>
+            <items items="$ctrl.items"></items>
             <dices></dices>
             <back-button></back-button>
             <button type="button" class="btn btn-default" ng-click="$ctrl.startBattle()">{{ 'Start Battle' | translate }}</button>

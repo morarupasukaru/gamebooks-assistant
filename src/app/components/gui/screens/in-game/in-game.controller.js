@@ -13,15 +13,21 @@ class InGameController {
             this.buildGame($stateParams.game);
             self.game = self.gamesService.getGame(decodeURIComponent($stateParams.game));
         }
+
         this.notes = [];
+        this.items = [];
+        this.stats = [];
+
         if (!!self.game) {
             this.playerName = self.game.playerName;
             if (!!self.game.notes) {
                 this.notes = this.notes.concat(self.game.notes);
             }
-            this.items = [];
             if (!!self.game.items) {
                 this.items = this.items.concat(self.game.items);
+            }
+            if (!!self.game.stats) {
+                this.stats = this.stats.concat(self.game.stats);
             }
         }
         this.paragraph = {
@@ -78,8 +84,14 @@ class InGameController {
                             quantity : 2,
                             description : 'measure of potion of skill (restore skill points)'
                         }
-                    ]
+                    ],
+            stats : [
+                { name : 'Skill', current : 5, initial: 9 },
+                { name : 'Stamina', current : 18, initial: 23 },
+                { name : 'Luck', current : 7, initial: 9 }
+            ]
         };
+
         self.gamesService.addGame(game);
     }
 
