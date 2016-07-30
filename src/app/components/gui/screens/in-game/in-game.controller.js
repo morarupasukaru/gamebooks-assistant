@@ -30,8 +30,13 @@ class InGameController {
             choices : [
                 { paragraphNumber : 123, description : 'East'},
                 { paragraphNumber : 65, description : 'West'}
-            ]
+            ],
+            notes : [ {note:'note 3', playerName: 'François', paragraphNumber : 123 } ]
         };
+
+        if (!!self.paragraph.notes) {
+            this.notes = this.notes.concat(self.paragraph.notes);
+        }
 
         self.popupAbandonGameConfig = { id : 'popupAbandonGame' };
     }
@@ -43,7 +48,7 @@ class InGameController {
             playerName : 'Pascal',
             bookUrlName : 'warlock-firetop-mountain',
             currentParagraphNr : '0',
-            notes : [ {note:'note 1'}, {note:'note 2', playerName : 'Pascal'}, {note:'note 3', playerName: 'François', paragraphNumber : 123 } ],
+            notes : [ {note:'note 1'}, {note:'note 2', playerName : 'Pascal'} ],
             items : [
                         {
                             quantity : 1,
