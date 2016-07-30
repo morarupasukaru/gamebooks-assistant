@@ -37,10 +37,10 @@
             </td>
 
             <td ng-if="!$ctrl.isRowEdited(row)">
-                {{ row.paragraphNumber }}
+                {{ row.paragraphNr }}
             </td>
             <td ng-if="$ctrl.isRowEdited(row)">
-                <input type="number" class="form-control" ng-model="row.paragraphNumber">
+                <input type="number" class="form-control" ng-model="row.paragraphNr">
             </td>
 
             <td ng-if="!$ctrl.isRowEdited(row)">

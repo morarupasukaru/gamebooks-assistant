@@ -20,7 +20,7 @@ class NotesController {
     }
 
     addRow(noteValue) {
-        let row = { note : noteValue, paragraphNumber : Number(self.paragraphNumber), playerName : self.playerName };
+        let row = { note : noteValue, paragraphNr : Number(self.paragraphNr), playerName : self.playerName };
         self.rows.push(row);
         self.addedRow = row;
     }
@@ -45,7 +45,7 @@ class NotesController {
 
     editRow(row) {
         self.editedRow = row;
-        self.originalRow = { note : row.note, paragraphNumber : row.paragraphNumber, playerName : row.playerName };
+        self.originalRow = { note : row.note, paragraphNr : row.paragraphNr, playerName : row.playerName };
     }
 
     isRowEdited(row) {
@@ -69,7 +69,7 @@ class NotesController {
         }
         if (!!self.editedRow) {
             self.editedRow.note = self.originalRow.note;
-            self.editedRow.paragraphNumber = self.originalRow.paragraphNumber;
+            self.editedRow.paragraphNr = self.originalRow.paragraphNr;
             self.editedRow.playerName = self.originalRow.playerName;
         }
         self.clearEditedRow();

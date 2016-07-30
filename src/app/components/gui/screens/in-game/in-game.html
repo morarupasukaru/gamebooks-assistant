@@ -3,12 +3,12 @@
 <main>
     <div class="container bg-white" role="main">
         <div class="page-header">
-            <h1>{{ 'Paragraph' | translate }} {{ $ctrl.paragraph.paragraphNumber }}</h1>
+            <h1>{{ 'Paragraph' | translate }} {{ $ctrl.paragraph.paragraphNr }}</h1>
         </div>
 
         <div id="paragraphEdit">
             <paragraph></paragraph>
-            <notes notes="$ctrl.notes" paragraph-number="{{$ctrl.paragraph.paragraphNumber}}" player-name="{{$ctrl.playerName}}"></notes>
+            <notes notes="$ctrl.notes" paragraph-number="{{$ctrl.paragraph.paragraphNr}}" player-name="{{$ctrl.playerName}}"></notes>
         </div>
 
         <div id="playerSheet" ng-if="!!$ctrl.playerName">

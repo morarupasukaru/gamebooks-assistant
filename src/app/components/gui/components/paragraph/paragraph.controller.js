@@ -16,11 +16,11 @@ class ParagraphController {
         };
 
         this.paragraph = {
-            paragraphNumber : 1,
+            paragraphNr : 1,
             description : 'Start of the game',
             choices : [
-                { paragraphNumber : 123, description : 'East'},
-                { paragraphNumber : 65, description : 'West'}
+                { paragraphNr : 123, description : 'East'},
+                { paragraphNr : 65, description : 'West'}
             ]
         };
 
@@ -28,9 +28,9 @@ class ParagraphController {
     }
 
     addRow() {
-        let row = { paragraphNumber : self.inputParagraphNumber, description : self.inputDescription };
+        let row = { paragraphNr : self.inputParagraphNr, description : self.inputDescription };
         self.paragraph.choices.push(row);
-        self.inputParagraphNumber = '';
+        self.inputParagraphNr = '';
         self.inputDescription = '';
         self.addedRow = row;
     }
@@ -75,7 +75,7 @@ class ParagraphController {
 
     editRow(row) {
         self.editedRow = row;
-        self.originalRow = { paragraphNumber : row.paragraphNumber, description : row.description };
+        self.originalRow = { paragraphNr : row.paragraphNr, description : row.description };
     }
 
     isRowEdited(row) {
@@ -98,7 +98,7 @@ class ParagraphController {
             self.removeRow(self.addedRow);
         }
         if (!!self.editedRow) {
-            self.editedRow.paragraphNumber = self.originalRow.paragraphNumber;
+            self.editedRow.paragraphNr = self.originalRow.paragraphNr;
             self.editedRow.description = self.originalRow.description;
         }
         self.clearEditedRow();

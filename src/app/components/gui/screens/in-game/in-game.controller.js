@@ -92,7 +92,7 @@ class InGameController {
     }
 
     jumpToParagraph() {
-        self.$location.url(self.constants.url.paragraph + "/" + self.paragraphNumber);
+        self.$location.url(self.constants.url.paragraph + "/" + self.paragraphNr);
     }
 
     displayAbandonGamePopup(removedRow) {

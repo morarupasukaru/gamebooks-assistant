@@ -74,7 +74,8 @@ class WarlockOfFiretopMountainService {
                             paragraphNr : 1,
                             description : 'Go to Firetop Mountain'
                         }
-                    ]
+                    ],
+                    notes : [{ paragraphNr : 0, note : 'test'}]
                 }
             ],
             notes : [
