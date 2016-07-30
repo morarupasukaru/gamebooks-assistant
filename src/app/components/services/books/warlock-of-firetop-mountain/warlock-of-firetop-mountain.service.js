@@ -2,9 +2,11 @@ let self;
 class WarlockOfFiretopMountainService {
 
     /*@ngInject*/
-    constructor() {
+    constructor(constants) {
         self = this;
+        self.constants = constants;
         self.book = {
+            version : self.constants.version,
             name : 'The Warlock of Firetop Mountain',
             urlName : 'warlock-firetop-mountain',
             authors : 'Steve Jackson & Ian Livingstone',
@@ -64,6 +66,7 @@ class WarlockOfFiretopMountainService {
             startParagraphNr : 0,
             paragraphs : [
                 {
+                    version : self.constants.version,
                     paragraphNr : 0,
                     description : 'Start',
                     choices : [
