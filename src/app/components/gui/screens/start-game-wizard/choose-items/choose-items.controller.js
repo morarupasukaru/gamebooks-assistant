@@ -1,7 +1,7 @@
 let self;
 class ChooseItemsController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, booksService, $stateParams, messagesService, $window, $location, constants) {
+    constructor(preScreenLoadingInterceptorsCallerService, booksService, $stateParams, messagesService, $window, $location, constants, gamesService) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
         self.messagesService = messagesService;
@@ -10,6 +10,7 @@ class ChooseItemsController {
         self.$stateParams = $stateParams;
         self.$location = $location;
         self.constants = constants;
+        self.gamesService = gamesService;
         self.book = booksService.getBook($stateParams.bookName);
         self.playerItems = JSON.parse(JSON.stringify(self.book.items));
         this.displayNotes();
@@ -33,10 +34,8 @@ class ChooseItemsController {
 
     startGame() {
         let game = self.buildGame();
-        // TODO save game with gamesService
-
-        let urlOfGame = self.getUrlOfGame(game);
-        self.$location.url(urlOfGame);
+        self.gamesService.addGame(game);
+        self.$location.url(self.gamesService.getUrlOfGame(game.id));
     }
 
     buildGame() {
@@ -50,12 +49,6 @@ class ChooseItemsController {
         };
         game.stats = self.getStatsInUrlParam();
         return game;
-    }
-
-    getUrlOfGame(game) {
-        // TODO get url with gamesService
-        let nextUrl = self.constants.url.inGame + "/" + encodeURIComponent(game.bookName) + "/" + encodeURIComponent(game.currentParagraphNr) + "/" + "game=" + encodeURIComponent(game.id);
-        return nextUrl;
     }
 
     getStatsInUrlParam() {
