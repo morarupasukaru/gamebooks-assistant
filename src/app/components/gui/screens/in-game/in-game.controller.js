@@ -1,7 +1,7 @@
 let self;
 class InGameController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $location, constants, endGamePopupService, gamesService, $stateParams) {
+    constructor(preScreenLoadingInterceptorsCallerService, $location, constants, endGamePopupService, gamesService, $stateParams, booksService) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
         self.$location = $location;
@@ -9,6 +9,7 @@ class InGameController {
         self.endGamePopupService = endGamePopupService;
         self.gamesService = gamesService;
         self.$stateParams = $stateParams;
+        self.booksService = booksService;
         if (!!$stateParams.game) {
             this.buildGame($stateParams.game);
             self.game = self.gamesService.getGame(decodeURIComponent($stateParams.game));
@@ -30,16 +31,7 @@ class InGameController {
                 this.stats = this.stats.concat(self.game.stats);
             }
         }
-        this.paragraph = {
-            paragraphNumber : 1,
-            description : 'Start of the game\nStart of the game\nStart of the game\nStart of the game\nStart of the game\nStart of the game\n',
-            choices : [
-                { paragraphNumber : 123, description : 'East'},
-                { paragraphNumber : 65, description : 'West'}
-            ],
-            notes : [ {note:'note 3', playerName: 'François', paragraphNumber : 123 } ]
-        };
-
+        this.paragraph = self.booksService.getParagraph(self.$stateParams.bookUrlName, self.$stateParams.paragraphNr);
         if (!!self.paragraph.notes) {
             this.notes = this.notes.concat(self.paragraph.notes);
         }

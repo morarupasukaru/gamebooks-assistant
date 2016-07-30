@@ -2,10 +2,11 @@ let self;
 class BooksService {
 
     /*@ngInject*/
-    constructor(warlockOfFiretopMountainService, templeOfTerrorService, creatureFromHavocService, messagesService, $translate) {
+    constructor(warlockOfFiretopMountainService, templeOfTerrorService, creatureFromHavocService, messagesService, $translate, constants) {
         self = this;
         self.messagesService = messagesService;
         self.$translate = $translate;
+        self.constants = constants;
         self.books = [];
         self.books.push(warlockOfFiretopMountainService.getBook());
         self.books.push(templeOfTerrorService.getBook());
@@ -14,6 +15,31 @@ class BooksService {
 
     getBooks() {
         return self.books;
+    }
+
+    getParagraph(bookUrlName, paragraphNr) {
+        let book = self.getBook(bookUrlName);
+        if (!!book) {
+            if (!!book.paragraphs) {
+                let i;
+                for (i = 0; i < book.paragraphs.length; i++) {
+                    // use type coersion
+                    if (paragraphNr == book.paragraphs[i].paragraphNr) {
+                        return book.paragraphs[i];
+                    }
+                }
+            }
+            return self.createNewParagraph(paragraphNr);
+        }
+    }
+
+    createNewParagraph(paragraphNr) {
+        return {
+            version : self.constants.version,
+            paragraphNr : paragraphNr,
+            description : '',
+            choices : []
+        };
     }
 
     getBook(bookUrlName) {
