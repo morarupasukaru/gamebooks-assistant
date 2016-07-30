@@ -43,7 +43,7 @@ class ChooseItemsController {
         let game = {
             id : timestamp,
             playerName : self.$stateParams.playerName,
-            bookName : self.book.urlName,
+            bookUrlName : self.book.urlName,
             items : self.playerItems,
             currentParagraphNr : self.book.startParagraphNr
         };

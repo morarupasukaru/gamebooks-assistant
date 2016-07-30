@@ -17,14 +17,14 @@
                         <th>{{ 'Book' | translate }}</th>
                         <th>{{ 'Player' | translate }}</th>
                         <th>{{ 'Current Paragraph' | translate }}</th>
-                        <th>{{ 'Actually played' | translate }}</th>
+                        <th>{{ 'Selection' | translate }}</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr ng-repeat="row in $ctrl.rows">
                         <td>{{ row.bookName }}</td>
                         <td>{{ row.playerName }}</td>
-                        <td>{{ row.currentParagraph }}</td>
+                        <td>{{ row.currentParagraphNr }}</td>
                         <td>
                             <button type="button" class="btn" ng-class="{ 'btn-success' : row.selected, 'btn-default' : !row.selected}"
                                     aria-label="{{ !row.selected ?

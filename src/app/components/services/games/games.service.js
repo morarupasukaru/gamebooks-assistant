@@ -8,13 +8,13 @@ class GamesService {
         self.games = [];
     }
 
-    getGames() {
-        return self.games;
+    getGamesAsCopy() {
+        return JSON.parse(JSON.stringify(self.games));
     }
 
     getUrlOfGame(gameId) {
         let game = self.getGame(gameId);
-        let urlOfGame = self.constants.url.inGame + "/" + encodeURIComponent(game.bookName) + "/" + encodeURIComponent(game.currentParagraphNr) + "/" + "game=" + encodeURIComponent(game.id);
+        let urlOfGame = self.constants.url.inGame + "/" + encodeURIComponent(game.bookUrlName) + "/" + encodeURIComponent(game.currentParagraphNr) + "/" + "game=" + encodeURIComponent(game.id);
         return urlOfGame;
     }
 
