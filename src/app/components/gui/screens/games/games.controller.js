@@ -51,17 +51,23 @@ class GamesController {
         self.$location.url(self.constants.url.selectBookForNewGame)
     }
 
-    isContinueAllowed() {
-        for (var i = 0; i < self.rows.length; i++) {
-            if (!!self.rows[i].selected) {
-                return true;
-            }
-        }
-        return false;
+    continueGame() {
+        let nextUrl = self.gamesService.getUrlOfGame(self.getSelectedRow().id);
+        self.$location.url(nextUrl);
     }
 
-    continueGame() {
-        self.$location.url(self.constants.url.inGame)
+    isContinueAllowed() {
+        return !!self.getSelectedRow();
+    }
+
+
+    getSelectedRow() {
+        for (var i = 0; i < self.rows.length; i++) {
+            if (!!self.rows[i].selected) {
+                return self.rows[i];
+            }
+        }
+        return null;
     }
 }
 
