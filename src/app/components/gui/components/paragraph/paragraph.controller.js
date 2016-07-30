@@ -15,15 +15,6 @@ class ParagraphController {
             closeOnClickOutsideModal : false
         };
 
-        this.paragraph = {
-            paragraphNr : 1,
-            description : 'Start of the game',
-            choices : [
-                { paragraphNr : 123, description : 'East'},
-                { paragraphNr : 65, description : 'West'}
-            ]
-        };
-
         this.descriptionEditable = false;
     }
 
