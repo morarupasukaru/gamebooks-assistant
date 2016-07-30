@@ -6,6 +6,7 @@ class WarlockOfFiretopMountainService {
         self = this;
         self.book = {
             name : 'The Warlock of Firetop Mountain',
+            urlName : 'warlock-firetop-mountain',
             authors : 'Steve Jackson & Ian Livingstone',
             isbn :'0-7434-7511-9',
             stats : [
@@ -60,9 +61,10 @@ class WarlockOfFiretopMountainService {
                     description : 'measure of potion of luck (increase initial luck by 1 point and restore luck points)'
                 }
             ],
+            startParagraphNr : 0,
             paragraphs : [
                 {
-                    paragraphNr : null,
+                    paragraphNr : 0,
                     description : 'Start',
                     choices : [
                         {

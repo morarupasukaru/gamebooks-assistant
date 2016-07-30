@@ -11,7 +11,7 @@ let ChooseItemsModule = angular.module('app.components.gui.screen.start-game-wiz
         $urlRouterProvider.otherwise('/');
 
         $stateProvider.state('choose-items', {
-            url: constants.url.chooseItemsForNewGame + "?bookName", template: '<choose-items></choose-items>'
+            url: constants.url.chooseItemsForNewGame + "?bookName&playerName", template: '<choose-items></choose-items>'
         });
     })
 
