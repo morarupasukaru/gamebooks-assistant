@@ -6,7 +6,7 @@ class HomeController {
         self.$location = $location;
         self.persistenceService = persistenceService;
 
-        let lastUrl = self.persistenceService.get('lastUrl');
+        let lastUrl = self.persistenceService.getLastDisplayedScreenUrl();
         if (!!lastUrl) {
             $location.url(lastUrl);
         } else {
@@ -19,7 +19,7 @@ class HomeController {
     saveUrl() {
         let currentUrl = self.$location.url();
         if (!!currentUrl && currentUrl !== '/') {
-            self.persistenceService.save('lastUrl', currentUrl);
+            self.persistenceService.setLastDisplayedScreenUrl(currentUrl);
         }
     }
 }

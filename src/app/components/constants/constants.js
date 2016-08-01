@@ -4,10 +4,10 @@ import angular from 'angular';
 let constantsModule = angular.module('app.components.constants', [])
     .constant('constants', {
         version: '20160730',
-        data: "data",
         supportedLanguages: ['en', 'fr'],
-        preferences: {
-            language: 'language'
+        data: {
+            selectedLanguage: 'selectedLanguage',
+            lastDisplayedScreenUrl: 'lastDisplayedScreenUrl'
         },
         url: {
             battle : '/battle',

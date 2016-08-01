@@ -10,11 +10,19 @@ class PersistenceService {
     }
 
     getSelectedLanguage() {
-        return self.get(self.constants.preferences.language);
+        return self.get(self.constants.data.selectedLanguage);
     }
 
     setSelectedLanguage(language) {
-        self.save(self.constants.preferences.language, language);
+        self.save(self.constants.data.selectedLanguage, language);
+    }
+
+    getLastDisplayedScreenUrl() {
+        return self.get(self.constants.data.lastDisplayedScreenUrl);
+    }
+
+    setLastDisplayedScreenUrl(lastDisplayedScreenUrl) {
+        self.save(self.constants.data.lastDisplayedScreenUrl, lastDisplayedScreenUrl);
     }
 
     get(key) {
