@@ -1,7 +1,7 @@
 let self;
 class CreatePlayerController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, booksService, $stateParams, $window, $location, constants, dicesService) {
+    constructor(preScreenLoadingInterceptorsCallerService, $stateParams, $window, $location, constants, dicesService, persistenceService) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
         self.constants = constants;
@@ -9,7 +9,7 @@ class CreatePlayerController {
         self.$location = $location;
         self.dicesService = dicesService;
 
-        self.book = booksService.getBook($stateParams.bookName); // TODO bookId
+        self.book = persistenceService.getBook($stateParams.bookId);
         this.loadData(self.book);
         this.generateStats();
     }
@@ -45,7 +45,7 @@ class CreatePlayerController {
         }
 
         let nextUrl = self.constants.url.chooseItemsForNewGame +
-          "?bookName=" + encodeURIComponent(self.book.name) +
+          "?bookId=" + encodeURIComponent(self.book.id) +
           "&playerName=" + encodeURIComponent(self.playerName);
         let i;
         for (i = 0; i < self.stats.length; i++) {

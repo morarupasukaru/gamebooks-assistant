@@ -1,17 +1,17 @@
 let self;
 class ChooseItemsController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, booksService, $stateParams, messagesService, $window, $location, constants, gamesService) {
+    constructor(preScreenLoadingInterceptorsCallerService, $stateParams, messagesService, $window, $location, constants, gamesService, persistenceService) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
         self.messagesService = messagesService;
-        self.booksService = booksService;
+        self.persistenceService = persistenceService;
         self.$window = $window;
         self.$stateParams = $stateParams;
         self.$location = $location;
         self.constants = constants;
         self.gamesService = gamesService;
-        self.book = booksService.getBook($stateParams.bookName);
+        self.book = persistenceService.getBook($stateParams.bookId);
         self.playerItems = JSON.parse(JSON.stringify(self.book.items));
         this.displayNotes();
     }

@@ -20,7 +20,7 @@ class SelectBookController {
             let book = self.persistenceService.getBook(bookPersistenceKeys[i]);
             self.books.push(book);
         }
-        self.selectedBookName = self.books[0].name;
+        self.selectedBookId = self.books[0].id;
     }
 
     getBooks() {
@@ -32,7 +32,7 @@ class SelectBookController {
     }
 
     next() {
-        self.$location.url(self.constants.url.createPlayerForNewGame + "?bookName=" + encodeURIComponent(self.selectedBookName));
+        self.$location.url(self.constants.url.createPlayerForNewGame + "?bookId=" + encodeURIComponent(self.selectedBookId));
     }
 }
 

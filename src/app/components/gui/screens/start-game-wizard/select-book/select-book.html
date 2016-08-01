@@ -14,8 +14,8 @@
 
         <div class="form-group">
             <label for="selectedBook">{{ 'Select a gamebook' | translate }}</label>
-            <select id="selectedBook" class="form-control" ng-model="$ctrl.selectedBookName">
-                <option ng-repeat="book in $ctrl.getBooks()" value="{{ book.name }}">{{ book.name | translate }}</option>
+            <select id="selectedBook" class="form-control" ng-model="$ctrl.selectedBookId">
+                <option ng-repeat="book in $ctrl.getBooks()" value="{{ book.id }}">{{ book.name | translate }}</option>
             </select>
         </div>
 
