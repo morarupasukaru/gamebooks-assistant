@@ -2,23 +2,24 @@ let self;
 class BooksService {
 
     /*@ngInject*/
-    constructor(warlockOfFiretopMountainService, templeOfTerrorService, creatureFromHavocService, messagesService, $translate, constants) {
+    constructor(warlockOfFiretopMountainService, templeOfTerrorService, creatureFromHavocService, messagesService, $translate, constants, persistenceService) {
         self = this;
         self.messagesService = messagesService;
         self.$translate = $translate;
         self.constants = constants;
+        self.persistenceService = persistenceService;
         self.books = [];
-        self.books.push(warlockOfFiretopMountainService.getBook());
-        self.books.push(templeOfTerrorService.getBook());
-        self.books.push(creatureFromHavocService.getBook());
+        self.addBook(warlockOfFiretopMountainService.getBook());
+        self.addBook(templeOfTerrorService.getBook());
+        self.addBook(creatureFromHavocService.getBook());
     }
 
     getBooks() {
         return self.books;
     }
 
-    getParagraph(bookUrlName, paragraphNr) {
-        let book = self.getBook(bookUrlName);
+    getParagraph(bookId, paragraphNr) {
+        let book = self.getBook(bookId);
         if (!!book) {
             if (!!book.paragraphs) {
                 let i;
@@ -42,15 +43,28 @@ class BooksService {
         };
     }
 
-    getBook(bookUrlName) {
+    getBook(bookId) {
         let i;
         for (i = 0; i < self.books.length; i++) {
-            if (bookUrlName === self.books[i].urlName) {
+            if (bookId === self.books[i].urlName) {
                 return self.books[i];
             }
         }
-        self.messagesService.errorMessage(self.$translate.instant('Cannot find book') + " '"  + bookUrlName + "'", false);
+        self.messagesService.errorMessage(self.$translate.instant('Cannot find book') + " '"  + bookId + "'", false);
         return null;
+    }
+
+    addBook(book) {
+        self.books.push(book);
+        self.saveBookToPersistence(book);
+    }
+
+    saveBookToPersistence(book) {
+        let previousSavedBook = self.persistenceService.getBook(book.id);
+        if (!previousSavedBook || new Number(previousSavedBook.version) < new Number(book.version)) {
+            self.persistenceService.setBook(book);
+            // TODO replace paragraph
+        }
     }
 }
 

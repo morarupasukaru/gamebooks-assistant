@@ -25,6 +25,41 @@ class PersistenceService {
         self.save(self.constants.data.lastDisplayedScreenUrl, lastDisplayedScreenUrl);
     }
 
+    getBookPersistenceKeys() {
+        return self.findKeysWithPrefix(self.constants.data.book);
+    }
+
+    findKeysWithPrefix(keyPrefix) {
+        if (!self.isLocalStorageSupported) {
+            return null;
+        }
+        let keys = Object.keys(localStorage);
+        let result = [];
+        let i;
+        for (i = 0; i < keys.length; i++) {
+            if (keys[i].startsWith(keyPrefix)) {
+                result.push(keys[i]);
+            }
+        }
+        return result;
+    }
+
+    getBook(bookId) {
+        return self.get(self.constants.data.book + "." + bookId);
+    }
+
+    setBook(book) {
+        let bookInfo = {};
+        let keys = Object.keys(book);
+        let i;
+        for (i = 0; i < keys.length; i++) {
+            if (keys[i] !== 'paragraphs') {
+                bookInfo[keys[i]] = book[keys[i]];
+            }
+        }
+        self.save(self.constants.data.book + "." + book.id, bookInfo);
+    }
+
     get(key) {
         if (!self.isLocalStorageSupported) {
             return null;
@@ -61,7 +96,6 @@ class PersistenceService {
         let importData = JSON.parse(importDataAsJson);
         let keys = Object.keys(importData);
         let i;
-        debugger;
         for (i = 0; i < keys.length; i++) {
             self.save(keys[i], importData[keys[i]]);
         }

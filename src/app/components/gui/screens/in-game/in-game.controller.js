@@ -31,7 +31,7 @@ class InGameController {
                 this.stats = this.stats.concat(self.game.stats);
             }
         }
-        this.paragraph = self.booksService.getParagraph(self.$stateParams.bookUrlName, self.$stateParams.paragraphNr);
+        this.paragraph = self.booksService.getParagraph(self.$stateParams.bookId, self.$stateParams.paragraphNr);
         if (!!self.paragraph.notes) {
             this.notes = this.notes.concat(self.paragraph.notes);
         }
@@ -44,7 +44,7 @@ class InGameController {
         let game = {
             id : gameId,
             playerName : 'Pascal',
-            bookUrlName : 'warlock-firetop-mountain',
+            bookId : 'warlock-firetop-mountain',
             currentParagraphNr : '0',
             notes : [ {note:'note 1'}, {note:'note 2', playerName : 'Pascal'} ],
             items : [

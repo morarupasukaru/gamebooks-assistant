@@ -2,9 +2,11 @@ let self;
 class CreatureFromHavocService {
 
     /*@ngInject*/
-    constructor() {
+    constructor(constants) {
         self = this;
         self.book = {
+            id : 'creature-havoc',
+            version : constants.version,
             name : 'The Creature from Havoc'
         };
     }

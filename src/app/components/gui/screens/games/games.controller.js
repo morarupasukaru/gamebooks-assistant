@@ -17,13 +17,13 @@ class GamesController {
         self.completeBookName(this.rows);
     }
 
-    buildGame(bookUrlName, playerName, paragraphNr) {
+    buildGame(bookId, playerName, paragraphNr) {
         // TODO remove
         let timestamp = new Date().getTime();
         let game = {
             id : timestamp,
             playerName : playerName,
-            bookUrlName : bookUrlName,
+            bookId : bookId,
             currentParagraphNr : paragraphNr
         };
         return game;
@@ -31,11 +31,11 @@ class GamesController {
 
     completeBookName(games) {
         for (var i = 0; i < games.length; i++) {
-            let book = self.booksService.getBook(games[i].bookUrlName);
+            let book = self.booksService.getBook(games[i].bookId);
             if (!!book) {
                 games[i].bookName = book.name;
             } else {
-                games[i].bookName = games[i].bookUrlName;
+                games[i].bookName = games[i].bookId;
             }
         }
     }

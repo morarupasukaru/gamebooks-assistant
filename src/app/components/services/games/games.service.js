@@ -17,7 +17,7 @@ class GamesService {
         if (!paragraphNr) {
             paragraphNr = game.currentParagraphNr;
         }
-        let urlOfGame = "/" + encodeURIComponent(game.bookUrlName) + "/" + encodeURIComponent(paragraphNr) + "?" + "game=" + encodeURIComponent(game.id);
+        let urlOfGame = "/" + encodeURIComponent(game.bookId) + "/" + encodeURIComponent(paragraphNr) + "?" + "game=" + encodeURIComponent(game.id);
         return urlOfGame;
     }
 

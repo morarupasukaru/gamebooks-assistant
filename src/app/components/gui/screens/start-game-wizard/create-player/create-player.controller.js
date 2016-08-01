@@ -9,7 +9,7 @@ class CreatePlayerController {
         self.$location = $location;
         self.dicesService = dicesService;
 
-        self.book = booksService.getBook($stateParams.bookName);
+        self.book = booksService.getBook($stateParams.bookName); // TODO bookId
         this.loadData(self.book);
         this.generateStats();
     }
