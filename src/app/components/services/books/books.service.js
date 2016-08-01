@@ -9,17 +9,13 @@ class BooksService {
         self.$translate = $translate;
         self.constants = constants;
         self.persistenceService = persistenceService;
-        self.books = []; // TODO remove
-        self.addBook(warlockOfFiretopMountainService.getBook());
-        self.addBook(templeOfTerrorService.getBook());
-        self.addBook(creatureFromHavocService.getBook());
-    }
-
-    getBooks() {
-        return self.books;
+        self.saveBookToPersistence(warlockOfFiretopMountainService.getBook());
+        self.saveBookToPersistence(templeOfTerrorService.getBook());
+        self.saveBookToPersistence(creatureFromHavocService.getBook());
     }
 
     getParagraph(bookId, paragraphNr) {
+        // TODO
         let book = self.getBook(bookId);
         if (!!book) {
             if (!!book.paragraphs) {
@@ -42,22 +38,6 @@ class BooksService {
             description : '',
             choices : []
         };
-    }
-
-    getBook(bookId) {
-        let i;
-        for (i = 0; i < self.books.length; i++) {
-            if (bookId === self.books[i].id) {
-                return self.books[i];
-            }
-        }
-        self.messagesService.errorMessage(self.$translate.instant('Cannot find book') + " '"  + bookId + "'", false);
-        return null;
-    }
-
-    addBook(book) {
-        self.books.push(book);
-        self.saveBookToPersistence(book);
     }
 
     saveBookToPersistence(book) {

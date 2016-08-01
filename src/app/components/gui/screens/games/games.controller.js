@@ -1,13 +1,15 @@
 let self;
 class GamesController {
     /*@ngInject*/
-    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamesService, booksService) {
+    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamesService, persistenceService, messagesService, $translate) {
         self = this;
         self.constants = constants;
         preScreenLoadingInterceptorsCallerService.intercept();
         self.$location = $location;
         self.gamesService = gamesService;
-        self.booksService = booksService;
+        self.persistenceService = persistenceService;
+        self.messagesService = messagesService;
+        self.$translate = $translate;
 
         self.gamesService.addGame(self.buildGame('warlock-firetop-mountain', 'Pascal', '0'));
         self.gamesService.addGame(self.buildGame('warlock-firetop-mountain', 'Pascal 2nd try', '12'));
@@ -31,10 +33,11 @@ class GamesController {
 
     completeBookName(games) {
         for (var i = 0; i < games.length; i++) {
-            let book = self.booksService.getBook(games[i].bookId);
+            let book = self.persistenceService.getBook(games[i].bookId);
             if (!!book) {
                 games[i].bookName = book.name;
             } else {
+                self.messagesService.errorMessage(self.$translate.instant('Cannot find book') + " '"  + games[i].bookId + "'", false);
                 games[i].bookName = games[i].bookId;
             }
         }
