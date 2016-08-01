@@ -1,17 +1,26 @@
 let self;
 class SelectBookController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, constants, booksService, $location, $window, persistenceService) {
+    constructor(preScreenLoadingInterceptorsCallerService, constants, $location, $window, persistenceService) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
         this.$location = $location;
         this.$window = $window;
         this.constants = constants;
         this.persistenceService = persistenceService;
-        let booksPersistenceKey = persistenceService.getBookPersistenceKeys();
-        debugger;
-        this.books = booksService.getBooks();
-        this.selectedBookName = this.books[0].name;
+        this.initData();
+    }
+
+    initData() {
+        let bookPersistenceKeys = self.persistenceService.getBookPersistenceKeys();
+        let i;
+
+        self.books = [];
+        for (i = 0; i < bookPersistenceKeys.length; i++) {
+            let book = self.persistenceService.getBook(bookPersistenceKeys[i]);
+            self.books.push(book);
+        }
+        self.selectedBookName = self.books[0].name;
     }
 
     getBooks() {

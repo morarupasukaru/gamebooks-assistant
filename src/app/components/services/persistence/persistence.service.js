@@ -45,7 +45,11 @@ class PersistenceService {
     }
 
     getBook(bookId) {
-        return self.get(self.constants.data.book + "." + bookId);
+        let key = bookId;
+        if (!key.startsWith(self.constants.data.book)) {
+            key = self.constants.data.book + "." + key;
+        }
+        return self.get(key);
     }
 
     setBook(book) {
