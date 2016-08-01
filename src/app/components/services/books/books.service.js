@@ -46,7 +46,7 @@ class BooksService {
     getBook(bookId) {
         let i;
         for (i = 0; i < self.books.length; i++) {
-            if (bookId === self.books[i].urlName) {
+            if (bookId === self.books[i].id) {
                 return self.books[i];
             }
         }
