@@ -12,15 +12,6 @@ class HomeController {
         } else {
             $location.url(constants.url.games);
         }
-
-        $rootScope.$on('$locationChangeStart', () => this.saveUrl());
-    }
-
-    saveUrl() {
-        let currentUrl = self.$location.url();
-        if (!!currentUrl && currentUrl !== '/') {
-            self.persistenceService.setLastDisplayedScreenUrl(currentUrl);
-        }
     }
 }
 

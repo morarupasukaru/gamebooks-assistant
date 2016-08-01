@@ -6,9 +6,10 @@ import Persistence from './persistence/persistence';
 import Dices from './dices/dices';
 import Books from './books/books';
 import Games from './games/games';
+import SaveScreenUrlInterceptor from './save-screen-url-interceptor/save-screen-url-interceptor';
 
 let servicesModule = angular.module('app.components.services', [
-    SoftwareRequirementsChecker.name, Persistence.name, Dices.name, LanguageAvailabilityChecker.name, PreScreenLoadingInterceptorsCaller.name, Books.name, Games.name
+    SoftwareRequirementsChecker.name, Persistence.name, Dices.name, LanguageAvailabilityChecker.name, PreScreenLoadingInterceptorsCaller.name, Books.name, Games.name, SaveScreenUrlInterceptor.name
 ]);
 
 export default servicesModule;
