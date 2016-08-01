@@ -1,7 +1,7 @@
 let self;
 class ChooseLanguageController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, persistenceService, $location, constants) {
+    constructor(preScreenLoadingInterceptorsCallerService, $location, constants) {
         self = this;
         self.$location = $location;
         self.constants = constants;

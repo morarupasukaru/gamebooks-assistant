@@ -11,7 +11,7 @@ class LanguageAvailabilityCheckerService {
     }
 
     selectLanguageIfMissing() {
-        let selectedLanguage = self.persistenceService.get(self.constants.preferences.language);
+        let selectedLanguage = self.persistenceService.getSelectedLanguage();
         let currentUrl = self.$location.url();
         if (!!selectedLanguage) {
             self.$translate.use(selectedLanguage);

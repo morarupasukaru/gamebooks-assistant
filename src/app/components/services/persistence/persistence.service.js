@@ -2,89 +2,61 @@ let self;
 class PersistenceService {
 
     /*@ngInject*/
-    constructor(softwareRequirementsCheckerService, constants, messagesService, $rootScope) {
+    constructor(softwareRequirementsCheckerService, constants, messagesService) {
         self = this;
         self.isLocalStorageSupported = softwareRequirementsCheckerService.isLocalStorageSupported();
         self.constants = constants;
         self.messagesService = messagesService;
+    }
 
+    getSelectedLanguage() {
+        return self.get(self.constants.preferences.language);
+    }
 
-        $rootScope.appData = this.getAppDataFromLocalStorage();
-        $rootScope.$watch('appData', function(newValue, oldValue) {
-            // TODO WATCH DATA
-        });
+    setSelectedLanguage(language) {
+        self.save(self.constants.preferences.language, language);
     }
 
     get(key) {
         if (!self.isLocalStorageSupported) {
             return null;
         }
-        let appData = self.getCurrentVersion(self.getAppDataFromLocalStorage());
-        return appData[key];
+        let value = localStorage.getItem(key);
+        if (value === null || value === "undefined" || value === undefined) {
+            return null;
+        } else {
+            try {
+                return JSON.parse(value);
+            } catch (e) {
+                // cannot be parsed, must be a string
+                return value;
+            }
+        }
     }
 
     save(key, value) {
         if (!self.isLocalStorageSupported) {
             return ;
         }
-        let appData = self.getAppDataFromLocalStorage();
-        let versionData = self.getCurrentVersion(appData);
-        versionData[key] = value;
-        localStorage.setItem(self.constants.data, JSON.stringify(appData));
-    }
-
-    getCurrentVersion(appData) {
-        if (!self.isLocalStorageSupported) {
-            return null;
-        }
-        if (!appData[self.constants.version]) {
-            appData[self.constants.version] = {};
-        }
-        return appData[self.constants.version];
-    }
-
-    getAppDataFromLocalStorage() {
-        if (!self.isLocalStorageSupported) {
-            return null;
-        }
-        let key = self.constants.data;
-        let appData = self.getJSONDataFromLocalStorage(key);
-        if (appData === null) {
-            appData = {};
-            localStorage.setItem(key, JSON.stringify(appData));
-        }
-        return appData;
-    }
-
-    getJSONDataFromLocalStorage(key) {
-        if (!self.isLocalStorageSupported) {
-            return null;
-        }
-        let json = localStorage.getItem(key);
-        if (json === null || json === "undefined" || json === undefined) {// TODO test
-            return null;
+        if (typeof value === 'string') {
+            localStorage.setItem(key, value);
         } else {
-            return JSON.parse(json);
+            localStorage.setItem(key, JSON.stringify(value));
         }
-
     }
 
-    import(dataAsString) {
-        self.messagesService.clearMessages();
-        if (!dataAsString) {
-            self.messagesService.errorMessage('Missing import data', false);
+    import(importDataAsJson) {
+        if (!self.isLocalStorageSupported) {
             return ;
         }
-        let importAppData = null;
-        try {
-            importAppData = JSON.parse(dataAsString);
-        } catch(err) {
+        self.cleanAllData();
+        let importData = JSON.parse(importDataAsJson);
+        let keys = Object.keys(importData);
+        let i;
+        debugger;
+        for (i = 0; i < keys.length; i++) {
+            self.save(keys[i], importData[keys[i]]);
         }
-        if (!importAppData) {
-            self.messagesService.errorMessage('Invalid import data', false);
-            return ;
-        }
-        localStorage.setItem(self.constants.data, JSON.stringify(importAppData));
     }
 
     cleanAllData() {
@@ -92,6 +64,11 @@ class PersistenceService {
             return ;
         }
         localStorage.clear();
+    }
+
+    export() {
+        return JSON.parse(JSON.stringify(localStorage));
+
     }
 }
 

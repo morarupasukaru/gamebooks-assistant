@@ -26,8 +26,7 @@ class SavedDataAdminController {
     }
 
     initData() {
-        // TODO event on changes (take care of memory leak)
-        self.applicationData = JSON.stringify(self.persistenceService.getAppDataFromLocalStorage());
+        self.applicationData = JSON.stringify(self.persistenceService.export());
     }
 
     showPopupConfirmDeleteApplicationData() {
