@@ -4,11 +4,12 @@ class BooksService {
     /*@ngInject*/
     constructor(warlockOfFiretopMountainService, templeOfTerrorService, creatureFromHavocService, messagesService, $translate, constants, persistenceService) {
         self = this;
+        // TODO as interceptor BooksLoaderInterceptor
         self.messagesService = messagesService;
         self.$translate = $translate;
         self.constants = constants;
         self.persistenceService = persistenceService;
-        self.books = [];
+        self.books = []; // TODO remove
         self.addBook(warlockOfFiretopMountainService.getBook());
         self.addBook(templeOfTerrorService.getBook());
         self.addBook(creatureFromHavocService.getBook());
