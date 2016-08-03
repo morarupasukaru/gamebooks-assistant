@@ -72,7 +72,9 @@ class PersistenceService {
         } else {
             return {
                 version : self.constants.version,
-                paragraphNr : paragraphNr
+                paragraphNr : paragraphNr,
+                description : '',
+                choices : []
             };
         }
     }

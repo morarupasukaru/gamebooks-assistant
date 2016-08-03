@@ -1,7 +1,7 @@
 let self;
 class InGameController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $location, constants, endGamePopupService, gamesService, $stateParams, booksService) {
+    constructor(preScreenLoadingInterceptorsCallerService, $location, constants, endGamePopupService, gamesService, $stateParams, persistenceService) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
         self.$location = $location;
@@ -9,7 +9,7 @@ class InGameController {
         self.endGamePopupService = endGamePopupService;
         self.gamesService = gamesService;
         self.$stateParams = $stateParams;
-        self.booksService = booksService;
+        self.persistenceService = persistenceService;
         if (!!$stateParams.game) {
             this.buildGame($stateParams.game);
             self.game = self.gamesService.getGame(decodeURIComponent($stateParams.game));
@@ -31,7 +31,7 @@ class InGameController {
                 this.stats = this.stats.concat(self.game.stats);
             }
         }
-        this.paragraph = self.booksService.getParagraph(self.$stateParams.bookId, self.$stateParams.paragraphNr);
+        this.paragraph = self.persistenceService.getOrCreateParagraph(self.$stateParams.bookId, self.$stateParams.paragraphNr);
         if (!!self.paragraph.notes) {
             this.notes = this.notes.concat(self.paragraph.notes);
         }
