@@ -1,7 +1,7 @@
 let self;
 class GamesController {
     /*@ngInject*/
-    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamesService, persistenceService, messagesService, $translate) {
+    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamesService, persistenceService, messagesService, $translate, booksService) {
         self = this;
         self.constants = constants;
         preScreenLoadingInterceptorsCallerService.intercept();

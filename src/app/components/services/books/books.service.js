@@ -44,7 +44,14 @@ class BooksService {
         let previousSavedBook = self.persistenceService.getBook(book.id);
         if (!previousSavedBook || new Number(previousSavedBook.version) < new Number(book.version)) {
             self.persistenceService.setBook(book);
-            // TODO replace paragraph
+            self.saveParagraphsToPersistence(book);
+        }
+    }
+
+    saveParagraphsToPersistence(book) {
+        let i;
+        for (i = 0; i < book.paragraphs.length; i++) {
+            self.persistenceService.setParagraph(book.id, book.paragraphs[i]);
         }
     }
 }

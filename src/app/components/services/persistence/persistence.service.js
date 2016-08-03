@@ -45,11 +45,7 @@ class PersistenceService {
     }
 
     getBook(bookId) {
-        let key = bookId;
-        if (!key.startsWith(self.constants.data.book)) {
-            key = self.constants.data.book + "." + key;
-        }
-        return self.get(key);
+        return self.get(self.getBookPersistenceKey(bookId));
     }
 
     setBook(book) {
@@ -62,6 +58,40 @@ class PersistenceService {
             }
         }
         self.save(self.constants.data.book + "." + book.id, bookInfo);
+    }
+
+    setParagraph(bookId, paragraph) {
+        let key = self.getParagraphPersistenceKey(bookId, paragraph.paragraphNr);
+        self.save(key, paragraph);
+    }
+
+    getOrCreateParagraph(bookId, paragraphNr) {
+        let foundParagraph = self.getParagraph(bookId, paragraphNr);
+        if (!!foundParagraph) {
+            return foundParagraph;
+        } else {
+            return {
+                version : self.constants.version,
+                paragraphNr : paragraphNr
+            };
+        }
+    }
+
+    getParagraph(bookId, paragraphNr) {
+        let key = self.getParagraphPersistenceKey(bookId, paragraphNr);
+        return self.get(key);
+    }
+
+    getParagraphPersistenceKey(bookId, paragraphNr) {
+        return self.getBookPersistenceKey(bookId) + ".paragraph." + paragraphNr;
+    }
+
+    getBookPersistenceKey(bookId) {
+        let key = bookId;
+        if (!key.startsWith(self.constants.data.book)) {
+            key = self.constants.data.book + "." + key;
+        }
+        return key;
     }
 
     get(key) {
