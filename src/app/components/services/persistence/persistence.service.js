@@ -96,6 +96,49 @@ class PersistenceService {
         return key;
     }
 
+
+    addGame(game) {
+        let savedGame = {
+            id : self.newId(),
+            playerName : game.playerName,
+            bookId : game.bookId,
+            items : game.items,
+            stats : game.stats,
+            currentParagraphNr : game.currentParagraphNr
+        };
+
+        let key = self.getGamePersistenceKey(savedGame.id);
+        self.save(key, savedGame);
+        return savedGame;
+    }
+
+    newId() {
+        return new Date().getTime().toString();
+    }
+
+    getUrlOfGame(gameId, paragraphNr) {
+        let game = self.getGame(gameId);
+        if (!paragraphNr) {
+            paragraphNr = game.currentParagraphNr;
+        }
+        let urlOfGame = "/" + encodeURIComponent(game.bookId) + "/" + encodeURIComponent(paragraphNr) + "?" + "game=" + encodeURIComponent(game.id);
+        return urlOfGame;
+    }
+
+    getGame(gameId) {
+        let key = self.getGamePersistenceKey(gameId);
+        return self.get(key);
+    }
+
+    getGamePersistenceKey(gameId) {
+        let key = gameId;
+        if (!key.startsWith(self.constants.data.game)) {
+            key = self.constants.data.game + "." + key;
+        }
+        return key;
+
+    }
+
     get(key) {
         if (!self.isLocalStorageSupported) {
             return null;

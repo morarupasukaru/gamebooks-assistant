@@ -1,7 +1,7 @@
 let self;
 class ChooseItemsController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $stateParams, messagesService, $window, $location, constants, gamesService, persistenceService) {
+    constructor(preScreenLoadingInterceptorsCallerService, $stateParams, messagesService, $window, $location, constants, persistenceService) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
         self.messagesService = messagesService;
@@ -10,7 +10,6 @@ class ChooseItemsController {
         self.$stateParams = $stateParams;
         self.$location = $location;
         self.constants = constants;
-        self.gamesService = gamesService;
         self.book = persistenceService.getBook($stateParams.bookId);
         self.playerItems = JSON.parse(JSON.stringify(self.book.items));
         this.displayNotes();
@@ -34,14 +33,13 @@ class ChooseItemsController {
 
     startGame() {
         let game = self.buildGame();
-        self.gamesService.addGame(game);
-        self.$location.url(self.gamesService.getUrlOfGame(game.id));
+        game = self.persistenceService.addGame(game);
+        self.$location.url(self.persistenceService.getUrlOfGame(game.id));
     }
 
     buildGame() {
         let timestamp = new Date().getTime();
         let game = {
-            id : timestamp,
             playerName : self.$stateParams.playerName,
             bookId : self.book.id,
             items : self.playerItems,

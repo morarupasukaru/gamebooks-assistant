@@ -8,7 +8,8 @@ let constantsModule = angular.module('app.components.constants', [])
         data: {
             selectedLanguage: 'selectedLanguage',
             lastDisplayedScreenUrl: 'lastDisplayedScreenUrl',
-            book : 'book'
+            book : 'book',
+            game : 'game'
         },
         url: {
             battle : '/battle',
