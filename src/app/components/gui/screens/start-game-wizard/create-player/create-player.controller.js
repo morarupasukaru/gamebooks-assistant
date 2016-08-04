@@ -48,11 +48,14 @@ class CreatePlayerController {
           "?bookId=" + encodeURIComponent(self.book.id) +
           "&playerName=" + encodeURIComponent(self.playerName);
         let i;
+
+        let statsParam = '';
         for (i = 0; i < self.stats.length; i++) {
             let stats = self.stats[i];
-            nextUrl = nextUrl + "&" + encodeURIComponent(stats.name) + "=" + encodeURIComponent(stats.value)
+            statsParam = statsParam + encodeURIComponent(stats.name) + encodeURIComponent(stats.value) + ',';
         }
 
+        nextUrl = nextUrl + "&stats=" + statsParam;
         self.$location.url(nextUrl);
     }
 }

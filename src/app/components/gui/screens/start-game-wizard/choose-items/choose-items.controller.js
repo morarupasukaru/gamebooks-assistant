@@ -50,13 +50,18 @@ class ChooseItemsController {
     }
 
     getStatsInUrlParam() {
+        let statsParamValue = self.$stateParams['stats'];
         let stats = [];
         let i;
         for (i = 0; i < self.book.stats.length; i++) {
             let currentStats = self.book.stats[i];
+            let startPos = statsParamValue.indexOf(currentStats.name);
+            startPos = startPos + currentStats.name.length;
+            let endPos = statsParamValue.indexOf(',', startPos);
+            let statsValue = statsParamValue.substring(startPos, endPos);
             stats.push({
                     name  : currentStats.name,
-                    value : self.$stateParams[currentStats.name]
+                    value : new Number(statsValue)
                 });
         }
         return stats;
