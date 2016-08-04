@@ -106,6 +106,12 @@ class PersistenceService {
             currentParagraphNr : game.currentParagraphNr
         };
 
+        savedGame.stats = [];
+        let i;
+        for (i = 0; i < game.stats.length;i++) {
+            savedGame.stats.push({ name: game.stats[i].name, initial: game.stats[i].value, current: game.stats[i].value});
+        }
+
         let key = self.getGamePersistenceKey(savedGame.id);
         self.save(key, savedGame);
         return savedGame;
