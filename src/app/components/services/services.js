@@ -5,11 +5,10 @@ import PreScreenLoadingInterceptorsCaller from './pre-screen-loading-interceptor
 import Persistence from './persistence/persistence';
 import Dices from './dices/dices';
 import BooksLoaderInterceptor from './books-loader-interceptor/books-loader-interceptor';
-import Games from './games/games';
 import SaveScreenUrlInterceptor from './save-screen-url-interceptor/save-screen-url-interceptor';
 
 let servicesModule = angular.module('app.components.services', [
-    SoftwareRequirementsChecker.name, Persistence.name, Dices.name, LanguageAvailabilityChecker.name, PreScreenLoadingInterceptorsCaller.name, BooksLoaderInterceptor.name, Games.name, SaveScreenUrlInterceptor.name
+    SoftwareRequirementsChecker.name, Persistence.name, Dices.name, LanguageAvailabilityChecker.name, PreScreenLoadingInterceptorsCaller.name, BooksLoaderInterceptor.name, SaveScreenUrlInterceptor.name
 ]);
 
 export default servicesModule;

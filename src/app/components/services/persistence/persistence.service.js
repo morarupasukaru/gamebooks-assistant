@@ -96,7 +96,6 @@ class PersistenceService {
         return key;
     }
 
-
     addGame(game) {
         let savedGame = {
             id : self.newId(),
@@ -128,6 +127,10 @@ class PersistenceService {
     getGame(gameId) {
         let key = self.getGamePersistenceKey(gameId);
         return self.get(key);
+    }
+
+    getGamePersistenceKeys() {
+        return self.findKeysWithPrefix(self.constants.data.game);
     }
 
     getGamePersistenceKey(gameId) {

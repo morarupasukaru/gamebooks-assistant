@@ -1,34 +1,29 @@
 let self;
 class GamesController {
     /*@ngInject*/
-    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamesService, persistenceService, messagesService, $translate) {
+    constructor($location, preScreenLoadingInterceptorsCallerService, constants, persistenceService, messagesService, $translate) {
         self = this;
         self.constants = constants;
         preScreenLoadingInterceptorsCallerService.intercept();
         self.$location = $location;
-        self.gamesService = gamesService;
         self.persistenceService = persistenceService;
         self.messagesService = messagesService;
         self.$translate = $translate;
 
-        self.gamesService.addGame(self.buildGame('warlock-firetop-mountain', 'Pascal', '0'));
-        self.gamesService.addGame(self.buildGame('warlock-firetop-mountain', 'Pascal 2nd try', '12'));
-        self.gamesService.addGame(self.buildGame('creature-from-chaos', 'François', '187'));
-
-        this.rows = self.gamesService.getGamesAsCopy();
-        self.completeBookName(this.rows);
+        this.initData();
     }
 
-    buildGame(bookId, playerName, paragraphNr) {
-        // TODO remove
-        let timestamp = new Date().getTime();
-        let game = {
-            id : timestamp,
-            playerName : playerName,
-            bookId : bookId,
-            currentParagraphNr : paragraphNr
-        };
-        return game;
+    initData() {
+        let gamePersistenceKeys = self.persistenceService.getGamePersistenceKeys();
+        let i;
+
+        self.rows = [];
+        for (i = 0; i < gamePersistenceKeys.length; i++) {
+            let game = self.persistenceService.getGame(gamePersistenceKeys[i]);
+            self.rows.push(JSON.parse(JSON.stringify(game)));
+        }
+
+        self.completeBookName(self.rows);
     }
 
     completeBookName(games) {
@@ -55,7 +50,7 @@ class GamesController {
     }
 
     continueGame() {
-        let nextUrl = self.gamesService.getUrlOfGame(self.getSelectedRow().id);
+        let nextUrl = self.persistenceService.getUrlOfGame(self.getSelectedRow().id);
         self.$location.url(nextUrl);
     }
 
