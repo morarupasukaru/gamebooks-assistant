@@ -112,9 +112,13 @@ class PersistenceService {
             savedGame.stats.push({ name: game.stats[i].name, initial: game.stats[i].value, current: game.stats[i].value});
         }
 
-        let key = self.getGamePersistenceKey(savedGame.id);
-        self.save(key, savedGame);
+        self.updateGame(savedGame);
         return savedGame;
+    }
+
+    updateGame(game) {
+        let key = self.getGamePersistenceKey(game.id);
+        self.save(key, game);
     }
 
     newId() {

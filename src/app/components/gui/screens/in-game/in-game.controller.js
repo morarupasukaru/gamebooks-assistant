@@ -50,7 +50,9 @@ class InGameController {
     }
 
     callbackAbandonGamePopup(popupDomElementId, endGameReason) {
-        // TODO update game with endGameReason
+        let updatedGame = self.persistenceService.getGame(self.game.id);
+        updatedGame.endGameReason = endGameReason;
+        self.persistenceService.updateGame(updatedGame);
         self.$location.url(self.constants.url.games);
     }
 }

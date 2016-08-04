@@ -132,5 +132,8 @@
   "dice image" : "image de dé",
   "Developers and contributors" : "Développeurs et contributeurs",
   "Angular JS, Bootstrap, Webpack and all existing tools that make javascript development fun to code": "Angular JS, Bootstrap, Webpack et tous les outils qui font que le dévelopement javascript soit fun",
-  "Cannot find book" : "Le livre suivant est inconnu"
+  "Cannot find book" : "Le livre suivant est inconnu",
+  "State" : "Status",
+  "in progress" : "en cours",
+  "game over": "fin de partie"
 }

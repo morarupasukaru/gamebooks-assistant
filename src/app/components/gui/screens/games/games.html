@@ -8,15 +8,17 @@
         <div class="row">
             <div class="col-md-12">
                 <table class="table table-striped">
-                    <col style="width:40%">
-                    <col style="width:30% ">
+                    <col style="width:35%">
+                    <col style="width:15% ">
+                    <col style="width:30%">
                     <col style="width:15%">
-                    <col style="width:15%">
+                    <col style="width:5%">
                     <thead>
                     <tr>
                         <th>{{ 'Book' | translate }}</th>
                         <th>{{ 'Player' | translate }}</th>
-                        <th>{{ 'Current Paragraph' | translate }}</th>
+                        <th>{{ 'State' | translate }}</th>
+                        <th>{{ 'Paragraph' | translate }}</th>
                         <th>{{ 'Selection' | translate }}</th>
                     </tr>
                     </thead>
@@ -24,6 +26,9 @@
                     <tr ng-repeat="row in $ctrl.rows">
                         <td>{{ row.bookName }}</td>
                         <td>{{ row.playerName }}</td>
+                        <td>{{ (!!row.endGameReason ? 'game over' : 'in progress') | translate }}
+                            {{ (!!row.endGameReason ? ": '" + row.endGameReason + "'" : '' ) }}
+                        </td>
                         <td>{{ row.currentParagraphNr }}</td>
                         <td>
                             <button type="button" class="btn" ng-class="{ 'btn-success' : row.selected, 'btn-default' : !row.selected}"
