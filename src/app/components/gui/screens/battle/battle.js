@@ -11,7 +11,7 @@ let BattleModule = angular.module('app.components.gui.screen.battle', [
         $urlRouterProvider.otherwise('/');
 
         $stateProvider.state('battle', {
-            url: constants.url.battle, template: '<battle></battle>'
+            url: constants.url.battle + '/{game}', template: '<battle></battle>'
         });
     })
 

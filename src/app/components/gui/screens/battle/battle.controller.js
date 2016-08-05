@@ -1,12 +1,14 @@
 let self;
 class BattleController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $window, popupService, constants) {
+    constructor(preScreenLoadingInterceptorsCallerService, $window, popupService, constants, $translate, persistenceService, $stateParams) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
         self.$window = $window;
         self.popupService = popupService;
         self.constants = constants;
+        self.$translate = $translate;
+        self.persistenceService = persistenceService;
 
         self.popupDeleteEnemyConfig = {
             id : 'popupDeleteEnemy',
@@ -16,13 +18,16 @@ class BattleController {
             closeOnClickOutsideModal : false
         };
 
-        this.playerName = 'Donald';
-        this.rows = [
-            { name: self.playerName, skill : 11, stamina : 18 },
-            { name: 'Goblin 1', skill : 5, stamina : 5 },
-        ];
-        self.inputSkill = 5;
-        self.inputStamina = 5;
+        if (!!$stateParams.game) {
+            self.game = self.persistenceService.getGame(decodeURIComponent($stateParams.game));
+        }
+
+        if (!!self.game) {
+            this.rows = [
+                { name: self.game.playerName, skill : 11, stamina : 18 }
+            ];
+            this.addRow();
+        }
     }
 
     increment(row) {
@@ -52,55 +57,17 @@ class BattleController {
     }
 
     isEnemy(row) {
-        return self.playerName !== row.name;
+        return self.rows.indexOf(row) !== 0;
     }
 
     addRow() {
-        let row = { name: 'Enemy', skill: 1, stamina: 1};
+        let row = { name: self.$translate.instant('Enemy'), skill: 1, stamina: 1};
         self.rows.push(row);
         self.addedRow = row;
     }
 
     back() {
         self.$window.history.back();
-    }
-
-    editRow(row) {
-        self.editedRow = row;
-        self.originalRow = { name : row.name, skill: row.skill, stamina: row.stamina};
-    }
-
-    isRowEdited(row) {
-        return row === self.editedRow || row === self.addedRow;
-    }
-
-    hasEditedRow() {
-        return !!self.editedRow || !! self.addedRow;
-    }
-
-    saveRowChanges($invalid) {
-        if ($invalid) {
-            return ;
-        }
-        self.clearEditedRow();
-    }
-
-    abortRowChanges() {
-        if (!!self.addedRow) {
-            self.removeRow(self.addedRow);
-        }
-        if (!!self.editedRow) {
-            self.editedRow.name = self.originalRow.name;
-            self.editedRow.skill = self.originalRow.skill;
-            self.editedRow.stamina = self.originalRow.stamina;
-        }
-        self.clearEditedRow();
-    }
-
-    clearEditedRow() {
-        self.addedRow = null;
-        self.editedRow = null;
-        self.originalRow = null;
     }
 }
 

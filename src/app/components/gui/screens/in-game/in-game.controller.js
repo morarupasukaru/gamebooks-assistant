@@ -17,7 +17,6 @@ class InGameController {
         this.stats = [];
 
         if (!!self.game) {
-            this.gameId = self.game.id;
             this.playerName = self.game.playerName;
             if (!!self.game.notes) {
                 this.notes = this.notes.concat(self.game.notes);
@@ -38,7 +37,7 @@ class InGameController {
     }
 
     startBattle() {
-        self.$location.url(self.constants.url.battle)
+        self.$location.url(self.constants.url.battle + '/' + self.game.id);
     }
 
     jumpToParagraph() {
