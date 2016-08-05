@@ -118,6 +118,12 @@ class PersistenceService {
 
     updateGame(game) {
         let key = self.getGamePersistenceKey(game.id);
+
+        let i;
+        for (i = 0; i < game.items.length; i++) {
+            delete game.items[i]['$$hashKey'];
+        }
+
         self.save(key, game);
     }
 
@@ -201,7 +207,7 @@ class PersistenceService {
     }
 
     export() {
-        return JSON.parse(JSON.stringify(localStorage));
+        return localStorage;
 
     }
 }

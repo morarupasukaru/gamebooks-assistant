@@ -11,7 +11,7 @@ class ChooseItemsController {
         self.$location = $location;
         self.constants = constants;
         self.book = persistenceService.getBook($stateParams.bookId);
-        self.playerItems = JSON.parse(JSON.stringify(self.book.items));
+        self.playerItems = self.book.items;
         this.displayNotes();
     }
 
@@ -42,7 +42,7 @@ class ChooseItemsController {
         let game = {
             playerName : self.$stateParams.playerName,
             bookId : self.book.id,
-            items : self.playerItems,
+            items : JSON.parse(JSON.stringify(self.playerItems)),
             currentParagraphNr : self.book.startParagraphNr
         };
         game.stats = self.getStatsInUrlParam();

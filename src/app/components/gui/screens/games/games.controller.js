@@ -20,7 +20,7 @@ class GamesController {
         self.rows = [];
         for (i = 0; i < gamePersistenceKeys.length; i++) {
             let game = self.persistenceService.getGame(gamePersistenceKeys[i]);
-            self.rows.push(JSON.parse(JSON.stringify(game)));
+            self.rows.push(game);
         }
 
         self.completeBookName(self.rows);

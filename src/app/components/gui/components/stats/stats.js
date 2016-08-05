@@ -8,6 +8,7 @@ let statsModule = angular.module('app.components.gui.screen.stats', [])
         template,
         controller,
         bindings: {
+            gameId: '=',
             stats: '='
         }
     });

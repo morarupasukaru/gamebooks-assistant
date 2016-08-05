@@ -12,12 +12,12 @@ class InGameController {
         if (!!$stateParams.game) {
             self.game = self.persistenceService.getGame(decodeURIComponent($stateParams.game));
         }
-
         this.notes = [];
         this.items = [];
         this.stats = [];
 
         if (!!self.game) {
+            this.gameId = self.game.id;
             this.playerName = self.game.playerName;
             if (!!self.game.notes) {
                 this.notes = this.notes.concat(self.game.notes);
