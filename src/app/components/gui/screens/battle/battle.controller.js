@@ -24,6 +24,7 @@ class BattleController {
 
         if (!!self.game) {
             this.rows = [
+                // TODO get list of displayed stats from book
                 { name: self.game.playerName, skill : 11, stamina : 18 }
             ];
             this.addRow();
@@ -32,10 +33,20 @@ class BattleController {
 
     increment(row) {
         row.stamina = row.stamina + 1;
+        if (!!self.isEnemy(row)) {
+            self.save();
+        }
     }
 
     decrement(row) {
         row.stamina = row.stamina - 1;
+        if (!!self.isEnemy(row)) {
+            self.save();
+        }
+    }
+
+    save() {
+        // TODO
     }
 
     displayRemovePopup(removedRow) {
@@ -53,7 +64,6 @@ class BattleController {
     removeRow(removedRow) {
         var index = self.rows.indexOf(removedRow);
         self.rows.splice(index, 1);
-        self.clearEditedRow();
     }
 
     isEnemy(row) {
@@ -61,9 +71,9 @@ class BattleController {
     }
 
     addRow() {
+        // TODO get default enemy name, attribute values from book, list of stats
         let row = { name: self.$translate.instant('Enemy'), skill: 1, stamina: 1};
         self.rows.push(row);
-        self.addedRow = row;
     }
 
     back() {
