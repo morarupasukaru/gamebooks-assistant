@@ -14,15 +14,30 @@ class WarlockOfFiretopMountainService {
             stats : [
                 {
                     name : 'Skill',
-                    init: { sixDiceQuantity : 1, constant : 6}
+                    init: { sixDiceQuantity : 1, constant : 6},
+                    battle: {
+                        displayed: true,
+                        enemyDefaultValue : 5,
+                        editableForEnemy : true
+                    }
                 },
                 {
                     name : 'Stamina',
-                    init: { sixDiceQuantity : 2, constant : 12}
+                    init: { sixDiceQuantity : 2, constant : 12},
+                    battle: {
+                        displayed : true,
+                        enemyDefaultValue : 5,
+                        editableForEnemy : true
+                    }
                 },
                 {
                     name : 'Luck',
                     init: { sixDiceQuantity : 1, constant : 6},
+                    battle: {
+                        displayed : true,
+                        enemyDefaultValue : undefined,
+                        editableForEnemy : false
+                    }
                 }
             ],
             items : [

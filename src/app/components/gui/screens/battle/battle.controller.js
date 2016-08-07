@@ -8,6 +8,7 @@ class BattleController {
         self.popupService = popupService;
         self.constants = constants;
         self.$translate = $translate;
+        self.$stateParams = $stateParams;
         self.persistenceService = persistenceService;
 
         self.popupDeleteEnemyConfig = {
@@ -18,17 +19,75 @@ class BattleController {
             closeOnClickOutsideModal : false
         };
 
-        if (!!$stateParams.game) {
-            self.game = self.persistenceService.getGame(decodeURIComponent($stateParams.game));
+        self.initData();
+    }
+
+    initData() {
+        if (!!self.$stateParams.game) {
+            self.game = self.persistenceService.getGame(decodeURIComponent(self.$stateParams.game));
+            self.book = self.persistenceService.getBook(self.game.bookId);
         }
 
-        if (!!self.game) {
-            this.rows = [
-                // TODO get list of displayed stats from book
-                { name: self.game.playerName, skill : 11, stamina : 18 }
-            ];
-            this.addRow();
+        self.initStatsData();
+        self.initPlayerStats();
+        self.defaultEnemy = self.initDefaultEnemy();
+        self.addEnemy();
+    }
+
+    initStatsData() {
+        if (!!self.game && !!self.book) {
+            self.stats = [];
+            let i;
+            for (i = 0; i < self.book.stats.length; i++) {
+                let currentStats = self.book.stats[i];
+                if (!!currentStats.battle && !!currentStats.battle.displayed) {
+                    self.stats.push({ name: currentStats.name, enemyDefaultValue: currentStats.battle.enemyDefaultValue, editableForEnemy: currentStats.battle.editableForEnemy});
+                }
+            }
         }
+    }
+
+    initPlayerStats() {
+        if (!!self.stats) {
+            let i;
+            let statsPlayer = { name : self.game.playerName};
+
+            for (i = 0; i < self.stats.length; i++) {
+                let currentStats = self.stats[i];
+
+                let j;
+                for (j = 0; j < self.game.stats.length; j++) {
+                    let currentGameStats = self.game.stats[j];
+                    if (currentStats.name === currentGameStats.name) {
+                        statsPlayer[currentStats.name] = currentGameStats.current;
+                        break;
+                    }
+                }
+            }
+            this.rows = [ statsPlayer ];
+        }
+    }
+
+    initDefaultEnemy() {
+        let defaultEnemyName = 'Enemy';
+        if (!!self.book.defaultEnemyName) {
+            defaultEnemyName = self.book.defaultEnemyName;
+        }
+
+        let i;
+        let statsDefaultEnemy = { name : self.$translate.instant(defaultEnemyName) };
+
+        for (i = 0; i < self.stats.length; i++) {
+            let currentStats = self.stats[i];
+            statsDefaultEnemy[currentStats.name] = currentStats.enemyDefaultValue;
+        }
+
+
+        return statsDefaultEnemy;
+    }
+
+    addEnemy() {
+        this.rows.push(JSON.parse(JSON.stringify(self.defaultEnemy)));
     }
 
     increment(row) {
@@ -68,12 +127,6 @@ class BattleController {
 
     isEnemy(row) {
         return self.rows.indexOf(row) !== 0;
-    }
-
-    addRow() {
-        // TODO get default enemy name, attribute values from book, list of stats
-        let row = { name: self.$translate.instant('Enemy'), skill: 1, stamina: 1};
-        self.rows.push(row);
     }
 
     back() {

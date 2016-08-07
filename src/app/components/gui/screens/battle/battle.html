@@ -16,13 +16,12 @@
                 <thead>
                 <tr>
                     <th></th>
-                    <th>{{ 'Skill' | translate }}</th>
-                    <th>{{ 'Stamina' | translate }}</th>
+                    <th ng-repeat="row in $ctrl.stats">{{ row.name | translate }}</th>
                     <th>
                         <button type="button" class="btn btn-default"
                                 aria-label="{{ 'Add enemy' | translate}}"
                                 title="{{ 'Add enemy' | translate}}"
-                                ng-click="$ctrl.addRow()">
+                                ng-click="$ctrl.addEnemy()">
                             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                         </button>
                     </th>
