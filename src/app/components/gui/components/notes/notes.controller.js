@@ -20,7 +20,7 @@ class NotesController {
     }
 
     addRow(noteValue) {
-        let row = { note : noteValue, paragraphNr : Number(self.paragraphNr), playerName : self.playerName };
+        let row = { note : noteValue, isParagraph : true, playerName : self.playerName };
         self.rows.push(row);
         self.addedRow = row;
     }
@@ -56,9 +56,15 @@ class NotesController {
         return !!self.editedRow || !! self.addedRow;
     }
 
-    saveRowChanges($invalid) {
+    saveRowChanges($invalid, row) {
         if ($invalid) {
             return ;
+        }
+        debugger;
+        if (!!row.isParagraph) {
+            row.paragraphNr = Number(self.paragraphNr);
+        } else {
+            row.paragraphNr = undefined;
         }
         self.clearEditedRow();
     }

@@ -40,21 +40,18 @@
                 {{ row.paragraphNr }}
             </td>
             <td ng-if="$ctrl.isRowEdited(row)">
-                <input type="number" class="form-control" ng-model="row.paragraphNr">
+                <input type="checkbox" class="form-control" ng-model="row.isParagraph" name="isParagraph" value="true"><br>
             </td>
 
-            <td ng-if="!$ctrl.isRowEdited(row)">
+            <td>
                 {{ row.playerName }}
-            </td>
-            <td ng-if="$ctrl.isRowEdited(row)">
-                <input type="text" class="form-control" ng-model="row.playerName">
             </td>
 
             <td>
                 <button type="button" class="btn btn-success"
                         aria-label="{{ 'Save note changes' | translate}}"
                         title="{{ 'Save note changes' | translate}}"
-                        ng-click="$ctrl.saveRowChanges(notesTableForm.$invalid)"
+                        ng-click="$ctrl.saveRowChanges(notesTableForm.$invalid, row)"
                         ng-show="$ctrl.isRowEdited(row)">
                     <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                 </button>
@@ -75,7 +72,7 @@
                         aria-label="{{ 'Edit note' | translate}} '{{ row.note | translate }}'"
                         title="{{ 'Edit note' | translate}} '{{ row.note | translate }}'"
                         ng-click="$ctrl.editRow(row)"
-                        ng-show="!$ctrl.hasEditedRow()">
+                        ng-show="!$ctrl.hasEditedRow() && !row.readonly">
                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                 </button>
                 <button type="button" class="btn btn-danger"

@@ -1,7 +1,7 @@
 let self;
 class InGameController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $location, constants, endGamePopupService, $stateParams, persistenceService) {
+    constructor(preScreenLoadingInterceptorsCallerService, $location, constants, endGamePopupService, $stateParams, persistenceService, $translate) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
         self.$location = $location;
@@ -9,6 +9,7 @@ class InGameController {
         self.endGamePopupService = endGamePopupService;
         self.$stateParams = $stateParams;
         self.persistenceService = persistenceService;
+        self.$translate = $translate;
         if (!!$stateParams.game) {
             self.game = self.persistenceService.getGame(decodeURIComponent($stateParams.game));
         }
@@ -30,7 +31,13 @@ class InGameController {
         }
         this.paragraph = self.persistenceService.getOrCreateParagraph(self.$stateParams.bookId, self.$stateParams.paragraphNr);
         if (!!self.paragraph.notes) {
-            this.notes = this.notes.concat(self.paragraph.notes);
+            let i;
+            for (i = 0; i < self.paragraph.notes.length; i++) {
+                this.notes.push({
+                    note : self.$translate.instant(self.paragraph.notes[i].note),
+                    readonly : true
+                });
+            }
         }
 
         self.popupAbandonGameConfig = { id : 'popupAbandonGame' };
