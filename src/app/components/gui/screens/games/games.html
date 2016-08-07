@@ -24,7 +24,7 @@
                     </thead>
                     <tbody>
                     <tr ng-repeat="row in $ctrl.rows">
-                        <td>{{ row.bookName }}</td>
+                        <td>{{ row.bookName | translate }}</td>
                         <td>{{ row.playerName }}</td>
                         <td>{{ (!!row.endGameReason ? 'game over' : 'in progress') | translate }}
                             {{ (!!row.endGameReason ? ": '" + row.endGameReason + "'" : '' ) }}
