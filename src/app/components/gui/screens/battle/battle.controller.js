@@ -50,7 +50,7 @@ class BattleController {
     initPlayerStats() {
         if (!!self.stats) {
             let i;
-            let statsPlayer = { name : self.game.playerName};
+            self.statsPlayer = { name : self.game.playerName};
 
             for (i = 0; i < self.stats.length; i++) {
                 let currentStats = self.stats[i];
@@ -59,12 +59,12 @@ class BattleController {
                 for (j = 0; j < self.game.stats.length; j++) {
                     let currentGameStats = self.game.stats[j];
                     if (currentStats.name === currentGameStats.name) {
-                        statsPlayer[currentStats.name] = currentGameStats.current;
+                        self.statsPlayer[currentStats.name] = currentGameStats.current;
                         break;
                     }
                 }
             }
-            this.rows = [ statsPlayer ];
+            this.rows = [ self.statsPlayer ];
         }
     }
 
@@ -90,22 +90,13 @@ class BattleController {
         this.rows.push(JSON.parse(JSON.stringify(self.defaultEnemy)));
     }
 
-    increment(row) {
-        row.stamina = row.stamina + 1;
-        if (!!self.isEnemy(row)) {
-            self.save();
-        }
-    }
-
-    decrement(row) {
-        row.stamina = row.stamina - 1;
-        if (!!self.isEnemy(row)) {
-            self.save();
-        }
-    }
-
     save() {
-        // TODO
+        let i;
+        for (i = 0; i < self.game.stats.length; i++) {
+            let currentStats = self.game.stats[i];
+            currentStats.current = self.statsPlayer[currentStats.name];
+        }
+        self.persistenceService.updateGame(self.game);
     }
 
     displayRemovePopup(removedRow) {

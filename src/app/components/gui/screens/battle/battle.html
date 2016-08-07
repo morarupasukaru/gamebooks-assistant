@@ -45,7 +45,7 @@
                         </div>
 
                         <div ng-if="!!stats.editableForEnemy || !$ctrl.isEnemy(row)">
-                            <input required type="number" class="form-control" ng-model="row[stats.name]">
+                            <input required type="number" class="form-control" ng-model="row[stats.name]" ng-change="$ctrl.save()">
                             <div class="error" ng-show="!row[stats.name]">
                                 {{ 'Please fill a value' | translate }}
                             </div>
