@@ -10,12 +10,13 @@
             <table class="table">
                 <col style="width:20%">
                 <col style="width:10%" ng-repeat="row in $ctrl.stats">
-                <col style="width:5%">
                 <col style="width:{{ $ctrl.lastColumnSizeInPercent() }}%">
+                <col style="width:5%">
                 <thead>
                 <tr>
                     <th></th>
                     <th ng-repeat="row in $ctrl.stats">{{ row.name | translate }}</th>
+                    <th></th>
                     <th>
                         <button type="button" class="btn btn-default"
                                 aria-label="{{ 'Add enemy' | translate}}"
@@ -51,6 +52,8 @@
                         </div>
                     </td>
 
+                    <td></td>
+
                     <td>
                         <button type="button" class="btn btn-danger"
                                 aria-label="{{ 'Remove enemy' | translate }} {{ row.name | translate }}"
@@ -60,8 +63,6 @@
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         </button>
                     </td>
-
-                    <td></td>
                 </tr>
                 </tbody>
             </table>
