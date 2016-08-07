@@ -8,6 +8,7 @@ let itemsModule = angular.module('app.components.gui.screen.items', [])
         template,
         controller,
         bindings: {
+            gameId: '=?',
             items: '='
         }
      });

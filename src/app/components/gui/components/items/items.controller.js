@@ -1,12 +1,13 @@
 let self;
 class ItemsController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, popupService, constants) {
+    constructor(preScreenLoadingInterceptorsCallerService, popupService, constants, persistenceService) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
         this.rows = this.items;
         self.popupService = popupService;
         self.constants = constants;
+        self.persistenceService = persistenceService;
 
         self.popupDeleteItemConfig = {
             id : 'popupDeleteItem',
@@ -39,6 +40,7 @@ class ItemsController {
         var index = self.rows.indexOf(removedRow);
         self.rows.splice(index, 1);
         self.clearEditedRow();
+        self.saveInPersistence();
     }
 
     editRow(row) {
@@ -59,6 +61,7 @@ class ItemsController {
             return ;
         }
         self.clearEditedRow();
+        self.saveInPersistence();
     }
 
     abortRowChanges() {
@@ -76,6 +79,14 @@ class ItemsController {
         self.addedRow = null;
         self.editedRow = null;
         self.originalRow = null;
+    }
+
+    saveInPersistence() {
+        if (!!self.gameId) {
+            let updatedGame = self.persistenceService.getGame(self.gameId);
+            updatedGame.items = self.items;
+            self.persistenceService.updateGame(updatedGame);
+        }
     }
 }
 

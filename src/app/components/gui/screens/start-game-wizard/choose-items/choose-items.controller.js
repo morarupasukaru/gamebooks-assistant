@@ -1,7 +1,7 @@
 let self;
 class ChooseItemsController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $stateParams, messagesService, $window, $location, constants, persistenceService) {
+    constructor(preScreenLoadingInterceptorsCallerService, $stateParams, messagesService, $window, $location, constants, persistenceService, $translate) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
         self.messagesService = messagesService;
@@ -9,9 +9,15 @@ class ChooseItemsController {
         self.$window = $window;
         self.$stateParams = $stateParams;
         self.$location = $location;
+        self.$translate = $translate;
         self.constants = constants;
+
         self.book = persistenceService.getBook($stateParams.bookId);
         self.playerItems = self.book.items;
+        let i;
+        for (i = 0; i < self.playerItems.length; i++) {
+            self.playerItems[i].description = $translate.instant(self.playerItems[i].description);
+        }
         this.displayNotes();
     }
 
