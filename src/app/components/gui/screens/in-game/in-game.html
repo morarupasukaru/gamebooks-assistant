@@ -13,7 +13,7 @@
 
         <div id="playerSheet" ng-if="!!$ctrl.playerName">
             <h2>{{ 'Player' | translate }} {{ $ctrl.playerName }}</h2>
-            <stats game-id="$ctrl.gameId" stats="$ctrl.stats"></stats>
+            <stats game-id="$ctrl.game.id" stats="$ctrl.stats"></stats>
             <items items="$ctrl.items"></items>
             <dices></dices>
             <back-button></back-button>
