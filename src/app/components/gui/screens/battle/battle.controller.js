@@ -129,6 +129,14 @@ class BattleController {
         return self.rows.indexOf(row) !== 0;
     }
 
+    lastColumnSizeInPercent() {
+        let lastColumnSizeInPercent = 75;
+        if (!!self.stats) {
+            lastColumnSizeInPercent = lastColumnSizeInPercent - (self.stats.length * 10);
+        }
+        return lastColumnSizeInPercent;
+    }
+
     back() {
         self.$window.history.back();
     }

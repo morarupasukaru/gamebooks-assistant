@@ -26,7 +26,7 @@ class WarlockOfFiretopMountainService {
                     init: { sixDiceQuantity : 2, constant : 12},
                     battle: {
                         displayed : true,
-                        enemyDefaultValue : 5,
+                        enemyDefaultValue : 4,
                         editableForEnemy : true
                     }
                 },

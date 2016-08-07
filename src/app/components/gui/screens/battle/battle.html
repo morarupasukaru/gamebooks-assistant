@@ -9,10 +9,9 @@
         <form name="battleTableForm" novalidate="novalidate">
             <table class="table">
                 <col style="width:20%">
-                <col style="width:10%">
-                <col style="width:10%">
+                <col style="width:10%" ng-repeat="row in $ctrl.stats">
                 <col style="width:5%">
-                <col style="width:55%">
+                <col style="width:{{ $ctrl.lastColumnSizeInPercent() }}%">
                 <thead>
                 <tr>
                     <th></th>
@@ -39,17 +38,16 @@
                         </div>
                     </td>
 
-                    <td>
-                        <input required type="number" class="form-control" ng-model="row.skill">
-                        <div class="error" ng-show="!row.skill">
-                            {{ 'Please fill the skill' | translate }}
+                    <td ng-repeat="stats in $ctrl.stats">
+                        <div ng-if="!stats.editableForEnemy && !!$ctrl.isEnemy(row)">
+                            {{ row[stats.name] }}
                         </div>
-                    </td>
 
-                    <td>
-                        <input required type="number" class="form-control" ng-model="row.stamina">
-                        <div class="error" ng-show="!row.stamina">
-                            {{ 'Please fill the stamina' | translate }}
+                        <div ng-if="!!stats.editableForEnemy || !$ctrl.isEnemy(row)">
+                            <input required type="number" class="form-control" ng-model="row[stats.name]">
+                            <div class="error" ng-show="!row[stats.name]">
+                                {{ 'Please fill a value' | translate }}
+                            </div>
                         </div>
                     </td>
 
