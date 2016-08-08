@@ -3,7 +3,7 @@
         <div>
             <div class="form-group">
                 <label for="applicationData">{{ "Application's data" | translate }}</label>
-                <input type="text" readonly class="form-control" id="applicationData" ng-model="$ctrl.applicationData">
+                <input type="text" class="form-control" id="applicationData" ng-model="$ctrl.applicationData">
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" ng-click="$ctrl.showPopupConfirmDeleteApplicationData()" aria-label="{{ 'Delete application\'s data' | translate }}">{{ "Delete application's data" | translate }}</button>
