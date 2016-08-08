@@ -1,11 +1,12 @@
 let self;
 class ParagraphController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, popupService, constants) {
+    constructor(preScreenLoadingInterceptorsCallerService, popupService, constants, persistenceService) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
         self.popupService = popupService;
         self.constants = constants;
+        self.persistenceService = persistenceService;
 
         self.popupDeleteChoiceConfig = {
             id : 'popupDeleteChoice',
@@ -42,6 +43,7 @@ class ParagraphController {
         var index = self.paragraph.choices.indexOf(removedRow);
         self.paragraph.choices.splice(index, 1);
         self.clearEditedRow();
+        self.saveParagraphChoices();
     }
 
     editDescription() {
@@ -56,6 +58,7 @@ class ParagraphController {
     saveDescriptionChanges() {
         self.originalDescription = null;
         self.descriptionEditable = false;
+        self.persistenceService.updateParagraph(self.paragraph);
     }
 
     abortDescriptionChanges() {
@@ -82,6 +85,11 @@ class ParagraphController {
             return ;
         }
         self.clearEditedRow();
+        self.saveParagraphChoices();
+    }
+
+    saveParagraphChoices() {
+        self.persistenceService.updateParagraph(self.paragraph);
     }
 
     abortRowChanges() {
