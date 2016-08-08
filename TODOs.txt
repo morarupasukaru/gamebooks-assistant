@@ -1,73 +1,26 @@
 technical:
-    save data:
-        listener on appData changes (to save in localStorage)
-
     build:
         configure jshint (or something like that)
 
     misc:
-        startup progress / splashscreen
-        i18n json sorted alphabetics?
         i18n with angular-translate?
-        js map? how it works?
         reduce dependencies
-        upgrade bootstrap 4?
-        services for check null, undefined
         upgrade package.json with latest version
         understand node dependencies (same as mvn dependencies tree), read node documentation
         correct pom.xml (reduce useless parts)
         understand webpack & ease configuration
 
-    testing:
-        tests of services with jasmine?
-        smoketests with selenium?
-
-    documentation:
-        link to esta web/js only one time instead in several js files
-        complete README.md in english & french (link if possible, e.g. wikipedia)
-
-    data:
-        1 pro books: paragraph (note, choice, titel, paragraphNr, description, ...)
-        1 pro game: :stats, playerName, items, player notes (not associated to paragraph)
-        init data: stats, rules, init items, init notes, start paragraphs (and others predifined paragraphs)
-        merge between init data, book data edited by players? versions?
-
-
-    out of scope:
-        import, export for end-user, the goal is to export json & a dev can edit the object and merge data between "init data"
-            => json export with end-of-line and with specific order
-
-    in-game: popup > how-to disable jump to text?
-
-    action as component
-    need navbar?
-    save action as log > selenium to replay a game
-
-    copyright, thanks screen
-
-features:
-    url: bookId unique (check during register), e.g. /warlock-of-firetop-mountain/123?player=Pascal
-    "terminate game"
-    gamebook name in url
-    note: flag "spoiler", configuration "display spoiler"
-    note: nom du joueur, configuration "display other player note"
-    button "jump to paragraphNr"
-    url paragraph: .../bookName/#paragraphNb?playerName
-    si url paragraph inexistant > cree paragraph
-    mode paragraph screen without playername > no "player data"
-    translate note, choice, items of player?
+in-game: popup > how-to disable jump to text?
+how to display image with url with webpack & angularjs correctly?
+bug with minify
+todo url git project in package.json
+update licence in package.json > Apache-2.0?
+choose license > no sell
+debug problem with android
 
 v2:
     paragraph with images & description > can be a gamebook completelly
     paths gameplays visualizer
+    download book + attachments instead of all inside app.js
 
 v arena: battle between two or more players?
-
-
-how to display image with url with webpack & angularjs correctly?
-bug with minify
-add 'about with credits' screen
-
-todo url git project in package.json
-update licence in package.json > Apache-2.0?
-choose license > no sell
