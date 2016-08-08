@@ -2,18 +2,14 @@ let self;
 class BooksLoaderInterceptorService {
 
     /*@ngInject*/
-    constructor(persistenceService, warlockOfFiretopMountainService, templeOfTerrorService, creatureFromHavocService) {
+    constructor(persistenceService, warlockOfFiretopMountainService) {
         self = this;
         self.persistenceService = persistenceService;
         self.warlockOfFiretopMountainService = warlockOfFiretopMountainService;
-        self.templeOfTerrorService = templeOfTerrorService;
-        self.creatureFromHavocService = creatureFromHavocService;
     }
 
     loadBooks() {
         self.saveBookToPersistence(self.warlockOfFiretopMountainService.getBook());
-        self.saveBookToPersistence(self.templeOfTerrorService.getBook());
-        self.saveBookToPersistence(self.creatureFromHavocService.getBook());
     }
 
     saveBookToPersistence(book) {

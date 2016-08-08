@@ -8,9 +8,9 @@ let notesModule = angular.module('app.components.gui.screen.notes', [])
         template,
         controller,
         bindings: {
+            gameId: '@',
             paragraphNr: '@',
-            playerName: '@',
-            notes: '='
+            bookId : '@'
         }
     });
 

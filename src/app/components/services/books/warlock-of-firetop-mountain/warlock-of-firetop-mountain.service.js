@@ -78,16 +78,20 @@ class WarlockOfFiretopMountainService {
                     description : 'measure of potion of luck (increase initial luck by 1 point and restore luck points)'
                 }
             ],
-            startParagraphNr : 0,
+            startParagraphNr : 1,
             paragraphs : [
                 {
                     version : self.constants.version,
-                    paragraphNr : 0,
-                    description : 'Start',
+                    paragraphNr : 1,
+                    description : 'Dark cave entrance',
                     choices : [
                         {
-                            paragraphNr : 1,
-                            description : 'Go to Firetop Mountain'
+                            paragraphNr : 71,
+                            description : 'turn west'
+                        },
+                        {
+                            paragraphNr : 278,
+                            description : 'turn east'
                         }
                     ],
                     notes : [

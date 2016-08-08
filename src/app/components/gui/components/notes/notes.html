@@ -25,7 +25,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="row in $ctrl.rows">
+        <tr ng-repeat="row in $ctrl.notes track by $index">
             <td ng-if="!$ctrl.isRowEdited(row)">
                 {{ row.note }}
             </td>
@@ -36,10 +36,10 @@
                 </div>
             </td>
 
-            <td ng-if="!$ctrl.isRowEdited(row)">
+            <td ng-if="!$ctrl.isRowEdited(row) || !$ctrl.gameId">
                 {{ row.paragraphNr }}
             </td>
-            <td ng-if="$ctrl.isRowEdited(row)">
+            <td ng-if="$ctrl.isRowEdited(row) && !!$ctrl.gameId">
                 <input type="checkbox" class="form-control" ng-model="row.isParagraph" name="isParagraph" value="true"><br>
             </td>
 

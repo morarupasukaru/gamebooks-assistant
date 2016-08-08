@@ -1,12 +1,14 @@
 let self;
 class NotesController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, popupService, constants) {
+    constructor(preScreenLoadingInterceptorsCallerService, popupService, constants, persistenceService, $translate) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
 
         self.popupService = popupService;
         self.constants = constants;
+        self.persistenceService = persistenceService;
+        self.$translate = $translate;
 
         self.popupDeleteNoteConfig = {
             id : 'popupDeleteNoteConfig',
@@ -16,12 +18,47 @@ class NotesController {
             closeOnClickOutsideModal : false
         };
 
-        this.rows = this.notes;
+        self.initData();
+    }
+
+    initData() {
+        let game;
+        if (!!self.gameId) {
+            game = self.persistenceService.getGame(self.gameId);
+        }
+
+        self.notes = [];
+        let paragraph = self.persistenceService.getParagraph(self.bookId, self.paragraphNr);
+        if (!!paragraph && !!paragraph.notes) {
+            let i;
+            for (i = 0; i < paragraph.notes.length; i++) {
+                if (!!paragraph.notes[i].playerName || !game) {
+                    self.notes.push({
+                        note : paragraph.notes[i].note,
+                        paragraphNr : self.paragraphNr,
+                        readonly : false
+                    });
+                } else {
+                    self.notes.push({
+                        note : self.$translate.instant(paragraph.notes[i].note),
+                        paragraphNr : self.paragraphNr,
+                        readonly : true
+                    });
+                }
+            }
+        }
+
+        if (!!game) {
+            self.playerName = game.playerName;
+            if (!!game.notes) {
+                self.notes = self.notes.concat(game.notes);
+            }
+        }
     }
 
     addRow(noteValue) {
         let row = { note : noteValue, isParagraph : true, playerName : self.playerName };
-        self.rows.push(row);
+        self.notes.push(row);
         self.addedRow = row;
     }
 
@@ -38,9 +75,10 @@ class NotesController {
     }
 
     removeRow(removedRow) {
-        var index = self.rows.indexOf(removedRow);
-        self.rows.splice(index, 1);
+        var index = self.notes.indexOf(removedRow);
+        self.notes.splice(index, 1);
         self.clearEditedRow();
+        self.saveNotes();
     }
 
     editRow(row) {
@@ -60,13 +98,41 @@ class NotesController {
         if ($invalid) {
             return ;
         }
-        debugger;
+
         if (!!row.isParagraph) {
             row.paragraphNr = Number(self.paragraphNr);
         } else {
             row.paragraphNr = undefined;
         }
+
         self.clearEditedRow();
+        self.saveNotes();
+    }
+
+    saveNotes() {
+        self.savePlayerNotes();
+        self.saveParagraphNotes();
+    }
+
+    savePlayerNotes() {
+        if (!self.gameId) {
+            return ;
+        }
+
+        let savedNotes = [];
+        let i;
+        for (i = 0; i < self.notes.length; i++) {
+            if (!self.notes[i].paragraphNr) {
+                savedNotes.push(self.notes[i]);
+            }
+        }
+        let game = self.persistenceService.getGame(self.gameId);
+        game.notes = savedNotes;
+        self.persistenceService.updateGame(game);
+    }
+
+    saveParagraphNotes() {
+        // TODO
     }
 
     abortRowChanges() {

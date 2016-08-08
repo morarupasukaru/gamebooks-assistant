@@ -13,15 +13,11 @@ class InGameController {
         if (!!$stateParams.game) {
             self.game = self.persistenceService.getGame(decodeURIComponent($stateParams.game));
         }
-        this.notes = [];
         this.items = [];
         this.stats = [];
 
         if (!!self.game) {
             this.playerName = self.game.playerName;
-            if (!!self.game.notes) {
-                this.notes = this.notes.concat(self.game.notes);
-            }
             if (!!self.game.items) {
                 this.items = this.items.concat(self.game.items);
             }
@@ -29,17 +25,8 @@ class InGameController {
                 this.stats = this.stats.concat(self.game.stats);
             }
         }
-        this.paragraph = self.persistenceService.getOrCreateParagraph(self.$stateParams.bookId, self.$stateParams.paragraphNr);
-        if (!!self.paragraph.notes) {
-            let i;
-            for (i = 0; i < self.paragraph.notes.length; i++) {
-                this.notes.push({
-                    note : self.$translate.instant(self.paragraph.notes[i].note),
-                    readonly : true
-                });
-            }
-        }
-
+        self.bookId = self.$stateParams.bookId;
+        this.paragraph = self.persistenceService.getOrCreateParagraph(self.bookId, self.$stateParams.paragraphNr);
         self.popupAbandonGameConfig = { id : 'popupAbandonGame' };
     }
 
