@@ -1,12 +1,13 @@
 let self;
 class ParagraphController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, popupService, constants, persistenceService) {
+    constructor(preScreenLoadingInterceptorsCallerService, popupService, constants, persistenceService, $location) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
         self.popupService = popupService;
         self.constants = constants;
         self.persistenceService = persistenceService;
+        self.$location = $location;
 
         self.popupDeleteChoiceConfig = {
             id : 'popupDeleteChoice',
@@ -107,6 +108,18 @@ class ParagraphController {
         self.addedRow = null;
         self.editedRow = null;
         self.originalRow = null;
+    }
+
+    goTo(paragraphNr) {
+        if (!!self.gameId) {
+            let game = self.persistenceService.getGame(self.gameId);
+            game.currentParagraphNr = paragraphNr;
+            self.persistenceService.updateGame(game);
+            let nextUrl = self.persistenceService.getUrlOfGame(game.id);
+            self.$location.url(nextUrl);
+        } else {
+            // TODO
+        }
     }
 }
 

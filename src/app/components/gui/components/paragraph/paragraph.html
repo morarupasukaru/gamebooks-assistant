@@ -70,7 +70,7 @@
                     <button type="button" class="btn btn-default"
                             aria-label="{{ 'Choice paragragh' | translate}} {{ row.paragraphNr }}"
                             title="{{ 'Choice paragragh' | translate}} '{{ row.paragraphNr }}'"
-                            ng-click="$ctrl.goTo(row)">{{ row.paragraphNr }}
+                            ng-click="$ctrl.goTo(row.paragraphNr)">{{ row.paragraphNr }}
                     </button>
                 </td>
                 <td ng-if="!$ctrl.isRowEdited(row) && $ctrl.hasEditedRow()">
@@ -132,13 +132,13 @@
                     <button type="button" class="btn btn-default"
                             aria-label="{{ 'Go to paragraph' | translate}}"
                             title="{{ 'Go to paragraph' | translate}}"
-                            ng-click="$ctrl.goToParagraph()"
-                            ng-disabled="!$ctrl.goToParagraphNr">
+                            ng-click="$ctrl.goTo($ctrl.paragraphNrChoice)"
+                            ng-disabled="!$ctrl.paragraphNrChoice">
                         {{ 'Go to' | translate}}
                     </button>
                 </td>
                 <td>
-                    <input id="goToParagraphNr" type="number" class="form-control" ng-model="$ctrl.goToParagraphNr">
+                    <input id="goToParagraphNr" type="number" class="form-control" ng-model="$ctrl.paragraphNrChoice">
                 </td>
                 <td></td>
                 <td></td>

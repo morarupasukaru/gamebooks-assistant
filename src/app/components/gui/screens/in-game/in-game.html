@@ -7,14 +7,14 @@
         </div>
 
         <div id="paragraphEdit">
-            <paragraph paragraph="$ctrl.paragraph"></paragraph>
+            <paragraph paragraph="$ctrl.paragraph" game-id="{{$ctrl.game.id}}"></paragraph>
             <notes book-id="{{$ctrl.bookId}}" paragraph-nr="{{$ctrl.paragraph.paragraphNr}}" game-id="{{$ctrl.game.id}}"></notes>
         </div>
 
         <div id="playerSheet" ng-if="!!$ctrl.playerName">
             <h2>{{ 'Player' | translate }} {{ $ctrl.playerName }}</h2>
-            <stats game-id="$ctrl.game.id" stats="$ctrl.stats"></stats>
-            <items game-id="$ctrl.game.id" items="$ctrl.items"></items>
+            <stats game-id="{{$ctrl.game.id}}" stats="$ctrl.stats"></stats>
+            <items game-id="{{$ctrl.game.id}}" items="$ctrl.items"></items>
             <dices></dices>
             <back-button></back-button>
             <button type="button" class="btn btn-default" ng-click="$ctrl.startBattle()">{{ 'Start Battle' | translate }}</button>
