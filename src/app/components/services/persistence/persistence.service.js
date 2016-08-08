@@ -70,12 +70,15 @@ class PersistenceService {
         if (!!foundParagraph) {
             return foundParagraph;
         } else {
-            return {
+            let paragraph = {
                 version : self.constants.version,
+                bookId : bookId,
                 paragraphNr : paragraphNr,
                 description : '',
                 choices : []
             };
+            self.updateParagraph(paragraph);
+            return paragraph;
         }
     }
 
@@ -85,7 +88,17 @@ class PersistenceService {
     }
 
     updateParagraph(paragraph) {
+        if (!paragraph) {
+            return ;
+        }
+        paragraph = JSON.parse(JSON.stringify(paragraph));
         let key = self.getParagraphPersistenceKey(paragraph.bookId, paragraph.paragraphNr);
+        if (!!paragraph.choices) {
+            let i;
+            for (i = 0; i < paragraph.choices.length; i++) {
+                delete paragraph.choices[i]['$$hashKey'];
+            }
+        }
         self.save(key, paragraph);
     }
 
@@ -122,13 +135,18 @@ class PersistenceService {
     }
 
     updateGame(game) {
-        let key = self.getGamePersistenceKey(game.id);
-
-        let i;
-        for (i = 0; i < game.items.length; i++) {
-            delete game.items[i]['$$hashKey'];
+        if (!game) {
+            return ;
         }
+        game = JSON.parse(JSON.stringify(game));
 
+        let key = self.getGamePersistenceKey(game.id);
+        if (!!game.items) {
+            let i;
+            for (i = 0; i < game.items.length; i++) {
+                delete game.items[i]['$$hashKey'];
+            }
+        }
         self.save(key, game);
     }
 
