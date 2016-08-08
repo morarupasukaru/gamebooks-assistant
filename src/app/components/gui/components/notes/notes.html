@@ -36,10 +36,10 @@
                 </div>
             </td>
 
-            <td ng-if="!$ctrl.isRowEdited(row) || !$ctrl.gameId">
+            <td ng-if="!$ctrl.isRowEdited(row) || !$ctrl.gameId || !row.playerName">
                 {{ row.paragraphNr }}
             </td>
-            <td ng-if="$ctrl.isRowEdited(row) && !!$ctrl.gameId">
+            <td ng-if="$ctrl.isRowEdited(row) && (!!$ctrl.gameId && !!row.playerName)">
                 <input type="checkbox" class="form-control" ng-model="row.isParagraph" name="isParagraph" value="true"><br>
             </td>
 
@@ -72,7 +72,7 @@
                         aria-label="{{ 'Edit note' | translate}} '{{ row.note | translate }}'"
                         title="{{ 'Edit note' | translate}} '{{ row.note | translate }}'"
                         ng-click="$ctrl.editRow(row)"
-                        ng-show="!$ctrl.hasEditedRow() && !row.readonly">
+                        ng-show="!$ctrl.hasEditedRow()">
                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                 </button>
                 <button type="button" class="btn btn-danger"

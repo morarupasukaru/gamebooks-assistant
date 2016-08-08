@@ -79,30 +79,32 @@ class WarlockOfFiretopMountainService {
                 }
             ],
             startParagraphNr : 1,
-            paragraphs : [
-                {
-                    version : self.constants.version,
-                    paragraphNr : 1,
-                    description : 'Dark cave entrance',
-                    choices : [
-                        {
-                            paragraphNr : 71,
-                            description : 'turn west'
-                        },
-                        {
-                            paragraphNr : 278,
-                            description : 'turn east'
-                        }
-                    ],
-                    notes : [
-                        { note : 'a note' } // TODO remove, for testing purpose
-                    ]
-                }
-            ],
             notes : [
                 { note : 'Please choose either the potion of skill, strengh or luck (remove corresponding two unchoosen potions from items list.' }
             ]
         };
+
+        self.book.paragraphs = [
+            {
+                bookId : self.book.id,
+                version : self.constants.version,
+                paragraphNr : 1,
+                description : 'Dark cave entrance',
+                choices : [
+                    {
+                        paragraphNr : 71,
+                        description : 'turn west'
+                    },
+                    {
+                        paragraphNr : 278,
+                        description : 'turn east'
+                    }
+                ],
+                notes : [
+                    { note : 'a note' } // TODO remove, for testing purpose
+                ]
+            }
+        ];
     }
 
     getBook() {

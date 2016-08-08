@@ -1,12 +1,13 @@
 let self;
 class SavedDataAdminController {
     /*@ngInject*/
-    constructor(persistenceService, constants, popupService) {
+    constructor(persistenceService, constants, popupService, $window) {
         self = this;
         self.persistenceService = persistenceService;
         self.constants = constants;
         self.popupService = popupService;
         self.initData();
+        self.$window = $window;
 
         self.popupConfirmDeleteApplicationDataConfig = {
             id : 'popupConfirmDeleteApplicationData',
@@ -36,6 +37,7 @@ class SavedDataAdminController {
     callbackPopupConfirmDeleteApplicationData(popupDomElementId, choice) {
         if (choice === self.constants.choices.yes) {
             self.persistenceService.cleanAllData();
+            self.$window.location.reload();
         }
     }
 
@@ -46,6 +48,7 @@ class SavedDataAdminController {
     callbackPopupConfirmImportData(popupDomElementId, choice) {
         if (choice === self.constants.choices.yes) {
             self.persistenceService.import(self.importData);
+            self.$window.location.reload();
         }
     }
 

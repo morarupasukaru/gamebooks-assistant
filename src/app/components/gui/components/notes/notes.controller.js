@@ -32,18 +32,11 @@ class NotesController {
         if (!!paragraph && !!paragraph.notes) {
             let i;
             for (i = 0; i < paragraph.notes.length; i++) {
-                if (!!paragraph.notes[i].playerName || !game) {
-                    self.notes.push({
-                        note : paragraph.notes[i].note,
-                        paragraphNr : self.paragraphNr,
-                        readonly : false
-                    });
-                } else {
-                    self.notes.push({
-                        note : self.$translate.instant(paragraph.notes[i].note),
-                        paragraphNr : self.paragraphNr,
-                        readonly : true
-                    });
+                self.notes.push(paragraph.notes[i]);
+                paragraph.notes[i].paragraphNr = self.paragraphNr;
+                paragraph.notes[i].isParagraph = !!paragraph.notes[i].paragraphNr;
+                if (!paragraph.notes[i].playerName) {
+                    paragraph.notes[i].note = self.$translate.instant(paragraph.notes[i].note);
                 }
             }
         }
@@ -57,7 +50,7 @@ class NotesController {
     }
 
     addRow(noteValue) {
-        let row = { note : noteValue, isParagraph : true, playerName : self.playerName };
+        let row = { note : noteValue, isParagraph : true, paragraphNr: self.paragraphNr, playerName : self.playerName };
         self.notes.push(row);
         self.addedRow = row;
     }
@@ -123,7 +116,7 @@ class NotesController {
         let i;
         for (i = 0; i < self.notes.length; i++) {
             if (!self.notes[i].paragraphNr) {
-                savedNotes.push(self.notes[i]);
+                savedNotes.push({ note : self.notes[i].note, playerName : self.notes[i].playerName});
             }
         }
         let game = self.persistenceService.getGame(self.gameId);
@@ -132,7 +125,16 @@ class NotesController {
     }
 
     saveParagraphNotes() {
-        // TODO
+        let savedNotes = [];
+        let i;
+        for (i = 0; i < self.notes.length; i++) {
+            if (!!self.notes[i].paragraphNr) {
+                savedNotes.push({ note : self.notes[i].note, playerName : self.notes[i].playerName});
+            }
+        }
+        let paragraph = self.persistenceService.getParagraph(self.bookId, self.paragraphNr);
+        paragraph.notes = savedNotes;
+        self.persistenceService.updateParagraph(paragraph);
     }
 
     abortRowChanges() {

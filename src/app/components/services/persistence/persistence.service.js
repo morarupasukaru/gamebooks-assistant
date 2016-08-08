@@ -84,6 +84,11 @@ class PersistenceService {
         return self.get(key);
     }
 
+    updateParagraph(paragraph) {
+        let key = self.getParagraphPersistenceKey(paragraph.bookId, paragraph.paragraphNr);
+        self.save(key, paragraph);
+    }
+
     getParagraphPersistenceKey(bookId, paragraphNr) {
         return self.getBookPersistenceKey(bookId) + ".paragraph." + paragraphNr;
     }
