@@ -1,26 +1,38 @@
-technical:
-    build:
-        configure jshint (or something like that)
+business
+- save "jump"
+- how to check orthographe? special export?
+- paths gameplays visualizer
+- mise en évidences des choix non pris
+- pas de traduction en temps réel des textes des livres, la langue fait partie des données > supprimer | translate
+- corriger le bug dropdown "new game" avec ipad
+- sortir le choix de la langue hors de la config (dropdown dans navbar)
+- ne plus permettre d'ouvrir "in-game" sans player
+- à moyen terme, supprimer import/export actuelle > déplacer hors navbar
+- url caché pour obtenir les paragraphes éditées par le(s) joueurs (tel que format javascript des services des livres), si possible sans \"
+- version app : { major : xx, minor : xx } sauvé dans localStorage
+- version données livre: { appMajorVersion: xx, language, bookVersion: xx, date },
+=> si version app major <> version données livre dans localStorage, warn & reload des données du livre (effacement)
+- version données paragaphe (1 par par paragraphe) : {appMajorVersion, paragraphVersion, lastEditedBy }
+=> si utilisateur modifie le paragraphe, seul lastEditBy est rempli
+=> si appMajorVersion <>, paragraphVersion <> => alors le paragraphe est rechargé
 
-    misc:
-        i18n with angular-translate?
-        reduce dependencies
-        upgrade package.json with latest version
-        understand node dependencies (same as mvn dependencies tree), read node documentation
-        correct pom.xml (reduce useless parts)
-        understand webpack & ease configuration
+techical
+- configure jshint (or something like that)
+- i18n without json
+- reduce dependencies
+- upgrade package.json with latest version
+- correct pom.xml (reduce useless parts)
+- understand webpack & ease configuration
+- correct bug with minify
+- how to display image with url with webpack & angularjs correctly?
+- todo url git project in package.json
+- update licence in package.json > Apache-2.0?
+- choose license > no sell
+- bug: why is not working in android
 
-in-game: popup > how-to disable jump to text?
-how to display image with url with webpack & angularjs correctly?
-bug with minify
-todo url git project in package.json
-update licence in package.json > Apache-2.0?
-choose license > no sell
-debug problem with android
 
-v2:
-    paragraph with images & description > can be a gamebook completelly
-    paths gameplays visualizer
-    download book + attachments instead of all inside app.js
-
-v arena: battle between two or more players?
+version 2 (lonewolf)
+- download book + attachments instead of all inside app.js (javascript loading on the fly, load data in localStorage)
+- ajout d'un écran des livres téléchargées, édités et qui permet de supprimer des livres du localStorage si besoin
+- paragraph with images & description > can be a gamebook completelly
+- permettre de traduire le texte d'un jeu en chargeant celui-ci malgré une langue d'interface différente, mise en évidence des textes non édités
