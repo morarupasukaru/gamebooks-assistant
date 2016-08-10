@@ -1,13 +1,12 @@
 business
-- save "jump"
-- how to check orthographe? special export?
-- paths gameplays visualizer
-- mise en évidences des choix non pris
 - pas de traduction en temps réel des textes des livres, la langue fait partie des données > supprimer | translate
-- corriger le bug dropdown "new game" avec ipad
-- sortir le choix de la langue hors de la config (dropdown dans navbar)
 - ne plus permettre d'ouvrir "in-game" sans player
+- corriger le bug dropdown "new game" avec ipad
+- save "jump"
+- mise en évidences des choix non pris
+- paths gameplays visualizer
 - à moyen terme, supprimer import/export actuelle > déplacer hors navbar
+- sortir le choix de la langue hors de la config (dropdown dans navbar)
 - url caché pour obtenir les paragraphes éditées par le(s) joueurs (tel que format javascript des services des livres), si possible sans \"
 - version app : { major : xx, minor : xx } sauvé dans localStorage
 - version données livre: { appMajorVersion: xx, language, bookVersion: xx, date },
@@ -29,9 +28,11 @@ techical
 - update licence in package.json > Apache-2.0?
 - choose license > no sell
 - bug: why is not working in android
+- avoid flicker while loading (ngCloak)
 
 
 version 2 (lonewolf)
+- how to check orthographe? special export?
 - download book + attachments instead of all inside app.js (javascript loading on the fly, load data in localStorage)
 - ajout d'un écran des livres téléchargées, édités et qui permet de supprimer des livres du localStorage si besoin
 - paragraph with images & description > can be a gamebook completelly
