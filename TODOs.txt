@@ -16,9 +16,13 @@ business
 => si appMajorVersion <>, paragraphVersion <> => alors le paragraphe est rechargé
 
 techical
+- try editable div instead of textarea for description ?
 - configure jshint (or something like that)
 - i18n without json
 - reduce dependencies
+    - use direct angular-translate instead of angular-translate-loader-static-files
+    - angular-cookies?
+    - angular-resource?
 - upgrade package.json with latest version
 - correct pom.xml (reduce useless parts)
 - understand webpack & ease configuration
