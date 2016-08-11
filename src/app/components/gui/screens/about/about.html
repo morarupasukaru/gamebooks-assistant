@@ -8,12 +8,17 @@
 
         <div class="form-group">
             <label for="appDescription">{{ "Application's description" | translate }}</label>
-            <textarea id="appDescription" class="form-control" ng-readonly="true" rows="3">{{ 'application.description' | translate }}</textarea>
+            <div id="appDescription">{{ 'application.description' | translate }}</div>
         </div>
 
         <div class="form-group">
             <label for="appVersion">{{ "Application's version" | translate }}</label>
-            <input type="text" readonly class="form-control" id="appVersion" ng-model="$ctrl.appVersion">
+            <div id="appVersion">{{ $ctrl.appVersion }}</div>
+        </div>
+
+        <div class="form-group">
+            <label for="license">{{ "License" | translate }}</label>
+            <div id="license"><a href="TODO link to LICENSE ... of github">MIT</a></div>
         </div>
 
         <h2>{{ 'Credits' | translate }}</h2>

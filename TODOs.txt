@@ -1,3 +1,6 @@
+quick with network:
+- update license url in about.html
+
 business
 - pas de traduction en temps réel des textes des livres, la langue fait partie des données > supprimer | translate
 - ne plus permettre d'ouvrir "in-game" sans player
@@ -29,8 +32,6 @@ techical
 - correct bug with minify
 - how to display image with url with webpack & angularjs correctly?
 - todo url git project in package.json
-- update licence in package.json > Apache-2.0?
-- choose license > no sell
 - bug: why is not working in android
 - avoid flicker while loading (ngCloak)
 
