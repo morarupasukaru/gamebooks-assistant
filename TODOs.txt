@@ -1,7 +1,13 @@
 quick with network:
 - update license url in about.html
 
+after initial edited paragraph import:
+- change stats name in french
+- change book name in french
+- update versioning
+
 business
+- clean-up lang_...
 - ne plus permettre d'ouvrir "in-game" sans player
 - corriger le bug dropdown "new game" avec ipad
 - save "jump"

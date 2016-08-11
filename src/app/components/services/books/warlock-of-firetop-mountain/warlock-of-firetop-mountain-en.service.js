@@ -8,6 +8,7 @@ class WarlockOfFiretopMountainService {
         self.book = {
             id : 'warlock-firetop-mountain',
             version : self.constants.version,
+            language : 'en',
             name : 'The Warlock of Firetop Mountain',
             authors : 'Steve Jackson & Ian Livingstone',
             isbn :'0-7434-7511-9',
