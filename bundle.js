@@ -897,7 +897,7 @@ webpackJsonp([0],[
 /* 23 */
 /***/ function(module, exports) {
 
-	module.exports = "<nav class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\">\n    <div class=\"container-fluid\">\n        <div class=\"collapse navbar-collapse\" id=\"navbar-collapse-1\">\n            <ul class=\"nav navbar-nav navbar-left\">\n                <li><a ui-sref=\"games\">{{ 'Games' | translate }}</a></li>\n                <li><a ui-sref=\"configuration\">{{ 'Configuration' | translate }}</a></li>\n                <li><a ui-sref=\"about\">{{ 'About' | translate }}</a></li>\n            </ul>\n        </div>\n    </div>\n</nav>"
+	module.exports = "<nav class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\">\n    <div class=\"container-fluid\">\n        <div class=\"collapse navbar-collapse\" id=\"navbar-collapse-1\">\n            <ul class=\"nav navbar-nav navbar-left\">\n                <li><a ui-sref=\"games\">{{ 'Games' | translate }}</a></li>\n                <li><a ui-sref=\"about\">{{ 'About' | translate }}</a></li>\n            </ul>\n        </div>\n    </div>\n</nav>"
 
 /***/ },
 /* 24 */
@@ -1588,7 +1588,7 @@ webpackJsonp([0],[
 	var NotesController = (function () {
 	    /*@ngInject*/
 	
-	    function NotesController(preScreenLoadingInterceptorsCallerService, popupService, constants, persistenceService, $translate) {
+	    function NotesController(preScreenLoadingInterceptorsCallerService, popupService, constants, persistenceService) {
 	        _classCallCheck(this, NotesController);
 	
 	        self = this;
@@ -1597,7 +1597,6 @@ webpackJsonp([0],[
 	        self.popupService = popupService;
 	        self.constants = constants;
 	        self.persistenceService = persistenceService;
-	        self.$translate = $translate;
 	
 	        self.popupDeleteNoteConfig = {
 	            id: 'popupDeleteNoteConfig',
@@ -1627,7 +1626,7 @@ webpackJsonp([0],[
 	                    paragraph.notes[i].paragraphNr = self.paragraphNr;
 	                    paragraph.notes[i].isParagraph = !!paragraph.notes[i].paragraphNr;
 	                    if (!paragraph.notes[i].playerName) {
-	                        paragraph.notes[i].note = self.$translate.instant(paragraph.notes[i].note);
+	                        paragraph.notes[i].note = paragraph.notes[i].note;
 	                    }
 	                }
 	            }
@@ -1806,7 +1805,7 @@ webpackJsonp([0],[
 /* 46 */
 /***/ function(module, exports) {
 
-	module.exports = "<table class=\"table\">\n    <col style=\"width:10%\">\n    <col style=\"width:20%\">\n    <col style=\"width:10%\">\n    <col style=\"width:70%\">\n    <col style=\"width:5%\">\n    <col style=\"width:5%\">\n    <thead>\n    <tr>\n        <th>{{ 'Stats' | translate }}</th>\n        <th>{{ 'Current' | translate }}</th>\n        <th>{{ 'Initial' | translate }}</th>\n        <th></th>\n        <th></th>\n        <th></th>\n    </tr>\n    </thead>\n    <tbody>\n    <tr ng-repeat=\"row in $ctrl.stats\">\n        <td>{{ row.name | translate }}</td>\n        <td>{{ row.current }}</td>\n        <td>{{ row.initial }}</td>\n        <td></td>\n        <td>\n            <button type=\"button\" class=\"btn btn-default\" aria-label=\"{{ 'Increment' | translate }} {{ row.name | translate }}\" title=\"{{ 'Increment' | translate }} {{ row.name | translate }}\" ng-click=\"$ctrl.increment(row)\">\n                <span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span>\n            </button>\n        </td>\n        <td>\n            <button type=\"button\" class=\"btn btn-default\" aria-label=\"{{ 'Decrement' | translate }} {{ row.name | translate }}\" title=\"{{ 'Decrement' | translate }} {{ row.name | translate }}\" ng-click=\"$ctrl.decrement(row)\">\n                <span class=\"glyphicon glyphicon-minus\" aria-hidden=\"true\"></span>\n            </button>\n        </td>\n    </tr>\n    </tbody>\n</table>\n"
+	module.exports = "<table class=\"table\">\n    <col style=\"width:10%\">\n    <col style=\"width:20%\">\n    <col style=\"width:10%\">\n    <col style=\"width:70%\">\n    <col style=\"width:5%\">\n    <col style=\"width:5%\">\n    <thead>\n    <tr>\n        <th>{{ 'Stats' | translate }}</th>\n        <th>{{ 'Current' | translate }}</th>\n        <th>{{ 'Initial' | translate }}</th>\n        <th></th>\n        <th></th>\n        <th></th>\n    </tr>\n    </thead>\n    <tbody>\n    <tr ng-repeat=\"row in $ctrl.stats\">\n        <td>{{ row.name }}</td>\n        <td>{{ row.current }}</td>\n        <td>{{ row.initial }}</td>\n        <td></td>\n        <td>\n            <button type=\"button\" class=\"btn btn-default\" aria-label=\"{{ 'Increment' | translate }} {{ row.name | translate }}\" title=\"{{ 'Increment' | translate }} {{ row.name | translate }}\" ng-click=\"$ctrl.increment(row)\">\n                <span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span>\n            </button>\n        </td>\n        <td>\n            <button type=\"button\" class=\"btn btn-default\" aria-label=\"{{ 'Decrement' | translate }} {{ row.name | translate }}\" title=\"{{ 'Decrement' | translate }} {{ row.name | translate }}\" ng-click=\"$ctrl.decrement(row)\">\n                <span class=\"glyphicon glyphicon-minus\" aria-hidden=\"true\"></span>\n            </button>\n        </td>\n    </tr>\n    </tbody>\n</table>\n"
 
 /***/ },
 /* 47 */
@@ -1902,7 +1901,7 @@ webpackJsonp([0],[
 /* 49 */
 /***/ function(module, exports) {
 
-	module.exports = "<table class=\"table table-borderless\">\n    <col style=\"width:95%\">\n    <col style=\"width:5%\">\n    <thead>\n    <tr>\n        <th>{{ 'Description' | translate }}</th>\n        <th>\n        </th>\n    </tr>\n    </thead>\n    <tbody>\n    <tr>\n        <td>\n            <textarea id=\"inputCurrentDescription\" class=\"form-control\" ng-model=\"$ctrl.paragraph.description\" ng-readonly=\"!$ctrl.isDescriptionEditable()\"></textarea>\n        </td>\n        <td>\n            <button type=\"button\" class=\"btn btn-default\"\n                    aria-label=\"{{ 'Edit description' | translate}}\"\n                    title=\"{{ 'Edit description' | translate}}\"\n                    ng-click=\"$ctrl.editDescription()\"\n                    ng-show=\"!$ctrl.isDescriptionEditable()\">\n                <span class=\"glyphicon glyphicon-edit\" aria-hidden=\"true\"></span>\n            </button>\n            <button type=\"button\" class=\"btn btn-success\"\n                    aria-label=\"{{ 'Save description changes' | translate}}\"\n                    title=\"{{ 'Save description changes' | translate}}\"\n                    ng-click=\"$ctrl.saveDescriptionChanges()\"\n                    ng-show=\"$ctrl.isDescriptionEditable()\">\n                <span class=\"glyphicon glyphicon-ok\" aria-hidden=\"true\"></span>\n            </button>\n            <button type=\"button\" class=\"btn btn-danger\"\n                    aria-label=\"{{ 'Abort description changes' | translate}}\"\n                    title=\"{{ 'Abort description changes' | translate}}\"\n                    ng-click=\"$ctrl.abortDescriptionChanges()\"\n                    ng-show=\"$ctrl.isDescriptionEditable()\">\n                <span class=\"glyphicon glyphicon-arrow-left\" aria-hidden=\"true\"></span>\n            </button>\n        </td>\n    </tr>\n    </tbody>\n</table>\n\n<form name=\"choicesTableForm\" novalidate=\"novalidate\">\n    <table class=\"table table-striped\">\n        <col style=\"width:10%\">\n        <col style=\"width:75%\">\n        <col style=\"width:5%\">\n        <col style=\"width:5%\">\n        <col style=\"width:5%\">\n        <thead>\n        <tr>\n            <th>{{ 'Choice' | translate }}</th>\n            <th>{{ 'Description' | translate }}</th>\n            <th></th>\n            <th></th>\n            <th>\n                <button type=\"button\" class=\"btn btn-default\"\n                        aria-label=\"{{ 'Add choice' | translate}}\"\n                        title=\"{{ 'Add choice' | translate}}\"\n                        ng-click=\"$ctrl.addRow()\"\n                        ng-show=\"!$ctrl.hasEditedRow()\">\n                    <span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span>\n                </button>\n            </th>\n        </tr>\n        </thead>\n        <tbody>\n            <tr ng-repeat=\"row in $ctrl.paragraph.choices\">\n                <td ng-if=\"!$ctrl.isRowEdited(row) && !$ctrl.hasEditedRow()\">\n                    <button type=\"button\" class=\"btn btn-default\"\n                            aria-label=\"{{ 'Choice paragragh' | translate}} {{ row.paragraphNr }}\"\n                            title=\"{{ 'Choice paragragh' | translate}} '{{ row.paragraphNr }}'\"\n                            ng-click=\"$ctrl.goTo(row.paragraphNr)\">{{ row.paragraphNr }}\n                    </button>\n                </td>\n                <td ng-if=\"!$ctrl.isRowEdited(row) && $ctrl.hasEditedRow()\">\n                    {{ row.paragraphNr }}\n                </td>\n                <td ng-if=\"$ctrl.isRowEdited(row)\">\n                    <input id=\"rowParagraphNr\" type=\"number\" required class=\"form-control\" ng-model=\"row.paragraphNr\">\n                    <div class=\"error\" ng-show=\"choicesTableForm.$invalid\">\n                        {{ 'Please fill the paragraph number' | translate }}\n                    </div>\n                </td>\n\n                <td ng-if=\"!$ctrl.isRowEdited(row)\">\n                    {{ row.description | translate }}\n                </td>\n                <td ng-if=\"$ctrl.isRowEdited(row)\">\n                    <input type=\"text\" class=\"form-control\" ng-model=\"row.description\">\n                </td>\n\n                <td>\n                    <button type=\"button\" class=\"btn btn-success\"\n                            aria-label=\"{{ 'Save choice changes' | translate}}\"\n                            title=\"{{ 'Save choice changes' | translate}}\"\n                            ng-click=\"$ctrl.saveRowChanges(choicesTableForm.$invalid)\"\n                            ng-show=\"$ctrl.isRowEdited(row)\">\n                        <span class=\"glyphicon glyphicon-ok\" aria-hidden=\"true\"></span>\n                    </button>\n                </td>\n\n                <td>\n                    <button type=\"button\" class=\"btn btn-danger\"\n                            aria-label=\"{{ 'Abort choice changes' | translate}}\"\n                            title=\"{{ 'Abort choice changes' | translate}}\"\n                            ng-click=\"$ctrl.abortRowChanges()\"\n                            ng-show=\"$ctrl.isRowEdited(row)\">\n                        <span class=\"glyphicon glyphicon-arrow-left\" aria-hidden=\"true\"></span>\n                    </button>\n                </td>\n                <td>\n                    <button type=\"button\" class=\"btn btn-default\"\n                            aria-label=\"{{ 'Edit choice' | translate}} {{ row.paragraphNr }}\"\n                            title=\"{{ 'Edit choice' | translate}} '{{ row.paragraphNr }}'\"\n                            ng-click=\"$ctrl.editRow(row)\"\n                            ng-show=\"!$ctrl.hasEditedRow()\">\n                        <span class=\"glyphicon glyphicon-edit\" aria-hidden=\"true\"></span>\n                    </button>\n                    <button type=\"button\" class=\"btn btn-danger\"\n                            aria-label=\"{{ 'Remove choice' | translate}} {{ row.paragraphNr }}\"\n                            title=\"{{ 'Remove choice' | translate}} '{{ row.paragraphNr }}'\"\n                            ng-click=\"$ctrl.displayRemovePopup(row)\"\n                            ng-disabled=\"$ctrl.addedRow\"\n                            ng-show=\"$ctrl.isRowEdited(row)\">\n                        <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>\n                    </button>\n                </td>\n            </tr>\n            <tr>\n                <td>\n                    <button type=\"button\" class=\"btn btn-default\"\n                            aria-label=\"{{ 'Go to paragraph' | translate}}\"\n                            title=\"{{ 'Go to paragraph' | translate}}\"\n                            ng-click=\"$ctrl.goTo($ctrl.paragraphNrChoice)\"\n                            ng-disabled=\"!$ctrl.paragraphNrChoice\">\n                        {{ 'Go to' | translate}}\n                    </button>\n                </td>\n                <td>\n                    <input id=\"goToParagraphNr\" type=\"number\" class=\"form-control\" ng-model=\"$ctrl.paragraphNrChoice\">\n                </td>\n                <td></td>\n                <td></td>\n                <td></td>\n            </tr>\n\n        </tbody>\n    </table>\n</form>\n\n<popup config=\"{{ $ctrl.popupDeleteChoiceConfig }}\"></popup>"
+	module.exports = "<table class=\"table table-borderless\">\n    <col style=\"width:95%\">\n    <col style=\"width:5%\">\n    <thead>\n    <tr>\n        <th>{{ 'Description' | translate }}</th>\n        <th>\n        </th>\n    </tr>\n    </thead>\n    <tbody>\n    <tr>\n        <td>\n            <textarea id=\"inputCurrentDescription\" class=\"form-control\" ng-model=\"$ctrl.paragraph.description\" ng-readonly=\"!$ctrl.isDescriptionEditable()\"></textarea>\n        </td>\n        <td>\n            <button type=\"button\" class=\"btn btn-default\"\n                    aria-label=\"{{ 'Edit description' | translate}}\"\n                    title=\"{{ 'Edit description' | translate}}\"\n                    ng-click=\"$ctrl.editDescription()\"\n                    ng-show=\"!$ctrl.isDescriptionEditable()\">\n                <span class=\"glyphicon glyphicon-edit\" aria-hidden=\"true\"></span>\n            </button>\n            <button type=\"button\" class=\"btn btn-success\"\n                    aria-label=\"{{ 'Save description changes' | translate}}\"\n                    title=\"{{ 'Save description changes' | translate}}\"\n                    ng-click=\"$ctrl.saveDescriptionChanges()\"\n                    ng-show=\"$ctrl.isDescriptionEditable()\">\n                <span class=\"glyphicon glyphicon-ok\" aria-hidden=\"true\"></span>\n            </button>\n            <button type=\"button\" class=\"btn btn-danger\"\n                    aria-label=\"{{ 'Abort description changes' | translate}}\"\n                    title=\"{{ 'Abort description changes' | translate}}\"\n                    ng-click=\"$ctrl.abortDescriptionChanges()\"\n                    ng-show=\"$ctrl.isDescriptionEditable()\">\n                <span class=\"glyphicon glyphicon-arrow-left\" aria-hidden=\"true\"></span>\n            </button>\n        </td>\n    </tr>\n    </tbody>\n</table>\n\n<form name=\"choicesTableForm\" novalidate=\"novalidate\">\n    <table class=\"table table-striped\">\n        <col style=\"width:10%\">\n        <col style=\"width:75%\">\n        <col style=\"width:5%\">\n        <col style=\"width:5%\">\n        <col style=\"width:5%\">\n        <thead>\n        <tr>\n            <th>{{ 'Choice' | translate }}</th>\n            <th>{{ 'Description' | translate }}</th>\n            <th></th>\n            <th></th>\n            <th>\n                <button type=\"button\" class=\"btn btn-default\"\n                        aria-label=\"{{ 'Add choice' | translate}}\"\n                        title=\"{{ 'Add choice' | translate}}\"\n                        ng-click=\"$ctrl.addRow()\"\n                        ng-show=\"!$ctrl.hasEditedRow()\">\n                    <span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span>\n                </button>\n            </th>\n        </tr>\n        </thead>\n        <tbody>\n            <tr ng-repeat=\"row in $ctrl.paragraph.choices\">\n                <td ng-if=\"!$ctrl.isRowEdited(row) && !$ctrl.hasEditedRow()\">\n                    <button type=\"button\" class=\"btn btn-default\"\n                            aria-label=\"{{ 'Choice paragragh' | translate}} {{ row.paragraphNr }}\"\n                            title=\"{{ 'Choice paragragh' | translate}} '{{ row.paragraphNr }}'\"\n                            ng-click=\"$ctrl.goTo(row.paragraphNr)\">\n                        <div ng-if=\"!!row.alreadyChoosen\">{{ row.paragraphNr }}</div>\n                        <div ng-if=\"!row.alreadyChoosen\"><strong>{{ row.paragraphNr }}</strong></div>\n                    </button>\n                </td>\n                <td ng-if=\"!$ctrl.isRowEdited(row) && $ctrl.hasEditedRow()\">\n                    {{ row.paragraphNr }}\n                </td>\n                <td ng-if=\"$ctrl.isRowEdited(row)\">\n                    <input id=\"rowParagraphNr\" type=\"number\" required class=\"form-control\" ng-model=\"row.paragraphNr\">\n                    <div class=\"error\" ng-show=\"choicesTableForm.$invalid\">\n                        {{ 'Please fill the paragraph number' | translate }}\n                    </div>\n                </td>\n\n                <td ng-if=\"!$ctrl.isRowEdited(row)\">\n                    {{ row.description }}\n                </td>\n                <td ng-if=\"$ctrl.isRowEdited(row)\">\n                    <input type=\"text\" class=\"form-control\" ng-model=\"row.description\">\n                </td>\n\n                <td>\n                    <button type=\"button\" class=\"btn btn-success\"\n                            aria-label=\"{{ 'Save choice changes' | translate}}\"\n                            title=\"{{ 'Save choice changes' | translate}}\"\n                            ng-click=\"$ctrl.saveRowChanges(choicesTableForm.$invalid)\"\n                            ng-show=\"$ctrl.isRowEdited(row)\">\n                        <span class=\"glyphicon glyphicon-ok\" aria-hidden=\"true\"></span>\n                    </button>\n                </td>\n\n                <td>\n                    <button type=\"button\" class=\"btn btn-danger\"\n                            aria-label=\"{{ 'Abort choice changes' | translate}}\"\n                            title=\"{{ 'Abort choice changes' | translate}}\"\n                            ng-click=\"$ctrl.abortRowChanges()\"\n                            ng-show=\"$ctrl.isRowEdited(row)\">\n                        <span class=\"glyphicon glyphicon-arrow-left\" aria-hidden=\"true\"></span>\n                    </button>\n                </td>\n                <td>\n                    <button type=\"button\" class=\"btn btn-default\"\n                            aria-label=\"{{ 'Edit choice' | translate}} {{ row.paragraphNr }}\"\n                            title=\"{{ 'Edit choice' | translate}} '{{ row.paragraphNr }}'\"\n                            ng-click=\"$ctrl.editRow(row)\"\n                            ng-show=\"!$ctrl.hasEditedRow()\">\n                        <span class=\"glyphicon glyphicon-edit\" aria-hidden=\"true\"></span>\n                    </button>\n                    <button type=\"button\" class=\"btn btn-danger\"\n                            aria-label=\"{{ 'Remove choice' | translate}} {{ row.paragraphNr }}\"\n                            title=\"{{ 'Remove choice' | translate}} '{{ row.paragraphNr }}'\"\n                            ng-click=\"$ctrl.displayRemovePopup(row)\"\n                            ng-disabled=\"$ctrl.addedRow\"\n                            ng-show=\"$ctrl.isRowEdited(row)\">\n                        <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>\n                    </button>\n                </td>\n            </tr>\n            <tr>\n                <td>\n                    <button type=\"button\" class=\"btn btn-default\"\n                            aria-label=\"{{ 'Go to paragraph' | translate}}\"\n                            title=\"{{ 'Go to paragraph' | translate}}\"\n                            ng-click=\"$ctrl.goTo($ctrl.paragraphNrChoice)\"\n                            ng-disabled=\"!$ctrl.paragraphNrChoice\">\n                        {{ 'Go to' | translate}}\n                    </button>\n                </td>\n                <td>\n                    <input id=\"goToParagraphNr\" type=\"number\" class=\"form-control\" ng-model=\"$ctrl.paragraphNrChoice\">\n                </td>\n                <td></td>\n                <td></td>\n                <td></td>\n            </tr>\n\n        </tbody>\n    </table>\n</form>\n\n<popup config=\"{{ $ctrl.popupDeleteChoiceConfig }}\"></popup>"
 
 /***/ },
 /* 50 */
@@ -2052,15 +2051,9 @@ webpackJsonp([0],[
 	    }, {
 	        key: 'goTo',
 	        value: function goTo(paragraphNr) {
-	            if (!!self.gameId) {
-	                var game = self.persistenceService.getGame(self.gameId);
-	                game.currentParagraphNr = paragraphNr;
-	                self.persistenceService.updateGame(game);
-	                var nextUrl = self.persistenceService.getUrlOfGame(game.id);
-	                self.$location.url(nextUrl);
-	            } else {
-	                // TODO
-	            }
+	            self.persistenceService.setCurrentParagraphNrOfGame(self.gameId, self.paragraph.paragraphNr, paragraphNr);
+	            var nextUrl = self.persistenceService.getUrlOfGame(self.gameId);
+	            self.$location.url(nextUrl);
 	        }
 	    }]);
 	
@@ -2513,7 +2506,7 @@ webpackJsonp([0],[
 /* 65 */
 /***/ function(module, exports) {
 
-	module.exports = "<navbar></navbar>\n<messages></messages>\n<main>\n    <div class=\"container bg-white\" role=\"main\">\n        <div class=\"page-header\">\n            <h1>{{ 'Games' | translate }}</h1>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-md-12\">\n                <table class=\"table table-striped\">\n                    <col style=\"width:35%\">\n                    <col style=\"width:15% \">\n                    <col style=\"width:30%\">\n                    <col style=\"width:15%\">\n                    <col style=\"width:5%\">\n                    <thead>\n                    <tr>\n                        <th>{{ 'Book' | translate }}</th>\n                        <th>{{ 'Player' | translate }}</th>\n                        <th>{{ 'State' | translate }}</th>\n                        <th>{{ 'Paragraph' | translate }}</th>\n                        <th>{{ 'Selection' | translate }}</th>\n                    </tr>\n                    </thead>\n                    <tbody>\n                    <tr ng-repeat=\"row in $ctrl.rows\">\n                        <td>{{ row.bookName | translate }}</td>\n                        <td>{{ row.playerName }}</td>\n                        <td>{{ (!!row.endGameReason ? 'game over' : 'in progress') | translate }}\n                            {{ (!!row.endGameReason ? \": '\" + row.endGameReason + \"'\" : '' ) }}\n                        </td>\n                        <td>{{ row.currentParagraphNr }}</td>\n                        <td>\n                            <button type=\"button\" class=\"btn\" ng-class=\"{ 'btn-success' : row.selected, 'btn-default' : !row.selected}\"\n                                    aria-label=\"{{ !row.selected ?\n                                        ('ChoiceGame' | translate: {bookName: row.bookName, playerName: row.playerName}) :\n                                        ('ChoosenGame' | translate: {bookName: row.bookName, playerName: row.playerName}) }}\"\n                                    title=\"{{ !row.selected ?\n                                        ('ChoiceGame' | translate: {bookName: row.bookName, playerName: row.playerName}) :\n                                        ('ChoosenGame' | translate: {bookName: row.bookName, playerName: row.playerName}) }}\"\n                                    ng-click=\"$ctrl.select(row)\">\n                                <span ng-class=\"{ 'glyphicon glyphicon-ok' : row.selected, 'glyphicon glyphicon-hand-left' : !row.selected}\" aria-hidden=\"true\"></span>\n                            </button>\n                        </td>\n                    </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n\n        <back-button></back-button>\n        <button type=\"button\" class=\"btn btn-default\" ng-click=\"$ctrl.startNewGame()\">{{ 'New game' | translate }}</button>\n        <button type=\"button\" class=\"btn btn-default\" ng-disabled=\"!$ctrl.isContinueAllowed()\" ng-click=\"$ctrl.continueGame()\">{{ 'Continue' | translate }}</button>\n    </div>\n</main>"
+	module.exports = "<navbar></navbar>\n<messages></messages>\n<main>\n    <div class=\"container bg-white\" role=\"main\">\n        <div class=\"page-header\">\n            <h1>{{ 'Games' | translate }}</h1>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-md-12\">\n                <table class=\"table table-striped\">\n                    <col style=\"width:35%\">\n                    <col style=\"width:15% \">\n                    <col style=\"width:30%\">\n                    <col style=\"width:15%\">\n                    <col style=\"width:5%\">\n                    <thead>\n                    <tr>\n                        <th>{{ 'Book' | translate }}</th>\n                        <th>{{ 'Player' | translate }}</th>\n                        <th>{{ 'State' | translate }}</th>\n                        <th>{{ 'Paragraph' | translate }}</th>\n                        <th>{{ 'Selection' | translate }}</th>\n                    </tr>\n                    </thead>\n                    <tbody>\n                    <tr ng-repeat=\"row in $ctrl.rows\">\n                        <td>{{ row.bookName }}</td>\n                        <td>{{ row.playerName }}</td>\n                        <td>{{ (!!row.endGameReason ? 'game over' : 'in progress') | translate }}\n                            {{ (!!row.endGameReason ? \": '\" + row.endGameReason + \"'\" : '' ) }}\n                        </td>\n                        <td>{{ row.currentParagraphNr }}</td>\n                        <td>\n                            <button type=\"button\" class=\"btn\" ng-class=\"{ 'btn-success' : row.selected, 'btn-default' : !row.selected}\"\n                                    aria-label=\"{{ !row.selected ?\n                                        ('ChoiceGame' | translate: {bookName: row.bookName, playerName: row.playerName}) :\n                                        ('ChoosenGame' | translate: {bookName: row.bookName, playerName: row.playerName}) }}\"\n                                    title=\"{{ !row.selected ?\n                                        ('ChoiceGame' | translate: {bookName: row.bookName, playerName: row.playerName}) :\n                                        ('ChoosenGame' | translate: {bookName: row.bookName, playerName: row.playerName}) }}\"\n                                    ng-click=\"$ctrl.select(row)\">\n                                <span ng-class=\"{ 'glyphicon glyphicon-ok' : row.selected, 'glyphicon glyphicon-hand-left' : !row.selected}\" aria-hidden=\"true\"></span>\n                            </button>\n                        </td>\n                    </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n\n        <back-button></back-button>\n        <button type=\"button\" class=\"btn btn-default\" ng-click=\"$ctrl.startNewGame()\">{{ 'New game' | translate }}</button>\n        <button type=\"button\" class=\"btn btn-default\" ng-disabled=\"!$ctrl.isContinueAllowed()\" ng-click=\"$ctrl.continueGame()\">{{ 'Continue' | translate }}</button>\n    </div>\n</main>"
 
 /***/ },
 /* 66 */
@@ -2681,7 +2674,7 @@ webpackJsonp([0],[
 	var BattleController = (function () {
 	    /*@ngInject*/
 	
-	    function BattleController(preScreenLoadingInterceptorsCallerService, $window, popupService, constants, $translate, persistenceService, $stateParams) {
+	    function BattleController(preScreenLoadingInterceptorsCallerService, $window, popupService, constants, persistenceService, $stateParams) {
 	        _classCallCheck(this, BattleController);
 	
 	        self = this;
@@ -2689,7 +2682,6 @@ webpackJsonp([0],[
 	        self.$window = $window;
 	        self.popupService = popupService;
 	        self.constants = constants;
-	        self.$translate = $translate;
 	        self.$stateParams = $stateParams;
 	        self.persistenceService = persistenceService;
 	
@@ -2762,7 +2754,7 @@ webpackJsonp([0],[
 	            }
 	
 	            var i = undefined;
-	            var statsDefaultEnemy = { name: self.$translate.instant(defaultEnemyName) };
+	            var statsDefaultEnemy = { name: defaultEnemyName };
 	
 	            for (i = 0; i < self.stats.length; i++) {
 	                var currentStats = self.stats[i];
@@ -3066,7 +3058,7 @@ webpackJsonp([0],[
 /* 78 */
 /***/ function(module, exports) {
 
-	module.exports = "<navbar></navbar>\n<messages></messages>\n<main>\n    <div class=\"container bg-white\" role=\"main\">\n        <div class=\"page-header\">\n            <h1>{{ 'New game' | translate }}</h1>\n        </div>\n\n        <ol class=\"breadcrumb\">\n            <li class=\"active\">{{ 'Select Book' | translate }}</li>\n            <li>{{ 'Create Player' | translate }}</li>\n            <li>{{ 'Choose Items' | translate }}</li>\n        </ol>\n\n        <div class=\"form-group\">\n            <label for=\"selectedBook\">{{ 'Select a gamebook' | translate }}</label>\n            <select id=\"selectedBook\" class=\"form-control\" ng-model=\"$ctrl.selectedBookId\">\n                <option ng-repeat=\"book in $ctrl.getBooks()\" value=\"{{ book.id }}\">{{ book.name | translate }}</option>\n            </select>\n        </div>\n\n        <button type=\"button\" class=\"btn btn-default\" ng-click=\"$ctrl.back()\">{{ 'Back' | translate }}</button>\n        <button type=\"button\" class=\"btn btn-primary\" ng-click=\"$ctrl.next()\">{{ 'Next' | translate }}</button>\n    </div>\n</main>"
+	module.exports = "<navbar></navbar>\n<messages></messages>\n<main>\n    <div class=\"container bg-white\" role=\"main\">\n        <div class=\"page-header\">\n            <h1>{{ 'New game' | translate }}</h1>\n        </div>\n\n        <ol class=\"breadcrumb\">\n            <li class=\"active\">{{ 'Select Book' | translate }}</li>\n            <li>{{ 'Create Player' | translate }}</li>\n            <li>{{ 'Choose Items' | translate }}</li>\n        </ol>\n\n        <div class=\"form-group\">\n            <label for=\"selectedBook\">{{ 'Select a gamebook' | translate }}</label>\n            <select id=\"selectedBook\" class=\"form-control\" ng-model=\"$ctrl.selectedBookId\">\n                <option ng-repeat=\"book in $ctrl.getBooks()\" value=\"{{ book.id }}\">{{ book.name }}</option>\n            </select>\n        </div>\n\n        <button type=\"button\" class=\"btn btn-default\" ng-click=\"$ctrl.back()\">{{ 'Back' | translate }}</button>\n        <button type=\"button\" class=\"btn btn-primary\" ng-click=\"$ctrl.next()\">{{ 'Next' | translate }}</button>\n    </div>\n</main>"
 
 /***/ },
 /* 79 */
@@ -3178,7 +3170,7 @@ webpackJsonp([0],[
 /* 81 */
 /***/ function(module, exports) {
 
-	module.exports = "<navbar></navbar>\n<messages></messages>\n<main>\n    <div class=\"container bg-white\" role=\"main\">\n        <div class=\"page-header\">\n            <h1>{{ 'New game' | translate }}</h1>\n        </div>\n\n        <!-- novalidate=\"novalidate\" allow to do not display untranslated tooltip \"Fill out this field\" -->\n        <form name=\"playerForm\" novalidate=\"novalidate\">\n            <ol class=\"breadcrumb\">\n                <li>{{ 'Select Book' | translate }}</li>\n                <li class=\"active\">{{ 'Create Player' | translate }}</li>\n                <li>{{ 'Choose Items' | translate }}</li>\n            </ol>\n\n            <div class=\"form-group\">\n                <label for=\"playerName\">{{ 'PlayerName' | translate }}*</label>\n                <input type=\"text\" required class=\"form-control\" id=\"playerName\" ng-model=\"$ctrl.playerName\">\n                <div class=\"error\" ng-show=\"playerForm.$invalid\">\n                    {{ 'Please fill the player name' | translate }}\n                </div>\n            </div>\n\n            <div class=\"form-group\" ng-repeat=\"stats in $ctrl.stats\">\n                <label for=\"{{ stats.name }}\">{{ stats.name | translate }}</label>\n                <input type=\"text\" disabled required class=\"form-control\" id=\"{{ stats.name }}\" ng-model=\"stats.value\">\n            </div>\n\n            <div class=\"form-group\">\n                <button type=\"button\" class=\"btn btn-default\" ng-click=\"$ctrl.back()\">{{ 'Back' | translate }}</button>\n                <button type=\"button\" class=\"btn btn-default\" ng-click=\"$ctrl.generateStats()\">{{ 'Random Stats' | translate }}</button>\n                <button type=\"button\" class=\"btn btn-primary\" ng-click=\"$ctrl.next(playerForm.$invalid)\">{{ 'Next' | translate }}</button>\n            </div>\n        </form>\n    </div>\n</main>"
+	module.exports = "<navbar></navbar>\n<messages></messages>\n<main>\n    <div class=\"container bg-white\" role=\"main\">\n        <div class=\"page-header\">\n            <h1>{{ 'New game' | translate }}</h1>\n        </div>\n\n        <!-- novalidate=\"novalidate\" allow to do not display untranslated tooltip \"Fill out this field\" -->\n        <form name=\"playerForm\" novalidate=\"novalidate\">\n            <ol class=\"breadcrumb\">\n                <li>{{ 'Select Book' | translate }}</li>\n                <li class=\"active\">{{ 'Create Player' | translate }}</li>\n                <li>{{ 'Choose Items' | translate }}</li>\n            </ol>\n\n            <div class=\"form-group\">\n                <label for=\"playerName\">{{ 'PlayerName' | translate }}*</label>\n                <input type=\"text\" required class=\"form-control\" id=\"playerName\" ng-model=\"$ctrl.playerName\">\n                <div class=\"error\" ng-show=\"playerForm.$invalid\">\n                    {{ 'Please fill the player name' | translate }}\n                </div>\n            </div>\n\n            <div class=\"form-group\" ng-repeat=\"stats in $ctrl.stats\">\n                <label for=\"{{ stats.name }}\">{{ stats.name }}</label>\n                <input type=\"text\" disabled required class=\"form-control\" id=\"{{ stats.name }}\" ng-model=\"stats.value\">\n            </div>\n\n            <div class=\"form-group\">\n                <button type=\"button\" class=\"btn btn-default\" ng-click=\"$ctrl.back()\">{{ 'Back' | translate }}</button>\n                <button type=\"button\" class=\"btn btn-default\" ng-click=\"$ctrl.generateStats()\">{{ 'Random Stats' | translate }}</button>\n                <button type=\"button\" class=\"btn btn-primary\" ng-click=\"$ctrl.next(playerForm.$invalid)\">{{ 'Next' | translate }}</button>\n            </div>\n        </form>\n    </div>\n</main>"
 
 /***/ },
 /* 82 */
@@ -3384,6 +3376,7 @@ webpackJsonp([0],[
 	        value: function startGame() {
 	            var game = self.buildGame();
 	            game = self.persistenceService.addGame(game);
+	            self.persistenceService.setCurrentParagraphNrOfGame(game.id, null, self.book.startParagraphNr);
 	            self.$location.url(self.persistenceService.getUrlOfGame(game.id));
 	        }
 	    }, {
@@ -3393,8 +3386,7 @@ webpackJsonp([0],[
 	            var game = {
 	                playerName: self.$stateParams.playerName,
 	                bookId: self.book.id,
-	                items: JSON.parse(JSON.stringify(self.playerItems)),
-	                currentParagraphNr: self.book.startParagraphNr
+	                items: JSON.parse(JSON.stringify(self.playerItems))
 	            };
 	            game.stats = self.getStatsInUrlParam();
 	            return game;
@@ -3505,20 +3497,16 @@ webpackJsonp([0],[
 	        self.$stateParams = $stateParams;
 	        self.persistenceService = persistenceService;
 	        self.$translate = $translate;
-	        if (!!$stateParams.game) {
-	            self.game = self.persistenceService.getGame(decodeURIComponent($stateParams.game));
-	        }
 	        this.items = [];
 	        this.stats = [];
 	
-	        if (!!self.game) {
-	            this.playerName = self.game.playerName;
-	            if (!!self.game.items) {
-	                this.items = this.items.concat(self.game.items);
-	            }
-	            if (!!self.game.stats) {
-	                this.stats = this.stats.concat(self.game.stats);
-	            }
+	        self.game = self.persistenceService.getGame(decodeURIComponent(self.$stateParams.gameId));
+	        this.playerName = self.game.playerName;
+	        if (!!self.game.items) {
+	            this.items = this.items.concat(self.game.items);
+	        }
+	        if (!!self.game.stats) {
+	            this.stats = this.stats.concat(self.game.stats);
 	        }
 	        self.bookId = self.$stateParams.bookId;
 	        this.paragraph = self.persistenceService.getOrCreateParagraph(self.bookId, self.$stateParams.paragraphNr);
@@ -3529,11 +3517,6 @@ webpackJsonp([0],[
 	        key: 'startBattle',
 	        value: function startBattle() {
 	            self.$location.url(self.constants.url.battle + '/' + self.game.id);
-	        }
-	    }, {
-	        key: 'jumpToParagraph',
-	        value: function jumpToParagraph() {
-	            self.$location.url(self.constants.url.paragraph + "/" + self.paragraphNr);
 	        }
 	    }, {
 	        key: 'displayAbandonGamePopup',
@@ -3599,7 +3582,7 @@ webpackJsonp([0],[
 /* 90 */
 /***/ function(module, exports) {
 
-	module.exports = "<navbar></navbar>\n<messages></messages>\n<main>\n    <div class=\"container bg-white\" role=\"main\">\n        <div class=\"page-header\">\n            <h1>{{ 'About' | translate }}</h1>\n        </div>\n\n        <div class=\"form-group\">\n            <label for=\"appDescription\">{{ \"Application's description\" | translate }}</label>\n            <textarea id=\"appDescription\" class=\"form-control\" ng-readonly=\"true\" rows=\"3\">{{ 'application.description' | translate }}</textarea>\n        </div>\n\n        <div class=\"form-group\">\n            <label for=\"appVersion\">{{ \"Application's version\" | translate }}</label>\n            <input type=\"text\" readonly class=\"form-control\" id=\"appVersion\" ng-model=\"$ctrl.appVersion\">\n        </div>\n\n        <h2>{{ 'Credits' | translate }}</h2>\n\n        <table class=\"table table-striped\">\n            <col style=\"width:30%\">\n            <col style=\"width:30%\">\n            <col style=\"width:40%\">\n            <thead>\n            <tr>\n                <th>{{ 'Who' | translate }}</th>\n                <th>{{ 'For' | translate }}</th>\n                <th>{{ 'Link' | translate }}</th>\n            </tr>\n            </thead>\n            <tbody>\n            <tr>\n                <td>Ravenmore</td>\n                <td>\n                    {{ 'map image used as favicon' | translate }}\n                    <img src=\"http://morarupasukaru.github.io/gamebooks-assistant/apple-touch-icon-57x57.png\" width=\"32\" height=\"32\" />\n                </td>\n                <td><a href=\"//opengameart.org/content/fantasy-icon-pack-by-ravenmore-0\">opengameart.org Ravenmore page</a></td>\n            </tr>\n            <tr>\n                <td>JamesWhite</td>\n                <td>\n                    {{ 'dice image' | translate }}\n                    <img src=\"http://morarupasukaru.github.io/gamebooks-assistant/dice.png\" width=\"32\" height=\"32\" />\n                </td>\n                <td>\n                    <a href=\"http://opengameart.org/content/dice-4\">opengameart.org JamesWhite page</a>\n                </td>\n            </tr>\n            <tr>\n                <td>SBB (Schweizerische Bundesbahnen)</td>\n                <td>{{ 'Web/JS Framework' | translate }}</td>\n                <td><a href=\"https://github.com/SchweizerischeBundesbahnen/esta-webjs\">esta-webjs project github page</a></td>\n            </tr>\n            <tr>\n                <td>{{ 'Developers and contributors' | translate }}</td>\n                <td>{{ 'Angular JS, Bootstrap, Webpack and all existing tools that make javascript development fun to code' | translate }}</td>\n                <td></td>\n            </tr>\n            </tbody>\n        </table>\n\n        <back-button></back-button>\n    </div>\n</main>"
+	module.exports = "<navbar></navbar>\n<messages></messages>\n<main>\n    <div class=\"container bg-white\" role=\"main\">\n        <div class=\"page-header\">\n            <h1>{{ 'About' | translate }}</h1>\n        </div>\n\n        <div class=\"form-group\">\n            <label for=\"appDescription\">{{ \"Application's description\" | translate }}</label>\n            <div id=\"appDescription\">{{ 'application.description' | translate }}</div>\n        </div>\n\n        <div class=\"form-group\">\n            <label for=\"appVersion\">{{ \"Application's version\" | translate }}</label>\n            <div id=\"appVersion\">{{ $ctrl.appVersion }}</div>\n        </div>\n\n        <div class=\"form-group\">\n            <label for=\"license\">{{ \"License\" | translate }}</label>\n            <div id=\"license\"><a href=\"TODO link to LICENSE ... of github\">MIT</a></div>\n        </div>\n\n        <h2>{{ 'Credits' | translate }}</h2>\n\n        <table class=\"table table-striped\">\n            <col style=\"width:30%\">\n            <col style=\"width:30%\">\n            <col style=\"width:40%\">\n            <thead>\n            <tr>\n                <th>{{ 'Who' | translate }}</th>\n                <th>{{ 'For' | translate }}</th>\n                <th>{{ 'Link' | translate }}</th>\n            </tr>\n            </thead>\n            <tbody>\n            <tr>\n                <td>Ravenmore</td>\n                <td>\n                    {{ 'map image used as favicon' | translate }}\n                    <img src=\"http://morarupasukaru.github.io/gamebooks-assistant/apple-touch-icon-57x57.png\" width=\"32\" height=\"32\" />\n                </td>\n                <td><a href=\"//opengameart.org/content/fantasy-icon-pack-by-ravenmore-0\">opengameart.org Ravenmore page</a></td>\n            </tr>\n            <tr>\n                <td>JamesWhite</td>\n                <td>\n                    {{ 'dice image' | translate }}\n                    <img src=\"http://morarupasukaru.github.io/gamebooks-assistant/dice.png\" width=\"32\" height=\"32\" />\n                </td>\n                <td>\n                    <a href=\"http://opengameart.org/content/dice-4\">opengameart.org JamesWhite page</a>\n                </td>\n            </tr>\n            <tr>\n                <td>SBB (Schweizerische Bundesbahnen)</td>\n                <td>{{ 'Web/JS Framework' | translate }}</td>\n                <td><a href=\"https://github.com/SchweizerischeBundesbahnen/esta-webjs\">esta-webjs project github page</a></td>\n            </tr>\n            <tr>\n                <td>{{ 'Developers and contributors' | translate }}</td>\n                <td>{{ 'Angular JS, Bootstrap, Webpack and all existing tools that make javascript development fun to code' | translate }}</td>\n                <td></td>\n            </tr>\n            </tbody>\n        </table>\n\n        <back-button></back-button>\n    </div>\n</main>"
 
 /***/ },
 /* 91 */
@@ -3991,7 +3974,18 @@ webpackJsonp([0],[
 	    }, {
 	        key: 'getBookPersistenceKeys',
 	        value: function getBookPersistenceKeys() {
-	            return self.findKeysWithPrefix(self.constants.data.book);
+	            if (!self.isLocalStorageSupported) {
+	                return null;
+	            }
+	            var keys = Object.keys(localStorage);
+	            var result = [];
+	            var i = undefined;
+	            for (i = 0; i < keys.length; i++) {
+	                if (keys[i].startsWith(self.constants.data.book) && keys[i].indexOf('paragraph.') === -1) {
+	                    result.push(keys[i]);
+	                }
+	            }
+	            return result;
 	        }
 	    }, {
 	        key: 'findKeysWithPrefix',
@@ -4131,13 +4125,57 @@ webpackJsonp([0],[
 	            return new Date().getTime().toString();
 	        }
 	    }, {
+	        key: 'setCurrentParagraphNrOfGame',
+	        value: function setCurrentParagraphNrOfGame(gameId, fromParagrahNr, toParagraphNr) {
+	            var game = this.getGame(gameId);
+	            if (!!fromParagrahNr) {
+	                var paragraph = this.getParagraph(game.bookId, fromParagrahNr);
+	                var choice = undefined;
+	                var _iteratorNormalCompletion = true;
+	                var _didIteratorError = false;
+	                var _iteratorError = undefined;
+	
+	                try {
+	                    for (var _iterator = paragraph.choices[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                        choice = _step.value;
+	
+	                        if (choice.paragraphNr === toParagraphNr) {
+	                            choice.alreadyChoosen = true;
+	                            break;
+	                        }
+	                    }
+	                } catch (err) {
+	                    _didIteratorError = true;
+	                    _iteratorError = err;
+	                } finally {
+	                    try {
+	                        if (!_iteratorNormalCompletion && _iterator['return']) {
+	                            _iterator['return']();
+	                        }
+	                    } finally {
+	                        if (_didIteratorError) {
+	                            throw _iteratorError;
+	                        }
+	                    }
+	                }
+	
+	                this.updateParagraph(paragraph);
+	            }
+	            game.currentParagraphNr = toParagraphNr;
+	            if (!game.path) {
+	                game.path = [];
+	            }
+	            game.path.push(toParagraphNr);
+	            this.updateGame(game);
+	        }
+	    }, {
 	        key: 'getUrlOfGame',
 	        value: function getUrlOfGame(gameId, paragraphNr) {
 	            var game = self.getGame(gameId);
 	            if (!paragraphNr) {
 	                paragraphNr = game.currentParagraphNr;
 	            }
-	            var urlOfGame = "/" + encodeURIComponent(game.bookId) + "/" + encodeURIComponent(paragraphNr) + "?" + "game=" + encodeURIComponent(game.id);
+	            var urlOfGame = "/" + encodeURIComponent(game.bookId) + "/" + encodeURIComponent(paragraphNr) + "/game/" + encodeURIComponent(game.id);
 	            return urlOfGame;
 	        }
 	    }, {
@@ -4346,18 +4384,18 @@ webpackJsonp([0],[
 	
 	    /*@ngInject*/
 	
-	    function BooksLoaderInterceptorService(persistenceService, warlockOfFiretopMountainService) {
+	    function BooksLoaderInterceptorService(persistenceService, warlockOfFiretopMountainEnglishService) {
 	        _classCallCheck(this, BooksLoaderInterceptorService);
 	
 	        self = this;
 	        self.persistenceService = persistenceService;
-	        self.warlockOfFiretopMountainService = warlockOfFiretopMountainService;
+	        self.warlockOfFiretopMountainEnglishService = warlockOfFiretopMountainEnglishService;
 	    }
 	
 	    _createClass(BooksLoaderInterceptorService, [{
 	        key: "loadBooks",
 	        value: function loadBooks() {
-	            self.saveBookToPersistence(self.warlockOfFiretopMountainService.getBook());
+	            self.saveBookToPersistence(self.warlockOfFiretopMountainEnglishService.getBook());
 	        }
 	    }, {
 	        key: "saveBookToPersistence",
@@ -4498,12 +4536,12 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _warlockOfFiretopMountainService = __webpack_require__(109);
+	var _warlockOfFiretopMountainEnService = __webpack_require__(109);
 	
-	var _warlockOfFiretopMountainService2 = _interopRequireDefault(_warlockOfFiretopMountainService);
+	var _warlockOfFiretopMountainEnService2 = _interopRequireDefault(_warlockOfFiretopMountainEnService);
 	
 	/*@ngInject*/
-	var warlockOfFiretopMountainModule = _angular2['default'].module('app.components.services.books.warlock-of-firetop-mountain', []).service('warlockOfFiretopMountainService', _warlockOfFiretopMountainService2['default']);
+	var warlockOfFiretopMountainModule = _angular2['default'].module('app.components.services.books.warlock-of-firetop-mountain', []).service('warlockOfFiretopMountainEnglishService', _warlockOfFiretopMountainEnService2['default']);
 	
 	exports['default'] = warlockOfFiretopMountainModule;
 	module.exports = exports['default'];
@@ -4536,6 +4574,7 @@ webpackJsonp([0],[
 	        self.book = {
 	            id: 'warlock-firetop-mountain',
 	            version: self.constants.version,
+	            language: 'en',
 	            name: 'The Warlock of Firetop Mountain',
 	            authors: 'Steve Jackson & Ian Livingstone',
 	            isbn: '0-7434-7511-9',
@@ -4661,7 +4700,7 @@ webpackJsonp([0],[
 	        selectBookForNewGame: '/games/create/select-book',
 	        createPlayerForNewGame: '/games/create/create-player',
 	        chooseItemsForNewGame: '/games/create/choose-items',
-	        inGame: '/{bookId}/{paragraphNr}?game',
+	        inGame: '/{bookId}/{paragraphNr}/game/{gameId}',
 	        about: '/about'
 	    },
 	    choices: {
