@@ -26,7 +26,18 @@ class PersistenceService {
     }
 
     getBookPersistenceKeys() {
-        return self.findKeysWithPrefix(self.constants.data.book);
+        if (!self.isLocalStorageSupported) {
+            return null;
+        }
+        let keys = Object.keys(localStorage);
+        let result = [];
+        let i;
+        for (i = 0; i < keys.length; i++) {
+            if (keys[i].startsWith(self.constants.data.book) && keys[i].indexOf('paragraph.') === -1) {
+                result.push(keys[i]);
+            }
+        }
+        return result;
     }
 
     findKeysWithPrefix(keyPrefix) {

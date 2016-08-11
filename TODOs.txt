@@ -7,9 +7,8 @@ after initial edited paragraph import:
 - update versioning
 
 business
-- clean-up lang_...
 - ne plus permettre d'ouvrir "in-game" sans player
-- corriger le bug dropdown "new game" avec ipad
+- clean-up lang_...
 - save "jump"
 - mise en évidences des choix non pris
 - paths gameplays visualizer
