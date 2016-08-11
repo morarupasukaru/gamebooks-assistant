@@ -167,17 +167,22 @@ class PersistenceService {
 
     setCurrentParagraphNrOfGame(gameId, fromParagrahNr, toParagraphNr) {
         let game = this.getGame(gameId);
-        let paragraph = this.getParagraph(game.bookId, fromParagrahNr);
-        let choice;
-        for (choice of paragraph.choices) {
-            if (choice.paragraphNr === toParagraphNr) {
-                choice.alreadyChoosen = true;
-                break ;
+        if (!!fromParagrahNr) {
+            let paragraph = this.getParagraph(game.bookId, fromParagrahNr);
+            let choice;
+            for (choice of paragraph.choices) {
+                if (choice.paragraphNr === toParagraphNr) {
+                    choice.alreadyChoosen = true;
+                    break ;
+                }
             }
+            this.updateParagraph(paragraph);
         }
-        this.updateParagraph(paragraph);
-
         game.currentParagraphNr = toParagraphNr;
+        if (!game.path) {
+            game.path = [];
+        }
+        game.path.push(toParagraphNr);
         this.updateGame(game);
     }
 

@@ -40,6 +40,7 @@ class ChooseItemsController {
     startGame() {
         let game = self.buildGame();
         game = self.persistenceService.addGame(game);
+        self.persistenceService.setCurrentParagraphNrOfGame(game.id, null, self.book.startParagraphNr);
         self.$location.url(self.persistenceService.getUrlOfGame(game.id));
     }
 
@@ -48,8 +49,7 @@ class ChooseItemsController {
         let game = {
             playerName : self.$stateParams.playerName,
             bookId : self.book.id,
-            items : JSON.parse(JSON.stringify(self.playerItems)),
-            currentParagraphNr : self.book.startParagraphNr
+            items : JSON.parse(JSON.stringify(self.playerItems))
         };
         game.stats = self.getStatsInUrlParam();
         return game;
