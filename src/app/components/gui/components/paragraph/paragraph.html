@@ -84,7 +84,7 @@
                 </td>
 
                 <td ng-if="!$ctrl.isRowEdited(row)">
-                    {{ row.description | translate }}
+                    {{ row.description }}
                 </td>
                 <td ng-if="$ctrl.isRowEdited(row)">
                     <input type="text" class="form-control" ng-model="row.description">

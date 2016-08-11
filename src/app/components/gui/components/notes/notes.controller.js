@@ -1,14 +1,13 @@
 let self;
 class NotesController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, popupService, constants, persistenceService, $translate) {
+    constructor(preScreenLoadingInterceptorsCallerService, popupService, constants, persistenceService) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
 
         self.popupService = popupService;
         self.constants = constants;
         self.persistenceService = persistenceService;
-        self.$translate = $translate;
 
         self.popupDeleteNoteConfig = {
             id : 'popupDeleteNoteConfig',
@@ -36,7 +35,7 @@ class NotesController {
                 paragraph.notes[i].paragraphNr = self.paragraphNr;
                 paragraph.notes[i].isParagraph = !!paragraph.notes[i].paragraphNr;
                 if (!paragraph.notes[i].playerName) {
-                    paragraph.notes[i].note = self.$translate.instant(paragraph.notes[i].note);
+                    paragraph.notes[i].note = paragraph.notes[i].note;
                 }
             }
         }

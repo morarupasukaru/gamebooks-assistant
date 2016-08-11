@@ -23,7 +23,7 @@
             </div>
 
             <div class="form-group" ng-repeat="stats in $ctrl.stats">
-                <label for="{{ stats.name }}">{{ stats.name | translate }}</label>
+                <label for="{{ stats.name }}">{{ stats.name }}</label>
                 <input type="text" disabled required class="form-control" id="{{ stats.name }}" ng-model="stats.value">
             </div>
 

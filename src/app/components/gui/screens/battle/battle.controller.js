@@ -1,13 +1,12 @@
 let self;
 class BattleController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $window, popupService, constants, $translate, persistenceService, $stateParams) {
+    constructor(preScreenLoadingInterceptorsCallerService, $window, popupService, constants, persistenceService, $stateParams) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
         self.$window = $window;
         self.popupService = popupService;
         self.constants = constants;
-        self.$translate = $translate;
         self.$stateParams = $stateParams;
         self.persistenceService = persistenceService;
 
@@ -75,7 +74,7 @@ class BattleController {
         }
 
         let i;
-        let statsDefaultEnemy = { name : self.$translate.instant(defaultEnemyName) };
+        let statsDefaultEnemy = { name : defaultEnemyName };
 
         for (i = 0; i < self.stats.length; i++) {
             let currentStats = self.stats[i];

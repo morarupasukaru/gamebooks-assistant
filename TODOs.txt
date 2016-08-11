@@ -2,13 +2,11 @@ quick with network:
 - update license url in about.html
 
 business
-- pas de traduction en temps réel des textes des livres, la langue fait partie des données > supprimer | translate
 - ne plus permettre d'ouvrir "in-game" sans player
 - corriger le bug dropdown "new game" avec ipad
 - save "jump"
 - mise en évidences des choix non pris
 - paths gameplays visualizer
-- à moyen terme, supprimer import/export actuelle > déplacer hors navbar
 - sortir le choix de la langue hors de la config (dropdown dans navbar)
 - url caché pour obtenir les paragraphes éditées par le(s) joueurs (tel que format javascript des services des livres), si possible sans \"
 - version app : { major : xx, minor : xx } sauvé dans localStorage
@@ -34,6 +32,7 @@ techical
 - todo url git project in package.json
 - bug: why is not working in android
 - avoid flicker while loading (ngCloak)
+- supprimer configuration menu
 
 
 version 2 (lonewolf)
