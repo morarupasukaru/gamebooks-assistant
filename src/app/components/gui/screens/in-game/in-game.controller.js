@@ -10,20 +10,16 @@ class InGameController {
         self.$stateParams = $stateParams;
         self.persistenceService = persistenceService;
         self.$translate = $translate;
-        if (!!$stateParams.game) {
-            self.game = self.persistenceService.getGame(decodeURIComponent($stateParams.game));
-        }
         this.items = [];
         this.stats = [];
 
-        if (!!self.game) {
-            this.playerName = self.game.playerName;
-            if (!!self.game.items) {
-                this.items = this.items.concat(self.game.items);
-            }
-            if (!!self.game.stats) {
-                this.stats = this.stats.concat(self.game.stats);
-            }
+        self.game = self.persistenceService.getGame(decodeURIComponent(self.$stateParams.gameId));
+        this.playerName = self.game.playerName;
+        if (!!self.game.items) {
+            this.items = this.items.concat(self.game.items);
+        }
+        if (!!self.game.stats) {
+            this.stats = this.stats.concat(self.game.stats);
         }
         self.bookId = self.$stateParams.bookId;
         this.paragraph = self.persistenceService.getOrCreateParagraph(self.bookId, self.$stateParams.paragraphNr);
@@ -32,10 +28,6 @@ class InGameController {
 
     startBattle() {
         self.$location.url(self.constants.url.battle + '/' + self.game.id);
-    }
-
-    jumpToParagraph() {
-        self.$location.url(self.constants.url.paragraph + "/" + self.paragraphNr);
     }
 
     displayAbandonGamePopup(removedRow) {

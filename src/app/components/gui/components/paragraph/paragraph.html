@@ -70,7 +70,9 @@
                     <button type="button" class="btn btn-default"
                             aria-label="{{ 'Choice paragragh' | translate}} {{ row.paragraphNr }}"
                             title="{{ 'Choice paragragh' | translate}} '{{ row.paragraphNr }}'"
-                            ng-click="$ctrl.goTo(row.paragraphNr)">{{ row.paragraphNr }}
+                            ng-click="$ctrl.goTo(row.paragraphNr)">
+                        <div ng-if="!!row.alreadyChoosen">{{ row.paragraphNr }}</div>
+                        <div ng-if="!row.alreadyChoosen"><strong>{{ row.paragraphNr }}</strong></div>
                     </button>
                 </td>
                 <td ng-if="!$ctrl.isRowEdited(row) && $ctrl.hasEditedRow()">

@@ -5,12 +5,10 @@ after initial edited paragraph import:
 - change stats name in french
 - change book name in french
 - update versioning
+- clean-up lang_...
 
 business
-- ne plus permettre d'ouvrir "in-game" sans player
-- clean-up lang_...
 - save "jump"
-- mise en évidences des choix non pris
 - paths gameplays visualizer
 - sortir le choix de la langue hors de la config (dropdown dans navbar)
 - url caché pour obtenir les paragraphes éditées par le(s) joueurs (tel que format javascript des services des livres), si possible sans \"

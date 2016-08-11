@@ -165,12 +165,28 @@ class PersistenceService {
         return new Date().getTime().toString();
     }
 
+    setCurrentParagraphNrOfGame(gameId, fromParagrahNr, toParagraphNr) {
+        let game = this.getGame(gameId);
+        let paragraph = this.getParagraph(game.bookId, fromParagrahNr);
+        let choice;
+        for (choice of paragraph.choices) {
+            if (choice.paragraphNr === toParagraphNr) {
+                choice.alreadyChoosen = true;
+                break ;
+            }
+        }
+        this.updateParagraph(paragraph);
+
+        game.currentParagraphNr = toParagraphNr;
+        this.updateGame(game);
+    }
+
     getUrlOfGame(gameId, paragraphNr) {
         let game = self.getGame(gameId);
         if (!paragraphNr) {
             paragraphNr = game.currentParagraphNr;
         }
-        let urlOfGame = "/" + encodeURIComponent(game.bookId) + "/" + encodeURIComponent(paragraphNr) + "?" + "game=" + encodeURIComponent(game.id);
+        let urlOfGame = "/" + encodeURIComponent(game.bookId) + "/" + encodeURIComponent(paragraphNr) + "/game/" + encodeURIComponent(game.id);
         return urlOfGame;
     }
 

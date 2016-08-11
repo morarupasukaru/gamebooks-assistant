@@ -111,15 +111,9 @@ class ParagraphController {
     }
 
     goTo(paragraphNr) {
-        if (!!self.gameId) {
-            let game = self.persistenceService.getGame(self.gameId);
-            game.currentParagraphNr = paragraphNr;
-            self.persistenceService.updateGame(game);
-            let nextUrl = self.persistenceService.getUrlOfGame(game.id);
-            self.$location.url(nextUrl);
-        } else {
-            // TODO
-        }
+        self.persistenceService.setCurrentParagraphNrOfGame(self.gameId, self.paragraph.paragraphNr, paragraphNr);
+        let nextUrl = self.persistenceService.getUrlOfGame(self.gameId);
+        self.$location.url(nextUrl);
     }
 }
 

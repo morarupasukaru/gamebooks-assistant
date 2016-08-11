@@ -20,7 +20,7 @@ let constantsModule = angular.module('app.components.constants', [])
             selectBookForNewGame : '/games/create/select-book',
             createPlayerForNewGame : '/games/create/create-player',
             chooseItemsForNewGame : '/games/create/choose-items',
-            inGame: '/{bookId}/{paragraphNr}?game',
+            inGame: '/{bookId}/{paragraphNr}/game/{gameId}',
             about: '/about'
         },
         choices : {
