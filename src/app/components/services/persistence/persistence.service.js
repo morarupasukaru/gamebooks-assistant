@@ -262,8 +262,45 @@ class PersistenceService {
     }
 
     export() {
+        this.getEditedParagraphs();
         return localStorage;
 
+    }
+
+    getEditedParagraphs() {
+        if (!self.isLocalStorageSupported) {
+            return null;
+        }
+        let keys = Object.keys(localStorage);
+        let result = {};
+        let i;
+        for (i = 0; i < keys.length; i++) {
+            if (keys[i].startsWith(self.constants.data.book) && keys[i].indexOf('paragraph.') !== -1) {
+                let bookId = keys[i].substring(0, keys[i].indexOf('.paragraph'));
+                let paragraph = this.get(keys[i]);
+                if  (!!paragraph && !!paragraph.lastEditedBy) {
+                    if (!result[bookId]) {
+                        result[bookId] = { paragraphs : [] };
+                    }
+                    result[bookId].paragraphs.push(paragraph);
+                    delete paragraph.bookId;
+                    delete paragraph.version;
+                    for (let j = 0; j < paragraph.choices.length; j++) {
+                        delete paragraph.choices[j].alreadyChoosen;
+                    }
+
+                    let originalParagraph = this.getParagraph(bookId, paragraph.paragraphNr); // TODO call bookService
+                    debugger;
+
+                    // TODO supprimer description si pas changé par rapport
+                    // TODO choices non changé
+                    // TODO ajout removed choices id
+                    // TODO remove non modified notes
+                    // TODO ajout removed notes
+                }
+            }
+        }
+        return result;
     }
 }
 

@@ -100,9 +100,6 @@ class WarlockOfFiretopMountainService {
                         paragraphNr : 278,
                         description : 'turn east'
                     }
-                ],
-                notes : [
-                    { note : 'a note' } // TODO remove, for testing purpose
                 ]
             }
         ];

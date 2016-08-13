@@ -17,6 +17,7 @@ class ParagraphController {
             closeOnClickOutsideModal : false
         };
 
+        self.playerName = persistenceService.getGame(self.gameId).playerName;
         this.descriptionEditable = false;
     }
 
@@ -44,6 +45,7 @@ class ParagraphController {
         var index = self.paragraph.choices.indexOf(removedRow);
         self.paragraph.choices.splice(index, 1);
         self.clearEditedRow();
+        this.updateLastEditedBy();
         self.saveParagraphChoices();
     }
 
@@ -59,7 +61,12 @@ class ParagraphController {
     saveDescriptionChanges() {
         self.originalDescription = null;
         self.descriptionEditable = false;
+        this.updateLastEditedBy();
         self.persistenceService.updateParagraph(self.paragraph);
+    }
+
+    updateLastEditedBy() {
+        self.paragraph.lastEditedBy = self.playerName;
     }
 
     abortDescriptionChanges() {
@@ -90,6 +97,7 @@ class ParagraphController {
     }
 
     saveParagraphChoices() {
+        this.updateLastEditedBy();
         self.persistenceService.updateParagraph(self.paragraph);
     }
 

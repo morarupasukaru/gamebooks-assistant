@@ -16,6 +16,7 @@ business
 => si appMajorVersion <>, paragraphVersion <> => alors le paragraphe est rechargé
 
 techical
+- action log instead of calling persistence.service directly (hide model)
 - try editable div instead of textarea for description ?
 - configure jshint (or something like that)
 - i18n without json
@@ -32,11 +33,14 @@ techical
 - bug: why is not working in android
 - avoid flicker while loading (ngCloak)
 - supprimer configuration menu
+- ng-include base64, license
+- license as expand (code) in about
 
-
-version 2 (lonewolf)
+version 2
+- integrate battle rules, luck rules
 - how to check orthographe? special export?
 - download book + attachments instead of all inside app.js (javascript loading on the fly, load data in localStorage)
 - ajout d'un écran des livres téléchargées, édités et qui permet de supprimer des livres du localStorage si besoin
 - paragraph with images & description > can be a gamebook completelly
 - permettre de traduire le texte d'un jeu en chargeant celui-ci malgré une langue d'interface différente, mise en évidence des textes non édités
+- lonewolf play
