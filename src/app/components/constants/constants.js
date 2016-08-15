@@ -3,7 +3,8 @@ import angular from 'angular';
 /*@ngInject*/
 let constantsModule = angular.module('app.components.constants', [])
     .constant('constants', {
-        version: '20160808',
+        version: '20160815',
+        hasDataBreakingChange: true, // TODO move into version object
         supportedLanguages: ['en', 'fr'],
         data: {
             selectedLanguage: 'selectedLanguage',
