@@ -274,25 +274,41 @@ class PersistenceService {
         }
         let keys = Object.keys(localStorage);
         let result = {};
+        let mapEditedParagraph = [];
         let i;
         for (i = 0; i < keys.length; i++) {
             if (keys[i].startsWith(self.constants.data.book) && keys[i].indexOf('paragraph.') !== -1) {
                 let bookId = keys[i].substring(0, keys[i].indexOf('.paragraph'));
                 let paragraph = self.get(keys[i]);
-                if  (self.isEdited(paragraph)) {
-                    if (!result[bookId]) {
-                        result[bookId] = { paragraphs : [] };
-                    }
-                    let editedParagraphData = self.getEditedParagraphData(paragraph);
-                    if (!!editedParagraphData) {
-                        result[bookId].paragraphs.push(editedParagraphData);
+                if (!mapEditedParagraph[paragraph.paragraphNr]) {
+                    if  (self.isEdited(paragraph)) {
+                        if (!result[bookId]) {
+                            result[bookId] = { paragraphs : [] };
+                        }
+                        let editedParagraphData = self.getEditedParagraphData(paragraph);
+                        if (!!editedParagraphData) {
+                            result[bookId].paragraphs.push(editedParagraphData);
+                            mapEditedParagraph[editedParagraphData.paragraphNr] = editedParagraphData;
+                        }
                     }
                 }
             }
         }
         result = this.sortEditedParagraphs(result);
         if (Object.keys(result).length > 0) {
-            return this.removeEscapedAccents(result.toSource());
+            return JSON.stringify(result)
+                .replace(/"paragraphNr":/g, 'paragraphNr:')
+                .replace(/"description":/g, 'description:')
+                .replace(/"paragraphs":/g, 'paragraphs:')
+                .replace(/"choices":/g, 'choices:')
+                .replace(/"deletedChoices":/g, 'deletedChoices:')
+                .replace(/"notes":/g, 'notes:')
+                .replace(/"note":/g, 'note:')
+                .replace(/"added":/g, 'added:')
+                .replace(/"removed":/g, 'removed:')
+                .replace(/"choices":/g, 'choices:')
+                .replace(/"playerName":/g, 'playerName:')
+                .replace(/"lastEditedBy":/g, 'lastEditedBy:');
         } else {
             return null;
         }
@@ -327,27 +343,8 @@ class PersistenceService {
         }
     }
 
-    removeEscapedAccents(text) {
-        // workaround to avoid accent escape
-        return text.replace(/\\xE0/g, 'à')
-                    .replace(/\\xC0/g, 'À')
-                    .replace(/\\xE8/g, 'è')
-                    .replace(/\\xC8/g, 'È')
-                    .replace(/\\xE9/g, 'é')
-                    .replace(/\\xC9/g, 'É')
-                    .replace(/\\xEE/g, 'î')
-                    .replace(/\\xCE/g, 'Î')
-                    .replace(/\\xF4/g, 'ô')
-                    .replace(/\\D4x/g, 'Ô')
-                    .replace(/\\xF9/g, 'ù')
-                    .replace(/\\xD9/g, 'Ù')
-                    .replace(/\\xE7/g, 'ç')
-                    .replace(/\\xC7/g, 'Ç');
-    }
-
     isEdited(paragraph) {
-        return true;
-        // return !!paragraph && !!paragraph.lastEditedBy; TODO
+        return !!paragraph && !!paragraph.lastEditedBy;
     }
 
     getEditedParagraphData(paragraph) {
