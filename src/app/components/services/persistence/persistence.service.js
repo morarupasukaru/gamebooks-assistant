@@ -85,7 +85,7 @@ class PersistenceService {
             let paragraph = {
                 version : self.constants.version,
                 bookId : bookId,
-                paragraphNr : paragraphNr,
+                paragraphNr : new Number(paragraphNr),
                 description : '',
                 choices : []
             };
