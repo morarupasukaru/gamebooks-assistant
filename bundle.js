@@ -51,17 +51,17 @@ webpackJsonp([0],[
 	
 	var _componentsComponents2 = _interopRequireDefault(_componentsComponents);
 	
-	var _appComponent = __webpack_require__(112);
+	var _appComponent = __webpack_require__(115);
 	
 	var _appComponent2 = _interopRequireDefault(_appComponent);
 	
 	// Language file import
 	
-	var _languagesLangEnJson = __webpack_require__(116);
+	var _languagesLangEnJson = __webpack_require__(119);
 	
 	var _languagesLangEnJson2 = _interopRequireDefault(_languagesLangEnJson);
 	
-	var _languagesLangFrJson = __webpack_require__(117);
+	var _languagesLangFrJson = __webpack_require__(120);
 	
 	var _languagesLangFrJson2 = _interopRequireDefault(_languagesLangFrJson);
 	
@@ -450,11 +450,11 @@ webpackJsonp([0],[
 	
 	var _guiGui2 = _interopRequireDefault(_guiGui);
 	
-	var _servicesServices = __webpack_require__(92);
+	var _servicesServices = __webpack_require__(95);
 	
 	var _servicesServices2 = _interopRequireDefault(_servicesServices);
 	
-	var _constantsConstants = __webpack_require__(111);
+	var _constantsConstants = __webpack_require__(114);
 	
 	var _constantsConstants2 = _interopRequireDefault(_constantsConstants);
 	
@@ -1080,21 +1080,21 @@ webpackJsonp([0],[
 /* 29 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"col-md-12\">\n    <form>\n        <div>\n            <div class=\"form-group\">\n                <label for=\"editedParagraphs\">{{ \"Edited paragraphs\" | translate }}</label>\n                <input type=\"text\" class=\"form-control\" id=\"editedParagraphs\" ng-model=\"$ctrl.editedParagraphsData\">\n            </div>\n            <div class=\"form-group\">\n                <label for=\"applicationData\">{{ \"Application's data\" | translate }}</label>\n                <input type=\"text\" class=\"form-control\" id=\"applicationData\" ng-model=\"$ctrl.applicationData\">\n            </div>\n            <div class=\"form-group\">\n                <button class=\"btn btn-danger\" ng-click=\"$ctrl.showPopupConfirmDeleteApplicationData()\" aria-label=\"{{ 'Delete application\\'s data' | translate }}\">{{ \"Delete application's data\" | translate }}</button>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"importData\">{{ \"Paste the application's data copied from another browser\" | translate }}</label>\n                <input type=\"text\" class=\"form-control\" ng-model=\"$ctrl.importData\" id=\"importData\" placeholder=\"{{ 'Imported data' | translate }}\">\n            </div>\n            <div class=\"form-group\">\n                <button class=\"btn btn-danger\" ng-click=\"$ctrl.showPopupConfirmImportData()\" aria-label=\"{{ 'Import' | translate }}\">{{ 'Import' | translate }}</button>\n            </div>\n        </div>\n    </form>\n\n    <popup config=\"{{ $ctrl.popupConfirmDeleteApplicationDataConfig }}\"></popup>\n\n    <popup config=\"{{ $ctrl.popupConfirmImportApplicationDataConfig }}\"></popup>\n</div>\n"
+	module.exports = "<div class=\"col-md-12\">\n    <form>\n        <div>\n            <div class=\"form-group\">\n                <label for=\"editedParagraphs\">{{ \"Edited paragraphs\" | translate }}</label>\n                <input type=\"text\" class=\"form-control\" id=\"editedParagraphs\" ng-model=\"$ctrl.editedParagraphsData\">\n            </div>\n            <div class=\"form-group\">\n                <label for=\"applicationData\">{{ \"Application's data\" | translate }}</label>\n                <input type=\"text\" class=\"form-control\" id=\"applicationData\" ng-model=\"$ctrl.applicationData\">\n            </div>\n            <div class=\"form-group\">\n                <label for=\"importData\">{{ \"Paste the application's data copied from another browser\" | translate }}</label>\n                <input type=\"text\" class=\"form-control\" ng-model=\"$ctrl.importData\" id=\"importData\" placeholder=\"{{ 'Imported data' | translate }}\">\n            </div>\n            <div class=\"form-group\">\n                <button class=\"btn btn-danger\" ng-click=\"$ctrl.showPopupConfirmImportData()\" aria-label=\"{{ 'Import' | translate }}\">{{ 'Import' | translate }}</button>\n            </div>\n        </div>\n    </form>\n\n    <popup config=\"{{ $ctrl.popupConfirmDeleteApplicationDataConfig }}\"></popup>\n\n    <popup config=\"{{ $ctrl.popupConfirmImportApplicationDataConfig }}\"></popup>\n</div>\n"
 
 /***/ },
 /* 30 */
 /***/ function(module, exports) {
 
-	'use strict';
+	"use strict";
 	
-	Object.defineProperty(exports, '__esModule', {
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	var self = undefined;
 	
@@ -1111,14 +1111,6 @@ webpackJsonp([0],[
 	        self.initData();
 	        self.$window = $window;
 	
-	        self.popupConfirmDeleteApplicationDataConfig = {
-	            id: 'popupConfirmDeleteApplicationData',
-	            text: 'Are you sure to clear the application data?',
-	            choices: [constants.choices.yes, constants.choices.no],
-	            withCloseButton: false,
-	            closeOnClickOutsideModal: false
-	        };
-	
 	        self.popupConfirmImportApplicationDataConfig = {
 	            id: 'popupConfirmImportApplicationData',
 	            text: "All existing application's data will be erased during the import. Are you sure to import the application data?",
@@ -1129,34 +1121,21 @@ webpackJsonp([0],[
 	    }
 	
 	    _createClass(SavedDataAdminController, [{
-	        key: 'initData',
+	        key: "initData",
 	        value: function initData() {
-	            self.applicationData = JSON.stringify(self.persistenceService['export']());
+	            self.applicationData = JSON.stringify(self.persistenceService["export"]());
 	            self.editedParagraphsData = self.persistenceService.getEditedParagraphs();
 	        }
 	    }, {
-	        key: 'showPopupConfirmDeleteApplicationData',
-	        value: function showPopupConfirmDeleteApplicationData() {
-	            self.popupService.show(self.popupConfirmDeleteApplicationDataConfig.id, self.callbackPopupConfirmDeleteApplicationData);
-	        }
-	    }, {
-	        key: 'callbackPopupConfirmDeleteApplicationData',
-	        value: function callbackPopupConfirmDeleteApplicationData(popupDomElementId, choice) {
-	            if (choice === self.constants.choices.yes) {
-	                self.persistenceService.cleanAllData();
-	                self.$window.location.reload();
-	            }
-	        }
-	    }, {
-	        key: 'showPopupConfirmImportData',
+	        key: "showPopupConfirmImportData",
 	        value: function showPopupConfirmImportData() {
 	            self.popupService.show(self.popupConfirmImportApplicationDataConfig.id, self.callbackPopupConfirmImportData);
 	        }
 	    }, {
-	        key: 'callbackPopupConfirmImportData',
+	        key: "callbackPopupConfirmImportData",
 	        value: function callbackPopupConfirmImportData(popupDomElementId, choice) {
 	            if (choice === self.constants.choices.yes) {
-	                self.persistenceService['import'](self.importData);
+	                self.persistenceService["import"](self.importData);
 	                self.$window.location.reload();
 	            }
 	        }
@@ -1165,8 +1144,8 @@ webpackJsonp([0],[
 	    return SavedDataAdminController;
 	})();
 	
-	exports['default'] = SavedDataAdminController;
-	module.exports = exports['default'];
+	exports["default"] = SavedDataAdminController;
+	module.exports = exports["default"];
 
 /***/ },
 /* 31 */
@@ -2390,7 +2369,11 @@ webpackJsonp([0],[
 	
 	var _aboutAbout2 = _interopRequireDefault(_aboutAbout);
 	
-	var screensModule = _angular2['default'].module('app.components.gui.screens', [_homeHome2['default'].name, _gamesGames2['default'].name, _battleBattle2['default'].name, _configurationConfiguration2['default'].name, _chooseLanguageChooseLanguage2['default'].name, _startGameWizardStartGameWizard2['default'].name, _inGameInGame2['default'].name, _aboutAbout2['default'].name]);
+	var _deleteDataDeleteData = __webpack_require__(92);
+	
+	var _deleteDataDeleteData2 = _interopRequireDefault(_deleteDataDeleteData);
+	
+	var screensModule = _angular2['default'].module('app.components.gui.screens', [_homeHome2['default'].name, _gamesGames2['default'].name, _battleBattle2['default'].name, _configurationConfiguration2['default'].name, _chooseLanguageChooseLanguage2['default'].name, _startGameWizardStartGameWizard2['default'].name, _inGameInGame2['default'].name, _aboutAbout2['default'].name, _deleteDataDeleteData2['default'].name]);
 	
 	exports['default'] = screensModule;
 	module.exports = exports['default'];
@@ -3637,35 +3620,139 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _languageAvailabilityCheckerLanguageAvailabilityChecker = __webpack_require__(93);
+	var _angularUiRouter = __webpack_require__(3);
+	
+	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
+	
+	var _deleteDataHtml = __webpack_require__(93);
+	
+	var _deleteDataHtml2 = _interopRequireDefault(_deleteDataHtml);
+	
+	var _deleteDataController = __webpack_require__(94);
+	
+	var _deleteDataController2 = _interopRequireDefault(_deleteDataController);
+	
+	var configurationModule = _angular2['default'].module('app.components.gui.screen.delete-data', [_angularUiRouter2['default']]).config( /*@ngInject*/function ($stateProvider, $urlRouterProvider, constants) {
+	    $urlRouterProvider.otherwise('/');
+	
+	    $stateProvider.state('deleteData', {
+	        url: constants.url.deleteData, template: '<delete-data></delete-data>'
+	    });
+	}).component('deleteData', { template: _deleteDataHtml2['default'], controller: _deleteDataController2['default'] });
+	
+	exports['default'] = configurationModule;
+	module.exports = exports['default'];
+
+/***/ },
+/* 93 */
+/***/ function(module, exports) {
+
+	module.exports = "<navbar></navbar>\n<messages></messages>\n<main>\n    <div class=\"container bg-white\" role=\"main\">\n        <div class=\"page-header\">\n            <h1>{{ 'Administration' | translate }}</h1>\n        </div>\n        <div class=\"col-md-12\">\n            <form>\n                <div>\n                    <div class=\"form-group\">\n                        <button class=\"btn btn-danger\" ng-click=\"$ctrl.showPopupConfirmDeleteApplicationData()\" aria-label=\"{{ 'Delete application\\'s data' | translate }}\">{{ \"Delete application's data\" | translate }}</button>\n                    </div>\n                </div>\n            </form>\n\n            <popup config=\"{{ $ctrl.popupConfirmDeleteApplicationDataConfig }}\"></popup>\n        </div>\n\n        <back-button></back-button>\n    </div>\n</main>"
+
+/***/ },
+/* 94 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	var self = undefined;
+	
+	var DeleteDataController = (function () {
+	
+	    /*@ngInject*/
+	
+	    function DeleteDataController(persistenceService, constants, popupService, $window) {
+	        _classCallCheck(this, DeleteDataController);
+	
+	        self = this;
+	        self.persistenceService = persistenceService;
+	        self.constants = constants;
+	        self.popupService = popupService;
+	        self.$window = $window;
+	
+	        self.popupConfirmDeleteApplicationDataConfig = {
+	            id: 'popupConfirmDeleteApplicationData',
+	            text: 'Are you sure to clear the application data?',
+	            choices: [constants.choices.yes, constants.choices.no],
+	            withCloseButton: false,
+	            closeOnClickOutsideModal: false
+	        };
+	    }
+	
+	    _createClass(DeleteDataController, [{
+	        key: 'showPopupConfirmDeleteApplicationData',
+	        value: function showPopupConfirmDeleteApplicationData() {
+	            self.popupService.show(self.popupConfirmDeleteApplicationDataConfig.id, self.callbackPopupConfirmDeleteApplicationData);
+	        }
+	    }, {
+	        key: 'callbackPopupConfirmDeleteApplicationData',
+	        value: function callbackPopupConfirmDeleteApplicationData(popupDomElementId, choice) {
+	            if (choice === self.constants.choices.yes) {
+	                self.persistenceService.cleanAllData();
+	                self.$window.location.reload();
+	            }
+	        }
+	    }]);
+	
+	    return DeleteDataController;
+	})();
+	
+	exports['default'] = DeleteDataController;
+	module.exports = exports['default'];
+
+/***/ },
+/* 95 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var _angular = __webpack_require__(1);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _languageAvailabilityCheckerLanguageAvailabilityChecker = __webpack_require__(96);
 	
 	var _languageAvailabilityCheckerLanguageAvailabilityChecker2 = _interopRequireDefault(_languageAvailabilityCheckerLanguageAvailabilityChecker);
 	
-	var _softwareRequirementsCheckerSoftwareRequirementsChecker = __webpack_require__(95);
+	var _softwareRequirementsCheckerSoftwareRequirementsChecker = __webpack_require__(98);
 	
 	var _softwareRequirementsCheckerSoftwareRequirementsChecker2 = _interopRequireDefault(_softwareRequirementsCheckerSoftwareRequirementsChecker);
 	
-	var _preScreenLoadingInterceptorsCallerPreScreenLoadingInterceptorsCaller = __webpack_require__(97);
+	var _preScreenLoadingInterceptorsCallerPreScreenLoadingInterceptorsCaller = __webpack_require__(100);
 	
 	var _preScreenLoadingInterceptorsCallerPreScreenLoadingInterceptorsCaller2 = _interopRequireDefault(_preScreenLoadingInterceptorsCallerPreScreenLoadingInterceptorsCaller);
 	
-	var _persistencePersistence = __webpack_require__(99);
+	var _persistencePersistence = __webpack_require__(102);
 	
 	var _persistencePersistence2 = _interopRequireDefault(_persistencePersistence);
 	
-	var _dicesDices = __webpack_require__(101);
+	var _dicesDices = __webpack_require__(104);
 	
 	var _dicesDices2 = _interopRequireDefault(_dicesDices);
 	
-	var _booksLoaderInterceptorBooksLoaderInterceptor = __webpack_require__(103);
+	var _booksLoaderInterceptorBooksLoaderInterceptor = __webpack_require__(106);
 	
 	var _booksLoaderInterceptorBooksLoaderInterceptor2 = _interopRequireDefault(_booksLoaderInterceptorBooksLoaderInterceptor);
 	
-	var _saveScreenUrlInterceptorSaveScreenUrlInterceptor = __webpack_require__(105);
+	var _saveScreenUrlInterceptorSaveScreenUrlInterceptor = __webpack_require__(108);
 	
 	var _saveScreenUrlInterceptorSaveScreenUrlInterceptor2 = _interopRequireDefault(_saveScreenUrlInterceptorSaveScreenUrlInterceptor);
 	
-	var _booksBooks = __webpack_require__(107);
+	var _booksBooks = __webpack_require__(110);
 	
 	var _booksBooks2 = _interopRequireDefault(_booksBooks);
 	
@@ -3675,7 +3762,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 93 */
+/* 96 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3690,7 +3777,7 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _languageAvailabilityCheckerService = __webpack_require__(94);
+	var _languageAvailabilityCheckerService = __webpack_require__(97);
 	
 	var _languageAvailabilityCheckerService2 = _interopRequireDefault(_languageAvailabilityCheckerService);
 	
@@ -3701,7 +3788,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 94 */
+/* 97 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3752,7 +3839,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 95 */
+/* 98 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3767,7 +3854,7 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _softwareRequirementsCheckerService = __webpack_require__(96);
+	var _softwareRequirementsCheckerService = __webpack_require__(99);
 	
 	var _softwareRequirementsCheckerService2 = _interopRequireDefault(_softwareRequirementsCheckerService);
 	
@@ -3778,7 +3865,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 96 */
+/* 99 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3835,7 +3922,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 97 */
+/* 100 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3850,7 +3937,7 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _preScreenLoadingInterceptorsCallerService = __webpack_require__(98);
+	var _preScreenLoadingInterceptorsCallerService = __webpack_require__(101);
 	
 	var _preScreenLoadingInterceptorsCallerService2 = _interopRequireDefault(_preScreenLoadingInterceptorsCallerService);
 	
@@ -3861,7 +3948,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 98 */
+/* 101 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -3907,7 +3994,7 @@ webpackJsonp([0],[
 	module.exports = exports["default"];
 
 /***/ },
-/* 99 */
+/* 102 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3922,7 +4009,7 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _persistenceService = __webpack_require__(100);
+	var _persistenceService = __webpack_require__(103);
 	
 	var _persistenceService2 = _interopRequireDefault(_persistenceService);
 	
@@ -3933,7 +4020,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 100 */
+/* 103 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -4481,7 +4568,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 101 */
+/* 104 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4496,7 +4583,7 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _dicesService = __webpack_require__(102);
+	var _dicesService = __webpack_require__(105);
 	
 	var _dicesService2 = _interopRequireDefault(_dicesService);
 	
@@ -4507,7 +4594,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 102 */
+/* 105 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -4556,7 +4643,7 @@ webpackJsonp([0],[
 	module.exports = exports["default"];
 
 /***/ },
-/* 103 */
+/* 106 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4571,7 +4658,7 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _booksLoaderInterceptorService = __webpack_require__(104);
+	var _booksLoaderInterceptorService = __webpack_require__(107);
 	
 	var _booksLoaderInterceptorService2 = _interopRequireDefault(_booksLoaderInterceptorService);
 	
@@ -4582,7 +4669,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 104 */
+/* 107 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -4645,7 +4732,7 @@ webpackJsonp([0],[
 	module.exports = exports["default"];
 
 /***/ },
-/* 105 */
+/* 108 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4660,7 +4747,7 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _saveScreenUrlInterceptorService = __webpack_require__(106);
+	var _saveScreenUrlInterceptorService = __webpack_require__(109);
 	
 	var _saveScreenUrlInterceptorService2 = _interopRequireDefault(_saveScreenUrlInterceptorService);
 	
@@ -4671,7 +4758,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 106 */
+/* 109 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -4715,7 +4802,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 107 */
+/* 110 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4730,11 +4817,11 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _warlockOfFiretopMountainWarlockOfFiretopMountain = __webpack_require__(108);
+	var _warlockOfFiretopMountainWarlockOfFiretopMountain = __webpack_require__(111);
 	
 	var _warlockOfFiretopMountainWarlockOfFiretopMountain2 = _interopRequireDefault(_warlockOfFiretopMountainWarlockOfFiretopMountain);
 	
-	var _booksService = __webpack_require__(110);
+	var _booksService = __webpack_require__(113);
 	
 	var _booksService2 = _interopRequireDefault(_booksService);
 	
@@ -4745,7 +4832,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 108 */
+/* 111 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4760,7 +4847,7 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _warlockOfFiretopMountainEnService = __webpack_require__(109);
+	var _warlockOfFiretopMountainEnService = __webpack_require__(112);
 	
 	var _warlockOfFiretopMountainEnService2 = _interopRequireDefault(_warlockOfFiretopMountainEnService);
 	
@@ -4771,7 +4858,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 109 */
+/* 112 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5188,7 +5275,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 110 */
+/* 113 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -5261,7 +5348,7 @@ webpackJsonp([0],[
 	module.exports = exports["default"];
 
 /***/ },
-/* 111 */
+/* 114 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5278,7 +5365,7 @@ webpackJsonp([0],[
 	
 	/*@ngInject*/
 	var constantsModule = _angular2['default'].module('app.components.constants', []).constant('constants', {
-	    version: '20160808',
+	    version: '20160815',
 	    supportedLanguages: ['en', 'fr'],
 	    data: {
 	        selectedLanguage: 'selectedLanguage',
@@ -5296,7 +5383,8 @@ webpackJsonp([0],[
 	        createPlayerForNewGame: '/games/create/create-player',
 	        chooseItemsForNewGame: '/games/create/choose-items',
 	        inGame: '/{bookId}/{paragraphNr}/game/{gameId}',
-	        about: '/about'
+	        about: '/about',
+	        deleteData: '/delete-data'
 	    },
 	    choices: {
 	        yes: 'Yes',
@@ -5308,7 +5396,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 112 */
+/* 115 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -5328,11 +5416,11 @@ webpackJsonp([0],[
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _appHtml = __webpack_require__(113);
+	var _appHtml = __webpack_require__(116);
 	
 	var _appHtml2 = _interopRequireDefault(_appHtml);
 	
-	__webpack_require__(114);
+	__webpack_require__(117);
 	
 	var appComponent = function appComponent() {
 	    return {
@@ -5344,19 +5432,19 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 113 */
+/* 116 */
 /***/ function(module, exports) {
 
 	module.exports = "<div ui-view></div>"
 
 /***/ },
-/* 114 */
+/* 117 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(115);
+	var content = __webpack_require__(118);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(38)(content, {});
@@ -5376,7 +5464,7 @@ webpackJsonp([0],[
 	}
 
 /***/ },
-/* 115 */
+/* 118 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(37)();
@@ -5390,7 +5478,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 116 */
+/* 119 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -5402,7 +5490,7 @@ webpackJsonp([0],[
 	};
 
 /***/ },
-/* 117 */
+/* 120 */
 /***/ function(module, exports) {
 
 	module.exports = {
