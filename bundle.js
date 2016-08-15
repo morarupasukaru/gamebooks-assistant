@@ -51,17 +51,17 @@ webpackJsonp([0],[
 	
 	var _componentsComponents2 = _interopRequireDefault(_componentsComponents);
 	
-	var _appComponent = __webpack_require__(111);
+	var _appComponent = __webpack_require__(112);
 	
 	var _appComponent2 = _interopRequireDefault(_appComponent);
 	
 	// Language file import
 	
-	var _languagesLangEnJson = __webpack_require__(115);
+	var _languagesLangEnJson = __webpack_require__(116);
 	
 	var _languagesLangEnJson2 = _interopRequireDefault(_languagesLangEnJson);
 	
-	var _languagesLangFrJson = __webpack_require__(116);
+	var _languagesLangFrJson = __webpack_require__(117);
 	
 	var _languagesLangFrJson2 = _interopRequireDefault(_languagesLangFrJson);
 	
@@ -93,7 +93,7 @@ webpackJsonp([0],[
 /***/ function(module, exports) {
 
 	/**
-	 * @license AngularJS v1.5.7
+	 * @license AngularJS v1.5.8
 	 * (c) 2010-2016 Google, Inc. http://angularjs.org
 	 * License: MIT
 	 */
@@ -454,7 +454,7 @@ webpackJsonp([0],[
 	
 	var _servicesServices2 = _interopRequireDefault(_servicesServices);
 	
-	var _constantsConstants = __webpack_require__(110);
+	var _constantsConstants = __webpack_require__(111);
 	
 	var _constantsConstants2 = _interopRequireDefault(_constantsConstants);
 	
@@ -1080,7 +1080,7 @@ webpackJsonp([0],[
 /* 29 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"col-md-12\">\n    <form>\n        <div>\n            <div class=\"form-group\">\n                <label for=\"applicationData\">{{ \"Application's data\" | translate }}</label>\n                <input type=\"text\" class=\"form-control\" id=\"applicationData\" ng-model=\"$ctrl.applicationData\">\n            </div>\n            <div class=\"form-group\">\n                <button class=\"btn btn-danger\" ng-click=\"$ctrl.showPopupConfirmDeleteApplicationData()\" aria-label=\"{{ 'Delete application\\'s data' | translate }}\">{{ \"Delete application's data\" | translate }}</button>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"importData\">{{ \"Paste the application's data copied from another browser\" | translate }}</label>\n                <input type=\"text\" class=\"form-control\" ng-model=\"$ctrl.importData\" id=\"importData\" placeholder=\"{{ 'Imported data' | translate }}\">\n            </div>\n            <div class=\"form-group\">\n                <button class=\"btn btn-danger\" ng-click=\"$ctrl.showPopupConfirmImportData()\" aria-label=\"{{ 'Import' | translate }}\">{{ 'Import' | translate }}</button>\n            </div>\n        </div>\n    </form>\n\n    <popup config=\"{{ $ctrl.popupConfirmDeleteApplicationDataConfig }}\"></popup>\n\n    <popup config=\"{{ $ctrl.popupConfirmImportApplicationDataConfig }}\"></popup>\n</div>\n"
+	module.exports = "<div class=\"col-md-12\">\n    <form>\n        <div>\n            <div class=\"form-group\">\n                <label for=\"editedParagraphs\">{{ \"Edited paragraphs\" | translate }}</label>\n                <input type=\"text\" class=\"form-control\" id=\"editedParagraphs\" ng-model=\"$ctrl.editedParagraphsData\">\n            </div>\n            <div class=\"form-group\">\n                <label for=\"applicationData\">{{ \"Application's data\" | translate }}</label>\n                <input type=\"text\" class=\"form-control\" id=\"applicationData\" ng-model=\"$ctrl.applicationData\">\n            </div>\n            <div class=\"form-group\">\n                <button class=\"btn btn-danger\" ng-click=\"$ctrl.showPopupConfirmDeleteApplicationData()\" aria-label=\"{{ 'Delete application\\'s data' | translate }}\">{{ \"Delete application's data\" | translate }}</button>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"importData\">{{ \"Paste the application's data copied from another browser\" | translate }}</label>\n                <input type=\"text\" class=\"form-control\" ng-model=\"$ctrl.importData\" id=\"importData\" placeholder=\"{{ 'Imported data' | translate }}\">\n            </div>\n            <div class=\"form-group\">\n                <button class=\"btn btn-danger\" ng-click=\"$ctrl.showPopupConfirmImportData()\" aria-label=\"{{ 'Import' | translate }}\">{{ 'Import' | translate }}</button>\n            </div>\n        </div>\n    </form>\n\n    <popup config=\"{{ $ctrl.popupConfirmDeleteApplicationDataConfig }}\"></popup>\n\n    <popup config=\"{{ $ctrl.popupConfirmImportApplicationDataConfig }}\"></popup>\n</div>\n"
 
 /***/ },
 /* 30 */
@@ -1132,6 +1132,7 @@ webpackJsonp([0],[
 	        key: 'initData',
 	        value: function initData() {
 	            self.applicationData = JSON.stringify(self.persistenceService['export']());
+	            self.editedParagraphsData = self.persistenceService.getEditedParagraphs();
 	        }
 	    }, {
 	        key: 'showPopupConfirmDeleteApplicationData',
@@ -1889,7 +1890,7 @@ webpackJsonp([0],[
 	    template: _paragraphHtml2['default'],
 	    controller: _paragraphController2['default'],
 	    bindings: {
-	        gameId: '@?',
+	        gameId: '@',
 	        paragraph: '='
 	    }
 	});
@@ -1940,6 +1941,7 @@ webpackJsonp([0],[
 	            closeOnClickOutsideModal: false
 	        };
 	
+	        self.playerName = persistenceService.getGame(self.gameId).playerName;
 	        this.descriptionEditable = false;
 	    }
 	
@@ -1972,6 +1974,7 @@ webpackJsonp([0],[
 	            var index = self.paragraph.choices.indexOf(removedRow);
 	            self.paragraph.choices.splice(index, 1);
 	            self.clearEditedRow();
+	            this.updateLastEditedBy();
 	            self.saveParagraphChoices();
 	        }
 	    }, {
@@ -1990,7 +1993,13 @@ webpackJsonp([0],[
 	        value: function saveDescriptionChanges() {
 	            self.originalDescription = null;
 	            self.descriptionEditable = false;
+	            this.updateLastEditedBy();
 	            self.persistenceService.updateParagraph(self.paragraph);
+	        }
+	    }, {
+	        key: 'updateLastEditedBy',
+	        value: function updateLastEditedBy() {
+	            self.paragraph.lastEditedBy = self.playerName;
 	        }
 	    }, {
 	        key: 'abortDescriptionChanges',
@@ -2027,6 +2036,7 @@ webpackJsonp([0],[
 	    }, {
 	        key: 'saveParagraphChoices',
 	        value: function saveParagraphChoices() {
+	            this.updateLastEditedBy();
 	            self.persistenceService.updateParagraph(self.paragraph);
 	        }
 	    }, {
@@ -3942,13 +3952,14 @@ webpackJsonp([0],[
 	
 	    /*@ngInject*/
 	
-	    function PersistenceService(softwareRequirementsCheckerService, constants, messagesService) {
+	    function PersistenceService(softwareRequirementsCheckerService, constants, messagesService, booksService) {
 	        _classCallCheck(this, PersistenceService);
 	
 	        self = this;
 	        self.isLocalStorageSupported = softwareRequirementsCheckerService.isLocalStorageSupported();
 	        self.constants = constants;
 	        self.messagesService = messagesService;
+	        self.booksService = booksService;
 	    }
 	
 	    _createClass(PersistenceService, [{
@@ -4037,7 +4048,7 @@ webpackJsonp([0],[
 	                var paragraph = {
 	                    version: self.constants.version,
 	                    bookId: bookId,
-	                    paragraphNr: paragraphNr,
+	                    paragraphNr: new Number(paragraphNr),
 	                    description: '',
 	                    choices: []
 	                };
@@ -4253,7 +4264,213 @@ webpackJsonp([0],[
 	    }, {
 	        key: 'export',
 	        value: function _export() {
+	            this.getEditedParagraphs();
 	            return localStorage;
+	        }
+	    }, {
+	        key: 'getEditedParagraphs',
+	        value: function getEditedParagraphs() {
+	            if (!self.isLocalStorageSupported) {
+	                return null;
+	            }
+	            var keys = Object.keys(localStorage);
+	            var result = {};
+	            var i = undefined;
+	            for (i = 0; i < keys.length; i++) {
+	                if (keys[i].startsWith(self.constants.data.book) && keys[i].indexOf('paragraph.') !== -1) {
+	                    var bookId = keys[i].substring(0, keys[i].indexOf('.paragraph'));
+	                    var paragraph = self.get(keys[i]);
+	                    if (self.isEdited(paragraph)) {
+	                        if (!result[bookId]) {
+	                            result[bookId] = { paragraphs: [] };
+	                        }
+	                        var editedParagraphData = self.getEditedParagraphData(paragraph);
+	                        if (!!editedParagraphData) {
+	                            result[bookId].paragraphs.push(editedParagraphData);
+	                        }
+	                    }
+	                }
+	            }
+	            result = this.sortEditedParagraphs(result);
+	            if (Object.keys(result).length > 0) {
+	                return this.removeEscapedAccents(result.toSource());
+	            } else {
+	                return null;
+	            }
+	        }
+	    }, {
+	        key: 'sortEditedParagraphs',
+	        value: function sortEditedParagraphs(books) {
+	            var keys = Object.keys(books);
+	            var result = {};
+	            for (var i = 0; i < keys.length; i++) {
+	                var book = books[keys[i]];
+	                if (!!book.paragraphs && book.paragraphs.length > 0) {
+	                    result[keys[i]] = book;
+	                    book.paragraphs = this.sortParagraphs(book.paragraphs);
+	                }
+	            }
+	            return result;
+	        }
+	    }, {
+	        key: 'sortParagraphs',
+	        value: function sortParagraphs(paragraphs) {
+	            return paragraphs.sort(this.compareParagraph);
+	        }
+	    }, {
+	        key: 'compareParagraph',
+	        value: function compareParagraph(p1, p2) {
+	            if (!p1 && !p2) {
+	                return 0;
+	            } else if (!p1) {
+	                return 1;
+	            } else if (!p2) {
+	                return -1;
+	            } else {
+	                return p1.paragraphNr - p2.paragraphNr;
+	            }
+	        }
+	    }, {
+	        key: 'removeEscapedAccents',
+	        value: function removeEscapedAccents(text) {
+	            // workaround to avoid accent escape
+	            return text.replace(/\\xE0/g, 'à').replace(/\\xC0/g, 'À').replace(/\\xE8/g, 'è').replace(/\\xC8/g, 'È').replace(/\\xE9/g, 'é').replace(/\\xC9/g, 'É').replace(/\\xEE/g, 'î').replace(/\\xCE/g, 'Î').replace(/\\xF4/g, 'ô').replace(/\\D4x/g, 'Ô').replace(/\\xF9/g, 'ù').replace(/\\xD9/g, 'Ù').replace(/\\xE7/g, 'ç').replace(/\\xC7/g, 'Ç');
+	        }
+	    }, {
+	        key: 'isEdited',
+	        value: function isEdited(paragraph) {
+	            return true;
+	            // return !!paragraph && !!paragraph.lastEditedBy; TODO
+	        }
+	    }, {
+	        key: 'getEditedParagraphData',
+	        value: function getEditedParagraphData(paragraph) {
+	            var originalParagraph = this.booksService.getParagraph(paragraph.bookId, paragraph.paragraphNr);
+	
+	            this.removeUneditableParagraphData(paragraph);
+	            this.removeUnmodifiedParagraphData(paragraph, originalParagraph);
+	            if (this.hasModifiedParagraphData(paragraph)) {
+	                return paragraph;
+	            } else {
+	                return null;
+	            }
+	        }
+	    }, {
+	        key: 'removeUneditableParagraphData',
+	        value: function removeUneditableParagraphData(paragraph) {
+	            delete paragraph.bookId;
+	            delete paragraph.version;
+	            for (var j = 0; j < paragraph.choices.length; j++) {
+	                delete paragraph.choices[j].alreadyChoosen;
+	            }
+	        }
+	    }, {
+	        key: 'removeUnmodifiedParagraphData',
+	        value: function removeUnmodifiedParagraphData(paragraph, originalParagraph) {
+	            if (!!originalParagraph) {
+	                if (paragraph.description === originalParagraph.description) {
+	                    delete paragraph.description;
+	                }
+	
+	                if (!!paragraph.choices) {
+	                    var deletedChoices = [];
+	                    for (var i = 0; i < originalParagraph.choices.length; i++) {
+	                        var found = false;
+	                        for (var j = 0; j < paragraph.choices.length; j++) {
+	                            if (originalParagraph.choices[i].paragraphNr == paragraph.choices[j].paragraphNr) {
+	                                found = true;
+	                                break;
+	                            }
+	                        }
+	                        if (!found) {
+	                            deletedChoices.push(originalParagraph.choices[i].paragraphNr);
+	                        }
+	                    }
+	                    if (deletedChoices.length > 0) {
+	                        paragraph.deletedChoices = deletedChoices;
+	                    }
+	
+	                    var choicesToDelete = [];
+	                    for (var i = 0; i < paragraph.choices.length; i++) {
+	                        for (var j = 0; j < originalParagraph.choices.length; j++) {
+	                            if (originalParagraph.choices[j].paragraphNr == paragraph.choices[i].paragraphNr && originalParagraph.choices[j].description === paragraph.choices[i].description) {
+	                                choicesToDelete.push(paragraph.choices[i]);
+	                            }
+	                        }
+	                    }
+	                    this.removeAll(paragraph.choices, choicesToDelete);
+	                    if (paragraph.choices.length === 0) {
+	                        delete paragraph.choices;
+	                    }
+	                }
+	
+	                if (!!paragraph.notes) {
+	                    var currentNotes = paragraph.notes;
+	                    delete paragraph.notes;
+	
+	                    var deletedNotes = [];
+	                    if (!!originalParagraph.notes) {
+	                        for (var i = 0; i < originalParagraph.notes.length; i++) {
+	                            var found = false;
+	                            for (var j = 0; j < currentNotes.length; j++) {
+	                                if (originalParagraph.notes[i].note == currentNotes[j].note) {
+	                                    found = true;
+	                                    break;
+	                                }
+	                            }
+	                            if (!found) {
+	                                deletedNotes.push(originalParagraph.notes[i].note);
+	                            }
+	                        }
+	
+	                        var addedNotes = [];
+	                        for (var i = 0; i < currentNotes.length; i++) {
+	                            var found = false;
+	                            for (var j = 0; j < originalParagraph.notes.length; j++) {
+	                                if (originalParagraph.notes[j].note == currentNotes[i].note) {
+	                                    found = true;
+	                                    break;
+	                                }
+	                            }
+	                            if (!found) {
+	                                addedNotes.push(currentNotes[i].note);
+	                            }
+	                        }
+	
+	                        if (deletedNotes.length > 0 || addedNotes.length > 0) {
+	                            paragraph.notes = {};
+	                            if (addedNotes.length > 0) {
+	                                paragraph.notes.added = addedNotes;
+	                            }
+	                            if (deletedNotes.length > 0) {
+	                                paragraph.notes.removed = deletedNotes;
+	                            }
+	                        }
+	                    } else if (!!currentNotes && currentNotes.length > 0) {
+	                        paragraph.notes = { added: currentNotes };
+	                    }
+	                }
+	            }
+	        }
+	    }, {
+	        key: 'hasModifiedParagraphData',
+	        value: function hasModifiedParagraphData(paragraph) {
+	            var keys = Object.keys(paragraph);
+	            this.remove(keys, 'paragraphNr');
+	            this.remove(keys, 'lastEditedBy');
+	            return keys.length > 0;
+	        }
+	    }, {
+	        key: 'removeAll',
+	        value: function removeAll(array, valuesToRemove) {
+	            for (var i = 0; i < valuesToRemove.length; i++) {
+	                this.remove(array, valuesToRemove[i]);
+	            }
+	        }
+	    }, {
+	        key: 'remove',
+	        value: function remove(array, valueToRemove) {
+	            array.splice(array.indexOf(valueToRemove), 1);
 	        }
 	    }]);
 	
@@ -4384,18 +4601,21 @@ webpackJsonp([0],[
 	
 	    /*@ngInject*/
 	
-	    function BooksLoaderInterceptorService(persistenceService, warlockOfFiretopMountainEnglishService) {
+	    function BooksLoaderInterceptorService(persistenceService, booksService) {
 	        _classCallCheck(this, BooksLoaderInterceptorService);
 	
 	        self = this;
 	        self.persistenceService = persistenceService;
-	        self.warlockOfFiretopMountainEnglishService = warlockOfFiretopMountainEnglishService;
+	        self.booksService = booksService;
 	    }
 	
 	    _createClass(BooksLoaderInterceptorService, [{
 	        key: "loadBooks",
 	        value: function loadBooks() {
-	            self.saveBookToPersistence(self.warlockOfFiretopMountainEnglishService.getBook());
+	            var books = self.booksService.getBooks();
+	            for (var i = 0; i < books.length; i++) {
+	                self.saveBookToPersistence(books[i]);
+	            }
 	        }
 	    }, {
 	        key: "saveBookToPersistence",
@@ -4514,8 +4734,12 @@ webpackJsonp([0],[
 	
 	var _warlockOfFiretopMountainWarlockOfFiretopMountain2 = _interopRequireDefault(_warlockOfFiretopMountainWarlockOfFiretopMountain);
 	
+	var _booksService = __webpack_require__(110);
+	
+	var _booksService2 = _interopRequireDefault(_booksService);
+	
 	/*@ngInject*/
-	var booksModule = _angular2['default'].module('app.components.services.books', [_warlockOfFiretopMountainWarlockOfFiretopMountain2['default'].name]);
+	var booksModule = _angular2['default'].module('app.components.services.books', [_warlockOfFiretopMountainWarlockOfFiretopMountain2['default'].name]).service('booksService', _booksService2['default']);
 	
 	exports['default'] = booksModule;
 	module.exports = exports['default'];
@@ -4574,12 +4798,12 @@ webpackJsonp([0],[
 	        self.book = {
 	            id: 'warlock-firetop-mountain',
 	            version: self.constants.version,
-	            language: 'en',
-	            name: 'The Warlock of Firetop Mountain',
+	            language: 'fr',
+	            name: 'Le Sorcier de la Montagne de Feu',
 	            authors: 'Steve Jackson & Ian Livingstone',
-	            isbn: '0-7434-7511-9',
+	            isbn: '978-2-07-064740-8',
 	            stats: [{
-	                name: 'Skill',
+	                name: 'Habilité',
 	                init: { sixDiceQuantity: 1, constant: 6 },
 	                battle: {
 	                    displayed: true,
@@ -4587,7 +4811,7 @@ webpackJsonp([0],[
 	                    editableForEnemy: true
 	                }
 	            }, {
-	                name: 'Stamina',
+	                name: 'Endurance',
 	                init: { sixDiceQuantity: 2, constant: 12 },
 	                battle: {
 	                    displayed: true,
@@ -4595,7 +4819,7 @@ webpackJsonp([0],[
 	                    editableForEnemy: true
 	                }
 	            }, {
-	                name: 'Luck',
+	                name: 'Chance',
 	                init: { sixDiceQuantity: 1, constant: 6 },
 	                battle: {
 	                    displayed: true,
@@ -4605,50 +4829,348 @@ webpackJsonp([0],[
 	            }],
 	            items: [{
 	                quantity: 1,
-	                description: 'sword'
+	                description: 'Epée'
 	            }, {
 	                quantity: 1,
-	                description: 'shield'
+	                description: 'Bouclier'
 	            }, {
 	                quantity: 1,
-	                description: 'leather armour'
+	                description: 'Armure de cuir'
 	            }, {
 	                quantity: 1,
-	                description: 'backpack'
+	                description: 'Sac à dos'
 	            }, {
 	                quantity: 1,
-	                description: 'lantern'
+	                description: 'Lanterne'
 	            }, {
 	                quantity: 10,
-	                description: 'meal (add 4 points to stamina)'
+	                description: "Repas (restitue 4 points d'endurance)"
 	            }, {
 	                quantity: 2,
-	                description: 'measure of potion of skill (restore skill points)'
+	                description: "Mesures de potion d'Adresse (rend vos points d'HABILITE)"
 	            }, {
 	                quantity: 2,
-	                description: 'measure of potion of strength (restore stamina points)'
+	                description: "Mesures de potion de Vigueur (rend vos points d'ENDURANCE)"
 	            }, {
 	                quantity: 2,
-	                description: 'measure of potion of luck (increase initial luck by 1 point and restore luck points)'
+	                description: "Mesures de Bonne Fortune (rend vos points de CHANCE + 1 point)"
 	            }],
 	            startParagraphNr: 1,
-	            notes: [{ note: 'Please choose either the potion of skill, strengh or luck (remove corresponding two unchoosen potions from items list.' }]
+	            notes: [{ note: "Veuilliez choisir soit la potion d'habilité, de force ou de chance (supprimez les potions non choisies de l'inventaire)." }]
 	        };
 	
 	        self.book.paragraphs = [{
 	            bookId: self.book.id,
 	            version: self.constants.version,
 	            paragraphNr: 1,
-	            description: 'Dark cave entrance',
+	            description: "Caverne sombre",
 	            choices: [{
 	                paragraphNr: 71,
-	                description: 'turn west'
+	                description: "Bifurquer vers l'ouest"
 	            }, {
 	                paragraphNr: 278,
-	                description: 'turn east'
-	            }],
-	            notes: [{ note: 'a note' } // TODO remove, for testing purpose
-	            ]
+	                description: "Bifurquer vers l'est"
+	            }]
+	        }, {
+	            bookId: self.book.id,
+	            version: self.constants.version,
+	            paragraphNr: 21,
+	            description: "Le coffre est solide et bien fermé.",
+	            choices: [{
+	                paragraphNr: 339,
+	                description: "Briser la serrure avec votre épée"
+	            }, {
+	                paragraphNr: 293,
+	                description: "Quitter la pièce"
+	            }]
+	        }, {
+	            bookId: self.book.id,
+	            version: self.constants.version,
+	            paragraphNr: 42,
+	            description: "Vous arrivez au bout du couloir avec un croisement.",
+	            choices: [{
+	                paragraphNr: 257,
+	                description: "Aller à l'ouest"
+	            }, {
+	                paragraphNr: 113,
+	                description: "Aller à l'est"
+	            }]
+	        }, {
+	            bookId: self.book.id,
+	            version: self.constants.version,
+	            paragraphNr: 71,
+	            description: "Lutin endormi dans une guérite du passage. Tentez votre chance pour passer devant lui sans le réveiller.",
+	            choices: [{
+	                paragraphNr: 301,
+	                description: "Réussite : le lutin ne se réveille pas."
+	            }, {
+	                paragraphNr: 248,
+	                description: "Échec : le lutin se réveille"
+	            }]
+	        }, {
+	            bookId: self.book.id,
+	            version: self.constants.version,
+	            paragraphNr: 82,
+	            description: "Petite pièce avec créature endormie et une petite boîte en bois. Tentez votre chance pour essayer de voler la boîte sans réveiller la créature",
+	            choices: [{
+	                paragraphNr: 208,
+	                description: "Quitter la pièce et continuer vers le nord"
+	            }, {
+	                paragraphNr: 147,
+	                description: "Réussite : la créature ne se réveille pas"
+	            }, {
+	                paragraphNr: 33,
+	                description: "Échec : la créature se réveille"
+	            }]
+	        }, {
+	            bookId: self.book.id,
+	            version: self.constants.version,
+	            paragraphNr: 92,
+	            description: "Croisement caverne",
+	            choices: [{
+	                paragraphNr: 71,
+	                description: "Avancer droit devant"
+	            }]
+	        }, {
+	            bookId: self.book.id,
+	            version: self.constants.version,
+	            paragraphNr: 113,
+	            description: "Une autre bifurcation",
+	            choices: [{
+	                paragraphNr: 285,
+	                description: "Aller au nord"
+	            }, {
+	                paragraphNr: 78,
+	                description: "Poursuivre vers l'est"
+	            }]
+	        }, {
+	            bookId: self.book.id,
+	            version: self.constants.version,
+	            paragraphNr: 116,
+	            description: "Attaquez les FARFADETS un par un. Ajouter 1 point à votre force d'attaque car ils sont surpris.\n1er FARFADET à HABILITÉ:5, ENDURANCE:4; 2ème FARFADET a HABILITÉ:5, ENDURANCE:5",
+	            choices: [{
+	                paragraphNr: 378,
+	                description: "Vous sortez vainqueur"
+	            }, {
+	                paragraphNr: 42,
+	                description: "Vous prenez la fuite"
+	            }]
+	        }, {
+	            bookId: self.book.id,
+	            version: self.constants.version,
+	            paragraphNr: 145,
+	            description: "La boîte contiens une clé avec le chiffre 99. Ajouter un point de CHANCE",
+	            choices: [{
+	                paragraphNr: 363,
+	                description: "Poursuivre"
+	            }]
+	        }, {
+	            bookId: self.book.id,
+	            version: self.constants.version,
+	            paragraphNr: 147,
+	            description: "Contenu de la boîte : 1 Pièce d'Or. Gain de 2 points de CHANCE",
+	            choices: [{
+	                paragraphNr: 208,
+	                description: "Continuer"
+	            }]
+	        }, {
+	            bookId: self.book.id,
+	            version: self.constants.version,
+	            paragraphNr: 156,
+	            description: "Test de l'enfoncement de la porte: 2d6 <= HABILITÉ",
+	            choices: [{
+	                paragraphNr: 343,
+	                description: "Porte enfoncée"
+	            }, {
+	                paragraphNr: 92,
+	                description: "Échec. Rebrousser à la bifurcation"
+	            }]
+	        }, {
+	            bookId: self.book.id,
+	            version: self.constants.version,
+	            paragraphNr: 168,
+	            description: "Il y a un coffre au centre de la pièce. Une créature de taille humaine fouette une autre créature semblable.",
+	            choices: [{
+	                paragraphNr: 372,
+	                description: "Attaquer les deux créatures"
+	            }, {
+	                paragraphNr: 65,
+	                description: "Attaquer uniquement le fouetteur"
+	            }, {
+	                paragraphNr: 293,
+	                description: "Quitter la pièce et retourner au croisement"
+	            }]
+	        }, {
+	            bookId: self.book.id,
+	            version: self.constants.version,
+	            paragraphNr: 201,
+	            description: "Il y a 25 Pièces d'Or, 1 dose de Potion d'Invisibilité, un gant de soie noire. Ranger une de ces trois trouvailles. Vous pouvez prendre un Repas.",
+	            choices: [{
+	                paragraphNr: 293,
+	                description: "Quittez la pièce"
+	            }]
+	        }, {
+	            bookId: self.book.id,
+	            version: self.constants.version,
+	            paragraphNr: 208,
+	            description: "Passage ayant une porte du côté ouest",
+	            choices: [{
+	                paragraphNr: 397,
+	                description: "Ouvrir la porte"
+	            }, {
+	                paragraphNr: 363,
+	                description: "Poursuivre votre chemin"
+	            }]
+	        }, {
+	            bookId: self.book.id,
+	            version: self.constants.version,
+	            paragraphNr: 240,
+	            description: "Un petit serpent jaillit de la boîte et vous mord au poignet.\nSERPENT a HABILITÉ:5, ENDURANCE:2",
+	            choices: [{
+	                paragraphNr: 145,
+	                description: "Si vous sortez vainqueur du combat"
+	            }]
+	        }, {
+	            bookId: self.book.id,
+	            version: self.constants.version,
+	            paragraphNr: 257,
+	            description: "Le passage aboutit à une porte. Vous entendez des cris de colère qui proviennent de la pièce.",
+	            choices: [{
+	                paragraphNr: 168,
+	                description: "Entrer dans la pièce"
+	            }, {
+	                paragraphNr: 293,
+	                description: "Revenir sur vos pas"
+	            }]
+	        }, {
+	            bookId: self.book.id,
+	            version: self.constants.version,
+	            paragraphNr: 278,
+	            description: "Passage se termine avec une porte fermée à clé",
+	            choices: [{
+	                paragraphNr: 156,
+	                description: "Enfoncer la porte"
+	            }, {
+	                paragraphNr: 92,
+	                description: "Rebrousser chemin"
+	            }]
+	        }, {
+	            bookId: self.book.id,
+	            version: self.constants.version,
+	            paragraphNr: 285,
+	            description: "Il y a une porte le long du mur du passage. Vous entendez un homme appeler à l'aide par le trou de serrure.",
+	            choices: [{
+	                paragraphNr: 213,
+	                description: "Ouvrir la porte"
+	            }, {
+	                paragraphNr: 314,
+	                description: "Poursuivre votre chemin"
+	            }]
+	        }, {
+	            bookId: self.book.id,
+	            version: self.constants.version,
+	            paragraphNr: 293,
+	            description: "Vous retournez à la bifurcation et parter vers l'est",
+	            choices: [{
+	                paragraphNr: 113,
+	                description: "Aller vers l'est"
+	            }]
+	        }, {
+	            bookId: self.book.id,
+	            version: self.constants.version,
+	            paragraphNr: 296,
+	            description: "La boîte contiens une formule magique de l'auteur Farrigo Di Maggio qui permet de neutraliser les Dragons. La page de la formule se consume une fois celle-ci retenue.",
+	            choices: [{
+	                paragraphNr: 42,
+	                description: "Quitter la pièce"
+	            }]
+	        }, {
+	            bookId: self.book.id,
+	            version: self.constants.version,
+	            paragraphNr: 301,
+	            description: "Passage avec porte d'où l'on entend des ronflements",
+	            choices: [{
+	                paragraphNr: 82,
+	                description: "Ouvrir la porte"
+	            }, {
+	                paragraphNr: 208,
+	                description: "Continuer vers le nord"
+	            }]
+	        }, {
+	            bookId: self.book.id,
+	            version: self.constants.version,
+	            paragraphNr: 339,
+	            description: "Peu après avoir ouvert le coffre, une fléchette vient vous atteindre à l'estomac. Réduisez un dé de points d'ENDURANCE.",
+	            choices: [{
+	                paragraphNr: 201,
+	                description: "Si vous survivez"
+	            }]
+	        }, {
+	            bookId: self.book.id,
+	            version: self.constants.version,
+	            paragraphNr: 343,
+	            description: "Fosse. Perte de 1 point d'ENDURANCE",
+	            choices: [{
+	                paragraphNr: 92,
+	                description: "Hisser hors de la fosse et faire rebrousse-chemin"
+	            }]
+	        }, {
+	            bookId: self.book.id,
+	            version: self.constants.version,
+	            paragraphNr: 363,
+	            description: "Il y a une porte dans le mur ouest du passage d'où l'on entend une cacophonie de voix chanter",
+	            choices: [{
+	                paragraphNr: 370,
+	                description: "Entrer dans la pièce"
+	            }, {
+	                paragraphNr: 42,
+	                description: "Poursuivre le long du passage"
+	            }]
+	        }, {
+	            bookId: self.book.id,
+	            version: self.constants.version,
+	            paragraphNr: 370,
+	            description: "Pièce avec une table autour de laquelle deux créatures éméchées sont assises. Il y a une petite boîte sous la table.",
+	            choices: [{
+	                paragraphNr: 116,
+	                description: "Combattre les créatures"
+	            }, {
+	                paragraphNr: 42,
+	                description: "Refermer la porte et courir le long du passage"
+	            }]
+	        }, {
+	            bookId: self.book.id,
+	            version: self.constants.version,
+	            paragraphNr: 372,
+	            description: "CHEF DES FARFADETS a HABILITÉ : 7, ENDURANCE : 6\nSERVITEUR a HABILITÉ : 5, ENDURANCE : 3",
+	            choices: [{
+	                paragraphNr: 21,
+	                description: "En cas de succès"
+	            }]
+	        }, {
+	            bookId: self.book.id,
+	            version: self.constants.version,
+	            paragraphNr: 378,
+	            description: "La boîte est intitulé \"Farrigo Di Maggio\"",
+	            choices: [{
+	                paragraphNr: 296,
+	                description: "Ouvrir la boîte"
+	            }, {
+	                paragraphNr: 42,
+	                description: "Quitter la pièce sans l'examiner"
+	            }]
+	        }, {
+	            bookId: self.book.id,
+	            version: self.constants.version,
+	            paragraphNr: 397,
+	            description: "Petite pièce avec une table. Sous la table, il y a une petite boîte.",
+	            choices: [{
+	                paragraphNr: 240,
+	                description: "Ouvrir la boîte"
+	            }, {
+	                paragraphNr: 363,
+	                description: "Quitter la pièce"
+	            }]
 	        }];
 	    }
 	
@@ -4667,6 +5189,79 @@ webpackJsonp([0],[
 
 /***/ },
 /* 110 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var self = undefined;
+	
+	var BooksService = (function () {
+	
+	    /*@ngInject*/
+	
+	    function BooksService(warlockOfFiretopMountainEnglishService) {
+	        _classCallCheck(this, BooksService);
+	
+	        self = this;
+	        this.warlockOfFiretopMountainEnglishService = warlockOfFiretopMountainEnglishService;
+	        this.books = [];
+	        this.initData();
+	    }
+	
+	    _createClass(BooksService, [{
+	        key: "initData",
+	        value: function initData() {
+	            var book = this.warlockOfFiretopMountainEnglishService.getBook();
+	            this.books.push(book);
+	            this.indexParagraphs(book);
+	        }
+	    }, {
+	        key: "indexParagraphs",
+	        value: function indexParagraphs(book) {
+	            book.mapParagraphs = [];
+	            for (var i = 0; i < book.paragraphs.length; i++) {
+	                book.mapParagraphs[new Number(book.paragraphs[i].paragraphNr)] = book.paragraphs[i];
+	            }
+	        }
+	    }, {
+	        key: "getBooks",
+	        value: function getBooks() {
+	            return this.books;
+	        }
+	    }, {
+	        key: "getParagraph",
+	        value: function getParagraph(bookId, paragraphNr) {
+	            var book = this.getBook(bookId);
+	            return book.mapParagraphs[new Number(paragraphNr)];
+	        }
+	    }, {
+	        key: "getBook",
+	        value: function getBook(bookId) {
+	            for (var i = 0; i < this.books.length; i++) {
+	                if (bookId === this.books[i].id) {
+	                    return this.books[i];
+	                }
+	            }
+	            return null;
+	        }
+	    }]);
+	
+	    return BooksService;
+	})();
+	
+	exports["default"] = BooksService;
+	module.exports = exports["default"];
+
+/***/ },
+/* 111 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4713,7 +5308,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 111 */
+/* 112 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4733,11 +5328,11 @@ webpackJsonp([0],[
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _appHtml = __webpack_require__(112);
+	var _appHtml = __webpack_require__(113);
 	
 	var _appHtml2 = _interopRequireDefault(_appHtml);
 	
-	__webpack_require__(113);
+	__webpack_require__(114);
 	
 	var appComponent = function appComponent() {
 	    return {
@@ -4749,19 +5344,19 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 112 */
+/* 113 */
 /***/ function(module, exports) {
 
 	module.exports = "<div ui-view></div>"
 
 /***/ },
-/* 113 */
+/* 114 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(114);
+	var content = __webpack_require__(115);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(38)(content, {});
@@ -4781,7 +5376,7 @@ webpackJsonp([0],[
 	}
 
 /***/ },
-/* 114 */
+/* 115 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(37)();
@@ -4795,7 +5390,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 115 */
+/* 116 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -4807,7 +5402,7 @@ webpackJsonp([0],[
 	};
 
 /***/ },
-/* 116 */
+/* 117 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -4944,7 +5539,8 @@ webpackJsonp([0],[
 		"State": "Status",
 		"in progress": "en cours",
 		"game over": "fin de partie",
-		"a note": "une note"
+		"a note": "une note",
+		"Edited paragraphs": "Paragraphes modifiées"
 	};
 
 /***/ }
