@@ -28,7 +28,7 @@ class SavedDataAdminController {
 
     initData() {
         self.applicationData = JSON.stringify(self.persistenceService.export());
-        self.editedParagraphsData = JSON.stringify(self.persistenceService.getEditedParagraphs());
+        self.editedParagraphsData = self.persistenceService.getEditedParagraphs();
     }
 
     showPopupConfirmDeleteApplicationData() {

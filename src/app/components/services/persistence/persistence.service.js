@@ -2,11 +2,12 @@ let self;
 class PersistenceService {
 
     /*@ngInject*/
-    constructor(softwareRequirementsCheckerService, constants, messagesService) {
+    constructor(softwareRequirementsCheckerService, constants, messagesService, booksService) {
         self = this;
         self.isLocalStorageSupported = softwareRequirementsCheckerService.isLocalStorageSupported();
         self.constants = constants;
         self.messagesService = messagesService;
+        self.booksService = booksService;
     }
 
     getSelectedLanguage() {
@@ -277,30 +278,202 @@ class PersistenceService {
         for (i = 0; i < keys.length; i++) {
             if (keys[i].startsWith(self.constants.data.book) && keys[i].indexOf('paragraph.') !== -1) {
                 let bookId = keys[i].substring(0, keys[i].indexOf('.paragraph'));
-                let paragraph = this.get(keys[i]);
-                if  (!!paragraph && !!paragraph.lastEditedBy) {
+                let paragraph = self.get(keys[i]);
+                if  (self.isEdited(paragraph)) {
                     if (!result[bookId]) {
                         result[bookId] = { paragraphs : [] };
                     }
-                    result[bookId].paragraphs.push(paragraph);
-                    delete paragraph.bookId;
-                    delete paragraph.version;
-                    for (let j = 0; j < paragraph.choices.length; j++) {
-                        delete paragraph.choices[j].alreadyChoosen;
+                    let editedParagraphData = self.getEditedParagraphData(paragraph);
+                    if (!!editedParagraphData) {
+                        result[bookId].paragraphs.push(editedParagraphData);
                     }
-
-                    let originalParagraph = this.getParagraph(bookId, paragraph.paragraphNr); // TODO call bookService
-                    debugger;
-
-                    // TODO supprimer description si pas changé par rapport
-                    // TODO choices non changé
-                    // TODO ajout removed choices id
-                    // TODO remove non modified notes
-                    // TODO ajout removed notes
                 }
             }
         }
+        result = this.sortEditedParagraphs(result);
+        if (Object.keys(result).length > 0) {
+            return this.removeEscapedAccents(result.toSource());
+        } else {
+            return null;
+        }
+    }
+
+    sortEditedParagraphs(books) {
+        let keys = Object.keys(books);
+        let result = {};
+        for (let i = 0; i < keys.length; i++) {
+            let book = books[keys[i]];
+            if (!!book.paragraphs && book.paragraphs.length > 0) {
+                result[keys[i]] = book;
+                book.paragraphs = this.sortParagraphs(book.paragraphs);
+            }
+        }
         return result;
+    }
+
+    sortParagraphs(paragraphs) {
+        return paragraphs.sort(this.compareParagraph);
+    }
+
+    compareParagraph(p1, p2) {
+        if (!p1 && !p2) {
+            return 0;
+        } else if (!p1) {
+            return 1;
+        } else if (!p2) {
+            return -1;
+        } else {
+            return p1.paragraphNr - p2.paragraphNr;
+        }
+    }
+
+    removeEscapedAccents(text) {
+        // workaround to avoid accent escape
+        return text.replace(/\\xE0/g, 'à')
+                    .replace(/\\xC0/g, 'À')
+                    .replace(/\\xE8/g, 'è')
+                    .replace(/\\xC8/g, 'È')
+                    .replace(/\\xE9/g, 'é')
+                    .replace(/\\xC9/g, 'É')
+                    .replace(/\\xEE/g, 'î')
+                    .replace(/\\xCE/g, 'Î')
+                    .replace(/\\xF4/g, 'ô')
+                    .replace(/\\D4x/g, 'Ô')
+                    .replace(/\\xF9/g, 'ù')
+                    .replace(/\\xD9/g, 'Ù')
+                    .replace(/\\xE7/g, 'ç')
+                    .replace(/\\xC7/g, 'Ç');
+    }
+
+    isEdited(paragraph) {
+        return true;
+        // return !!paragraph && !!paragraph.lastEditedBy; TODO
+    }
+
+    getEditedParagraphData(paragraph) {
+        let originalParagraph = this.booksService.getParagraph(paragraph.bookId, paragraph.paragraphNr);
+
+        this.removeUneditableParagraphData(paragraph);
+        this.removeUnmodifiedParagraphData(paragraph, originalParagraph);
+        if (this.hasModifiedParagraphData(paragraph)) {
+            return paragraph;
+        } else {
+            return null;
+        }
+    }
+
+    removeUneditableParagraphData(paragraph) {
+        delete paragraph.bookId;
+        delete paragraph.version;
+        for (let j = 0; j < paragraph.choices.length; j++) {
+            delete paragraph.choices[j].alreadyChoosen;
+        }
+    }
+
+    removeUnmodifiedParagraphData(paragraph, originalParagraph) {
+        if (!!originalParagraph) {
+            if (paragraph.description === originalParagraph.description) {
+                delete paragraph.description;
+            }
+
+            if (!!paragraph.choices) {
+                let deletedChoices = [];
+                for (let i = 0; i < originalParagraph.choices.length; i++) {
+                    let found = false;
+                    for (let j = 0; j < paragraph.choices.length; j++) {
+                        if (originalParagraph.choices[i].paragraphNr == paragraph.choices[j].paragraphNr) {
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (!found) {
+                        deletedChoices.push(originalParagraph.choices[i].paragraphNr)
+                    }
+                }
+                if (deletedChoices.length > 0) {
+                    paragraph.deletedChoices = deletedChoices;
+                }
+
+                let choicesToDelete = [];
+                for (let i = 0; i < paragraph.choices.length; i++) {
+                    for (let j = 0; j < originalParagraph.choices.length; j++) {
+                        if (originalParagraph.choices[j].paragraphNr == paragraph.choices[i].paragraphNr &&
+                                originalParagraph.choices[j].description === paragraph.choices[i].description) {
+                            choicesToDelete.push(paragraph.choices[i]);
+                        }
+                    }
+                }
+                this.removeAll(paragraph.choices, choicesToDelete);
+                if (paragraph.choices.length === 0) {
+                    delete paragraph.choices;
+                }
+            }
+
+            if (!!paragraph.notes) {
+                let currentNotes = paragraph.notes;
+                delete paragraph.notes;
+
+                let deletedNotes = [];
+                if (!!originalParagraph.notes) {
+                    for (let i = 0; i < originalParagraph.notes.length; i++) {
+                        let found = false;
+                        for (let j = 0; j < currentNotes.length; j++) {
+                            if (originalParagraph.notes[i].note == currentNotes[j].note) {
+                                found = true;
+                                break;
+                            }
+                        }
+                        if (!found) {
+                            deletedNotes.push(originalParagraph.notes[i].note)
+                        }
+                    }
+
+                    let addedNotes = [];
+                    for (let i = 0; i < currentNotes.length; i++) {
+                        let found = false;
+                        for (let j = 0; j < originalParagraph.notes.length; j++) {
+                            if (originalParagraph.notes[j].note == currentNotes[i].note) {
+                                found = true;
+                                break;
+                            }
+                        }
+                        if (!found) {
+                            addedNotes.push(currentNotes[i].note)
+                        }
+                    }
+
+                    if (deletedNotes.length > 0 || addedNotes.length > 0) {
+                        paragraph.notes = {};
+                        if (addedNotes.length > 0) {
+                            paragraph.notes.added = addedNotes;
+                        }
+                        if (deletedNotes.length > 0) {
+                            paragraph.notes.removed = deletedNotes;
+                        }
+                    }
+
+                } else if (!!currentNotes && currentNotes.length > 0) {
+                    paragraph.notes = { added : currentNotes };
+                }
+            }
+        }
+    }
+
+    hasModifiedParagraphData(paragraph) {
+        let keys = Object.keys(paragraph);
+        this.remove(keys, 'paragraphNr');
+        this.remove(keys, 'lastEditedBy');
+        return keys.length > 0;
+    }
+
+    removeAll(array, valuesToRemove) {
+        for (let i = 0; i < valuesToRemove.length; i++) {
+            this.remove(array, valuesToRemove[i]);
+        }
+    }
+
+    remove(array, valueToRemove) {
+        array.splice(array.indexOf(valueToRemove), 1);
     }
 }
 

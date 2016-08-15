@@ -2,14 +2,17 @@ let self;
 class BooksLoaderInterceptorService {
 
     /*@ngInject*/
-    constructor(persistenceService, warlockOfFiretopMountainEnglishService) {
+    constructor(persistenceService, booksService) {
         self = this;
         self.persistenceService = persistenceService;
-        self.warlockOfFiretopMountainEnglishService = warlockOfFiretopMountainEnglishService;
+        self.booksService = booksService;
     }
 
     loadBooks() {
-        self.saveBookToPersistence(self.warlockOfFiretopMountainEnglishService.getBook());
+        let books = self.booksService.getBooks();
+        for (let i = 0; i < books.length; i++) {
+            self.saveBookToPersistence(books[i]);
+        }
     }
 
     saveBookToPersistence(book) {

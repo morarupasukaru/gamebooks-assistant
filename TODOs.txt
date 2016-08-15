@@ -3,6 +3,7 @@ after initial edited paragraph import:
 - change book name in french
 - update versioning
 - clean-up lang_...
+- alreadyChoosen > dans game au lieu de paragraph, book
 
 business
 - paths gameplays visualizer
@@ -15,7 +16,7 @@ business
 => si utilisateur modifie le paragraphe, seul lastEditBy est rempli
 => si appMajorVersion <>, paragraphVersion <> => alors le paragraphe est rechargé
 
-techical
+technical
 - action log instead of calling persistence.service directly (hide model)
 - try editable div instead of textarea for description ?
 - configure jshint (or something like that)
