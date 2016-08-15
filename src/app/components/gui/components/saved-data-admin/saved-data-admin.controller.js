@@ -9,14 +9,6 @@ class SavedDataAdminController {
         self.initData();
         self.$window = $window;
 
-        self.popupConfirmDeleteApplicationDataConfig = {
-            id : 'popupConfirmDeleteApplicationData',
-            text : 'Are you sure to clear the application data?',
-            choices : [constants.choices.yes, constants.choices.no],
-            withCloseButton : false,
-            closeOnClickOutsideModal : false
-        };
-
         self.popupConfirmImportApplicationDataConfig = {
             id : 'popupConfirmImportApplicationData',
             text : "All existing application's data will be erased during the import. Are you sure to import the application data?",
@@ -29,17 +21,6 @@ class SavedDataAdminController {
     initData() {
         self.applicationData = JSON.stringify(self.persistenceService.export());
         self.editedParagraphsData = self.persistenceService.getEditedParagraphs();
-    }
-
-    showPopupConfirmDeleteApplicationData() {
-        self.popupService.show(self.popupConfirmDeleteApplicationDataConfig.id, self.callbackPopupConfirmDeleteApplicationData);
-    }
-
-    callbackPopupConfirmDeleteApplicationData(popupDomElementId, choice) {
-        if (choice === self.constants.choices.yes) {
-            self.persistenceService.cleanAllData();
-            self.$window.location.reload();
-        }
     }
 
     showPopupConfirmImportData() {

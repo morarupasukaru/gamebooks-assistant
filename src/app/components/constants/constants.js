@@ -4,7 +4,6 @@ import angular from 'angular';
 let constantsModule = angular.module('app.components.constants', [])
     .constant('constants', {
         version: '20160815',
-        hasDataBreakingChange: true, // TODO move into version object
         supportedLanguages: ['en', 'fr'],
         data: {
             selectedLanguage: 'selectedLanguage',
@@ -22,7 +21,8 @@ let constantsModule = angular.module('app.components.constants', [])
             createPlayerForNewGame : '/games/create/create-player',
             chooseItemsForNewGame : '/games/create/choose-items',
             inGame: '/{bookId}/{paragraphNr}/game/{gameId}',
-            about: '/about'
+            about: '/about',
+            deleteData: '/delete-data'
         },
         choices : {
             yes : 'Yes',
