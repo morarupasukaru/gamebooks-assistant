@@ -35,7 +35,7 @@ class LanguagePickerService {
             }
 
             for (i = 0; i < this.constants.supportedLanguages.length; i++) {
-                if (navigator.language.startsWith(languages[i])) {
+                if (navigator.language.startsWith(this.constants.supportedLanguages[i])) {
                     return this.constants.supportedLanguages[i];
                 }
             }

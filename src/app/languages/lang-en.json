@@ -3,5 +3,7 @@
   "en": "English",
   "ChoiceGame" : "Choose game '{{ bookName }}' of '{{ playerName }}'",
   "ChoosenGame" : "The game '{{ bookName }}' of '{{ playerName }}' is choosen",
-  "application.description" : "The 'Gamebooks Assistant' Website is an aid to play fighting fantasy gamebooks (or similar books). The app allow to keep the statistics, items and notes of the player. Paragraphs'choices & description of the book can be edited and shared between several games."
+  "application.description" : "The 'Gamebooks Assistant' Website is an aid to play fighting fantasy gamebooks (or similar books). The app allow to keep the statistics, items and notes of the player. Paragraphs'choices & description of the book can be edited and shared between several games.",
+  "Change language to en" : "Change language to English",
+  "Change language to fr" : "Changez la langue au français"
 }
