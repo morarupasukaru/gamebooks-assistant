@@ -15,8 +15,6 @@ business
 - json gamebook sans image
 - possibilités de supprimé des parties (aussi les notes et paragraphes joués si checkbox activé)
 - paths gameplays visualizer
-- sortir le choix de la langue hors de la config (dropdown dans navbar)
-- url caché pour obtenir les paragraphes éditées par le(s) joueurs (tel que format javascript des services des livres), si possible sans \"
 - version app : { major : xx, minor : xx } sauvé dans localStorage
 - version données livre: { appMajorVersion: xx, language, bookVersion: xx, date },
 => si version app major <> version données livre dans localStorage, warn & reload des données du livre (effacement)
