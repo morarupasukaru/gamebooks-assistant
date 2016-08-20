@@ -7,6 +7,12 @@
                 <li ng-if="$ctrl.admin"><a ui-sref="deleteData">{{ 'Delete data' | translate }}</a></li>
                 <li><a ui-sref="about">{{ 'About' | translate }}</a></li>
             </ul>
+            <p class="navbar-text navbar-right">
+                <a href ng-click="$ctrl.changeLanguage('de')" ng-show="$ctrl.language !== 'de'">de</a>
+                <a href ng-click="$ctrl.changeLanguage('fr')" ng-show="$ctrl.language !== 'fr'">fr</a>
+                <a href ng-click="$ctrl.changeLanguage('it')" ng-show="$ctrl.language !== 'it'">it</a>
+                <a href ng-click="$ctrl.changeLanguage('en')" ng-show="$ctrl.language !== 'en'">en</a>
+            </p>
         </div>
     </div>
 </nav>
