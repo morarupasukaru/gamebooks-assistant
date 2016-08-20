@@ -6,6 +6,14 @@ after initial edited paragraph import:
 - alreadyChoosen > dans game au lieu de paragraph, book
 
 business
+- create gamebook in gui
+- stats games: nb pages joués, éditées, nb défaites
+- gamebooks directory, json file with gamebook (list of url of gamebook directory)
+- export edited pages: export toutes les paragraphes, donnés livre et pas que celles édités (ide permet de faire des diffs)
+- écran gamebook: permet de téléchargé, voir les téléchargés, upgradable, delete
+- affiche la taille dispo du localStorage
+- json gamebook sans image
+- possibilités de supprimé des parties (aussi les notes et paragraphes joués si checkbox activé)
 - paths gameplays visualizer
 - sortir le choix de la langue hors de la config (dropdown dans navbar)
 - url caché pour obtenir les paragraphes éditées par le(s) joueurs (tel que format javascript des services des livres), si possible sans \"
@@ -17,6 +25,7 @@ business
 => si appMajorVersion <>, paragraphVersion <> => alors le paragraphe est rechargé
 
 technical
+- meilleur encapsulation des données, api
 - action log instead of calling persistence.service directly (hide model)
 - try editable div instead of textarea for description ?
 - configure jshint (or something like that)
