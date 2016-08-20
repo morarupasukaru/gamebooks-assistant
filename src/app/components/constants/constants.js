@@ -14,15 +14,14 @@ let constantsModule = angular.module('app.components.constants', [])
         url: {
             battle : '/battle',
             chooseLanguage : '/choose-language',
-            configuration: '/configuration',
+            administration: '/administration',
             games : '/games',
             root: '/',
             selectBookForNewGame : '/games/create/select-book',
             createPlayerForNewGame : '/games/create/create-player',
             chooseItemsForNewGame : '/games/create/choose-items',
             inGame: '/{bookId}/{paragraphNr}/game/{gameId}',
-            about: '/about?admin',
-            deleteData: '/delete-data'
+            about: '/about?admin'
         },
         choices : {
             yes : 'Yes',
