@@ -82,7 +82,7 @@ exports.production = extend({}, commonConfig, {
             }
         }),
         new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js')
-    ], devtool: 'cheap-source-map'
+    ], devtool: 'source-map'
 });
 
 /**

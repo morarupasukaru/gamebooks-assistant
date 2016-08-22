@@ -31,7 +31,6 @@ technical
     - angular-cookies?
     - angular-resource?
 - understand webpack & ease configuration
-- correct bug with minify
 - how to display image with url with webpack & angularjs correctly?
 - todo url git project in package.json
 - ng-include base64, license
