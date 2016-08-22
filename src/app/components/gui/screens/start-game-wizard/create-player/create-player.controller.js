@@ -16,8 +16,7 @@ class CreatePlayerController {
 
     loadData(book) {
         self.stats = [];
-        let i;
-        for (i = 0; i < book.stats.length; i++) {
+        for (let i = 0; i < book.stats.length; i++) {
             let currentStats = book.stats[i];
             self.stats.push({ name : currentStats.name,
                 generate : function() {
@@ -28,8 +27,7 @@ class CreatePlayerController {
     }
 
     generateStats() {
-        let i;
-        for (i = 0; i < self.stats.length; i++) {
+        for (let i = 0; i < self.stats.length; i++) {
             let stats = self.stats[i];
             stats.value = stats.generate();
         }
@@ -47,10 +45,10 @@ class CreatePlayerController {
         let nextUrl = self.constants.url.chooseItemsForNewGame +
           "?bookId=" + encodeURIComponent(self.book.id) +
           "&playerName=" + encodeURIComponent(self.playerName);
-        let i;
 
         let statsParam = '';
-        for (i = 0; i < self.stats.length; i++) {
+
+        for (let i = 0; i < self.stats.length; i++) {
             let stats = self.stats[i];
             statsParam = statsParam + encodeURIComponent(stats.name) + encodeURIComponent(stats.value) + ',';
         }

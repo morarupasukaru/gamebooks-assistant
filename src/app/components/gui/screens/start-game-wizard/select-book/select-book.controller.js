@@ -13,10 +13,8 @@ class SelectBookController {
 
     initData() {
         let bookPersistenceKeys = self.persistenceService.getBookPersistenceKeys();
-        let i;
-
         self.books = [];
-        for (i = 0; i < bookPersistenceKeys.length; i++) {
+        for (let i = 0; i < bookPersistenceKeys.length; i++) {
             let book = self.persistenceService.getBook(bookPersistenceKeys[i]);
             self.books.push(book);
         }

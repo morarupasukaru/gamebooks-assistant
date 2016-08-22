@@ -29,8 +29,7 @@ class NotesController {
         self.notes = [];
         let paragraph = self.persistenceService.getParagraph(self.bookId, self.paragraphNr);
         if (!!paragraph && !!paragraph.notes) {
-            let i;
-            for (i = 0; i < paragraph.notes.length; i++) {
+            for (let i = 0; i < paragraph.notes.length; i++) {
                 self.notes.push(paragraph.notes[i]);
                 paragraph.notes[i].paragraphNr = self.paragraphNr;
                 paragraph.notes[i].isParagraph = !!paragraph.notes[i].paragraphNr;
@@ -112,8 +111,7 @@ class NotesController {
         }
 
         let savedNotes = [];
-        let i;
-        for (i = 0; i < self.notes.length; i++) {
+        for (let i = 0; i < self.notes.length; i++) {
             if (!self.notes[i].paragraphNr) {
                 savedNotes.push({ note : self.notes[i].note, playerName : self.notes[i].playerName});
             }
@@ -125,8 +123,7 @@ class NotesController {
 
     saveParagraphNotes() {
         let savedNotes = [];
-        let i;
-        for (i = 0; i < self.notes.length; i++) {
+        for (let i = 0; i < self.notes.length; i++) {
             if (!!self.notes[i].paragraphNr) {
                 savedNotes.push({ note : self.notes[i].note, playerName : self.notes[i].playerName});
             }

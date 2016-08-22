@@ -14,8 +14,7 @@ class ChooseItemsController {
 
         self.book = persistenceService.getBook($stateParams.bookId);
         self.playerItems = self.book.items;
-        let i;
-        for (i = 0; i < self.playerItems.length; i++) {
+        for (let i = 0; i < self.playerItems.length; i++) {
             self.playerItems[i].description = $translate.instant(self.playerItems[i].description);
         }
         this.displayNotes();
@@ -58,8 +57,7 @@ class ChooseItemsController {
     getStatsInUrlParam() {
         let statsParamValue = self.$stateParams['stats'];
         let stats = [];
-        let i;
-        for (i = 0; i < self.book.stats.length; i++) {
+        for (let i = 0; i < self.book.stats.length; i++) {
             let currentStats = self.book.stats[i];
             let startPos = statsParamValue.indexOf(currentStats.name);
             startPos = startPos + currentStats.name.length;

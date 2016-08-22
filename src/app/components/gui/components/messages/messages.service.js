@@ -55,8 +55,7 @@ class MessagesService {
 
     _hasMessage(msg, type) {
         let hasMessage = false;
-        let i;
-        for (i = 0; i < self.$rootScope.messages.length; i++) {
+        for (let i = 0; i < self.$rootScope.messages.length; i++) {
             if (self.$rootScope.messages[i].message === msg && self.$rootScope.messages[i].type === type) {
                 hasMessage = true;
                 break;

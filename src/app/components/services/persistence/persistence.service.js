@@ -32,8 +32,7 @@ class PersistenceService {
         }
         let keys = Object.keys(localStorage);
         let result = [];
-        let i;
-        for (i = 0; i < keys.length; i++) {
+        for (let i = 0; i < keys.length; i++) {
             if (keys[i].startsWith(self.constants.data.book) && keys[i].indexOf('paragraph.') === -1) {
                 result.push(keys[i]);
             }
@@ -47,8 +46,7 @@ class PersistenceService {
         }
         let keys = Object.keys(localStorage);
         let result = [];
-        let i;
-        for (i = 0; i < keys.length; i++) {
+        for (let i = 0; i < keys.length; i++) {
             if (keys[i].startsWith(keyPrefix)) {
                 result.push(keys[i]);
             }
@@ -63,8 +61,7 @@ class PersistenceService {
     setBook(book) {
         let bookInfo = {};
         let keys = Object.keys(book);
-        let i;
-        for (i = 0; i < keys.length; i++) {
+        for (let i = 0; i < keys.length; i++) {
             if (keys[i] !== 'paragraphs') {
                 bookInfo[keys[i]] = book[keys[i]];
             }
@@ -106,8 +103,7 @@ class PersistenceService {
         paragraph = JSON.parse(JSON.stringify(paragraph));
         let key = self.getParagraphPersistenceKey(paragraph.bookId, paragraph.paragraphNr);
         if (!!paragraph.choices) {
-            let i;
-            for (i = 0; i < paragraph.choices.length; i++) {
+            for (let i = 0; i < paragraph.choices.length; i++) {
                 delete paragraph.choices[i]['$$hashKey'];
             }
         }
@@ -137,8 +133,7 @@ class PersistenceService {
         };
 
         savedGame.stats = [];
-        let i;
-        for (i = 0; i < game.stats.length;i++) {
+        for (let i = 0; i < game.stats.length;i++) {
             savedGame.stats.push({ name: game.stats[i].name, initial: game.stats[i].value, current: game.stats[i].value});
         }
 
@@ -154,8 +149,7 @@ class PersistenceService {
 
         let key = self.getGamePersistenceKey(game.id);
         if (!!game.items) {
-            let i;
-            for (i = 0; i < game.items.length; i++) {
+            for (let i = 0; i < game.items.length; i++) {
                 delete game.items[i]['$$hashKey'];
             }
         }
@@ -170,8 +164,8 @@ class PersistenceService {
         let game = this.getGame(gameId);
         if (!!fromParagrahNr) {
             let paragraph = this.getParagraph(game.bookId, fromParagrahNr);
-            let choice;
-            for (choice of paragraph.choices) {
+            for (let i = 0; i < paragraph.choices.length; i++) {
+                let choice = paragraph.choices[i];
                 if (choice.paragraphNr === toParagraphNr) {
                     choice.alreadyChoosen = true;
                     break ;
@@ -249,8 +243,7 @@ class PersistenceService {
         self.cleanAllData();
         let importData = JSON.parse(importDataAsJson);
         let keys = Object.keys(importData);
-        let i;
-        for (i = 0; i < keys.length; i++) {
+        for (let i = 0; i < keys.length; i++) {
             self.save(keys[i], importData[keys[i]]);
         }
     }
@@ -275,8 +268,7 @@ class PersistenceService {
         let keys = Object.keys(localStorage);
         let result = {};
         let mapEditedParagraph = [];
-        let i;
-        for (i = 0; i < keys.length; i++) {
+        for (let i = 0; i < keys.length; i++) {
             if (keys[i].startsWith(self.constants.data.book) && keys[i].indexOf('paragraph.') !== -1) {
                 let bookId = keys[i].substring(0, keys[i].indexOf('.paragraph'));
                 let paragraph = self.get(keys[i]);

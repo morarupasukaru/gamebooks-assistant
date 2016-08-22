@@ -15,10 +15,8 @@ class GamesController {
 
     initData() {
         let gamePersistenceKeys = self.persistenceService.getGamePersistenceKeys();
-        let i;
-
         self.rows = [];
-        for (i = 0; i < gamePersistenceKeys.length; i++) {
+        for (let i = 0; i < gamePersistenceKeys.length; i++) {
             let game = self.persistenceService.getGame(gamePersistenceKeys[i]);
             self.rows.push(game);
         }
@@ -27,7 +25,7 @@ class GamesController {
     }
 
     completeBookName(games) {
-        for (var i = 0; i < games.length; i++) {
+        for (let i = 0; i < games.length; i++) {
             let book = self.persistenceService.getBook(games[i].bookId);
             if (!!book) {
                 games[i].bookName = book.name;
@@ -39,7 +37,7 @@ class GamesController {
     }
 
     select(row) {
-        for (var i = 0; i < self.rows.length; i++) {
+        for (let i = 0; i < self.rows.length; i++) {
             self.rows[i].selected = false;
         }
         row.selected = true;
@@ -60,7 +58,7 @@ class GamesController {
 
 
     getSelectedRow() {
-        for (var i = 0; i < self.rows.length; i++) {
+        for (let i = 0; i < self.rows.length; i++) {
             if (!!self.rows[i].selected) {
                 return self.rows[i];
             }

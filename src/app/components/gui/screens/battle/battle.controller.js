@@ -36,8 +36,7 @@ class BattleController {
     initStatsData() {
         if (!!self.game && !!self.book) {
             self.stats = [];
-            let i;
-            for (i = 0; i < self.book.stats.length; i++) {
+            for (let i = 0; i < self.book.stats.length; i++) {
                 let currentStats = self.book.stats[i];
                 if (!!currentStats.battle && !!currentStats.battle.displayed) {
                     self.stats.push({ name: currentStats.name, enemyDefaultValue: currentStats.battle.enemyDefaultValue, editableForEnemy: currentStats.battle.editableForEnemy});
@@ -48,14 +47,11 @@ class BattleController {
 
     initPlayerStats() {
         if (!!self.stats) {
-            let i;
             self.statsPlayer = { name : self.game.playerName};
 
-            for (i = 0; i < self.stats.length; i++) {
+            for (let i = 0; i < self.stats.length; i++) {
                 let currentStats = self.stats[i];
-
-                let j;
-                for (j = 0; j < self.game.stats.length; j++) {
+                for (let j = 0; j < self.game.stats.length; j++) {
                     let currentGameStats = self.game.stats[j];
                     if (currentStats.name === currentGameStats.name) {
                         self.statsPlayer[currentStats.name] = currentGameStats.current;
@@ -73,10 +69,9 @@ class BattleController {
             defaultEnemyName = self.book.defaultEnemyName;
         }
 
-        let i;
         let statsDefaultEnemy = { name : defaultEnemyName };
 
-        for (i = 0; i < self.stats.length; i++) {
+        for (let i = 0; i < self.stats.length; i++) {
             let currentStats = self.stats[i];
             statsDefaultEnemy[currentStats.name] = currentStats.enemyDefaultValue;
         }
@@ -90,8 +85,7 @@ class BattleController {
     }
 
     save() {
-        let i;
-        for (i = 0; i < self.game.stats.length; i++) {
+        for (let i = 0; i < self.game.stats.length; i++) {
             let currentStats = self.game.stats[i];
             currentStats.current = self.statsPlayer[currentStats.name];
         }

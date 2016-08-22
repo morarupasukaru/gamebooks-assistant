@@ -7,9 +7,8 @@ class DicesService {
     }
 
     rollDices(qty, maxDiceValue) {
-        let i;
         let dicesValue = 0;
-        for (i = 0; i < qty; i++) {
+        for (let i = 0; i < qty; i++) {
             dicesValue = dicesValue + self.randomIntInclusive(1, maxDiceValue);
         }
         return dicesValue;
