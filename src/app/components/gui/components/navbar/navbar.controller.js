@@ -10,6 +10,7 @@ class NavbarController {
         if (!!params.admin) {
             this.admin = true;
         }
+        this.navCollapsed = true;
         this.initData();
     }
 
