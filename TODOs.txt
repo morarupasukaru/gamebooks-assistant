@@ -52,3 +52,6 @@ version 2
 - paragraph with images & description > can be a gamebook completelly
 - permettre de traduire le texte d'un jeu en chargeant celui-ci malgré une langue d'interface différente, mise en évidence des textes non édités
 - lonewolf play
+
+reprendre à partir 212
+pouvoir prendre tel-quel paragraphe edite sans retouche a la main
