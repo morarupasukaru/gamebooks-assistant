@@ -926,6 +926,7 @@ webpackJsonp([0],[
 	        if (!!params.admin) {
 	            this.admin = true;
 	        }
+	        this.navCollapsed = true;
 	        this.initData();
 	    }
 	
