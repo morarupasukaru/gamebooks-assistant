@@ -1,36 +1,32 @@
+améliorations
 - corriger le bug que l'interface sur ipad ne répond parfois pas bien
 - sauver "alreadyChoosen" dans les données des parties au lieu que dans les données des livres
 - export edited pages: export toutes les paragraphes, donnés livre et pas que celles édités (ide permet de faire des diffs)
 - supprimer gamebookId et version de la liste des paragraphhes (si possible)
+- refactoring lié au version de l'application, version des livres,
+- supprimer dépendances à angular-translate-loader-static-files (utilisation de angular-translate) & nettoyage des clefs i18n inutiles
+- encapsuler l'utilisation de localStorage dans un service, ajout d'une méthode pour connaitre la place dispo
+- partager persistenceService en min. deux: 1 pour les données des parties, 1 pour les données de livre
+- version app : { major : xx, minor : xx } sauvé dans localStorage
+=> si version app major <> version major sauvé dans le livre alors un reload des données du livre sont nécessaires ou impossible
+- try editable div instead of textarea
+- ng-include base64 pour les images favicon & dices
+- configure jshint (or something like that)
+
+nouvelles fonctionnalités
 - affiche la taille dispo du localStorage dans écran admin
 - possibilités de supprimé des parties (aussi les notes et paragraphes joués si checkbox activé)
 - permettre la création de livre à l'aide de l'application
 - permettre d'extraire les données d'un livre sous la forme json et utilisable sans retouche (format doit rester stable afin de permettre de faire des diff)
 - gestion des livres via un écran de liste propre (permet de créer, éditer données générales, supprimer, télécharger, downgradé, faire un export en json)
 - permettre le téléchargement, upgrade de livres (et non pas automatique)
-- référerencer les livres dispo via des url qui fournissent des données json
-- refactoring lié au version de l'application, version des livres, configuration de l'url des sites de référencement via écran admin
-- supprimer dépendances à angular-translate-loader-static-files (utilisation de angular-translate) & nettoyage des clefs i18n inutiles
-- encapsuler l'utilisation de localStorage dans un service, ajout d'une méthode pour connaitre la place dispo
-- partager persistenceService en min. deux: 1 pour les données des parties, 1 pour les données de livre
+- référerencer les livres dispo via des url qui fournissent des données json, configuration de l'url des sites de référencement via écran admin
 - game paths vizualiser
-- version app : { major : xx, minor : xx } sauvé dans localStorage
-=> si version app major <> version major sauvé dans le livre alors un reload des données du livre sont nécessaires ou impossible
-- try editable div instead of textarea
-- ng-include base64 pour les images favicon & dices
 
-but qualité:
-- meilleur encapsulation des données, api
-- configure jshint (or something like that)
-
-idée:
-- action log instead of calling persistence.service directly (hide model)
-
-version 2
+plus tard:
 - afficher des statistiques sur les livres (nb pages joués, nb défaites, nb de paragraphes)
 - integrate battle rules, luck rules
 - how to check orthographe? special export?
 - gestion des images (& autre multimedia)
 - interface "skinable"
-- paragraph with images & description > can be a gamebook completelly
 - lonewolf play
