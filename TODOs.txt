@@ -1,3 +1,7 @@
+
+
+
+
 after initial edited paragraph import:
 - update versioning
 - clean-up lang_...
@@ -30,11 +34,9 @@ technical
     - use direct angular-translate instead of angular-translate-loader-static-files
     - angular-cookies?
     - angular-resource?
-- understand webpack & ease configuration
 - how to display image with url with webpack & angularjs correctly?
 - todo url git project in package.json
-- ng-include base64, license
-- license as expand (code) in about
+- ng-include base64
 
 version 2
 - integrate battle rules, luck rules
@@ -45,5 +47,4 @@ version 2
 - permettre de traduire le texte d'un jeu en chargeant celui-ci malgré une langue d'interface différente, mise en évidence des textes non édités
 - lonewolf play
 
-reprendre à partir 212
 pouvoir prendre tel-quel paragraphe edite sans retouche a la main
