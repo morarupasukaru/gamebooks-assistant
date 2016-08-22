@@ -779,8 +779,7 @@ webpackJsonp([0],[
 	        key: '_hasMessage',
 	        value: function _hasMessage(msg, type) {
 	            var hasMessage = false;
-	            var i = undefined;
-	            for (i = 0; i < self.$rootScope.messages.length; i++) {
+	            for (var i = 0; i < self.$rootScope.messages.length; i++) {
 	                if (self.$rootScope.messages[i].message === msg && self.$rootScope.messages[i].type === type) {
 	                    hasMessage = true;
 	                    break;
@@ -1569,8 +1568,7 @@ webpackJsonp([0],[
 	            self.notes = [];
 	            var paragraph = self.persistenceService.getParagraph(self.bookId, self.paragraphNr);
 	            if (!!paragraph && !!paragraph.notes) {
-	                var i = undefined;
-	                for (i = 0; i < paragraph.notes.length; i++) {
+	                for (var i = 0; i < paragraph.notes.length; i++) {
 	                    self.notes.push(paragraph.notes[i]);
 	                    paragraph.notes[i].paragraphNr = self.paragraphNr;
 	                    paragraph.notes[i].isParagraph = !!paragraph.notes[i].paragraphNr;
@@ -1662,8 +1660,7 @@ webpackJsonp([0],[
 	            }
 	
 	            var savedNotes = [];
-	            var i = undefined;
-	            for (i = 0; i < self.notes.length; i++) {
+	            for (var i = 0; i < self.notes.length; i++) {
 	                if (!self.notes[i].paragraphNr) {
 	                    savedNotes.push({ note: self.notes[i].note, playerName: self.notes[i].playerName });
 	                }
@@ -1676,8 +1673,7 @@ webpackJsonp([0],[
 	        key: 'saveParagraphNotes',
 	        value: function saveParagraphNotes() {
 	            var savedNotes = [];
-	            var i = undefined;
-	            for (i = 0; i < self.notes.length; i++) {
+	            for (var i = 0; i < self.notes.length; i++) {
 	                if (!!self.notes[i].paragraphNr) {
 	                    savedNotes.push({ note: self.notes[i].note, playerName: self.notes[i].playerName });
 	                }
@@ -2503,10 +2499,8 @@ webpackJsonp([0],[
 	        key: "initData",
 	        value: function initData() {
 	            var gamePersistenceKeys = self.persistenceService.getGamePersistenceKeys();
-	            var i = undefined;
-	
 	            self.rows = [];
-	            for (i = 0; i < gamePersistenceKeys.length; i++) {
+	            for (var i = 0; i < gamePersistenceKeys.length; i++) {
 	                var game = self.persistenceService.getGame(gamePersistenceKeys[i]);
 	                self.rows.push(game);
 	            }
@@ -2672,8 +2666,7 @@ webpackJsonp([0],[
 	        value: function initStatsData() {
 	            if (!!self.game && !!self.book) {
 	                self.stats = [];
-	                var i = undefined;
-	                for (i = 0; i < self.book.stats.length; i++) {
+	                for (var i = 0; i < self.book.stats.length; i++) {
 	                    var currentStats = self.book.stats[i];
 	                    if (!!currentStats.battle && !!currentStats.battle.displayed) {
 	                        self.stats.push({ name: currentStats.name, enemyDefaultValue: currentStats.battle.enemyDefaultValue, editableForEnemy: currentStats.battle.editableForEnemy });
@@ -2685,14 +2678,11 @@ webpackJsonp([0],[
 	        key: 'initPlayerStats',
 	        value: function initPlayerStats() {
 	            if (!!self.stats) {
-	                var i = undefined;
 	                self.statsPlayer = { name: self.game.playerName };
 	
-	                for (i = 0; i < self.stats.length; i++) {
+	                for (var i = 0; i < self.stats.length; i++) {
 	                    var currentStats = self.stats[i];
-	
-	                    var j = undefined;
-	                    for (j = 0; j < self.game.stats.length; j++) {
+	                    for (var j = 0; j < self.game.stats.length; j++) {
 	                        var currentGameStats = self.game.stats[j];
 	                        if (currentStats.name === currentGameStats.name) {
 	                            self.statsPlayer[currentStats.name] = currentGameStats.current;
@@ -2711,10 +2701,9 @@ webpackJsonp([0],[
 	                defaultEnemyName = self.book.defaultEnemyName;
 	            }
 	
-	            var i = undefined;
 	            var statsDefaultEnemy = { name: defaultEnemyName };
 	
-	            for (i = 0; i < self.stats.length; i++) {
+	            for (var i = 0; i < self.stats.length; i++) {
 	                var currentStats = self.stats[i];
 	                statsDefaultEnemy[currentStats.name] = currentStats.enemyDefaultValue;
 	            }
@@ -2729,8 +2718,7 @@ webpackJsonp([0],[
 	    }, {
 	        key: 'save',
 	        value: function save() {
-	            var i = undefined;
-	            for (i = 0; i < self.game.stats.length; i++) {
+	            for (var i = 0; i < self.game.stats.length; i++) {
 	                var currentStats = self.game.stats[i];
 	                currentStats.current = self.statsPlayer[currentStats.name];
 	            }
@@ -3114,10 +3102,8 @@ webpackJsonp([0],[
 	        key: "initData",
 	        value: function initData() {
 	            var bookPersistenceKeys = self.persistenceService.getBookPersistenceKeys();
-	            var i = undefined;
-	
 	            self.books = [];
-	            for (i = 0; i < bookPersistenceKeys.length; i++) {
+	            for (var i = 0; i < bookPersistenceKeys.length; i++) {
 	                var book = self.persistenceService.getBook(bookPersistenceKeys[i]);
 	                self.books.push(book);
 	            }
@@ -3229,9 +3215,8 @@ webpackJsonp([0],[
 	        key: "loadData",
 	        value: function loadData(book) {
 	            self.stats = [];
-	            var i = undefined;
 	
-	            var _loop = function () {
+	            var _loop = function (i) {
 	                var currentStats = book.stats[i];
 	                self.stats.push({ name: currentStats.name,
 	                    generate: function generate() {
@@ -3240,15 +3225,14 @@ webpackJsonp([0],[
 	                });
 	            };
 	
-	            for (i = 0; i < book.stats.length; i++) {
-	                _loop();
+	            for (var i = 0; i < book.stats.length; i++) {
+	                _loop(i);
 	            }
 	        }
 	    }, {
 	        key: "generateStats",
 	        value: function generateStats() {
-	            var i = undefined;
-	            for (i = 0; i < self.stats.length; i++) {
+	            for (var i = 0; i < self.stats.length; i++) {
 	                var stats = self.stats[i];
 	                stats.value = stats.generate();
 	            }
@@ -3266,10 +3250,10 @@ webpackJsonp([0],[
 	            }
 	
 	            var nextUrl = self.constants.url.chooseItemsForNewGame + "?bookId=" + encodeURIComponent(self.book.id) + "&playerName=" + encodeURIComponent(self.playerName);
-	            var i = undefined;
 	
 	            var statsParam = '';
-	            for (i = 0; i < self.stats.length; i++) {
+	
+	            for (var i = 0; i < self.stats.length; i++) {
 	                var stats = self.stats[i];
 	                statsParam = statsParam + encodeURIComponent(stats.name) + encodeURIComponent(stats.value) + ',';
 	            }
@@ -3364,8 +3348,7 @@ webpackJsonp([0],[
 	
 	        self.book = persistenceService.getBook($stateParams.bookId);
 	        self.playerItems = self.book.items;
-	        var i = undefined;
-	        for (i = 0; i < self.playerItems.length; i++) {
+	        for (var i = 0; i < self.playerItems.length; i++) {
 	            self.playerItems[i].description = $translate.instant(self.playerItems[i].description);
 	        }
 	        this.displayNotes();
@@ -3415,8 +3398,7 @@ webpackJsonp([0],[
 	        value: function getStatsInUrlParam() {
 	            var statsParamValue = self.$stateParams['stats'];
 	            var stats = [];
-	            var i = undefined;
-	            for (i = 0; i < self.book.stats.length; i++) {
+	            for (var i = 0; i < self.book.stats.length; i++) {
 	                var currentStats = self.book.stats[i];
 	                var startPos = statsParamValue.indexOf(currentStats.name);
 	                startPos = startPos + currentStats.name.length;
@@ -3999,8 +3981,7 @@ webpackJsonp([0],[
 	            }
 	            var keys = Object.keys(localStorage);
 	            var result = [];
-	            var i = undefined;
-	            for (i = 0; i < keys.length; i++) {
+	            for (var i = 0; i < keys.length; i++) {
 	                if (keys[i].startsWith(self.constants.data.book) && keys[i].indexOf('paragraph.') === -1) {
 	                    result.push(keys[i]);
 	                }
@@ -4015,8 +3996,7 @@ webpackJsonp([0],[
 	            }
 	            var keys = Object.keys(localStorage);
 	            var result = [];
-	            var i = undefined;
-	            for (i = 0; i < keys.length; i++) {
+	            for (var i = 0; i < keys.length; i++) {
 	                if (keys[i].startsWith(keyPrefix)) {
 	                    result.push(keys[i]);
 	                }
@@ -4033,8 +4013,7 @@ webpackJsonp([0],[
 	        value: function setBook(book) {
 	            var bookInfo = {};
 	            var keys = Object.keys(book);
-	            var i = undefined;
-	            for (i = 0; i < keys.length; i++) {
+	            for (var i = 0; i < keys.length; i++) {
 	                if (keys[i] !== 'paragraphs') {
 	                    bookInfo[keys[i]] = book[keys[i]];
 	                }
@@ -4080,8 +4059,7 @@ webpackJsonp([0],[
 	            paragraph = JSON.parse(JSON.stringify(paragraph));
 	            var key = self.getParagraphPersistenceKey(paragraph.bookId, paragraph.paragraphNr);
 	            if (!!paragraph.choices) {
-	                var i = undefined;
-	                for (i = 0; i < paragraph.choices.length; i++) {
+	                for (var i = 0; i < paragraph.choices.length; i++) {
 	                    delete paragraph.choices[i]['$$hashKey'];
 	                }
 	            }
@@ -4114,8 +4092,7 @@ webpackJsonp([0],[
 	            };
 	
 	            savedGame.stats = [];
-	            var i = undefined;
-	            for (i = 0; i < game.stats.length; i++) {
+	            for (var i = 0; i < game.stats.length; i++) {
 	                savedGame.stats.push({ name: game.stats[i].name, initial: game.stats[i].value, current: game.stats[i].value });
 	            }
 	
@@ -4132,8 +4109,7 @@ webpackJsonp([0],[
 	
 	            var key = self.getGamePersistenceKey(game.id);
 	            if (!!game.items) {
-	                var i = undefined;
-	                for (i = 0; i < game.items.length; i++) {
+	                for (var i = 0; i < game.items.length; i++) {
 	                    delete game.items[i]['$$hashKey'];
 	                }
 	            }
@@ -4150,35 +4126,13 @@ webpackJsonp([0],[
 	            var game = this.getGame(gameId);
 	            if (!!fromParagrahNr) {
 	                var paragraph = this.getParagraph(game.bookId, fromParagrahNr);
-	                var choice = undefined;
-	                var _iteratorNormalCompletion = true;
-	                var _didIteratorError = false;
-	                var _iteratorError = undefined;
-	
-	                try {
-	                    for (var _iterator = paragraph.choices[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                        choice = _step.value;
-	
-	                        if (choice.paragraphNr === toParagraphNr) {
-	                            choice.alreadyChoosen = true;
-	                            break;
-	                        }
-	                    }
-	                } catch (err) {
-	                    _didIteratorError = true;
-	                    _iteratorError = err;
-	                } finally {
-	                    try {
-	                        if (!_iteratorNormalCompletion && _iterator['return']) {
-	                            _iterator['return']();
-	                        }
-	                    } finally {
-	                        if (_didIteratorError) {
-	                            throw _iteratorError;
-	                        }
+	                for (var i = 0; i < paragraph.choices.length; i++) {
+	                    var choice = paragraph.choices[i];
+	                    if (choice.paragraphNr === toParagraphNr) {
+	                        choice.alreadyChoosen = true;
+	                        break;
 	                    }
 	                }
-	
 	                this.updateParagraph(paragraph);
 	            }
 	            game.currentParagraphNr = toParagraphNr;
@@ -4257,8 +4211,7 @@ webpackJsonp([0],[
 	            self.cleanAllData();
 	            var importData = JSON.parse(importDataAsJson);
 	            var keys = Object.keys(importData);
-	            var i = undefined;
-	            for (i = 0; i < keys.length; i++) {
+	            for (var i = 0; i < keys.length; i++) {
 	                self.save(keys[i], importData[keys[i]]);
 	            }
 	        }
@@ -4285,8 +4238,7 @@ webpackJsonp([0],[
 	            var keys = Object.keys(localStorage);
 	            var result = {};
 	            var mapEditedParagraph = [];
-	            var i = undefined;
-	            for (i = 0; i < keys.length; i++) {
+	            for (var i = 0; i < keys.length; i++) {
 	                if (keys[i].startsWith(self.constants.data.book) && keys[i].indexOf('paragraph.') !== -1) {
 	                    var bookId = keys[i].substring(0, keys[i].indexOf('.paragraph'));
 	                    var paragraph = self.get(keys[i]);
@@ -4541,9 +4493,8 @@ webpackJsonp([0],[
 	    _createClass(DicesService, [{
 	        key: "rollDices",
 	        value: function rollDices(qty, maxDiceValue) {
-	            var i = undefined;
 	            var dicesValue = 0;
-	            for (i = 0; i < qty; i++) {
+	            for (var i = 0; i < qty; i++) {
 	                dicesValue = dicesValue + self.randomIntInclusive(1, maxDiceValue);
 	            }
 	            return dicesValue;
@@ -4636,8 +4587,7 @@ webpackJsonp([0],[
 	        key: "saveParagraphsToPersistence",
 	        value: function saveParagraphsToPersistence(book) {
 	            if (!!book.paragraphs) {
-	                var i = undefined;
-	                for (i = 0; i < book.paragraphs.length; i++) {
+	                for (var i = 0; i < book.paragraphs.length; i++) {
 	                    self.persistenceService.setParagraph(book.id, book.paragraphs[i]);
 	                }
 	            }
