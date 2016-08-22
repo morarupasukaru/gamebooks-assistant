@@ -1,50 +1,36 @@
-
-
-
-
-after initial edited paragraph import:
-- update versioning
-- clean-up lang_...
-- alreadyChoosen > dans game au lieu de paragraph, book
-
-business
-- create gamebook in gui
-- stats games: nb pages joués, éditées, nb défaites
-- gamebooks directory, json file with gamebook (list of url of gamebook directory)
+- corriger le bug que l'interface sur ipad ne répond parfois pas bien
+- sauver "alreadyChoosen" dans les données des parties au lieu que dans les données des livres
 - export edited pages: export toutes les paragraphes, donnés livre et pas que celles édités (ide permet de faire des diffs)
-- écran gamebook: permet de téléchargé, voir les téléchargés, upgradable, delete
-- affiche la taille dispo du localStorage
-- json gamebook sans image
+- supprimer gamebookId et version de la liste des paragraphhes (si possible)
+- affiche la taille dispo du localStorage dans écran admin
 - possibilités de supprimé des parties (aussi les notes et paragraphes joués si checkbox activé)
-- paths gameplays visualizer
+- permettre la création de livre à l'aide de l'application
+- permettre d'extraire les données d'un livre sous la forme json et utilisable sans retouche (format doit rester stable afin de permettre de faire des diff)
+- gestion des livres via un écran de liste propre (permet de créer, éditer données générales, supprimer, télécharger, downgradé, faire un export en json)
+- permettre le téléchargement, upgrade de livres (et non pas automatique)
+- référerencer les livres dispo via des url qui fournissent des données json
+- refactoring lié au version de l'application, version des livres, configuration de l'url des sites de référencement via écran admin
+- supprimer dépendances à angular-translate-loader-static-files (utilisation de angular-translate) & nettoyage des clefs i18n inutiles
+- encapsuler l'utilisation de localStorage dans un service, ajout d'une méthode pour connaitre la place dispo
+- partager persistenceService en min. deux: 1 pour les données des parties, 1 pour les données de livre
+- game paths vizualiser
 - version app : { major : xx, minor : xx } sauvé dans localStorage
-- version données livre: { appMajorVersion: xx, language, bookVersion: xx, date },
-=> si version app major <> version données livre dans localStorage, warn & reload des données du livre (effacement)
-- version données paragaphe (1 par par paragraphe) : {appMajorVersion, paragraphVersion, lastEditedBy }
-=> si utilisateur modifie le paragraphe, seul lastEditBy est rempli
-=> si appMajorVersion <>, paragraphVersion <> => alors le paragraphe est rechargé
+=> si version app major <> version major sauvé dans le livre alors un reload des données du livre sont nécessaires ou impossible
+- try editable div instead of textarea
+- ng-include base64 pour les images favicon & dices
 
-technical
+but qualité:
 - meilleur encapsulation des données, api
-- action log instead of calling persistence.service directly (hide model)
-- try editable div instead of textarea for description ?
 - configure jshint (or something like that)
-- i18n without json
-- reduce dependencies
-    - use direct angular-translate instead of angular-translate-loader-static-files
-    - angular-cookies?
-    - angular-resource?
-- how to display image with url with webpack & angularjs correctly?
-- todo url git project in package.json
-- ng-include base64
+
+idée:
+- action log instead of calling persistence.service directly (hide model)
 
 version 2
+- afficher des statistiques sur les livres (nb pages joués, nb défaites, nb de paragraphes)
 - integrate battle rules, luck rules
 - how to check orthographe? special export?
-- download book + attachments instead of all inside app.js (javascript loading on the fly, load data in localStorage)
-- ajout d'un écran des livres téléchargées, édités et qui permet de supprimer des livres du localStorage si besoin
+- gestion des images (& autre multimedia)
+- interface "skinable"
 - paragraph with images & description > can be a gamebook completelly
-- permettre de traduire le texte d'un jeu en chargeant celui-ci malgré une langue d'interface différente, mise en évidence des textes non édités
 - lonewolf play
-
-pouvoir prendre tel-quel paragraphe edite sans retouche a la main

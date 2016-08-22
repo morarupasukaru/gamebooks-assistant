@@ -2,11 +2,9 @@
   "name": "gamebooks-assistant",
   "version": "1.0.0",
   "description": "Gamebooks Assistant",
-  "homepage": "https://github.com/SchweizerischeBundesbahnen/esta-webjs",
+  "homepage": "https://github.com/morarupasukaru/gamebooks-assistant",
   "dependencies": {
     "angular": "^1.5.2",
-    "angular-cookies": "^1.5.2",
-    "angular-resource": "^1.5.2",
     "angular-translate": "^2.8.1",
     "angular-translate-loader-static-files": "^2.8.1",
     "angular-ui-bootstrap": "^1.1.0",
@@ -56,5 +54,5 @@
     "name": "Pascal Morard",
     "email": "moraru.pasukaru@gmail.com"
   },
-  "license": "Apache-2.0"
+  "license": "MIT"
 }
