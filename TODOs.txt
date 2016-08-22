@@ -30,15 +30,10 @@ technical
     - use direct angular-translate instead of angular-translate-loader-static-files
     - angular-cookies?
     - angular-resource?
-- upgrade package.json with latest version
-- correct pom.xml (reduce useless parts)
 - understand webpack & ease configuration
 - correct bug with minify
 - how to display image with url with webpack & angularjs correctly?
 - todo url git project in package.json
-- bug: why is not working in android
-- avoid flicker while loading (ngCloak)
-- supprimer configuration menu
 - ng-include base64, license
 - license as expand (code) in about
 
