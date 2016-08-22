@@ -7,11 +7,7 @@
         <thead>
         <tr>
             <th>
-                <!-- TODO how to map correctly image with webpack & angularjs? -->
-                <!-- image come from http://opengameart.org/content/dice-4 -->
-                <img src="http://morarupasukaru.github.io/gamebooks-assistant/dice.png" width="32" height="32"
-                     aria-label="{{ 'Roll dices' | translate }}"
-                     title="{{ 'Roll dices' | translate }}"/>
+                <ng-include src="'dice-image.html'"></ng-include>
             </th>
             <th></th>
             <th>{{ 'Sum of dices value' | translate }}</th>
