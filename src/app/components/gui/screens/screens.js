@@ -8,7 +8,6 @@ import StartGameWizard from './start-game-wizard/start-game-wizard';
 import InGame from './in-game/in-game';
 import About from './about/about';
 
-
 let screensModule = angular.module('app.components.gui.screens', [
     Home.name, Games.name, Battle.name, Administration.name, ChooseLanguage.name, StartGameWizard.name, InGame.name, About.name
 ]);

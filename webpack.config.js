@@ -74,15 +74,15 @@ exports.production = extend({}, commonConfig, {
     output: {
         path: buildPath
     }, plugins: [
-//        new ngAnnotatePlugin({add: true}),
-//        new webpack.optimize.DedupePlugin(),
-//        new webpack.optimize.UglifyJsPlugin({
-//            minimize: true, compress: {
-//                warnings: true
-//            }
-//        }),
+        new ngAnnotatePlugin({add: true}),
+        new webpack.optimize.DedupePlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            minimize: true, compress: {
+                warnings: true
+            }
+        }),
         new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js')
-    ], devtool: 'source-map'
+    ], devtool: 'cheap-source-map'
 });
 
 /**

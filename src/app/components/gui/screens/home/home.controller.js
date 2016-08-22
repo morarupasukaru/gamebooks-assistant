@@ -1,5 +1,7 @@
 let self;
 class HomeController {
+
+    /*@ngInject*/
     constructor($location, $rootScope, preScreenLoadingInterceptorsCallerService, persistenceService, constants) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();

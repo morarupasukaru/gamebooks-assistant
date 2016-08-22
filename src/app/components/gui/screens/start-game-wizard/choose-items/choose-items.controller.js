@@ -44,7 +44,6 @@ class ChooseItemsController {
     }
 
     buildGame() {
-        let timestamp = new Date().getTime();
         let game = {
             playerName : self.$stateParams.playerName,
             bookId : self.book.id,

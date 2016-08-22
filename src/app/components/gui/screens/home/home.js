@@ -5,7 +5,7 @@ import template from './home.html';
 import controller from './home.controller';
 
 let homeModule = angular.module('app.components.gui.screen.home', [
-    uiRouter
+    uiRouter, "app.components.constants"
 ])
     .config(/*@ngInject*/($stateProvider, $urlRouterProvider, constants) => {
         $urlRouterProvider.otherwise('/');
