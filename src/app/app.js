@@ -25,6 +25,9 @@ import AppComponent from './app.component';
 import langEn from './languages/lang-en.json';
 import langFr from './languages/lang-fr.json';
 
+// A robust & optimized ES3-compatible polyfill for the String.prototype.startsWith method in ECMAScript 6
+require('string.prototype.startswith');
+
 angular.module('app', [
     uiRouter, ngTranslate, ngTranslateStaticFilesLoader, ngCookies, ngResource,
     uiBootstrap, Components.name
@@ -41,5 +44,3 @@ angular.module('app', [
     })
     // Die App als Direktive exportieren
     .directive('app', AppComponent);
-
-

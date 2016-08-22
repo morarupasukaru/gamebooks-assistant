@@ -12,7 +12,8 @@
     "angular-ui-bootstrap": "^1.1.0",
     "angular-ui-router": "^0.2.15",
     "bootstrap": "^3.3.6",
-    "jquery": "^2.2.0"
+    "jquery": "^2.2.0",
+    "string.prototype.startswith" : "0.2.0"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.2",
