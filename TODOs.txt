@@ -11,8 +11,8 @@ améliorations
 - version app : { major : xx, minor : xx } sauvé dans localStorage
 => si version app major <> version major sauvé dans le livre alors un reload des données du livre sont nécessaires ou impossible
 - try editable div instead of textarea
-- ng-include base64 pour les images favicon & dices
 - configure jshint (or something like that)
+- base64 pour image windows
 
 nouvelles fonctionnalités
 - possibilités de supprimer des parties (aussi les notes et paragraphes joués si checkbox activé)
