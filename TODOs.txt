@@ -1,6 +1,4 @@
 after initial edited paragraph import:
-- change stats name in french
-- change book name in french
 - update versioning
 - clean-up lang_...
 - alreadyChoosen > dans game au lieu de paragraph, book
