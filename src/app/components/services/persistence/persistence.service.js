@@ -298,34 +298,19 @@ class PersistenceService {
                 let bookId = keys[i].substring(0, keys[i].indexOf('.paragraph'));
                 let paragraph = self.get(keys[i]);
                 if (!mapEditedParagraph[paragraph.paragraphNr]) {
-                    if  (self.isEdited(paragraph)) {
-                        if (!result[bookId]) {
-                            result[bookId] = { paragraphs : [] };
-                        }
-                        let editedParagraphData = self.getEditedParagraphData(paragraph);
-                        if (!!editedParagraphData) {
-                            result[bookId].paragraphs.push(editedParagraphData);
-                            mapEditedParagraph[editedParagraphData.paragraphNr] = editedParagraphData;
-                        }
+                    if (!result[bookId]) {
+                        result[bookId] = { paragraphs : [] };
+                    }
+                    if (!!paragraph) {
+                        result[bookId].paragraphs.push(paragraph);
+                        mapEditedParagraph[paragraph.paragraphNr] = paragraph;
                     }
                 }
             }
         }
         result = this.sortEditedParagraphs(result);
         if (Object.keys(result).length > 0) {
-            return JSON.stringify(result)
-                .replace(/"paragraphNr":/g, 'paragraphNr:')
-                .replace(/"description":/g, 'description:')
-                .replace(/"paragraphs":/g, 'paragraphs:')
-                .replace(/"choices":/g, 'choices:')
-                .replace(/"deletedChoices":/g, 'deletedChoices:')
-                .replace(/"notes":/g, 'notes:')
-                .replace(/"note":/g, 'note:')
-                .replace(/"added":/g, 'added:')
-                .replace(/"removed":/g, 'removed:')
-                .replace(/"choices":/g, 'choices:')
-                .replace(/"playerName":/g, 'playerName:')
-                .replace(/"lastEditedBy":/g, 'lastEditedBy:');
+            return JSON.stringify(result);
         } else {
             return null;
         }
@@ -373,136 +358,6 @@ class PersistenceService {
         } else {
             return p1.paragraphNr - p2.paragraphNr;
         }
-    }
-
-    isEdited(paragraph) {
-        return !!paragraph && !!paragraph.lastEditedBy;
-    }
-
-    getEditedParagraphData(paragraph) {
-        let originalParagraph = this.booksService.getParagraph(paragraph.bookId, paragraph.paragraphNr);
-
-        this.removeUneditableParagraphData(paragraph);
-        this.removeUnmodifiedParagraphData(paragraph, originalParagraph);
-        if (this.hasModifiedParagraphData(paragraph)) {
-            return paragraph;
-        } else {
-            return null;
-        }
-    }
-
-    removeUneditableParagraphData(paragraph) {
-        delete paragraph.bookId;
-        delete paragraph.version;
-        for (let j = 0; j < paragraph.choices.length; j++) {
-            delete paragraph.choices[j].alreadyChoosen;
-        }
-    }
-
-    removeUnmodifiedParagraphData(paragraph, originalParagraph) {
-        if (!!originalParagraph) {
-            if (paragraph.description === originalParagraph.description) {
-                delete paragraph.description;
-            }
-
-            if (!!paragraph.choices) {
-                let deletedChoices = [];
-                for (let i = 0; i < originalParagraph.choices.length; i++) {
-                    let found = false;
-                    for (let j = 0; j < paragraph.choices.length; j++) {
-                        if (originalParagraph.choices[i].paragraphNr == paragraph.choices[j].paragraphNr) {
-                            found = true;
-                            break;
-                        }
-                    }
-                    if (!found) {
-                        deletedChoices.push(originalParagraph.choices[i].paragraphNr)
-                    }
-                }
-                if (deletedChoices.length > 0) {
-                    paragraph.deletedChoices = deletedChoices;
-                }
-
-                let choicesToDelete = [];
-                for (let i = 0; i < paragraph.choices.length; i++) {
-                    for (let j = 0; j < originalParagraph.choices.length; j++) {
-                        if (originalParagraph.choices[j].paragraphNr == paragraph.choices[i].paragraphNr &&
-                                originalParagraph.choices[j].description === paragraph.choices[i].description) {
-                            choicesToDelete.push(paragraph.choices[i]);
-                        }
-                    }
-                }
-                this.removeAll(paragraph.choices, choicesToDelete);
-                if (paragraph.choices.length === 0) {
-                    delete paragraph.choices;
-                }
-            }
-
-            if (!!paragraph.notes) {
-                let currentNotes = paragraph.notes;
-                delete paragraph.notes;
-
-                let deletedNotes = [];
-                if (!!originalParagraph.notes) {
-                    for (let i = 0; i < originalParagraph.notes.length; i++) {
-                        let found = false;
-                        for (let j = 0; j < currentNotes.length; j++) {
-                            if (originalParagraph.notes[i].note == currentNotes[j].note) {
-                                found = true;
-                                break;
-                            }
-                        }
-                        if (!found) {
-                            deletedNotes.push(originalParagraph.notes[i].note)
-                        }
-                    }
-
-                    let addedNotes = [];
-                    for (let i = 0; i < currentNotes.length; i++) {
-                        let found = false;
-                        for (let j = 0; j < originalParagraph.notes.length; j++) {
-                            if (originalParagraph.notes[j].note == currentNotes[i].note) {
-                                found = true;
-                                break;
-                            }
-                        }
-                        if (!found) {
-                            addedNotes.push(currentNotes[i].note)
-                        }
-                    }
-
-                    if (deletedNotes.length > 0 || addedNotes.length > 0) {
-                        paragraph.notes = {};
-                        if (addedNotes.length > 0) {
-                            paragraph.notes.added = addedNotes;
-                        }
-                        if (deletedNotes.length > 0) {
-                            paragraph.notes.removed = deletedNotes;
-                        }
-                    }
-
-                } else if (!!currentNotes && currentNotes.length > 0) {
-                    paragraph.notes = { added : currentNotes };
-                }
-            }
-        }
-    }
-
-    hasModifiedParagraphData(paragraph) {
-        let keys = Object.keys(paragraph);
-        this.remove(keys, 'paragraphNr');
-        this.remove(keys, 'lastEditedBy');
-        return keys.length > 0;
-    }
-
-    removeAll(array, valuesToRemove) {
-        for (let i = 0; i < valuesToRemove.length; i++) {
-            this.remove(array, valuesToRemove[i]);
-        }
-    }
-
-    remove(array, valueToRemove) {
-        array.splice(array.indexOf(valueToRemove), 1);
     }
 }
 
