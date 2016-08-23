@@ -50,6 +50,9 @@
 
         <back-button></back-button>
         <button type="button" class="btn btn-default" ng-click="$ctrl.startNewGame()">{{ 'New game' | translate }}</button>
-        <button type="button" class="btn btn-default" ng-disabled="!$ctrl.isContinueAllowed()" ng-click="$ctrl.continueGame()">{{ 'Continue' | translate }}</button>
+        <button type="button" class="btn btn-default" ng-disabled="!$ctrl.hasSelectedRow()" ng-click="$ctrl.continueGame()">{{ 'Continue' | translate }}</button>
+        <button type="button" class="btn btn-danger" ng-disabled="!$ctrl.hasSelectedRow()" ng-click="$ctrl.displayRemoveGamePopup()">{{ 'Remove' | translate }}</button>
     </div>
 </main>
+
+<popup config="{{ $ctrl.popupDeleteGameConfig }}"></popup>

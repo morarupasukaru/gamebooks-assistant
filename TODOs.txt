@@ -15,7 +15,6 @@ améliorations
 - base64 pour image windows
 
 nouvelles fonctionnalités
-- possibilités de supprimer des parties (aussi les notes et paragraphes joués si checkbox activé)
 - affiche la taille dispo du localStorage dans écran admin
 - permettre la création de livre à l'aide de l'application
 - permettre d'extraire les données d'un livre sous la forme json et utilisable sans retouche (format doit rester stable afin de permettre de faire des diff)

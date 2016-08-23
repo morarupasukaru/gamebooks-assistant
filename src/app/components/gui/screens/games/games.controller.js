@@ -1,7 +1,7 @@
 let self;
 class GamesController {
     /*@ngInject*/
-    constructor($location, preScreenLoadingInterceptorsCallerService, constants, persistenceService, messagesService, $translate) {
+    constructor($location, preScreenLoadingInterceptorsCallerService, constants, persistenceService, messagesService, $translate, popupService) {
         self = this;
         self.constants = constants;
         preScreenLoadingInterceptorsCallerService.intercept();
@@ -9,6 +9,15 @@ class GamesController {
         self.persistenceService = persistenceService;
         self.messagesService = messagesService;
         self.$translate = $translate;
+        self.popupService = popupService;
+
+        self.popupDeleteGameConfig = {
+            id : 'popupDeleteGame',
+            text : 'Are you sure to remove the game?',
+            choices : [constants.choices.yes, constants.choices.no],
+            withCloseButton : false,
+            closeOnClickOutsideModal : false
+        };
 
         this.initData();
     }
@@ -52,7 +61,22 @@ class GamesController {
         self.$location.url(nextUrl);
     }
 
-    isContinueAllowed() {
+    displayRemoveGamePopup() {
+        self.popupService.show(self.popupDeleteGameConfig.id, self.callbackRemovePopup);
+    }
+
+    callbackRemovePopup(popupDomElementId, choice) {
+        if (choice === self.constants.choices.yes) {
+            self.deleteGame();
+        }
+    }
+
+    deleteGame() {
+        self.persistenceService.deleteGame(self.getSelectedRow().id, true, true);
+        self.initData();
+    }
+
+    hasSelectedRow() {
         return !!self.getSelectedRow();
     }
 

@@ -136,5 +136,7 @@
   "a note" : "une note",
   "Edited paragraphs" : "Paragraphes modifiées",
   "Change language to en" : "Change language to English",
-  "Change language to fr" : "Changez la langue au français"
+  "Change language to fr" : "Changez la langue au français",
+  "Remove" : "Supprime",
+  "Are you sure to remove the game?" : "Voulez-vous supprimer la partie?"
 }

@@ -156,6 +156,31 @@ class PersistenceService {
         self.save(key, game);
     }
 
+    deleteGame(gameId, deleteParagraphNotesOfGame, deleteParagraphChoicesOfGame) {
+        let game = self.getGame(gameId);
+        let key = self.getGamePersistenceKey(gameId);
+        if (!!deleteParagraphNotesOfGame || !!deleteParagraphChoicesOfGame) {
+            let paragraphKeys = self.getBookParagraphKeys(game.bookId);
+            for (let i = 0; i < paragraphKeys.length; i++) {
+                let paragraph = self.get(paragraphKeys[i]);
+                if (!!deleteParagraphNotesOfGame && !!paragraph.notes) {
+                    let newNotes = [];
+                    for (let j = 0; j < paragraph.notes.length; j++) {
+                        if (!paragraph.notes[j].playerName || paragraph.notes[j].playerName !== game.playerName) {
+                            newNotes.push(paragraph.notes[j]);
+                        }
+                    }
+                    paragraph.notes = newNotes;
+                    self.updateParagraph(paragraph);
+                }
+                if (!!deleteParagraphChoicesOfGame) {
+                    // TODO
+                }
+            }
+        }
+        localStorage.removeItem(key);
+    }
+
     newId() {
         return new Date().getTime().toString();
     }
@@ -304,6 +329,21 @@ class PersistenceService {
         } else {
             return null;
         }
+    }
+
+    getBookParagraphKeys(bookId) {
+        let paragraphKeys = [];
+        let keys = Object.keys(localStorage);
+        let keyBookId = self.constants.data.book + '.' + bookId;
+        for (let i = 0; i < keys.length; i++) {
+            if (keys[i].startsWith(self.constants.data.book) && keys[i].indexOf('paragraph.') !== -1) {
+                let bookIdInKey = keys[i].substring(0, keys[i].indexOf('.paragraph'));
+                if (bookIdInKey === keyBookId) {
+                    paragraphKeys.push(keys[i]);
+                }
+            }
+        }
+        return paragraphKeys;
     }
 
     sortEditedParagraphs(books) {
