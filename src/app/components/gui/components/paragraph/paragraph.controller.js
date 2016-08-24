@@ -17,7 +17,9 @@ class ParagraphController {
             closeOnClickOutsideModal : false
         };
 
-        self.playerName = persistenceService.getGame(self.gameId).playerName;
+        let game = persistenceService.getGame(self.gameId);
+        self.bookId = game.bookId;
+        self.playerName = game.playerName;
         this.descriptionEditable = false;
     }
 
@@ -60,7 +62,7 @@ class ParagraphController {
     saveDescriptionChanges() {
         self.originalDescription = null;
         self.descriptionEditable = false;
-        self.persistenceService.updateParagraph(self.paragraph);
+        self.persistenceService.updateParagraph(self.bookId, self.paragraph);
     }
 
     abortDescriptionChanges() {
@@ -91,7 +93,7 @@ class ParagraphController {
     }
 
     saveParagraphChoices() {
-        self.persistenceService.updateParagraph(self.paragraph);
+        self.persistenceService.updateParagraph(self.bookId, self.paragraph);
     }
 
     abortRowChanges() {

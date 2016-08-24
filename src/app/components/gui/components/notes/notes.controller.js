@@ -130,7 +130,7 @@ class NotesController {
         }
         let paragraph = self.persistenceService.getParagraph(self.bookId, self.paragraphNr);
         paragraph.notes = savedNotes;
-        self.persistenceService.updateParagraph(paragraph);
+        self.persistenceService.updateParagraph(self.bookId, paragraph);
     }
 
     abortRowChanges() {

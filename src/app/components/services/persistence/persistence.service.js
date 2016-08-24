@@ -86,7 +86,7 @@ class PersistenceService {
                 description : '',
                 choices : []
             };
-            self.updateParagraph(paragraph);
+            self.updateParagraph(bookId, paragraph);
             return paragraph;
         }
     }
@@ -96,12 +96,12 @@ class PersistenceService {
         return self.get(key);
     }
 
-    updateParagraph(paragraph) {
+    updateParagraph(bookId, paragraph) {
         if (!paragraph) {
             return ;
         }
         paragraph = JSON.parse(JSON.stringify(paragraph));
-        let key = self.getParagraphPersistenceKey(paragraph.bookId, paragraph.paragraphNr);
+        let key = self.getParagraphPersistenceKey(bookId, paragraph.paragraphNr);
         if (!!paragraph.choices) {
             for (let i = 0; i < paragraph.choices.length; i++) {
                 delete paragraph.choices[i]['$$hashKey'];
@@ -171,7 +171,7 @@ class PersistenceService {
                         }
                     }
                     paragraph.notes = newNotes;
-                    self.updateParagraph(paragraph);
+                    self.updateParagraph(game.bookId, paragraph);
                 }
                 if (!!deleteParagraphChoicesOfGame) {
                     // TODO
@@ -196,7 +196,7 @@ class PersistenceService {
                     break ;
                 }
             }
-            this.updateParagraph(paragraph);
+            this.updateParagraph(game.bookId, paragraph);
         }
         game.currentParagraphNr = toParagraphNr;
         if (!game.path) {
@@ -287,6 +287,7 @@ class PersistenceService {
     }
 
     getEditedParagraphs() {
+        // TODO exportBook
         if (!self.isLocalStorageSupported) {
             return null;
         }
