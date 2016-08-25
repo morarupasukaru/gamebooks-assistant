@@ -29,7 +29,7 @@ class AdministrationController {
 
     initData() {
         this.applicationData = JSON.stringify(this.persistenceService.export());
-        this.editedParagraphsData = this.persistenceService.getEditedParagraphs();
+        this.exportBooksData = this.persistenceService.export();
     }
 
     showPopupConfirmImportData() {

@@ -16,9 +16,14 @@ class BooksService {
     }
 
     indexParagraphs(book) {
-        book.mapParagraphs = [];
+        this.mapBookParagraphs = [];
         for (let i = 0; i < book.paragraphs.length; i++) {
-            book.mapParagraphs[new Number(book.paragraphs[i].paragraphNr)] = book.paragraphs[i];
+            let mapParagraphs = this.mapBookParagraphs[book.id];
+            if (!mapParagraphs) {
+                mapParagraphs = [];
+                this.mapBookParagraphs[book.id] = mapParagraphs;
+            }
+            mapParagraphs[new Number(book.paragraphs[i].paragraphNr)] = book.paragraphs[i];
         }
     }
 
@@ -27,8 +32,7 @@ class BooksService {
     }
 
     getParagraph(bookId, paragraphNr) {
-        let book = this.getBook(bookId);
-        return book.mapParagraphs[new Number(paragraphNr)];
+        return this.mapBookParagraphs[bookId][new Number(paragraphNr)];
     }
 
     getBook(bookId) {

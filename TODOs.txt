@@ -1,5 +1,4 @@
 améliorations
-- supprimer gamebookId et version de la liste des paragraphhes (si possible)
 - encapsuler l'utilisation de localStorage dans un service, ajout d'une méthode pour connaitre la place dispo
 - partager persistenceService en min. deux: 1 pour les données des parties, 1 pour les données de livre
 - sauver "alreadyChoosen" dans les données des parties au lieu que dans les données des livres
@@ -11,6 +10,7 @@ améliorations
 - try editable div instead of textarea
 - configure jshint (or something like that)
 - base64 pour image windows
+- id unique book si edité par écrivains différents?
 
 nouvelles fonctionnalités
 - affiche la taille dispo du localStorage dans écran admin

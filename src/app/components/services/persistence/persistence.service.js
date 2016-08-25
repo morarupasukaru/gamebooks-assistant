@@ -281,68 +281,38 @@ class PersistenceService {
     }
 
     export() {
-        this.getEditedParagraphs();
-        return localStorage;
+        let bookKeys = self.getBookPersistenceKeys();
+        let books = [];
+        for (let i = 0; i < bookKeys.length; i++) {
+            let book = self.get(bookKeys[i]);
+            books.push(self.exportBook(book.id));
+        }
+        return JSON.stringify(books);
 
     }
 
-    getEditedParagraphs() {
-        // TODO exportBook
+    exportBook(bookId) {
         if (!self.isLocalStorageSupported) {
             return null;
         }
+        let book = self.getBook(bookId);
+        book.paragraphs = [];
+
         let keys = Object.keys(localStorage);
-        let result = {};
-        let mapEditedParagraph = [];
+        let bookIdKeyPrefix = self.constants.data.book + '.' + bookId;
         for (let i = 0; i < keys.length; i++) {
-            if (keys[i].startsWith(self.constants.data.book) && keys[i].indexOf('paragraph.') !== -1) {
-                let bookId = keys[i].substring(0, keys[i].indexOf('.paragraph'));
-                let paragraph = self.get(keys[i]);
-                if (!mapEditedParagraph[paragraph.paragraphNr]) {
-                    if (!result[bookId]) {
-                        result[bookId] = { paragraphs : [] };
-                    }
+            if (keys[i].startsWith(bookIdKeyPrefix + ".paragraph") !== -1) {
+                let currentBookIdPrefix = keys[i].substring(0, keys[i].indexOf('.paragraph'));
+                if (currentBookIdPrefix === bookIdKeyPrefix) {
+                    let paragraph = self.get(keys[i]);
                     if (!!paragraph) {
-                        result[bookId].paragraphs.push(paragraph);
-                        mapEditedParagraph[paragraph.paragraphNr] = paragraph;
+                        book.paragraphs.push(paragraph);
                     }
                 }
             }
         }
-        result = this.sortEditedParagraphs(result);
-        if (Object.keys(result).length > 0) {
-            return JSON.stringify(result);
-        } else {
-            return null;
-        }
-    }
-
-    getBookParagraphKeys(bookId) {
-        let paragraphKeys = [];
-        let keys = Object.keys(localStorage);
-        let keyBookId = self.constants.data.book + '.' + bookId;
-        for (let i = 0; i < keys.length; i++) {
-            if (keys[i].startsWith(self.constants.data.book) && keys[i].indexOf('paragraph.') !== -1) {
-                let bookIdInKey = keys[i].substring(0, keys[i].indexOf('.paragraph'));
-                if (bookIdInKey === keyBookId) {
-                    paragraphKeys.push(keys[i]);
-                }
-            }
-        }
-        return paragraphKeys;
-    }
-
-    sortEditedParagraphs(books) {
-        let keys = Object.keys(books);
-        let result = {};
-        for (let i = 0; i < keys.length; i++) {
-            let book = books[keys[i]];
-            if (!!book.paragraphs && book.paragraphs.length > 0) {
-                result[keys[i]] = book;
-                book.paragraphs = this.sortParagraphs(book.paragraphs);
-            }
-        }
-        return result;
+        book.paragraphs = this.sortParagraphs(book.paragraphs);
+        return book;
     }
 
     sortParagraphs(paragraphs) {
