@@ -1,7 +1,7 @@
 let self;
 class CreatePlayerController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $stateParams, $window, $location, constants, dicesService, persistenceService) {
+    constructor(preScreenLoadingInterceptorsCallerService, $stateParams, $window, $location, constants, dicesService, bookPersistenceService) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
         self.constants = constants;
@@ -9,7 +9,7 @@ class CreatePlayerController {
         self.$location = $location;
         self.dicesService = dicesService;
 
-        self.book = persistenceService.getBook($stateParams.bookId);
+        self.book = bookPersistenceService.getBook($stateParams.bookId);
         this.loadData(self.book);
         this.generateStats();
     }

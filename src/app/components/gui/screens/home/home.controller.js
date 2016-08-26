@@ -2,13 +2,13 @@ let self;
 class HomeController {
 
     /*@ngInject*/
-    constructor($location, $rootScope, preScreenLoadingInterceptorsCallerService, persistenceService, constants) {
+    constructor($location, $rootScope, preScreenLoadingInterceptorsCallerService, gamePersistenceService, constants) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
         self.$location = $location;
-        self.persistenceService = persistenceService;
+        self.gamePersistenceService = gamePersistenceService;
 
-        let lastUrl = self.persistenceService.getLastDisplayedScreenUrl();
+        let lastUrl = self.gamePersistenceService.getLastDisplayedScreenUrl();
         if (!!lastUrl) {
             $location.url(lastUrl);
         } else {

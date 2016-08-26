@@ -1,8 +1,8 @@
 class LanguagePickerService {
 
     /*@ngInject*/
-    constructor(persistenceService, $translate, constants) {
-        this.persistenceService = persistenceService;
+    constructor(gamePersistenceService, $translate, constants) {
+        this.gamePersistenceService = gamePersistenceService;
         this.$translate = $translate;
         this.constants = constants;
         this.supportedLanguages = this.initSupportedLanguages();
@@ -23,7 +23,7 @@ class LanguagePickerService {
     }
 
     getSelectedLanguage() {
-        let selectedLanguage = this.persistenceService.getSelectedLanguage();
+        let selectedLanguage = this.gamePersistenceService.getSelectedLanguage();
         if (!!selectedLanguage) {
             return selectedLanguage;
         } else if (!!navigator.language) {
@@ -45,7 +45,7 @@ class LanguagePickerService {
 
     changeLanguage(selectedLanguage) {
         this.$translate.use(selectedLanguage);
-        this.persistenceService.setSelectedLanguage(selectedLanguage);
+        this.gamePersistenceService.setSelectedLanguage(selectedLanguage);
         for (let i = 0; i < this.supportedLanguages.length; i++) {
             this.supportedLanguages[i].selected = (this.supportedLanguages[i].code === selectedLanguage);
         }

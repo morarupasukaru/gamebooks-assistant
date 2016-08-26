@@ -2,43 +2,12 @@ let self;
 class PersistenceService {
 
     /*@ngInject*/
-    constructor(softwareRequirementsCheckerService, constants, messagesService, booksService) {
+    constructor(softwareRequirementsCheckerService, messagesService) {
         self = this;
         self.isLocalStorageSupported = softwareRequirementsCheckerService.isLocalStorageSupported();
-        self.constants = constants;
         self.messagesService = messagesService;
-        self.booksService = booksService;
     }
 
-    getSelectedLanguage() {
-        return self.get(self.constants.data.selectedLanguage);
-    }
-
-    setSelectedLanguage(language) {
-        self.save(self.constants.data.selectedLanguage, language);
-    }
-
-    getLastDisplayedScreenUrl() {
-        return self.get(self.constants.data.lastDisplayedScreenUrl);
-    }
-
-    setLastDisplayedScreenUrl(lastDisplayedScreenUrl) {
-        self.save(self.constants.data.lastDisplayedScreenUrl, lastDisplayedScreenUrl);
-    }
-
-    getBookPersistenceKeys() {
-        if (!self.isLocalStorageSupported) {
-            return null;
-        }
-        let keys = Object.keys(localStorage);
-        let result = [];
-        for (let i = 0; i < keys.length; i++) {
-            if (keys[i].startsWith(self.constants.data.book) && keys[i].indexOf('paragraph.') === -1) {
-                result.push(keys[i]);
-            }
-        }
-        return result;
-    }
 
     findKeysWithPrefix(keyPrefix) {
         if (!self.isLocalStorageSupported) {
@@ -52,185 +21,6 @@ class PersistenceService {
             }
         }
         return result;
-    }
-
-    getBook(bookId) {
-        return self.get(self.getBookPersistenceKey(bookId));
-    }
-
-    setBook(book) {
-        let bookInfo = {};
-        let keys = Object.keys(book);
-        for (let i = 0; i < keys.length; i++) {
-            if (keys[i] !== 'paragraphs') {
-                bookInfo[keys[i]] = book[keys[i]];
-            }
-        }
-        self.save(self.constants.data.book + "." + book.id, bookInfo);
-    }
-
-    setParagraph(bookId, paragraph) {
-        let key = self.getParagraphPersistenceKey(bookId, paragraph.paragraphNr);
-        self.save(key, paragraph);
-    }
-
-    getOrCreateParagraph(bookId, paragraphNr) {
-        let foundParagraph = self.getParagraph(bookId, paragraphNr);
-        if (!!foundParagraph) {
-            return foundParagraph;
-        } else {
-            let paragraph = {
-                version : self.constants.version,
-                bookId : bookId,
-                paragraphNr : new Number(paragraphNr),
-                description : '',
-                choices : []
-            };
-            self.updateParagraph(bookId, paragraph);
-            return paragraph;
-        }
-    }
-
-    getParagraph(bookId, paragraphNr) {
-        let key = self.getParagraphPersistenceKey(bookId, paragraphNr);
-        return self.get(key);
-    }
-
-    updateParagraph(bookId, paragraph) {
-        if (!paragraph) {
-            return ;
-        }
-        paragraph = JSON.parse(JSON.stringify(paragraph));
-        let key = self.getParagraphPersistenceKey(bookId, paragraph.paragraphNr);
-        if (!!paragraph.choices) {
-            for (let i = 0; i < paragraph.choices.length; i++) {
-                delete paragraph.choices[i]['$$hashKey'];
-            }
-        }
-        self.save(key, paragraph);
-    }
-
-    getParagraphPersistenceKey(bookId, paragraphNr) {
-        return self.getBookPersistenceKey(bookId) + ".paragraph." + paragraphNr;
-    }
-
-    getBookPersistenceKey(bookId) {
-        let key = bookId;
-        if (!key.startsWith(self.constants.data.book)) {
-            key = self.constants.data.book + "." + key;
-        }
-        return key;
-    }
-
-    addGame(game) {
-        let savedGame = {
-            id : self.newId(),
-            playerName : game.playerName,
-            bookId : game.bookId,
-            items : game.items,
-            stats : game.stats,
-            currentParagraphNr : game.currentParagraphNr
-        };
-
-        savedGame.stats = [];
-        for (let i = 0; i < game.stats.length;i++) {
-            savedGame.stats.push({ name: game.stats[i].name, initial: game.stats[i].value, current: game.stats[i].value});
-        }
-
-        self.updateGame(savedGame);
-        return savedGame;
-    }
-
-    updateGame(game) {
-        if (!game) {
-            return ;
-        }
-        game = JSON.parse(JSON.stringify(game));
-
-        let key = self.getGamePersistenceKey(game.id);
-        if (!!game.items) {
-            for (let i = 0; i < game.items.length; i++) {
-                delete game.items[i]['$$hashKey'];
-            }
-        }
-        self.save(key, game);
-    }
-
-    deleteGame(gameId, deleteParagraphNotesOfGame, deleteParagraphChoicesOfGame) {
-        let game = self.getGame(gameId);
-        let key = self.getGamePersistenceKey(gameId);
-        if (!!deleteParagraphNotesOfGame || !!deleteParagraphChoicesOfGame) {
-            let paragraphKeys = self.getBookParagraphKeys(game.bookId);
-            for (let i = 0; i < paragraphKeys.length; i++) {
-                let paragraph = self.get(paragraphKeys[i]);
-                if (!!deleteParagraphNotesOfGame && !!paragraph.notes) {
-                    let newNotes = [];
-                    for (let j = 0; j < paragraph.notes.length; j++) {
-                        if (!paragraph.notes[j].playerName || paragraph.notes[j].playerName !== game.playerName) {
-                            newNotes.push(paragraph.notes[j]);
-                        }
-                    }
-                    paragraph.notes = newNotes;
-                    self.updateParagraph(game.bookId, paragraph);
-                }
-                if (!!deleteParagraphChoicesOfGame) {
-                    // TODO
-                }
-            }
-        }
-        localStorage.removeItem(key);
-    }
-
-    newId() {
-        return new Date().getTime().toString();
-    }
-
-    setCurrentParagraphNrOfGame(gameId, fromParagrahNr, toParagraphNr) {
-        let game = this.getGame(gameId);
-        if (!!fromParagrahNr) {
-            let paragraph = this.getParagraph(game.bookId, fromParagrahNr);
-            for (let i = 0; i < paragraph.choices.length; i++) {
-                let choice = paragraph.choices[i];
-                if (choice.paragraphNr === toParagraphNr) {
-                    choice.alreadyChoosen = true;
-                    break ;
-                }
-            }
-            this.updateParagraph(game.bookId, paragraph);
-        }
-        game.currentParagraphNr = toParagraphNr;
-        if (!game.path) {
-            game.path = [];
-        }
-        game.path.push(toParagraphNr);
-        this.updateGame(game);
-    }
-
-    getUrlOfGame(gameId, paragraphNr) {
-        let game = self.getGame(gameId);
-        if (!paragraphNr) {
-            paragraphNr = game.currentParagraphNr;
-        }
-        let urlOfGame = "/" + encodeURIComponent(game.bookId) + "/" + encodeURIComponent(paragraphNr) + "/game/" + encodeURIComponent(game.id);
-        return urlOfGame;
-    }
-
-    getGame(gameId) {
-        let key = self.getGamePersistenceKey(gameId);
-        return self.get(key);
-    }
-
-    getGamePersistenceKeys() {
-        return self.findKeysWithPrefix(self.constants.data.game);
-    }
-
-    getGamePersistenceKey(gameId) {
-        let key = gameId;
-        if (!key.startsWith(self.constants.data.game)) {
-            key = self.constants.data.game + "." + key;
-        }
-        return key;
-
     }
 
     get(key) {
@@ -273,62 +63,16 @@ class PersistenceService {
         }
     }
 
+    export() {
+        return JSON.stringify(localStorage);
+
+    }
+
     cleanAllData() {
         if (!self.isLocalStorageSupported) {
             return ;
         }
         localStorage.clear();
-    }
-
-    export() {
-        let bookKeys = self.getBookPersistenceKeys();
-        let books = [];
-        for (let i = 0; i < bookKeys.length; i++) {
-            let book = self.get(bookKeys[i]);
-            books.push(self.exportBook(book.id));
-        }
-        return JSON.stringify(books);
-
-    }
-
-    exportBook(bookId) {
-        if (!self.isLocalStorageSupported) {
-            return null;
-        }
-        let book = self.getBook(bookId);
-        book.paragraphs = [];
-
-        let keys = Object.keys(localStorage);
-        let bookIdKeyPrefix = self.constants.data.book + '.' + bookId;
-        for (let i = 0; i < keys.length; i++) {
-            if (keys[i].startsWith(bookIdKeyPrefix + ".paragraph") !== -1) {
-                let currentBookIdPrefix = keys[i].substring(0, keys[i].indexOf('.paragraph'));
-                if (currentBookIdPrefix === bookIdKeyPrefix) {
-                    let paragraph = self.get(keys[i]);
-                    if (!!paragraph) {
-                        book.paragraphs.push(paragraph);
-                    }
-                }
-            }
-        }
-        book.paragraphs = this.sortParagraphs(book.paragraphs);
-        return book;
-    }
-
-    sortParagraphs(paragraphs) {
-        return paragraphs.sort(this.compareParagraph);
-    }
-
-    compareParagraph(p1, p2) {
-        if (!p1 && !p2) {
-            return 0;
-        } else if (!p1) {
-            return 1;
-        } else if (!p2) {
-            return -1;
-        } else {
-            return p1.paragraphNr - p2.paragraphNr;
-        }
     }
 }
 

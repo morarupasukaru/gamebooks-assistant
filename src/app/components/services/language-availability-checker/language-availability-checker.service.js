@@ -2,16 +2,16 @@ let self;
 class LanguageAvailabilityCheckerService {
 
     /*@ngInject*/
-    constructor(persistenceService, $location, constants, $translate) {
+    constructor(gamePersistenceService, $location, constants, $translate) {
         self = this;
-        self.persistenceService = persistenceService;
+        self.gamePersistenceService = gamePersistenceService;
         self.$location = $location;
         self.constants = constants;
         self.$translate = $translate;
     }
 
     selectLanguageIfMissing() {
-        let selectedLanguage = self.persistenceService.getSelectedLanguage();
+        let selectedLanguage = self.gamePersistenceService.getSelectedLanguage();
         let currentUrl = self.$location.url();
         if (!!selectedLanguage) {
             self.$translate.use(selectedLanguage);

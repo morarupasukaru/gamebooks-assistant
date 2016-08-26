@@ -1,12 +1,13 @@
 let self;
 class GamesController {
     /*@ngInject*/
-    constructor($location, preScreenLoadingInterceptorsCallerService, constants, persistenceService, messagesService, $translate, popupService) {
+    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, bookPersistenceService, messagesService, $translate, popupService) {
         self = this;
         self.constants = constants;
         preScreenLoadingInterceptorsCallerService.intercept();
         self.$location = $location;
-        self.persistenceService = persistenceService;
+        self.gamePersistenceService = gamePersistenceService;
+        self.bookPersistenceService = bookPersistenceService;
         self.messagesService = messagesService;
         self.$translate = $translate;
         self.popupService = popupService;
@@ -23,10 +24,10 @@ class GamesController {
     }
 
     initData() {
-        let gamePersistenceKeys = self.persistenceService.getGamePersistenceKeys();
+        let gamePersistenceKeys = self.gamePersistenceService.getGamePersistenceKeys();
         self.rows = [];
         for (let i = 0; i < gamePersistenceKeys.length; i++) {
-            let game = self.persistenceService.getGame(gamePersistenceKeys[i]);
+            let game = self.gamePersistenceService.getGame(gamePersistenceKeys[i]);
             self.rows.push(game);
         }
 
@@ -35,7 +36,7 @@ class GamesController {
 
     completeBookName(games) {
         for (let i = 0; i < games.length; i++) {
-            let book = self.persistenceService.getBook(games[i].bookId);
+            let book = self.bookPersistenceService.getBook(games[i].bookId);
             if (!!book) {
                 games[i].bookName = book.name;
             } else {
@@ -57,7 +58,7 @@ class GamesController {
     }
 
     continueGame() {
-        let nextUrl = self.persistenceService.getUrlOfGame(self.getSelectedRow().id);
+        let nextUrl = self.gamePersistenceService.getUrlOfGame(self.getSelectedRow().id);
         self.$location.url(nextUrl);
     }
 
@@ -72,7 +73,7 @@ class GamesController {
     }
 
     deleteGame() {
-        self.persistenceService.deleteGame(self.getSelectedRow().id, true, true);
+        self.gamePersistenceService.deleteGame(self.getSelectedRow().id, true, true);
         self.initData();
     }
 

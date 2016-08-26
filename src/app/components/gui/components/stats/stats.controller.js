@@ -1,9 +1,9 @@
 let self;
 class StatsController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, persistenceService) {
+    constructor(preScreenLoadingInterceptorsCallerService, gamePersistenceService) {
         self = this;
-        self.persistenceService = persistenceService;
+        self.gamePersistenceService = gamePersistenceService;
         preScreenLoadingInterceptorsCallerService.intercept();
     }
 
@@ -18,9 +18,9 @@ class StatsController {
     }
 
     save() {
-        let updatedGame = self.persistenceService.getGame(self.gameId);
+        let updatedGame = self.gamePersistenceService.getGame(self.gameId);
         updatedGame.stats = self.stats;
-        self.persistenceService.updateGame(updatedGame);
+        self.gamePersistenceService.updateGame(updatedGame);
     }
 }
 

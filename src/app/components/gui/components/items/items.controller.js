@@ -1,13 +1,13 @@
 let self;
 class ItemsController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, popupService, constants, persistenceService) {
+    constructor(preScreenLoadingInterceptorsCallerService, popupService, constants, gamePersistenceService) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
         this.rows = this.items;
         self.popupService = popupService;
         self.constants = constants;
-        self.persistenceService = persistenceService;
+        self.gamePersistenceService = gamePersistenceService;
 
         self.popupDeleteItemConfig = {
             id : 'popupDeleteItem',
@@ -83,9 +83,9 @@ class ItemsController {
 
     saveInPersistence() {
         if (!!self.gameId) {
-            let updatedGame = self.persistenceService.getGame(self.gameId);
+            let updatedGame = self.gamePersistenceService.getGame(self.gameId);
             updatedGame.items = self.items;
-            self.persistenceService.updateGame(updatedGame);
+            self.gamePersistenceService.updateGame(updatedGame);
         }
     }
 }

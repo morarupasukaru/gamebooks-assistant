@@ -1,14 +1,15 @@
 let self;
 class BattleController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $window, popupService, constants, persistenceService, $stateParams) {
+    constructor(preScreenLoadingInterceptorsCallerService, $window, popupService, constants, gamePersistenceService, bookPersistenceService, $stateParams) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
         self.$window = $window;
         self.popupService = popupService;
         self.constants = constants;
         self.$stateParams = $stateParams;
-        self.persistenceService = persistenceService;
+        self.gamePersistenceService = gamePersistenceService;
+        self.bookPersistenceService = bookPersistenceService;
 
         self.popupDeleteEnemyConfig = {
             id : 'popupDeleteEnemy',
@@ -23,8 +24,8 @@ class BattleController {
 
     initData() {
         if (!!self.$stateParams.game) {
-            self.game = self.persistenceService.getGame(decodeURIComponent(self.$stateParams.game));
-            self.book = self.persistenceService.getBook(self.game.bookId);
+            self.game = self.gamePersistenceService.getGame(decodeURIComponent(self.$stateParams.game));
+            self.book = self.bookPersistenceService.getBook(self.game.bookId);
         }
 
         self.initStatsData();
@@ -89,7 +90,7 @@ class BattleController {
             let currentStats = self.game.stats[i];
             currentStats.current = self.statsPlayer[currentStats.name];
         }
-        self.persistenceService.updateGame(self.game);
+        self.gamePersistenceService.updateGame(self.game);
     }
 
     displayRemovePopup(removedRow) {

@@ -1,12 +1,13 @@
 let self;
 class ParagraphController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, popupService, constants, persistenceService, $location) {
+    constructor(preScreenLoadingInterceptorsCallerService, popupService, constants, gamePersistenceService, bookPersistenceService, $location) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
         self.popupService = popupService;
         self.constants = constants;
-        self.persistenceService = persistenceService;
+        self.gamePersistenceService = gamePersistenceService;
+        self.bookPersistenceService = bookPersistenceService;
         self.$location = $location;
 
         self.popupDeleteChoiceConfig = {
@@ -17,7 +18,7 @@ class ParagraphController {
             closeOnClickOutsideModal : false
         };
 
-        let game = persistenceService.getGame(self.gameId);
+        let game = gamePersistenceService.getGame(self.gameId);
         self.bookId = game.bookId;
         self.playerName = game.playerName;
         this.descriptionEditable = false;
@@ -62,7 +63,7 @@ class ParagraphController {
     saveDescriptionChanges() {
         self.originalDescription = null;
         self.descriptionEditable = false;
-        self.persistenceService.updateParagraph(self.bookId, self.paragraph);
+        self.bookPersistenceService.updateParagraph(self.bookId, self.paragraph);
     }
 
     abortDescriptionChanges() {
@@ -93,7 +94,7 @@ class ParagraphController {
     }
 
     saveParagraphChoices() {
-        self.persistenceService.updateParagraph(self.bookId, self.paragraph);
+        self.bookPersistenceService.updateParagraph(self.bookId, self.paragraph);
     }
 
     abortRowChanges() {
@@ -114,8 +115,8 @@ class ParagraphController {
     }
 
     goTo(paragraphNr) {
-        self.persistenceService.setCurrentParagraphNrOfGame(self.gameId, self.paragraph.paragraphNr, paragraphNr);
-        let nextUrl = self.persistenceService.getUrlOfGame(self.gameId);
+        self.gamePersistenceService.setCurrentParagraphNrOfGame(self.gameId, self.paragraph.paragraphNr, paragraphNr);
+        let nextUrl = self.gamePersistenceService.getUrlOfGame(self.gameId);
         self.$location.url(nextUrl);
     }
 }

@@ -1,10 +1,11 @@
 let ctrl;
 class AdministrationController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, persistenceService, constants, popupService, $window) {
+    constructor(preScreenLoadingInterceptorsCallerService, persistenceService, bookPersistenceService, constants, popupService, $window) {
         preScreenLoadingInterceptorsCallerService.intercept();
         ctrl = this;
         this.persistenceService = persistenceService;
+        this.bookPersistenceService = bookPersistenceService;
         this.constants = constants;
         this.popupService = popupService;
         this.initData();
@@ -29,7 +30,7 @@ class AdministrationController {
 
     initData() {
         this.applicationData = JSON.stringify(this.persistenceService.export());
-        this.exportBooksData = this.persistenceService.export();
+        this.exportBooksData = this.bookPersistenceService.export();
     }
 
     showPopupConfirmImportData() {

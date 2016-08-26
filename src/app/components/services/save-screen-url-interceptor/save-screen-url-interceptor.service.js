@@ -2,16 +2,16 @@ let self;
 class SaveScreenUrlInterceptorService {
 
     /*@ngInject*/
-    constructor(persistenceService, $location) {
+    constructor(gamePersistenceService, $location) {
         self = this;
-        self.persistenceService = persistenceService;
+        self.gamePersistenceService = gamePersistenceService;
         self.$location = $location;
     }
 
     saveScreenUrl() {
         let currentUrl = self.$location.url();
         if (!!currentUrl && currentUrl !== '/') {
-            self.persistenceService.setLastDisplayedScreenUrl(currentUrl);
+            self.gamePersistenceService.setLastDisplayedScreenUrl(currentUrl);
         }
     }
 }

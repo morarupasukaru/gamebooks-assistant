@@ -1,18 +1,19 @@
 let self;
 class ChooseItemsController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $stateParams, messagesService, $window, $location, constants, persistenceService, $translate) {
+    constructor(preScreenLoadingInterceptorsCallerService, $stateParams, messagesService, $window, $location, constants, gamePersistenceService, bookPersistenceService, $translate) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
         self.messagesService = messagesService;
-        self.persistenceService = persistenceService;
+        self.bookPersistenceService = bookPersistenceService;
+        self.gamePersistenceService = gamePersistenceService;
         self.$window = $window;
         self.$stateParams = $stateParams;
         self.$location = $location;
         self.$translate = $translate;
         self.constants = constants;
 
-        self.book = persistenceService.getBook($stateParams.bookId);
+        self.book = bookPersistenceService.getBook($stateParams.bookId);
         self.playerItems = self.book.items;
         for (let i = 0; i < self.playerItems.length; i++) {
             self.playerItems[i].description = $translate.instant(self.playerItems[i].description);
@@ -38,9 +39,9 @@ class ChooseItemsController {
 
     startGame() {
         let game = self.buildGame();
-        game = self.persistenceService.addGame(game);
-        self.persistenceService.setCurrentParagraphNrOfGame(game.id, null, self.book.startParagraphNr);
-        self.$location.url(self.persistenceService.getUrlOfGame(game.id));
+        game = self.gamePersistenceService.addGame(game);
+        self.gamePersistenceService.setCurrentParagraphNrOfGame(game.id, null, self.book.startParagraphNr);
+        self.$location.url(self.gamePersistenceService.getUrlOfGame(game.id));
     }
 
     buildGame() {

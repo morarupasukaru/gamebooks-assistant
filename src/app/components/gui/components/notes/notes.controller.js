@@ -1,13 +1,14 @@
 let self;
 class NotesController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, popupService, constants, persistenceService) {
+    constructor(preScreenLoadingInterceptorsCallerService, popupService, constants, gamePersistenceService, bookPersistenceService) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
 
         self.popupService = popupService;
         self.constants = constants;
-        self.persistenceService = persistenceService;
+        self.gamePersistenceService = gamePersistenceService;
+        self.bookPersistenceService = bookPersistenceService;
 
         self.popupDeleteNoteConfig = {
             id : 'popupDeleteNoteConfig',
@@ -23,11 +24,11 @@ class NotesController {
     initData() {
         let game;
         if (!!self.gameId) {
-            game = self.persistenceService.getGame(self.gameId);
+            game = self.gamePersistenceService.getGame(self.gameId);
         }
 
         self.notes = [];
-        let paragraph = self.persistenceService.getParagraph(self.bookId, self.paragraphNr);
+        let paragraph = self.bookPersistenceService.getParagraph(self.bookId, self.paragraphNr);
         if (!!paragraph && !!paragraph.notes) {
             for (let i = 0; i < paragraph.notes.length; i++) {
                 self.notes.push(paragraph.notes[i]);
@@ -116,9 +117,9 @@ class NotesController {
                 savedNotes.push({ note : self.notes[i].note, playerName : self.notes[i].playerName});
             }
         }
-        let game = self.persistenceService.getGame(self.gameId);
+        let game = self.gamePersistenceService.getGame(self.gameId);
         game.notes = savedNotes;
-        self.persistenceService.updateGame(game);
+        self.gamePersistenceService.updateGame(game);
     }
 
     saveParagraphNotes() {
@@ -128,9 +129,9 @@ class NotesController {
                 savedNotes.push({ note : self.notes[i].note, playerName : self.notes[i].playerName});
             }
         }
-        let paragraph = self.persistenceService.getParagraph(self.bookId, self.paragraphNr);
+        let paragraph = self.bookPersistenceService.getParagraph(self.bookId, self.paragraphNr);
         paragraph.notes = savedNotes;
-        self.persistenceService.updateParagraph(self.bookId, paragraph);
+        self.bookPersistenceService.updateParagraph(self.bookId, paragraph);
     }
 
     abortRowChanges() {
