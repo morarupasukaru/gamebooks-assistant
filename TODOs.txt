@@ -1,6 +1,5 @@
 améliorations
 - encapsuler l'utilisation de localStorage dans un service, ajout d'une méthode pour connaitre la place dispo
-- sauver "alreadyChoosen" dans les données des parties au lieu que dans les données des livres
 - corriger le bug que l'interface sur ipad ne répond parfois pas bien
 - refactoring lié au version de l'application, version des livres,
 - supprimer dépendances à angular-translate-loader-static-files (utilisation de angular-translate) & nettoyage des clefs i18n inutiles

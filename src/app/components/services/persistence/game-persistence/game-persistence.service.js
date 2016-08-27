@@ -118,15 +118,21 @@ class GamePersistenceService {
     setCurrentParagraphNrOfGame(gameId, fromParagrahNr, toParagraphNr) {
         let game = this.getGame(gameId);
         if (!!fromParagrahNr) {
-            let paragraph = this.bookPersistenceService.getParagraph(game.bookId, fromParagrahNr);
-            for (let i = 0; i < paragraph.choices.length; i++) {
-                let choice = paragraph.choices[i];
-                if (choice.paragraphNr === toParagraphNr) {
-                    choice.alreadyChoosen = true;
-                    break ;
-                }
+            let persistenceKeyChoosenParagraphs = game.bookId + '.' + 'choosen';
+            let choosenParagraphs = self.persistenceService.get(persistenceKeyChoosenParagraphs);
+            if (!choosenParagraphs) {
+                choosenParagraphs = {};
             }
-            this.bookPersistenceService.updateParagraph(game.bookId, paragraph);
+            let keyArray = fromParagrahNr + '>' + toParagraphNr;
+            let choosenBy = choosenParagraphs[keyArray];
+            if (!choosenBy) {
+                choosenBy = [];
+                choosenParagraphs[keyArray] = choosenBy;
+            }
+            if (choosenBy.indexOf(gameId) === -1) {
+                choosenBy.push(gameId);
+                self.persistenceService.save(persistenceKeyChoosenParagraphs, choosenParagraphs);
+            }
         }
         game.currentParagraphNr = toParagraphNr;
         if (!game.path) {
@@ -134,6 +140,27 @@ class GamePersistenceService {
         }
         game.path.push(toParagraphNr);
         this.updateGame(game);
+    }
+
+    getChoosenChoices(gameId, paragraphNr) {
+        let game = self.getGame(gameId);
+        let persistenceKeyChoosenParagraphs = game.bookId + '.' + 'choosen';
+        let choosenParagraphs = self.persistenceService.get(persistenceKeyChoosenParagraphs);
+        if (!choosenParagraphs) {
+            return [];
+        } else {
+            let paragraph = self.bookPersistenceService.getParagraph(game.bookId, paragraphNr);
+            let choosen = [];
+            if (!!paragraph.choices) {
+                for (let i = 0; i < paragraph.choices.length; i++) {
+                    let keyArray = paragraphNr + '>' + paragraph.choices[i].paragraphNr;
+                    if (!!choosenParagraphs[keyArray]) {
+                        choosen.push(paragraph.choices[i].paragraphNr);
+                    }
+                }
+            }
+            return choosen;
+        }
     }
 }
 

@@ -18,10 +18,15 @@ class ParagraphController {
             closeOnClickOutsideModal : false
         };
 
-        let game = gamePersistenceService.getGame(self.gameId);
+        self.initData();
+    }
+
+    initData() {
+        let game = self.gamePersistenceService.getGame(self.gameId);
         self.bookId = game.bookId;
         self.playerName = game.playerName;
         this.descriptionEditable = false;
+        self.alreadyChoosen = self.gamePersistenceService.getChoosenChoices(self.gameId, self.paragraph.paragraphNr);
     }
 
     addRow() {
@@ -118,6 +123,10 @@ class ParagraphController {
         self.gamePersistenceService.setCurrentParagraphNrOfGame(self.gameId, self.paragraph.paragraphNr, paragraphNr);
         let nextUrl = self.gamePersistenceService.getUrlOfGame(self.gameId);
         self.$location.url(nextUrl);
+    }
+
+    isAlreadyChoosen(choice) {
+        return self.alreadyChoosen.indexOf(choice.paragraphNr) !== -1;
     }
 }
 
