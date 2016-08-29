@@ -31,6 +31,13 @@ class AdministrationController {
     initData() {
         this.applicationData = JSON.stringify(this.persistenceService.export());
         this.exportBooksData = this.bookPersistenceService.export();
+        this.computeLocalStorageCapacities();
+    }
+
+    computeLocalStorageCapacities() {
+        this.usedLocalStorage = this.persistenceService.getUsedCapacity();
+        this.remainingCapacity = this.persistenceService.getRemainingCapacity();
+        this.usedLocalStorageInPercent = this.persistenceService.getUsedCapacityInPercent();
     }
 
     showPopupConfirmImportData() {
