@@ -123,7 +123,7 @@ class GamePersistenceService {
             if (!choosenParagraphs) {
                 choosenParagraphs = {};
             }
-            let keyArray = fromParagrahNr + '>' + toParagraphNr;
+            let keyArray = toParagraphNr;
             let choosenBy = choosenParagraphs[keyArray];
             if (!choosenBy) {
                 choosenBy = [];
@@ -153,7 +153,7 @@ class GamePersistenceService {
             let choosen = [];
             if (!!paragraph.choices) {
                 for (let i = 0; i < paragraph.choices.length; i++) {
-                    let keyArray = paragraphNr + '>' + paragraph.choices[i].paragraphNr;
+                    let keyArray = paragraph.choices[i].paragraphNr;
                     if (!!choosenParagraphs[keyArray]) {
                         choosen.push(paragraph.choices[i].paragraphNr);
                     }
