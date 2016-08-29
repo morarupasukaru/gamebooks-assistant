@@ -2,10 +2,12 @@ let self;
 class BookPersistenceService {
 
     /*@ngInject*/
-    constructor(constants, persistenceService) {
+    constructor(constants, persistenceService, messagesService, $translate) {
         self = this;
         self.constants = constants;
         self.persistenceService = persistenceService;
+        self.messagesService = messagesService;
+        self.$translate = $translate;
     }
 
     getBookPersistenceKeys() {
@@ -34,8 +36,16 @@ class BookPersistenceService {
         self.persistenceService.save(self.constants.data.book + "." + book.id, bookInfo);
     }
 
-    setParagraph(bookId, paragraph) {
+    setParagraph(bookId, paragraph, checkDupplicate) {
         let key = self.getParagraphPersistenceKey(bookId, paragraph.paragraphNr);
+        if (!!checkDupplicate) {
+            let existingParagraph = self.persistenceService.get(key);
+            if (!!existingParagraph) {
+                self.messagesService.errorMessage(self.$translate.instant("DupplicateParagraph", {paragraphNr: paragraph.paragraphNr }), true);
+                return ;
+            }
+        }
+        self.checkDupplicateChoices(paragraph);
         self.persistenceService.save(key, paragraph);
     }
 
@@ -72,7 +82,20 @@ class BookPersistenceService {
                 delete paragraph.choices[i]['$$hashKey'];
             }
         }
+        self.checkDupplicateChoices(paragraph);
         self.persistenceService.save(key, paragraph);
+    }
+
+    checkDupplicateChoices(paragraph) {
+        if (!!paragraph && !!paragraph.choices) {
+            let choices = [];
+            for (let i = 0; i < paragraph.choices.length; i++) {
+                if (choices.indexOf(paragraph.choices[i].paragraphNr) !== -1) {
+                    self.messagesService.errorMessage(self.$translate.instant("DupplicateParagraphChoices", {paragraphNr: paragraph.paragraphNr, choiceParagraphNr : paragraph.choices[i].paragraphNr }), true);
+                }
+                choices.push(paragraph.choices[i].paragraphNr);
+            }
+        }
     }
 
     getBookParagraphKeys(bookId) {

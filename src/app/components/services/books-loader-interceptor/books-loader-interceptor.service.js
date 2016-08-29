@@ -26,7 +26,7 @@ class BooksLoaderInterceptorService {
     saveParagraphsToPersistence(book) {
         if (!!book.paragraphs) {
             for (let i = 0; i < book.paragraphs.length; i++) {
-                self.bookPersistenceService.setParagraph(book.id, book.paragraphs[i]);
+                self.bookPersistenceService.setParagraph(book.id, book.paragraphs[i], true);
             }
         }
     }

@@ -741,13 +741,6 @@ class WarlockOfFiretopMountainService {
                     description: "Sinon il vous infligé une blessure alors que vous vous enfuyez."
 }]
 },
-
-            {
-                paragraphNr: 212,
-                description: "On peut lire plein labyrinthe de Zagor'. Il se trouve au nord une pièce désignée par ´...GER' et une autre au sud ´SM...P...L'. Vous prenez la carte.",
-                choices: [{}]
-},
-
             {
                 paragraphNr: 213,
                 description: "Jetez 2 dés. Si le chiffre est egal ou inférieur à votre total d'HABILITÉ, vous enfoncez la porte fermée à clé. Sinon vous perdez 1 point d'ENDURANCE.",
@@ -864,10 +857,7 @@ class WarlockOfFiretopMountainService {
                 description: "CHIEN a HABILITÉ:7, ENDURANCE:6. Lancer 1 dé à chaque assaut. 1,2: vous perdez 1 point car le chien crache du feu. 3-6: Vous évitez le jet de feu. Vous pouvez tester votre chance pour esquiver la flamme. En cas de succès, vous gagnez 1 point de CHANCE.",
                 choices: [{
                     paragraphNr: 66,
-                    description: "Prendre la fuite"
-}, {
-                    paragraphNr: 66,
-                    description: "Prendre la fuite une fois le combat fini"
+                    description: "Prendre la fuite avant ou après le combat fini"
 }, {
                     paragraphNr: 304,
                     description: "Rester"
@@ -1175,7 +1165,218 @@ class WarlockOfFiretopMountainService {
                     paragraphNr: 218,
                     description: "Poursuivre"
 }]
-}
+},
+{
+            paragraphNr: 48,
+            description: "",
+            choices: [{
+                paragraphNr: 391,
+                description: "Partir vers le nord"
+            }, {
+                paragraphNr: 60,
+                description: "Aller à l'ouest"
+            }]
+        }, {
+            paragraphNr: 52,
+            description: "",
+            choices: [{
+                paragraphNr: 391,
+                description: "Aller au sud"
+            }, {
+                paragraphNr: 362,
+                description: "Chercher un passage secret dans le couloir sud"
+            }, {
+                paragraphNr: 354,
+                description: "Aller au nord"
+            }, {
+                paragraphNr: 234,
+                description: "Chercher un passage secret dans le couloir nord"
+            }, {
+                paragraphNr: 291,
+                description: "Aller à l'est"
+            }]
+        }, {
+            paragraphNr: 109,
+            description: "C'est de l'EAU SAINTE. Vous récupérer quasi tous vos points d'endurance (-2 total initial), vos points d'habilité (-1 total initial) et 4 points de chance.",
+            choices: [{
+                paragraphNr: 120,
+                description: "Regarder le parchemin"
+            }, {
+                paragraphNr: 212,
+                description: "Aller vers le nord"
+            }]
+        }, {
+            paragraphNr: 120,
+            description: "Vous suivez un court passage puis gravissez un escalier.",
+            choices: [{
+                paragraphNr: 197,
+                description: "Poursuivre"
+            }]
+        }, {
+            paragraphNr: 157,
+            description: "",
+            choices: [{
+                paragraphNr: 4,
+                description: "Traverser la porte et se diriger vers le nord"
+            }, {
+                paragraphNr: 329,
+                description: "Revenir en arrière"
+            }]
+        }, {
+            paragraphNr: 171,
+            description: "",
+            choices: [{
+                paragraphNr: 337,
+                description: "Examiner le mur du cul-de-sac."
+            }, {
+                paragraphNr: 187,
+                description: "Aller au sud"
+            }]
+        }, {
+            paragraphNr: 175,
+            description: "",
+            choices: [{
+                paragraphNr: 177,
+                description: "Ouvrir la porte derrière vous vers l'est"
+            }, {
+                paragraphNr: 267,
+                description: "Avancer pour atteindre un croisement"
+            }]
+        }, {
+            paragraphNr: 187,
+            description: "",
+            choices: [{
+                paragraphNr: 171,
+                description: "Explorer le cul de sac au nord"
+            }, {
+                paragraphNr: 308,
+                description: "Aller vers l'est"
+            }]
+        }, {
+            paragraphNr: 197,
+            description: "Une lourde herse vous bloque le chemin que vous venez de prendre",
+            choices: [{
+                paragraphNr: 48,
+                description: "Partir tout droit"
+            }, {
+                paragraphNr: 295,
+                description: "Chercher un passage secret"
+            }]
+        }, {
+            paragraphNr: 212,
+            description: "On peut lire plein labyrinthe de Zagor'. Il se trouve au nord une pièce désignée par ´...GER' et une autre au sud ´SM...P...L'. Vous prenez la carte.",
+            choices: [{
+                paragraphNr: 369,
+                description: "Tester le liquide"
+            }, {
+                paragraphNr: 120,
+                description: "Poursuivre vers le nord"
+            }]
+        },
+        {
+            paragraphNr: 246,
+            description: "",
+            choices: [{
+                paragraphNr: 329,
+                description: "Aller au nord"
+            }, {
+                paragraphNr: 180,
+                description: "Aller à l'ouest"
+            }, {
+                paragraphNr: 70,
+                description: "Aller à nouveau vers l'est"
+            }]
+        }, {
+            paragraphNr: 267,
+            description: "",
+            choices: [{
+                paragraphNr: 312,
+                description: "Aller au nord"
+            }, {
+                paragraphNr: 246,
+                description: "Aller au sud"
+            }, {
+                paragraphNr: 79,
+                description: "Aller à l'ouest"
+            }, {
+                paragraphNr: 349,
+                description: "Aller à l'est"
+            }]
+        }, {
+            paragraphNr: 308,
+            description: "",
+            choices: [{
+                paragraphNr: 187,
+                description: "Aller à l'ouest"
+            }, {
+                paragraphNr: 54,
+                description: "Aller au nord"
+            }, {
+                paragraphNr: 160,
+                description: "Aller au sud"
+            }, {
+                paragraphNr: 354,
+                description: "Aller à l'est"
+            }]
+        }, {
+            paragraphNr: 312,
+            description: "",
+            choices: [{
+                paragraphNr: 308,
+                description: "Vous arrivez à un croisement"
+            }]
+        }, {
+            paragraphNr: 329,
+            description: "",
+            choices: [{
+                paragraphNr: 157,
+                description: "Aller à la porte du mur ouest"
+            }, {
+                paragraphNr: 392,
+                description: "Aller à la porte située au nord"
+            }, {
+                paragraphNr: 299,
+                description: "Aller à l'est"
+            }, {
+                paragraphNr: 238,
+                description: "Aller au sud"
+            }]
+        }, {
+            paragraphNr: 337,
+            description: "Un déclic s'entend et vous vous effondrez. Lorsque vous reprenez connaissance, vous ne reconnaissez pas le décor autours de vous.",
+            choices: [{
+                paragraphNr: 267,
+                description: "Poursuivre"
+            }]
+        }, {
+            paragraphNr: 362,
+            description: "Vous découvrez une porte secrète",
+            choices: [{
+                paragraphNr: 175,
+                description: "Poursuivre"
+            }]
+        }, {
+            paragraphNr: 369,
+            description: "Vous avalez une gorgée du liquide",
+            choices: [{
+                paragraphNr: 109,
+                description: "Poursuivre"
+            }]
+        },
+         {
+            paragraphNr: 391,
+            description: "",
+            choices: [{
+                paragraphNr: 52,
+                description: "Partir à l'est"
+            }, {
+                paragraphNr: 362,
+                description: "Chercher un passage secret"
+            }, {
+                paragraphNr: 48,
+                description: "Prendre la direction du sud"
+            }]
+        }
            ];
     }
 

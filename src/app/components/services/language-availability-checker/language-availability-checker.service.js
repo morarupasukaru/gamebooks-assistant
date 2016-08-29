@@ -17,7 +17,7 @@ class LanguageAvailabilityCheckerService {
             self.$translate.use(selectedLanguage);
         } else {
             if (!!currentUrl && !currentUrl.startsWith('/choose-language')) {
-                self.$location.url(self.constants.url.chooseLanguage + '?next=' + encodeURIComponent(currentUrl));
+                self.$location.url(self.constants.url.chooseLanguage);
             }
         }
     }

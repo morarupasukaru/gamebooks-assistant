@@ -11,7 +11,7 @@ let chooseLanguageModule = angular.module('app.components.gui.screen.choose-lang
         $urlRouterProvider.otherwise('/');
 
         $stateProvider.state('choose-language', {
-            url: constants.url.chooseLanguage + '?next', template: '<choose-language></choose-language>'
+            url: constants.url.chooseLanguage, template: '<choose-language></choose-language>'
         });
     })
 

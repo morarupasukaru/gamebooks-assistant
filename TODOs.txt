@@ -10,6 +10,7 @@ améliorations
 - id unique book si edité par écrivains différents? > message lors de l'importation (warn)
 
 nouvelles fonctionnalités
+- amélioration gui pour diminuer le nb de clic
 - import as json file (upload)
 - export as json file (download)
 - affiche la taille dispo du localStorage dans écran admin
