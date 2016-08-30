@@ -18,6 +18,7 @@ class BooksLoaderInterceptorService {
     saveBookToPersistence(book) {
         let previousSavedBook = self.bookPersistenceService.getBook(book.id);
         if (!previousSavedBook || new Number(previousSavedBook.version) < new Number(book.version)) {
+            self.bookPersistenceService.deleteBook(book.id);
             self.bookPersistenceService.setBook(book);
             self.saveParagraphsToPersistence(book);
         }

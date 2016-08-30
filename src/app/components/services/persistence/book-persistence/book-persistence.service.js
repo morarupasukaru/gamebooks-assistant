@@ -36,6 +36,14 @@ class BookPersistenceService {
         self.persistenceService.save(self.constants.data.book + "." + book.id, bookInfo);
     }
 
+    deleteBook(bookId) {
+        self.persistenceService.remove(self.getBookPersistenceKey(bookId));
+        let paragraphKeys = self.getBookParagraphKeys(bookId);
+        for (let i = 0; i < paragraphKeys.length; i++) {
+            self.persistenceService.remove(paragraphKeys[i]);
+        }
+    }
+
     setParagraph(bookId, paragraph, checkDupplicate) {
         let key = self.getParagraphPersistenceKey(bookId, paragraph.paragraphNr);
         if (!!checkDupplicate) {

@@ -51,6 +51,13 @@ class PersistenceService {
         }
     }
 
+    remove(key) {
+        if (!self.isLocalStorageSupported) {
+            return ;
+        }
+        localStorage.removeItem(key);
+    }
+
     import(importDataAsJson) {
         if (!self.isLocalStorageSupported) {
             return ;
