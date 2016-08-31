@@ -10,6 +10,22 @@ class BookPersistenceService {
         self.$translate = $translate;
     }
 
+    getBooksOverview() {
+        let keys = self.getBookPersistenceKeys();
+        let books = [];
+        for (let i = 0; i < keys.length; i++) {
+            let book = self.persistenceService.get(keys[i]);
+            books.push({
+                name : book.name,
+                numberOfParagraphs : book.numberOfParagraphs,
+                language : book.language,
+                version : book.version,
+                authors : book.authors
+            });
+        }
+        return books;
+    }
+
     getBookPersistenceKeys() {
         let keys = Object.keys(localStorage);
         let result = [];

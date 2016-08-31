@@ -12,6 +12,7 @@ class WarlockOfFiretopMountainService {
             name : 'Le Sorcier de la Montagne de Feu',
             authors : 'Steve Jackson & Ian Livingstone',
             isbn :'978-2-07-064740-8',
+            numberOfParagraphs : 400,
             stats : [
                 {
                    name : 'Habilité',

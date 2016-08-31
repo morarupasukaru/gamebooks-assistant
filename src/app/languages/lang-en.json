@@ -7,5 +7,6 @@
   "Change language to en" : "Change language to English",
   "Change language to fr" : "Changez la langue au français",
   "DupplicateParagraph" : "The paragraph '{{ paragraphNr }}' already exist",
-  "DupplicateParagraphChoices" : "The paragraph '{{ paragraphNr }}' has already a choice with paragraph '{{ choiceParagraphNr }}'"
+  "DupplicateParagraphChoices" : "The paragraph '{{ paragraphNr }}' has already a choice with paragraph '{{ choiceParagraphNr }}'",
+  "NumberOfParagraphs": "{{ numberOfParagraphs }} paragraphs"
 }
