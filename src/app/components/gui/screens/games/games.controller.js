@@ -14,7 +14,7 @@ class GamesController {
 
         self.popupDeleteGameConfig = {
             id : 'popupDeleteGame',
-            text : 'Are you sure to remove the game?',
+            text : 'Are you sure to remove the selected game?',
             choices : [constants.choices.yes, constants.choices.no],
             withCloseButton : false,
             closeOnClickOutsideModal : false

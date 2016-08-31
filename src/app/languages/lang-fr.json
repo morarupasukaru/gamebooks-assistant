@@ -139,7 +139,7 @@
   "Change language to en" : "Change language to English",
   "Change language to fr" : "Changez la langue au français",
   "Remove" : "Supprimer",
-  "Are you sure to remove the game?" : "Voulez-vous supprimer la partie?",
+  "Are you sure to remove the selected game?" : "Voulez-vous supprimer la partie sélectionnée?",
   "Used Local's Storage in Percent" : "Utilisation du localStorage en pourcent",
   "Used Local's Storage" : "Utilisation du localStorage",
   "Remaining Local's Storage" : "Place disponibe du localStorage",
@@ -156,5 +156,6 @@
   "Length" : "Longueur",
   "Language" : "Langue",
   "Author(s)" : "Auteur(s)",
-  "NumberOfParagraphs": "{{ numberOfParagraphs }} paragraphes"
+  "NumberOfParagraphs": "{{ numberOfParagraphs }} paragraphes",
+  "Are you sure to remove the selected book?": "Voulez-vous supprimer le livre sélectionné?"
 }

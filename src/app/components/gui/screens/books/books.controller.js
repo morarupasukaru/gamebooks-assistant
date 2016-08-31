@@ -12,9 +12,9 @@ class BooksController {
         self.$translate = $translate;
         self.popupService = popupService;
 
-        self.popupDeleteGameConfig = {
+        self.popupDeleteBookConfig = {
             id : 'popupDeleteGame',
-            text : 'Are you sure to remove the game?',
+            text : 'Are you sure to remove the selected book?',
             choices : [constants.choices.yes, constants.choices.no],
             withCloseButton : false,
             closeOnClickOutsideModal : false
@@ -43,18 +43,18 @@ class BooksController {
         self.$location.url(nextUrl);
     }
 
-    displayRemoveGamePopup() {
-        self.popupService.show(self.popupDeleteGameConfig.id, self.callbackRemovePopup);
+    displayRemoveBooksPopup() {
+        self.popupService.show(self.popupDeleteBookConfig.id, self.callbackRemovePopup);
     }
 
     callbackRemovePopup(popupDomElementId, choice) {
         if (choice === self.constants.choices.yes) {
-            self.deleteGame();
+            self.deleteBook();
         }
     }
 
-    deleteGame() {
-        self.gamePersistenceService.deleteGame(self.getSelectedRow().id, true, true);
+    deleteBook() {
+        self.bookPersistenceService.deleteBook(self.getSelectedRow().id);
         self.initData();
     }
 

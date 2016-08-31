@@ -16,6 +16,7 @@ class BookPersistenceService {
         for (let i = 0; i < keys.length; i++) {
             let book = self.persistenceService.get(keys[i]);
             books.push({
+                id: book.id,
                 name : book.name,
                 numberOfParagraphs : book.numberOfParagraphs,
                 language : book.language,

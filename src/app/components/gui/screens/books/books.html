@@ -67,7 +67,7 @@
                 ng-disabled="!$ctrl.hasSelectedRow()"
                 aria-label="{{ 'Remove selected book' | translate }}"
                 title="{{ 'Remove selected book' | translate }}"
-                ng-click="$ctrl.displayRemoveGamePopup()">{{ 'Remove' | translate }}</button>
+                ng-click="$ctrl.displayRemoveBooksPopup()">{{ 'Remove' | translate }}</button>
         <button type="button" class="btn btn-default"
                 aria-label="{{ 'Import a book' | translate }}"
                 title="{{ 'Import a book' | translate }}">{{ 'Import' | translate }}</button>
@@ -78,4 +78,4 @@
     </div>
 </main>
 
-<popup config="{{ $ctrl.popupDeleteGameConfig }}"></popup>
+<popup config="{{ $ctrl.popupDeleteBookConfig }}"></popup>
