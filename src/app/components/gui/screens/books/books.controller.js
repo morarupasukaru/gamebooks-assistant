@@ -34,13 +34,12 @@ class BooksController {
         row.selected = true;
     }
 
-    startNewGame() {
-        self.$location.url(self.constants.url.selectBookForNewGame)
+    createBook() {
+        self.$location.url(self.constants.url.bookDetail + '/create');
     }
 
-    continueGame() {
-        let nextUrl = self.gamePersistenceService.getUrlOfGame(self.getSelectedRow().id);
-        self.$location.url(nextUrl);
+    displayBook() {
+        self.$location.url(self.constants.url.bookDetail + '/' + self.getSelectedRow().id);
     }
 
     displayRemoveBooksPopup() {

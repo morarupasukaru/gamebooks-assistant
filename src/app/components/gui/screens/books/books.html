@@ -59,6 +59,9 @@
                 title="{{ 'Create a book' | translate }}"
                 ng-click="$ctrl.createBook()">{{ 'Create' | translate }}</button>
         <button type="button" class="btn btn-default"
+                aria-label="{{ 'Import a book' | translate }}"
+                title="{{ 'Import a book' | translate }}">{{ 'Import' | translate }}</button>
+        <button type="button" class="btn btn-default"
                 aria-label="{{ 'Display selected book' | translate }}"
                 title="{{ 'Display selected book' | translate }}"
                 ng-disabled="!$ctrl.hasSelectedRow()"
@@ -68,9 +71,6 @@
                 aria-label="{{ 'Remove selected book' | translate }}"
                 title="{{ 'Remove selected book' | translate }}"
                 ng-click="$ctrl.displayRemoveBooksPopup()">{{ 'Remove' | translate }}</button>
-        <button type="button" class="btn btn-default"
-                aria-label="{{ 'Import a book' | translate }}"
-                title="{{ 'Import a book' | translate }}">{{ 'Import' | translate }}</button>
         <button type="button" class="btn btn-default"
                 ng-disabled="!$ctrl.hasSelectedRow()"
                 aria-label="{{ 'Export selected book' | translate }}"

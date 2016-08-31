@@ -54,7 +54,7 @@ class GamesController {
     }
 
     startNewGame() {
-        self.$location.url(self.constants.url.selectBookForNewGame)
+        self.$location.url(self.constants.url.selectBookForNewGame);
     }
 
     continueGame() {
