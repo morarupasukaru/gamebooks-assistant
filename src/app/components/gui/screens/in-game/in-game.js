@@ -1,11 +1,12 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
+import Notes from './notes/notes';
 
 import template from './in-game.html';
 import controller from './in-game.controller';
 
 let inGameModule = angular.module('app.components.gui.screen.in-game', [
-    uiRouter
+    uiRouter, Notes.name
 ])
     .config(/*@ngInject*/($stateProvider, $urlRouterProvider, constants) => {
         $urlRouterProvider.otherwise('/');
