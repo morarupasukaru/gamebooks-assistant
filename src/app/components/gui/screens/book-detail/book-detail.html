@@ -2,47 +2,134 @@
 <messages></messages>
 <main>
     <div class="container bg-white" role="main">
-        <h2>{{ 'Administration' | translate }}</h2>
+        <h2>{{ 'Book' | translate }} {{ $ctrl.book.name }}</h2>
         <div class="col-md-12">
             <form>
+                <h3>{{ 'General' | translate }}</h3>
                 <div>
                     <div class="form-group">
-                        <label for="usedLocalStorageInPercent">{{ "Used Local's Storage in Percent" | translate }}</label>
-                        <input type="text" class="form-control" id="usedLocalStorageInPercent" value="{{ $ctrl.usedLocalStorageInPercent | number : 2}}%">
+                        <label for="name">{{ "Name" | translate }}</label>
+                        <input type="text" class="form-control" id="name" ng-model="$ctrl.book.name">
                     </div>
                     <div class="form-group">
-                        <label for="usedLocalStorage">{{ "Used Local's Storage" | translate }}</label>
-                        <input type="text" class="form-control" id="usedLocalStorage" value="{{$ctrl.usedLocalStorage / 1024 | number : 2 }}kb">
+                        <label for="authors">{{ "Authors" | translate }}</label>
+                        <input type="text" class="form-control" id="authors" ng-model="$ctrl.book.authors">
                     </div>
                     <div class="form-group">
-                        <label for="remainingCapacity">{{ "Remaining Local's Storage" | translate }}</label>
-                        <input type="text" class="form-control" id="remainingCapacity" value="{{$ctrl.remainingCapacity / 1024 | number : 2 }}kb">
+                        <label for="description">{{ "Description" | translate }}</label>
+                        <textarea id="description" class="form-control" ng-model="$ctrl.book.description"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="editedParagraphs">{{ "Edited paragraphs" | translate }}</label>
-                        <input type="text" class="form-control" id="editedParagraphs" ng-model="$ctrl.exportBooksData">
+                        <label for="version">{{ "Version" | translate }}</label>
+                        <input type="text" class="form-control" id="version" ng-model="$ctrl.book.version">
                     </div>
                     <div class="form-group">
-                        <label for="applicationData">{{ "Application's data" | translate }}</label>
-                        <input type="text" class="form-control" id="applicationData" ng-model="$ctrl.applicationData">
+                        <label for="language">{{ "Language" | translate }}</label>
+                        <input type="text" class="form-control" id="language" ng-model="$ctrl.book.language">
                     </div>
                     <div class="form-group">
-                        <label for="importData">{{ "Paste the application's data copied from another browser" | translate }}</label>
-                        <input type="text" class="form-control" ng-model="$ctrl.importData" id="importData" placeholder="{{ 'Imported data' | translate }}">
+                        <label for="homepage">{{ "Homepage" | translate }}</label>
+                        <input type="text" class="form-control" id="homepage" ng-model="$ctrl.book.homepage">
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-danger" ng-click="$ctrl.showPopupConfirmImportData()" aria-label="{{ 'Import' | translate }}">{{ 'Import' | translate }}</button>
+                        <label for="isbn">{{ "ISBN" | translate }}</label>
+                        <input type="text" class="form-control" id="isbn" ng-model="$ctrl.book.isbn">
+                    </div>
+                    <div class="form-group">
+                        <label for="numberOfParagraphs">{{ "Number of paragraphs" | translate }}</label>
+                        <input type="text" class="form-control" id="numberOfParagraphs" ng-model="$ctrl.book.numberOfParagraphs">
+                    </div>
+                    <div class="form-group">
+                        <label for="startParagraphNr">{{ "First paragraph" | translate }}</label>
+                        <input type="text" class="form-control" id="startParagraphNr" ng-model="$ctrl.book.startParagraphNr">
                     </div>
                 </div>
-                <div>
-                    <div class="form-group">
-                        <button class="btn btn-danger" ng-click="$ctrl.showPopupConfirmDeleteApplicationData()" aria-label="{{ 'Delete application\'s data' | translate }}">{{ "Delete application's data" | translate }}</button>
-                    </div>
-                </div>
-            </form>
 
-            <popup config="{{ $ctrl.popupConfirmImportApplicationDataConfig }}"></popup>
-            <popup config="{{ $ctrl.popupConfirmDeleteApplicationDataConfig }}"></popup>
+                <h3>{{ 'Stats generation rules' | translate }}</h3>
+                <div>
+                </div>
+
+                <h3>{{ 'Initial items' | translate }}</h3>
+                <div>
+                </div>
+
+                <h3>{{ 'Start game notes' | translate }}</h3>
+                <div>
+                </div>
+
+                    <!--
+            stats : [
+                {
+                   name : 'Habilité',
+                   init: { sixDiceQuantity : 1, constant : 6},
+                   battle: {
+                       displayed: true,
+                       enemyDefaultValue : 5,
+                       editableForEnemy : true
+                   }
+                },
+                {
+                   name : 'Endurance',
+                   init: { sixDiceQuantity : 2, constant : 12},
+                   battle: {
+                       displayed : true,
+                       enemyDefaultValue : 4,
+                       editableForEnemy : true
+                   }
+                },
+                {
+                   name : 'Chance',
+                   init: { sixDiceQuantity : 1, constant : 6},
+                   battle: {
+                       displayed : true,
+                       enemyDefaultValue : undefined,
+                       editableForEnemy : false
+                   }
+                }
+            ],
+            items : [
+                {
+                   quantity : 1,
+                   description : 'Epée'
+                },
+                {
+                   quantity : 1,
+                   description : 'Bouclier'
+                },
+                {
+                   quantity : 1,
+                   description : 'Armure de cuir'
+                },
+                {
+                   quantity : 1,
+                   description : 'Sac à dos'
+                },
+                {
+                   quantity : 1,
+                   description : 'Lanterne'
+                },
+                {
+                   quantity : 10,
+                   description : "Repas (restitue 4 points d'endurance)"
+                },
+                {
+                   quantity : 2,
+                   description : "Mesures de potion d'Adresse (rend vos points d'HABILITE)"
+                },
+                {
+                   quantity : 2,
+                   description : "Mesures de potion de Vigueur (rend vos points d'ENDURANCE)"
+                },
+                {
+                   quantity : 2,
+                   description : "Mesures de Bonne Fortune (rend vos points de CHANCE + 1 point)"
+                }
+            ],
+            notes : [
+                { note : "Veuilliez choisir soit la potion d'habilité, de force ou de chance (supprimez les potions non choisies de l'inventaire)." }
+            ]
+                    -->
+            </form>
         </div>
         <back-button></back-button>
     </div>

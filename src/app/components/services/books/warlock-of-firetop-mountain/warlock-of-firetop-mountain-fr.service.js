@@ -8,7 +8,7 @@ class WarlockOfFiretopMountainService {
         self.book = {
             id : 'warlock-firetop-mountain',
             version : self.constants.version,
-            language : 'fr',
+            language : 'Français',
             name : 'Le Sorcier de la Montagne de Feu',
             authors : 'Steve Jackson & Ian Livingstone',
             isbn :'978-2-07-064740-8',
