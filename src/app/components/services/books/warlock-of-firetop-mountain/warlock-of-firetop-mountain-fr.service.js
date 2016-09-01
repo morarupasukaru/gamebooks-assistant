@@ -13,6 +13,8 @@ class WarlockOfFiretopMountainService {
             authors : 'Steve Jackson & Ian Livingstone',
             isbn :'978-2-07-064740-8',
             numberOfParagraphs : 400,
+            startParagraphNr : 1,
+            startGameNote : "Veuilliez choisir soit la potion d'habilité, de force ou de chance (supprimez les potions non choisies de l'inventaire).",
             stats : [
                 {
                    name : 'Habilité',
@@ -80,10 +82,6 @@ class WarlockOfFiretopMountainService {
                    description : "Mesures de Bonne Fortune (rend vos points de CHANCE + 1 point)"
                 }
             ],
-            startParagraphNr : 1,
-            notes : [
-                { note : "Veuilliez choisir soit la potion d'habilité, de force ou de chance (supprimez les potions non choisies de l'inventaire)." }
-            ]
         };
 
         self.book.paragraphs = [

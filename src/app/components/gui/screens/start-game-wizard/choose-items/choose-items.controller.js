@@ -26,10 +26,8 @@ class ChooseItemsController {
     }
 
     displayNotes() {
-        if (!!self.book.notes) {
-            self.book.notes.forEach(function(entry) {
-                self.messagesService.infoMessage(entry.note, false);
-            });
+        if (!!self.book.startGameNote) {
+            self.messagesService.infoMessage(self.book.startGameNote, false);
         }
     }
 
