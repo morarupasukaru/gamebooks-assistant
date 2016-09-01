@@ -157,5 +157,11 @@
   "Language" : "Langue",
   "Author(s)" : "Auteur(s)",
   "NumberOfParagraphs": "{{ numberOfParagraphs }} paragraphes",
-  "Are you sure to remove the selected book?": "Voulez-vous supprimer le livre sélectionné?"
+  "Are you sure to remove the selected book?": "Voulez-vous supprimer le livre sélectionné?",
+  "Homepage": "Page acceuil",
+  "Number of paragraphs": "Nombre de paragraphes",
+  "First paragraph": "Premier paragraphe",
+  "Start game's note": "Note début de jeu",
+  "Stats generation rules": "Règles de génération des attributs",
+  "Initial items": "Inventaire initiale"
 }

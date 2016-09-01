@@ -12,7 +12,7 @@
                         <input type="text" class="form-control" id="name" ng-model="$ctrl.book.name">
                     </div>
                     <div class="form-group">
-                        <label for="authors">{{ "Authors" | translate }}</label>
+                        <label for="authors">{{ "Author(s)" | translate }}</label>
                         <input type="text" class="form-control" id="authors" ng-model="$ctrl.book.authors">
                     </div>
                     <div class="form-group">
@@ -43,6 +43,10 @@
                         <label for="startParagraphNr">{{ "First paragraph" | translate }}</label>
                         <input type="text" class="form-control" id="startParagraphNr" ng-model="$ctrl.book.startParagraphNr">
                     </div>
+                    <div class="form-group">
+                        <label for="startGameNote">{{ "Start game's note" | translate }}</label>
+                        <textarea id="startGameNote" class="form-control" ng-model="$ctrl.book.startGameNote"></textarea>
+                    </div>
                 </div>
 
                 <h3>{{ 'Stats generation rules' | translate }}</h3>
@@ -50,10 +54,6 @@
                 </div>
 
                 <h3>{{ 'Initial items' | translate }}</h3>
-                <div>
-                </div>
-
-                <h3>{{ 'Start game notes' | translate }}</h3>
                 <div>
                 </div>
 
