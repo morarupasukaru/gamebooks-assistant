@@ -1,12 +1,14 @@
 let ctrl;
 class BookDetailController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, persistenceService, bookPersistenceService, $stateParams) {
+    constructor(preScreenLoadingInterceptorsCallerService, persistenceService, bookPersistenceService, $stateParams, $location, constants) {
         preScreenLoadingInterceptorsCallerService.intercept();
         ctrl = this;
         this.persistenceService = persistenceService;
         this.bookPersistenceService = bookPersistenceService;
         this.$stateParams = $stateParams;
+        this.$location = $location;
+        this.constants = constants;
         this.initData();
     }
 
@@ -19,6 +21,11 @@ class BookDetailController {
                 this.book = this.bookPersistenceService.getBook(bookId);
             }
         }
+    }
+
+    save() {
+        this.bookPersistenceService.updateBookWithoutParagraphs(this.book);
+        this.$location.url(this.constants.url.books);
     }
 }
 

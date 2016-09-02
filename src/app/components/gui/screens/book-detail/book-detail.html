@@ -9,11 +9,11 @@
                 <div>
                     <div class="form-group">
                         <label for="name">{{ "Name" | translate }}</label>
-                        <input type="text" class="form-control" id="name" ng-model="$ctrl.book.name">
+                        <input type="text" class="form-control" id="name" ng-model="$ctrl.book.name" required>
                     </div>
                     <div class="form-group">
                         <label for="authors">{{ "Author(s)" | translate }}</label>
-                        <input type="text" class="form-control" id="authors" ng-model="$ctrl.book.authors">
+                        <input type="text" class="form-control" id="authors" ng-model="$ctrl.book.authors" required>
                     </div>
                     <div class="form-group">
                         <label for="description">{{ "Description" | translate }}</label>
@@ -21,11 +21,11 @@
                     </div>
                     <div class="form-group">
                         <label for="version">{{ "Version" | translate }}</label>
-                        <input type="text" class="form-control" id="version" ng-model="$ctrl.book.version">
+                        <input type="text" class="form-control" id="version" ng-model="$ctrl.book.version" required>
                     </div>
                     <div class="form-group">
                         <label for="language">{{ "Language" | translate }}</label>
-                        <input type="text" class="form-control" id="language" ng-model="$ctrl.book.language">
+                        <input type="text" class="form-control" id="language" ng-model="$ctrl.book.language" required>
                     </div>
                     <div class="form-group">
                         <label for="homepage">{{ "Homepage" | translate }}</label>
@@ -41,45 +41,13 @@
                     </div>
                     <div class="form-group">
                         <label for="startParagraphNr">{{ "First paragraph" | translate }}</label>
-                        <input type="text" class="form-control" id="startParagraphNr" ng-model="$ctrl.book.startParagraphNr">
+                        <input type="text" class="form-control" id="startParagraphNr" ng-model="$ctrl.book.startParagraphNr" required>
                     </div>
                     <div class="form-group">
                         <label for="startGameNote">{{ "Start game's note" | translate }}</label>
                         <textarea id="startGameNote" class="form-control" ng-model="$ctrl.book.startGameNote"></textarea>
                     </div>
                 </div>
-
-                <!--
-        stats : [
-            {
-               name : 'Habilité',
-               init: { sixDiceQuantity : 1, constant : 6},
-               battle: {
-                   displayed: true,
-                   enemyDefaultValue : 5,
-                   editableForEnemy : true
-               }
-            },
-            {
-               name : 'Endurance',
-               init: { sixDiceQuantity : 2, constant : 12},
-               battle: {
-                   displayed : true,
-                   enemyDefaultValue : 4,
-                   editableForEnemy : true
-               }
-            },
-            {
-               name : 'Chance',
-               init: { sixDiceQuantity : 1, constant : 6},
-               battle: {
-                   displayed : true,
-                   enemyDefaultValue : undefined,
-                   editableForEnemy : false
-               }
-            }
-        ],
-                -->
 
                 <h3>{{ 'Stats rules' | translate }}</h3>
                 <div>
@@ -194,5 +162,9 @@
             </form>
         </div>
         <back-button></back-button>
+        <button type="button" class="btn btn-primary"
+                aria-label="{{ 'Save changes' | translate }}"
+                title="{{ 'Save changes' | translate }}"
+                ng-click="$ctrl.save()">{{ 'Save' | translate }}</button>
     </div>
 </main>

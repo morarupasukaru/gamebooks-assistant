@@ -42,7 +42,7 @@ class BookPersistenceService {
         return self.persistenceService.get(self.getBookPersistenceKey(bookId));
     }
 
-    setBook(book) {
+    updateBookWithoutParagraphs(book) {
         let bookInfo = {};
         let keys = Object.keys(book);
         for (let i = 0; i < keys.length; i++) {
