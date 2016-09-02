@@ -173,5 +173,12 @@
   "Is this stats displayed in battle?": "Est-ce que cet attribut est visible dans les combats?",
   "Is it a enemy stats?": "Est-ce un attribut des enemis?",
   "Default value of the stats for enemy": "Valeur par défaut de l'attribut pour les enemis",
-  "Player stats value generation": "Génération valeur du joueur"
+  "Player stats value generation": "Génération valeur du joueur",
+  "Are you sure to remove the status?": "Voulez-vous supprimer l'attribut?",
+  "Add stats": "Ajout d'un attribut",
+  "Save stats changes": "Sauvegarde les changements de l'attribut",
+  "Abort stats changes": "Annule les changements de l'attribut",
+  "Edit stats": "Modifie l'attribut",
+  "Remove stats": "Supprime l'attribut"
+
 }

@@ -81,8 +81,8 @@
                             <th></th>
                             <th>
                                 <button type="button" class="btn btn-default"
-                                        aria-label="{{ 'Add note' | translate}}"
-                                        title="{{ 'Add note' | translate}}"
+                                        aria-label="{{ 'Add stats' | translate}}"
+                                        title="{{ 'Add stats' | translate}}"
                                         ng-click="$ctrl.addRow()"
                                         ng-show="!$ctrl.hasEditedRow()">
                                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -115,8 +115,8 @@
 
                             <td>
                                 <button type="button" class="btn btn-success"
-                                        aria-label="{{ 'Save note changes' | translate}}"
-                                        title="{{ 'Save note changes' | translate}}"
+                                        aria-label="{{ 'Save stats changes' | translate}}"
+                                        title="{{ 'Save stats changes' | translate}}"
                                         ng-click="$ctrl.saveRowChanges(notesTableForm.$invalid, row)"
                                         ng-show="$ctrl.isRowEdited(row)">
                                     <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
@@ -125,8 +125,8 @@
 
                             <td>
                                 <button type="button" class="btn btn-danger"
-                                        aria-label="{{ 'Abort note changes' | translate}}"
-                                        title="{{ 'Abort note changes' | translate}}"
+                                        aria-label="{{ 'Abort stats changes' | translate}}"
+                                        title="{{ 'Abort stats changes' | translate}}"
                                         ng-click="$ctrl.abortRowChanges()"
                                         ng-show="$ctrl.isRowEdited(row)">
                                     <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
@@ -135,15 +135,15 @@
 
                             <td>
                                 <button type="button" class="btn btn-default"
-                                        aria-label="{{ 'Edit note' | translate}} '{{ row.note | translate }}'"
-                                        title="{{ 'Edit note' | translate}} '{{ row.note | translate }}'"
+                                        aria-label="{{ 'Edit stats' | translate}}"
+                                        title="{{ 'Edit stats' | translate}}"
                                         ng-click="$ctrl.editRow(row)"
                                         ng-show="!$ctrl.hasEditedRow()">
                                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                 </button>
                                 <button type="button" class="btn btn-danger"
-                                        aria-label="{{ 'Remove note' | translate }} '{{ row.note | translate }}'"
-                                        title="{{ 'Remove note' | translate }} '{{ row.note | translate }}'"
+                                        aria-label="{{ 'Remove stats' | translate }}"
+                                        title="{{ 'Remove stats' | translate }}"
                                         ng-click="$ctrl.displayRemovePopup(row)"
                                         ng-disabled="$ctrl.addedRow"
                                         ng-show="$ctrl.isRowEdited(row)">
@@ -168,3 +168,5 @@
                 ng-click="$ctrl.save()">{{ 'Save' | translate }}</button>
     </div>
 </main>
+
+<popup config="{{ $ctrl.popupDeleteStatsConfig }}"></popup>
