@@ -24,6 +24,16 @@ class BookDetailController {
     }
 
     save() {
+        if (!!this.book.items) {
+            let modifiedItems = [];
+            for (let i = 0; i < this.book.items.length; i++) {
+                modifiedItems.push({
+                    quantity: this.book.items[i].quantity,
+                    description: this.book.items[i].description
+                });
+            }
+            this.book.items = modifiedItems;
+        }
         this.bookPersistenceService.updateBookWithoutParagraphs(this.book);
         this.$location.url(this.constants.url.books);
     }
