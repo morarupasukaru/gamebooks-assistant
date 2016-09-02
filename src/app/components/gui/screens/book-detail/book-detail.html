@@ -49,87 +49,148 @@
                     </div>
                 </div>
 
-                <h3>{{ 'Stats generation rules' | translate }}</h3>
+                <!--
+        stats : [
+            {
+               name : 'Habilité',
+               init: { sixDiceQuantity : 1, constant : 6},
+               battle: {
+                   displayed: true,
+                   enemyDefaultValue : 5,
+                   editableForEnemy : true
+               }
+            },
+            {
+               name : 'Endurance',
+               init: { sixDiceQuantity : 2, constant : 12},
+               battle: {
+                   displayed : true,
+                   enemyDefaultValue : 4,
+                   editableForEnemy : true
+               }
+            },
+            {
+               name : 'Chance',
+               init: { sixDiceQuantity : 1, constant : 6},
+               battle: {
+                   displayed : true,
+                   enemyDefaultValue : undefined,
+                   editableForEnemy : false
+               }
+            }
+        ],
+                -->
+
+                <h3>{{ 'Stats rules' | translate }}</h3>
                 <div>
+                    <table class="table table-striped">
+                        <col style="width:20%">
+                        <col style="width:30%">
+                        <col style="width:15%">
+                        <col style="width:15%">
+                        <col style="width:20%">
+                        <thead>
+                        <tr>
+                            <th>
+                                {{ 'Name' | translate }}
+                            </th>
+                            <th>
+                                {{ 'Player stats value generation' | translate }}
+                            </th>
+                            <th aria-label="{{ 'Is this stats displayed in battle?' | translate }}"
+                                title="{{ 'Is this stat displayed in battle?' | translate }}">
+                                {{ 'For battle?' | translate }}
+                            </th>
+                            <th aria-label="{{ 'Is it a enemy stats?' | translate }}"
+                                title="{{ 'Is it a enemy stats?' | translate }}">
+                                {{ 'For enemy?' | translate }}
+                            </th>
+                            <th aria-label="{{ 'Default value of the stats for enemy' | translate }}"
+                                title="{{ 'Default value of the stats for enemy' | translate }}">
+                                {{ 'Default enemy value' | translate }}
+                            </th>
+                            <th></th>
+                            <th></th>
+                            <th>
+                                <button type="button" class="btn btn-default"
+                                        aria-label="{{ 'Add note' | translate}}"
+                                        title="{{ 'Add note' | translate}}"
+                                        ng-click="$ctrl.addRow()"
+                                        ng-show="!$ctrl.hasEditedRow()">
+                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                </button>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr ng-repeat="row in $ctrl.book.stats">
+                            <td>
+                                {{ row.name }}
+                            </td>
+
+                            <td>
+                                {{ row.init.sixDiceQuantity + 'd6' + (!!row.init.constant ? '+' + row.init.constant : '')   }}
+                            </td>
+
+                            <td>
+                                {{ 'yesno_' + row.battle.displayed | translate }}
+                            </td>
+
+                            <td>
+                                {{ row.battle.enemyDefaultValue }}
+                            </td>
+
+                            <td>
+                                {{ 'yesno_' + row.battle.editableForEnemy | translate }}
+                            </td>
+
+                            <td>
+                                <button type="button" class="btn btn-success"
+                                        aria-label="{{ 'Save note changes' | translate}}"
+                                        title="{{ 'Save note changes' | translate}}"
+                                        ng-click="$ctrl.saveRowChanges(notesTableForm.$invalid, row)"
+                                        ng-show="$ctrl.isRowEdited(row)">
+                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                </button>
+                            </td>
+
+                            <td>
+                                <button type="button" class="btn btn-danger"
+                                        aria-label="{{ 'Abort note changes' | translate}}"
+                                        title="{{ 'Abort note changes' | translate}}"
+                                        ng-click="$ctrl.abortRowChanges()"
+                                        ng-show="$ctrl.isRowEdited(row)">
+                                    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+                                </button>
+                            </td>
+
+                            <td>
+                                <button type="button" class="btn btn-default"
+                                        aria-label="{{ 'Edit note' | translate}} '{{ row.note | translate }}'"
+                                        title="{{ 'Edit note' | translate}} '{{ row.note | translate }}'"
+                                        ng-click="$ctrl.editRow(row)"
+                                        ng-show="!$ctrl.hasEditedRow()">
+                                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                </button>
+                                <button type="button" class="btn btn-danger"
+                                        aria-label="{{ 'Remove note' | translate }} '{{ row.note | translate }}'"
+                                        title="{{ 'Remove note' | translate }} '{{ row.note | translate }}'"
+                                        ng-click="$ctrl.displayRemovePopup(row)"
+                                        ng-disabled="$ctrl.addedRow"
+                                        ng-show="$ctrl.isRowEdited(row)">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
 
                 <h3>{{ 'Initial items' | translate }}</h3>
                 <div>
                     <items items="$ctrl.book.items"></items>
                 </div>
-
-                    <!--
-            stats : [
-                {
-                   name : 'Habilité',
-                   init: { sixDiceQuantity : 1, constant : 6},
-                   battle: {
-                       displayed: true,
-                       enemyDefaultValue : 5,
-                       editableForEnemy : true
-                   }
-                },
-                {
-                   name : 'Endurance',
-                   init: { sixDiceQuantity : 2, constant : 12},
-                   battle: {
-                       displayed : true,
-                       enemyDefaultValue : 4,
-                       editableForEnemy : true
-                   }
-                },
-                {
-                   name : 'Chance',
-                   init: { sixDiceQuantity : 1, constant : 6},
-                   battle: {
-                       displayed : true,
-                       enemyDefaultValue : undefined,
-                       editableForEnemy : false
-                   }
-                }
-            ],
-            items : [
-                {
-                   quantity : 1,
-                   description : 'Epée'
-                },
-                {
-                   quantity : 1,
-                   description : 'Bouclier'
-                },
-                {
-                   quantity : 1,
-                   description : 'Armure de cuir'
-                },
-                {
-                   quantity : 1,
-                   description : 'Sac à dos'
-                },
-                {
-                   quantity : 1,
-                   description : 'Lanterne'
-                },
-                {
-                   quantity : 10,
-                   description : "Repas (restitue 4 points d'endurance)"
-                },
-                {
-                   quantity : 2,
-                   description : "Mesures de potion d'Adresse (rend vos points d'HABILITE)"
-                },
-                {
-                   quantity : 2,
-                   description : "Mesures de potion de Vigueur (rend vos points d'ENDURANCE)"
-                },
-                {
-                   quantity : 2,
-                   description : "Mesures de Bonne Fortune (rend vos points de CHANCE + 1 point)"
-                }
-            ],
-            notes : [
-                { note : "Veuilliez choisir soit la potion d'habilité, de force ou de chance (supprimez les potions non choisies de l'inventaire)." }
-            ]
-                    -->
             </form>
         </div>
         <back-button></back-button>

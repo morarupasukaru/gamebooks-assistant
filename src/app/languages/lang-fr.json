@@ -162,7 +162,16 @@
   "Number of paragraphs": "Nombre de paragraphes",
   "First paragraph": "Premier paragraphe",
   "Start game's note": "Note début de jeu",
-  "Stats generation rules": "Règles de génération des attributs",
+  "Stats rules": "Règles des attributs",
   "Initial items": "Inventaire initiale",
-  "General":"Général"
+  "General":"Général",
+  "For battle?": "Pour combat?",
+  "For enemy?": "Pour enemi?",
+  "Default enemy value": "Valeur défaut enemi",
+  "yesno_false": "non",
+  "yesno_true": "oui",
+  "Is this stats displayed in battle?": "Est-ce que cet attribut est visible dans les combats?",
+  "Is it a enemy stats?": "Est-ce un attribut des enemis?",
+  "Default value of the stats for enemy": "Valeur par défaut de l'attribut pour les enemis",
+  "Player stats value generation": "Génération valeur du joueur"
 }
