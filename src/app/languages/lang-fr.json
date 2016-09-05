@@ -145,7 +145,6 @@
   "Remaining Local's Storage" : "Place disponibe du localStorage",
   "DupplicateParagraph" : "Le paragraphe '{{ paragraphNr }}' à double",
   "DupplicateParagraphChoices" : "Le paragraphe '{{ paragraphNr }}' a déjà un choix avec le paragraphe '{{ choiceParagraphNr }}'",
-  "Books" : "Livres",
   "Create a book" : "Créer un livre",
   "Create" : "Créer",
   "Remove selected book" : "Supprime le livre sélectionné",
@@ -186,5 +185,6 @@
   "Please fill the quantity of dices 6 faces used to generate a value for this stats": "Veuilliez saisir la quantité de dés 6 faces utilisées pour générer une valeur pour cet attribut.",
   "Please complete mandatory fields": "Veuilliez saisir les champs obligatoires",
   "The adventure is not available": "Le livre n'est pas disponible",
-  "error.adventureAlreadyExist": "L'aventure existe déjà"
+  "error.adventureAlreadyExist": "L'aventure existe déjà",
+  "Adventures" : "Aventures"
 }

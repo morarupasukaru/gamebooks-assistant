@@ -7,11 +7,11 @@ import ChooseLanguage from './choose-language/choose-language';
 import StartGameWizard from './start-game-wizard/start-game-wizard';
 import InGame from './in-game/in-game';
 import About from './about/about';
-import Books from './books/books';
+import Adventures from './adventures/adventures';
 import BookDetail from './book-detail/book-detail';
 
 let screensModule = angular.module('app.components.gui.screens', [
-    Home.name, Games.name, Battle.name, Administration.name, ChooseLanguage.name, StartGameWizard.name, InGame.name, About.name, Books.name, BookDetail.name
+    Home.name, Games.name, Battle.name, Administration.name, ChooseLanguage.name, StartGameWizard.name, InGame.name, About.name, Adventures.name, BookDetail.name
 ]);
 
 export default screensModule;

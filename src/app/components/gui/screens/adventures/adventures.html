@@ -3,7 +3,7 @@
 <main>
     <div class="container bg-white" role="main">
         <div class="page-header">
-            <h1>{{ 'Books' | translate }}</h1>
+            <h1>{{ 'Adventures' | translate }}</h1>
         </div>
         <div class="row">
             <div class="col-md-12">
@@ -16,7 +16,6 @@
                     <col style="width:5%">
                     <thead>
                     <tr>
-                        <!-- name, nbParagprahs, language, version, author, selected -->
                         <th>{{ 'Name' | translate }}</th>
                         <th>{{ 'Author(s)' | translate }}</th>
                         <th>{{ 'Length' | translate }}</th>
@@ -38,11 +37,11 @@
                         <td>
                             <button type="button" class="btn" ng-class="{ 'btn-success' : row.selected, 'btn-default' : !row.selected}"
                                     aria-label="{{ !row.selected ?
-                                        ('ChoiceGame' | translate: {bookName: row.bookName, playerName: row.playerName}) :
-                                        ('ChoosenGame' | translate: {bookName: row.bookName, playerName: row.playerName}) }}"
+                                        ('ChoiceGame' | translate: {adventureName: row.adventureName, playerName: row.playerName}) :
+                                        ('ChoosenGame' | translate: {adventureName: row.adventureName, playerName: row.playerName}) }}"
                                     title="{{ !row.selected ?
-                                        ('ChoiceGame' | translate: {bookName: row.bookName, playerName: row.playerName}) :
-                                        ('ChoosenGame' | translate: {bookName: row.bookName, playerName: row.playerName}) }}"
+                                        ('ChoiceGame' | translate: {adventureName: row.adventureName, playerName: row.playerName}) :
+                                        ('ChoosenGame' | translate: {adventureName: row.adventureName, playerName: row.playerName}) }}"
                                     ng-click="$ctrl.select(row)">
                                 <span ng-class="{ 'glyphicon glyphicon-ok' : row.selected, 'glyphicon glyphicon-hand-left' : !row.selected}" aria-hidden="true"></span>
                             </button>
@@ -55,27 +54,27 @@
 
         <back-button></back-button>
         <button type="button" class="btn btn-default"
-                aria-label="{{ 'Create a book' | translate }}"
-                title="{{ 'Create a book' | translate }}"
-                ng-click="$ctrl.createBook()">{{ 'Create' | translate }}</button>
+                aria-label="{{ 'Create an adventure' | translate }}"
+                title="{{ 'Create an adventure' | translate }}"
+                ng-click="$ctrl.create()">{{ 'Create' | translate }}</button>
         <button type="button" class="btn btn-default"
-                aria-label="{{ 'Import a book' | translate }}"
-                title="{{ 'Import a book' | translate }}">{{ 'Import' | translate }}</button>
+                aria-label="{{ 'Import an adventure' | translate }}"
+                title="{{ 'Import an adventure' | translate }}">{{ 'Import' | translate }}</button>
         <button type="button" class="btn btn-default"
-                aria-label="{{ 'Display selected book' | translate }}"
-                title="{{ 'Display selected book' | translate }}"
+                aria-label="{{ 'Display selected adventure' | translate }}"
+                title="{{ 'Display selected adventure' | translate }}"
                 ng-disabled="!$ctrl.hasSelectedRow()"
-                ng-click="$ctrl.displayBook()">{{ 'Display' | translate }}</button>
+                ng-click="$ctrl.display()">{{ 'Display' | translate }}</button>
         <button type="button" class="btn btn-danger"
                 ng-disabled="!$ctrl.hasSelectedRow()"
-                aria-label="{{ 'Remove selected book' | translate }}"
-                title="{{ 'Remove selected book' | translate }}"
-                ng-click="$ctrl.displayRemoveBooksPopup()">{{ 'Remove' | translate }}</button>
+                aria-label="{{ 'Remove selected adventure' | translate }}"
+                title="{{ 'Remove selected adventure' | translate }}"
+                ng-click="$ctrl.displayRemoveAdventurePopup()">{{ 'Remove' | translate }}</button>
         <button type="button" class="btn btn-default"
                 ng-disabled="!$ctrl.hasSelectedRow()"
-                aria-label="{{ 'Export selected book' | translate }}"
-                title="{{ 'Export selected book' | translate }}">{{ 'Export' | translate }}</button>
+                aria-label="{{ 'Export selected adventure' | translate }}"
+                title="{{ 'Export selected adventure' | translate }}">{{ 'Export' | translate }}</button>
     </div>
 </main>
 
-<popup config="{{ $ctrl.popupDeleteBookConfig }}"></popup>
+<popup config="{{ $ctrl.popupDeleteAdventureConfig }}"></popup>

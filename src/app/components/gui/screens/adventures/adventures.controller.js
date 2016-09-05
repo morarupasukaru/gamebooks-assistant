@@ -1,4 +1,4 @@
-class BooksController {
+class AdventuresController {
     /*@ngInject*/
     constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, bookPersistenceService, messagesService, $translate, popupService) {
         this.constants = constants;
@@ -10,9 +10,9 @@ class BooksController {
         this.$translate = $translate;
         this.popupService = popupService;
 
-        this.popupDeleteBookConfig = {
-            id : 'popupDeleteGame',
-            text : 'Are you sure to remove the selected book?',
+        this.popupDeleteAdventureConfig = {
+            id : 'popupDeleteAdventure',
+            text : 'Are you sure to remove the selected adventure?',
             choices : [constants.choices.yes, constants.choices.no],
             withCloseButton : false,
             closeOnClickOutsideModal : false
@@ -32,25 +32,25 @@ class BooksController {
         row.selected = true;
     }
 
-    createBook() {
-        this.$location.url(this.constants.url.bookDetail + '/create');
+    create() {
+        this.$location.url(this.constants.url.adventureDetail + '/create');
     }
 
-    displayBook() {
-        this.$location.url(this.constants.url.bookDetail + '/' + this.getSelectedRow().id);
+    display() {
+        this.$location.url(this.constants.url.adventureDetail + '/' + this.getSelectedRow().id);
     }
 
-    displayRemoveBooksPopup() {
-        this.popupService.show(this.popupDeleteBookConfig.id, this.callbackRemovePopup);
+    displayRemoveAdventurePopup() {
+        this.popupService.show(this.popupDeleteAdventureConfig.id, this.callbackRemovePopup);
     }
 
     callbackRemovePopup(popupDomElementId, choice) {
         if (choice === this.constants.choices.yes) {
-            this.deleteBook();
+            this.deleteAdventure();
         }
     }
 
-    deleteBook() {
+    deleteAdventure() {
         this.bookPersistenceService.deleteBookAndParagraphs(this.getSelectedRow().id);
         this.initData();
     }
@@ -72,4 +72,4 @@ class BooksController {
     }
 }
 
-export default BooksController;
+export default AdventuresController;
