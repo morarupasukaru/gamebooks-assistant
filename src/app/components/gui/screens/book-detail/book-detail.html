@@ -4,7 +4,7 @@
     <div class="container bg-white" role="main">
         <h2>{{ 'Book' | translate }} {{ $ctrl.book.name }}</h2>
         <div class="col-md-12">
-            <form>
+            <form name="bookTableForm" novalidate="novalidate">
                 <h3>{{ 'General' | translate }}</h3>
                 <div>
                     <div class="form-group">
@@ -93,31 +93,64 @@
                         <tbody>
 
                         <tr ng-repeat="row in $ctrl.book.stats">
-                            <td>
+                            <td ng-if="!$ctrl.isRowEdited(row)">
                                 {{ row.name }}
                             </td>
+                            <td ng-if="$ctrl.isRowEdited(row)">
+                                <input required type="text" class="form-control" ng-model="row.name">
+                                <div class="error" ng-show="!row.name">
+                                    {{ 'Please fill the name of the stats' | translate }}
+                                </div>
+                            </td>
 
-                            <td>
+                            <td ng-if="!$ctrl.isRowEdited(row)">
                                 {{ row.init.sixDiceQuantity + 'd6' + (!!row.init.constant ? '+' + row.init.constant : '')   }}
                             </td>
+                            <td ng-if="$ctrl.isRowEdited(row)">
+                                <div class="form-group">
+                                    <label for="sixDiceQuantity">{{ "Quantity of dices 6 faces" | translate }}</label>
+                                    <input required id="sixDiceQuantity" type="number" class="form-control" ng-model="row.init.sixDiceQuantity">
+                                </div>
+                                <div class="form-group">
+                                    <label for="constant">{{ "Constant" | translate }}</label>
+                                    <input id="constant" type="number" class="form-control" ng-model="row.init.constant">
+                                </div>
+                                <div class="error" ng-show="!row.init.sixDiceQuantity">
+                                    <!-- check error only on field -->
+                                    {{ 'Please fill the quantity of dices 6 faces used to generate a value for this stats' | translate }}
+                                </div>
+                            </td>
 
-                            <td>
+                            <td ng-if="!$ctrl.isRowEdited(row)">
                                 {{ 'yesno_' + row.battle.displayed | translate }}
                             </td>
-
-                            <td>
-                                {{ row.battle.enemyDefaultValue }}
+                            <td ng-if="$ctrl.isRowEdited(row)">
+                                <input type="checkbox" class="form-control" ng-model="row.battle.displayed" id="displayed"><br>
                             </td>
 
-                            <td>
+                            <td ng-if="!$ctrl.isRowEdited(row)">
                                 {{ 'yesno_' + row.battle.editableForEnemy | translate }}
+                            </td>
+                            <td ng-if="$ctrl.isRowEdited(row)">
+                                <input type="checkbox" class="form-control" ng-model="row.battle.editableForEnemy" id="editableForEnemy"><br>
+                            </td>
+
+                            <td ng-if="!$ctrl.isRowEdited(row)">
+                                {{ row.battle.enemyDefaultValue }}
+                            </td>
+                            <td ng-if="$ctrl.isRowEdited(row)">
+                                <input id="enemyDefaultValue" type="number" class="form-control" ng-model="row.battle.enemyDefaultValue" ng-required="!!row.battle.editableForEnemy" >
+                                <div class="error" ng-show="(!!row.battle.editableForEnemy && !row.battle.enemyDefaultValue) || (!row.battle.editableForEnemy && !!row.battle.enemyDefaultValue)">
+                                    <!-- check error only on field -->
+                                    {{ 'Please fill a default value of the stats for enemies only if available for enemy' | translate }}
+                                </div>
                             </td>
 
                             <td>
                                 <button type="button" class="btn btn-success"
                                         aria-label="{{ 'Save stats changes' | translate}}"
                                         title="{{ 'Save stats changes' | translate}}"
-                                        ng-click="$ctrl.saveRowChanges(notesTableForm.$invalid, row)"
+                                        ng-click="$ctrl.saveRowChanges(bookTableForm.$invalid, row)"
                                         ng-show="$ctrl.isRowEdited(row)">
                                     <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                                 </button>

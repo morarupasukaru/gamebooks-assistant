@@ -1,7 +1,7 @@
 let ctrl;
 class BookDetailController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, persistenceService, bookPersistenceService, $stateParams, $location, constants) {
+    constructor(preScreenLoadingInterceptorsCallerService, persistenceService, bookPersistenceService, $stateParams, $location, constants, popupService) {
         preScreenLoadingInterceptorsCallerService.intercept();
         ctrl = this;
         this.persistenceService = persistenceService;
@@ -9,9 +9,10 @@ class BookDetailController {
         this.$stateParams = $stateParams;
         this.$location = $location;
         this.constants = constants;
+        this.popupService = popupService;
         this.initData();
 
-        self.popupDeleteStatsConfig = {
+        this.popupDeleteStatsConfig = {
             id : 'popupDeleteStats',
             text : 'Are you sure to remove the status?',
             choices : [constants.choices.yes, constants.choices.no],
@@ -48,32 +49,32 @@ class BookDetailController {
 
 
     addRow() {
-        let row = { init: {}, battle: {}};
-        self.rows.push(row);
-        self.addedRow = row;
+        let stats = { init: {}, battle: { displayed: true, editableForEnemy: false }};
+        this.book.stats.push(stats);
+        this.addedRow = stats;
     }
 
     displayRemovePopup(removedRow) {
-        self.rowToBeRemoved = removedRow;
-        self.popupService.show(self.popupDeleteStatsConfig.id, self.callbackRemovePopup);
+        this.rowToBeRemoved = removedRow;
+        this.popupService.show(this.popupDeleteStatsConfig.id, this.callbackRemovePopup);
     }
 
     callbackRemovePopup(popupDomElementId, choice) {
-        if (choice === self.constants.choices.yes) {
-            self.removeRow(self.rowToBeRemoved);
+        if (choice === ctrl.constants.choices.yes) {
+            ctrl.removeRow(ctrl.rowToBeRemoved);
         }
-        self.rowToBeRemoved = null;
+        ctrl.rowToBeRemoved = null;
     }
 
     removeRow(removedRow) {
-        var index = self.rows.indexOf(removedRow);
-        self.rows.splice(index, 1);
-        self.clearEditedRow();
+        var index = this.book.stats.indexOf(removedRow);
+        this.book.stats.splice(index, 1);
+        this.clearEditedRow();
     }
 
     editRow(row) {
-        self.editedRow = row;
-        self.originalRow = {
+        this.editedRow = row;
+        this.originalRow = {
             name : row.name,
             init: {
                 sixDiceQuantity: row.init.sixDiceQuantity,
@@ -88,36 +89,36 @@ class BookDetailController {
     }
 
     isRowEdited(row) {
-        return row === self.editedRow || row === self.addedRow;
+        return row === this.editedRow || row === this.addedRow;
     }
 
     hasEditedRow() {
-        return !!self.editedRow || !! self.addedRow;
+        return !!this.editedRow || !! this.addedRow;
     }
 
     saveRowChanges($invalid) {
         if ($invalid) {
             return ;
         }
-        self.clearEditedRow();
+        this.clearEditedRow();
     }
 
     abortRowChanges() {
-        if (!!self.addedRow) {
-            self.removeRow(self.addedRow);
+        if (!!this.addedRow) {
+            this.removeRow(this.addedRow);
         }
-        if (!!self.editedRow) {
-            self.editedRow.name = self.originalRow.name;
-            self.editedRow.init = self.originalRow.init;
-            self.editedRow.battle = self.originalRow.battle;
+        if (!!this.editedRow) {
+            this.editedRow.name = this.originalRow.name;
+            this.editedRow.init = this.originalRow.init;
+            this.editedRow.battle = this.originalRow.battle;
         }
-        self.clearEditedRow();
+        this.clearEditedRow();
     }
 
     clearEditedRow() {
-        self.addedRow = null;
-        self.editedRow = null;
-        self.originalRow = null;
+        this.addedRow = null;
+        this.editedRow = null;
+        this.originalRow = null;
     }
 }
 

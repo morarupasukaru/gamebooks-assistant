@@ -179,6 +179,9 @@
   "Save stats changes": "Sauvegarde les changements de l'attribut",
   "Abort stats changes": "Annule les changements de l'attribut",
   "Edit stats": "Modifie l'attribut",
-  "Remove stats": "Supprime l'attribut"
+  "Remove stats": "Supprime l'attribut",
+  "Please fill a default value of the stats for enemies only if available for enemy": "Veuilliez saisir une valeur par défaut uniquement si l'attribut est disponible aux ennemis",
+  "Please fill the name of the stats": "Veuilliez saisir le nom de l'attribut",
+  "Please fill the quantity of dices 6 faces used to generate a value for this stats": "Veuilliez saisir la quantité de dés 6 faces utilisées pour générer une valeur pour cet attribut."
 
 }
