@@ -168,17 +168,6 @@ class BookPersistenceService {
         return key;
     }
 
-    export() {
-        let bookKeys = this.getBookPersistenceKeys();
-        let books = [];
-        for (let i = 0; i < bookKeys.length; i++) {
-            let book = this.persistenceService.get(bookKeys[i]);
-            books.push(this.exportBook(book.id));
-        }
-        return JSON.stringify(books);
-
-    }
-
     exportBook(bookId) {
         let book = this.getBook(bookId);
         book.paragraphs = [];

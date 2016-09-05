@@ -30,7 +30,6 @@ class AdministrationController {
 
     initData() {
         this.applicationData = JSON.stringify(this.persistenceService.export());
-        this.exportBooksData = this.bookPersistenceService.export();
         this.computeLocalStorageCapacities();
     }
 
