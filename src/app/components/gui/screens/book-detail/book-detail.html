@@ -140,9 +140,13 @@
                             </td>
                             <td ng-if="$ctrl.isRowEdited(row)">
                                 <input id="enemyDefaultValue" type="number" class="form-control" ng-model="row.battle.enemyDefaultValue" ng-required="!!row.battle.editableForEnemy" >
-                                <div class="error" ng-show="(!!row.battle.editableForEnemy && !row.battle.enemyDefaultValue) || (!row.battle.editableForEnemy && !!row.battle.enemyDefaultValue)">
+                                <div class="error" ng-show="!!row.battle.editableForEnemy && !row.battle.enemyDefaultValue">
                                     <!-- check error only on field -->
-                                    {{ 'Please fill a default value of the stats for enemies only if available for enemy' | translate }}
+                                    {{ 'Please fill a default value of this stats for enemies' | translate }}
+                                </div>
+                                <div class="error" ng-show="!row.battle.editableForEnemy && !!row.battle.enemyDefaultValue">
+                                    <!-- check error only on field -->
+                                    {{ 'Please do not fill a default value as this stats is not available for enemies' | translate }}
                                 </div>
                             </td>
 

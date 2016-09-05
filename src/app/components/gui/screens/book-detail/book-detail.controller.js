@@ -100,6 +100,9 @@ class BookDetailController {
         if ($invalid) {
             return ;
         }
+        if (!!this.editedRow.battle && !this.editedRow.battle.editableForEnemy && !!this.editedRow.battle.enemyDefaultValue) {
+            return ;
+        }
         this.clearEditedRow();
     }
 
