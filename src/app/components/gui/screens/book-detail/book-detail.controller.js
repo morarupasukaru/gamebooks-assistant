@@ -1,7 +1,7 @@
 let ctrl;
 class BookDetailController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, persistenceService, bookPersistenceService, $stateParams, $location, constants, popupService) {
+    constructor(preScreenLoadingInterceptorsCallerService, persistenceService, bookPersistenceService, $stateParams, $location, constants, popupService, messagesService) {
         preScreenLoadingInterceptorsCallerService.intercept();
         ctrl = this;
         this.persistenceService = persistenceService;
@@ -10,6 +10,7 @@ class BookDetailController {
         this.$location = $location;
         this.constants = constants;
         this.popupService = popupService;
+        this.messagesService = messagesService;
         this.initData();
 
         this.popupDeleteStatsConfig = {
@@ -22,17 +23,25 @@ class BookDetailController {
     }
 
     initData() {
-        let bookId = this.$stateParams.bookId;
+        let bookId = encodeURIComponent(this.$stateParams.bookId);
         if (!!bookId) {
             if ("create" === bookId) {
-                this.book = {};
+                this.book = {
+                    stats: [],
+                    items: []
+                };
             } else {
                 this.book = this.bookPersistenceService.getBook(bookId);
             }
         }
     }
 
-    save() {
+    save(form) {
+        if (form.$invalid) {
+            this.makeFieldsDirty(form);
+            return ;
+        }
+
         if (!!this.book.items) {
             let modifiedItems = [];
             for (let i = 0; i < this.book.items.length; i++) {
@@ -43,8 +52,13 @@ class BookDetailController {
             }
             this.book.items = modifiedItems;
         }
+        // TODO check if not already same titel? if yes then ask to overwrite existing book
         this.bookPersistenceService.updateBookWithoutParagraphs(this.book);
         this.$location.url(this.constants.url.books);
+    }
+
+    makeFieldsDirty(form) {
+        this.messagesService.errorMessage('Please complete mandatory fields', false);
     }
 
 
@@ -96,11 +110,24 @@ class BookDetailController {
         return !!this.editedRow || !! this.addedRow;
     }
 
+    getEditRow() {
+        if (!!this.addedRow) {
+            return this.addedRow;
+        } else if (!!this.editedRow) {
+            return this.editedRow;
+        } else {
+            return null;
+        }
+    }
+
     saveRowChanges($invalid) {
-        if ($invalid) {
+        if (!this.getEditRow().name) {
             return ;
         }
-        if (!!this.editedRow.battle && !this.editedRow.battle.editableForEnemy && !!this.editedRow.battle.enemyDefaultValue) {
+        if (!this.getEditRow().init.sixDiceQuantity) {
+            return ;
+        }
+        if (!this.getEditRow().battle.editableForEnemy && !!this.getEditRow().battle.enemyDefaultValue) {
             return ;
         }
         this.clearEditedRow();

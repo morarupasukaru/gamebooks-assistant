@@ -1,3 +1,7 @@
+en cours
+- extraire le chargement de warlock ... hors du code de l'application
+- form Service dans book-detail afin de mettre les champs obligatoire en rouge lors de l'action save
+
 améliorations
 - try editable div instead of textarea
 - configure jshint (or something like that)
@@ -13,9 +17,7 @@ nouvelles fonctionnalités
 - amélioration gui pour diminuer le nb de clic
 - import as json file (upload)
 - export as json file (download)
-- permettre la création de livre à l'aide de l'application
 - permettre d'extraire les données d'un livre sous la forme json et utilisable sans retouche (format doit rester stable afin de permettre de faire des diff)
-- gestion des livres via un écran de liste propre (permet de créer, éditer données générales, supprimer, télécharger, downgradé, faire un export en json)
 - permettre le téléchargement, upgrade de livres (et non pas automatique)
 - référerencer les livres dispo via des url qui fournissent des données json, configuration de l'url des sites de référencement via écran admin
 - game paths vizualiser

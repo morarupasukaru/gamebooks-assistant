@@ -43,6 +43,9 @@ class BookPersistenceService {
     }
 
     updateBookWithoutParagraphs(book) {
+        if (!book.id) {
+            book.id = this.getBookIdFromBookName(book.name);
+        }
         let bookInfo = {};
         let keys = Object.keys(book);
         for (let i = 0; i < keys.length; i++) {
@@ -51,6 +54,10 @@ class BookPersistenceService {
             }
         }
         self.persistenceService.save(self.constants.data.book + "." + book.id, bookInfo);
+    }
+
+    getBookIdFromBookName(bookName) {
+        return encodeURIComponent(bookName.replace(/\s+/g, '-').toLowerCase());
     }
 
     deleteBook(bookId) {

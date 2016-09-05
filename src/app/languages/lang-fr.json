@@ -183,6 +183,6 @@
   "Please fill a default value of this stats for enemies": "Veuilliez saisir une valeur de cet attribut pour les enemis",
   "Please do not fill a default value as this stats is not available for enemies": "Veuilliez ne pas saisir de valeur comme cet attribut n'est pas disponible pour les enemis",
   "Please fill the name of the stats": "Veuilliez saisir le nom de l'attribut",
-  "Please fill the quantity of dices 6 faces used to generate a value for this stats": "Veuilliez saisir la quantité de dés 6 faces utilisées pour générer une valeur pour cet attribut."
-
+  "Please fill the quantity of dices 6 faces used to generate a value for this stats": "Veuilliez saisir la quantité de dés 6 faces utilisées pour générer une valeur pour cet attribut.",
+  "Please complete mandatory fields": "Veuilliez saisir les champs obligatoires"
 }
