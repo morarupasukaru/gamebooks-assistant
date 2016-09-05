@@ -52,9 +52,12 @@ class BookDetailController {
             }
             this.book.items = modifiedItems;
         }
-        // TODO check if not already same titel? if yes then ask to overwrite existing book
-        this.bookPersistenceService.updateBookWithoutParagraphs(this.book);
-        this.$location.url(this.constants.url.books);
+        try {
+            this.bookPersistenceService.updateBookWithoutParagraphs(this.book);
+            this.$location.url(this.constants.url.books);
+        } catch (error) {
+            this.messagesService.errorMessage(error, false);
+        }
     }
 
     makeFieldsDirty(form) {

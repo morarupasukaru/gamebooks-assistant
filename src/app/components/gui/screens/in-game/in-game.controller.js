@@ -1,7 +1,7 @@
 let self;
 class InGameController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $location, constants, endGamePopupService, $stateParams, gamePersistenceService, bookPersistenceService, $translate) {
+    constructor(preScreenLoadingInterceptorsCallerService, $location, constants, endGamePopupService, $stateParams, gamePersistenceService, bookPersistenceService, $translate, messagesService) {
         self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
         self.$location = $location;
@@ -11,6 +11,7 @@ class InGameController {
         self.gamePersistenceService = gamePersistenceService;
         self.bookPersistenceService = bookPersistenceService;
         self.$translate = $translate;
+        this.messagesService = messagesService;
         this.items = [];
         this.stats = [];
 
@@ -25,6 +26,14 @@ class InGameController {
         self.bookId = self.$stateParams.bookId;
         this.paragraph = self.bookPersistenceService.getOrCreateParagraph(self.bookId, self.$stateParams.paragraphNr);
         self.popupAbandonGameConfig = { id : 'popupAbandonGame' };
+        this.checkAvailableBook();
+    }
+
+    checkAvailableBook() {
+        let book = this.bookPersistenceService.getBook(self.bookId);
+        if (!book) {
+            this.messagesService.errorMessage('The book is not available', false)
+        }
     }
 
     startBattle() {

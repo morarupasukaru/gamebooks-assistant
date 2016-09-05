@@ -43,8 +43,13 @@ class BookPersistenceService {
     }
 
     updateBookWithoutParagraphs(book) {
+        let bookIdFromFromBookName = this.getBookIdFromBookName(book.name);
         if (!book.id) {
-            book.id = this.getBookIdFromBookName(book.name);
+            book.id = bookIdFromFromBookName;
+            let existingBook = this.getBook(bookIdFromFromBookName);
+            if (!!existingBook) {
+                throw this.constants.errors.adventureAlreadyExist;
+            }
         }
         let bookInfo = {};
         let keys = Object.keys(book);
@@ -60,7 +65,15 @@ class BookPersistenceService {
         return encodeURIComponent(bookName.replace(/\s+/g, '-').toLowerCase());
     }
 
-    deleteBook(bookId) {
+    deleteBookAndParagraphs(bookId) {
+        self.persistenceService.remove(self.getBookPersistenceKey(bookId));
+        let paragraphKeys = self.getBookParagraphKeys(bookId);
+        for (let i = 0; i < paragraphKeys.length; i++) {
+            self.persistenceService.remove(paragraphKeys[i]);
+        }
+    }
+
+    deleteBookAndParagraphs(bookId) {
         self.persistenceService.remove(self.getBookPersistenceKey(bookId));
         let paragraphKeys = self.getBookParagraphKeys(bookId);
         for (let i = 0; i < paragraphKeys.length; i++) {

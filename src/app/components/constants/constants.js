@@ -27,6 +27,9 @@ let constantsModule = angular.module('app.components.constants', [])
         choices : {
             yes : 'Yes',
             no : 'No'
+        },
+        errors: {
+            adventureAlreadyExist : 'error.adventureAlreadyExist'
         }
     });
 

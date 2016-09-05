@@ -8,5 +8,6 @@
   "Change language to fr" : "Changez la langue au français",
   "DupplicateParagraph" : "The paragraph '{{ paragraphNr }}' already exist",
   "DupplicateParagraphChoices" : "The paragraph '{{ paragraphNr }}' has already a choice with paragraph '{{ choiceParagraphNr }}'",
-  "NumberOfParagraphs": "{{ numberOfParagraphs }} paragraphs"
+  "NumberOfParagraphs": "{{ numberOfParagraphs }} paragraphs",
+  "error.adventureAlreadyExist": "The adventure already exists"
 }

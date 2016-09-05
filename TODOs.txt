@@ -1,9 +1,10 @@
 en cours
-- titre unique: confirmer lors de l'import ou la création de ré-écriture du livre
 - extraire le chargement de warlock ... hors du code de l'application
 - form Service dans book-detail afin de mettre les champs obligatoire en rouge lors de l'action save
 
 améliorations
+- renommer livre par aventure ou ca fait du sens
+- administration: promise pour le calcul de la taille utilisé & dispo
 - try editable div instead of textarea
 - configure jshint (or something like that)
 - corriger le bug que l'interface sur ipad ne répond parfois pas bien
@@ -14,6 +15,7 @@ améliorations
 - base64 pour image windows, test avec qq-un qui avec windows 10 => Florence?
 
 nouvelles fonctionnalités
+- supprimer self, ctrl partout ou c'est possible
 - amélioration gui pour diminuer le nb de clic
 - import as json file (upload)
 - export as json file (download)
@@ -21,6 +23,7 @@ nouvelles fonctionnalités
 - permettre le téléchargement, upgrade de livres (et non pas automatique)
 - référerencer les livres dispo via des url qui fournissent des données json, configuration de l'url des sites de référencement via écran admin
 - game paths vizualiser
+- import/export gameplays
 
 plus tard:
 - afficher des statistiques sur les livres (nb pages joués, nb défaites, nb de paragraphes)

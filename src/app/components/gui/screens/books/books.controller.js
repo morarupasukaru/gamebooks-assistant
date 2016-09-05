@@ -53,7 +53,7 @@ class BooksController {
     }
 
     deleteBook() {
-        self.bookPersistenceService.deleteBook(self.getSelectedRow().id);
+        self.bookPersistenceService.deleteBookAndParagraphs(self.getSelectedRow().id);
         self.initData();
     }
 

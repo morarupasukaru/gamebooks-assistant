@@ -58,8 +58,14 @@ class GamesController {
     }
 
     continueGame() {
-        let nextUrl = self.gamePersistenceService.getUrlOfGame(self.getSelectedRow().id);
-        self.$location.url(nextUrl);
+        let game = self.gamePersistenceService.getGame(self.getSelectedRow().id);
+        let book = self.bookPersistenceService.getBook(game.bookId);
+        if (!book) {
+            self.messagesService.errorMessage('The book is not available', false)
+        } else {
+            let nextUrl = self.gamePersistenceService.getUrlOfGame(self.getSelectedRow().id);
+            self.$location.url(nextUrl);
+        }
     }
 
     displayRemoveGamePopup() {
