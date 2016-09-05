@@ -1,20 +1,9 @@
 import angular from 'angular';
-import uiRouter from 'angular-ui-router';
+import AdventuresList from './list/adventures-list';
+import AdventureDetail from './detail/adventure-detail';
 
-import template from './adventures.html';
-import controller from './adventures.controller';
-
-let adventuresModule = angular.module('app.components.gui.screen.adventures', [
-    uiRouter
-])
-    .config(/*@ngInject*/($stateProvider, $urlRouterProvider, constants) => {
-        $urlRouterProvider.otherwise('/');
-
-        $stateProvider.state('adventures', {
-            url: constants.url.adventures, template: '<adventures></adventures>'
-        });
-    })
-
-    .component('adventures', { template, controller });
+let adventuresModule = angular.module('app.components.gui.screens.adventures', [
+    AdventuresList.name, AdventureDetail.name
+]);
 
 export default adventuresModule;

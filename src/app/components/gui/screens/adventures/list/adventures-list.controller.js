@@ -1,4 +1,4 @@
-class AdventuresController {
+class AdventuresListController {
     /*@ngInject*/
     constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, bookPersistenceService, messagesService, $translate, popupService) {
         this.constants = constants;
@@ -72,4 +72,4 @@ class AdventuresController {
     }
 }
 
-export default AdventuresController;
+export default AdventuresListController;

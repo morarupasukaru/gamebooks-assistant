@@ -1,5 +1,5 @@
 let ctrl;
-class BookDetailController {
+class AdventureDetailController {
     /*@ngInject*/
     constructor(preScreenLoadingInterceptorsCallerService, persistenceService, bookPersistenceService, $stateParams, $location, constants, popupService, messagesService) {
         preScreenLoadingInterceptorsCallerService.intercept();
@@ -155,4 +155,4 @@ class BookDetailController {
     }
 }
 
-export default BookDetailController;
+export default AdventureDetailController;
