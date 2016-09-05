@@ -1,25 +1,20 @@
-/*
- * Copyright (C) Schweizerische Bundesbahnen SBB, 2016.
- */
-let self;
 class MessagesService {
     /*@ngInject*/
     constructor($rootScope, $translate) {
-        self = this;
-        self.$rootScope = $rootScope;
-        self.$translate = $translate;
+        this.$rootScope = $rootScope;
+        this.$translate = $translate;
 
-        if (!self.$rootScope.messages) {
-            self.$rootScope.messages = [];
+        if (!this.$rootScope.messages) {
+            this.$rootScope.messages = [];
         }
     }
 
     getMessages() {
-        return self.$rootScope.messages || [];
+        return this.$rootScope.messages || [];
     }
 
     clearMessages() {
-        self.$rootScope.messages.forEach((msg, index, arr) => {
+        this.$rootScope.messages.forEach((msg, index, arr) => {
             if (!msg.keepAfterLocationChange) {
                 arr.splice(index, 1);
             }
@@ -27,25 +22,25 @@ class MessagesService {
     }
 
     removeMessage(index) {
-        self.$rootScope.messages.splice(index, 1);
+        this.$rootScope.messages.splice(index, 1);
     }
 
     successMessage(msg, keepAfterLocationChange) {
-        self._addMessage(msg, 'success', keepAfterLocationChange);
+        this._addMessage(msg, 'success', keepAfterLocationChange);
     }
 
     errorMessage(msg, keepAfterLocationChange) {
-        self._addMessage(msg, 'error', keepAfterLocationChange);
+        this._addMessage(msg, 'error', keepAfterLocationChange);
     }
 
     infoMessage(msg, keepAfterLocationChange) {
-        self._addMessage(msg, 'info', keepAfterLocationChange);
+        this._addMessage(msg, 'info', keepAfterLocationChange);
     }
 
     _addMessage(msg, type, keepAfterLocationChange) {
-        let translatedMsg = self.$translate.instant(msg);
-        if (!self._hasMessage(translatedMsg, type)) {
-            self.$rootScope.messages.push({
+        let translatedMsg = this.$translate.instant(msg);
+        if (!this._hasMessage(translatedMsg, type)) {
+            this.$rootScope.messages.push({
                 message: translatedMsg,
                 type: type,
                 keepAfterLocationChange: keepAfterLocationChange
@@ -55,8 +50,8 @@ class MessagesService {
 
     _hasMessage(msg, type) {
         let hasMessage = false;
-        for (let i = 0; i < self.$rootScope.messages.length; i++) {
-            if (self.$rootScope.messages[i].message === msg && self.$rootScope.messages[i].type === type) {
+        for (let i = 0; i < this.$rootScope.messages.length; i++) {
+            if (this.$rootScope.messages[i].message === msg && this.$rootScope.messages[i].type === type) {
                 hasMessage = true;
                 break;
             }

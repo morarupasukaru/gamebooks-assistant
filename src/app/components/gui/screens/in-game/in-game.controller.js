@@ -1,54 +1,52 @@
-let self;
 class InGameController {
     /*@ngInject*/
     constructor(preScreenLoadingInterceptorsCallerService, $location, constants, endGamePopupService, $stateParams, gamePersistenceService, bookPersistenceService, $translate, messagesService) {
-        self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
-        self.$location = $location;
-        self.constants = constants;
-        self.endGamePopupService = endGamePopupService;
-        self.$stateParams = $stateParams;
-        self.gamePersistenceService = gamePersistenceService;
-        self.bookPersistenceService = bookPersistenceService;
-        self.$translate = $translate;
+        this.$location = $location;
+        this.constants = constants;
+        this.endGamePopupService = endGamePopupService;
+        this.$stateParams = $stateParams;
+        this.gamePersistenceService = gamePersistenceService;
+        this.bookPersistenceService = bookPersistenceService;
+        this.$translate = $translate;
         this.messagesService = messagesService;
         this.items = [];
         this.stats = [];
 
-        self.game = self.gamePersistenceService.getGame(decodeURIComponent(self.$stateParams.gameId));
-        this.playerName = self.game.playerName;
-        if (!!self.game.items) {
-            this.items = this.items.concat(self.game.items);
+        this.game = this.gamePersistenceService.getGame(decodeURIComponent(this.$stateParams.gameId));
+        this.playerName = this.game.playerName;
+        if (!!this.game.items) {
+            this.items = this.items.concat(this.game.items);
         }
-        if (!!self.game.stats) {
-            this.stats = this.stats.concat(self.game.stats);
+        if (!!this.game.stats) {
+            this.stats = this.stats.concat(this.game.stats);
         }
-        self.bookId = self.$stateParams.bookId;
-        this.paragraph = self.bookPersistenceService.getOrCreateParagraph(self.bookId, self.$stateParams.paragraphNr);
-        self.popupAbandonGameConfig = { id : 'popupAbandonGame' };
+        this.adventureId = this.$stateParams.adventureId;
+        this.paragraph = this.bookPersistenceService.getOrCreateParagraph(this.adventureId, this.$stateParams.paragraphNr);
+        this.popupAbandonGameConfig = { id : 'popupAbandonGame' };
         this.checkAvailableBook();
     }
 
     checkAvailableBook() {
-        let book = this.bookPersistenceService.getBook(self.bookId);
-        if (!book) {
-            this.messagesService.errorMessage('The book is not available', false)
+        let adventure = this.bookPersistenceService.getBook(this.adventureId);
+        if (!adventure) {
+            this.messagesService.errorMessage('The adventure is not available', false)
         }
     }
 
     startBattle() {
-        self.$location.url(self.constants.url.battle + '/' + self.game.id);
+        this.$location.url(this.constants.url.battle + '/' + this.game.id);
     }
 
     displayAbandonGamePopup(removedRow) {
-        self.endGamePopupService.show(self.popupAbandonGameConfig.id, self.callbackAbandonGamePopup);
+        this.endGamePopupService.show(this.popupAbandonGameConfig.id, this.callbackAbandonGamePopup);
     }
 
     callbackAbandonGamePopup(popupDomElementId, endGameReason) {
-        let updatedGame = self.gamePersistenceService.getGame(self.game.id);
+        let updatedGame = this.gamePersistenceService.getGame(this.game.id);
         updatedGame.endGameReason = endGameReason;
-        self.gamePersistenceService.updateGame(updatedGame);
-        self.$location.url(self.constants.url.games);
+        this.gamePersistenceService.updateGame(updatedGame);
+        this.$location.url(this.constants.url.games);
     }
 }
 

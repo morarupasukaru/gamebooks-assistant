@@ -1,16 +1,14 @@
-let self;
 class PersistenceService {
 
     /*@ngInject*/
     constructor(softwareRequirementsCheckerService, messagesService) {
-        self = this;
-        self.isLocalStorageSupported = softwareRequirementsCheckerService.isLocalStorageSupported();
-        self.messagesService = messagesService;
+        this.isLocalStorageSupported = softwareRequirementsCheckerService.isLocalStorageSupported();
+        this.messagesService = messagesService;
     }
 
 
     findKeysWithPrefix(keyPrefix) {
-        if (!self.isLocalStorageSupported) {
+        if (!this.isLocalStorageSupported) {
             return null;
         }
         let keys = Object.keys(localStorage);
@@ -24,7 +22,7 @@ class PersistenceService {
     }
 
     get(key) {
-        if (!self.isLocalStorageSupported) {
+        if (!this.isLocalStorageSupported) {
             return null;
         }
         let value = localStorage.getItem(key);
@@ -41,7 +39,7 @@ class PersistenceService {
     }
 
     save(key, value) {
-        if (!self.isLocalStorageSupported) {
+        if (!this.isLocalStorageSupported) {
             return ;
         }
         if (typeof value === 'string') {
@@ -52,21 +50,21 @@ class PersistenceService {
     }
 
     remove(key) {
-        if (!self.isLocalStorageSupported) {
+        if (!this.isLocalStorageSupported) {
             return ;
         }
         localStorage.removeItem(key);
     }
 
     import(importDataAsJson) {
-        if (!self.isLocalStorageSupported) {
+        if (!this.isLocalStorageSupported) {
             return ;
         }
-        self.cleanAllData();
+        this.cleanAllData();
         let importData = JSON.parse(importDataAsJson);
         let keys = Object.keys(importData);
         for (let i = 0; i < keys.length; i++) {
-            self.save(keys[i], importData[keys[i]]);
+            this.save(keys[i], importData[keys[i]]);
         }
     }
 
@@ -76,14 +74,14 @@ class PersistenceService {
     }
 
     cleanAllData() {
-        if (!self.isLocalStorageSupported) {
+        if (!this.isLocalStorageSupported) {
             return ;
         }
         localStorage.clear();
     }
 
     getUsedCapacity() {
-        if (!self.isLocalStorageSupported) {
+        if (!this.isLocalStorageSupported) {
             return 0;
         }
         return unescape(encodeURIComponent(JSON.stringify(localStorage))).length;

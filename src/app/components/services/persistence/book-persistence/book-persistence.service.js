@@ -1,20 +1,18 @@
-let self;
 class BookPersistenceService {
 
     /*@ngInject*/
     constructor(constants, persistenceService, messagesService, $translate) {
-        self = this;
-        self.constants = constants;
-        self.persistenceService = persistenceService;
-        self.messagesService = messagesService;
-        self.$translate = $translate;
+        this.constants = constants;
+        this.persistenceService = persistenceService;
+        this.messagesService = messagesService;
+        this.$translate = $translate;
     }
 
     getBooksOverview() {
-        let keys = self.getBookPersistenceKeys();
+        let keys = this.getBookPersistenceKeys();
         let books = [];
         for (let i = 0; i < keys.length; i++) {
-            let book = self.persistenceService.get(keys[i]);
+            let book = this.persistenceService.get(keys[i]);
             books.push({
                 id: book.id,
                 name : book.name,
@@ -31,7 +29,7 @@ class BookPersistenceService {
         let keys = Object.keys(localStorage);
         let result = [];
         for (let i = 0; i < keys.length; i++) {
-            if (keys[i].startsWith(self.constants.data.book) && keys[i].indexOf('paragraph.') === -1) {
+            if (keys[i].startsWith(this.constants.data.adventure) && keys[i].indexOf('paragraph.') === -1) {
                 result.push(keys[i]);
             }
         }
@@ -39,7 +37,7 @@ class BookPersistenceService {
     }
 
     getBook(bookId) {
-        return self.persistenceService.get(self.getBookPersistenceKey(bookId));
+        return this.persistenceService.get(this.getBookPersistenceKey(bookId));
     }
 
     updateBookWithoutParagraphs(book) {
@@ -58,7 +56,7 @@ class BookPersistenceService {
                 bookInfo[keys[i]] = book[keys[i]];
             }
         }
-        self.persistenceService.save(self.constants.data.book + "." + book.id, bookInfo);
+        this.persistenceService.save(this.constants.data.adventure + "." + book.id, bookInfo);
     }
 
     getBookIdFromBookName(bookName) {
@@ -66,54 +64,54 @@ class BookPersistenceService {
     }
 
     deleteBookAndParagraphs(bookId) {
-        self.persistenceService.remove(self.getBookPersistenceKey(bookId));
-        let paragraphKeys = self.getBookParagraphKeys(bookId);
+        this.persistenceService.remove(this.getBookPersistenceKey(bookId));
+        let paragraphKeys = this.getBookParagraphKeys(bookId);
         for (let i = 0; i < paragraphKeys.length; i++) {
-            self.persistenceService.remove(paragraphKeys[i]);
+            this.persistenceService.remove(paragraphKeys[i]);
         }
     }
 
     deleteBookAndParagraphs(bookId) {
-        self.persistenceService.remove(self.getBookPersistenceKey(bookId));
-        let paragraphKeys = self.getBookParagraphKeys(bookId);
+        this.persistenceService.remove(this.getBookPersistenceKey(bookId));
+        let paragraphKeys = this.getBookParagraphKeys(bookId);
         for (let i = 0; i < paragraphKeys.length; i++) {
-            self.persistenceService.remove(paragraphKeys[i]);
+            this.persistenceService.remove(paragraphKeys[i]);
         }
     }
 
     setParagraph(bookId, paragraph, checkDupplicate) {
-        let key = self.getParagraphPersistenceKey(bookId, paragraph.paragraphNr);
+        let key = this.getParagraphPersistenceKey(bookId, paragraph.paragraphNr);
         if (!!checkDupplicate) {
-            let existingParagraph = self.persistenceService.get(key);
+            let existingParagraph = this.persistenceService.get(key);
             if (!!existingParagraph) {
-                self.messagesService.errorMessage(self.$translate.instant("DupplicateParagraph", {paragraphNr: paragraph.paragraphNr }), true);
+                this.messagesService.errorMessage(this.$translate.instant("DupplicateParagraph", {paragraphNr: paragraph.paragraphNr }), true);
                 return ;
             }
         }
-        self.checkDupplicateChoices(paragraph);
-        self.persistenceService.save(key, paragraph);
+        this.checkDupplicateChoices(paragraph);
+        this.persistenceService.save(key, paragraph);
     }
 
     getOrCreateParagraph(bookId, paragraphNr) {
-        let foundParagraph = self.getParagraph(bookId, paragraphNr);
+        let foundParagraph = this.getParagraph(bookId, paragraphNr);
         if (!!foundParagraph) {
             return foundParagraph;
         } else {
             let paragraph = {
-                version : self.constants.version,
+                version : this.constants.version,
                 bookId : bookId,
                 paragraphNr : new Number(paragraphNr),
                 description : '',
                 choices : []
             };
-            self.updateParagraph(bookId, paragraph);
+            this.updateParagraph(bookId, paragraph);
             return paragraph;
         }
     }
 
     getParagraph(bookId, paragraphNr) {
-        let key = self.getParagraphPersistenceKey(bookId, paragraphNr);
-        return self.persistenceService.get(key);
+        let key = this.getParagraphPersistenceKey(bookId, paragraphNr);
+        return this.persistenceService.get(key);
     }
 
     updateParagraph(bookId, paragraph) {
@@ -121,14 +119,14 @@ class BookPersistenceService {
             return ;
         }
         paragraph = JSON.parse(JSON.stringify(paragraph));
-        let key = self.getParagraphPersistenceKey(bookId, paragraph.paragraphNr);
+        let key = this.getParagraphPersistenceKey(bookId, paragraph.paragraphNr);
         if (!!paragraph.choices) {
             for (let i = 0; i < paragraph.choices.length; i++) {
                 delete paragraph.choices[i]['$$hashKey'];
             }
         }
-        self.checkDupplicateChoices(paragraph);
-        self.persistenceService.save(key, paragraph);
+        this.checkDupplicateChoices(paragraph);
+        this.persistenceService.save(key, paragraph);
     }
 
     checkDupplicateChoices(paragraph) {
@@ -136,7 +134,7 @@ class BookPersistenceService {
             let choices = [];
             for (let i = 0; i < paragraph.choices.length; i++) {
                 if (choices.indexOf(paragraph.choices[i].paragraphNr) !== -1) {
-                    self.messagesService.errorMessage(self.$translate.instant("DupplicateParagraphChoices", {paragraphNr: paragraph.paragraphNr, choiceParagraphNr : paragraph.choices[i].paragraphNr }), true);
+                    this.messagesService.errorMessage(this.$translate.instant("DupplicateParagraphChoices", {paragraphNr: paragraph.paragraphNr, choiceParagraphNr : paragraph.choices[i].paragraphNr }), true);
                 }
                 choices.push(paragraph.choices[i].paragraphNr);
             }
@@ -146,9 +144,9 @@ class BookPersistenceService {
     getBookParagraphKeys(bookId) {
         let paragraphKeys = [];
         let keys = Object.keys(localStorage);
-        let keyBookId = self.constants.data.book + '.' + bookId;
+        let keyBookId = this.constants.data.adventure + '.' + bookId;
         for (let i = 0; i < keys.length; i++) {
-            if (keys[i].startsWith(self.constants.data.book) && keys[i].indexOf('paragraph.') !== -1) {
+            if (keys[i].startsWith(this.constants.data.adventure) && keys[i].indexOf('paragraph.') !== -1) {
                 let bookIdInKey = keys[i].substring(0, keys[i].indexOf('.paragraph'));
                 if (bookIdInKey === keyBookId) {
                     paragraphKeys.push(keys[i]);
@@ -159,39 +157,39 @@ class BookPersistenceService {
     }
 
     getParagraphPersistenceKey(bookId, paragraphNr) {
-        return self.getBookPersistenceKey(bookId) + ".paragraph." + paragraphNr;
+        return this.getBookPersistenceKey(bookId) + ".paragraph." + paragraphNr;
     }
 
     getBookPersistenceKey(bookId) {
         let key = bookId;
-        if (!key.startsWith(self.constants.data.book)) {
-            key = self.constants.data.book + "." + key;
+        if (!key.startsWith(this.constants.data.adventure)) {
+            key = this.constants.data.adventure + "." + key;
         }
         return key;
     }
 
     export() {
-        let bookKeys = self.getBookPersistenceKeys();
+        let bookKeys = this.getBookPersistenceKeys();
         let books = [];
         for (let i = 0; i < bookKeys.length; i++) {
-            let book = self.persistenceService.get(bookKeys[i]);
-            books.push(self.exportBook(book.id));
+            let book = this.persistenceService.get(bookKeys[i]);
+            books.push(this.exportBook(book.id));
         }
         return JSON.stringify(books);
 
     }
 
     exportBook(bookId) {
-        let book = self.getBook(bookId);
+        let book = this.getBook(bookId);
         book.paragraphs = [];
 
         let keys = Object.keys(localStorage);
-        let bookIdKeyPrefix = self.constants.data.book + '.' + bookId;
+        let bookIdKeyPrefix = this.constants.data.adventure + '.' + bookId;
         for (let i = 0; i < keys.length; i++) {
             if (keys[i].startsWith(bookIdKeyPrefix + ".paragraph") !== -1) {
                 let currentBookIdPrefix = keys[i].substring(0, keys[i].indexOf('.paragraph'));
                 if (currentBookIdPrefix === bookIdKeyPrefix) {
-                    let paragraph = self.persistenceService.get(keys[i]);
+                    let paragraph = this.persistenceService.get(keys[i]);
                     if (!!paragraph) {
                         book.paragraphs.push(paragraph);
                     }

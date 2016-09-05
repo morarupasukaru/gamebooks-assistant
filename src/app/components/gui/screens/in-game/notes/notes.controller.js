@@ -1,16 +1,14 @@
-let self;
 class NotesController {
     /*@ngInject*/
     constructor(preScreenLoadingInterceptorsCallerService, popupService, constants, gamePersistenceService, bookPersistenceService) {
-        self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
 
-        self.popupService = popupService;
-        self.constants = constants;
-        self.gamePersistenceService = gamePersistenceService;
-        self.bookPersistenceService = bookPersistenceService;
+        this.popupService = popupService;
+        this.constants = constants;
+        this.gamePersistenceService = gamePersistenceService;
+        this.bookPersistenceService = bookPersistenceService;
 
-        self.popupDeleteNoteConfig = {
+        this.popupDeleteNoteConfig = {
             id : 'popupDeleteNoteConfig',
             text : 'Are you sure to remove the note?',
             choices : [constants.choices.yes, constants.choices.no],
@@ -18,21 +16,21 @@ class NotesController {
             closeOnClickOutsideModal : false
         };
 
-        self.initData();
+        this.initData();
     }
 
     initData() {
         let game;
-        if (!!self.gameId) {
-            game = self.gamePersistenceService.getGame(self.gameId);
+        if (!!this.gameId) {
+            game = this.gamePersistenceService.getGame(this.gameId);
         }
 
-        self.notes = [];
-        let paragraph = self.bookPersistenceService.getParagraph(self.bookId, self.paragraphNr);
+        this.notes = [];
+        let paragraph = this.bookPersistenceService.getParagraph(this.bookId, this.paragraphNr);
         if (!!paragraph && !!paragraph.notes) {
             for (let i = 0; i < paragraph.notes.length; i++) {
-                self.notes.push(paragraph.notes[i]);
-                paragraph.notes[i].paragraphNr = self.paragraphNr;
+                this.notes.push(paragraph.notes[i]);
+                paragraph.notes[i].paragraphNr = this.paragraphNr;
                 paragraph.notes[i].isParagraph = !!paragraph.notes[i].paragraphNr;
                 if (!paragraph.notes[i].playerName) {
                     paragraph.notes[i].note = paragraph.notes[i].note;
@@ -41,49 +39,49 @@ class NotesController {
         }
 
         if (!!game) {
-            self.playerName = game.playerName;
+            this.playerName = game.playerName;
             if (!!game.notes) {
-                self.notes = self.notes.concat(game.notes);
+                this.notes = this.notes.concat(game.notes);
             }
         }
     }
 
     addRow(noteValue) {
-        let row = { note : noteValue, isParagraph : true, paragraphNr: self.paragraphNr, playerName : self.playerName };
-        self.notes.push(row);
-        self.addedRow = row;
+        let row = { note : noteValue, isParagraph : true, paragraphNr: this.paragraphNr, playerName : this.playerName };
+        this.notes.push(row);
+        this.addedRow = row;
     }
 
     displayRemovePopup(removedRow) {
-        self.rowToBeRemoved = removedRow;
-        self.popupService.show(self.popupDeleteNoteConfig.id, self.callbackRemovePopup);
+        this.rowToBeRemoved = removedRow;
+        this.popupService.show(this.popupDeleteNoteConfig.id, this.callbackRemovePopup);
     }
 
     callbackRemovePopup(popupDomElementId, choice) {
-        if (choice === self.constants.choices.yes) {
-            self.removeRow(self.rowToBeRemoved);
+        if (choice === this.constants.choices.yes) {
+            this.removeRow(this.rowToBeRemoved);
         }
-        self.rowToBeRemoved = null;
+        this.rowToBeRemoved = null;
     }
 
     removeRow(removedRow) {
-        var index = self.notes.indexOf(removedRow);
-        self.notes.splice(index, 1);
-        self.clearEditedRow();
-        self.saveNotes();
+        var index = this.notes.indexOf(removedRow);
+        this.notes.splice(index, 1);
+        this.clearEditedRow();
+        this.saveNotes();
     }
 
     editRow(row) {
-        self.editedRow = row;
-        self.originalRow = { note : row.note, paragraphNr : row.paragraphNr, playerName : row.playerName };
+        this.editedRow = row;
+        this.originalRow = { note : row.note, paragraphNr : row.paragraphNr, playerName : row.playerName };
     }
 
     isRowEdited(row) {
-        return row === self.editedRow || row === self.addedRow;
+        return row === this.editedRow || row === this.addedRow;
     }
 
     hasEditedRow() {
-        return !!self.editedRow || !! self.addedRow;
+        return !!this.editedRow || !! this.addedRow;
     }
 
     saveRowChanges($invalid, row) {
@@ -92,64 +90,64 @@ class NotesController {
         }
 
         if (!!row.isParagraph) {
-            row.paragraphNr = Number(self.paragraphNr);
+            row.paragraphNr = Number(this.paragraphNr);
         } else {
             row.paragraphNr = undefined;
         }
 
-        self.clearEditedRow();
-        self.saveNotes();
+        this.clearEditedRow();
+        this.saveNotes();
     }
 
     saveNotes() {
-        self.savePlayerNotes();
-        self.saveParagraphNotes();
+        this.savePlayerNotes();
+        this.saveParagraphNotes();
     }
 
     savePlayerNotes() {
-        if (!self.gameId) {
+        if (!this.gameId) {
             return ;
         }
 
         let savedNotes = [];
-        for (let i = 0; i < self.notes.length; i++) {
-            if (!self.notes[i].paragraphNr) {
-                savedNotes.push({ note : self.notes[i].note, playerName : self.notes[i].playerName});
+        for (let i = 0; i < this.notes.length; i++) {
+            if (!this.notes[i].paragraphNr) {
+                savedNotes.push({ note : this.notes[i].note, playerName : this.notes[i].playerName});
             }
         }
-        let game = self.gamePersistenceService.getGame(self.gameId);
+        let game = this.gamePersistenceService.getGame(this.gameId);
         game.notes = savedNotes;
-        self.gamePersistenceService.updateGame(game);
+        this.gamePersistenceService.updateGame(game);
     }
 
     saveParagraphNotes() {
         let savedNotes = [];
-        for (let i = 0; i < self.notes.length; i++) {
-            if (!!self.notes[i].paragraphNr) {
-                savedNotes.push({ note : self.notes[i].note, playerName : self.notes[i].playerName});
+        for (let i = 0; i < this.notes.length; i++) {
+            if (!!this.notes[i].paragraphNr) {
+                savedNotes.push({ note : this.notes[i].note, playerName : this.notes[i].playerName});
             }
         }
-        let paragraph = self.bookPersistenceService.getParagraph(self.bookId, self.paragraphNr);
+        let paragraph = this.bookPersistenceService.getParagraph(this.bookId, this.paragraphNr);
         paragraph.notes = savedNotes;
-        self.bookPersistenceService.updateParagraph(self.bookId, paragraph);
+        this.bookPersistenceService.updateParagraph(this.bookId, paragraph);
     }
 
     abortRowChanges() {
-        if (!!self.addedRow) {
-            self.removeRow(self.addedRow);
+        if (!!this.addedRow) {
+            this.removeRow(this.addedRow);
         }
-        if (!!self.editedRow) {
-            self.editedRow.note = self.originalRow.note;
-            self.editedRow.paragraphNr = self.originalRow.paragraphNr;
-            self.editedRow.playerName = self.originalRow.playerName;
+        if (!!this.editedRow) {
+            this.editedRow.note = this.originalRow.note;
+            this.editedRow.paragraphNr = this.originalRow.paragraphNr;
+            this.editedRow.playerName = this.originalRow.playerName;
         }
-        self.clearEditedRow();
+        this.clearEditedRow();
     }
 
     clearEditedRow() {
-        self.addedRow = null;
-        self.editedRow = null;
-        self.originalRow = null;
+        this.addedRow = null;
+        this.editedRow = null;
+        this.originalRow = null;
     }
 }
 

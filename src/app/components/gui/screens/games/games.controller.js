@@ -1,18 +1,16 @@
-let self;
 class GamesController {
     /*@ngInject*/
     constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, bookPersistenceService, messagesService, $translate, popupService) {
-        self = this;
-        self.constants = constants;
+        this.constants = constants;
         preScreenLoadingInterceptorsCallerService.intercept();
-        self.$location = $location;
-        self.gamePersistenceService = gamePersistenceService;
-        self.bookPersistenceService = bookPersistenceService;
-        self.messagesService = messagesService;
-        self.$translate = $translate;
-        self.popupService = popupService;
+        this.$location = $location;
+        this.gamePersistenceService = gamePersistenceService;
+        this.bookPersistenceService = bookPersistenceService;
+        this.messagesService = messagesService;
+        this.$translate = $translate;
+        this.popupService = popupService;
 
-        self.popupDeleteGameConfig = {
+        this.popupDeleteGameConfig = {
             id : 'popupDeleteGame',
             text : 'Are you sure to remove the selected game?',
             choices : [constants.choices.yes, constants.choices.no],
@@ -24,74 +22,74 @@ class GamesController {
     }
 
     initData() {
-        let gamePersistenceKeys = self.gamePersistenceService.getGamePersistenceKeys();
-        self.rows = [];
+        let gamePersistenceKeys = this.gamePersistenceService.getGamePersistenceKeys();
+        this.rows = [];
         for (let i = 0; i < gamePersistenceKeys.length; i++) {
-            let game = self.gamePersistenceService.getGame(gamePersistenceKeys[i]);
-            self.rows.push(game);
+            let game = this.gamePersistenceService.getGame(gamePersistenceKeys[i]);
+            this.rows.push(game);
         }
 
-        self.completeBookName(self.rows);
+        this.completeAdventureName(this.rows);
     }
 
-    completeBookName(games) {
+    completeAdventureName(games) {
         for (let i = 0; i < games.length; i++) {
-            let book = self.bookPersistenceService.getBook(games[i].bookId);
-            if (!!book) {
-                games[i].bookName = book.name;
+            let adventure = this.bookPersistenceService.getBook(games[i].adventureId);
+            if (!!adventure) {
+                games[i].adventureName = adventure.name;
             } else {
-                self.messagesService.errorMessage(self.$translate.instant('Cannot find book') + " '"  + games[i].bookId + "'", false);
-                games[i].bookName = games[i].bookId;
+                this.messagesService.errorMessage(this.$translate.instant('Cannot find adventure') + " '"  + games[i].adventureId + "'", false);
+                games[i].adventureName = games[i].adventureId;
             }
         }
     }
 
     select(row) {
-        for (let i = 0; i < self.rows.length; i++) {
-            self.rows[i].selected = false;
+        for (let i = 0; i < this.rows.length; i++) {
+            this.rows[i].selected = false;
         }
         row.selected = true;
     }
 
     startNewGame() {
-        self.$location.url(self.constants.url.selectBookForNewGame);
+        this.$location.url(this.constants.url.selectAdventureForNewGame);
     }
 
     continueGame() {
-        let game = self.gamePersistenceService.getGame(self.getSelectedRow().id);
-        let book = self.bookPersistenceService.getBook(game.bookId);
+        let game = this.gamePersistenceService.getGame(this.getSelectedRow().id);
+        let book = this.bookPersistenceService.getBook(game.bookId);
         if (!book) {
-            self.messagesService.errorMessage('The book is not available', false)
+            this.messagesService.errorMessage('The book is not available', false)
         } else {
-            let nextUrl = self.gamePersistenceService.getUrlOfGame(self.getSelectedRow().id);
-            self.$location.url(nextUrl);
+            let nextUrl = this.gamePersistenceService.getUrlOfGame(this.getSelectedRow().id);
+            this.$location.url(nextUrl);
         }
     }
 
     displayRemoveGamePopup() {
-        self.popupService.show(self.popupDeleteGameConfig.id, self.callbackRemovePopup);
+        this.popupService.show(this.popupDeleteGameConfig.id, this.callbackRemovePopup);
     }
 
     callbackRemovePopup(popupDomElementId, choice) {
-        if (choice === self.constants.choices.yes) {
-            self.deleteGame();
+        if (choice === this.constants.choices.yes) {
+            this.deleteGame();
         }
     }
 
     deleteGame() {
-        self.gamePersistenceService.deleteGame(self.getSelectedRow().id, true, true);
-        self.initData();
+        this.gamePersistenceService.deleteGame(this.getSelectedRow().id, true, true);
+        this.initData();
     }
 
     hasSelectedRow() {
-        return !!self.getSelectedRow();
+        return !!this.getSelectedRow();
     }
 
 
     getSelectedRow() {
-        for (let i = 0; i < self.rows.length; i++) {
-            if (!!self.rows[i].selected) {
-                return self.rows[i];
+        for (let i = 0; i < this.rows.length; i++) {
+            if (!!this.rows[i].selected) {
+                return this.rows[i];
             }
         }
         return null;

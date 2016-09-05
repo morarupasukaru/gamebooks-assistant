@@ -1,28 +1,26 @@
-let self;
 class PopupService {
 
     /*@ngInject*/
     constructor() {
-        self = this;
-        self.popups = {};
+        this.popups = {};
     }
 
     show(popupDomElementId, callback) {
         let modalElement = window.document.getElementById(popupDomElementId);
         modalElement.style.display = "block";
 
-        self.popups[popupDomElementId] = callback;
+        this.popups[popupDomElementId] = callback;
     }
 
     close(popupDomElementId, choice) {
         let modalElement = window.document.getElementById(popupDomElementId);
         modalElement.style.display = "none";
 
-        let callback = self.popups[popupDomElementId];
+        let callback = this.popups[popupDomElementId];
         if (!!callback) {
             callback(popupDomElementId, choice);
         }
-        delete self.popups[popupDomElementId];
+        delete this.popups[popupDomElementId];
     }
 }
 

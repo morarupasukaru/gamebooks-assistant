@@ -1,13 +1,11 @@
-let self;
 class WarlockOfFiretopMountainService {
 
     /*@ngInject*/
     constructor(constants) {
-        self = this;
-        self.constants = constants;
-        self.book = {
+        this.constants = constants;
+        this.book = {
             id : 'warlock-firetop-mountain',
-            version : self.constants.version,
+            version : this.constants.version,
             language : 'Français',
             name : 'Le Sorcier de la Montagne de Feu',
             authors : 'Steve Jackson & Ian Livingstone',
@@ -84,7 +82,7 @@ class WarlockOfFiretopMountainService {
             ],
         };
 
-        self.book.paragraphs = [
+        this.book.paragraphs = [
             {
                 paragraphNr: 1,
                 description: "Caverne sombre",
@@ -1380,7 +1378,7 @@ class WarlockOfFiretopMountainService {
     }
 
     getBook() {
-        return self.book;
+        return this.book;
     }
 }
 

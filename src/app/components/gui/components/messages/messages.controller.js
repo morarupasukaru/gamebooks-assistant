@@ -1,20 +1,15 @@
-/*
- * Copyright (C) Schweizerische Bundesbahnen SBB, 2016.
- */
-let self;
 class MessagesController {
     /*@ngInject*/
     constructor(messagesService, $rootScope) {
-        self = this;
-        self.messagesService = messagesService;
+        this.messagesService = messagesService;
 
-        $rootScope.$on('$locationChangeStart', () => self.messagesService.clearMessages());
+        $rootScope.$on('$locationChangeStart', () => this.messagesService.clearMessages());
 
-        self.messages = messagesService.getMessages();
+        this.messages = messagesService.getMessages();
     }
 
     removeMessage(index) {
-        self.messagesService.removeMessage(index);
+        this.messagesService.removeMessage(index);
     }
 }
 

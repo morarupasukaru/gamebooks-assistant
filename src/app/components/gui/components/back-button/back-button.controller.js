@@ -1,17 +1,15 @@
-let self;
 class BackButtonController {
     /*@ngInject*/
     constructor($window) {
-        self = this;
-        self.$window = $window;
+        this.$window = $window;
     }
 
     isBackDisabled() {
-        return self.$window.history.length < 2;
+        return this.$window.history.length < 2;
     }
 
     back() {
-        self.$window.history.back();
+        this.$window.history.back();
     }
 }
 

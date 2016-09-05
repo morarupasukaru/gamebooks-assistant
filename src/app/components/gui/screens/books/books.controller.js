@@ -1,18 +1,16 @@
-let self;
 class BooksController {
     /*@ngInject*/
     constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, bookPersistenceService, messagesService, $translate, popupService) {
-        self = this;
-        self.constants = constants;
+        this.constants = constants;
         preScreenLoadingInterceptorsCallerService.intercept();
-        self.$location = $location;
-        self.gamePersistenceService = gamePersistenceService;
-        self.bookPersistenceService = bookPersistenceService;
-        self.messagesService = messagesService;
-        self.$translate = $translate;
-        self.popupService = popupService;
+        this.$location = $location;
+        this.gamePersistenceService = gamePersistenceService;
+        this.bookPersistenceService = bookPersistenceService;
+        this.messagesService = messagesService;
+        this.$translate = $translate;
+        this.popupService = popupService;
 
-        self.popupDeleteBookConfig = {
+        this.popupDeleteBookConfig = {
             id : 'popupDeleteGame',
             text : 'Are you sure to remove the selected book?',
             choices : [constants.choices.yes, constants.choices.no],
@@ -24,49 +22,49 @@ class BooksController {
     }
 
     initData() {
-        self.rows = self.bookPersistenceService.getBooksOverview();
+        this.rows = this.bookPersistenceService.getBooksOverview();
     }
 
     select(row) {
-        for (let i = 0; i < self.rows.length; i++) {
-            self.rows[i].selected = false;
+        for (let i = 0; i < this.rows.length; i++) {
+            this.rows[i].selected = false;
         }
         row.selected = true;
     }
 
     createBook() {
-        self.$location.url(self.constants.url.bookDetail + '/create');
+        this.$location.url(this.constants.url.bookDetail + '/create');
     }
 
     displayBook() {
-        self.$location.url(self.constants.url.bookDetail + '/' + self.getSelectedRow().id);
+        this.$location.url(this.constants.url.bookDetail + '/' + this.getSelectedRow().id);
     }
 
     displayRemoveBooksPopup() {
-        self.popupService.show(self.popupDeleteBookConfig.id, self.callbackRemovePopup);
+        this.popupService.show(this.popupDeleteBookConfig.id, this.callbackRemovePopup);
     }
 
     callbackRemovePopup(popupDomElementId, choice) {
-        if (choice === self.constants.choices.yes) {
-            self.deleteBook();
+        if (choice === this.constants.choices.yes) {
+            this.deleteBook();
         }
     }
 
     deleteBook() {
-        self.bookPersistenceService.deleteBookAndParagraphs(self.getSelectedRow().id);
-        self.initData();
+        this.bookPersistenceService.deleteBookAndParagraphs(this.getSelectedRow().id);
+        this.initData();
     }
 
     hasSelectedRow() {
-        return !!self.getSelectedRow();
+        return !!this.getSelectedRow();
     }
 
 
     getSelectedRow() {
-        if (!!self.rows) {
-            for (let i = 0; i < self.rows.length; i++) {
-                if (!!self.rows[i].selected) {
-                    return self.rows[i];
+        if (!!this.rows) {
+            for (let i = 0; i < this.rows.length; i++) {
+                if (!!this.rows[i].selected) {
+                    return this.rows[i];
                 }
             }
         }

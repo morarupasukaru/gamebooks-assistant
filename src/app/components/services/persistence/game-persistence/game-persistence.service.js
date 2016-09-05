@@ -1,33 +1,23 @@
-let self;
 class GamePersistenceService {
 
     /*@ngInject*/
     constructor(constants, persistenceService, bookPersistenceService) {
-        self = this;
-        self.persistenceService = persistenceService;
-        self.bookPersistenceService = bookPersistenceService;
-        self.constants = constants;
+        this.persistenceService = persistenceService;
+        this.bookPersistenceService = bookPersistenceService;
+        this.constants = constants;
     }
 
     getSelectedLanguage() {
-        return self.persistenceService.get(self.constants.data.selectedLanguage);
+        return this.persistenceService.get(this.constants.data.selectedLanguage);
     }
 
     setSelectedLanguage(language) {
-        self.persistenceService.save(self.constants.data.selectedLanguage, language);
-    }
-
-    getLastDisplayedScreenUrl() {
-        return self.persistenceService.get(self.constants.data.lastDisplayedScreenUrl);
-    }
-
-    setLastDisplayedScreenUrl(lastDisplayedScreenUrl) {
-        self.persistenceService.save(self.constants.data.lastDisplayedScreenUrl, lastDisplayedScreenUrl);
+        this.persistenceService.save(this.constants.data.selectedLanguage, language);
     }
 
     addGame(game) {
         let savedGame = {
-            id : self.newGameId(),
+            id : this.newGameId(),
             playerName : game.playerName,
             bookId : game.bookId,
             items : game.items,
@@ -40,7 +30,7 @@ class GamePersistenceService {
             savedGame.stats.push({ name: game.stats[i].name, initial: game.stats[i].value, current: game.stats[i].value});
         }
 
-        self.updateGame(savedGame);
+        this.updateGame(savedGame);
         return savedGame;
     }
 
@@ -50,22 +40,22 @@ class GamePersistenceService {
         }
         game = JSON.parse(JSON.stringify(game));
 
-        let key = self.getGamePersistenceKey(game.id);
+        let key = this.getGamePersistenceKey(game.id);
         if (!!game.items) {
             for (let i = 0; i < game.items.length; i++) {
                 delete game.items[i]['$$hashKey'];
             }
         }
-        self.persistenceService.save(key, game);
+        this.persistenceService.save(key, game);
     }
 
     deleteGame(gameId, deleteParagraphNotesOfGame, deleteParagraphChoicesOfGame) {
-        let game = self.getGame(gameId);
-        let key = self.getGamePersistenceKey(gameId);
+        let game = this.getGame(gameId);
+        let key = this.getGamePersistenceKey(gameId);
         if (!!deleteParagraphNotesOfGame || !!deleteParagraphChoicesOfGame) {
-            let paragraphKeys = self.bookPersistenceService.getBookParagraphKeys(game.bookId);
+            let paragraphKeys = this.bookPersistenceService.getBookParagraphKeys(game.bookId);
             for (let i = 0; i < paragraphKeys.length; i++) {
-                let paragraph = self.persistenceService.get(paragraphKeys[i]);
+                let paragraph = this.persistenceService.get(paragraphKeys[i]);
                 if (!!deleteParagraphNotesOfGame && !!paragraph.notes) {
                     let newNotes = [];
                     for (let j = 0; j < paragraph.notes.length; j++) {
@@ -74,7 +64,7 @@ class GamePersistenceService {
                         }
                     }
                     paragraph.notes = newNotes;
-                    self.bookPersistenceService.updateParagraph(game.bookId, paragraph);
+                    this.bookPersistenceService.updateParagraph(game.bookId, paragraph);
                 }
                 if (!!deleteParagraphChoicesOfGame) {
                     // TODO
@@ -89,7 +79,7 @@ class GamePersistenceService {
     }
 
     getUrlOfGame(gameId, paragraphNr) {
-        let game = self.getGame(gameId);
+        let game = this.getGame(gameId);
         if (!paragraphNr) {
             paragraphNr = game.currentParagraphNr;
         }
@@ -98,18 +88,18 @@ class GamePersistenceService {
     }
 
     getGame(gameId) {
-        let key = self.getGamePersistenceKey(gameId);
-        return self.persistenceService.get(key);
+        let key = this.getGamePersistenceKey(gameId);
+        return this.persistenceService.get(key);
     }
 
     getGamePersistenceKeys() {
-        return self.persistenceService.findKeysWithPrefix(self.constants.data.game);
+        return this.persistenceService.findKeysWithPrefix(this.constants.data.game);
     }
 
     getGamePersistenceKey(gameId) {
         let key = gameId;
-        if (!key.startsWith(self.constants.data.game)) {
-            key = self.constants.data.game + "." + key;
+        if (!key.startsWith(this.constants.data.game)) {
+            key = this.constants.data.game + "." + key;
         }
         return key;
 
@@ -119,7 +109,7 @@ class GamePersistenceService {
         let game = this.getGame(gameId);
         if (!!fromParagrahNr) {
             let persistenceKeyChoosenParagraphs = game.bookId + '.' + 'choosen';
-            let choosenParagraphs = self.persistenceService.get(persistenceKeyChoosenParagraphs);
+            let choosenParagraphs = this.persistenceService.get(persistenceKeyChoosenParagraphs);
             if (!choosenParagraphs) {
                 choosenParagraphs = {};
             }
@@ -131,7 +121,7 @@ class GamePersistenceService {
             }
             if (choosenBy.indexOf(gameId) === -1) {
                 choosenBy.push(gameId);
-                self.persistenceService.save(persistenceKeyChoosenParagraphs, choosenParagraphs);
+                this.persistenceService.save(persistenceKeyChoosenParagraphs, choosenParagraphs);
             }
         }
         game.currentParagraphNr = toParagraphNr;
@@ -143,13 +133,13 @@ class GamePersistenceService {
     }
 
     getChoosenChoices(gameId, paragraphNr) {
-        let game = self.getGame(gameId);
+        let game = this.getGame(gameId);
         let persistenceKeyChoosenParagraphs = game.bookId + '.' + 'choosen';
-        let choosenParagraphs = self.persistenceService.get(persistenceKeyChoosenParagraphs);
+        let choosenParagraphs = this.persistenceService.get(persistenceKeyChoosenParagraphs);
         if (!choosenParagraphs) {
             return [];
         } else {
-            let paragraph = self.bookPersistenceService.getParagraph(game.bookId, paragraphNr);
+            let paragraph = this.bookPersistenceService.getParagraph(game.bookId, paragraphNr);
             let choosen = [];
             if (!!paragraph.choices) {
                 for (let i = 0; i < paragraph.choices.length; i++) {

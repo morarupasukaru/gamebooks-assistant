@@ -1,29 +1,27 @@
-let self;
 class DicesController {
     /*@ngInject*/
     constructor(dicesService) {
-        self = this;
-        self.dicesService = dicesService;
-        self.clear();
+        this.dicesService = dicesService;
+        this.clear();
     }
 
     roll2d6() {
-        self.appendToResult(self.dicesService.rollDices(2, 6));
+        this.appendToResult(this.dicesService.rollDices(2, 6));
     }
 
     roll1d6() {
-        self.appendToResult(self.dicesService.rollDices(1, 6));
+        this.appendToResult(this.dicesService.rollDices(1, 6));
     }
 
     clear() {
-        self.dicesValue = '';
+        this.dicesValue = '';
     }
 
     appendToResult(value) {
-        if (self.dicesValue !== '') {
-            self.dicesValue = self.dicesValue + ','
+        if (this.dicesValue !== '') {
+            this.dicesValue = this.dicesValue + ','
         }
-        self.dicesValue = self.dicesValue + value;
+        this.dicesValue = this.dicesValue + value;
     }
 
 }

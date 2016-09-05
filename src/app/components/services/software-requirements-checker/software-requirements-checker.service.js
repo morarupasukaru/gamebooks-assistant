@@ -1,17 +1,15 @@
-let self;
 class SoftwareRequirementsCheckerService {
 
     /*@ngInject*/
     constructor(messagesService) {
-        self = this;
-        self.messagesService = messagesService;
+        this.messagesService = messagesService;
     }
 
     checkSoftwareRequirements() {
         let hasSoftwareRequirements = true;
-        if (!self.isLocalStorageSupported()) {
+        if (!this.isLocalStorageSupported()) {
             hasSoftwareRequirements = false;
-            self.messagesService.errorMessage("The application cannot be used because the version of the browser is too old or because it is not possible to save data in 'localStorage'.", true);
+            this.messagesService.errorMessage("The application cannot be used because the version of the browser is too old or because it is not possible to save data in 'localStorage'.", true);
         }
     }
 

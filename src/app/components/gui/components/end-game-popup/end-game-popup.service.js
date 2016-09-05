@@ -1,29 +1,27 @@
-let self;
 class EndGamePopupService {
 
     /*@ngInject*/
     constructor(constants) {
-        self = this;
-        self.constants = constants;
-        self.popups = {};
+        this.constants = constants;
+        this.popups = {};
     }
 
     show(popupDomElementId, callback) {
         let modalElement = window.document.getElementById(popupDomElementId);
         modalElement.style.display = "block";
 
-        self.popups[popupDomElementId] = callback;
+        this.popups[popupDomElementId] = callback;
     }
 
     close(popupDomElementId, choice, endGameReason) {
         let modalElement = window.document.getElementById(popupDomElementId);
         modalElement.style.display = "none";
 
-        let callback = self.popups[popupDomElementId];
-        if (!!callback && choice === self.constants.choices.yes) {
+        let callback = this.popups[popupDomElementId];
+        if (!!callback && choice === this.constants.choices.yes) {
             callback(popupDomElementId, endGameReason);
         }
-        delete self.popups[popupDomElementId];
+        delete this.popups[popupDomElementId];
     }
 }
 

@@ -6,9 +6,8 @@ let constantsModule = angular.module('app.components.constants', [])
         supportedLanguages: ['en', 'fr'],
         data: {
             selectedLanguage: 'selectedLanguage',
-            lastDisplayedScreenUrl: 'lastDisplayedScreenUrl',
-            book : 'book',
-            game : 'game'
+            adventure: 'adventure',
+            game: 'game'
         },
         url: {
             battle : '/battle',
@@ -16,13 +15,13 @@ let constantsModule = angular.module('app.components.constants', [])
             administration: '/administration',
             games : '/games',
             root: '/',
-            selectBookForNewGame : '/games/create/select-book',
+            selectAdventureForNewGame : '/games/create/select-adventure',
             createPlayerForNewGame : '/games/create/create-player',
             chooseItemsForNewGame : '/games/create/choose-items',
-            inGame: '/{bookId}/{paragraphNr}/game/{gameId}',
+            inGame: '/{adventureId}/{paragraphNr}/game/{gameId}',
             about: '/about?admin',
-            books: '/books',
-            bookDetail: "/books"
+            adventures: '/adventures',
+            adventureDetail: '/adventures'
         },
         choices : {
             yes : 'Yes',

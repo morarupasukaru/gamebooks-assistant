@@ -1,15 +1,13 @@
-let self;
 class ItemsController {
     /*@ngInject*/
     constructor(preScreenLoadingInterceptorsCallerService, popupService, constants, gamePersistenceService) {
-        self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
         this.rows = this.items;
-        self.popupService = popupService;
-        self.constants = constants;
-        self.gamePersistenceService = gamePersistenceService;
+        this.popupService = popupService;
+        this.constants = constants;
+        this.gamePersistenceService = gamePersistenceService;
 
-        self.popupDeleteItemConfig = {
+        this.popupDeleteItemConfig = {
             id : 'popupDeleteItem',
             text : 'Are you sure to remove the item?',
             choices : [constants.choices.yes, constants.choices.no],
@@ -20,72 +18,72 @@ class ItemsController {
 
     addRow() {
         let row = { quantity: 1};
-        self.rows.push(row);
-        self.addedRow = row;
+        this.rows.push(row);
+        this.addedRow = row;
     }
 
     displayRemovePopup(removedRow) {
-        self.rowToBeRemoved = removedRow;
-        self.popupService.show(self.popupDeleteItemConfig.id, self.callbackRemovePopup);
+        this.rowToBeRemoved = removedRow;
+        this.popupService.show(this.popupDeleteItemConfig.id, this.callbackRemovePopup);
     }
 
     callbackRemovePopup(popupDomElementId, choice) {
-        if (choice === self.constants.choices.yes) {
-            self.removeRow(self.rowToBeRemoved);
+        if (choice === this.constants.choices.yes) {
+            this.removeRow(this.rowToBeRemoved);
         }
-        self.rowToBeRemoved = null;
+        this.rowToBeRemoved = null;
     }
 
     removeRow(removedRow) {
-        var index = self.rows.indexOf(removedRow);
-        self.rows.splice(index, 1);
-        self.clearEditedRow();
-        self.saveInPersistence();
+        var index = this.rows.indexOf(removedRow);
+        this.rows.splice(index, 1);
+        this.clearEditedRow();
+        this.saveInPersistence();
     }
 
     editRow(row) {
-        self.editedRow = row;
-        self.originalRow = { quantity : row.quantity, description : row.description };
+        this.editedRow = row;
+        this.originalRow = { quantity : row.quantity, description : row.description };
     }
 
     isRowEdited(row) {
-        return row === self.editedRow || row === self.addedRow;
+        return row === this.editedRow || row === this.addedRow;
     }
 
     hasEditedRow() {
-        return !!self.editedRow || !! self.addedRow;
+        return !!this.editedRow || !! this.addedRow;
     }
 
     saveRowChanges($invalid) {
         if ($invalid) {
             return ;
         }
-        self.clearEditedRow();
-        self.saveInPersistence();
+        this.clearEditedRow();
+        this.saveInPersistence();
     }
 
     abortRowChanges() {
-        if (!!self.addedRow) {
-            self.removeRow(self.addedRow);
+        if (!!this.addedRow) {
+            this.removeRow(this.addedRow);
         }
-        if (!!self.editedRow) {
-            self.editedRow.quantity = self.originalRow.quantity;
-            self.editedRow.description = self.originalRow.description;
+        if (!!this.editedRow) {
+            this.editedRow.quantity = this.originalRow.quantity;
+            this.editedRow.description = this.originalRow.description;
         }
-        self.clearEditedRow();
+        this.clearEditedRow();
     }
 
     clearEditedRow() {
-        self.addedRow = null;
-        self.editedRow = null;
-        self.originalRow = null;
+        this.addedRow = null;
+        this.editedRow = null;
+        this.originalRow = null;
     }
 
     saveInPersistence() {
-        if (!!self.gameId) {
-            let updatedGame = self.gamePersistenceService.getGame(self.gameId);
-            updatedGame.items = self.items;
-            self.gamePersistenceService.updateGame(updatedGame);
+        if (!!this.gameId) {
+            let updatedGame = this.gamePersistenceService.getGame(this.gameId);
+            updatedGame.items = this.items;
+            this.gamePersistenceService.updateGame(updatedGame);
         }
     }
 }

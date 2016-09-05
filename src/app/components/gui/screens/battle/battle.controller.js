@@ -1,17 +1,15 @@
-let self;
 class BattleController {
     /*@ngInject*/
     constructor(preScreenLoadingInterceptorsCallerService, $window, popupService, constants, gamePersistenceService, bookPersistenceService, $stateParams) {
-        self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
-        self.$window = $window;
-        self.popupService = popupService;
-        self.constants = constants;
-        self.$stateParams = $stateParams;
-        self.gamePersistenceService = gamePersistenceService;
-        self.bookPersistenceService = bookPersistenceService;
+        this.$window = $window;
+        this.popupService = popupService;
+        this.constants = constants;
+        this.$stateParams = $stateParams;
+        this.gamePersistenceService = gamePersistenceService;
+        this.bookPersistenceService = bookPersistenceService;
 
-        self.popupDeleteEnemyConfig = {
+        this.popupDeleteEnemyConfig = {
             id : 'popupDeleteEnemy',
             text : 'Are you sure to remove the enemy?',
             choices : [constants.choices.yes, constants.choices.no],
@@ -19,61 +17,61 @@ class BattleController {
             closeOnClickOutsideModal : false
         };
 
-        self.initData();
+        this.initData();
     }
 
     initData() {
-        if (!!self.$stateParams.game) {
-            self.game = self.gamePersistenceService.getGame(decodeURIComponent(self.$stateParams.game));
-            self.book = self.bookPersistenceService.getBook(self.game.bookId);
+        if (!!this.$stateParams.game) {
+            this.game = this.gamePersistenceService.getGame(decodeURIComponent(this.$stateParams.game));
+            this.book = this.bookPersistenceService.getBook(this.game.bookId);
         }
 
-        self.initStatsData();
-        self.initPlayerStats();
-        self.defaultEnemy = self.initDefaultEnemy();
-        self.addEnemy();
+        this.initStatsData();
+        this.initPlayerStats();
+        this.defaultEnemy = this.initDefaultEnemy();
+        this.addEnemy();
     }
 
     initStatsData() {
-        if (!!self.game && !!self.book) {
-            self.stats = [];
-            for (let i = 0; i < self.book.stats.length; i++) {
-                let currentStats = self.book.stats[i];
+        if (!!this.game && !!this.book) {
+            this.stats = [];
+            for (let i = 0; i < this.book.stats.length; i++) {
+                let currentStats = this.book.stats[i];
                 if (!!currentStats.battle && !!currentStats.battle.displayed) {
-                    self.stats.push({ name: currentStats.name, enemyDefaultValue: currentStats.battle.enemyDefaultValue, editableForEnemy: currentStats.battle.editableForEnemy});
+                    this.stats.push({ name: currentStats.name, enemyDefaultValue: currentStats.battle.enemyDefaultValue, editableForEnemy: currentStats.battle.editableForEnemy});
                 }
             }
         }
     }
 
     initPlayerStats() {
-        if (!!self.stats) {
-            self.statsPlayer = { name : self.game.playerName};
+        if (!!this.stats) {
+            this.statsPlayer = { name : this.game.playerName};
 
-            for (let i = 0; i < self.stats.length; i++) {
-                let currentStats = self.stats[i];
-                for (let j = 0; j < self.game.stats.length; j++) {
-                    let currentGameStats = self.game.stats[j];
+            for (let i = 0; i < this.stats.length; i++) {
+                let currentStats = this.stats[i];
+                for (let j = 0; j < this.game.stats.length; j++) {
+                    let currentGameStats = this.game.stats[j];
                     if (currentStats.name === currentGameStats.name) {
-                        self.statsPlayer[currentStats.name] = currentGameStats.current;
+                        this.statsPlayer[currentStats.name] = currentGameStats.current;
                         break;
                     }
                 }
             }
-            this.rows = [ self.statsPlayer ];
+            this.rows = [ this.statsPlayer ];
         }
     }
 
     initDefaultEnemy() {
         let defaultEnemyName = 'Enemy';
-        if (!!self.book.defaultEnemyName) {
-            defaultEnemyName = self.book.defaultEnemyName;
+        if (!!this.book.defaultEnemyName) {
+            defaultEnemyName = this.book.defaultEnemyName;
         }
 
         let statsDefaultEnemy = { name : defaultEnemyName };
 
-        for (let i = 0; i < self.stats.length; i++) {
-            let currentStats = self.stats[i];
+        for (let i = 0; i < this.stats.length; i++) {
+            let currentStats = this.stats[i];
             statsDefaultEnemy[currentStats.name] = currentStats.enemyDefaultValue;
         }
 
@@ -82,48 +80,48 @@ class BattleController {
     }
 
     addEnemy() {
-        this.rows.push(JSON.parse(JSON.stringify(self.defaultEnemy)));
+        this.rows.push(JSON.parse(JSON.stringify(this.defaultEnemy)));
     }
 
     save() {
-        for (let i = 0; i < self.game.stats.length; i++) {
-            let currentStats = self.game.stats[i];
-            currentStats.current = self.statsPlayer[currentStats.name];
+        for (let i = 0; i < this.game.stats.length; i++) {
+            let currentStats = this.game.stats[i];
+            currentStats.current = this.statsPlayer[currentStats.name];
         }
-        self.gamePersistenceService.updateGame(self.game);
+        this.gamePersistenceService.updateGame(this.game);
     }
 
     displayRemovePopup(removedRow) {
-        self.rowToBeRemoved = removedRow;
-        self.popupService.show(self.popupDeleteEnemyConfig.id, self.callbackRemovePopup);
+        this.rowToBeRemoved = removedRow;
+        this.popupService.show(this.popupDeleteEnemyConfig.id, this.callbackRemovePopup);
     }
 
     callbackRemovePopup(popupDomElementId, choice) {
-        if (choice === self.constants.choices.yes) {
-            self.removeRow(self.rowToBeRemoved);
+        if (choice === this.constants.choices.yes) {
+            this.removeRow(this.rowToBeRemoved);
         }
-        self.rowToBeRemoved = null;
+        this.rowToBeRemoved = null;
     }
 
     removeRow(removedRow) {
-        var index = self.rows.indexOf(removedRow);
-        self.rows.splice(index, 1);
+        var index = this.rows.indexOf(removedRow);
+        this.rows.splice(index, 1);
     }
 
     isEnemy(row) {
-        return self.rows.indexOf(row) !== 0;
+        return this.rows.indexOf(row) !== 0;
     }
 
     lastColumnSizeInPercent() {
         let lastColumnSizeInPercent = 75;
-        if (!!self.stats) {
-            lastColumnSizeInPercent = lastColumnSizeInPercent - (self.stats.length * 10);
+        if (!!this.stats) {
+            lastColumnSizeInPercent = lastColumnSizeInPercent - (this.stats.length * 10);
         }
         return lastColumnSizeInPercent;
     }
 
     back() {
-        self.$window.history.back();
+        this.$window.history.back();
     }
 }
 

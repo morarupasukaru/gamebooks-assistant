@@ -7,15 +7,15 @@
         </div>
 
         <ol class="breadcrumb">
-            <li class="active">{{ 'Select Book' | translate }}</li>
+            <li class="active">{{ 'Select Adventure' | translate }}</li>
             <li>{{ 'Create Player' | translate }}</li>
             <li>{{ 'Choose Items' | translate }}</li>
         </ol>
 
         <div class="form-group">
-            <label for="selectedBook">{{ 'Select a gamebook' | translate }}</label>
-            <select id="selectedBook" class="form-control" ng-model="$ctrl.selectedBookId">
-                <option ng-repeat="book in $ctrl.getBooks()" value="{{ book.id }}">{{ book.name }}</option>
+            <label for="selectedAdventure">{{ 'Select an adventure' | translate }}</label>
+            <select id="selectedAdventure" class="form-control" ng-model="$ctrl.selectedAdventureId">
+                <option ng-repeat="adventure in $ctrl.adventures" value="{{ adventure.id }}">{{ adventure.name }}</option>
             </select>
         </div>
 

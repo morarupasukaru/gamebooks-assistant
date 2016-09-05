@@ -1,16 +1,14 @@
-let self;
 class ParagraphController {
     /*@ngInject*/
     constructor(preScreenLoadingInterceptorsCallerService, popupService, constants, gamePersistenceService, bookPersistenceService, $location) {
-        self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
-        self.popupService = popupService;
-        self.constants = constants;
-        self.gamePersistenceService = gamePersistenceService;
-        self.bookPersistenceService = bookPersistenceService;
-        self.$location = $location;
+        this.popupService = popupService;
+        this.constants = constants;
+        this.gamePersistenceService = gamePersistenceService;
+        this.bookPersistenceService = bookPersistenceService;
+        this.$location = $location;
 
-        self.popupDeleteChoiceConfig = {
+        this.popupDeleteChoiceConfig = {
             id : 'popupDeleteChoice',
             text : 'Are you sure to remove the choice?',
             choices : [constants.choices.yes, constants.choices.no],
@@ -18,115 +16,115 @@ class ParagraphController {
             closeOnClickOutsideModal : false
         };
 
-        self.initData();
+        this.initData();
     }
 
     initData() {
-        let game = self.gamePersistenceService.getGame(self.gameId);
-        self.bookId = game.bookId;
-        self.playerName = game.playerName;
+        let game = this.gamePersistenceService.getGame(this.gameId);
+        this.bookId = game.bookId;
+        this.playerName = game.playerName;
         this.descriptionEditable = false;
-        self.alreadyChoosen = self.gamePersistenceService.getChoosenChoices(self.gameId, self.paragraph.paragraphNr);
+        this.alreadyChoosen = this.gamePersistenceService.getChoosenChoices(this.gameId, this.paragraph.paragraphNr);
     }
 
     addRow() {
-        let row = { paragraphNr : self.inputParagraphNr, description : self.inputDescription };
-        self.paragraph.choices.push(row);
-        self.inputParagraphNr = '';
-        self.inputDescription = '';
-        self.addedRow = row;
+        let row = { paragraphNr : this.inputParagraphNr, description : this.inputDescription };
+        this.paragraph.choices.push(row);
+        this.inputParagraphNr = '';
+        this.inputDescription = '';
+        this.addedRow = row;
     }
 
     displayRemovePopup(removedRow) {
-        self.rowToBeRemoved = removedRow;
-        self.popupService.show(self.popupDeleteChoiceConfig.id, self.callbackRemovePopup);
+        this.rowToBeRemoved = removedRow;
+        this.popupService.show(this.popupDeleteChoiceConfig.id, this.callbackRemovePopup);
     }
 
     callbackRemovePopup(popupDomElementId, choice) {
-        if (choice === self.constants.choices.yes) {
-            self.removeRow(self.rowToBeRemoved);
+        if (choice === this.constants.choices.yes) {
+            this.removeRow(this.rowToBeRemoved);
         }
-        self.rowToBeRemoved = null;
+        this.rowToBeRemoved = null;
     }
 
     removeRow(removedRow) {
-        var index = self.paragraph.choices.indexOf(removedRow);
-        self.paragraph.choices.splice(index, 1);
-        self.clearEditedRow();
-        self.saveParagraphChoices();
+        var index = this.paragraph.choices.indexOf(removedRow);
+        this.paragraph.choices.splice(index, 1);
+        this.clearEditedRow();
+        this.saveParagraphChoices();
     }
 
     editDescription() {
-        self.descriptionEditable = true;
-        self.originalDescription = self.paragraph.description;
+        this.descriptionEditable = true;
+        this.originalDescription = this.paragraph.description;
     }
 
     isDescriptionEditable() {
-        return self.descriptionEditable;
+        return this.descriptionEditable;
     }
 
     saveDescriptionChanges() {
-        self.originalDescription = null;
-        self.descriptionEditable = false;
-        self.bookPersistenceService.updateParagraph(self.bookId, self.paragraph);
+        this.originalDescription = null;
+        this.descriptionEditable = false;
+        this.bookPersistenceService.updateParagraph(this.bookId, this.paragraph);
     }
 
     abortDescriptionChanges() {
-        self.paragraph.description = self.originalDescription;
-        self.originalDescription = null;
-        self.descriptionEditable = false;
+        this.paragraph.description = this.originalDescription;
+        this.originalDescription = null;
+        this.descriptionEditable = false;
     }
 
     editRow(row) {
-        self.editedRow = row;
-        self.originalRow = { paragraphNr : row.paragraphNr, description : row.description };
+        this.editedRow = row;
+        this.originalRow = { paragraphNr : row.paragraphNr, description : row.description };
     }
 
     isRowEdited(row) {
-        return row === self.editedRow || row === self.addedRow;
+        return row === this.editedRow || row === this.addedRow;
     }
 
     hasEditedRow() {
-        return !!self.editedRow || !! self.addedRow;
+        return !!this.editedRow || !! this.addedRow;
     }
 
     saveRowChanges($invalid) {
         if ($invalid) {
             return ;
         }
-        self.clearEditedRow();
-        self.saveParagraphChoices();
+        this.clearEditedRow();
+        this.saveParagraphChoices();
     }
 
     saveParagraphChoices() {
-        self.bookPersistenceService.updateParagraph(self.bookId, self.paragraph);
+        this.bookPersistenceService.updateParagraph(this.bookId, this.paragraph);
     }
 
     abortRowChanges() {
-        if (!!self.addedRow) {
-            self.removeRow(self.addedRow);
+        if (!!this.addedRow) {
+            this.removeRow(this.addedRow);
         }
-        if (!!self.editedRow) {
-            self.editedRow.paragraphNr = self.originalRow.paragraphNr;
-            self.editedRow.description = self.originalRow.description;
+        if (!!this.editedRow) {
+            this.editedRow.paragraphNr = this.originalRow.paragraphNr;
+            this.editedRow.description = this.originalRow.description;
         }
-        self.clearEditedRow();
+        this.clearEditedRow();
     }
 
     clearEditedRow() {
-        self.addedRow = null;
-        self.editedRow = null;
-        self.originalRow = null;
+        this.addedRow = null;
+        this.editedRow = null;
+        this.originalRow = null;
     }
 
     goTo(paragraphNr) {
-        self.gamePersistenceService.setCurrentParagraphNrOfGame(self.gameId, self.paragraph.paragraphNr, paragraphNr);
-        let nextUrl = self.gamePersistenceService.getUrlOfGame(self.gameId);
-        self.$location.url(nextUrl);
+        this.gamePersistenceService.setCurrentParagraphNrOfGame(this.gameId, this.paragraph.paragraphNr, paragraphNr);
+        let nextUrl = this.gamePersistenceService.getUrlOfGame(this.gameId);
+        this.$location.url(nextUrl);
     }
 
     isAlreadyChoosen(choice) {
-        return self.alreadyChoosen.indexOf(choice.paragraphNr) !== -1;
+        return this.alreadyChoosen.indexOf(choice.paragraphNr) !== -1;
     }
 }
 

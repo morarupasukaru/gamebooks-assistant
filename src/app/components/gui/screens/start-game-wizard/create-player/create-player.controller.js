@@ -1,24 +1,22 @@
-let self;
 class CreatePlayerController {
     /*@ngInject*/
     constructor(preScreenLoadingInterceptorsCallerService, $stateParams, $window, $location, constants, dicesService, bookPersistenceService) {
-        self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
-        self.constants = constants;
-        self.$window = $window;
-        self.$location = $location;
-        self.dicesService = dicesService;
-
-        self.book = bookPersistenceService.getBook($stateParams.bookId);
-        this.loadData(self.book);
+        this.constants = constants;
+        this.$window = $window;
+        this.$location = $location;
+        this.dicesService = dicesService;
+        this.adventure = bookPersistenceService.getBook($stateParams.adventureId);
+        this.loadData(this.adventure);
         this.generateStats();
     }
 
-    loadData(book) {
-        self.stats = [];
-        for (let i = 0; i < book.stats.length; i++) {
-            let currentStats = book.stats[i];
-            self.stats.push({ name : currentStats.name,
+    loadData(adventure) {
+        this.stats = [];
+        let self = this;
+        for (let i = 0; i < adventure.stats.length; i++) {
+            let currentStats = adventure.stats[i];
+            this.stats.push({ name : currentStats.name,
                 generate : function() {
                         return currentStats.init.constant + self.dicesService.rollDices(currentStats.init.sixDiceQuantity, 6);
                     }
@@ -27,14 +25,14 @@ class CreatePlayerController {
     }
 
     generateStats() {
-        for (let i = 0; i < self.stats.length; i++) {
-            let stats = self.stats[i];
+        for (let i = 0; i < this.stats.length; i++) {
+            let stats = this.stats[i];
             stats.value = stats.generate();
         }
     }
 
     back() {
-        self.$window.history.back();
+        this.$window.history.back();
     }
 
     next(invalid) {
@@ -42,19 +40,19 @@ class CreatePlayerController {
             return ;
         }
 
-        let nextUrl = self.constants.url.chooseItemsForNewGame +
-          "?bookId=" + encodeURIComponent(self.book.id) +
-          "&playerName=" + encodeURIComponent(self.playerName);
+        let nextUrl = this.constants.url.chooseItemsForNewGame +
+          "?adventureId=" + encodeURIComponent(this.adventure.id) +
+          "&playerName=" + encodeURIComponent(this.playerName);
 
         let statsParam = '';
 
-        for (let i = 0; i < self.stats.length; i++) {
-            let stats = self.stats[i];
+        for (let i = 0; i < this.stats.length; i++) {
+            let stats = this.stats[i];
             statsParam = statsParam + encodeURIComponent(stats.name) + encodeURIComponent(stats.value) + ',';
         }
 
         nextUrl = nextUrl + "&stats=" + statsParam;
-        self.$location.url(nextUrl);
+        this.$location.url(nextUrl);
     }
 }
 

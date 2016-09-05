@@ -1,9 +1,7 @@
-let self;
 class BooksService {
 
     /*@ngInject*/
     constructor(warlockOfFiretopMountainEnglishService) {
-        self = this;
         this.warlockOfFiretopMountainEnglishService = warlockOfFiretopMountainEnglishService;
         this.books = [];
         this.initData();

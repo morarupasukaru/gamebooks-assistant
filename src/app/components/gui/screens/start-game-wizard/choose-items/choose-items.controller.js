@@ -1,62 +1,60 @@
-let self;
 class ChooseItemsController {
     /*@ngInject*/
     constructor(preScreenLoadingInterceptorsCallerService, $stateParams, messagesService, $window, $location, constants, gamePersistenceService, bookPersistenceService, $translate) {
-        self = this;
         preScreenLoadingInterceptorsCallerService.intercept();
-        self.messagesService = messagesService;
-        self.bookPersistenceService = bookPersistenceService;
-        self.gamePersistenceService = gamePersistenceService;
-        self.$window = $window;
-        self.$stateParams = $stateParams;
-        self.$location = $location;
-        self.$translate = $translate;
-        self.constants = constants;
+        this.messagesService = messagesService;
+        this.bookPersistenceService = bookPersistenceService;
+        this.gamePersistenceService = gamePersistenceService;
+        this.$window = $window;
+        this.$stateParams = $stateParams;
+        this.$location = $location;
+        this.$translate = $translate;
+        this.constants = constants;
 
-        self.book = bookPersistenceService.getBook($stateParams.bookId);
-        self.playerItems = self.book.items;
-        for (let i = 0; i < self.playerItems.length; i++) {
-            self.playerItems[i].description = $translate.instant(self.playerItems[i].description);
+        this.adventure = bookPersistenceService.getBook($stateParams.adventureId);
+        this.playerItems = this.adventure.items;
+        for (let i = 0; i < this.playerItems.length; i++) {
+            this.playerItems[i].description = $translate.instant(this.playerItems[i].description);
         }
         this.displayNotes();
     }
 
     isItemsDisplayed() {
-        return !!self.book.items && self.book.items.length > 0;
+        return !!this.adventure.items && this.adventure.items.length > 0;
     }
 
     displayNotes() {
-        if (!!self.book.startGameNote) {
-            self.messagesService.infoMessage(self.book.startGameNote, false);
+        if (!!this.adventure.startGameNote) {
+            this.messagesService.infoMessage(this.adventure.startGameNote, false);
         }
     }
 
     getItems() {
-        return self.playerItems;
+        return this.playerItems;
     }
 
     startGame() {
-        let game = self.buildGame();
-        game = self.gamePersistenceService.addGame(game);
-        self.gamePersistenceService.setCurrentParagraphNrOfGame(game.id, null, self.book.startParagraphNr);
-        self.$location.url(self.gamePersistenceService.getUrlOfGame(game.id));
+        let game = this.buildGame();
+        game = this.gamePersistenceService.addGame(game);
+        this.gamePersistenceService.setCurrentParagraphNrOfGame(game.id, null, this.adventure.startParagraphNr);
+        this.$location.url(this.gamePersistenceService.getUrlOfGame(game.id));
     }
 
     buildGame() {
         let game = {
-            playerName : self.$stateParams.playerName,
-            bookId : self.book.id,
-            items : JSON.parse(JSON.stringify(self.playerItems))
+            playerName : this.$stateParams.playerName,
+            adventureId : this.adventure.id,
+            items : JSON.parse(JSON.stringify(this.playerItems))
         };
-        game.stats = self.getStatsInUrlParam();
+        game.stats = this.getStatsInUrlParam();
         return game;
     }
 
     getStatsInUrlParam() {
-        let statsParamValue = self.$stateParams['stats'];
+        let statsParamValue = this.$stateParams['stats'];
         let stats = [];
-        for (let i = 0; i < self.book.stats.length; i++) {
-            let currentStats = self.book.stats[i];
+        for (let i = 0; i < this.adventure.stats.length; i++) {
+            let currentStats = this.adventure.stats[i];
             let startPos = statsParamValue.indexOf(currentStats.name);
             startPos = startPos + currentStats.name.length;
             let endPos = statsParamValue.indexOf(',', startPos);
@@ -71,7 +69,7 @@ class ChooseItemsController {
 
 
     back() {
-        self.$window.history.back();
+        this.$window.history.back();
     }
 }
 

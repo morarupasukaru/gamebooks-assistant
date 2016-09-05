@@ -1,33 +1,31 @@
-let self;
 class BooksLoaderInterceptorService {
 
     /*@ngInject*/
     constructor(bookPersistenceService, booksService) {
-        self = this;
-        self.bookPersistenceService = bookPersistenceService;
-        self.booksService = booksService;
+        this.bookPersistenceService = bookPersistenceService;
+        this.booksService = booksService;
     }
 
     loadBooks() {
-        let books = self.booksService.getBooks();
+        let books = this.booksService.getBooks();
         for (let i = 0; i < books.length; i++) {
-            self.saveBookToPersistence(books[i]);
+            this.saveBookToPersistence(books[i]);
         }
     }
 
     saveBookToPersistence(book) {
-        let previousSavedBook = self.bookPersistenceService.getBook(book.id);
+        let previousSavedBook = this.bookPersistenceService.getBook(book.id);
         if (!previousSavedBook || new Number(previousSavedBook.version) < new Number(book.version)) {
-            self.bookPersistenceService.deleteBookAndParagraphs(book.id);
-            self.bookPersistenceService.updateBookWithoutParagraphs(book);
-            self.saveParagraphsToPersistence(book);
+            this.bookPersistenceService.deleteBookAndParagraphs(book.id);
+            this.bookPersistenceService.updateBookWithoutParagraphs(book);
+            this.saveParagraphsToPersistence(book);
         }
     }
 
     saveParagraphsToPersistence(book) {
         if (!!book.paragraphs) {
             for (let i = 0; i < book.paragraphs.length; i++) {
-                self.bookPersistenceService.setParagraph(book.id, book.paragraphs[i], true);
+                this.bookPersistenceService.setParagraph(book.id, book.paragraphs[i], true);
             }
         }
     }
