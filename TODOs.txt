@@ -3,7 +3,6 @@ en cours
 - supprimer self, ctrl partout ou c'est possible
 
 améliorations
-- extraire le chargement de warlock ... hors du code de l'application
 - form Service dans book-detail afin de mettre les champs obligatoire en rouge lors de l'action save
 - administration: promise pour le calcul de la taille utilisé & dispo
 - try editable div instead of textarea

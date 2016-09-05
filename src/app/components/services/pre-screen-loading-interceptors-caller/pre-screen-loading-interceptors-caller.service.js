@@ -1,16 +1,14 @@
 class PreScreenLoadingInterceptorsCallerService {
 
     /*@ngInject*/
-    constructor(languageAvailabilityCheckerService, softwareRequirementsCheckerService, booksLoaderInterceptorService) {
+    constructor(languageAvailabilityCheckerService, softwareRequirementsCheckerService) {
         this.softwareRequirementsCheckerService = softwareRequirementsCheckerService;
         this.languageAvailabilityCheckerService = languageAvailabilityCheckerService;
-        this.booksLoaderInterceptorService = booksLoaderInterceptorService;
     }
 
     intercept() {
         this.softwareRequirementsCheckerService.checkSoftwareRequirements();
         this.languageAvailabilityCheckerService.selectLanguageIfMissing();
-        this.booksLoaderInterceptorService.loadBooks();
     }
 
 }
