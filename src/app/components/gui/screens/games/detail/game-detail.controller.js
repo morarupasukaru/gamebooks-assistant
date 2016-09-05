@@ -1,4 +1,4 @@
-class InGameController {
+class GameDetailController {
     /*@ngInject*/
     constructor(preScreenLoadingInterceptorsCallerService, $location, constants, endGamePopupService, $stateParams, gamePersistenceService, bookPersistenceService, $translate, messagesService) {
         preScreenLoadingInterceptorsCallerService.intercept();
@@ -50,4 +50,4 @@ class InGameController {
     }
 }
 
-export default InGameController;
+export default GameDetailController;

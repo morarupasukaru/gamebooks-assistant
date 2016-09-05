@@ -4,7 +4,7 @@ import uiRouter from 'angular-ui-router';
 import template from './choose-items.html';
 import controller from './choose-items.controller';
 
-let ChooseItemsModule = angular.module('app.components.gui.screen.start-game-wizard.choose-items', [
+let ChooseItemsModule = angular.module('app.components.gui.screen.games.create.choose-items', [
     uiRouter
 ])
     .config(/*@ngInject*/($stateProvider, $urlRouterProvider, constants) => {

@@ -1,4 +1,4 @@
-class GamesController {
+class GamesListController {
     /*@ngInject*/
     constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, bookPersistenceService, messagesService, $translate, popupService) {
         this.constants = constants;
@@ -52,6 +52,11 @@ class GamesController {
     }
 
     startNewGame() {
+        let bookKeys = this.bookPersistenceService.getBookPersistenceKeys();
+        if (!bookKeys || bookKeys.length === 0) {
+            this.messagesService.errorMessage('No adventure available', false);
+            return ;
+        }
         this.$location.url(this.constants.url.selectAdventureForNewGame);
     }
 
@@ -96,4 +101,4 @@ class GamesController {
     }
 }
 
-export default GamesController;
+export default GamesListController;

@@ -54,7 +54,7 @@ class AdventureDetailController {
         }
         try {
             this.bookPersistenceService.updateBookWithoutParagraphs(this.book);
-            this.$location.url(this.constants.url.books);
+            this.$location.url(this.constants.url.adventures);
         } catch (error) {
             this.messagesService.errorMessage(error, false);
         }

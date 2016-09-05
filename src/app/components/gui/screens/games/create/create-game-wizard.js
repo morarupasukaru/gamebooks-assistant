@@ -3,8 +3,8 @@ import SelectAdventure from './select-adventure/select-adventure';
 import CreatePlayer from './create-player/create-player';
 import ChooseItems from './choose-items/choose-items';
 
-let startGameWizardScreenModule = angular.module('app.components.gui.screens.start-game-wizard', [
+let createGameWizardModule = angular.module('app.components.gui.screens.games.create', [
     SelectAdventure.name, CreatePlayer.name, ChooseItems.name
 ]);
 
-export default startGameWizardScreenModule;
+export default createGameWizardModule;

@@ -18,7 +18,7 @@ let constantsModule = angular.module('app.components.constants', [])
             selectAdventureForNewGame : '/games/create/select-adventure',
             createPlayerForNewGame : '/games/create/create-player',
             chooseItemsForNewGame : '/games/create/choose-items',
-            inGame: '/{adventureId}/{paragraphNr}/game/{gameId}',
+            gameDetail: '/{adventureId}/{paragraphNr}/game/{gameId}',
             about: '/about?admin',
             adventures: '/adventures',
             adventureDetail: '/adventures'
