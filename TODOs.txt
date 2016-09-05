@@ -1,15 +1,14 @@
 en cours
 - renommer livre par aventure ou ca fait du sens
 - supprimer self, ctrl partout ou c'est possible
+- traduction dans fichier json à part (voir comment charger screenloader)
 
 améliorations
 - form Service dans book-detail afin de mettre les champs obligatoire en rouge lors de l'action save
 - administration: promise pour le calcul de la taille utilisé & dispo
-- try editable div instead of textarea
 - configure jshint (or something like that)
 - corriger le bug que l'interface sur ipad ne répond parfois pas bien
 - refactoring lié au version de l'application, version des livres,
-- supprimer dépendances à angular-translate-loader-static-files (utilisation de angular-translate) & nettoyage des clefs i18n inutiles
 - version app : { major : xx, minor : xx } sauvé dans localStorage
 => si version app major <> version major sauvé dans le livre alors un reload des données du livre sont nécessaires ou impossible
 - base64 pour image windows, test avec qq-un qui avec windows 10 => Florence?

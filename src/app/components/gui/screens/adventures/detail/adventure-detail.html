@@ -17,7 +17,7 @@
                     </div>
                     <div class="form-group">
                         <label for="description">{{ "Description" | translate }}</label>
-                        <textarea id="description" class="form-control" ng-model="$ctrl.book.description"></textarea>
+                        <div contenteditable="true" id="description" class="form-control editable-div" ng-model="$ctrl.book.description"></div>
                     </div>
                     <div class="form-group">
                         <label for="version">{{ "Version" | translate }}</label>
@@ -45,7 +45,7 @@
                     </div>
                     <div class="form-group">
                         <label for="startGameNote">{{ "Start game's note" | translate }}</label>
-                        <textarea id="startGameNote" class="form-control" ng-model="$ctrl.book.startGameNote"></textarea>
+                        <div contenteditable="true" id="startGameNote" class="form-control editable-div" ng-model="$ctrl.book.startGameNote"></div>
                     </div>
                 </div>
 

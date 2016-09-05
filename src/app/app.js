@@ -14,33 +14,33 @@ import uiRouter from 'angular-ui-router';
 import ngResource from 'angular-resource';
 import ngCookies from 'angular-cookies';
 import ngTranslate from 'angular-translate';
-import ngTranslateStaticFilesLoader from 'angular-translate-loader-static-files';
 import uiBootstrap from 'angular-ui-bootstrap';
 
 // Interne Modul-Imports
 import Components from './components/components';
 import AppComponent from './app.component';
 
-// Language file import
-import langEn from './languages/lang-en.json';
-import langFr from './languages/lang-fr.json';
-
 // A robust & optimized ES3-compatible polyfill for the String.prototype.startsWith method in ECMAScript 6
 require('string.prototype.startswith');
 
+
+let english = {
+};
+
+let french = {
+  'Games': 'Parties'
+};
+
 angular.module('app', [
-    uiRouter, ngTranslate, ngTranslateStaticFilesLoader, ngCookies, ngResource,
-    uiBootstrap, Components.name
-])
-    .config(/*@ngInject*/($translateProvider, $httpProvider) => {
+    uiRouter, ngTranslate, ngCookies, ngResource, uiBootstrap, Components.name
+    ])
 
-        // Translation settings
-        $translateProvider.translations('en', langEn);
-        $translateProvider.translations('fr', langFr);
-        $translateProvider.preferredLanguage('en').useSanitizeValueStrategy('escape');
-    })
+    .config(['$translateProvider', function ($translateProvider) {
+      $translateProvider.translations('en', english);
+      $translateProvider.translations('fr', french);
+      $translateProvider.preferredLanguage('en');
+      $translateProvider.useSanitizeValueStrategy('escape');
+    }])
 
-    .constant('config', {
-    })
     // Die App als Direktive exportieren
     .directive('app', AppComponent);

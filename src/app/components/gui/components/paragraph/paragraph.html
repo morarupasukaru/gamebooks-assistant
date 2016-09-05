@@ -11,7 +11,7 @@
     <tbody>
     <tr>
         <td>
-            <textarea id="inputCurrentDescription" class="form-control" ng-model="$ctrl.paragraph.description" ng-readonly="!$ctrl.isDescriptionEditable()"></textarea>
+            <div contenteditable="true" id="inputCurrentDescription" class="form-control editable-div" ng-model="$ctrl.paragraph.description" ng-readonly="!$ctrl.isDescriptionEditable()"></div>
         </td>
         <td>
             <button type="button" class="btn btn-default"
