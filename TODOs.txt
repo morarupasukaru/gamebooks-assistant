@@ -1,6 +1,5 @@
 en cours
-- renommer livre par aventure ou ca fait du sens
-- supprimer self, ctrl partout ou c'est possible
+- popup callback > this ne fonctionne pas
 - traduction dans fichier json à part (voir comment charger screenloader)
 
 améliorations

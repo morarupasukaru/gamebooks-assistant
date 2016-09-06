@@ -25,10 +25,14 @@ require('string.prototype.startswith');
 
 
 let english = {
+    'yesno_true': 'yes',
+    'yesno_false': 'no',
 };
 
 let french = {
-  'Games': 'Parties'
+    'Games': 'Parties',
+    'yesno_true': 'yes',
+    'yesno_false': 'no',
 };
 
 angular.module('app', [

@@ -1,13 +1,13 @@
 class GameDetailController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $location, constants, endGamePopupService, $stateParams, gamePersistenceService, bookPersistenceService, $translate, messagesService) {
+    constructor(preScreenLoadingInterceptorsCallerService, $location, constants, endGamePopupService, $stateParams, gamePersistenceService, adventurePersistenceService, $translate, messagesService) {
         preScreenLoadingInterceptorsCallerService.intercept();
         this.$location = $location;
         this.constants = constants;
         this.endGamePopupService = endGamePopupService;
         this.$stateParams = $stateParams;
         this.gamePersistenceService = gamePersistenceService;
-        this.bookPersistenceService = bookPersistenceService;
+        this.adventurePersistenceService = adventurePersistenceService;
         this.$translate = $translate;
         this.messagesService = messagesService;
         this.items = [];
@@ -22,13 +22,13 @@ class GameDetailController {
             this.stats = this.stats.concat(this.game.stats);
         }
         this.adventureId = this.$stateParams.adventureId;
-        this.paragraph = this.bookPersistenceService.getOrCreateParagraph(this.adventureId, this.$stateParams.paragraphNr);
+        this.paragraph = this.adventurePersistenceService.getOrCreateParagraph(this.adventureId, this.$stateParams.paragraphNr);
         this.popupAbandonGameConfig = { id : 'popupAbandonGame' };
-        this.checkAvailableBook();
+        this.checkAvailableAdventure();
     }
 
-    checkAvailableBook() {
-        let adventure = this.bookPersistenceService.getBook(this.adventureId);
+    checkAvailableAdventure() {
+        let adventure = this.adventurePersistenceService.getAdventure(this.adventureId);
         if (!adventure) {
             this.messagesService.errorMessage('The adventure is not available', false)
         }

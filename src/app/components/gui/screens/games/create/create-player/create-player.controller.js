@@ -1,12 +1,12 @@
 class CreatePlayerController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $stateParams, $window, $location, constants, dicesService, bookPersistenceService) {
+    constructor(preScreenLoadingInterceptorsCallerService, $stateParams, $window, $location, constants, dicesService, adventurePersistenceService) {
         preScreenLoadingInterceptorsCallerService.intercept();
         this.constants = constants;
         this.$window = $window;
         this.$location = $location;
         this.dicesService = dicesService;
-        this.adventure = bookPersistenceService.getBook($stateParams.adventureId);
+        this.adventure = adventurePersistenceService.getAdventure($stateParams.adventureId);
         this.loadData(this.adventure);
         this.generateStats();
     }

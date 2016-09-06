@@ -1,11 +1,11 @@
 let ctrl;
 class AdministrationController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, persistenceService, bookPersistenceService, constants, popupService, $window) {
+    constructor(preScreenLoadingInterceptorsCallerService, persistenceService, adventurePersistenceService, constants, popupService, $window) {
         preScreenLoadingInterceptorsCallerService.intercept();
         ctrl = this;
         this.persistenceService = persistenceService;
-        this.bookPersistenceService = bookPersistenceService;
+        this.adventurePersistenceService = adventurePersistenceService;
         this.constants = constants;
         this.popupService = popupService;
         this.initData();

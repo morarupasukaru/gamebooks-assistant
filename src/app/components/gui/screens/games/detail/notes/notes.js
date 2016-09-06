@@ -10,7 +10,7 @@ let notesModule = angular.module('app.components.gui.screen.games.detail.notes',
         bindings: {
             gameId: '@',
             paragraphNr: '@',
-            bookId : '@'
+            adventureId : '@'
         }
     });
 

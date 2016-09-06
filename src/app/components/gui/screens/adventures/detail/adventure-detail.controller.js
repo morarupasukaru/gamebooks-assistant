@@ -1,11 +1,11 @@
 let ctrl;
 class AdventureDetailController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, persistenceService, bookPersistenceService, $stateParams, $location, constants, popupService, messagesService) {
+    constructor(preScreenLoadingInterceptorsCallerService, persistenceService, adventurePersistenceService, $stateParams, $location, constants, popupService, messagesService) {
         preScreenLoadingInterceptorsCallerService.intercept();
         ctrl = this;
         this.persistenceService = persistenceService;
-        this.bookPersistenceService = bookPersistenceService;
+        this.adventurePersistenceService = adventurePersistenceService;
         this.$stateParams = $stateParams;
         this.$location = $location;
         this.constants = constants;
@@ -23,15 +23,15 @@ class AdventureDetailController {
     }
 
     initData() {
-        let bookId = encodeURIComponent(this.$stateParams.bookId);
-        if (!!bookId) {
-            if ("create" === bookId) {
-                this.book = {
+        let adventureId = encodeURIComponent(this.$stateParams.adventureId);
+        if (!!adventureId) {
+            if ("create" === adventureId) {
+                this.adventure = {
                     stats: [],
                     items: []
                 };
             } else {
-                this.book = this.bookPersistenceService.getBook(bookId);
+                this.adventure = this.adventurePersistenceService.getAdventure(adventureId);
             }
         }
     }
@@ -42,18 +42,18 @@ class AdventureDetailController {
             return ;
         }
 
-        if (!!this.book.items) {
+        if (!!this.adventure.items) {
             let modifiedItems = [];
-            for (let i = 0; i < this.book.items.length; i++) {
+            for (let i = 0; i < this.adventure.items.length; i++) {
                 modifiedItems.push({
-                    quantity: this.book.items[i].quantity,
-                    description: this.book.items[i].description
+                    quantity: this.adventure.items[i].quantity,
+                    description: this.adventure.items[i].description
                 });
             }
-            this.book.items = modifiedItems;
+            this.adventure.items = modifiedItems;
         }
         try {
-            this.bookPersistenceService.updateBookWithoutParagraphs(this.book);
+            this.adventurePersistenceService.updateAdventureWithoutParagraphs(this.adventure);
             this.$location.url(this.constants.url.adventures);
         } catch (error) {
             this.messagesService.errorMessage(error, false);
@@ -67,7 +67,7 @@ class AdventureDetailController {
 
     addRow() {
         let stats = { init: {}, battle: { displayed: true, editableForEnemy: false }};
-        this.book.stats.push(stats);
+        this.adventure.stats.push(stats);
         this.addedRow = stats;
     }
 
@@ -84,8 +84,8 @@ class AdventureDetailController {
     }
 
     removeRow(removedRow) {
-        var index = this.book.stats.indexOf(removedRow);
-        this.book.stats.splice(index, 1);
+        var index = this.adventure.stats.indexOf(removedRow);
+        this.adventure.stats.splice(index, 1);
         this.clearEditedRow();
     }
 

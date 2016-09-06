@@ -2,50 +2,50 @@
 <messages></messages>
 <main>
     <div class="container bg-white" role="main">
-        <h2>{{ $ctrl.book.name }}</h2>
+        <h2>{{ $ctrl.adventure.name }}</h2>
         <div class="col-md-12">
-            <form name="bookTableForm" novalidate="novalidate">
+            <form name="adventureTableForm" novalidate="novalidate">
                 <h3>{{ 'General' | translate }}</h3>
                 <div>
-                    <div class="form-group" ng-if="!$ctrl.book.id">
+                    <div class="form-group" ng-if="!$ctrl.adventure.id">
                         <label for="name">{{ "Name" | translate }}</label>
-                        <input type="text" class="form-control" id="name" ng-model="$ctrl.book.name" required>
+                        <input type="text" class="form-control" id="name" ng-model="$ctrl.adventure.name" required>
                     </div>
                     <div class="form-group">
                         <label for="authors">{{ "Author(s)" | translate }}</label>
-                        <input type="text" class="form-control" id="authors" ng-model="$ctrl.book.authors" required>
+                        <input type="text" class="form-control" id="authors" ng-model="$ctrl.adventure.authors" required>
                     </div>
                     <div class="form-group">
                         <label for="description">{{ "Description" | translate }}</label>
-                        <div contenteditable="true" id="description" class="form-control editable-div" ng-model="$ctrl.book.description"></div>
+                        <div contenteditable="true" id="description" class="form-control editable-div" ng-model="$ctrl.adventure.description"></div>
                     </div>
                     <div class="form-group">
                         <label for="version">{{ "Version" | translate }}</label>
-                        <input type="text" class="form-control" id="version" ng-model="$ctrl.book.version" required>
+                        <input type="text" class="form-control" id="version" ng-model="$ctrl.adventure.version" required>
                     </div>
                     <div class="form-group">
                         <label for="language">{{ "Language" | translate }}</label>
-                        <input type="text" class="form-control" id="language" ng-model="$ctrl.book.language" required>
+                        <input type="text" class="form-control" id="language" ng-model="$ctrl.adventure.language" required>
                     </div>
                     <div class="form-group">
                         <label for="homepage">{{ "Homepage" | translate }}</label>
-                        <input type="text" class="form-control" id="homepage" ng-model="$ctrl.book.homepage">
+                        <input type="text" class="form-control" id="homepage" ng-model="$ctrl.adventure.homepage">
                     </div>
                     <div class="form-group">
                         <label for="isbn">{{ "ISBN" | translate }}</label>
-                        <input type="text" class="form-control" id="isbn" ng-model="$ctrl.book.isbn">
+                        <input type="text" class="form-control" id="isbn" ng-model="$ctrl.adventure.isbn">
                     </div>
                     <div class="form-group">
                         <label for="numberOfParagraphs">{{ "Number of paragraphs" | translate }}</label>
-                        <input type="text" class="form-control" id="numberOfParagraphs" ng-model="$ctrl.book.numberOfParagraphs">
+                        <input type="text" class="form-control" id="numberOfParagraphs" ng-model="$ctrl.adventure.numberOfParagraphs">
                     </div>
                     <div class="form-group">
                         <label for="startParagraphNr">{{ "First paragraph" | translate }}</label>
-                        <input type="text" class="form-control" id="startParagraphNr" ng-model="$ctrl.book.startParagraphNr" required>
+                        <input type="text" class="form-control" id="startParagraphNr" ng-model="$ctrl.adventure.startParagraphNr" required>
                     </div>
                     <div class="form-group">
                         <label for="startGameNote">{{ "Start game's note" | translate }}</label>
-                        <div contenteditable="true" id="startGameNote" class="form-control editable-div" ng-model="$ctrl.book.startGameNote"></div>
+                        <div contenteditable="true" id="startGameNote" class="form-control editable-div" ng-model="$ctrl.adventure.startGameNote"></div>
                     </div>
                 </div>
 
@@ -92,7 +92,7 @@
                         </thead>
                         <tbody>
 
-                        <tr ng-repeat="row in $ctrl.book.stats">
+                        <tr ng-repeat="row in $ctrl.adventure.stats">
                             <td ng-if="!$ctrl.isRowEdited(row)">
                                 {{ row.name }}
                             </td>
@@ -154,7 +154,7 @@
                                 <button type="button" class="btn btn-success"
                                         aria-label="{{ 'Save stats changes' | translate}}"
                                         title="{{ 'Save stats changes' | translate}}"
-                                        ng-click="$ctrl.saveRowChanges(bookTableForm.$invalid, row)"
+                                        ng-click="$ctrl.saveRowChanges(adventureTableForm.$invalid, row)"
                                         ng-show="$ctrl.isRowEdited(row)">
                                     <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                                 </button>
@@ -194,7 +194,7 @@
 
                 <h3>{{ 'Initial items' | translate }}</h3>
                 <div>
-                    <items items="$ctrl.book.items"></items>
+                    <items items="$ctrl.adventure.items"></items>
                 </div>
             </form>
         </div>
@@ -202,7 +202,7 @@
         <button type="button" class="btn btn-primary"
                 aria-label="{{ 'Save changes' | translate }}"
                 title="{{ 'Save changes' | translate }}"
-                ng-click="$ctrl.save(bookTableForm)">{{ 'Save' | translate }}</button>
+                ng-click="$ctrl.save(adventureTableForm)">{{ 'Save' | translate }}</button>
     </div>
 </main>
 

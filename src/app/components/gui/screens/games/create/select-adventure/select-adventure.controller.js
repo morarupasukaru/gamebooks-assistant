@@ -1,19 +1,19 @@
 class SelectAdventureController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, constants, $location, $window, bookPersistenceService) {
+    constructor(preScreenLoadingInterceptorsCallerService, constants, $location, $window, adventurePersistenceService) {
         preScreenLoadingInterceptorsCallerService.intercept();
         this.$location = $location;
         this.$window = $window;
         this.constants = constants;
-        this.bookPersistenceService = bookPersistenceService;
+        this.adventurePersistenceService = adventurePersistenceService;
         this.initData();
     }
 
     initData() {
-        let bookPersistenceKeys = this.bookPersistenceService.getBookPersistenceKeys();
+        let adventurePersistenceKeys = this.adventurePersistenceService.getAdventurePersistenceKeys();
         this.adventures = [];
         for (let i = 0; i < bookPersistenceKeys.length; i++) {
-            let adventure = this.bookPersistenceService.getBook(bookPersistenceKeys[i]);
+            let adventure = this.adventurePersistenceService.getAdventure(adventurePersistenceKeys[i]);
             this.adventures.push(adventure);
         }
         this.selectedAdventureId = this.adventures[0].id;

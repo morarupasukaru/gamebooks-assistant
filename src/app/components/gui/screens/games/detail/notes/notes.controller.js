@@ -1,12 +1,12 @@
 class NotesController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, popupService, constants, gamePersistenceService, bookPersistenceService) {
+    constructor(preScreenLoadingInterceptorsCallerService, popupService, constants, gamePersistenceService, adventurePersistenceService) {
         preScreenLoadingInterceptorsCallerService.intercept();
 
         this.popupService = popupService;
         this.constants = constants;
         this.gamePersistenceService = gamePersistenceService;
-        this.bookPersistenceService = bookPersistenceService;
+        this.adventurePersistenceService = adventurePersistenceService;
 
         this.popupDeleteNoteConfig = {
             id : 'popupDeleteNoteConfig',
@@ -26,7 +26,7 @@ class NotesController {
         }
 
         this.notes = [];
-        let paragraph = this.bookPersistenceService.getParagraph(this.bookId, this.paragraphNr);
+        let paragraph = this.adventurePersistenceService.getParagraph(this.adventureId, this.paragraphNr);
         if (!!paragraph && !!paragraph.notes) {
             for (let i = 0; i < paragraph.notes.length; i++) {
                 this.notes.push(paragraph.notes[i]);
@@ -127,9 +127,9 @@ class NotesController {
                 savedNotes.push({ note : this.notes[i].note, playerName : this.notes[i].playerName});
             }
         }
-        let paragraph = this.bookPersistenceService.getParagraph(this.bookId, this.paragraphNr);
+        let paragraph = this.adventurePersistenceService.getParagraph(this.adventureId, this.paragraphNr);
         paragraph.notes = savedNotes;
-        this.bookPersistenceService.updateParagraph(this.bookId, paragraph);
+        this.adventurePersistenceService.updateParagraph(this.adventureId, paragraph);
     }
 
     abortRowChanges() {

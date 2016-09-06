@@ -1,11 +1,11 @@
 class AdventuresListController {
     /*@ngInject*/
-    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, bookPersistenceService, messagesService, $translate, popupService) {
+    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService) {
         this.constants = constants;
         preScreenLoadingInterceptorsCallerService.intercept();
         this.$location = $location;
         this.gamePersistenceService = gamePersistenceService;
-        this.bookPersistenceService = bookPersistenceService;
+        this.adventurePersistenceService = adventurePersistenceService;
         this.messagesService = messagesService;
         this.$translate = $translate;
         this.popupService = popupService;
@@ -22,7 +22,7 @@ class AdventuresListController {
     }
 
     initData() {
-        this.rows = this.bookPersistenceService.getBooksOverview();
+        this.rows = this.adventurePersistenceService.getAdventuresOverview();
     }
 
     select(row) {
@@ -51,7 +51,7 @@ class AdventuresListController {
     }
 
     deleteAdventure() {
-        this.bookPersistenceService.deleteBookAndParagraphs(this.getSelectedRow().id);
+        this.adventurePersistenceService.deleteAdventureAndParagraphs(this.getSelectedRow().id);
         this.initData();
     }
 

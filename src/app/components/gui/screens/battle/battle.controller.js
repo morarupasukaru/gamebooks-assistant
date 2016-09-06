@@ -1,13 +1,13 @@
 class BattleController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $window, popupService, constants, gamePersistenceService, bookPersistenceService, $stateParams) {
+    constructor(preScreenLoadingInterceptorsCallerService, $window, popupService, constants, gamePersistenceService, adventurePersistenceService, $stateParams) {
         preScreenLoadingInterceptorsCallerService.intercept();
         this.$window = $window;
         this.popupService = popupService;
         this.constants = constants;
         this.$stateParams = $stateParams;
         this.gamePersistenceService = gamePersistenceService;
-        this.bookPersistenceService = bookPersistenceService;
+        this.adventurePersistenceService = adventurePersistenceService;
 
         this.popupDeleteEnemyConfig = {
             id : 'popupDeleteEnemy',
@@ -23,7 +23,7 @@ class BattleController {
     initData() {
         if (!!this.$stateParams.game) {
             this.game = this.gamePersistenceService.getGame(decodeURIComponent(this.$stateParams.game));
-            this.book = this.bookPersistenceService.getBook(this.game.bookId);
+            this.adventure = this.adventurePersistenceService.getBook(this.game.adventureId);
         }
 
         this.initStatsData();
@@ -33,10 +33,10 @@ class BattleController {
     }
 
     initStatsData() {
-        if (!!this.game && !!this.book) {
+        if (!!this.game && !!this.adventure) {
             this.stats = [];
-            for (let i = 0; i < this.book.stats.length; i++) {
-                let currentStats = this.book.stats[i];
+            for (let i = 0; i < this.adventure.stats.length; i++) {
+                let currentStats = this.adventure.stats[i];
                 if (!!currentStats.battle && !!currentStats.battle.displayed) {
                     this.stats.push({ name: currentStats.name, enemyDefaultValue: currentStats.battle.enemyDefaultValue, editableForEnemy: currentStats.battle.editableForEnemy});
                 }
@@ -64,8 +64,8 @@ class BattleController {
 
     initDefaultEnemy() {
         let defaultEnemyName = 'Enemy';
-        if (!!this.book.defaultEnemyName) {
-            defaultEnemyName = this.book.defaultEnemyName;
+        if (!!this.adventure.defaultEnemyName) {
+            defaultEnemyName = this.adventure.defaultEnemyName;
         }
 
         let statsDefaultEnemy = { name : defaultEnemyName };

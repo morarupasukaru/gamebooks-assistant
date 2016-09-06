@@ -1,9 +1,9 @@
 class GamePersistenceService {
 
     /*@ngInject*/
-    constructor(constants, persistenceService, bookPersistenceService) {
+    constructor(constants, persistenceService, adventurePersistenceService) {
         this.persistenceService = persistenceService;
-        this.bookPersistenceService = bookPersistenceService;
+        this.adventurePersistenceService = adventurePersistenceService;
         this.constants = constants;
     }
 
@@ -53,7 +53,7 @@ class GamePersistenceService {
         let game = this.getGame(gameId);
         let key = this.getGamePersistenceKey(gameId);
         if (!!deleteParagraphNotesOfGame || !!deleteParagraphChoicesOfGame) {
-            let paragraphKeys = this.bookPersistenceService.getBookParagraphKeys(game.bookId);
+            let paragraphKeys = this.adventurePersistenceService.getBookParagraphKeys(game.bookId);
             for (let i = 0; i < paragraphKeys.length; i++) {
                 let paragraph = this.persistenceService.get(paragraphKeys[i]);
                 if (!!deleteParagraphNotesOfGame && !!paragraph.notes) {
@@ -64,7 +64,7 @@ class GamePersistenceService {
                         }
                     }
                     paragraph.notes = newNotes;
-                    this.bookPersistenceService.updateParagraph(game.bookId, paragraph);
+                    this.adventurePersistenceService.updateParagraph(game.bookId, paragraph);
                 }
                 if (!!deleteParagraphChoicesOfGame) {
                     // TODO
@@ -139,7 +139,7 @@ class GamePersistenceService {
         if (!choosenParagraphs) {
             return [];
         } else {
-            let paragraph = this.bookPersistenceService.getParagraph(game.bookId, paragraphNr);
+            let paragraph = this.adventurePersistenceService.getParagraph(game.bookId, paragraphNr);
             let choosen = [];
             if (!!paragraph.choices) {
                 for (let i = 0; i < paragraph.choices.length; i++) {

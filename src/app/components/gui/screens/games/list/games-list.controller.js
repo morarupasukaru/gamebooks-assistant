@@ -1,11 +1,11 @@
 class GamesListController {
     /*@ngInject*/
-    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, bookPersistenceService, messagesService, $translate, popupService) {
+    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService) {
         this.constants = constants;
         preScreenLoadingInterceptorsCallerService.intercept();
         this.$location = $location;
         this.gamePersistenceService = gamePersistenceService;
-        this.bookPersistenceService = bookPersistenceService;
+        this.adventurePersistenceService = adventurePersistenceService;
         this.messagesService = messagesService;
         this.$translate = $translate;
         this.popupService = popupService;
@@ -34,7 +34,7 @@ class GamesListController {
 
     completeAdventureName(games) {
         for (let i = 0; i < games.length; i++) {
-            let adventure = this.bookPersistenceService.getBook(games[i].adventureId);
+            let adventure = this.adventurePersistenceService.getAdventure(games[i].adventureId);
             if (!!adventure) {
                 games[i].adventureName = adventure.name;
             } else {
@@ -52,8 +52,8 @@ class GamesListController {
     }
 
     startNewGame() {
-        let bookKeys = this.bookPersistenceService.getBookPersistenceKeys();
-        if (!bookKeys || bookKeys.length === 0) {
+        let adventureKeys = this.adventurePersistenceService.getAdventurePersistenceKeys();
+        if (!adventureKeys || adventureKeys.length === 0) {
             this.messagesService.errorMessage('No adventure available', false);
             return ;
         }
@@ -62,9 +62,9 @@ class GamesListController {
 
     continueGame() {
         let game = this.gamePersistenceService.getGame(this.getSelectedRow().id);
-        let book = this.bookPersistenceService.getBook(game.bookId);
-        if (!book) {
-            this.messagesService.errorMessage('The book is not available', false)
+        let adventure = this.adventurePersistenceService.getAdventure(game.adventureId);
+        if (!adventure) {
+            this.messagesService.errorMessage('The adventure is not available', false)
         } else {
             let nextUrl = this.gamePersistenceService.getUrlOfGame(this.getSelectedRow().id);
             this.$location.url(nextUrl);

@@ -1,9 +1,9 @@
 class ChooseItemsController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $stateParams, messagesService, $window, $location, constants, gamePersistenceService, bookPersistenceService, $translate) {
+    constructor(preScreenLoadingInterceptorsCallerService, $stateParams, messagesService, $window, $location, constants, gamePersistenceService, adventurePersistenceService, $translate) {
         preScreenLoadingInterceptorsCallerService.intercept();
         this.messagesService = messagesService;
-        this.bookPersistenceService = bookPersistenceService;
+        this.adventurePersistenceService = adventurePersistenceService;
         this.gamePersistenceService = gamePersistenceService;
         this.$window = $window;
         this.$stateParams = $stateParams;
@@ -11,7 +11,7 @@ class ChooseItemsController {
         this.$translate = $translate;
         this.constants = constants;
 
-        this.adventure = bookPersistenceService.getBook($stateParams.adventureId);
+        this.adventure = adventurePersistenceService.getAdventure($stateParams.adventureId);
         this.playerItems = this.adventure.items;
         for (let i = 0; i < this.playerItems.length; i++) {
             this.playerItems[i].description = $translate.instant(this.playerItems[i].description);

@@ -1,11 +1,11 @@
 class ParagraphController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, popupService, constants, gamePersistenceService, bookPersistenceService, $location) {
+    constructor(preScreenLoadingInterceptorsCallerService, popupService, constants, gamePersistenceService, adventurePersistenceService, $location) {
         preScreenLoadingInterceptorsCallerService.intercept();
         this.popupService = popupService;
         this.constants = constants;
         this.gamePersistenceService = gamePersistenceService;
-        this.bookPersistenceService = bookPersistenceService;
+        this.adventurePersistenceService = adventurePersistenceService;
         this.$location = $location;
 
         this.popupDeleteChoiceConfig = {
@@ -21,7 +21,7 @@ class ParagraphController {
 
     initData() {
         let game = this.gamePersistenceService.getGame(this.gameId);
-        this.bookId = game.bookId;
+        this.adventureId = game.adventureId;
         this.playerName = game.playerName;
         this.descriptionEditable = false;
         this.alreadyChoosen = this.gamePersistenceService.getChoosenChoices(this.gameId, this.paragraph.paragraphNr);
@@ -66,7 +66,7 @@ class ParagraphController {
     saveDescriptionChanges() {
         this.originalDescription = null;
         this.descriptionEditable = false;
-        this.bookPersistenceService.updateParagraph(this.bookId, this.paragraph);
+        this.adventurePersistenceService.updateParagraph(this.bookId, this.paragraph);
     }
 
     abortDescriptionChanges() {
@@ -97,7 +97,7 @@ class ParagraphController {
     }
 
     saveParagraphChoices() {
-        this.bookPersistenceService.updateParagraph(this.bookId, this.paragraph);
+        this.adventurePersistenceService.updateParagraph(this.adventureId, this.paragraph);
     }
 
     abortRowChanges() {
