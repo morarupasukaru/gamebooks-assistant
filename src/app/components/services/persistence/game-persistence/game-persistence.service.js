@@ -19,7 +19,7 @@ class GamePersistenceService {
         let savedGame = {
             id : this.newGameId(),
             playerName : game.playerName,
-            bookId : game.bookId,
+            adventureId : game.adventureId,
             items : game.items,
             stats : game.stats,
             currentParagraphNr : game.currentParagraphNr
@@ -53,7 +53,7 @@ class GamePersistenceService {
         let game = this.getGame(gameId);
         let key = this.getGamePersistenceKey(gameId);
         if (!!deleteParagraphNotesOfGame || !!deleteParagraphChoicesOfGame) {
-            let paragraphKeys = this.adventurePersistenceService.getBookParagraphKeys(game.bookId);
+            let paragraphKeys = this.adventurePersistenceService.getAdventureParagraphKeys(game.adventureId);
             for (let i = 0; i < paragraphKeys.length; i++) {
                 let paragraph = this.persistenceService.get(paragraphKeys[i]);
                 if (!!deleteParagraphNotesOfGame && !!paragraph.notes) {
@@ -64,7 +64,7 @@ class GamePersistenceService {
                         }
                     }
                     paragraph.notes = newNotes;
-                    this.adventurePersistenceService.updateParagraph(game.bookId, paragraph);
+                    this.adventurePersistenceService.updateParagraph(game.adventureId, paragraph);
                 }
                 if (!!deleteParagraphChoicesOfGame) {
                     // TODO
@@ -83,7 +83,7 @@ class GamePersistenceService {
         if (!paragraphNr) {
             paragraphNr = game.currentParagraphNr;
         }
-        let urlOfGame = "/" + encodeURIComponent(game.bookId) + "/" + encodeURIComponent(paragraphNr) + "/game/" + encodeURIComponent(game.id);
+        let urlOfGame = "/" + encodeURIComponent(game.adventureId) + "/" + encodeURIComponent(paragraphNr) + "/game/" + encodeURIComponent(game.id);
         return urlOfGame;
     }
 
@@ -108,7 +108,7 @@ class GamePersistenceService {
     setCurrentParagraphNrOfGame(gameId, fromParagrahNr, toParagraphNr) {
         let game = this.getGame(gameId);
         if (!!fromParagrahNr) {
-            let persistenceKeyChoosenParagraphs = game.bookId + '.' + 'choosen';
+            let persistenceKeyChoosenParagraphs = game.adventureId + '.' + 'choosen';
             let choosenParagraphs = this.persistenceService.get(persistenceKeyChoosenParagraphs);
             if (!choosenParagraphs) {
                 choosenParagraphs = {};
@@ -134,12 +134,12 @@ class GamePersistenceService {
 
     getChoosenChoices(gameId, paragraphNr) {
         let game = this.getGame(gameId);
-        let persistenceKeyChoosenParagraphs = game.bookId + '.' + 'choosen';
+        let persistenceKeyChoosenParagraphs = game.adventureId + '.' + 'choosen';
         let choosenParagraphs = this.persistenceService.get(persistenceKeyChoosenParagraphs);
         if (!choosenParagraphs) {
             return [];
         } else {
-            let paragraph = this.adventurePersistenceService.getParagraph(game.bookId, paragraphNr);
+            let paragraph = this.adventurePersistenceService.getParagraph(game.adventureId, paragraphNr);
             let choosen = [];
             if (!!paragraph.choices) {
                 for (let i = 0; i < paragraph.choices.length; i++) {

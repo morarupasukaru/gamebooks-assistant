@@ -37,15 +37,18 @@ class ParagraphController {
 
     displayRemovePopup(removedRow) {
         this.rowToBeRemoved = removedRow;
-        this.popupService.show(this.popupDeleteChoiceConfig.id, this.callbackRemovePopup);
+        let self = this;
+        this.popupService.show(
+            this.popupDeleteChoiceConfig.id,
+            function(popupDomElementId, choice) {
+                if (choice === self.constants.choices.yes) {
+                    self.removeRow(self.rowToBeRemoved);
+                }
+                self.rowToBeRemoved = null;
+            }
+        );
     }
 
-    callbackRemovePopup(popupDomElementId, choice) {
-        if (choice === this.constants.choices.yes) {
-            this.removeRow(this.rowToBeRemoved);
-        }
-        this.rowToBeRemoved = null;
-    }
 
     removeRow(removedRow) {
         var index = this.paragraph.choices.indexOf(removedRow);

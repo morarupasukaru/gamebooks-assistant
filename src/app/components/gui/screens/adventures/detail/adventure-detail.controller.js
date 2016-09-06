@@ -1,9 +1,7 @@
-let ctrl;
 class AdventureDetailController {
     /*@ngInject*/
     constructor(preScreenLoadingInterceptorsCallerService, persistenceService, adventurePersistenceService, $stateParams, $location, constants, popupService, messagesService) {
         preScreenLoadingInterceptorsCallerService.intercept();
-        ctrl = this;
         this.persistenceService = persistenceService;
         this.adventurePersistenceService = adventurePersistenceService;
         this.$stateParams = $stateParams;
@@ -73,14 +71,16 @@ class AdventureDetailController {
 
     displayRemovePopup(removedRow) {
         this.rowToBeRemoved = removedRow;
-        this.popupService.show(this.popupDeleteStatsConfig.id, this.callbackRemovePopup);
-    }
-
-    callbackRemovePopup(popupDomElementId, choice) {
-        if (choice === ctrl.constants.choices.yes) {
-            ctrl.removeRow(ctrl.rowToBeRemoved);
-        }
-        ctrl.rowToBeRemoved = null;
+        let self = this;
+        this.popupService.show(
+            this.popupDeleteStatsConfig.id,
+            function(popupDomElementId, choice) {
+                if (choice === self.constants.choices.yes) {
+                    self.removeRow(self.rowToBeRemoved);
+                }
+                self.rowToBeRemoved = null;
+            }
+        );
     }
 
     removeRow(removedRow) {

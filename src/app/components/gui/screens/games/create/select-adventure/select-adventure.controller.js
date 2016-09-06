@@ -12,7 +12,7 @@ class SelectAdventureController {
     initData() {
         let adventurePersistenceKeys = this.adventurePersistenceService.getAdventurePersistenceKeys();
         this.adventures = [];
-        for (let i = 0; i < bookPersistenceKeys.length; i++) {
+        for (let i = 0; i < adventurePersistenceKeys.length; i++) {
             let adventure = this.adventurePersistenceService.getAdventure(adventurePersistenceKeys[i]);
             this.adventures.push(adventure);
         }

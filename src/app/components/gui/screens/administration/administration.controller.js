@@ -1,9 +1,7 @@
-let ctrl;
 class AdministrationController {
     /*@ngInject*/
     constructor(preScreenLoadingInterceptorsCallerService, persistenceService, adventurePersistenceService, constants, popupService, $window) {
         preScreenLoadingInterceptorsCallerService.intercept();
-        ctrl = this;
         this.persistenceService = persistenceService;
         this.adventurePersistenceService = adventurePersistenceService;
         this.constants = constants;
@@ -40,25 +38,30 @@ class AdministrationController {
     }
 
     showPopupConfirmImportData() {
-        this.popupService.show(this.popupConfirmImportApplicationDataConfig.id, this.callbackPopupConfirmImportData);
+        let self = this;
+        this.popupService.show(
+            this.popupConfirmImportApplicationDataConfig.id,
+            function(popupDomElementId, choice) {
+                if (choice === self.constants.choices.yes) {
+                    self.persistenceService.import(self.importData);
+                    self.$window.location.reload();
+                }
+            }
+        );
     }
 
-    callbackPopupConfirmImportData(popupDomElementId, choice) {
-        if (choice === ctrl.constants.choices.yes) {
-            ctrl.persistenceService.import(ctrl.importData);
-            ctrl.$window.location.reload();
-        }
-    }
 
     showPopupConfirmDeleteApplicationData() {
-        this.popupService.show(this.popupConfirmDeleteApplicationDataConfig.id, this.callbackPopupConfirmDeleteApplicationData);
-    }
-
-    callbackPopupConfirmDeleteApplicationData(popupDomElementId, choice) {
-        if (choice === ctrl.constants.choices.yes) {
-            ctrl.persistenceService.cleanAllData();
-            ctrl.$window.location.reload();
-        }
+        let self = this;
+        this.popupService.show(
+            this.popupConfirmDeleteApplicationDataConfig.id,
+            function(popupDomElementId, choice) {
+                if (choice === self.constants.choices.yes) {
+                    self.persistenceService.cleanAllData();
+                    self.$window.location.reload();
+                }
+            }
+        );
     }
 }
 

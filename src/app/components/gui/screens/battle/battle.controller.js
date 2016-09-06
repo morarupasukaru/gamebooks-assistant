@@ -23,7 +23,7 @@ class BattleController {
     initData() {
         if (!!this.$stateParams.game) {
             this.game = this.gamePersistenceService.getGame(decodeURIComponent(this.$stateParams.game));
-            this.adventure = this.adventurePersistenceService.getBook(this.game.adventureId);
+            this.adventure = this.adventurePersistenceService.getAdventure(this.game.adventureId);
         }
 
         this.initStatsData();
@@ -93,14 +93,16 @@ class BattleController {
 
     displayRemovePopup(removedRow) {
         this.rowToBeRemoved = removedRow;
-        this.popupService.show(this.popupDeleteEnemyConfig.id, this.callbackRemovePopup);
-    }
-
-    callbackRemovePopup(popupDomElementId, choice) {
-        if (choice === this.constants.choices.yes) {
-            this.removeRow(this.rowToBeRemoved);
-        }
-        this.rowToBeRemoved = null;
+        let self = this;
+        this.popupService.show(
+            this.popupDeleteEnemyConfig.id,
+            function(popupDomElementId, choice) {
+                if (choice === self.constants.choices.yes) {
+                    self.removeRow(self.rowToBeRemoved);
+                }
+                self.rowToBeRemoved = null;
+            }
+        );
     }
 
     removeRow(removedRow) {

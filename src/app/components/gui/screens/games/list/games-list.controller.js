@@ -72,14 +72,17 @@ class GamesListController {
     }
 
     displayRemoveGamePopup() {
-        this.popupService.show(this.popupDeleteGameConfig.id, this.callbackRemovePopup);
+        let self = this;
+        this.popupService.show(
+            this.popupDeleteGameConfig.id,
+            function(popupDomElementId, choice) {
+                if (choice === self.constants.choices.yes) {
+                    self.deleteGame();
+                }
+            }
+        );
     }
 
-    callbackRemovePopup(popupDomElementId, choice) {
-        if (choice === this.constants.choices.yes) {
-            this.deleteGame();
-        }
-    }
 
     deleteGame() {
         this.gamePersistenceService.deleteGame(this.getSelectedRow().id, true, true);

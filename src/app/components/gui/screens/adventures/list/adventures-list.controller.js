@@ -41,13 +41,15 @@ class AdventuresListController {
     }
 
     displayRemoveAdventurePopup() {
-        this.popupService.show(this.popupDeleteAdventureConfig.id, this.callbackRemovePopup);
-    }
-
-    callbackRemovePopup(popupDomElementId, choice) {
-        if (choice === this.constants.choices.yes) {
-            this.deleteAdventure();
-        }
+        let self = this;
+        this.popupService.show(
+            this.popupDeleteAdventureConfig.id,
+            function(popupDomElementId, choice) {
+                if (choice === self.constants.choices.yes) {
+                    self.deleteAdventure();
+                }
+            }
+        );
     }
 
     deleteAdventure() {

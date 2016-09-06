@@ -39,15 +39,18 @@ class GameDetailController {
     }
 
     displayAbandonGamePopup(removedRow) {
-        this.endGamePopupService.show(this.popupAbandonGameConfig.id, this.callbackAbandonGamePopup);
+        let self = this;
+        this.endGamePopupService.show(
+            this.popupAbandonGameConfig.id,
+            function(popupDomElementId, endGameReason) {
+                let updatedGame = self.gamePersistenceService.getGame(self.game.id);
+                updatedGame.endGameReason = endGameReason;
+                self.gamePersistenceService.updateGame(updatedGame);
+                self.$location.url(self.constants.url.games);
+            }
+        );
     }
 
-    callbackAbandonGamePopup(popupDomElementId, endGameReason) {
-        let updatedGame = this.gamePersistenceService.getGame(this.game.id);
-        updatedGame.endGameReason = endGameReason;
-        this.gamePersistenceService.updateGame(updatedGame);
-        this.$location.url(this.constants.url.games);
-    }
 }
 
 export default GameDetailController;

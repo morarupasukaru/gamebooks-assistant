@@ -54,14 +54,16 @@ class NotesController {
 
     displayRemovePopup(removedRow) {
         this.rowToBeRemoved = removedRow;
-        this.popupService.show(this.popupDeleteNoteConfig.id, this.callbackRemovePopup);
-    }
-
-    callbackRemovePopup(popupDomElementId, choice) {
-        if (choice === this.constants.choices.yes) {
-            this.removeRow(this.rowToBeRemoved);
-        }
-        this.rowToBeRemoved = null;
+        let self = this;
+        this.popupService.show(
+            this.popupDeleteNoteConfig.id,
+            function(popupDomElementId, choice) {
+                if (choice === self.constants.choices.yes) {
+                    self.removeRow(self.rowToBeRemoved);
+                }
+                self.rowToBeRemoved = null;
+            }
+        );
     }
 
     removeRow(removedRow) {
