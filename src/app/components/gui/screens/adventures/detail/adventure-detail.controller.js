@@ -35,8 +35,8 @@ class AdventureDetailController {
     }
 
     save(form) {
+        this.setErrorFieldsAsDirty(form);
         if (form.$invalid) {
-            this.makeFieldsDirty(form);
             return ;
         }
 
@@ -58,10 +58,18 @@ class AdventureDetailController {
         }
     }
 
-    makeFieldsDirty(form) {
-        this.messagesService.errorMessage('Please complete mandatory fields', false);
-    }
+    setErrorFieldsAsDirty(form) {
+        if (form.$invalid) {
+            this.messagesService.errorMessage('Please complete mandatory fields', false);
 
+            // error "dirty" field will be hightlighted (see app.css)
+            angular.forEach(form.$error, function(type) {
+                angular.forEach(type, function(field) {
+                    field.$setDirty();
+                });
+            });
+        }
+    }
 
     addRow() {
         let stats = { init: {}, battle: { displayed: true, editableForEnemy: false }};

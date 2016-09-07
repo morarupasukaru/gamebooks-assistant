@@ -27,12 +27,14 @@ require('string.prototype.startswith');
 let english = {
     'yesno_true': 'yes',
     'yesno_false': 'no',
+    'NumberOfParagraphs': '{{ (!!numberOfParagraphs ? numberOfParagraphs + " paragraphs" : "") }}',
+    'ChoiceAdventure': 'Select the adventure "{{ adventureName }}"',
+    'ChoosenAdventure': 'The adventure "{{ adventureName }}" is choosen',
+    'ChoiceGame': 'Select the game "{{ adventureName }}" of the player "{{ playerName }}"',
+    'ChoosenGame': 'The game "{{ adventureName }}" of the player "{{ playerName }}" is choosen'
 };
 
 let french = {
-    'Games': 'Parties',
-    'yesno_true': 'yes',
-    'yesno_false': 'no',
 };
 
 angular.module('app', [

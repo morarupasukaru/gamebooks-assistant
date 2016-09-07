@@ -1,5 +1,7 @@
 en cours
-- form Service dans book-detail afin de mettre les champs obligatoire en rouge lors de l'action save
+- focus
+- enter > submit
+- i18n with param > i18n en
 
 améliorations
 - administration: promise pour le calcul de la taille utilisé & dispo
