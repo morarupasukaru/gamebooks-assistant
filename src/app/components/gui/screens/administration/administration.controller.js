@@ -27,7 +27,7 @@ class AdministrationController {
     }
 
     initData() {
-        this.applicationData = JSON.stringify(this.persistenceService.export());
+        this.applicationData = this.persistenceService.export();
         this.computeLocalStorageCapacities();
     }
 

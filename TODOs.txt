@@ -1,9 +1,7 @@
 en cours
-- popup callback > this ne fonctionne pas
-- traduction dans fichier json à part (voir comment charger screenloader)
+- form Service dans book-detail afin de mettre les champs obligatoire en rouge lors de l'action save
 
 améliorations
-- form Service dans book-detail afin de mettre les champs obligatoire en rouge lors de l'action save
 - administration: promise pour le calcul de la taille utilisé & dispo
 - configure jshint (or something like that)
 - corriger le bug que l'interface sur ipad ne répond parfois pas bien
@@ -21,6 +19,8 @@ nouvelles fonctionnalités
 - référerencer les livres dispo via des url qui fournissent des données json, configuration de l'url des sites de référencement via écran admin
 - game paths vizualiser
 - import/export gameplays
+- traduction dans fichier json à part (voir comment charger screenloader)
+- traduction fr une fois l'application un peu stable
 
 plus tard:
 - afficher des statistiques sur les livres (nb pages joués, nb défaites, nb de paragraphes)
