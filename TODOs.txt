@@ -1,7 +1,6 @@
 en cours
 - focus
 - enter > submit
-- i18n with param > i18n en
 
 améliorations
 - administration: promise pour le calcul de la taille utilisé & dispo

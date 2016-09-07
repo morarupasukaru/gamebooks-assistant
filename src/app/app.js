@@ -31,7 +31,8 @@ let english = {
     'ChoiceAdventure': 'Select the adventure "{{ adventureName }}"',
     'ChoosenAdventure': 'The adventure "{{ adventureName }}" is choosen',
     'ChoiceGame': 'Select the game "{{ adventureName }}" of the player "{{ playerName }}"',
-    'ChoosenGame': 'The game "{{ adventureName }}" of the player "{{ playerName }}" is choosen'
+    'ChoosenGame': 'The game "{{ adventureName }}" of the player "{{ playerName }}" is choosen',
+    'DupplicateParagraph': 'The paragraph "{paragraphNr}" already exist'
 };
 
 let french = {
