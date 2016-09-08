@@ -1,14 +1,16 @@
 class CreatePlayerController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $stateParams, $window, $location, constants, dicesService, adventurePersistenceService) {
+    constructor(preScreenLoadingInterceptorsCallerService, $stateParams, $window, $location, constants, dicesService, adventurePersistenceService, $timeout) {
         preScreenLoadingInterceptorsCallerService.intercept();
         this.constants = constants;
         this.$window = $window;
         this.$location = $location;
         this.dicesService = dicesService;
+        this.$timeout = $timeout;
         this.adventure = adventurePersistenceService.getAdventure($stateParams.adventureId);
         this.loadData(this.adventure);
         this.generateStats();
+        this.setInitialFocus();
     }
 
     loadData(adventure) {
@@ -29,6 +31,16 @@ class CreatePlayerController {
             let stats = this.stats[i];
             stats.value = stats.generate();
         }
+    }
+
+    setInitialFocus() {
+        let that = this;
+        this.$timeout(function() {
+            let element = that.$window.document.getElementById("playerName");
+            if(!!element) {
+                element.focus();
+            }
+        });
     }
 
     back() {

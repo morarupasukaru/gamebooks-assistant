@@ -1,6 +1,6 @@
 class AdventureDetailController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, persistenceService, adventurePersistenceService, $stateParams, $location, constants, popupService, messagesService) {
+    constructor(preScreenLoadingInterceptorsCallerService, persistenceService, adventurePersistenceService, $stateParams, $location, constants, popupService, messagesService, $timeout, $window) {
         preScreenLoadingInterceptorsCallerService.intercept();
         this.persistenceService = persistenceService;
         this.adventurePersistenceService = adventurePersistenceService;
@@ -9,6 +9,8 @@ class AdventureDetailController {
         this.constants = constants;
         this.popupService = popupService;
         this.messagesService = messagesService;
+        this.$timeout = $timeout;
+        this.$window = $window;
         this.initData();
 
         this.popupDeleteStatsConfig = {
@@ -18,6 +20,7 @@ class AdventureDetailController {
             withCloseButton : false,
             closeOnClickOutsideModal : false
         };
+        this.setInitialFocus();
     }
 
     initData() {
@@ -28,10 +31,27 @@ class AdventureDetailController {
                     stats: [],
                     items: []
                 };
+                this.mode = "create";
             } else {
                 this.adventure = this.adventurePersistenceService.getAdventure(adventureId);
+                this.mode = "edit";
             }
         }
+    }
+
+    setInitialFocus() {
+        let that = this;
+        this.$timeout(function() {
+            let element;
+            if (that.mode === "create") {
+                element = that.$window.document.getElementById("name");
+            } else {
+                element = that.$window.document.getElementById("authors");
+            }
+            if(!!element) {
+                element.focus();
+            }
+        });
     }
 
     save(form) {

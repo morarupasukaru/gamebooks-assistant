@@ -8,6 +8,9 @@
  * @since 23.10.2015, 2015.
  */
 
+import i18n_en from './i18n/en.js';
+import i18n_fr from './i18n/fr.js';
+
 // Vendor-Imports
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
@@ -23,28 +26,13 @@ import AppComponent from './app.component';
 // A robust & optimized ES3-compatible polyfill for the String.prototype.startsWith method in ECMAScript 6
 require('string.prototype.startswith');
 
-
-let english = {
-    'yesno_true': 'yes',
-    'yesno_false': 'no',
-    'NumberOfParagraphs': '{{ (!!numberOfParagraphs ? numberOfParagraphs + " paragraphs" : "") }}',
-    'ChoiceAdventure': 'Select the adventure "{{ adventureName }}"',
-    'ChoosenAdventure': 'The adventure "{{ adventureName }}" is choosen',
-    'ChoiceGame': 'Select the game "{{ adventureName }}" of the player "{{ playerName }}"',
-    'ChoosenGame': 'The game "{{ adventureName }}" of the player "{{ playerName }}" is choosen',
-    'DupplicateParagraph': 'The paragraph "{paragraphNr}" already exist'
-};
-
-let french = {
-};
-
 angular.module('app', [
     uiRouter, ngTranslate, ngCookies, ngResource, uiBootstrap, Components.name
     ])
 
     .config(['$translateProvider', function ($translateProvider) {
-      $translateProvider.translations('en', english);
-      $translateProvider.translations('fr', french);
+      $translateProvider.translations('en', i18n_en);
+      $translateProvider.translations('fr', i18n_fr);
       $translateProvider.preferredLanguage('en');
       $translateProvider.useSanitizeValueStrategy('escape');
     }])

@@ -1,23 +1,25 @@
 <navbar></navbar>
 <main>
     <div class="container bg-white" role="main">
-        <div class="page-header">
-            <h1>{{ 'New game' | translate }}</h1>
-        </div>
+        <form ng-submit="$ctrl.startGame()">
+            <div class="page-header">
+                <h1>{{ 'New game' | translate }}</h1>
+            </div>
 
-        <ol class="breadcrumb">
-            <li>{{ 'Select Adventure' | translate }}</li>
-            <li>{{ 'Create Player' | translate }}</li>
-            <li class="active">{{ 'Choose Items' | translate }}</li>
-        </ol>
+            <ol class="breadcrumb">
+                <li>{{ 'Select Adventure' | translate }}</li>
+                <li>{{ 'Create Player' | translate }}</li>
+                <li class="active">{{ 'Choose Items' | translate }}</li>
+            </ol>
 
-        <messages></messages>
+            <messages></messages>
 
-        <items ng-if="$ctrl.isItemsDisplayed()" items="$ctrl.getItems()"></items>
+            <items ng-if="$ctrl.isItemsDisplayed()" items="$ctrl.getItems()"></items>
 
-        <div class="spacer"></div>
+            <div class="spacer"></div>
 
-        <button type="button" class="btn btn-default" ng-click="$ctrl.back()">{{ 'Back' | translate }}</button>
-        <button type="button" class="btn btn-primary" ng-click="$ctrl.startGame()">{{ 'Start Game' | translate }}</button>
+            <button type="button" class="btn btn-default" ng-click="$ctrl.back()">{{ 'Back' | translate }}</button>
+            <button type="button" class="btn btn-primary" ng-click="$ctrl.startGame()">{{ 'Start Game' | translate }}</button>
+        </form>
     </div>
 </main>

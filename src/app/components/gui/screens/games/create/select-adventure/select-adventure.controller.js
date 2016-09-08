@@ -1,12 +1,14 @@
 class SelectAdventureController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, constants, $location, $window, adventurePersistenceService) {
+    constructor(preScreenLoadingInterceptorsCallerService, constants, $location, $window, adventurePersistenceService, $timeout) {
         preScreenLoadingInterceptorsCallerService.intercept();
         this.$location = $location;
         this.$window = $window;
         this.constants = constants;
         this.adventurePersistenceService = adventurePersistenceService;
+        this.$timeout = $timeout;
         this.initData();
+        this.setInitialFocus();
     }
 
     initData() {
@@ -17,6 +19,16 @@ class SelectAdventureController {
             this.adventures.push(adventure);
         }
         this.selectedAdventureId = this.adventures[0].id;
+    }
+
+    setInitialFocus() {
+        let that = this;
+        this.$timeout(function() {
+            let element = that.$window.document.getElementById("selectedAdventure");
+            if(!!element) {
+                element.focus();
+            }
+        });
     }
 
     back() {

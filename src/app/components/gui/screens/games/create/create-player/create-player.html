@@ -7,7 +7,7 @@
         </div>
 
         <!-- novalidate="novalidate" allow to do not display untranslated tooltip "Fill out this field" -->
-        <form name="playerForm" novalidate="novalidate">
+        <form name="playerForm" novalidate="novalidate" ng-submit="$ctrl.next(playerForm.$invalid)">
             <ol class="breadcrumb">
                 <li>{{ 'Select Adventure' | translate }}</li>
                 <li class="active">{{ 'Create Player' | translate }}</li>
