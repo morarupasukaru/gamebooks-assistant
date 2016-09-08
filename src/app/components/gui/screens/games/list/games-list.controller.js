@@ -1,6 +1,6 @@
 class GamesListController {
     /*@ngInject*/
-    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService) {
+    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, exportGamePopupService) {
         this.constants = constants;
         preScreenLoadingInterceptorsCallerService.intercept();
         this.$location = $location;
@@ -9,6 +9,7 @@ class GamesListController {
         this.messagesService = messagesService;
         this.$translate = $translate;
         this.popupService = popupService;
+        this.exportGamePopupService = exportGamePopupService;
 
         this.popupDeleteGameConfig = {
             id : 'popupDeleteGame',
@@ -17,6 +18,8 @@ class GamesListController {
             withCloseButton : false,
             closeOnClickOutsideModal : false
         };
+
+        this.popupExportGameConfig = { id : 'popupExportGame' };
 
         this.initData();
     }
@@ -87,6 +90,18 @@ class GamesListController {
     deleteGame() {
         this.gamePersistenceService.deleteGame(this.getSelectedRow().id, true, true);
         this.initData();
+    }
+
+    displayExportGamePopup() {
+        let self = this;
+        this.exportGamePopupService.show(
+            this.popupExportGameConfig.id,
+            function(popupDomElementId, choice) {
+                if (choice === self.constants.choices.ok) {
+                    // TODO
+                }
+            }
+        );
     }
 
     hasSelectedRow() {

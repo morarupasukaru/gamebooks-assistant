@@ -48,22 +48,34 @@
             </div>
         </div>
 
-        <!-- TODO title & aria -->
         <back-button></back-button>
-        <button type="button" class="btn btn-default" ng-click="$ctrl.startNewGame()">{{ 'New game' | translate }}
+        <button type="button" class="btn btn-default"
+                ng-click="$ctrl.startNewGame()"
+                aria-label="{{ 'Start a new game' | translate }}"
+                title="{{ 'Start a new game' | translate }}">{{ 'New game' | translate }}
         </button>
         <button type="button" class="btn btn-default"
                 aria-label="{{ 'Import an adventure' | translate }}"
                 title="{{ 'Import an adventure' | translate }}">{{ 'Import' | translate }}</button>
-        <button type="button" class="btn btn-default" ng-disabled="!$ctrl.hasSelectedRow()" ng-click="$ctrl.continueGame()">{{ 'Continue' | translate }}
+        <button type="button" class="btn btn-default"
+                ng-disabled="!$ctrl.hasSelectedRow()"
+                ng-click="$ctrl.continueGame()"
+                aria-label="{{ 'Continue the selected game' | translate }}"
+                title="{{ 'Continue the selected game' | translate }}">{{ 'Continue' | translate }}
         </button>
-        <button type="button" class="btn btn-danger" ng-disabled="!$ctrl.hasSelectedRow()" ng-click="$ctrl.displayRemoveGamePopup()">{{ 'Remove' | translate }}
+        <button type="button" class="btn btn-danger"
+                ng-disabled="!$ctrl.hasSelectedRow()"
+                ng-click="$ctrl.displayRemoveGamePopup()"
+                aria-label="{{ 'Remove the selected game' | translate }}"
+                title="{{ 'Remove the selected game' | translate }}">{{ 'Remove' | translate }}
         </button>
         <button type="button" class="btn btn-default"
                 ng-disabled="!$ctrl.hasSelectedRow()"
+                ng-click="$ctrl.displayExportGamePopup()"
                 aria-label="{{ 'Export selected adventure' | translate }}"
                 title="{{ 'Export selected adventure' | translate }}">{{ 'Export' | translate }}</button>
     </div>
 </main>
 
 <popup config="{{ $ctrl.popupDeleteGameConfig }}"></popup>
+<export-game-popup config="{{ $ctrl.popupExportGameConfig }}"></export-game-popup>

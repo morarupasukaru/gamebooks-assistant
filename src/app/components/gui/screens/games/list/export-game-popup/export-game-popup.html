@@ -1,0 +1,14 @@
+<div id="{{$ctrl.cfg.id}}" class="modal">
+    <div class="modal-content">
+        <h1>{{ 'Are you sure to abandon this game?' | translate }}</h1>
+
+        <div class="form-group">
+            <label for="endGameReason">{{ "End game's reason" | translate }}</label>
+            <input type="text" class="form-control" id="endGameReason" ng-model="$ctrl.endGameReason">
+        </div>
+
+        <span ng-repeat="choice in $ctrl.choices">
+            <button type="button" class="btn btn-default" ng-click="$ctrl.select(choice)">{{ choice | translate }}</button>&nbsp;
+        </span>
+    </div>
+</div>
