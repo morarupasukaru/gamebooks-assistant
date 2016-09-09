@@ -4,7 +4,7 @@ class ExportGamePopupController {
         this.cfg = JSON.parse(this.config);
         this.constants = constants;
         this.exportGamePopupService = exportGamePopupService;
-        this.choices = [constants.choices.yes, constants.choices.no];
+        this.choices = [constants.choices.cancel, constants.choices.ok];
     }
 
     select(choice) {
