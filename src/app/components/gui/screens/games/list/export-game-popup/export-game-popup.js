@@ -12,6 +12,7 @@ let exportGamePopupModule = angular.module('app.components.gui.components.screen
             config: '@'
         }
     })
-    .service('exportGamePopupService', exportGamePopupService);
+    .service('exportGamePopupService', exportGamePopupService)
+    .constant('exportMethods', { file:'file', text:'text', email:'email'});
 
 export default exportGamePopupModule;

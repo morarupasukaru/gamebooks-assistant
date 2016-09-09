@@ -1,11 +1,27 @@
 <div id="{{$ctrl.cfg.id}}" class="modal">
     <div class="modal-content">
-        <h1>{{ 'Are you sure to abandon this game?' | translate }}</h1>
+        <h1>{{ 'Export' | translate }}</h1>
 
-        <!-- TODO dropdown values -->
         <div class="form-group">
-            <label for="endGameReason">{{ "End game's reason" | translate }}</label>
-            <input type="text" class="form-control" id="endGameReason" ng-model="$ctrl.endGameReason">
+            <label for="exportMethod">{{ 'Select the export method' | translate }}</label>
+            <select id="exportMethod" class="form-control" ng-model="$ctrl.exportMethod">
+                <option ng-repeat="method in $ctrl.methods" value="{{ method }}">{{ method | translate }}</option>
+            </select>
+        </div>
+
+        <div class="form-group" ng-if="$ctrl.displayExportText()">
+            <label for="exportText">{{ "Export text" | translate }}</label>
+            <input type="text" class="form-control" id="exportText" ng-model="$ctrl.exportText" required>
+        </div>
+
+        <div class="form-group" ng-if="$ctrl.displayExportFilePath()">
+            <label for="exportFilePath">{{ "File" | translate }}</label>
+            <input type="text" class="form-control" id="exportFilePath" ng-model="$ctrl.exportFilePath" required>
+        </div>
+
+        <div class="form-group" ng-if="$ctrl.displayExportEmail()">
+            <label for="exportEmail">{{ "Email" | translate }}</label>
+            <input type="text" class="form-control" id="exportEmail" ng-model="$ctrl.exportEmail" required>
         </div>
 
         <span ng-repeat="choice in $ctrl.choices">
