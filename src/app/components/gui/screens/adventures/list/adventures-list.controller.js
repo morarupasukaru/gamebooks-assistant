@@ -1,6 +1,6 @@
 class AdventuresListController {
     /*@ngInject*/
-    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService) {
+    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, exportDataPopupService) {
         this.constants = constants;
         preScreenLoadingInterceptorsCallerService.intercept();
         this.$location = $location;
@@ -9,6 +9,7 @@ class AdventuresListController {
         this.messagesService = messagesService;
         this.$translate = $translate;
         this.popupService = popupService;
+        this.exportDataPopupService = exportDataPopupService;
 
         this.popupDeleteAdventureConfig = {
             id : 'popupDeleteAdventure',
@@ -17,6 +18,8 @@ class AdventuresListController {
             withCloseButton : false,
             closeOnClickOutsideModal : false
         };
+
+        this.popupExportAdventureConfig = { id : 'popupExportAdventure' };
 
         this.initData();
     }
@@ -55,6 +58,17 @@ class AdventuresListController {
     deleteAdventure() {
         this.adventurePersistenceService.deleteAdventureAndParagraphs(this.getSelectedRow().id);
         this.initData();
+    }
+
+    displayExportAdventurePopup() {
+        let self = this;
+        this.popupExportAdventureConfig.exportData = JSON.stringify(this.adventurePersistenceService.getAdventure(this.getSelectedRow().id));
+        this.popupExportAdventureConfig.exportDownloadBlobUrl = this.exportDataPopupService.createDownloadBlobUrl(this.popupExportAdventureConfig.exportData);
+        this.popupExportAdventureConfig.exportTitle = this.$translate.instant('ExportAdventure', {adventureName: this.getSelectedRow().name });
+        this.exportDataPopupService.show(
+            this.popupExportAdventureConfig.id,
+            function(popupDomElementId, choice) {}
+        );
     }
 
     hasSelectedRow() {

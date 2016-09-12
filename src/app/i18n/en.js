@@ -8,6 +8,7 @@ const englishTranslations = {
     'ChoosenGame': 'The game "{{ adventureName }}" of the player "{{ playerName }}" is choosen',
     'DupplicateParagraph': 'The paragraph "{{paragraphNr}}" already exist',
     'ExportGame': "Export the game of '{{playerName}}' from the adventure '{{adventureName}}'",
+    'ExportAdventure': "Export the adventure of '{{adventureName}}'",
     'file': 'Download file',
     'email': 'Sent email',
     'text': 'Text'

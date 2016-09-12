@@ -73,8 +73,10 @@
         <button type="button" class="btn btn-default"
                 ng-disabled="!$ctrl.hasSelectedRow()"
                 aria-label="{{ 'Export selected adventure' | translate }}"
-                title="{{ 'Export selected adventure' | translate }}">{{ 'Export' | translate }}</button>
+                title="{{ 'Export selected adventure' | translate }}"
+                ng-click="$ctrl.displayExportAdventurePopup()">{{ 'Export' | translate }}</button>
     </div>
 </main>
 
 <popup config="{{ $ctrl.popupDeleteAdventureConfig }}"></popup>
+<export-data-popup config="$ctrl.popupExportAdventureConfig"></export-data-popup>
