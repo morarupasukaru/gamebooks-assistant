@@ -37,5 +37,11 @@ angular.module('app', [
       $translateProvider.useSanitizeValueStrategy('escape');
     }])
 
+    .config(['$compileProvider', function ($compileProvider) {
+        $compileProvider.aHrefSanitizationWhitelist(/^\s*(|mailto|blob|):/);
+    }])
+
     // Die App als Direktive exportieren
     .directive('app', AppComponent);
+
+

@@ -9,7 +9,7 @@ let exportGamePopupModule = angular.module('app.components.gui.components.screen
         template,
         controller,
         bindings: {
-            config: '@'
+            config: '<'
         }
     })
     .service('exportGamePopupService', exportGamePopupService)

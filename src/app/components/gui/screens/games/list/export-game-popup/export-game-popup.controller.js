@@ -1,10 +1,10 @@
 class ExportGamePopupController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, exportGamePopupService, constants, exportMethods) {
-        this.cfg = JSON.parse(this.config);
+    constructor(preScreenLoadingInterceptorsCallerService, exportGamePopupService, constants, exportMethods, $window) {
         this.constants = constants;
         this.exportGamePopupService = exportGamePopupService;
         this.exportMethods = exportMethods;
+        this.$window = $window;
 
         this.choices = [constants.choices.cancel, constants.choices.ok];
         this.methods = [ exportMethods.text, exportMethods.file, exportMethods.email ];
@@ -16,7 +16,7 @@ class ExportGamePopupController {
     }
 
     close(choice) {
-        this.exportGamePopupService.close(this.cfg.id, choice, this.endGameReason);
+        this.exportGamePopupService.close(this.config.id, choice, this.endGameReason);
     }
 
     displayExportText() {
@@ -29,6 +29,14 @@ class ExportGamePopupController {
 
     displayExportEmail() {
         return !!this.exportMethod && this.exportMethod === this.exportMethods.email;
+    }
+
+    changeDropDown() {
+        if (!!this.displayExportFilePath()) {
+            let blob = new Blob([this.config.exportData], { type: 'text/plain' });
+            let url = this.$window.URL || this.$window.webkitURL;
+            this.downloadFileUrl = url.createObjectURL(blob);
+        }
     }
 }
 

@@ -1,17 +1,18 @@
-<div id="{{$ctrl.cfg.id}}" class="modal">
+<div id="{{$ctrl.config.id}}" class="modal">
     <div class="modal-content">
-        <h1>{{ 'Export' | translate }}</h1>
+        <h1>{{$ctrl.config.exportTitle}}</h1>
 
         <div class="form-group">
             <label for="exportMethod">{{ 'Select the export method' | translate }}</label>
-            <select id="exportMethod" class="form-control" ng-model="$ctrl.exportMethod">
+            <select id="exportMethod" class="form-control" ng-model="$ctrl.exportMethod" ng-change="$ctrl.changeDropDown()">
                 <option ng-repeat="method in $ctrl.methods" value="{{ method }}">{{ method | translate }}</option>
             </select>
         </div>
 
         <div class="form-group" ng-if="$ctrl.displayExportText()">
             <label for="exportText">{{ "Export text" | translate }}</label>
-            <input type="text" class="form-control" id="exportText" ng-model="$ctrl.exportText" required>
+            <textarea class="form-control" id="exportText" rows="4"ng-model="$ctrl.config.exportData" required>
+            </textarea>
         </div>
 
         <div class="form-group" ng-if="$ctrl.displayExportFilePath()">
@@ -21,11 +22,15 @@
 
         <div class="form-group" ng-if="$ctrl.displayExportEmail()">
             <label for="exportEmail">{{ "Email" | translate }}</label>
-            <input type="text" class="form-control" id="exportEmail" ng-model="$ctrl.exportEmail" required>
+            <input type="email" class="form-control" id="exportEmail" ng-model="$ctrl.exportEmail" required>
         </div>
 
         <span ng-repeat="choice in $ctrl.choices">
             <button type="button" class="btn btn-default" ng-click="$ctrl.select(choice)">{{ choice | translate }}</button>&nbsp;
         </span>
+
+        <a ng-if="$ctrl.displayExportEmail()" href="mailto:{{$ctrl.exportEmail}}?subject={{$ctrl.config.exportTitle}}&body={{$ctrl.config.exportData}}">{{ 'Sent' | translate }}</a>
+
+        <a ng-if="$ctrl.displayExportFilePath()" ng-href="{{$ctrl.downloadFileUrl}}" download="exportGame.txt">{{ 'Download' | translate }}</a>
     </div>
 </div>
