@@ -1,4 +1,4 @@
-<form name="exportGameDataForm" novalidate="novalidate">
+<form name="exportDataForm" novalidate="novalidate">
     <div id="{{$ctrl.config.id}}" class="modal">
         <div class="modal-content">
             <h1>{{$ctrl.config.exportTitle}}</h1>
@@ -22,11 +22,11 @@
             </div>
 
             <span ng-repeat="choice in $ctrl.choices">
-                <button type="button" class="btn btn-default" ng-click="$ctrl.select(choice, exportGameDataForm)">{{ choice | translate }}</button>&nbsp;
+                <button type="button" class="btn btn-default" ng-click="$ctrl.select(choice, exportDataForm)">{{ choice | translate }}</button>&nbsp;
             </span>
 
             <a id="linkSendEmail" ng-show="false" href="mailto:{{$ctrl.exportEmail}}?subject={{$ctrl.config.exportTitle}}&body={{$ctrl.config.exportData}}">{{ 'Sent' | translate }}</a>
-            <a id="linkDownload" ng-show="false" ng-href="{{$ctrl.config.exportDownloadBlobUrl}}" download="exportGame.txt">{{ 'Download' | translate }}</a>
+            <a id="linkDownload" ng-show="false" ng-href="{{$ctrl.config.exportDownloadBlobUrl}}" download="export.txt">{{ 'Download' | translate }}</a>
 
             <input type="file" on-read-file="$ctrl.showContent($fileContent)" />
             <div ng-if="!!$ctrl.content">

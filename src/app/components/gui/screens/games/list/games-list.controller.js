@@ -1,6 +1,6 @@
 class GamesListController {
     /*@ngInject*/
-    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, exportGamePopupService) {
+    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, exportDataPopupService) {
         this.constants = constants;
         preScreenLoadingInterceptorsCallerService.intercept();
         this.$location = $location;
@@ -9,7 +9,7 @@ class GamesListController {
         this.messagesService = messagesService;
         this.$translate = $translate;
         this.popupService = popupService;
-        this.exportGamePopupService = exportGamePopupService;
+        this.exportDataPopupService = exportDataPopupService;
 
         this.popupDeleteGameConfig = {
             id : 'popupDeleteGame',
@@ -94,9 +94,9 @@ class GamesListController {
     displayExportGamePopup() {
         let self = this;
         this.popupExportGameConfig.exportData = JSON.stringify(this.gamePersistenceService.getGame(this.getSelectedRow().id));
-        this.popupExportGameConfig.exportDownloadBlobUrl = this.exportGamePopupService.createDownloadBlobUrl(this.popupExportGameConfig.exportData);
+        this.popupExportGameConfig.exportDownloadBlobUrl = this.exportDataPopupService.createDownloadBlobUrl(this.popupExportGameConfig.exportData);
         this.popupExportGameConfig.exportTitle = this.$translate.instant('ExportGame', {playerName: this.getSelectedRow().playerName, adventureName: this.getSelectedRow().adventureName });
-        this.exportGamePopupService.show(
+        this.exportDataPopupService.show(
             this.popupExportGameConfig.id,
             function(popupDomElementId, choice) {}
         );

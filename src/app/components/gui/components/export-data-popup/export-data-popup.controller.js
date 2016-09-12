@@ -1,8 +1,8 @@
-class ExportGamePopupController {
+class ExportDataPopupController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, exportGamePopupService, constants, exportMethods, $window, formHelperService) {
+    constructor(preScreenLoadingInterceptorsCallerService, exportDataPopupService, constants, exportMethods, $window, formHelperService) {
         this.constants = constants;
-        this.exportGamePopupService = exportGamePopupService;
+        this.exportDataPopupService = exportDataPopupService;
         this.exportMethods = exportMethods;
         this.$window = $window;
         this.formHelperService = formHelperService;
@@ -18,7 +18,7 @@ class ExportGamePopupController {
             if (choice === this.constants.choices.ok) {
                 if (this.displayExportEmail()) {
                     let href = window.document.getElementById('linkSendEmail');
-                    window.document.getElementById('exportGameDataForm');
+                    window.document.getElementById('exportDataForm');
                     href.click();
                 } else if (this.displayDownload()) {
                     let href = window.document.getElementById('linkDownload');
@@ -30,7 +30,7 @@ class ExportGamePopupController {
     }
 
     close(choice) {
-        this.exportGamePopupService.close(this.config.id, choice);
+        this.exportDataPopupService.close(this.config.id, choice);
     }
 
     displayExportText() {
@@ -50,4 +50,4 @@ class ExportGamePopupController {
     }
 }
 
-export default ExportGamePopupController;
+export default ExportDataPopupController;

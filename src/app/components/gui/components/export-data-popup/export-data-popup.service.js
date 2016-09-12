@@ -1,4 +1,4 @@
-class ExportGamePopupService {
+class ExportDataPopupService {
 
     /*@ngInject*/
     constructor(constants, $window) {
@@ -32,4 +32,4 @@ class ExportGamePopupService {
     }
 }
 
-export default ExportGamePopupService;
+export default ExportDataPopupService;
