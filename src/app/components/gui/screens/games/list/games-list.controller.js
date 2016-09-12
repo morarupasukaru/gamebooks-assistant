@@ -86,7 +86,6 @@ class GamesListController {
         );
     }
 
-
     deleteGame() {
         this.gamePersistenceService.deleteGame(this.getSelectedRow().id, true, true);
         this.initData();
@@ -94,15 +93,12 @@ class GamesListController {
 
     displayExportGamePopup() {
         let self = this;
-        this.popupExportGameConfig.exportData = JSON.stringify(this.adventurePersistenceService.exportAdventure(this.getSelectedRow().adventureId));
+        this.popupExportGameConfig.exportData = JSON.stringify(this.gamePersistenceService.getGame(this.getSelectedRow().id));
+        this.popupExportGameConfig.exportDownloadBlobUrl = this.exportGamePopupService.createDownloadBlobUrl(this.popupExportGameConfig.exportData);
         this.popupExportGameConfig.exportTitle = this.$translate.instant('ExportGame', {playerName: this.getSelectedRow().playerName, adventureName: this.getSelectedRow().adventureName });
         this.exportGamePopupService.show(
             this.popupExportGameConfig.id,
-            function(popupDomElementId, choice) {
-                if (choice === self.constants.choices.ok) {
-                    // TODO
-                }
-            }
+            function(popupDomElementId, choice) {}
         );
     }
 

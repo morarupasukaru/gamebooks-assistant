@@ -1,8 +1,9 @@
 class ExportGamePopupService {
 
     /*@ngInject*/
-    constructor(constants) {
+    constructor(constants, $window) {
         this.constants = constants;
+        this.$window = $window;
         this.popups = {};
     }
 
@@ -11,6 +12,12 @@ class ExportGamePopupService {
         modalElement.style.display = "block";
 
         this.popups[popupDomElementId] = callback;
+    }
+
+    createDownloadBlobUrl(data) {
+        let blob = new Blob([data], { type: 'text/plain' });
+        let url = this.$window.URL || this.$window.webkitURL;
+        return url.createObjectURL(blob);
     }
 
     close(popupDomElementId, choice, endGameReason) {

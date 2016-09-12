@@ -7,7 +7,10 @@ const englishTranslations = {
     'ChoiceGame': 'Select the game "{{ adventureName }}" of the player "{{ playerName }}"',
     'ChoosenGame': 'The game "{{ adventureName }}" of the player "{{ playerName }}" is choosen',
     'DupplicateParagraph': 'The paragraph "{{paragraphNr}}" already exist',
-    'ExportGame': "Export the game of '{{playerName}}' from the adventure '{{adventureName}}'"
+    'ExportGame': "Export the game of '{{playerName}}' from the adventure '{{adventureName}}'",
+    'file': 'Download file',
+    'email': 'Sent email',
+    'text': 'Text'
 };
 
 export {englishTranslations as default};

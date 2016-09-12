@@ -1,6 +1,6 @@
 class AdventureDetailController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, persistenceService, adventurePersistenceService, $stateParams, $location, constants, popupService, messagesService, $timeout, $window) {
+    constructor(preScreenLoadingInterceptorsCallerService, persistenceService, adventurePersistenceService, $stateParams, $location, constants, popupService, messagesService, $timeout, $window, formHelperService) {
         preScreenLoadingInterceptorsCallerService.intercept();
         this.persistenceService = persistenceService;
         this.adventurePersistenceService = adventurePersistenceService;
@@ -11,6 +11,7 @@ class AdventureDetailController {
         this.messagesService = messagesService;
         this.$timeout = $timeout;
         this.$window = $window;
+        this.formHelperService = formHelperService;
         this.initData();
 
         this.popupDeleteStatsConfig = {
@@ -55,7 +56,7 @@ class AdventureDetailController {
     }
 
     save(form) {
-        this.setErrorFieldsAsDirty(form);
+        this.formHelperService.setErrorFieldsAsDirty(form, true);
         if (form.$invalid) {
             return ;
         }
@@ -75,19 +76,6 @@ class AdventureDetailController {
             this.$location.url(this.constants.url.adventures);
         } catch (error) {
             this.messagesService.errorMessage(error, false);
-        }
-    }
-
-    setErrorFieldsAsDirty(form) {
-        if (form.$invalid) {
-            this.messagesService.errorMessage('Please complete mandatory fields', false);
-
-            // error "dirty" field will be hightlighted (see app.css)
-            angular.forEach(form.$error, function(type) {
-                angular.forEach(type, function(field) {
-                    field.$setDirty();
-                });
-            });
         }
     }
 

@@ -1,29 +1,43 @@
 class ExportGamePopupController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, exportGamePopupService, constants, exportMethods, $window) {
+    constructor(preScreenLoadingInterceptorsCallerService, exportGamePopupService, constants, exportMethods, $window, formHelperService) {
         this.constants = constants;
         this.exportGamePopupService = exportGamePopupService;
         this.exportMethods = exportMethods;
         this.$window = $window;
+        this.formHelperService = formHelperService;
 
         this.choices = [constants.choices.cancel, constants.choices.ok];
         this.methods = [ exportMethods.text, exportMethods.file, exportMethods.email ];
-        this.exportMethod = exportMethods.file;
+        this.exportMethod = exportMethods.text;
     }
 
-    select(choice) {
-        this.close(choice);
+    select(choice, form) {
+        this.formHelperService.setErrorFieldsAsDirty(form, false);
+        if (!form.$invalid) {
+            if (choice === this.constants.choices.ok) {
+                if (this.displayExportEmail()) {
+                    let href = window.document.getElementById('linkSendEmail');
+                    window.document.getElementById('exportGameDataForm');
+                    href.click();
+                } else if (this.displayDownload()) {
+                    let href = window.document.getElementById('linkDownload');
+                    href.click();
+                }
+            }
+            this.close(choice);
+        }
     }
 
     close(choice) {
-        this.exportGamePopupService.close(this.config.id, choice, this.endGameReason);
+        this.exportGamePopupService.close(this.config.id, choice);
     }
 
     displayExportText() {
         return !!this.exportMethod && this.exportMethod === this.exportMethods.text;
     }
 
-    displayExportFilePath() {
+    displayDownload() {
         return !!this.exportMethod && this.exportMethod === this.exportMethods.file;
     }
 
@@ -31,12 +45,8 @@ class ExportGamePopupController {
         return !!this.exportMethod && this.exportMethod === this.exportMethods.email;
     }
 
-    changeDropDown() {
-        if (!!this.displayExportFilePath()) {
-            let blob = new Blob([this.config.exportData], { type: 'text/plain' });
-            let url = this.$window.URL || this.$window.webkitURL;
-            this.downloadFileUrl = url.createObjectURL(blob);
-        }
+    showContent($fileContent) {
+        this.content = $fileContent;
     }
 }
 
