@@ -1,10 +1,11 @@
 class GamePersistenceService {
 
     /*@ngInject*/
-    constructor(constants, persistenceService, adventurePersistenceService) {
+    constructor(constants, persistenceService, adventurePersistenceService, messagesService) {
         this.persistenceService = persistenceService;
         this.adventurePersistenceService = adventurePersistenceService;
         this.constants = constants;
+        this.messagesService = messagesService;
     }
 
     getSelectedLanguage() {
@@ -32,6 +33,22 @@ class GamePersistenceService {
 
         this.updateGame(savedGame);
         return savedGame;
+    }
+
+    importGame(gameAsStr) {
+        try {
+            let game = JSON.parse(gameAsStr);
+            if (!game.id || !game.playerName || !game.adventureId|| !game.items || !game.stats || !game.currentParagraphNr) {
+                this.messagesService.errorMessage('Cannot import game', false);
+                return ;
+            }
+            if (!!this.getGame(game.id)) {
+                this.messagesService.errorMessage('The game already exists', false);
+            }
+            this.updateGame(game);
+        } catch (error) {
+            this.messagesService.errorMessage('Cannot import game', false);
+        }
     }
 
     updateGame(game) {

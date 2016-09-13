@@ -18,7 +18,7 @@
 
             <div class="form-group" ng-if="$ctrl.displayUpload()">
                 <label for="importUpload">{{ "Import text" | translate }}</label>
-                <input id="importUpload" type="file" on-read-file="$ctrl.showContent($fileContent)" />
+                <input id="importUpload" type="file" ng-model="$ctrl.uploadFile" on-read-file="$ctrl.showContent($fileContent)" />
             </div>
 
             <span ng-repeat="choice in $ctrl.choices">

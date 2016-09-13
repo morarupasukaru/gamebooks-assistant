@@ -25,8 +25,8 @@ class ExportDataPopupService {
         modalElement.style.display = "none";
 
         let callback = this.popups[popupDomElementId];
-        if (!!callback && choice === this.constants.choices.yes) {
-            callback(popupDomElementId, endGameReason);
+        if (!!callback && choice === this.constants.choices.ok) {
+            callback(popupDomElementId, choice);
         }
         delete this.popups[popupDomElementId];
     }

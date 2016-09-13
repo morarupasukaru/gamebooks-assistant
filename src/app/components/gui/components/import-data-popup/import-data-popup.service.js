@@ -20,13 +20,13 @@ class ImportDataPopupService {
         return url.createObjectURL(blob);
     }
 
-    close(popupDomElementId, choice, endGameReason) {
+    close(popupDomElementId, choice, data) {
         let modalElement = window.document.getElementById(popupDomElementId);
         modalElement.style.display = "none";
 
         let callback = this.popups[popupDomElementId];
-        if (!!callback && choice === this.constants.choices.yes) {
-            callback(popupDomElementId, endGameReason);
+        if (!!callback && choice === this.constants.choices.ok) {
+            callback(popupDomElementId, data);
         }
         delete this.popups[popupDomElementId];
     }

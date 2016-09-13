@@ -98,10 +98,7 @@ class GamesListController {
         this.popupExportGameConfig.exportData = JSON.stringify(this.gamePersistenceService.getGame(this.getSelectedRow().id));
         this.popupExportGameConfig.exportDownloadBlobUrl = this.exportDataPopupService.createDownloadBlobUrl(this.popupExportGameConfig.exportData);
         this.popupExportGameConfig.exportTitle = this.$translate.instant('ExportGame', {playerName: this.getSelectedRow().playerName, adventureName: this.getSelectedRow().adventureName });
-        this.exportDataPopupService.show(
-            this.popupExportGameConfig.id,
-            function(popupDomElementId, choice) {}
-        );
+        this.exportDataPopupService.show(this.popupExportGameConfig.id);
     }
 
     displayImportGamePopup() {
@@ -111,7 +108,10 @@ class GamesListController {
         this.popupImportGameConfig.title = this.$translate.instant('Import a game');
         this.importDataPopupService.show(
             this.popupImportGameConfig.id,
-            function(popupDomElementId, choice) {}
+            function(popupDomElementId, data) {
+                self.gamePersistenceService.importGame(data);
+                self.initData();
+            }
         );
     }
 

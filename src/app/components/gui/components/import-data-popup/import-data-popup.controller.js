@@ -13,17 +13,21 @@ class ImportDataPopupController {
     }
 
     select(choice, form) {
-        this.formHelperService.setErrorFieldsAsDirty(form, false);
-        if (!form.$invalid) {
-            let importData = null;
-            if (choice === this.constants.choices.ok) {
+        if (choice === this.constants.choices.cancel) {
+            this.close(choice);
+        } else if (choice === this.constants.choices.ok) {
+            this.formHelperService.setErrorFieldsAsDirty(form, false);
+            if (!form.$invalid) {
+                let importData = null;
                 if (this.importMethod === this.importMethods.text) {
                     importData = this.importTextData;
                 } else if (this.importMethod === this.importMethods.file) {
-                   importData = this.importUploadData;
-               }
+                    importData = this.importUploadData;
+                }
+                this.close(choice, importData);
+                this.importTextData = null;
+                this.importUploadData = null;
             }
-            this.close(choice, importData);
         }
     }
 
