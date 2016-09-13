@@ -44,10 +44,6 @@ class ExportDataPopupController {
     displayExportEmail() {
         return !!this.exportMethod && this.exportMethod === this.exportMethods.email;
     }
-
-    showContent($fileContent) {
-        this.content = $fileContent;
-    }
 }
 
 export default ExportDataPopupController;

@@ -56,7 +56,8 @@
         </button>
         <button type="button" class="btn btn-default"
                 aria-label="{{ 'Import an adventure' | translate }}"
-                title="{{ 'Import an adventure' | translate }}">{{ 'Import' | translate }}</button>
+                title="{{ 'Import an adventure' | translate }}"
+                ng-click="$ctrl.displayImportGamePopup()">{{ 'Import' | translate }}</button>
         <button type="button" class="btn btn-default"
                 ng-disabled="!$ctrl.hasSelectedRow()"
                 ng-click="$ctrl.continueGame()"
@@ -79,3 +80,4 @@
 
 <popup config="{{ $ctrl.popupDeleteGameConfig }}"></popup>
 <export-data-popup config="$ctrl.popupExportGameConfig"></export-data-popup>
+<import-data-popup config="$ctrl.popupImportGameConfig"></import-data-popup>

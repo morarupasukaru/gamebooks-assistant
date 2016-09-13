@@ -1,6 +1,6 @@
 class GamesListController {
     /*@ngInject*/
-    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, exportDataPopupService) {
+    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, exportDataPopupService, importDataPopupService) {
         this.constants = constants;
         preScreenLoadingInterceptorsCallerService.intercept();
         this.$location = $location;
@@ -10,6 +10,7 @@ class GamesListController {
         this.$translate = $translate;
         this.popupService = popupService;
         this.exportDataPopupService = exportDataPopupService;
+        this.importDataPopupService = importDataPopupService;
 
         this.popupDeleteGameConfig = {
             id : 'popupDeleteGame',
@@ -20,6 +21,7 @@ class GamesListController {
         };
 
         this.popupExportGameConfig = { id : 'popupExportGame' };
+        this.popupImportGameConfig = { id : 'popupImportGame' };
 
         this.initData();
     }
@@ -98,6 +100,17 @@ class GamesListController {
         this.popupExportGameConfig.exportTitle = this.$translate.instant('ExportGame', {playerName: this.getSelectedRow().playerName, adventureName: this.getSelectedRow().adventureName });
         this.exportDataPopupService.show(
             this.popupExportGameConfig.id,
+            function(popupDomElementId, choice) {}
+        );
+    }
+
+    displayImportGamePopup() {
+        let self = this;
+        this.popupImportGameConfig.exportData = JSON.stringify('todo');
+        this.popupImportGameConfig.exportDownloadBlobUrl = this.importDataPopupService.createDownloadBlobUrl(this.popupImportGameConfig.exportData);
+        this.popupImportGameConfig.title = this.$translate.instant('Import a game');
+        this.importDataPopupService.show(
+            this.popupImportGameConfig.id,
             function(popupDomElementId, choice) {}
         );
     }

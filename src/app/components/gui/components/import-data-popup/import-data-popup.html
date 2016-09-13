@@ -1,0 +1,29 @@
+<form name="importDataForm" novalidate="novalidate">
+    <div id="{{$ctrl.config.id}}" class="modal">
+        <div class="modal-content">
+            <h1>{{$ctrl.config.title}}</h1>
+
+            <div class="form-group">
+                <label for="importMethod">{{ 'Select the import method' | translate }}</label>
+                <select id="importMethod" class="form-control" ng-model="$ctrl.importMethod">
+                    <option ng-repeat="method in $ctrl.methods" value="{{ method }}">{{ 'import_' + method | translate }}</option>
+                </select>
+            </div>
+
+            <div class="form-group" ng-if="$ctrl.displayImportText()">
+                <label for="importText">{{ "Import text" | translate }}</label>
+                <textarea class="form-control" id="importText" rows="4" ng-model="$ctrl.importTextData" required>
+                </textarea>
+            </div>
+
+            <div class="form-group" ng-if="$ctrl.displayUpload()">
+                <label for="importUpload">{{ "Import text" | translate }}</label>
+                <input id="importUpload" type="file" on-read-file="$ctrl.showContent($fileContent)" />
+            </div>
+
+            <span ng-repeat="choice in $ctrl.choices">
+                <button type="button" class="btn btn-default" ng-click="$ctrl.select(choice, importDataForm)">{{ choice | translate }}</button>&nbsp;
+            </span>
+        </div>
+    </div>
+</form>
