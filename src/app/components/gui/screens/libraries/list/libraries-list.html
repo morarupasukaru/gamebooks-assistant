@@ -1,0 +1,84 @@
+<navbar></navbar>
+<messages></messages>
+<main>
+    <div class="container bg-white" role="main">
+        <div class="page-header">
+            <h1>{{ 'Libraries' | translate }}</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped">
+                    <col style="width:35%">
+                    <col style="width:30%">
+                    <col style="width:5% ">
+                    <col style="width:10% ">
+                    <col style="width:10% ">
+                    <col style="width:5%">
+                    <thead>
+                    <tr>
+                        <th>{{ 'Name' | translate }}</th>
+                        <th>{{ 'Author(s)' | translate }}</th>
+                        <th>{{ 'Length' | translate }}</th>
+                        <th>{{ 'Language' | translate }}</th>
+                        <th>{{ 'Version' | translate }}</th>
+                        <th>{{ 'Selection' | translate }}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="row in $ctrl.rows">
+                        <td>{{ row.name }}</td>
+                        <td>{{ row.authors }}</td>
+                        <td aria-label="{{ 'NumberOfParagraphs' | translate: {numberOfParagraphs: row.numberOfParagraphs} }}"
+                            title="{{ 'NumberOfParagraphs' | translate: {numberOfParagraphs: row.numberOfParagraphs} }}">
+                            {{ row.numberOfParagraphs + (!!row.numberOfParagraphs ? '§' : '') }}
+                        </td>
+                        <td>{{ row.language | translate }}</td>
+                        <td>{{ row.version }}</td>
+                        <td>
+                            <button type="button" class="btn" ng-class="{ 'btn-success' : row.selected, 'btn-default' : !row.selected}"
+                                    aria-label="{{ !row.selected ?
+                                        ('ChoiceAdventure' | translate: {adventureName: row.name}) :
+                                        ('ChoosenAdventure' | translate: {adventureName: row.name}) }}"
+                                    title="{{ !row.selected ?
+                                        ('ChoiceAdventure' | translate: {adventureName: row.name}) :
+                                        ('ChoosenAdventure' | translate: {adventureName: row.name}) }}"
+                                    ng-click="$ctrl.select(row)">
+                                <span ng-class="{ 'glyphicon glyphicon-ok' : row.selected, 'glyphicon glyphicon-hand-left' : !row.selected}" aria-hidden="true"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <back-button></back-button>
+        <button type="button" class="btn btn-default"
+                aria-label="{{ 'Create an adventure' | translate }}"
+                title="{{ 'Create an adventure' | translate }}"
+                ng-click="$ctrl.create()">{{ 'Create' | translate }}</button>
+        <button type="button" class="btn btn-default"
+                aria-label="{{ 'Import an adventure' | translate }}"
+                title="{{ 'Import an adventure' | translate }}"
+                ng-click="$ctrl.displayImportAdventurePopup()">{{ 'Import' | translate }}</button>
+        <button type="button" class="btn btn-default"
+                aria-label="{{ 'Display selected adventure' | translate }}"
+                title="{{ 'Display selected adventure' | translate }}"
+                ng-disabled="!$ctrl.hasSelectedRow()"
+                ng-click="$ctrl.display()">{{ 'Display' | translate }}</button>
+        <button type="button" class="btn btn-danger"
+                ng-disabled="!$ctrl.hasSelectedRow()"
+                aria-label="{{ 'Remove selected adventure' | translate }}"
+                title="{{ 'Remove selected adventure' | translate }}"
+                ng-click="$ctrl.displayRemoveAdventurePopup()">{{ 'Remove' | translate }}</button>
+        <button type="button" class="btn btn-default"
+                ng-disabled="!$ctrl.hasSelectedRow()"
+                aria-label="{{ 'Export selected adventure' | translate }}"
+                title="{{ 'Export selected adventure' | translate }}"
+                ng-click="$ctrl.displayExportAdventurePopup()">{{ 'Export' | translate }}</button>
+    </div>
+</main>
+
+<popup config="{{ $ctrl.popupDeleteAdventureConfig }}"></popup>
+<export-data-popup config="$ctrl.popupExportAdventureConfig"></export-data-popup>
+<import-data-popup config="$ctrl.popupImportAdventureConfig"></import-data-popup>

@@ -1,0 +1,209 @@
+<navbar></navbar>
+<messages></messages>
+<main>
+    <div class="container bg-white" role="main">
+        <h2>{{ $ctrl.adventure.name }}</h2>
+        <div class="col-md-12">
+            <form name="adventureTableForm" novalidate="novalidate" ng-submit="$ctrl.save()">
+                <h3>{{ 'General' | translate }}</h3>
+                <div>
+                    <div class="form-group" ng-if="!$ctrl.adventure.id">
+                        <label for="name">{{ "Name" | translate }}</label>
+                        <input type="text" class="form-control" id="name" ng-model="$ctrl.adventure.name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="authors">{{ "Author(s)" | translate }}</label>
+                        <input type="text" class="form-control" id="authors" ng-model="$ctrl.adventure.authors" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">{{ "Description" | translate }}</label>
+                        <div contenteditable="true" id="description" class="form-control editable-div" ng-model="$ctrl.adventure.description"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="version">{{ "Version" | translate }}</label>
+                        <input type="text" class="form-control" id="version" ng-model="$ctrl.adventure.version" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="language">{{ "Language" | translate }}</label>
+                        <input type="text" class="form-control" id="language" ng-model="$ctrl.adventure.language" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="homepage">{{ "Homepage" | translate }}</label>
+                        <input type="text" class="form-control" id="homepage" ng-model="$ctrl.adventure.homepage">
+                    </div>
+                    <div class="form-group">
+                        <label for="isbn">{{ "ISBN" | translate }}</label>
+                        <input type="text" class="form-control" id="isbn" ng-model="$ctrl.adventure.isbn">
+                    </div>
+                    <div class="form-group">
+                        <label for="numberOfParagraphs">{{ "Number of paragraphs" | translate }}</label>
+                        <input type="text" class="form-control" id="numberOfParagraphs" ng-model="$ctrl.adventure.numberOfParagraphs">
+                    </div>
+                    <div class="form-group">
+                        <label for="startParagraphNr">{{ "First paragraph" | translate }}</label>
+                        <input type="text" class="form-control" id="startParagraphNr" ng-model="$ctrl.adventure.startParagraphNr" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="startGameNote">{{ "Start game's note" | translate }}</label>
+                        <div contenteditable="true" id="startGameNote" class="form-control editable-div" ng-model="$ctrl.adventure.startGameNote"></div>
+                    </div>
+                </div>
+
+                <h3>{{ 'Stats rules' | translate }}</h3>
+                <div>
+                    <table class="table table-striped">
+                        <col style="width:20%">
+                        <col style="width:30%">
+                        <col style="width:15%">
+                        <col style="width:15%">
+                        <col style="width:20%">
+                        <thead>
+                        <tr>
+                            <th>
+                                {{ 'Name' | translate }}
+                            </th>
+                            <th>
+                                {{ 'Player stats value generation' | translate }}
+                            </th>
+                            <th aria-label="{{ 'Is this stats displayed in battle?' | translate }}"
+                                title="{{ 'Is this stat displayed in battle?' | translate }}">
+                                {{ 'For battle?' | translate }}
+                            </th>
+                            <th aria-label="{{ 'Is it a enemy stats?' | translate }}"
+                                title="{{ 'Is it a enemy stats?' | translate }}">
+                                {{ 'For enemy?' | translate }}
+                            </th>
+                            <th aria-label="{{ 'Default value of the stats for enemy' | translate }}"
+                                title="{{ 'Default value of the stats for enemy' | translate }}">
+                                {{ 'Default enemy value' | translate }}
+                            </th>
+                            <th></th>
+                            <th></th>
+                            <th>
+                                <button type="button" class="btn btn-default"
+                                        aria-label="{{ 'Add stats' | translate}}"
+                                        title="{{ 'Add stats' | translate}}"
+                                        ng-click="$ctrl.addRow()"
+                                        ng-show="!$ctrl.hasEditedRow()">
+                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                </button>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr ng-repeat="row in $ctrl.adventure.stats">
+                            <td ng-if="!$ctrl.isRowEdited(row)">
+                                {{ row.name }}
+                            </td>
+                            <td ng-if="$ctrl.isRowEdited(row)">
+                                <input required type="text" class="form-control" ng-model="row.name">
+                                <div class="error" ng-show="!row.name">
+                                    {{ 'Please fill the name of the stats' | translate }}
+                                </div>
+                            </td>
+
+                            <td ng-if="!$ctrl.isRowEdited(row)">
+                                {{ row.init.sixDiceQuantity + 'd6' + (!!row.init.constant ? '+' + row.init.constant : '')   }}
+                            </td>
+                            <td ng-if="$ctrl.isRowEdited(row)">
+                                <div class="form-group">
+                                    <label for="sixDiceQuantity">{{ "Quantity of dices 6 faces" | translate }}</label>
+                                    <input required id="sixDiceQuantity" type="number" class="form-control" ng-model="row.init.sixDiceQuantity">
+                                </div>
+                                <div class="form-group">
+                                    <label for="constant">{{ "Constant" | translate }}</label>
+                                    <input id="constant" type="number" class="form-control" ng-model="row.init.constant">
+                                </div>
+                                <div class="error" ng-show="!row.init.sixDiceQuantity">
+                                    <!-- check error only on field -->
+                                    {{ 'Please fill the quantity of dices 6 faces used to generate a value for this stats' | translate }}
+                                </div>
+                            </td>
+
+                            <td ng-if="!$ctrl.isRowEdited(row)">
+                                {{ 'yesno_' + row.battle.displayed | translate }}
+                            </td>
+                            <td ng-if="$ctrl.isRowEdited(row)">
+                                <input type="checkbox" class="form-control" ng-model="row.battle.displayed" id="displayed"><br>
+                            </td>
+
+                            <td ng-if="!$ctrl.isRowEdited(row)">
+                                {{ 'yesno_' + row.battle.editableForEnemy | translate }}
+                            </td>
+                            <td ng-if="$ctrl.isRowEdited(row)">
+                                <input type="checkbox" class="form-control" ng-model="row.battle.editableForEnemy" id="editableForEnemy"><br>
+                            </td>
+
+                            <td ng-if="!$ctrl.isRowEdited(row)">
+                                {{ row.battle.enemyDefaultValue }}
+                            </td>
+                            <td ng-if="$ctrl.isRowEdited(row)">
+                                <input id="enemyDefaultValue" type="number" class="form-control" ng-model="row.battle.enemyDefaultValue" ng-required="!!row.battle.editableForEnemy" >
+                                <div class="error" ng-show="!!row.battle.editableForEnemy && !row.battle.enemyDefaultValue">
+                                    <!-- check error only on field -->
+                                    {{ 'Please fill a default value of this stats for enemies' | translate }}
+                                </div>
+                                <div class="error" ng-show="!row.battle.editableForEnemy && !!row.battle.enemyDefaultValue">
+                                    <!-- check error only on field -->
+                                    {{ 'Please do not fill a default value as this stats is not available for enemies' | translate }}
+                                </div>
+                            </td>
+
+                            <td>
+                                <button type="button" class="btn btn-success"
+                                        aria-label="{{ 'Save stats changes' | translate}}"
+                                        title="{{ 'Save stats changes' | translate}}"
+                                        ng-click="$ctrl.saveRowChanges(adventureTableForm.$invalid, row)"
+                                        ng-show="$ctrl.isRowEdited(row)">
+                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                </button>
+                            </td>
+
+                            <td>
+                                <button type="button" class="btn btn-danger"
+                                        aria-label="{{ 'Abort stats changes' | translate}}"
+                                        title="{{ 'Abort stats changes' | translate}}"
+                                        ng-click="$ctrl.abortRowChanges()"
+                                        ng-show="$ctrl.isRowEdited(row)">
+                                    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+                                </button>
+                            </td>
+
+                            <td>
+                                <button type="button" class="btn btn-default"
+                                        aria-label="{{ 'Edit stats' | translate}}"
+                                        title="{{ 'Edit stats' | translate}}"
+                                        ng-click="$ctrl.editRow(row)"
+                                        ng-show="!$ctrl.hasEditedRow()">
+                                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                </button>
+                                <button type="button" class="btn btn-danger"
+                                        aria-label="{{ 'Remove stats' | translate }}"
+                                        title="{{ 'Remove stats' | translate }}"
+                                        ng-click="$ctrl.displayRemovePopup(row)"
+                                        ng-disabled="$ctrl.addedRow"
+                                        ng-show="$ctrl.isRowEdited(row)">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>{{ 'Initial items' | translate }}</h3>
+                <div>
+                    <items items="$ctrl.adventure.items"></items>
+                </div>
+            </form>
+        </div>
+        <back-button></back-button>
+        <button type="button" class="btn btn-primary"
+                aria-label="{{ 'Save changes' | translate }}"
+                title="{{ 'Save changes' | translate }}"
+                ng-click="$ctrl.save(adventureTableForm)">{{ 'Save' | translate }}</button>
+    </div>
+</main>
+
+<popup config="{{ $ctrl.popupDeleteStatsConfig }}"></popup>

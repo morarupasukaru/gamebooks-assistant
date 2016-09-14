@@ -21,7 +21,9 @@ let constantsModule = angular.module('app.components.constants', [])
             gameDetail: '/{adventureId}/{paragraphNr}/game/{gameId}',
             about: '/about?admin',
             adventures: '/adventures',
-            adventureDetail: '/adventures'
+            adventureDetail: '/adventures',
+            libraries: '/libraries',
+            libraryDetail: '/libraries',
         },
         choices : {
             yes : 'Yes',
