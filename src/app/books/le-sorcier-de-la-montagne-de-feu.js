@@ -1,5 +1,6 @@
-{
-    version : '0.1',
+const book = {
+    "id": "le-sorcier-de-la-montagne-de-feu",
+    "version" : "0.1",
     language : 'Français',
     name : 'Le Sorcier de la Montagne de Feu',
     authors : 'Steve Jackson & Ian Livingstone',
@@ -74,7 +75,7 @@
            description : "Mesures de Bonne Fortune (rend vos points de CHANCE + 1 point)"
         }
     ],
-    paragraphs = [
+    paragraphs : [
         {
             paragraphNr: 1,
             description: "Caverne sombre",
@@ -1396,3 +1397,5 @@
         }
     ]
 };
+
+export {book as default};

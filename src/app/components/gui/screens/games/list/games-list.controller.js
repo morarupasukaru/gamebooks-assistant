@@ -103,8 +103,6 @@ class GamesListController {
 
     displayImportGamePopup() {
         let self = this;
-        this.popupImportGameConfig.exportData = JSON.stringify('todo');
-        this.popupImportGameConfig.exportDownloadBlobUrl = this.importDataPopupService.createDownloadBlobUrl(this.popupImportGameConfig.exportData);
         this.popupImportGameConfig.title = this.$translate.instant('Import a game');
         this.importDataPopupService.show(
             this.popupImportGameConfig.id,

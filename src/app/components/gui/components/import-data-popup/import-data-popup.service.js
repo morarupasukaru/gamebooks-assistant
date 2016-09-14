@@ -1,9 +1,8 @@
 class ImportDataPopupService {
 
     /*@ngInject*/
-    constructor(constants, $window) {
+    constructor(constants) {
         this.constants = constants;
-        this.$window = $window;
         this.popups = {};
     }
 
@@ -12,12 +11,6 @@ class ImportDataPopupService {
         modalElement.style.display = "block";
 
         this.popups[popupDomElementId] = callback;
-    }
-
-    createDownloadBlobUrl(data) {
-        let blob = new Blob([data], { type: 'text/plain' });
-        let url = this.$window.URL || this.$window.webkitURL;
-        return url.createObjectURL(blob);
     }
 
     close(popupDomElementId, choice, data) {

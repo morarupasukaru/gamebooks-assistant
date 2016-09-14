@@ -1,5 +1,4 @@
 en cours
-- import as json file (upload)
 - référerencer les livres dispo via des url qui fournissent des données json, configuration de l'url des sites de référencement via écran admin
 - permettre le téléchargement, upgrade de livres (et non pas automatique)
 
@@ -13,7 +12,6 @@ améliorations
 - version app : { major : xx, minor : xx } sauvé dans localStorage
 => si version app major <> version major sauvé dans le livre alors un reload des données du livre sont nécessaires ou impossible
 - base64 pour image windows, test avec qq-un qui avec windows 10 => Florence?
-- test "DupplicateParagraph"
 
 nouvelles fonctionnalités
 - amélioration gui pour diminuer le nb de clic

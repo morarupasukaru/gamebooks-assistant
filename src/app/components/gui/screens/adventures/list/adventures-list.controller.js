@@ -1,6 +1,6 @@
 class AdventuresListController {
     /*@ngInject*/
-    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, exportDataPopupService) {
+    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, exportDataPopupService, importDataPopupService) {
         this.constants = constants;
         preScreenLoadingInterceptorsCallerService.intercept();
         this.$location = $location;
@@ -10,6 +10,7 @@ class AdventuresListController {
         this.$translate = $translate;
         this.popupService = popupService;
         this.exportDataPopupService = exportDataPopupService;
+        this.importDataPopupService = importDataPopupService;
 
         this.popupDeleteAdventureConfig = {
             id : 'popupDeleteAdventure',
@@ -20,6 +21,7 @@ class AdventuresListController {
         };
 
         this.popupExportAdventureConfig = { id : 'popupExportAdventure' };
+        this.popupImportAdventureConfig = { id : 'popupImportAdventure' };
 
         this.initData();
     }
@@ -62,12 +64,21 @@ class AdventuresListController {
 
     displayExportAdventurePopup() {
         let self = this;
-        this.popupExportAdventureConfig.exportData = JSON.stringify(this.adventurePersistenceService.getAdventure(this.getSelectedRow().id));
+        this.popupExportAdventureConfig.exportData = JSON.stringify(this.adventurePersistenceService.exportAdventure(this.getSelectedRow().id));
         this.popupExportAdventureConfig.exportDownloadBlobUrl = this.exportDataPopupService.createDownloadBlobUrl(this.popupExportAdventureConfig.exportData);
         this.popupExportAdventureConfig.exportTitle = this.$translate.instant('ExportAdventure', {adventureName: this.getSelectedRow().name });
-        this.exportDataPopupService.show(
-            this.popupExportAdventureConfig.id,
-            function(popupDomElementId, choice) {}
+        this.exportDataPopupService.show(this.popupExportAdventureConfig.id);
+    }
+
+    displayImportAdventurePopup() {
+        let self = this;
+        this.popupImportAdventureConfig.title = this.$translate.instant('Import an adventure');
+        this.importDataPopupService.show(
+            this.popupImportAdventureConfig.id,
+            function(popupDomElementId, data) {
+                self.adventurePersistenceService.importAdventure(data);
+                self.initData();
+            }
         );
     }
 

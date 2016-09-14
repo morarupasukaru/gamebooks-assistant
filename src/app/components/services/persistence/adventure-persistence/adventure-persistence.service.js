@@ -40,6 +40,45 @@ class AdventurePersistenceService {
         return this.persistenceService.get(this.getAdventurePersistenceKey(adventureId));
     }
 
+    importAdventure(adventureAsStr) {
+        try {
+            let adventure = JSON.parse(adventureAsStr);
+            let missingMandatoryFields = [];
+            if (!adventure.id) {
+                missingMandatoryFields.push('id');
+            }
+            if (!adventure.name) {
+                missingMandatoryFields.push('name');
+            }
+            if (!adventure.authors) {
+                missingMandatoryFields.push('authors');
+            }
+            if (!adventure.version) {
+                missingMandatoryFields.push('version');
+            }
+            if (!adventure.language) {
+                missingMandatoryFields.push('language');
+            }
+            if (!adventure.startParagraphNr) {
+                missingMandatoryFields.push('startParagraphNr');
+            }
+            if (missingMandatoryFields.length > 0) {
+                this.messagesService.errorMessage('Cannot import game because of missing mandatory fields: ' + missingMandatoryFields.join(', '), false);
+            } else if (!!this.getAdventure(adventure.id)) {
+                this.messagesService.errorMessage("The adventure already exists with id '" + adventure.id + "'", false);
+            } else {
+                this.updateAdventureWithoutParagraphs(adventure);
+                if (!!adventure.paragraphs) {
+                    for (let i = 0; i < adventure.paragraphs.length; i++) {
+                        this.setParagraph(adventure.id, adventure.paragraphs[i], true);
+                    }
+                }
+            }
+        } catch (error) {
+            this.messagesService.errorMessage('Cannot import adventure', false);
+        }
+    }
+
     updateAdventureWithoutParagraphs(adventure) {
         let adventureIdFromFromAdventureName = this.getAdventureIdFromAdventureName(adventure.name);
         if (!adventure.id) {
@@ -180,6 +219,8 @@ class AdventurePersistenceService {
                 if (currentAdventureIdPrefix === adventureIdKeyPrefix) {
                     let paragraph = this.persistenceService.get(keys[i]);
                     if (!!paragraph) {
+                        delete paragraph.version;
+                        delete paragraph.adventureId;
                         adventure.paragraphs.push(paragraph);
                     }
                 }
