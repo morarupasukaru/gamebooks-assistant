@@ -38,11 +38,11 @@ class LibrariesListController {
     }
 
     create() {
-        this.$location.url(this.constants.url.adventureDetail + '/create');
+        this.$location.url(this.constants.url.libraryDetail + '/create');
     }
 
     display() {
-        this.$location.url(this.constants.url.adventureDetail + '/' + this.getSelectedRow().id);
+        this.$location.url(this.constants.url.libraryDetail + '/' + this.getSelectedRow().id);
     }
 
     displayRemoveAdventurePopup() {

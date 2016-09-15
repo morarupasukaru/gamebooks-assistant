@@ -1,6 +1,7 @@
 class LibraryDetailController {
     /*@ngInject*/
     constructor(preScreenLoadingInterceptorsCallerService, persistenceService, adventurePersistenceService, $stateParams, $location, constants, popupService, messagesService, $timeout, $window, formHelperService) {
+        // TODO libraryPersistenceService
         preScreenLoadingInterceptorsCallerService.intercept();
         this.persistenceService = persistenceService;
         this.adventurePersistenceService = adventurePersistenceService;
@@ -13,14 +14,6 @@ class LibraryDetailController {
         this.$window = $window;
         this.formHelperService = formHelperService;
         this.initData();
-
-        this.popupDeleteStatsConfig = {
-            id : 'popupDeleteStats',
-            text : 'Are you sure to remove the status?',
-            choices : [constants.choices.yes, constants.choices.no],
-            withCloseButton : false,
-            closeOnClickOutsideModal : false
-        };
         this.setInitialFocus();
     }
 
@@ -77,97 +70,6 @@ class LibraryDetailController {
         } catch (error) {
             this.messagesService.errorMessage(error, false);
         }
-    }
-
-    addRow() {
-        let stats = { init: {}, battle: { displayed: true, editableForEnemy: false }};
-        this.adventure.stats.push(stats);
-        this.addedRow = stats;
-    }
-
-    displayRemovePopup(removedRow) {
-        this.rowToBeRemoved = removedRow;
-        let self = this;
-        this.popupService.show(
-            this.popupDeleteStatsConfig.id,
-            function(popupDomElementId, choice) {
-                if (choice === self.constants.choices.yes) {
-                    self.removeRow(self.rowToBeRemoved);
-                }
-                self.rowToBeRemoved = null;
-            }
-        );
-    }
-
-    removeRow(removedRow) {
-        var index = this.adventure.stats.indexOf(removedRow);
-        this.adventure.stats.splice(index, 1);
-        this.clearEditedRow();
-    }
-
-    editRow(row) {
-        this.editedRow = row;
-        this.originalRow = {
-            name : row.name,
-            init: {
-                sixDiceQuantity: row.init.sixDiceQuantity,
-                constants: row.init.constant
-            },
-            battle: {
-                displayed: row.battle.displayed,
-                enemyDefaultValue: row.battle.enemyDefaultValue,
-                editableForEnemy: row.battle.editableForEnemy,
-            }
-        };
-    }
-
-    isRowEdited(row) {
-        return row === this.editedRow || row === this.addedRow;
-    }
-
-    hasEditedRow() {
-        return !!this.editedRow || !! this.addedRow;
-    }
-
-    getEditRow() {
-        if (!!this.addedRow) {
-            return this.addedRow;
-        } else if (!!this.editedRow) {
-            return this.editedRow;
-        } else {
-            return null;
-        }
-    }
-
-    saveRowChanges($invalid) {
-        if (!this.getEditRow().name) {
-            return ;
-        }
-        if (!this.getEditRow().init.sixDiceQuantity) {
-            return ;
-        }
-        if (!this.getEditRow().battle.editableForEnemy && !!this.getEditRow().battle.enemyDefaultValue) {
-            return ;
-        }
-        this.clearEditedRow();
-    }
-
-    abortRowChanges() {
-        if (!!this.addedRow) {
-            this.removeRow(this.addedRow);
-        }
-        if (!!this.editedRow) {
-            this.editedRow.name = this.originalRow.name;
-            this.editedRow.init = this.originalRow.init;
-            this.editedRow.battle = this.originalRow.battle;
-        }
-        this.clearEditedRow();
-    }
-
-    clearEditedRow() {
-        this.addedRow = null;
-        this.editedRow = null;
-        this.originalRow = null;
     }
 }
 
