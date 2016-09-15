@@ -34,14 +34,15 @@ class GamesListController {
             this.rows.push(game);
         }
 
-        this.completeAdventureName(this.rows);
+        this.completeAdventureData(this.rows);
     }
 
-    completeAdventureName(games) {
+    completeAdventureData(games) {
         for (let i = 0; i < games.length; i++) {
             let adventure = this.adventurePersistenceService.getAdventure(games[i].adventureId);
             if (!!adventure) {
                 games[i].adventureName = adventure.name;
+                games[i].serie = adventure.serie;
             } else {
                 this.messagesService.errorMessage(this.$translate.instant('Cannot find adventure') + " '"  + games[i].adventureId + "'", false);
                 games[i].adventureName = games[i].adventureId;

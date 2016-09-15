@@ -17,23 +17,15 @@
                     <thead>
                     <tr>
                         <th>{{ 'Name' | translate }}</th>
-                        <th>{{ 'Author(s)' | translate }}</th>
-                        <th>{{ 'Length' | translate }}</th>
-                        <th>{{ 'Language' | translate }}</th>
-                        <th>{{ 'Version' | translate }}</th>
+                        <th>{{ 'Number of books' | translate }}</th>
                         <th>{{ 'Selection' | translate }}</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr ng-repeat="row in $ctrl.rows">
+                        <!-- TODO homepage link if set -->
                         <td>{{ row.name }}</td>
-                        <td>{{ row.authors }}</td>
-                        <td aria-label="{{ 'NumberOfParagraphs' | translate: {numberOfParagraphs: row.numberOfParagraphs} }}"
-                            title="{{ 'NumberOfParagraphs' | translate: {numberOfParagraphs: row.numberOfParagraphs} }}">
-                            {{ row.numberOfParagraphs + (!!row.numberOfParagraphs ? '§' : '') }}
-                        </td>
-                        <td>{{ row.language | translate }}</td>
-                        <td>{{ row.version }}</td>
+                        <td>{{ row.booksCount }}</td>
                         <td>
                             <button type="button" class="btn" ng-class="{ 'btn-success' : row.selected, 'btn-default' : !row.selected}"
                                     aria-label="{{ !row.selected ?

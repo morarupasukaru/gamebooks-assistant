@@ -19,7 +19,8 @@ class AdventurePersistenceService {
                 numberOfParagraphs : adventure.numberOfParagraphs,
                 language : adventure.language,
                 version : adventure.version,
-                authors : adventure.authors
+                authors : adventure.authors,
+                serie: adventure.serie
             });
         }
         return adventures;
