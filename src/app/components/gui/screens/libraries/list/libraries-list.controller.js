@@ -1,33 +1,34 @@
 class LibrariesListController {
     /*@ngInject*/
-    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, exportDataPopupService, importDataPopupService) {
+    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, exportDataPopupService, importDataPopupService, libraryPersistenceService) {
         this.constants = constants;
         preScreenLoadingInterceptorsCallerService.intercept();
         this.$location = $location;
         this.gamePersistenceService = gamePersistenceService;
         this.adventurePersistenceService = adventurePersistenceService;
+        this.libraryPersistenceService = libraryPersistenceService;
         this.messagesService = messagesService;
         this.$translate = $translate;
         this.popupService = popupService;
         this.exportDataPopupService = exportDataPopupService;
         this.importDataPopupService = importDataPopupService;
 
-        this.popupDeleteAdventureConfig = {
-            id : 'popupDeleteAdventure',
-            text : 'Are you sure to remove the selected adventure?',
+        this.popupDeleteLibraryConfig = {
+            id : 'popupDeleteLibrary',
+            text : 'Are you sure to remove the selected library?',
             choices : [constants.choices.yes, constants.choices.no],
             withCloseButton : false,
             closeOnClickOutsideModal : false
         };
 
-        this.popupExportAdventureConfig = { id : 'popupExportAdventure' };
-        this.popupImportAdventureConfig = { id : 'popupImportAdventure' };
+        this.popupExportLibrariesConfig = { id : 'popupExportLibraries' };
+        this.popupImportLibrariesConfig = { id : 'popupImportLibraries' };
 
         this.initData();
     }
 
     initData() {
-        this.rows = this.adventurePersistenceService.getAdventuresOverview();
+        this.rows = this.libraryPersistenceService.getLibraries();
     }
 
     select(row) {
@@ -45,41 +46,44 @@ class LibrariesListController {
         this.$location.url(this.constants.url.libraryDetail + '/' + this.getSelectedRow().id);
     }
 
-    displayRemoveAdventurePopup() {
+    displayRemoveLibraryPopup() {
         let self = this;
         this.popupService.show(
-            this.popupDeleteAdventureConfig.id,
+            this.popupDeleteLibraryConfig.id,
             function(popupDomElementId, choice) {
                 if (choice === self.constants.choices.yes) {
-                    self.deleteAdventure();
+                    self.deleteLibrary();
                 }
             }
         );
     }
 
-    deleteAdventure() {
-        this.adventurePersistenceService.deleteAdventureAndParagraphs(this.getSelectedRow().id);
+    deleteLibrary() {
+        this.libraryPersistenceService.deleteLibrary(this.getSelectedRow().id);
         this.initData();
     }
 
-    displayExportAdventurePopup() {
+    displayExportLibrariesPopup() {
         let self = this;
-        this.popupExportAdventureConfig.exportData = JSON.stringify(this.adventurePersistenceService.exportAdventure(this.getSelectedRow().id));
-        this.popupExportAdventureConfig.exportDownloadBlobUrl = this.exportDataPopupService.createDownloadBlobUrl(this.popupExportAdventureConfig.exportData);
-        this.popupExportAdventureConfig.exportTitle = this.$translate.instant('ExportAdventure', {adventureName: this.getSelectedRow().name });
-        this.exportDataPopupService.show(this.popupExportAdventureConfig.id);
+        this.popupExportLibrariesConfig.exportData = this.libraryPersistenceService.exportLibraries();
+        this.popupExportLibrariesConfig.exportDownloadBlobUrl = this.exportDataPopupService.createDownloadBlobUrl(this.popupExportLibrariesConfig.exportData);
+        this.popupExportLibrariesConfig.exportTitle = this.$translate.instant('Export libraries');
+        this.exportDataPopupService.show(this.popupExportLibrariesConfig.id);
     }
 
-    displayImportAdventurePopup() {
+    displayImportLibrariesPopup() {
         let self = this;
-        this.popupImportAdventureConfig.title = this.$translate.instant('Import an adventure');
+        this.popupImportLibrariesConfig.title = this.$translate.instant('Import libraries');
         this.importDataPopupService.show(
-            this.popupImportAdventureConfig.id,
+            this.popupImportLibrariesConfig.id,
             function(popupDomElementId, data) {
-                self.adventurePersistenceService.importAdventure(data);
+                self.libraryPersistenceService.importLibraries(data);
                 self.initData();
             }
         );
+    }
+
+    downloadLibraries() {
     }
 
     hasSelectedRow() {

@@ -15,7 +15,9 @@ const englishTranslations = {
     'export_email': 'Sent email',
     'export_text': 'Text',
     'import_file': 'Upload file',
-    'import_text': 'Text'
+    'import_text': 'Text',
+    'error.adventureAlreadyExist': 'Adventure already exists',
+    'error.libraryAlreadyExist': 'Library already exists (JSON url)'
 };
 
 export {englishTranslations as default};

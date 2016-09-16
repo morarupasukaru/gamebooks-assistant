@@ -1,14 +1,11 @@
 class LibraryDetailController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, persistenceService, adventurePersistenceService, $stateParams, $location, constants, popupService, messagesService, $timeout, $window, formHelperService) {
-        // TODO libraryPersistenceService
+    constructor(preScreenLoadingInterceptorsCallerService, libraryPersistenceService, $stateParams, $location, constants, messagesService, $timeout, $window, formHelperService) {
         preScreenLoadingInterceptorsCallerService.intercept();
-        this.persistenceService = persistenceService;
-        this.adventurePersistenceService = adventurePersistenceService;
+        this.libraryPersistenceService = libraryPersistenceService;
         this.$stateParams = $stateParams;
         this.$location = $location;
         this.constants = constants;
-        this.popupService = popupService;
         this.messagesService = messagesService;
         this.$timeout = $timeout;
         this.$window = $window;
@@ -18,16 +15,13 @@ class LibraryDetailController {
     }
 
     initData() {
-        let adventureId = encodeURIComponent(this.$stateParams.adventureId);
-        if (!!adventureId) {
-            if ("create" === adventureId) {
-                this.adventure = {
-                    stats: [],
-                    items: []
-                };
+        let libraryId = encodeURIComponent(this.$stateParams.libraryId);
+        if (!!libraryId) {
+            if ("create" === libraryId) {
+                this.library = {};
                 this.mode = "create";
             } else {
-                this.adventure = this.adventurePersistenceService.getAdventure(adventureId);
+                this.library = this.libraryPersistenceService.getLibrary(libraryId);
                 this.mode = "edit";
             }
         }
@@ -36,12 +30,7 @@ class LibraryDetailController {
     setInitialFocus() {
         let that = this;
         this.$timeout(function() {
-            let element;
-            if (that.mode === "create") {
-                element = that.$window.document.getElementById("name");
-            } else {
-                element = that.$window.document.getElementById("authors");
-            }
+            let element = that.$window.document.getElementById("siteName");
             if(!!element) {
                 element.focus();
             }
@@ -54,19 +43,9 @@ class LibraryDetailController {
             return ;
         }
 
-        if (!!this.adventure.items) {
-            let modifiedItems = [];
-            for (let i = 0; i < this.adventure.items.length; i++) {
-                modifiedItems.push({
-                    quantity: this.adventure.items[i].quantity,
-                    description: this.adventure.items[i].description
-                });
-            }
-            this.adventure.items = modifiedItems;
-        }
         try {
-            this.adventurePersistenceService.updateAdventureWithoutParagraphs(this.adventure);
-            this.$location.url(this.constants.url.adventures);
+            this.libraryPersistenceService.updateLibrary(this.library);
+            this.$location.url(this.constants.url.libraries);
         } catch (error) {
             this.messagesService.errorMessage(error, false);
         }

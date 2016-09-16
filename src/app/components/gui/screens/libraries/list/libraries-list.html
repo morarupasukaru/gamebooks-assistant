@@ -8,11 +8,13 @@
         <div class="row">
             <div class="col-md-12">
                 <table class="table table-striped">
-                    <col style="width:95%">
+                    <col style="width:75%">
+                    <col style="width:20%">
                     <col style="width:5%">
                     <thead>
                     <tr>
                         <th>{{ 'Site' | translate }}</th>
+                        <th>{{ 'Last download' | translate }}</th>
                         <th>{{ 'Selection' | translate }}</th>
                     </tr>
                     </thead>
@@ -20,6 +22,7 @@
                     <tr ng-repeat="row in $ctrl.rows">
                         <td ng-if="!!row.siteUrl"><a href="{{ row.siteUrl }}">{{ row.siteName }}</a></td>
                         <td ng-if="!row.siteUrl">{{ row.siteName }}</td>
+                        <td>{{ row.lastDownload }}</td>
                         <td>
                             <button type="button" class="btn" ng-class="{ 'btn-success' : row.selected, 'btn-default' : !row.selected}"
                                     aria-label="{{ !row.selected ?
@@ -56,14 +59,18 @@
                 ng-disabled="!$ctrl.hasSelectedRow()"
                 aria-label="{{ 'Remove selected library' | translate }}"
                 title="{{ 'Remove selected library' | translate }}"
-                ng-click="$ctrl.displayRemoveAdventurePopup()">{{ 'Remove' | translate }}</button>
+                ng-click="$ctrl.displayRemoveLibrariesPopup()">{{ 'Remove' | translate }}</button>
         <button type="button" class="btn btn-default"
                 aria-label="{{ 'Export libraries' | translate }}"
                 title="{{ 'Export libraries' | translate }}"
-                ng-click="$ctrl.displayExportAdventurePopup()">{{ 'Export' | translate }}</button>
+                ng-click="$ctrl.displayExportLibrariesPopup()">{{ 'Export' | translate }}</button>
+        <button type="button" class="btn btn-default"
+                aria-label="{{ 'Download libraries' | translate }}"
+                title="{{ 'Download libraries' | translate }}"
+                ng-click="$ctrl.downloadLibraries()">{{ 'Download' | translate }}</button>
     </div>
 </main>
 
-<popup config="{{ $ctrl.popupDeleteAdventureConfig }}"></popup>
-<export-data-popup config="$ctrl.popupExportAdventureConfig"></export-data-popup>
-<import-data-popup config="$ctrl.popupImportAdventureConfig"></import-data-popup>
+<popup config="{{ $ctrl.popupDeleteLibraryConfig }}"></popup>
+<export-data-popup config="$ctrl.popupExportLibrariesConfig"></export-data-popup>
+<import-data-popup config="$ctrl.popupImportLibrariesConfig"></import-data-popup>

@@ -7,7 +7,8 @@ let constantsModule = angular.module('app.components.constants', [])
         data: {
             selectedLanguage: 'selectedLanguage',
             adventure: 'adventure',
-            game: 'game'
+            game: 'game',
+            library: 'library'
         },
         url: {
             battle : '/battle',
@@ -32,7 +33,9 @@ let constantsModule = angular.module('app.components.constants', [])
             cancel: 'Cancel'
         },
         errors: {
-            adventureAlreadyExist : 'error.adventureAlreadyExist'
+            adventureAlreadyExist : 'error.adventureAlreadyExist',
+            libraryAlreadyExist : 'error.libraryAlreadyExist',
+            missingMandatoryFields: 'error.missingMandatoryFields'
         }
     });
 

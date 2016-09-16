@@ -111,14 +111,6 @@ class AdventurePersistenceService {
         }
     }
 
-    deleteAdventureAndParagraphs(adventureId) {
-        this.persistenceService.remove(this.getAdventurePersistenceKey(adventureId));
-        let paragraphKeys = this.getAdventureParagraphKeys(adventureId);
-        for (let i = 0; i < paragraphKeys.length; i++) {
-            this.persistenceService.remove(paragraphKeys[i]);
-        }
-    }
-
     setParagraph(adventureId, paragraph, checkDupplicate) {
         let key = this.getParagraphPersistenceKey(adventureId, paragraph.paragraphNr);
         if (!!checkDupplicate) {
