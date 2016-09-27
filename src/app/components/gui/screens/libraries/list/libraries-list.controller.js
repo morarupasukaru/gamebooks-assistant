@@ -77,8 +77,12 @@ class LibrariesListController {
         this.importDataPopupService.show(
             this.popupImportLibrariesConfig.id,
             function(popupDomElementId, data) {
-                self.libraryPersistenceService.importLibraries(data);
-                self.initData();
+                try {
+                    self.libraryPersistenceService.importLibraries(data);
+                    self.initData();
+                } catch (error) {
+                    self.messagesService.errorMessage(error, false);
+                }
             }
         );
     }

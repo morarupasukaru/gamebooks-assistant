@@ -7,17 +7,21 @@ class LibraryPersistenceService {
         this.messagesService = messagesService;
     }
 
+    deleteLibrary(libraryId) {
+        this.persistenceService.remove(this.getLibraryPersistenceKey(libraryId));
+    }
+
     importLibraries(librariesStr) {
         try {
             let libraries = JSON.parse(librariesStr);
-            checkMissingFields(libraries);
-            let alreadyExistingLibrarySiteNames = [];
+            this.checkMissingFields(libraries);
             for (let i = 0; i < libraries.length; i++) {
                 let library = libraries[i];
                 this.updateLibrary(library);
             }
         } catch (error) {
             this.messagesService.errorMessage('Cannot import libraries', false);
+            throw error;
         }
     }
 
@@ -64,6 +68,7 @@ class LibraryPersistenceService {
         let libraries = this.getLibraries();
         for (let i = 0; i < libraries.length; i++) {
             delete libraries[i].id;
+            delete libraries[i].lastDownload;
         }
         return JSON.stringify(libraries);
     }

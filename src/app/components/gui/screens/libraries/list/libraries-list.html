@@ -8,12 +8,14 @@
         <div class="row">
             <div class="col-md-12">
                 <table class="table table-striped">
-                    <col style="width:75%">
+                    <col style="width:55%">
+                    <col style="width:20%">
                     <col style="width:20%">
                     <col style="width:5%">
                     <thead>
                     <tr>
                         <th>{{ 'Site' | translate }}</th>
+                        <th>{{ 'JSON Url' | translate }}</th>
                         <th>{{ 'Last download' | translate }}</th>
                         <th>{{ 'Selection' | translate }}</th>
                     </tr>
@@ -22,6 +24,7 @@
                     <tr ng-repeat="row in $ctrl.rows">
                         <td ng-if="!!row.siteUrl"><a href="{{ row.siteUrl }}">{{ row.siteName }}</a></td>
                         <td ng-if="!row.siteUrl">{{ row.siteName }}</td>
+                        <td><a href="{{ row.jsonUrl }}">{{ 'Detail' | translate }}</a></td>
                         <td>{{ row.lastDownload }}</td>
                         <td>
                             <button type="button" class="btn" ng-class="{ 'btn-success' : row.selected, 'btn-default' : !row.selected}"
@@ -49,7 +52,7 @@
         <button type="button" class="btn btn-default"
                 aria-label="{{ 'Import libraries' | translate }}"
                 title="{{ 'Import libraries' | translate }}"
-                ng-click="$ctrl.displayImportAdventurePopup()">{{ 'Import' | translate }}</button>
+                ng-click="$ctrl.displayImportLibrariesPopup()">{{ 'Import' | translate }}</button>
         <button type="button" class="btn btn-default"
                 aria-label="{{ 'Display selected library' | translate }}"
                 title="{{ 'Display selected library' | translate }}"
@@ -59,7 +62,7 @@
                 ng-disabled="!$ctrl.hasSelectedRow()"
                 aria-label="{{ 'Remove selected library' | translate }}"
                 title="{{ 'Remove selected library' | translate }}"
-                ng-click="$ctrl.displayRemoveLibrariesPopup()">{{ 'Remove' | translate }}</button>
+                ng-click="$ctrl.displayRemoveLibraryPopup()">{{ 'Remove' | translate }}</button>
         <button type="button" class="btn btn-default"
                 aria-label="{{ 'Export libraries' | translate }}"
                 title="{{ 'Export libraries' | translate }}"
