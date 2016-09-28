@@ -32,8 +32,8 @@ class LibraryPersistenceService {
             if (!library.siteName) {
                 missingMandatoryFields.push('siteName');
             }
-            if (!library.jsonUrl) {
-                missingMandatoryFields.push('jsonUrl');
+            if (!library.libraryUrl) {
+                missingMandatoryFields.push('libraryUrl');
             }
             if (missingMandatoryFields.length > 0) {
                 this.messagesService.errorMessage('Cannot import a library because of missing mandatory fields: ' + missingMandatoryFields.join(', '), false);
@@ -45,19 +45,24 @@ class LibraryPersistenceService {
     updateLibrary(library) {
         this.checkDupplicateLibrary(library);
         if (!library.id) {
-            library.id = new Date().getTime().toString();
+            library.id = this.getIdFromLibrarySiteName(library.siteName);
         }
-        if (!library.lastDownload) {
-            library.lastDownload = 'Not downloaded yet';
+        if (!library.downloadHistory) {
+            library.downloadHistory = [];
+            library.downloadHistory.push('Not downloaded yet');
         }
         this.persistenceService.save(this.getLibraryPersistenceKey(library.id), library);
     }
 
+    getIdFromLibrarySiteName(siteName) {
+        return encodeURIComponent(siteName.replace(/\s+/g, '-').toLowerCase()) + new Date().getTime().toString();
+    }
+
     checkDupplicateLibrary(library) {
-        if (!!library.jsonUrl) {
+        if (!!library.libraryUrl) {
             let libraries = this.getLibraries();
             for (let i = 0; i < libraries.length; i++) {
-                if (library.jsonUrl === libraries[i].jsonUrl) {
+                if (library.libraryUrl === libraries[i].libraryUrl) {
                     throw this.constants.errors.libraryAlreadyExist;
                 }
             }

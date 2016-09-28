@@ -38,7 +38,7 @@ angular.module('app', [
     }])
 
     .config(['$compileProvider', function ($compileProvider) {
-        $compileProvider.aHrefSanitizationWhitelist(/^\s*(|mailto|blob|):/);
+        $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|tel|file|blob):/);
     }])
 
     .directive('onReadFile', function ($parse) {

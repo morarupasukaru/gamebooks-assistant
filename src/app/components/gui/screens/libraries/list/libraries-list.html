@@ -15,8 +15,8 @@
                     <thead>
                     <tr>
                         <th>{{ 'Site' | translate }}</th>
-                        <th>{{ 'JSON Url' | translate }}</th>
-                        <th>{{ 'Last download' | translate }}</th>
+                        <th>{{ 'Library url' | translate }}</th>
+                        <th>{{ 'Download Status' | translate }}</th>
                         <th>{{ 'Selection' | translate }}</th>
                     </tr>
                     </thead>
@@ -24,8 +24,8 @@
                     <tr ng-repeat="row in $ctrl.rows">
                         <td ng-if="!!row.siteUrl"><a href="{{ row.siteUrl }}">{{ row.siteName }}</a></td>
                         <td ng-if="!row.siteUrl">{{ row.siteName }}</td>
-                        <td><a href="{{ row.jsonUrl }}">{{ 'Detail' | translate }}</a></td>
-                        <td>{{ row.lastDownload }}</td>
+                        <td><a href="{{ row.libraryUrl }}" target="_blank">{{ 'Detail' | translate }}</a></td>
+                        <td>{{ row.lastDownloadStatus }}</td>
                         <td>
                             <button type="button" class="btn" ng-class="{ 'btn-success' : row.selected, 'btn-default' : !row.selected}"
                                     aria-label="{{ !row.selected ?
@@ -70,6 +70,7 @@
         <button type="button" class="btn btn-default"
                 aria-label="{{ 'Download libraries' | translate }}"
                 title="{{ 'Download libraries' | translate }}"
+                ng-disabled="!$ctrl.hasSelectedRow()"
                 ng-click="$ctrl.downloadLibraries()">{{ 'Download' | translate }}</button>
     </div>
 </main>

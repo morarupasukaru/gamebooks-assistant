@@ -1,6 +1,6 @@
 class LibrariesListController {
     /*@ngInject*/
-    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, exportDataPopupService, importDataPopupService, libraryPersistenceService) {
+    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, exportDataPopupService, importDataPopupService, libraryPersistenceService, remoteJsonRetrieverService) {
         this.constants = constants;
         preScreenLoadingInterceptorsCallerService.intercept();
         this.$location = $location;
@@ -12,6 +12,7 @@ class LibrariesListController {
         this.popupService = popupService;
         this.exportDataPopupService = exportDataPopupService;
         this.importDataPopupService = importDataPopupService;
+        this.remoteJsonRetrieverService = remoteJsonRetrieverService;
 
         this.popupDeleteLibraryConfig = {
             id : 'popupDeleteLibrary',
@@ -29,6 +30,11 @@ class LibrariesListController {
 
     initData() {
         this.rows = this.libraryPersistenceService.getLibraries();
+        for (let i = 0; i < this.rows.length; i++) {
+            if (!!this.rows[i].downloadHistory) {
+                this.rows[i].lastDownloadStatus = this.rows[i].downloadHistory[this.rows[i].downloadHistory.length-1];
+            }
+        }
     }
 
     select(row) {
@@ -88,6 +94,7 @@ class LibrariesListController {
     }
 
     downloadLibraries() {
+        this.remoteJsonRetrieverService.retrieveJson(this.getSelectedRow().libraryUrl);
     }
 
     hasSelectedRow() {

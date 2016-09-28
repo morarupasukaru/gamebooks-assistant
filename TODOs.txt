@@ -1,4 +1,8 @@
 en cours
+- afficher "download status" dans adventure
+- permettre de télécharger une aventure s'il y a une nouvelle version
+- afficher un warn lors du download pour indiquer que les parties (si existantes) peuvent ne plus être compatible avec la nouvelle version de l'adventure
+
 - référerencer les livres dispo via des url qui fournissent des données json, configuration de l'url des sites de référencement via écran admin
 - permettre le téléchargement, upgrade de livres (et non pas automatique)
 - le sorcier de la montagne de feu > as json
