@@ -1,26 +1,27 @@
 class RemoteJsonRetrieverService {
 
     /*@ngInject*/
-    constructor($http, messagesService) {
+    constructor($http, $q) {
         this.$http = $http;
-        this.messagesService = messagesService;
+        this.$q = $q;
     }
 
     retrieveJson(jsonUrl) {
+        let deferred = this.$q.defer();
         let that = this;
         this.$http.get(jsonUrl).then(
             function successCallback(response) {
-                // this callback will be called asynchronously
-                // when the response is available
-                let jsonString = response.data;
-                that.messagesService.successMessage('Got data from ' + jsonUrl, false);
+                if (!!response && !!response.data) {
+                    deferred.resolve(response.data);
+                } else {
+                    deferred.reject('Cannot get data from ' + jsonUrl);
+                }
             },
             function errorCallback(response) {
-                // called asynchronously if an error occurs
-                // or server returns response with an error status.
-                that.messagesService.errorMessage('Cannot get data from ' + jsonUrl, false);
+                deferred.reject('Cannot get data from ' + jsonUrl);
             }
         );
+        return deferred.promise;
     }
 }
 

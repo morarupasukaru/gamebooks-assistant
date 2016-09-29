@@ -1,11 +1,43 @@
 class LibraryPersistenceService {
 
     /*@ngInject*/
-    constructor(constants, persistenceService, messagesService) {
+    constructor(constants, persistenceService, messagesService, remoteJsonRetrieverService, $q, $filter, adventurePersistenceService) {
         this.persistenceService = persistenceService;
         this.constants = constants;
         this.messagesService = messagesService;
+        this.remoteJsonRetrieverService = remoteJsonRetrieverService;
+        this.$q = $q;
+        this.$filter = $filter;
+        this.adventurePersistenceService = adventurePersistenceService;
     }
+
+    downloadLibrary(library) {
+        let self = this;
+        let deferred = this.$q.defer();
+        let promise = this.remoteJsonRetrieverService.retrieveJson(library.libraryUrl);
+        promise.then(
+            function(json) {
+                library.downloadHistory.push(self.now() + ' : downloaded');
+                self.updateLibrary(library);
+                self.adventurePersistenceService.updateDownloadableAdventures(json);
+                self.messagesService.successMessage('List of the adventures of the library is downloaded', false);
+                deferred.resolve('Success');
+            },
+            function(reason) {
+                library.downloadHistory.push(self.now() + ' : error');
+                self.updateLibrary(library);
+                self.messagesService.errorMessage(reason, false);
+                deferred.reject(reason);
+            }
+        );
+        return deferred.promise;
+    }
+
+    now() {
+        let now = new Date();
+        return this.$filter('date')(now, 'dd.MM.yyyy HH:mm');
+    }
+
 
     deleteLibrary(libraryId) {
         this.persistenceService.remove(this.getLibraryPersistenceKey(libraryId));
@@ -43,8 +75,8 @@ class LibraryPersistenceService {
     }
 
     updateLibrary(library) {
-        this.checkDupplicateLibrary(library);
         if (!library.id) {
+            this.checkDupplicateLibrary(library);
             library.id = this.getIdFromLibrarySiteName(library.siteName);
         }
         if (!library.downloadHistory) {

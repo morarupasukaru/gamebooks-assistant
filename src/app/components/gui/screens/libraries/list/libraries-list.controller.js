@@ -1,6 +1,6 @@
 class LibrariesListController {
     /*@ngInject*/
-    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, exportDataPopupService, importDataPopupService, libraryPersistenceService, remoteJsonRetrieverService) {
+    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, exportDataPopupService, importDataPopupService, libraryPersistenceService) {
         this.constants = constants;
         preScreenLoadingInterceptorsCallerService.intercept();
         this.$location = $location;
@@ -12,7 +12,6 @@ class LibrariesListController {
         this.popupService = popupService;
         this.exportDataPopupService = exportDataPopupService;
         this.importDataPopupService = importDataPopupService;
-        this.remoteJsonRetrieverService = remoteJsonRetrieverService;
 
         this.popupDeleteLibraryConfig = {
             id : 'popupDeleteLibrary',
@@ -35,13 +34,18 @@ class LibrariesListController {
                 this.rows[i].lastDownloadStatus = this.rows[i].downloadHistory[this.rows[i].downloadHistory.length-1];
             }
         }
+        this.clearSelection();
     }
 
     select(row) {
+        this.clearSelection();
+        row.selected = true;
+    }
+
+    clearSelection() {
         for (let i = 0; i < this.rows.length; i++) {
             this.rows[i].selected = false;
         }
-        row.selected = true;
     }
 
     create() {
@@ -94,7 +98,16 @@ class LibrariesListController {
     }
 
     downloadLibraries() {
-        this.remoteJsonRetrieverService.retrieveJson(this.getSelectedRow().libraryUrl);
+        let self = this;
+        let promise = this.libraryPersistenceService.downloadLibrary(this.getSelectedRow());
+        promise.then(
+            function(json) {
+                self.initData();
+            },
+            function(reason) {
+                self.initData();
+            }
+        );
     }
 
     hasSelectedRow() {

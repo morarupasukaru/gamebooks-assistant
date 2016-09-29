@@ -8,6 +8,26 @@ class AdventurePersistenceService {
         this.$translate = $translate;
     }
 
+    updateDownloadableAdventures(adventures) {
+        if (!!adventures) {
+            for (let i = 0; i < adventures.length; i++) {
+                this.updateDownloadableAdventure(adventures[i]);
+            }
+        }
+    }
+
+    updateDownloadableAdventure(adventure) {
+        try {
+            this.updateAdventureWithoutParagraphs(adventure);
+        } catch (error) {
+            if (this.constants.errors.adventureAlreadyExist === error) {
+                let existingAdventure = this.getAdventure(adventure.id);
+                existingAdventure.downloadUrl = adventure.downloadUrl;
+                this.updateAdventureWithoutParagraphs(existingAdventure);
+            }
+        }
+    }
+
     getAdventuresOverview() {
         let keys = this.getAdventurePersistenceKeys();
         let adventures = [];
@@ -194,7 +214,7 @@ class AdventurePersistenceService {
 
     getAdventurePersistenceKey(adventureId) {
         let key = adventureId;
-        if (!key.startsWith(this.constants.data.adventure)) {
+        if (!key.startsWith(this.constants.data.adventure + ".")) {
             key = this.constants.data.adventure + "." + key;
         }
         return key;
