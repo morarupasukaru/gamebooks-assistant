@@ -1,7 +1,5 @@
 en cours
 - example d'une librairie & aventure par défaut
-- afficher "download status" dans adventure
-- permettre de télécharger une aventure s'il y a un liens downloadUrl
 - afficher un warn lors du download pour indiquer que les parties (si existantes) peuvent ne plus être compatible avec la nouvelle version de l'adventure
 - le sorcier de la montagne de feu > as json
 

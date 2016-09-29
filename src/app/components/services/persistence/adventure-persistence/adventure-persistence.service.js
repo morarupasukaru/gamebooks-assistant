@@ -40,7 +40,8 @@ class AdventurePersistenceService {
                 language : adventure.language,
                 version : adventure.version,
                 authors : adventure.authors,
-                serie: adventure.serie
+                serie: adventure.serie,
+                downloadUrl: adventure.downloadUrl
             });
         }
         return adventures;

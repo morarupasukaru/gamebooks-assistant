@@ -8,12 +8,13 @@
         <div class="row">
             <div class="col-md-12">
                 <table class="table table-striped">
-                    <col style="width:25%">
+                    <col style="width:20%">
                     <col style="width:15%">
-                    <col style="width:25%">
+                    <col style="width:20%">
                     <col style="width:5% ">
                     <col style="width:10% ">
-                    <col style="width:10% ">
+                    <col style="width:5% ">
+                    <col style="width:15%">
                     <col style="width:5%">
                     <thead>
                     <tr>
@@ -23,6 +24,7 @@
                         <th>{{ 'Length' | translate }}</th>
                         <th>{{ 'Language' | translate }}</th>
                         <th>{{ 'Version' | translate }}</th>
+                        <th>{{ 'Download status' | translate }}</th>
                         <th>{{ 'Selection' | translate }}</th>
                     </tr>
                     </thead>
@@ -37,6 +39,7 @@
                         </td>
                         <td>{{ row.language | translate }}</td>
                         <td>{{ row.version }}</td>
+                        <td>{{ row.downloadStatus | translate }}</td>
                         <td>
                             <button type="button" class="btn" ng-class="{ 'btn-success' : row.selected, 'btn-default' : !row.selected}"
                                     aria-label="{{ !row.selected ?
@@ -79,6 +82,11 @@
                 aria-label="{{ 'Export selected adventure' | translate }}"
                 title="{{ 'Export selected adventure' | translate }}"
                 ng-click="$ctrl.displayExportAdventurePopup()">{{ 'Export' | translate }}</button>
+        <button type="button" class="btn btn-default"
+                ng-disabled="!$ctrl.isSelectedRowDownloadable()"
+                aria-label="{{ 'Download selected adventure' | translate }}"
+                title="{{ 'Download selected adventure' | translate }}"
+                ng-click="$ctrl.download()">{{ 'Download' | translate }}</button>
     </div>
 </main>
 

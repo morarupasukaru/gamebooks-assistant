@@ -28,13 +28,29 @@ class AdventuresListController {
 
     initData() {
         this.rows = this.adventurePersistenceService.getAdventuresOverview();
+        this.clearSelection();
+        for (let i = 0; i < this.rows.length; i++) {
+            if (!!this.rows[i].downloadHistory) {
+                this.rows[i].downloadStatus = this.rows[i].downloadHistory[this.rows[i].downloadHistory.length-1];
+            } else {
+                if (!!this.rows[i].downloadUrl) {
+                    this.rows[i].downloadStatus = 'Downloadable';
+                } else {
+                    this.rows[i].downloadStatus = 'N/A';
+                }
+            }
+        }
     }
 
     select(row) {
+        this.clearSelection();
+        row.selected = true;
+    }
+
+    clearSelection() {
         for (let i = 0; i < this.rows.length; i++) {
             this.rows[i].selected = false;
         }
-        row.selected = true;
     }
 
     create() {
@@ -86,6 +102,10 @@ class AdventuresListController {
         return !!this.getSelectedRow();
     }
 
+    isSelectedRowDownloadable() {
+        let selectedRow = this.getSelectedRow();
+        return !!selectedRow && !!selectedRow.downloadUrl;
+    }
 
     getSelectedRow() {
         if (!!this.rows) {
