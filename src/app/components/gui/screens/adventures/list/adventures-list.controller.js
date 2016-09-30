@@ -98,6 +98,19 @@ class AdventuresListController {
         );
     }
 
+    downloadAdventure() {
+        let self = this;
+        let promise = this.adventurePersistenceService.downloadAdventure(this.getSelectedRow());
+        promise.then(
+            function(json) {
+                self.initData();
+            },
+            function(reason) {
+                self.initData();
+            }
+        );
+    }
+
     hasSelectedRow() {
         return !!this.getSelectedRow();
     }

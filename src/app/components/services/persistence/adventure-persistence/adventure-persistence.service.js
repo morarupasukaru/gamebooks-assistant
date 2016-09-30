@@ -1,11 +1,42 @@
 class AdventurePersistenceService {
 
     /*@ngInject*/
-    constructor(constants, persistenceService, messagesService, $translate) {
+    constructor(constants, persistenceService, messagesService, $translate, $q, remoteJsonRetrieverService) {
         this.constants = constants;
         this.persistenceService = persistenceService;
         this.messagesService = messagesService;
         this.$translate = $translate;
+        this.$q = $q;
+        this.remoteJsonRetrieverService = remoteJsonRetrieverService;
+    }
+
+    downloadAdventure(adventure) {
+        let self = this;
+        let deferred = this.$q.defer();
+        let promise = this.remoteJsonRetrieverService.retrieveJson(adventure.downloadUrl);
+        promise.then(
+            function(json) {
+            // TODO
+//                library.downloadHistory.push(self.now() + ' : downloaded');
+//                self.updateLibrary(library);
+//                self.adventurePersistenceService.updateDownloadableAdventures(json);
+//                self.messagesService.successMessage('List of the adventures of the library is downloaded', false);
+                deferred.resolve('Success');
+            },
+            function(reason) {
+            // TODO
+//                library.downloadHistory.push(self.now() + ' : error');
+//                self.updateLibrary(library);
+//                self.messagesService.errorMessage(reason, false);
+                deferred.reject(reason);
+            }
+        );
+        return deferred.promise;
+    }
+
+    now() {
+        let now = new Date();
+        return this.$filter('date')(now, 'dd.MM.yyyy HH:mm');
     }
 
     updateDownloadableAdventures(adventures) {

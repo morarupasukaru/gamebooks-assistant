@@ -97,7 +97,7 @@ class LibrariesListController {
         );
     }
 
-    downloadLibraries() {
+    downloadLibrary() {
         let self = this;
         let promise = this.libraryPersistenceService.downloadLibrary(this.getSelectedRow());
         promise.then(
