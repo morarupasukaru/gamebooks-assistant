@@ -1,0 +1,11 @@
+[
+  {
+    "name":"adventure name (mandatory)",
+    "serie":"a serie (optional)",
+    "authors":"authors of the adventure (mandatory)",
+    "version":"version of the adventure (mandatory)",
+    "language":"language of the text of the adventure (mandatory)",
+    "numberOfParagraphs":"number of paragraphs of the adventure (optional)",
+    "downloadUrl" : "url updated"
+  }
+]
