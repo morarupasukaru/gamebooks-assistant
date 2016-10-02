@@ -14,8 +14,6 @@ import i18n_fr from './i18n/fr.js';
 // Vendor-Imports
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
-import ngResource from 'angular-resource';
-import ngCookies from 'angular-cookies';
 import ngTranslate from 'angular-translate';
 import uiBootstrap from 'angular-ui-bootstrap';
 
@@ -27,7 +25,7 @@ import AppComponent from './app.component';
 require('string.prototype.startswith');
 
 angular.module('app', [
-    uiRouter, ngTranslate, ngCookies, ngResource, uiBootstrap, Components.name
+    uiRouter, ngTranslate, uiBootstrap, Components.name
     ])
 
     .config(['$translateProvider', function ($translateProvider) {

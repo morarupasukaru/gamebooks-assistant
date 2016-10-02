@@ -74,7 +74,6 @@ class LibrariesListController {
     }
 
     displayExportLibrariesPopup() {
-        let self = this;
         this.popupExportLibrariesConfig.exportData = this.libraryPersistenceService.exportLibraries();
         this.popupExportLibrariesConfig.exportDownloadBlobUrl = this.exportDataPopupService.createDownloadBlobUrl(this.popupExportLibrariesConfig.exportData);
         this.popupExportLibrariesConfig.exportTitle = this.$translate.instant('Export libraries');

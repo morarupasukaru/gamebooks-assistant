@@ -95,7 +95,6 @@ class GamesListController {
     }
 
     displayExportGamePopup() {
-        let self = this;
         this.popupExportGameConfig.exportData = JSON.stringify(this.gamePersistenceService.getGame(this.getSelectedRow().id));
         this.popupExportGameConfig.exportDownloadBlobUrl = this.exportDataPopupService.createDownloadBlobUrl(this.popupExportGameConfig.exportData);
         this.popupExportGameConfig.exportTitle = this.$translate.instant('ExportGame', {playerName: this.getSelectedRow().playerName, adventureName: this.getSelectedRow().adventureName });

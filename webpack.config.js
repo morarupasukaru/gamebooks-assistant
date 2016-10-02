@@ -25,9 +25,7 @@ var commonConfig = exports.commonConfig = {
         app: './app.js', vendor: [
             'angular',
             'angular-ui-router',
-            'angular-resource',
             'angular-translate',
-            'angular-translate-loader-static-files',
             'angular-ui-bootstrap',
             'bootstrap/dist/css/bootstrap.css',
             'jquery'
@@ -95,6 +93,14 @@ exports.development = extend({}, commonConfig, {
     }, plugins: [
         new browserSyncPlugin({
             proxy: 'localhost:3000'
-        }), new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js')
+        }),
+        new ngAnnotatePlugin({add: true}),
+        new webpack.optimize.DedupePlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            minimize: true, compress: {
+                warnings: true
+            }
+        }),
+        new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js')
     ], watch: true, devtool: 'source-map'
 });

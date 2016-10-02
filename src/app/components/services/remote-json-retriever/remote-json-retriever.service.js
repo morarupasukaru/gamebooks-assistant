@@ -8,7 +8,6 @@ class RemoteJsonRetrieverService {
 
     retrieveJson(jsonUrl) {
         let deferred = this.$q.defer();
-        let that = this;
         this.$http.get(jsonUrl).then(
             function successCallback(response) {
                 if (!!response && !!response.data) {
