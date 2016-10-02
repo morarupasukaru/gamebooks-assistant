@@ -1,12 +1,11 @@
 en cours
 - example d'une librairie & aventure par défaut
 - afficher un warn lors du download pour indiquer que les parties (si existantes) peuvent ne plus être compatible avec la nouvelle version de l'adventure
-- le sorcier de la montagne de feu > as json
+- supprimer le sorcier de la montagne de feu referencer directement
 
 nouvelles fonctionnalités
 - game paths vizualiser
 - traduction fr une fois l'application un peu stable
-
-plus tard:
 - integrate battle rules, luck rules in json of adventure
 - gestion des images (& autre multimedia)
+- angular js 2?
