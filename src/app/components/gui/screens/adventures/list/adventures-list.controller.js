@@ -100,7 +100,7 @@ class AdventuresListController {
 
     downloadAdventure() {
         let self = this;
-        let promise = this.adventurePersistenceService.downloadAdventure(this.getSelectedRow());
+        let promise = this.adventurePersistenceService.downloadAdventure(this.getSelectedRow().id);
         promise.then(
             function(json) {
                 self.initData();

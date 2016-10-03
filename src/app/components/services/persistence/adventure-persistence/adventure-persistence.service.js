@@ -1,37 +1,45 @@
 class AdventurePersistenceService {
 
     /*@ngInject*/
-    constructor(constants, persistenceService, messagesService, $translate, $q, remoteJsonRetrieverService) {
+    constructor(constants, persistenceService, messagesService, $translate, $q, remoteJsonRetrieverService, $filter) {
         this.constants = constants;
         this.persistenceService = persistenceService;
         this.messagesService = messagesService;
         this.$translate = $translate;
         this.$q = $q;
         this.remoteJsonRetrieverService = remoteJsonRetrieverService;
+        this.$filter = $filter;
     }
 
-    downloadAdventure(adventure) {
+    downloadAdventure(adventureId) {
+        let adventure = this.getAdventure(adventureId);
         let self = this;
         let deferred = this.$q.defer();
         let promise = this.remoteJsonRetrieverService.retrieveJson(adventure.downloadUrl);
         promise.then(
             function(json) {
-            // TODO
-//                library.downloadHistory.push(self.now() + ' : downloaded');
-//                self.updateLibrary(library);
-//                self.adventurePersistenceService.updateDownloadableAdventures(json);
-//                self.messagesService.successMessage('List of the adventures of the library is downloaded', false);
+                self.addDownloadHistory(adventure, self.now() + ' : downloaded')
+                json.id = adventure.id;
+                json.downloadHistory = adventure.downloadHistory;
+                self.import(json);
+                self.messagesService.successMessage('The selected adventure is downloaded/updated', false);
                 deferred.resolve('Success');
             },
             function(reason) {
-            // TODO
-//                library.downloadHistory.push(self.now() + ' : error');
-//                self.updateLibrary(library);
-//                self.messagesService.errorMessage(reason, false);
+                self.addDownloadHistory(adventure, self.now() + ' : error')
+                self.updateAdventureWithoutParagraphs(adventure);
+                self.messagesService.errorMessage(reason, false);
                 deferred.reject(reason);
             }
         );
         return deferred.promise;
+    }
+
+    addDownloadHistory(adventure, history) {
+        if (!adventure.downloadHistory) {
+            adventure.downloadHistory = [];
+        }
+        adventure.downloadHistory.push(history);
     }
 
     now() {
@@ -72,7 +80,8 @@ class AdventurePersistenceService {
                 version : adventure.version,
                 authors : adventure.authors,
                 serie: adventure.serie,
-                downloadUrl: adventure.downloadUrl
+                downloadUrl: adventure.downloadUrl,
+                downloadHistory: adventure.downloadHistory
             });
         }
         return adventures;
@@ -82,7 +91,7 @@ class AdventurePersistenceService {
         let keys = Object.keys(localStorage);
         let result = [];
         for (let i = 0; i < keys.length; i++) {
-            if (keys[i].startsWith(this.constants.data.adventure) && keys[i].indexOf('paragraph.') === -1) {
+            if (keys[i].startsWith(this.constants.data.adventure) && keys[i].indexOf('paragraph.') === -1 && keys[i].indexOf('.choosen') === -1) {
                 result.push(keys[i]);
             }
         }
@@ -95,7 +104,15 @@ class AdventurePersistenceService {
 
     importAdventure(adventureAsStr) {
         try {
-            let adventure = JSON.parse(adventureAsStr);
+            let adventure = JSON.parse(adventureAsStr, true);
+            this.import(adventure);
+        } catch (error) {
+            this.messagesService.errorMessage('Cannot import adventure', false);
+        }
+    }
+
+    import(adventure, checkDupplicate) {
+        try {
             let missingMandatoryFields = [];
             if (!adventure.id) {
                 missingMandatoryFields.push('id');
@@ -117,7 +134,7 @@ class AdventurePersistenceService {
             }
             if (missingMandatoryFields.length > 0) {
                 this.messagesService.errorMessage('Cannot import game because of missing mandatory fields: ' + missingMandatoryFields.join(', '), false);
-            } else if (!!this.getAdventure(adventure.id)) {
+            } else if (!!checkDupplicate && !!this.getAdventure(adventure.id)) {
                 this.messagesService.errorMessage("The adventure already exists with id '" + adventure.id + "'", false);
             } else {
                 this.updateAdventureWithoutParagraphs(adventure);
