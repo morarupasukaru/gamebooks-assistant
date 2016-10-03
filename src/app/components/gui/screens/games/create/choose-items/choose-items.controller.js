@@ -11,9 +11,13 @@ class ChooseItemsController {
         this.constants = constants;
 
         this.adventure = adventurePersistenceService.getAdventure($stateParams.adventureId);
-        this.playerItems = this.adventure.items;
-        for (let i = 0; i < this.playerItems.length; i++) {
-            this.playerItems[i].description = this.playerItems[i].description;
+        if (!!this.adventure.items) {
+            this.playerItems = this.adventure.items;
+            for (let i = 0; i < this.playerItems.length; i++) {
+                this.playerItems[i].description = this.playerItems[i].description;
+            }
+        } else {
+            this.playerItems = [];
         }
         this.displayNotes();
     }
@@ -52,16 +56,18 @@ class ChooseItemsController {
     getStatsInUrlParam() {
         let statsParamValue = this.$stateParams['stats'];
         let stats = [];
-        for (let i = 0; i < this.adventure.stats.length; i++) {
-            let currentStats = this.adventure.stats[i];
-            let startPos = statsParamValue.indexOf(currentStats.name);
-            startPos = startPos + currentStats.name.length;
-            let endPos = statsParamValue.indexOf(',', startPos);
-            let statsValue = statsParamValue.substring(startPos, endPos);
-            stats.push({
-                    name  : currentStats.name,
-                    value : new Number(statsValue)
-                });
+        if (!!this.adventure.stats) {
+            for (let i = 0; i < this.adventure.stats.length; i++) {
+                let currentStats = this.adventure.stats[i];
+                let startPos = statsParamValue.indexOf(currentStats.name);
+                startPos = startPos + currentStats.name.length;
+                let endPos = statsParamValue.indexOf(',', startPos);
+                let statsValue = statsParamValue.substring(startPos, endPos);
+                stats.push({
+                        name  : currentStats.name,
+                        value : new Number(statsValue)
+                    });
+            }
         }
         return stats;
     }

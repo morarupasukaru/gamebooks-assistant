@@ -22,13 +22,13 @@ var commonConfig = exports.commonConfig = {
     context: path.resolve(__dirname, 'src/app'),
     // Einstiegspunkt fuer Webpack
     entry: {
-        app: './app.js', vendor: [
+        app: './app.js',
+        vendor: [
             'angular',
             'angular-ui-router',
             'angular-translate',
             'angular-ui-bootstrap',
-            'bootstrap/dist/css/bootstrap.css',
-            'jquery'
+            'bootstrap/dist/css/bootstrap.css'
         ]
     },
     // Ausgabedatei
@@ -41,14 +41,11 @@ var commonConfig = exports.commonConfig = {
             {
                 test: /\.js$/, exclude: [/node_modules/], loader: 'babel'
             }, {
-                test: /\.json$/, loader: 'json'
-            }, {
                 test: /\.html$/, loader: 'raw'
             }, {
                 test: /\.css$/, loader: 'style!css'
             }, {
-                test: /\.(jpe?g|png|gif|svg)$/i,
-                loader: 'file-loader'
+                test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader'
             }, {
                 test: /\.(woff|woff2)$/, loader: 'url-loader?limit=10000&mimetype=application/font-woff'
             }, {
@@ -61,7 +58,9 @@ var commonConfig = exports.commonConfig = {
     resolve: {
         fallback: path.join(__dirname, 'node_modules')
     },
-    resolveLoader: {fallback: path.join(__dirname, 'node_modules')}
+    resolveLoader: {
+        fallback: path.join(__dirname, 'node_modules')
+    }
 };
 
 /**
@@ -80,7 +79,7 @@ exports.production = extend({}, commonConfig, {
             }
         }),
         new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js')
-    ], devtool: 'source-map'
+    ], devtool: 'cheap-source-map'
 });
 
 /**

@@ -1,8 +1,11 @@
 en cours
-- clean dependencies
+- update version
 - example d'une librairie & aventure par défaut
 - afficher un warn lors du download pour indiquer que les parties (si existantes) peuvent ne plus être compatible avec la nouvelle version de l'adventure
 - supprimer le sorcier de la montagne de feu referencer directement
+
+bug minor:
+- eviter dice-image-html & map-image.html
 
 nouvelles fonctionnalités
 - game paths vizualiser

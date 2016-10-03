@@ -16,13 +16,15 @@ class CreatePlayerController {
     loadData(adventure) {
         this.stats = [];
         let self = this;
-        for (let i = 0; i < adventure.stats.length; i++) {
-            let currentStats = adventure.stats[i];
-            this.stats.push({ name : currentStats.name,
-                generate : function() {
-                        return currentStats.init.constant + self.dicesService.rollDices(currentStats.init.sixDiceQuantity, 6);
-                    }
-                });
+        if (!!adventure.stats) {
+            for (let i = 0; i < adventure.stats.length; i++) {
+                let currentStats = adventure.stats[i];
+                this.stats.push({ name : currentStats.name,
+                    generate : function() {
+                            return currentStats.init.constant + self.dicesService.rollDices(currentStats.init.sixDiceQuantity, 6);
+                        }
+                    });
+            }
         }
     }
 
