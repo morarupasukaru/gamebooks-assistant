@@ -138,6 +138,9 @@ class AdventurePersistenceService {
             } else if (!!checkDupplicate && !!this.getAdventure(adventure.id)) {
                 this.messagesService.errorMessage("The adventure already exists with id '" + adventure.id + "'", false);
             } else {
+                if (!!adventure.paragraphs) {
+                    adventure.numberOfParagraphs = adventure.paragraphs.length;
+                }
                 this.updateAdventureWithoutParagraphs(adventure);
                 if (!!adventure.paragraphs) {
                     for (let i = 0; i < adventure.paragraphs.length; i++) {
@@ -206,6 +209,12 @@ class AdventurePersistenceService {
                 description : '',
                 choices : []
             };
+            let adventure = this.getAdventure(adventureId);
+            if (!adventure.numberOfParagraphs) {
+                adventure.numberOfParagraphs = 0;
+            }
+            adventure.numberOfParagraphs = adventure.numberOfParagraphs + 1;
+            this.updateAdventureWithoutParagraphs(adventure);
             this.updateParagraph(adventureId, paragraph);
             return paragraph;
         }

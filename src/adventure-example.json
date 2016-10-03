@@ -36,7 +36,6 @@
   "version": "1",
   "language": "English",
   "homepage": "https://github.com/morarupasukaru/gamebooks-assistant",
-  "numberOfParagraphs": "3",
   "startParagraphNr": "1",
   "id": "adventure-example",
   "paragraphs": [

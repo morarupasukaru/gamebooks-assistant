@@ -23,6 +23,14 @@ class AdventuresListController {
         this.popupExportAdventureConfig = { id : 'popupExportAdventure' };
         this.popupImportAdventureConfig = { id : 'popupImportAdventure' };
 
+        this.popupDownloadAdventureConfig = {
+            id : 'popupDownloadAdventure',
+            text : 'Are you sure to download the selected adventure? Existing games could be non-playable after the update if the new version is not retro-compatible',
+            choices : [constants.choices.yes, constants.choices.no],
+            withCloseButton : false,
+            closeOnClickOutsideModal : false
+        };
+
         this.initData();
     }
 
@@ -94,6 +102,18 @@ class AdventuresListController {
             function(popupDomElementId, data) {
                 self.adventurePersistenceService.importAdventure(data);
                 self.initData();
+            }
+        );
+    }
+
+    displayDownloadAdventurePopup() {
+        let self = this;
+        this.popupService.show(
+            this.popupDownloadAdventureConfig.id,
+            function(popupDomElementId, choice) {
+                if (choice === self.constants.choices.yes) {
+                    self.downloadAdventure();
+                }
             }
         );
     }

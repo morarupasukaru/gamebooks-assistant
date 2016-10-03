@@ -86,10 +86,11 @@
                 ng-disabled="!$ctrl.isSelectedRowDownloadable()"
                 aria-label="{{ 'Download selected adventure' | translate }}"
                 title="{{ 'Download selected adventure' | translate }}"
-                ng-click="$ctrl.downloadAdventure()">{{ 'Download' | translate }}</button>
+                ng-click="$ctrl.displayDownloadAdventurePopup()">{{ 'Download' | translate }}</button>
     </div>
 </main>
 
 <popup config="{{ $ctrl.popupDeleteAdventureConfig }}"></popup>
+<popup config="{{ $ctrl.popupDownloadAdventureConfig }}"></popup>
 <export-data-popup config="$ctrl.popupExportAdventureConfig"></export-data-popup>
 <import-data-popup config="$ctrl.popupImportAdventureConfig"></import-data-popup>

@@ -5,7 +5,6 @@ const book = {
     name : 'Le Sorcier de la Montagne de Feu',
     authors : 'Steve Jackson & Ian Livingstone',
     isbn :'978-2-07-064740-8',
-    numberOfParagraphs : 400,
     startParagraphNr : 1,
     startGameNote : "Veuilliez choisir soit la potion d'habilité, de force ou de chance (supprimez les potions non choisies de l'inventaire).",
     stats : [
