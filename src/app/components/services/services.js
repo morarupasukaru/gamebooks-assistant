@@ -6,9 +6,10 @@ import Persistence from './persistence/persistence';
 import Dices from './dices/dices';
 import FormHelper from './form-helper/form-helper';
 import RemoteJsonRetriever from './remote-json-retriever/remote-json-retriever';
+import PredefinedDataLoader from './predefined-data-loader/predefined-data-loader';
 
 let servicesModule = angular.module('app.components.services', [
-    SoftwareRequirementsChecker.name, Persistence.name, Dices.name, LanguageAvailabilityChecker.name, PreScreenLoadingInterceptorsCaller.name, FormHelper.name, RemoteJsonRetriever.name
+    SoftwareRequirementsChecker.name, Persistence.name, Dices.name, LanguageAvailabilityChecker.name, PreScreenLoadingInterceptorsCaller.name, FormHelper.name, RemoteJsonRetriever.name, PredefinedDataLoader.name
 ]);
 
 export default servicesModule;

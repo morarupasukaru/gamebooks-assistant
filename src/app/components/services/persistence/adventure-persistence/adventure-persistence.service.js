@@ -21,6 +21,7 @@ class AdventurePersistenceService {
                 self.addDownloadHistory(adventure, self.now() + ' : downloaded')
                 json.id = adventure.id;
                 json.downloadHistory = adventure.downloadHistory;
+                json.downloadUrl = adventure.downloadUrl;
                 self.import(json);
                 self.messagesService.successMessage('The selected adventure is downloaded/updated', false);
                 deferred.resolve('Success');
@@ -140,7 +141,7 @@ class AdventurePersistenceService {
                 this.updateAdventureWithoutParagraphs(adventure);
                 if (!!adventure.paragraphs) {
                     for (let i = 0; i < adventure.paragraphs.length; i++) {
-                        this.setParagraph(adventure.id, adventure.paragraphs[i], true);
+                        this.setParagraph(adventure.id, adventure.paragraphs[i], checkDupplicate);
                     }
                 }
             }

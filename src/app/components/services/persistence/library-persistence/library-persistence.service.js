@@ -92,13 +92,20 @@ class LibraryPersistenceService {
 
     checkDupplicateLibrary(library) {
         if (!!library.libraryUrl) {
-            let libraries = this.getLibraries();
-            for (let i = 0; i < libraries.length; i++) {
-                if (library.libraryUrl === libraries[i].libraryUrl) {
-                    throw this.constants.errors.libraryAlreadyExist;
-                }
+            if (this.hasLibraryUrl(library.libraryUrl)) {
+                throw this.constants.errors.libraryAlreadyExist;
             }
         }
+    }
+
+    hasLibraryUrl(libraryUrl) {
+        let libraries = this.getLibraries();
+        for (let i = 0; i < libraries.length; i++) {
+            if (libraryUrl === libraries[i].libraryUrl) {
+                return true;
+            }
+        }
+        return false;
     }
 
     exportLibraries() {
