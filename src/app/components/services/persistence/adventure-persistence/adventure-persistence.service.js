@@ -281,6 +281,19 @@ class AdventurePersistenceService {
 
     exportAdventure(adventureId) {
         let adventure = this.getAdventure(adventureId);
+        for (let i = 0; i < adventure.stats.length; i++) {
+            delete adventure.stats[i]["$$hashKey"];
+        }
+
+        adventure = this.sortObjectKeys(adventure);
+
+        let stats = adventure.stats;
+        delete adventure.stats;
+        let items = adventure.items;
+        delete adventure.items;
+
+        adventure.items = items;
+        adventure.stats = stats;
         adventure.paragraphs = [];
 
         let keys = Object.keys(localStorage);
@@ -293,13 +306,39 @@ class AdventurePersistenceService {
                     if (!!paragraph) {
                         delete paragraph.version;
                         delete paragraph.adventureId;
-                        adventure.paragraphs.push(paragraph);
+                        adventure.paragraphs.push(this.sortObjectKeys(paragraph));
                     }
                 }
             }
         }
         adventure.paragraphs = this.sortParagraphs(adventure.paragraphs);
         return adventure;
+    }
+
+    sortObjectKeys(object) {
+        let result;
+        if (Array.isArray(object)) {
+            result = [];
+            for (let i = 0; i < object.length; i++) {
+                result.push(this.sortObjectKeys(object[i]));
+            }
+        } else if (typeof object === 'object') {
+            let keys = Object.keys(object);
+            if (!!keys && keys.length > 0) {
+                keys = keys.sort();
+                result = {};
+                for (let i = 0; i < keys.length; i++) {
+                    let value = object[keys[i]];
+                    value = this.sortObjectKeys(value);
+                    result[keys[i]] = value;
+                }
+            } else {
+                result = object;
+            }
+        } else {
+            result = object;
+        }
+        return result;
     }
 
     sortParagraphs(paragraphs) {

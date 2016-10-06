@@ -35,6 +35,37 @@ class GamePersistenceService {
         return savedGame;
     }
 
+    exportGame(gameId) {
+        let game = this.getGame(gameId);
+        return this.sortObjectKeys(game);
+    }
+
+    sortObjectKeys(object) {
+        let result;
+        if (Array.isArray(object)) {
+            result = [];
+            for (let i = 0; i < object.length; i++) {
+                result.push(this.sortObjectKeys(object[i]));
+            }
+        } else if (typeof object === 'object') {
+            let keys = Object.keys(object);
+            if (!!keys && keys.length > 0) {
+                keys = keys.sort();
+                result = {};
+                for (let i = 0; i < keys.length; i++) {
+                    let value = object[keys[i]];
+                    value = this.sortObjectKeys(value);
+                    result[keys[i]] = value;
+                }
+            } else {
+                result = object;
+            }
+        } else {
+            result = object;
+        }
+        return result;
+    }
+
     importGame(gameAsStr) {
         try {
             let game = JSON.parse(gameAsStr);
@@ -158,7 +189,7 @@ class GamePersistenceService {
         if (!game.path) {
             game.path = [];
         }
-        game.path.push(toParagraphNr);
+        game.path.push(new Number(toParagraphNr));
         this.updateGame(game);
     }
 
