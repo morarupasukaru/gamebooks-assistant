@@ -1,6 +1,3 @@
-en cours
-- supprimer le sorcier de la montagne de feu referencer directement
-
 bug minor:
 - eviter dice-image-html & map-image.html
 
