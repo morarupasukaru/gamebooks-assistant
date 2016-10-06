@@ -1,0 +1,1715 @@
+{
+  "authors": "Steve Jackson et Ian Livingstone",
+  "id": "le-sorcier-de-la-montagne-de-feu",
+  "isbn": "978-2-07-064740-8",
+  "language": "Français",
+  "name": "Le Sorcier de la Montagne de Feu",
+  "numberOfParagraphs": 120,
+  "serie": "Défis Fantastiques",
+  "startParagraphNr": "1",
+  "version": "0.1",
+  "items": [
+    {
+      "description": "Epée",
+      "quantity": 1
+    },
+    {
+      "description": "Bouclier",
+      "quantity": 1
+    },
+    {
+      "description": "Armure de cuir",
+      "quantity": 1
+    },
+    {
+      "description": "Sac à dos",
+      "quantity": 1
+    },
+    {
+      "description": "Lanterne",
+      "quantity": 1
+    },
+    {
+      "description": "Repas (restitue 4 points d'endurance)",
+      "quantity": 10
+    },
+    {
+      "description": "Mesures de potion d'Adresse (rend vos points d'HABILITE)",
+      "quantity": 2
+    },
+    {
+      "description": "Mesures de potion de Vigueur (rend vos points d'ENDURANCE)",
+      "quantity": 2
+    },
+    {
+      "description": "Mesures de Bonne Fortune (rend vos points de CHANCE + 1 point)",
+      "quantity": 2
+    }
+  ],
+  "stats": [
+    {
+      "battle": {
+        "displayed": true,
+        "editableForEnemy": true,
+        "enemyDefaultValue": 5
+      },
+      "init": {
+        "constant": 6,
+        "sixDiceQuantity": 1
+      },
+      "name": "Habilité"
+    },
+    {
+      "battle": {
+        "displayed": true,
+        "editableForEnemy": true,
+        "enemyDefaultValue": 5
+      },
+      "init": {
+        "constant": 12,
+        "sixDiceQuantity": 2
+      },
+      "name": "Endurance"
+    },
+    {
+      "battle": {
+        "displayed": true,
+        "editableForEnemy": false
+      },
+      "init": {
+        "constant": 6,
+        "sixDiceQuantity": 1
+      },
+      "name": "Chance"
+    }
+  ],
+  "paragraphs": [
+    {
+      "choices": [
+        {
+          "description": "Bifurquer vers l'ouest",
+          "paragraphNr": 71
+        },
+        {
+          "description": "Bifurquer vers l'est",
+          "paragraphNr": 278
+        }
+      ],
+      "description": "Caverne sombre",
+      "paragraphNr": 1
+    },
+    {
+      "choices": [],
+      "description": "",
+      "notes": [
+        {
+          "note": "test",
+          "playerName": "pascal"
+        }
+      ],
+      "paragraphNr": 2
+    },
+    {
+      "choices": [
+        {
+          "description": "Payer 3 pièces d'or",
+          "paragraphNr": 272
+        },
+        {
+          "description": "Le menacer",
+          "paragraphNr": 127
+        }
+      ],
+      "description": "Le passeur, un vieil homme vous demande 3 pièces d'or pour traverser la rivière.",
+      "paragraphNr": 3
+    },
+    {
+      "choices": [
+        {
+          "description": "Poursuivre",
+          "paragraphNr": 214
+        }
+      ],
+      "description": "Vous êtes sur la berge nord d'une rivière au fort courant, dans une grande caverne.",
+      "paragraphNr": 7
+    },
+    {
+      "choices": [
+        {
+          "description": "Vous sortez vainqueur du combat",
+          "paragraphNr": 317
+        }
+      ],
+      "description": "1er LUTIN a HABILITÉ:5, ENDURANCE:5\n2ème LUTIN a HABILITÉ:5, ENDURANCE:6",
+      "paragraphNr": 19
+    },
+    {
+      "choices": [
+        {
+          "description": "Briser la serrure avec votre épée",
+          "paragraphNr": 339
+        },
+        {
+          "description": "Quitter la pièce",
+          "paragraphNr": 293
+        }
+      ],
+      "description": "Le coffre est solide et bien fermé.",
+      "paragraphNr": 21
+    },
+    {
+      "choices": [
+        {
+          "description": "Entrer dans la pièce",
+          "paragraphNr": 326
+        },
+        {
+          "description": "Retourner à la bifurcation",
+          "paragraphNr": 229
+        }
+      ],
+      "description": "Le couloir aboutit à une porte bien solide.",
+      "paragraphNr": 23
+    },
+    {
+      "choices": [
+        {
+          "description": "Prendre la fuite",
+          "paragraphNr": 320
+        },
+        {
+          "description": "Prendre la boîte si vous êtes vainqueur",
+          "paragraphNr": 147
+        }
+      ],
+      "description": "Le farfadet se réveille en sursaut et vous attaque.\nFARFADET a HABILITÉ:6, ENDURANCE: 4",
+      "paragraphNr": 33
+    },
+    {
+      "choices": [
+        {
+          "description": "Prendre la fuite",
+          "paragraphNr": 136
+        },
+        {
+          "description": "Retenir votre respiration et s'emparer de la clé rapidement",
+          "paragraphNr": 361
+        }
+      ],
+      "description": "Un jet de gaz à l'odeur âcre s'échappe d'un orifice.",
+      "paragraphNr": 35
+    },
+    {
+      "choices": [
+        {
+          "description": "Crier pour essayer de le calmer",
+          "paragraphNr": 263
+        },
+        {
+          "description": "L'attaquer",
+          "paragraphNr": 353
+        }
+      ],
+      "description": "Vous débouchez dans la pièce. Un vieil homme en haillons se rue sur vous en hurlant.",
+      "paragraphNr": 36
+    },
+    {
+      "choices": [
+        {
+          "description": "Sortir par la porte sud",
+          "paragraphNr": 66
+        }
+      ],
+      "description": "Vous trouvez le garde-manger du loup-garou. Vous trouvez l'équivalent de 2 repas.",
+      "paragraphNr": 38
+    },
+    {
+      "choices": [
+        {
+          "description": "Lorsque lui infligé une blessure",
+          "paragraphNr": 310
+        }
+      ],
+      "description": "ÊTRE a HABILITÉ:9,ENDURANCE:6",
+      "paragraphNr": 41
+    },
+    {
+      "choices": [
+        {
+          "description": "Aller à l'ouest",
+          "paragraphNr": 257
+        },
+        {
+          "description": "Aller à l'est",
+          "paragraphNr": 113
+        }
+      ],
+      "description": "Vous arrivez au bout du couloir avec un croisement.",
+      "paragraphNr": 42
+    },
+    {
+      "choices": [
+        {
+          "description": "Partir vers le nord",
+          "paragraphNr": 391
+        },
+        {
+          "description": "Aller à l'ouest",
+          "paragraphNr": 60
+        }
+      ],
+      "description": "",
+      "paragraphNr": 48
+    },
+    {
+      "choices": [
+        {
+          "description": "Aller au sud",
+          "paragraphNr": 391
+        },
+        {
+          "description": "Chercher un passage secret dans le couloir sud",
+          "paragraphNr": 362
+        },
+        {
+          "description": "Aller au nord",
+          "paragraphNr": 354
+        },
+        {
+          "description": "Chercher un passage secret dans le couloir nord",
+          "paragraphNr": 234
+        },
+        {
+          "description": "Aller à l'est",
+          "paragraphNr": 291
+        }
+      ],
+      "description": "",
+      "paragraphNr": 52
+    },
+    {
+      "choices": [
+        {
+          "description": "Si la porte est enfoncée",
+          "paragraphNr": 155
+        },
+        {
+          "description": "Si la porte reste fermée",
+          "paragraphNr": 300
+        }
+      ],
+      "description": "Lancer 2 dés. Si le chiffre obtenu est égal ou inférieur à votre total d'HABILITÉ, la porte s'ouvre. Sinon la porte ne bouge pas et vous perdez 1 point d'ENDURANCE.",
+      "paragraphNr": 53
+    },
+    {
+      "choices": [
+        {
+          "description": "Se rendre devant la porte qui se trouve au milieu du pan de roc",
+          "paragraphNr": 104
+        },
+        {
+          "description": "Suivre le passage vers l'est le long de la rivière",
+          "paragraphNr": 99
+        }
+      ],
+      "description": "Le passage mène à la berge de la rivière.",
+      "paragraphNr": 66
+    },
+    {
+      "choices": [
+        {
+          "description": "Vous partez vers le nord",
+          "paragraphNr": 244
+        }
+      ],
+      "description": "Vous vous dirigez vers le nord.",
+      "paragraphNr": 69
+    },
+    {
+      "choices": [
+        {
+          "description": "Réussite : le lutin ne se réveille pas.",
+          "paragraphNr": 301
+        },
+        {
+          "description": "Échec : le lutin se réveille",
+          "paragraphNr": 248
+        }
+      ],
+      "description": "Lutin endormi dans une guérite du passage. Tentez votre chance pour passer devant lui sans le réveiller.",
+      "paragraphNr": 71
+    },
+    {
+      "choices": [
+        {
+          "description": "Aller à l'est",
+          "paragraphNr": 345
+        },
+        {
+          "description": "Aller à l'ouest",
+          "paragraphNr": 18
+        }
+      ],
+      "description": "Vous arrivez à un croisement. Un abri vous permet de prendre un repas.",
+      "paragraphNr": 77
+    },
+    {
+      "choices": [
+        {
+          "description": "Franchir la porte",
+          "paragraphNr": 159
+        },
+        {
+          "description": "Rebrousser chemin",
+          "paragraphNr": 237
+        }
+      ],
+      "description": "Passage aboutit à une porte massive. Vous entendez quelqu'un marmonner et des bruits de casseroles.",
+      "paragraphNr": 78
+    },
+    {
+      "choices": [
+        {
+          "description": "Revenir sur vos pas",
+          "paragraphNr": 129
+        },
+        {
+          "description": "Se faire passer pour un acheteur de bateau",
+          "paragraphNr": 123
+        },
+        {
+          "description": "Se faire passer pour leur nouveau patron",
+          "paragraphNr": 195
+        }
+      ],
+      "description": "La porte s'ouvre sur un hangar à bateaux. Les squelettes interrompent leur travail et s'avancent vers vous armé de planches et marteaux. Il y a une autre porte dans le mur nord",
+      "paragraphNr": 80
+    },
+    {
+      "choices": [
+        {
+          "description": "Quitter la pièce et continuer vers le nord",
+          "paragraphNr": 208
+        },
+        {
+          "description": "Réussite : la créature ne se réveille pas",
+          "paragraphNr": 147
+        },
+        {
+          "description": "Échec : la créature se réveille",
+          "paragraphNr": 33
+        }
+      ],
+      "description": "Petite pièce avec créature endormie et une petite boîte en bois. Tentez votre chance pour essayer de voler la boîte sans réveiller la créature",
+      "paragraphNr": 82
+    },
+    {
+      "choices": [
+        {
+          "description": "Vous asseoir comme il vous y invite",
+          "paragraphNr": 204
+        },
+        {
+          "description": "Quitter la pièce et revenir au croisement",
+          "paragraphNr": 280
+        },
+        {
+          "description": "Attaquer le vieil homme",
+          "paragraphNr": 377
+        }
+      ],
+      "description": "La pièce donne sur une pièce confortable. Un vieil homme est assis à une table avec une petite créature ailée à ses côtés. Il tient dans sa main 2 petits objets blancs qu'il agite devant vous.",
+      "paragraphNr": 84
+    },
+    {
+      "choices": [
+        {
+          "description": "Vous descendez celui-ci",
+          "paragraphNr": 286
+        }
+      ],
+      "description": "Vous arrivez en haut d'un escalier",
+      "paragraphNr": 89
+    },
+    {
+      "choices": [
+        {
+          "description": "Avancer droit devant",
+          "paragraphNr": 71
+        }
+      ],
+      "description": "Croisement caverne",
+      "paragraphNr": 92
+    },
+    {
+      "choices": [
+        {
+          "description": "Poursuivre",
+          "paragraphNr": 374
+        }
+      ],
+      "description": "Vous arrivez dans un petit couloir. Vous vous dissimulez dans une cachette alors que 4 squelettes armées courent vers vous sans vous avoir vu",
+      "paragraphNr": 96
+    },
+    {
+      "choices": [
+        {
+          "description": "Vous examiner la porte",
+          "paragraphNr": 383
+        }
+      ],
+      "description": "Le couloir vous mène à une porte solide.",
+      "paragraphNr": 99
+    },
+    {
+      "choices": [
+        {
+          "description": "Refermer aussitôt la porte et poursuivre votre chemin",
+          "paragraphNr": 303
+        },
+        {
+          "description": "Attaquer les créatures",
+          "paragraphNr": 19
+        },
+        {
+          "description": "Donner un coup d'épée au nain avec un rire diabolique",
+          "paragraphNr": 68
+        }
+      ],
+      "description": "La porte n'est pas verrouillé. Dans la pièce, 2 bossus torturent un nain. Le nain s'évanouit dans un cri. Les bossus se tournent vers vous",
+      "paragraphNr": 102
+    },
+    {
+      "choices": [
+        {
+          "description": "Regarder le parchemin",
+          "paragraphNr": 120
+        },
+        {
+          "description": "Aller vers le nord",
+          "paragraphNr": 212
+        }
+      ],
+      "description": "C'est de l'EAU SAINTE. Vous récupérer quasi tous vos points d'endurance (-2 total initial), vos points d'habilité (-1 total initial) et 4 points de chance.",
+      "paragraphNr": 109
+    },
+    {
+      "choices": [
+        {
+          "description": "Aller au nord",
+          "paragraphNr": 285
+        },
+        {
+          "description": "Poursuivre vers l'est",
+          "paragraphNr": 78
+        }
+      ],
+      "description": "Une autre bifurcation",
+      "paragraphNr": 113
+    },
+    {
+      "choices": [
+        {
+          "description": "Vous sortez vainqueur",
+          "paragraphNr": 378
+        },
+        {
+          "description": "Vous prenez la fuite",
+          "paragraphNr": 42
+        }
+      ],
+      "description": "Attaquez les FARFADETS un par un. Ajouter 1 point à votre force d'attaque car ils sont surpris.\n1er FARFADET à HABILITÉ:5, ENDURANCE:4; 2ème FARFADET a HABILITÉ:5, ENDURANCE:5",
+      "paragraphNr": 116
+    },
+    {
+      "choices": [
+        {
+          "description": "Poursuivre",
+          "paragraphNr": 197
+        }
+      ],
+      "description": "Vous suivez un court passage puis gravissez un escalier.",
+      "paragraphNr": 120
+    },
+    {
+      "choices": [
+        {
+          "description": "1-3: ils vous croient. +2 CHANCE. Vous quittez par la porte nord",
+          "paragraphNr": 184
+        },
+        {
+          "description": "4-5: ils doutent et envoient 2 des leurs prendre des ordres",
+          "paragraphNr": 164
+        },
+        {
+          "description": "6: ils ne vous croient pas et avance vers vous",
+          "paragraphNr": 140
+        }
+      ],
+      "description": "Lancez un dé",
+      "paragraphNr": 123
+    },
+    {
+      "choices": [
+        {
+          "description": "Poursuivre vers l'ouest",
+          "paragraphNr": 210
+        },
+        {
+          "description": "Poursuivre vers l'est",
+          "paragraphNr": 58
+        }
+      ],
+      "description": "La herse s'élève et disparaît dans le plafond.",
+      "paragraphNr": 128
+    },
+    {
+      "choices": [
+        {
+          "description": "Quitter la pièce",
+          "paragraphNr": 280
+        }
+      ],
+      "description": "Vous pouvez miser autant de pièces que vous avez par partie et tant que vous en possédez. Lancer 2 dés pour vous et le vieil homme. Le gagnant à le montant le plus gros.\nSi vous gagnez, prenez 2 points d'HABILITÉ, 2 points d'ENDURANCE, 2 points de CHANCE.",
+      "paragraphNr": 130
+    },
+    {
+      "choices": [
+        {
+          "description": "Vous vous dirigez vers la bifurcation",
+          "paragraphNr": 229
+        }
+      ],
+      "description": "Vous quittez la pièce et revenez à la bifurcation.",
+      "paragraphNr": 136
+    },
+    {
+      "choices": [
+        {
+          "description": "Poursuivre",
+          "paragraphNr": 363
+        }
+      ],
+      "description": "La boîte contiens une clé avec le chiffre 99. Ajouter un point de CHANCE",
+      "paragraphNr": 145
+    },
+    {
+      "choices": [
+        {
+          "description": "Continuer",
+          "paragraphNr": 208
+        }
+      ],
+      "description": "Contenu de la boîte : 1 Pièce d'Or. Gain de 2 points de CHANCE",
+      "paragraphNr": 147
+    },
+    {
+      "choices": [
+        {
+          "description": "Combattre la créature",
+          "paragraphNr": 41
+        }
+      ],
+      "description": "La créature se réveille et marche vers vous",
+      "paragraphNr": 154
+    },
+    {
+      "choices": [
+        {
+          "description": "Suivez le couloir",
+          "paragraphNr": 300
+        }
+      ],
+      "description": "C'est un dépôt d'arme.il y a un bouclier que vous pouvez échanger contre 1 autre pièce d'équipement. Si une créature vous touche, lancer 1 dé. Si vous faîtes 6 alors la blessure est de 1 point d'ENDURANCE de moins.",
+      "paragraphNr": 155
+    },
+    {
+      "choices": [
+        {
+          "description": "Porte enfoncée",
+          "paragraphNr": 343
+        },
+        {
+          "description": "Échec. Rebrousser à la bifurcation",
+          "paragraphNr": 92
+        }
+      ],
+      "description": "Test de l'enfoncement de la porte: 2d6 <= HABILITÉ",
+      "paragraphNr": 156
+    },
+    {
+      "choices": [
+        {
+          "description": "Traverser la porte et se diriger vers le nord",
+          "paragraphNr": 4
+        },
+        {
+          "description": "Revenir en arrière",
+          "paragraphNr": 329
+        }
+      ],
+      "description": "",
+      "paragraphNr": 157
+    },
+    {
+      "choices": [
+        {
+          "description": "Attaquer",
+          "paragraphNr": 365
+        },
+        {
+          "description": "Tentez votre chance. Prendre la fuite si vous êtes chanceux",
+          "paragraphNr": 237
+        }
+      ],
+      "description": "Vous entrez dans une salle à manger. 5 FARFADETS mange goulûment une soupe.",
+      "paragraphNr": 159
+    },
+    {
+      "choices": [
+        {
+          "description": "Continuer vers le nord",
+          "paragraphNr": 23
+        },
+        {
+          "description": "Aller vers l'ouest",
+          "paragraphNr": 69
+        }
+      ],
+      "description": "Vous arrivez à une bifurcation",
+      "paragraphNr": 162
+    },
+    {
+      "choices": [
+        {
+          "description": "Attaquer les deux créatures",
+          "paragraphNr": 372
+        },
+        {
+          "description": "Attaquer uniquement le fouetteur",
+          "paragraphNr": 65
+        },
+        {
+          "description": "Quitter la pièce et retourner au croisement",
+          "paragraphNr": 293
+        }
+      ],
+      "description": "Il y a un coffre au centre de la pièce. Une créature de taille humaine fouette une autre créature semblable.",
+      "paragraphNr": 168
+    },
+    {
+      "choices": [
+        {
+          "description": "Examiner le mur du cul-de-sac.",
+          "paragraphNr": 337
+        },
+        {
+          "description": "Aller au sud",
+          "paragraphNr": 187
+        }
+      ],
+      "description": "",
+      "paragraphNr": 171
+    },
+    {
+      "choices": [
+        {
+          "description": "Ouvrir la porte derrière vous vers l'est",
+          "paragraphNr": 177
+        },
+        {
+          "description": "Avancer pour atteindre un croisement",
+          "paragraphNr": 267
+        }
+      ],
+      "description": "",
+      "paragraphNr": 175
+    },
+    {
+      "choices": [
+        {
+          "description": "Poursuivre",
+          "paragraphNr": 162
+        }
+      ],
+      "description": "Vous traversez avec prudence la pièce et franchissez la porte.",
+      "paragraphNr": 178
+    },
+    {
+      "choices": [
+        {
+          "description": "Ouvrir la mallette",
+          "paragraphNr": 266
+        },
+        {
+          "description": "Sortir par la porte",
+          "paragraphNr": 237
+        }
+      ],
+      "description": "Vous découvrez une mallette. Votre victoire vous apporte 1 point d'HABILITÉ et 5 d'ENDURANCE",
+      "paragraphNr": 183
+    },
+    {
+      "choices": [
+        {
+          "description": "Fouiller les tiroirs de l'établi",
+          "paragraphNr": 322
+        },
+        {
+          "description": "Examiner les outils",
+          "paragraphNr": 34
+        }
+      ],
+      "description": "Vous êtes dans le Hangar à  Bateaux. Vous avez un certain temps pour explorer les environs",
+      "paragraphNr": 184
+    },
+    {
+      "choices": [
+        {
+          "description": "Explorer le cul de sac au nord",
+          "paragraphNr": 171
+        },
+        {
+          "description": "Aller vers l'est",
+          "paragraphNr": 308
+        }
+      ],
+      "description": "",
+      "paragraphNr": 187
+    },
+    {
+      "choices": [
+        {
+          "description": "Partir tout droit",
+          "paragraphNr": 48
+        },
+        {
+          "description": "Chercher un passage secret",
+          "paragraphNr": 295
+        }
+      ],
+      "description": "Une lourde herse vous bloque le chemin que vous venez de prendre",
+      "paragraphNr": 197
+    },
+    {
+      "choices": [
+        {
+          "description": "Quittez la pièce",
+          "paragraphNr": 293
+        }
+      ],
+      "description": "Il y a 25 Pièces d'Or, 1 dose de Potion d'Invisibilité, un gant de soie noire. Ranger une de ces trois trouvailles. Vous pouvez prendre un Repas.",
+      "paragraphNr": 201
+    },
+    {
+      "choices": [
+        {
+          "description": "Ouvrir la porte à l'ouest",
+          "paragraphNr": 38
+        },
+        {
+          "description": "Aller au sud",
+          "paragraphNr": 66
+        }
+      ],
+      "description": "Prenez 1 point de CHANCE. Vous pouve prendre un repas. Vous pouvez prendre les clés du Hangar à bateaux.",
+      "paragraphNr": 203
+    },
+    {
+      "choices": [
+        {
+          "description": "Si oui et que vous avez de l'or",
+          "paragraphNr": 130
+        },
+        {
+          "description": "Quitter la pièce",
+          "paragraphNr": 280
+        },
+        {
+          "description": "Attaquer le vieil homme",
+          "paragraphNr": 377
+        }
+      ],
+      "description": "Le vieil homme vous propose à jouer de l'argent",
+      "paragraphNr": 204
+    },
+    {
+      "choices": [
+        {
+          "description": "Poursuivre par la porte nord prudemment",
+          "paragraphNr": 83
+        },
+        {
+          "description": "Examiner la boîte sur la pointe des pieds",
+          "paragraphNr": 154
+        }
+      ],
+      "description": "Vous êtes dans une grande pièce. Il y a un bureau de bois avec une boîte posée dessus. Dans un coin une créature hideuse semble être endormie.",
+      "paragraphNr": 207
+    },
+    {
+      "choices": [
+        {
+          "description": "Ouvrir la porte",
+          "paragraphNr": 397
+        },
+        {
+          "description": "Poursuivre votre chemin",
+          "paragraphNr": 363
+        }
+      ],
+      "description": "Passage ayant une porte du côté ouest",
+      "paragraphNr": 208
+    },
+    {
+      "choices": [
+        {
+          "description": "Continuer en direction de l'ouest",
+          "paragraphNr": 225
+        },
+        {
+          "description": "Prendre la direction du nord",
+          "paragraphNr": 357
+        }
+      ],
+      "description": "Vous arrivez à une autre bifurcation.",
+      "paragraphNr": 210
+    },
+    {
+      "choices": [
+        {
+          "description": "Si vous possédez une arme d'argent",
+          "paragraphNr": 173
+        },
+        {
+          "description": "Sinon il vous infligé une blessure alors que vous vous enfuyez.",
+          "paragraphNr": 360
+        }
+      ],
+      "description": "Les Êtres ne sont vulnérables qu'aux armes d'argent.",
+      "paragraphNr": 211
+    },
+    {
+      "choices": [
+        {
+          "description": "Tester le liquide",
+          "paragraphNr": 369
+        },
+        {
+          "description": "Poursuivre vers le nord",
+          "paragraphNr": 120
+        }
+      ],
+      "description": "On peut lire plein labyrinthe de Zagor'. Il se trouve au nord une pièce désignée par ´...GER' et une autre au sud ´SM...P...L'. Vous prenez la carte.",
+      "paragraphNr": 212
+    },
+    {
+      "choices": [
+        {
+          "description": "Vous réussissez à enfoncer la porte",
+          "paragraphNr": 36
+        },
+        {
+          "description": "Vous échouez. Vous poursuivez votre chemin",
+          "paragraphNr": 314
+        }
+      ],
+      "description": "Jetez 2 dés. Si le chiffre est egal ou inférieur à votre total d'HABILITÉ, vous enfoncez la porte fermée à clé. Sinon vous perdez 1 point d'ENDURANCE.",
+      "paragraphNr": 213
+    },
+    {
+      "choices": [
+        {
+          "description": "Prendre le passage nord-ouest",
+          "paragraphNr": 271
+        },
+        {
+          "description": "Ouvrir la porte de la paroi rocheuse face à vous",
+          "paragraphNr": 104
+        },
+        {
+          "description": "Prendre le passage en direction de l'est",
+          "paragraphNr": 99
+        }
+      ],
+      "description": "",
+      "paragraphNr": 214
+    },
+    {
+      "choices": [
+        {
+          "description": "Sonner la cloche pour appeler le passeur",
+          "paragraphNr": 3
+        },
+        {
+          "description": "Utiliser le radeau",
+          "paragraphNr": 386
+        },
+        {
+          "description": "Prendre le pont",
+          "paragraphNr": 209
+        },
+        {
+          "description": "Nager",
+          "paragraphNr": 316
+        }
+      ],
+      "description": "La berge sud a un service de bac contre 2 pièces d'or pour traverser la rivière. Un pont branlant semble joindre la berge nord.",
+      "paragraphNr": 218
+    },
+    {
+      "choices": [
+        {
+          "description": "Forcer la porte",
+          "paragraphNr": 53
+        },
+        {
+          "description": "Continuer le long du couloir",
+          "paragraphNr": 300
+        }
+      ],
+      "description": "La porte est solidement fermée.",
+      "paragraphNr": 223
+    },
+    {
+      "choices": [
+        {
+          "description": "Poursuivre vers le nord",
+          "paragraphNr": 77
+        },
+        {
+          "description": "Aller à l'ouest",
+          "paragraphNr": 63
+        }
+      ],
+      "description": "Vous arrivez à une autre bifurcation.",
+      "paragraphNr": 225
+    },
+    {
+      "choices": [
+        {
+          "description": "Vous prenez à droite",
+          "paragraphNr": 69
+        }
+      ],
+      "description": "Vous êtes de retour à la bifurcation.",
+      "paragraphNr": 229
+    },
+    {
+      "choices": [
+        {
+          "description": "Si vous êtes vainqueur",
+          "paragraphNr": 390
+        },
+        {
+          "description": "Elle vous paralyse au bout de 4 blessures",
+          "paragraphNr": 64
+        }
+      ],
+      "description": "La GOULE va attaque. Elle a HABILITÉ: 8, ENDURANCE:7",
+      "paragraphNr": 230
+    },
+    {
+      "choices": [
+        {
+          "description": "Partir vers le nord",
+          "paragraphNr": 285
+        }
+      ],
+      "description": "Vous arrivez à la précédente bifurcation et prenez la direction du nord.",
+      "paragraphNr": 237
+    },
+    {
+      "choices": [
+        {
+          "description": "Si vous sortez vainqueur du combat",
+          "paragraphNr": 145
+        }
+      ],
+      "description": "Un petit serpent jaillit de la boîte et vous mord au poignet.\nSERPENT a HABILITÉ:5, ENDURANCE:2",
+      "paragraphNr": 240
+    },
+    {
+      "choices": [
+        {
+          "description": "Se reposer et prendre un repas",
+          "paragraphNr": 143
+        },
+        {
+          "description": "Sauter dans la rivière et suivre le courant",
+          "paragraphNr": 399
+        }
+      ],
+      "description": "Vous arrivez vers une berge d'une rivière. Le chemin se termine ici.",
+      "paragraphNr": 244
+    },
+    {
+      "choices": [
+        {
+          "description": "Aller au nord",
+          "paragraphNr": 329
+        },
+        {
+          "description": "Aller à l'ouest",
+          "paragraphNr": 180
+        },
+        {
+          "description": "Aller à nouveau vers l'est",
+          "paragraphNr": 70
+        }
+      ],
+      "description": "",
+      "paragraphNr": 246
+    },
+    {
+      "choices": [
+        {
+          "description": "Prendre la fuite avant ou après le combat fini",
+          "paragraphNr": 66
+        },
+        {
+          "description": "Rester",
+          "paragraphNr": 304
+        }
+      ],
+      "description": "CHIEN a HABILITÉ:7, ENDURANCE:6. Lancer 1 dé à chaque assaut. 1,2: vous perdez 1 point car le chien crache du feu. 3-6: Vous évitez le jet de feu. Vous pouvez tester votre chance pour esquiver la flamme. En cas de succès, vous gagnez 1 point de CHANCE.",
+      "paragraphNr": 249
+    },
+    {
+      "choices": [
+        {
+          "description": "Entrer dans la pièce",
+          "paragraphNr": 168
+        },
+        {
+          "description": "Revenir sur vos pas",
+          "paragraphNr": 293
+        }
+      ],
+      "description": "Le passage aboutit à une porte. Vous entendez des cris de colère qui proviennent de la pièce.",
+      "paragraphNr": 257
+    },
+    {
+      "choices": [
+        {
+          "description": "Vous vous séparez du vieil homme",
+          "paragraphNr": 314
+        }
+      ],
+      "description": "Vous arrivez à calmer le vieillard. Il vous conseil de respecter le passeur, qu'il faut tirer le levier de droite dans un mur qui se trouve plus loin, que les clés du hangar à bateaux sont gardées par un homme et son chien. Vous gagnez 1 point de CHANCE.",
+      "paragraphNr": 263
+    },
+    {
+      "choices": [
+        {
+          "description": "Quitter la pièce",
+          "paragraphNr": 237
+        }
+      ],
+      "description": "La mallette contient un arc et une flèche d'argent ainsi qu'une inscription : ´Celui qui donne le sommeil à ceux qui ne peuvent dormir´. Vous pouvez manger des provisions. Vous gagnez 1 point de CHANCE.",
+      "paragraphNr": 266
+    },
+    {
+      "choices": [
+        {
+          "description": "Aller au nord",
+          "paragraphNr": 312
+        },
+        {
+          "description": "Aller au sud",
+          "paragraphNr": 246
+        },
+        {
+          "description": "Aller à l'ouest",
+          "paragraphNr": 79
+        },
+        {
+          "description": "Aller à l'est",
+          "paragraphNr": 349
+        }
+      ],
+      "description": "",
+      "paragraphNr": 267
+    },
+    {
+      "choices": [
+        {
+          "description": "Voulez-vous franchir la porte?",
+          "paragraphNr": 336
+        },
+        {
+          "description": "Retourner à la rivière",
+          "paragraphNr": 214
+        }
+      ],
+      "description": "Le passage aboutit à une porte",
+      "paragraphNr": 271
+    },
+    {
+      "choices": [
+        {
+          "description": "Poursuivre",
+          "paragraphNr": 7
+        }
+      ],
+      "description": "Vous arrivez à la berge nord",
+      "paragraphNr": 272
+    },
+    {
+      "choices": [
+        {
+          "description": "Poursuivre",
+          "paragraphNr": 230
+        }
+      ],
+      "description": "Le troisième cadavre essaie de vous griffer. Tentez votre chance. Si vous êtes malchanceux, vous perdez 1 point d'ENDURANCE.",
+      "paragraphNr": 275
+    },
+    {
+      "choices": [
+        {
+          "description": "Enfoncer la porte",
+          "paragraphNr": 156
+        },
+        {
+          "description": "Rebrousser chemin",
+          "paragraphNr": 92
+        }
+      ],
+      "description": "Passage se termine avec une porte fermée à clé",
+      "paragraphNr": 278
+    },
+    {
+      "choices": [
+        {
+          "description": "Poursuivre vers l'est",
+          "paragraphNr": 311
+        }
+      ],
+      "description": "Vous retournez à la bifurcation et prenez le passage de l'est",
+      "paragraphNr": 280
+    },
+    {
+      "choices": [
+        {
+          "description": "Ouvrir la porte",
+          "paragraphNr": 213
+        },
+        {
+          "description": "Poursuivre votre chemin",
+          "paragraphNr": 314
+        }
+      ],
+      "description": "Il y a une porte le long du mur du passage. Vous entendez un homme appeler à l'aide par le trou de serrure.",
+      "paragraphNr": 285
+    },
+    {
+      "choices": [
+        {
+          "description": "Fouiller le premier cadavre",
+          "paragraphNr": 294
+        },
+        {
+          "description": "Fouiller le deuxième cadavre",
+          "paragraphNr": 275
+        },
+        {
+          "description": "Fouiller le troisième cadavre",
+          "paragraphNr": 148
+        },
+        {
+          "description": "Traverser la salle sur la pointe des pieds",
+          "paragraphNr": 107
+        }
+      ],
+      "description": "Vous arrivez à une grande salle ou trois cadavres sont étendus au sol",
+      "paragraphNr": 286
+    },
+    {
+      "choices": [
+        {
+          "description": "Aller vers l'est",
+          "paragraphNr": 113
+        }
+      ],
+      "description": "Vous retournez à la bifurcation et parter vers l'est",
+      "paragraphNr": 293
+    },
+    {
+      "choices": [
+        {
+          "description": "Quitter la pièce",
+          "paragraphNr": 42
+        }
+      ],
+      "description": "La boîte contiens une formule magique de l'auteur Farrigo Di Maggio qui permet de neutraliser les Dragons. La page de la formule se consume une fois celle-ci retenue.",
+      "paragraphNr": 296
+    },
+    {
+      "choices": [
+        {
+          "description": "Tenter d'ouvrir la porte",
+          "paragraphNr": 102
+        },
+        {
+          "description": "Poursuivre votre chemin",
+          "paragraphNr": 303
+        }
+      ],
+      "description": "Dans le mur est du passage, il y a une porte. Des hurlements se font entendre liées certainement à une séance de torture.",
+      "paragraphNr": 300
+    },
+    {
+      "choices": [
+        {
+          "description": "Ouvrir la porte",
+          "paragraphNr": 82
+        },
+        {
+          "description": "Continuer vers le nord",
+          "paragraphNr": 208
+        }
+      ],
+      "description": "Passage avec porte d'où l'on entend des ronflements",
+      "paragraphNr": 301
+    },
+    {
+      "choices": [
+        {
+          "description": "Tirer le levier droit",
+          "paragraphNr": 128
+        },
+        {
+          "description": "Tirer le levier gauche",
+          "paragraphNr": 243
+        }
+      ],
+      "description": "Extrémité du passage est entravée par une herse. Il y a 2 leviers.",
+      "paragraphNr": 303
+    },
+    {
+      "choices": [
+        {
+          "description": "Prendre la fuite par la porte sud",
+          "paragraphNr": 66
+        },
+        {
+          "description": "Si vous êtes vainqueur",
+          "paragraphNr": 203
+        }
+      ],
+      "description": "Le vieil homme est furieux et se transforme en LOUP-GAROU qui a HABILITÉ:8,ENDURANCE:8",
+      "paragraphNr": 304
+    },
+    {
+      "choices": [
+        {
+          "description": "Aller à l'ouest",
+          "paragraphNr": 187
+        },
+        {
+          "description": "Aller au nord",
+          "paragraphNr": 54
+        },
+        {
+          "description": "Aller au sud",
+          "paragraphNr": 160
+        },
+        {
+          "description": "Aller à l'est",
+          "paragraphNr": 354
+        }
+      ],
+      "description": "",
+      "paragraphNr": 308
+    },
+    {
+      "choices": [
+        {
+          "description": "Poursuivre",
+          "paragraphNr": 211
+        }
+      ],
+      "description": "Le coup n'a pas blessé la créature. Elle est invulnérable aux armes habituelles. Choisissez une autre arme si vous en avez.",
+      "paragraphNr": 310
+    },
+    {
+      "choices": [
+        {
+          "description": "Traverser la pièce et atteindre la porte",
+          "paragraphNr": 305
+        },
+        {
+          "description": "Traverser en ne marchant que sur les dalles en forme d'étoile",
+          "paragraphNr": 178
+        },
+        {
+          "description": "Traverser en ne marchant que sur les dalles en forme de main",
+          "paragraphNr": 108
+        }
+      ],
+      "description": "Le passage aboutit à une salle dans le sol est recouvert de mosaïque de dalles en forme de main, d'étoile. Une porte se trouve de l'autre côté de la salle.",
+      "paragraphNr": 311
+    },
+    {
+      "choices": [
+        {
+          "description": "Vous arrivez à un croisement",
+          "paragraphNr": 308
+        }
+      ],
+      "description": "",
+      "paragraphNr": 312
+    },
+    {
+      "choices": [
+        {
+          "description": "Ouvrir la porte",
+          "paragraphNr": 223
+        },
+        {
+          "description": "Poursuivre votre chemin",
+          "paragraphNr": 300
+        }
+      ],
+      "description": "Une porte se trouve dans le mur est du passage. Vous n'entendez pas le moindre son.",
+      "paragraphNr": 314
+    },
+    {
+      "choices": [
+        {
+          "description": "Quitter la pièce en prenant la direction du nord",
+          "paragraphNr": 303
+        }
+      ],
+      "description": "Le nain est déjà mort. Les lutins possède un gros fromage à l'odeur alléchante. Vous pouvez l'emporter dans votre sac à dos.",
+      "paragraphNr": 317
+    },
+    {
+      "choices": [
+        {
+          "description": "Allez voir le bruit vers la porte nord",
+          "paragraphNr": 96
+        }
+      ],
+      "description": "Vous trouvez un clé en cuivre 66 dans un tiroir. Abandonner 1 pièce d'équipement pour prendre la clé.",
+      "paragraphNr": 322
+    },
+    {
+      "choices": [
+        {
+          "description": "Chercher la clé",
+          "paragraphNr": 35
+        },
+        {
+          "description": "Revenir à la bifurcation",
+          "paragraphNr": 229
+        }
+      ],
+      "description": "Vous entrez dans une petite pièce. Une clé d'or est accroché au mur du fond. La pièce n'a pas d'autre issue.",
+      "paragraphNr": 326
+    },
+    {
+      "choices": [
+        {
+          "description": "Aller à la porte du mur ouest",
+          "paragraphNr": 157
+        },
+        {
+          "description": "Aller à la porte située au nord",
+          "paragraphNr": 392
+        },
+        {
+          "description": "Aller à l'est",
+          "paragraphNr": 299
+        },
+        {
+          "description": "Aller au sud",
+          "paragraphNr": 238
+        }
+      ],
+      "description": "",
+      "paragraphNr": 329
+    },
+    {
+      "choices": [
+        {
+          "description": "Sortir par la porte sud",
+          "paragraphNr": 66
+        },
+        {
+          "description": "Réveiller le vieil homme",
+          "paragraphNr": 172
+        },
+        {
+          "description": "Attaquer le chien",
+          "paragraphNr": 249
+        }
+      ],
+      "description": "Un vieil homme est endormi alors que son chien grogne à ses côtés. Un trousseau de clés est accroché au mur. Il y a une porte au sud et une à l'ouest.",
+      "paragraphNr": 336
+    },
+    {
+      "choices": [
+        {
+          "description": "Poursuivre",
+          "paragraphNr": 267
+        }
+      ],
+      "description": "Un déclic s'entend et vous vous effondrez. Lorsque vous reprenez connaissance, vous ne reconnaissez pas le décor autours de vous.",
+      "paragraphNr": 337
+    },
+    {
+      "choices": [
+        {
+          "description": "Si vous survivez",
+          "paragraphNr": 201
+        }
+      ],
+      "description": "Peu après avoir ouvert le coffre, une fléchette vient vous atteindre à l'estomac. Réduisez un dé de points d'ENDURANCE.",
+      "paragraphNr": 339
+    },
+    {
+      "choices": [
+        {
+          "description": "Hisser hors de la fosse et faire rebrousse-chemin",
+          "paragraphNr": 92
+        }
+      ],
+      "description": "Fosse. Perte de 1 point d'ENDURANCE",
+      "paragraphNr": 343
+    },
+    {
+      "choices": [
+        {
+          "description": "Continuer tout droit",
+          "paragraphNr": 381
+        },
+        {
+          "description": "Prendre vers l'est",
+          "paragraphNr": 311
+        }
+      ],
+      "description": "Une bifurcation.",
+      "paragraphNr": 345
+    },
+    {
+      "choices": [
+        {
+          "description": "Poursuivre",
+          "paragraphNr": 89
+        }
+      ],
+      "description": "Vous arrivez à une étroite ouverture. Vous décidez de la franchir",
+      "paragraphNr": 360
+    },
+    {
+      "choices": [
+        {
+          "description": "Vous quittez la pièce si vous êtes encore en vie",
+          "paragraphNr": 136
+        }
+      ],
+      "description": "Vous prenez la clé qui porte le numéro 125. Vos poumons brûlent. Lancez 2 dés. Si le chiffre est superieur à votre HABILITÉ, vous perdez 2 points d'HABILITÉ et 3 points d'ENDURANCE.",
+      "paragraphNr": 361
+    },
+    {
+      "choices": [
+        {
+          "description": "Poursuivre",
+          "paragraphNr": 175
+        }
+      ],
+      "description": "Vous découvrez une porte secrète",
+      "paragraphNr": 362
+    },
+    {
+      "choices": [
+        {
+          "description": "Entrer dans la pièce",
+          "paragraphNr": 370
+        },
+        {
+          "description": "Poursuivre le long du passage",
+          "paragraphNr": 42
+        }
+      ],
+      "description": "Il y a une porte dans le mur ouest du passage d'où l'on entend une cacophonie de voix chanter",
+      "paragraphNr": 363
+    },
+    {
+      "choices": [
+        {
+          "description": "Si vous êtes vainqueur",
+          "paragraphNr": 183
+        },
+        {
+          "description": "Si vous voulez vous enfuire (n'oubliez pas votre pénalité)",
+          "paragraphNr": 237
+        }
+      ],
+      "description": "1er FARFADET a 6/4 (HABILITÉ/ENDURANCE), 2ème a 5/3, 3ème a 6/4, 4ème a 5/2, 5ème a 4/4",
+      "paragraphNr": 365
+    },
+    {
+      "choices": [
+        {
+          "description": "Poursuivre",
+          "paragraphNr": 109
+        }
+      ],
+      "description": "Vous avalez une gorgée du liquide",
+      "paragraphNr": 369
+    },
+    {
+      "choices": [
+        {
+          "description": "Combattre les créatures",
+          "paragraphNr": 116
+        },
+        {
+          "description": "Refermer la porte et courir le long du passage",
+          "paragraphNr": 42
+        }
+      ],
+      "description": "Pièce avec une table autour de laquelle deux créatures éméchées sont assises. Il y a une petite boîte sous la table.",
+      "paragraphNr": 370
+    },
+    {
+      "choices": [
+        {
+          "description": "En cas de succès",
+          "paragraphNr": 21
+        }
+      ],
+      "description": "CHEF DES FARFADETS a HABILITÉ : 7, ENDURANCE : 6\nSERVITEUR a HABILITÉ : 5, ENDURANCE : 3",
+      "paragraphNr": 372
+    },
+    {
+      "choices": [
+        {
+          "description": "Poursuivre",
+          "paragraphNr": 207
+        }
+      ],
+      "description": "Les squelettes ne vous remarquent pas. Vous gagnez 2 points de CHANCE. Vous poursuivez votre chemin et passer par la porte nord. Vous pouvez prendre 1 repas.",
+      "paragraphNr": 374
+    },
+    {
+      "choices": [
+        {
+          "description": "Ouvrir la boîte",
+          "paragraphNr": 296
+        },
+        {
+          "description": "Quitter la pièce sans l'examiner",
+          "paragraphNr": 42
+        }
+      ],
+      "description": "La boîte est intitulé \"Farrigo Di Maggio\"",
+      "paragraphNr": 378
+    },
+    {
+      "choices": [
+        {
+          "description": "Ouvrir la porte",
+          "paragraphNr": 84
+        },
+        {
+          "description": "Retourner à la bifurcation",
+          "paragraphNr": 280
+        }
+      ],
+      "description": "Le passage aboutit à une porte.",
+      "paragraphNr": 381
+    },
+    {
+      "choices": [
+        {
+          "description": "Si vous possédez la clé ´Hangar à bateaux'",
+          "paragraphNr": 80
+        },
+        {
+          "description": "Si vous tentez d'enfoncer la porte",
+          "paragraphNr": 264
+        },
+        {
+          "description": "Vous retournez sur la berge et prenez un autre chemin",
+          "paragraphNr": 129
+        }
+      ],
+      "description": "Une pancarte sur la porte indique ´Hangar à bateaux'. La porte est solidement verrouillé. Un groupe de squelette travaille sur la construction d'un bateau.",
+      "paragraphNr": 383
+    },
+    {
+      "choices": [
+        {
+          "description": "Aller au nord",
+          "paragraphNr": 120
+        },
+        {
+          "description": "Fouiller le 2ème cadavre",
+          "paragraphNr": 393
+        }
+      ],
+      "description": "Vous trouvez trouver 6 pièces d'or en fouillant le 1er et 3ème cadavres. Vous gagnez 2 points de CHANCE. Vous pouvez prendre un repas.",
+      "paragraphNr": 390
+    },
+    {
+      "choices": [
+        {
+          "description": "Partir à l'est",
+          "paragraphNr": 52
+        },
+        {
+          "description": "Chercher un passage secret",
+          "paragraphNr": 362
+        },
+        {
+          "description": "Prendre la direction du sud",
+          "paragraphNr": 48
+        }
+      ],
+      "description": "",
+      "paragraphNr": 391
+    },
+    {
+      "choices": [
+        {
+          "description": "Lire le parchemin",
+          "paragraphNr": 212
+        },
+        {
+          "description": "Tester le liquide",
+          "paragraphNr": 369
+        }
+      ],
+      "description": "Vous trouvez 8 pièces d'or, un vieux morceau de parchemin, une bouteille contenant un liquide.",
+      "paragraphNr": 393
+    },
+    {
+      "choices": [
+        {
+          "description": "Ouvrir la boîte",
+          "paragraphNr": 240
+        },
+        {
+          "description": "Quitter la pièce",
+          "paragraphNr": 363
+        }
+      ],
+      "description": "Petite pièce avec une table. Sous la table, il y a une petite boîte.",
+      "paragraphNr": 397
+    },
+    {
+      "choices": [
+        {
+          "description": "Poursuivre",
+          "paragraphNr": 218
+        }
+      ],
+      "description": "Le fort courant vous amène dans une grande caverne ou vous vous échouez à une des rives",
+      "paragraphNr": 399
+    }
+  ]
+}
