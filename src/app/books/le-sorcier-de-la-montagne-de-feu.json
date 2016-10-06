@@ -6,6 +6,7 @@
   "name": "Le Sorcier de la Montagne de Feu",
   "numberOfParagraphs": 120,
   "serie": "Défis Fantastiques",
+  "startGameNote" : "Veuilliez choisir soit la potion d'habilité, de force ou de chance (supprimez les potions non choisies de l'inventaire).",
   "startParagraphNr": "1",
   "version": "0.1",
   "items": [
