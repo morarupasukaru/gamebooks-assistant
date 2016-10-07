@@ -11,7 +11,7 @@ let librariesListModule = angular.module('app.components.gui.screen.libraries.li
         $urlRouterProvider.otherwise('/');
 
         $stateProvider.state('librariesList', {
-            url: constants.url.libraries, template: '<libraries-list></libraries-list>'
+            url: constants.url.libraries + '?import', template: '<libraries-list></libraries-list>'
         });
     })
 

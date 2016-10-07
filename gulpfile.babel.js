@@ -51,6 +51,7 @@ let paths = {
  * Gulp-Task: Kopiert alle statischen Dateien nach /dist
  */
 gulp.task('copyHtml', () => {
+    gulp.src(path.join(root, 'books/*.json')).pipe(gulp.dest(paths.output));
     return gulp.src(path.join(root, '*.*')).pipe(gulp.dest(paths.output));
 });
 
@@ -79,7 +80,8 @@ gulp.task('serve', () => {
 //gulp.task('build', ['test-selenium-webgrid', 'doc'], (done) => {
 gulp.task('build', [], (done) => {
     gulp.src(path.join(root, '*.*')).pipe(gulp.dest(paths.build));
-
+    // remove commented line if decided to make /books/ public
+    // gulp.src(path.join(root, 'books/*.json')).pipe(gulp.dest(paths.build));
     return webpack(webpackConfig.production, done);
 });
 

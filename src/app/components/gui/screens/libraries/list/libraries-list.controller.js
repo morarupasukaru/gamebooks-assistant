@@ -1,6 +1,17 @@
 class LibrariesListController {
     /*@ngInject*/
-    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, exportDataPopupService, importDataPopupService, libraryPersistenceService) {
+    constructor($location,
+                preScreenLoadingInterceptorsCallerService,
+                constants,
+                gamePersistenceService,
+                adventurePersistenceService,
+                messagesService,
+                $translate,
+                popupService,
+                exportDataPopupService,
+                importDataPopupService,
+                libraryPersistenceService,
+                $stateParams) {
         this.constants = constants;
         preScreenLoadingInterceptorsCallerService.intercept();
         this.$location = $location;
@@ -12,6 +23,7 @@ class LibrariesListController {
         this.popupService = popupService;
         this.exportDataPopupService = exportDataPopupService;
         this.importDataPopupService = importDataPopupService;
+        this.$stateParams = $stateParams;
 
         this.popupDeleteLibraryConfig = {
             id : 'popupDeleteLibrary',
@@ -23,6 +35,10 @@ class LibrariesListController {
 
         this.popupExportLibrariesConfig = { id : 'popupExportLibraries' };
         this.popupImportLibrariesConfig = { id : 'popupImportLibraries' };
+
+        if (!!$stateParams.import) {
+            this.importLibraryUrl($stateParams.import);
+        }
 
         this.initData();
     }
@@ -87,7 +103,7 @@ class LibrariesListController {
             this.popupImportLibrariesConfig.id,
             function(popupDomElementId, data) {
                 try {
-                    self.libraryPersistenceService.importLibraries(data);
+                    self.libraryPersistenceService.importLibrariesStr(data);
                     self.initData();
                 } catch (error) {
                     self.messagesService.errorMessage(error, false);
@@ -96,9 +112,28 @@ class LibrariesListController {
         );
     }
 
+    importLibraryUrl(url) {
+        let self = this;
+        let promise = this.libraryPersistenceService.downloadLibraryUrl(url);
+        promise.then(
+            function(json) {
+                self.initData();
+                self.clearUrl();
+            },
+            function(reason) {
+                self.messagesService.errorMessage(reason, false);
+            }
+        );
+    }
+
+    clearUrl() {
+        this.$location.url(this.constants.url.libraries);
+    }
+
     downloadLibrary() {
         let self = this;
-        let promise = this.libraryPersistenceService.downloadLibrary(this.getSelectedRow());
+        let selectedLibrary = this.getSelectedRow();
+        let promise = this.libraryPersistenceService.downloadLibrary(selectedLibrary, selectedLibrary.libraryUrl);
         promise.then(
             function(json) {
                 self.initData();

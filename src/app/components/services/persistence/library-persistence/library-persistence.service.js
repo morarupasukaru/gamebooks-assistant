@@ -11,6 +11,28 @@ class LibraryPersistenceService {
         this.adventurePersistenceService = adventurePersistenceService;
     }
 
+    downloadLibraryUrl(url) {
+        let self = this;
+        let deferred = this.$q.defer();
+        let promise = this.remoteJsonRetrieverService.retrieveJson(url);
+        promise.then(
+            function(json) {
+                try {
+                    self.importLibraries(json);
+                    self.messagesService.successMessage('List of libraries is downloaded', false);
+                    deferred.resolve('Success');
+                } catch (error) {
+                    deferred.reject(error);
+                }
+            },
+            function(reason) {
+                self.messagesService.errorMessage(reason, false);
+                deferred.reject(reason);
+            }
+        );
+        return deferred.promise;
+    }
+
     downloadLibrary(library) {
         let self = this;
         let deferred = this.$q.defer();
@@ -43,17 +65,21 @@ class LibraryPersistenceService {
         this.persistenceService.remove(this.getLibraryPersistenceKey(libraryId));
     }
 
-    importLibraries(librariesStr) {
+    importLibrariesStr(librariesStr) {
         try {
             let libraries = JSON.parse(librariesStr);
-            this.checkMissingFields(libraries);
-            for (let i = 0; i < libraries.length; i++) {
-                let library = libraries[i];
-                this.updateLibrary(library);
-            }
+            this.importLibraries(libraries);
         } catch (error) {
             this.messagesService.errorMessage('Cannot import libraries', false);
             throw error;
+        }
+    }
+
+    importLibraries(libraries) {
+        this.checkMissingFields(libraries);
+        for (let i = 0; i < libraries.length; i++) {
+            let library = libraries[i];
+            this.updateLibrary(library);
         }
     }
 
