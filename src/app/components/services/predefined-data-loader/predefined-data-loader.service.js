@@ -8,7 +8,7 @@ class PredefinedDataLoaderService {
     loadPredefinedData() {
         if (!this.libraryPersistenceService.hasLibraryUrl('library-example.json')) {
             let libraryStr = '[{"siteName":"Example Library","libraryUrl":"library-example.json"}]';
-            this.libraryPersistenceService.importLibraries(libraryStr);
+            this.libraryPersistenceService.importLibrariesStr(libraryStr);
         }
     }
 }
