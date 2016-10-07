@@ -1,6 +1,6 @@
 class GamesListController {
     /*@ngInject*/
-    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, exportDataPopupService, importDataPopupService) {
+    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, exportDataPopupService, importDataPopupService, $stateParams) {
         this.constants = constants;
         preScreenLoadingInterceptorsCallerService.intercept();
         this.$location = $location;
@@ -11,6 +11,7 @@ class GamesListController {
         this.popupService = popupService;
         this.exportDataPopupService = exportDataPopupService;
         this.importDataPopupService = importDataPopupService;
+        this.$stateParams = $stateParams;
 
         this.popupDeleteGameConfig = {
             id : 'popupDeleteGame',
@@ -22,6 +23,10 @@ class GamesListController {
 
         this.popupExportGameConfig = { id : 'popupExportGame' };
         this.popupImportGameConfig = { id : 'popupImportGame' };
+
+        if (!!$stateParams.import) {
+            this.importGameFromUrl($stateParams.import);
+        }
 
         this.initData();
     }
@@ -125,6 +130,24 @@ class GamesListController {
             }
         }
         return null;
+    }
+
+    importGameFromUrl(url) {
+        let self = this;
+        let promise = this.gamePersistenceService.downloadGame(url);
+        promise.then(
+            function(json) {
+                self.initData();
+                self.clearUrl();
+            },
+            function(reason) {
+                self.messagesService.errorMessage(reason, false);
+            }
+        );
+    }
+
+    clearUrl() {
+        this.$location.url(this.constants.url.games);
     }
 }
 

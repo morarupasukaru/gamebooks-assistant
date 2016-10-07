@@ -1,11 +1,30 @@
 class GamePersistenceService {
 
     /*@ngInject*/
-    constructor(constants, persistenceService, adventurePersistenceService, messagesService) {
+    constructor(constants, persistenceService, adventurePersistenceService, messagesService, $q, remoteJsonRetrieverService) {
         this.persistenceService = persistenceService;
         this.adventurePersistenceService = adventurePersistenceService;
         this.constants = constants;
         this.messagesService = messagesService;
+        this.$q = $q;
+        this.remoteJsonRetrieverService = remoteJsonRetrieverService;
+    }
+
+    downloadGame(url) {
+        let self = this;
+        let deferred = this.$q.defer();
+        let promise = this.remoteJsonRetrieverService.retrieveJson(url);
+        promise.then(
+            function(json) {
+                self.importGame(JSON.stringify(json));
+                deferred.resolve('Success');
+            },
+            function(reason) {
+                self.messagesService.errorMessage(reason, false);
+                deferred.reject(reason);
+            }
+        );
+        return deferred.promise;
     }
 
     getSelectedLanguage() {
