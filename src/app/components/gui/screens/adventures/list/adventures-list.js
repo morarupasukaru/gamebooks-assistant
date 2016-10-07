@@ -11,7 +11,7 @@ let adventuresListModule = angular.module('app.components.gui.screen.adventures.
         $urlRouterProvider.otherwise('/');
 
         $stateProvider.state('adventuresList', {
-            url: constants.url.adventures, template: '<adventures-list></adventures-list>'
+            url: constants.url.adventures + '?import', template: '<adventures-list></adventures-list>'
         });
     })
 

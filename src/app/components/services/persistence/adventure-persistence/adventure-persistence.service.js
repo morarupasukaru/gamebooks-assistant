@@ -11,24 +11,34 @@ class AdventurePersistenceService {
         this.$filter = $filter;
     }
 
-    downloadAdventure(adventureId) {
+    downloadAdventureWithId(adventureId) {
         let adventure = this.getAdventure(adventureId);
+        return this.downloadAdventure(adventure, adventure.downloadUrl);
+    }
+
+    downloadAdventure(adventure, downloadUrl) {
         let self = this;
         let deferred = this.$q.defer();
-        let promise = this.remoteJsonRetrieverService.retrieveJson(adventure.downloadUrl);
+        let promise = this.remoteJsonRetrieverService.retrieveJson(downloadUrl);
         promise.then(
             function(json) {
-                self.addDownloadHistory(adventure, self.now() + ' : downloaded')
-                json.id = adventure.id;
-                json.downloadHistory = adventure.downloadHistory;
-                json.downloadUrl = adventure.downloadUrl;
+                if (!!adventure) {
+                    json.id = adventure.id;
+                    json.downloadHistory = adventure.downloadHistory;
+                } else {
+                    json.id = self.getAdventureIdFromAdventureName(json.name);
+                }
+                self.addDownloadHistory(json, self.now() + ' : downloaded')
+                json.downloadUrl = downloadUrl;
                 self.import(json);
-                self.messagesService.successMessage('The selected adventure is downloaded/updated', false);
+                self.messagesService.successMessage('Adventure ' + json.name + ' is downloaded', false);
                 deferred.resolve('Success');
             },
             function(reason) {
-                self.addDownloadHistory(adventure, self.now() + ' : error')
-                self.updateAdventureWithoutParagraphs(adventure);
+                if (!!adventure) {
+                    self.addDownloadHistory(adventure, self.now() + ' : error')
+                    self.updateAdventureWithoutParagraphs(adventure);
+                }
                 self.messagesService.errorMessage(reason, false);
                 deferred.reject(reason);
             }

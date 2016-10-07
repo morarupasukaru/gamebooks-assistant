@@ -1,6 +1,6 @@
 class AdventuresListController {
     /*@ngInject*/
-    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, exportDataPopupService, importDataPopupService) {
+    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, exportDataPopupService, importDataPopupService, $stateParams) {
         this.constants = constants;
         preScreenLoadingInterceptorsCallerService.intercept();
         this.$location = $location;
@@ -11,6 +11,7 @@ class AdventuresListController {
         this.popupService = popupService;
         this.exportDataPopupService = exportDataPopupService;
         this.importDataPopupService = importDataPopupService;
+        this.$stateParams = $stateParams;
 
         this.popupDeleteAdventureConfig = {
             id : 'popupDeleteAdventure',
@@ -30,6 +31,10 @@ class AdventuresListController {
             withCloseButton : false,
             closeOnClickOutsideModal : false
         };
+
+        if (!!$stateParams.import) {
+            this.importAdventureFromUrl($stateParams.import);
+        }
 
         this.initData();
     }
@@ -120,7 +125,7 @@ class AdventuresListController {
 
     downloadAdventure() {
         let self = this;
-        let promise = this.adventurePersistenceService.downloadAdventure(this.getSelectedRow().id);
+        let promise = this.adventurePersistenceService.downloadAdventureWithId(this.getSelectedRow().id);
         promise.then(
             function(json) {
                 self.initData();
@@ -149,6 +154,24 @@ class AdventuresListController {
             }
         }
         return null;
+    }
+
+    importAdventureFromUrl(url) {
+        let self = this;
+        let promise = this.adventurePersistenceService.downloadAdventure(null, url);
+        promise.then(
+            function(json) {
+                self.initData();
+                self.clearUrl();
+            },
+            function(reason) {
+                self.messagesService.errorMessage(reason, false);
+            }
+        );
+    }
+
+    clearUrl() {
+        this.$location.url(this.constants.url.adventures);
     }
 }
 

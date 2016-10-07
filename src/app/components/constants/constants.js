@@ -2,7 +2,7 @@ import angular from 'angular';
 
 let constantsModule = angular.module('app.components.constants', [])
     .constant('constants', {
-        version: '20161006',
+        version: '20161007',
         supportedLanguages: ['en', 'fr'],
         data: {
             selectedLanguage: 'selectedLanguage',
