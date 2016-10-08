@@ -69,7 +69,7 @@ class ParagraphController {
     saveDescriptionChanges() {
         this.originalDescription = null;
         this.descriptionEditable = false;
-        this.adventurePersistenceService.updateParagraph(this.bookId, this.paragraph);
+        this.adventurePersistenceService.updateParagraph(this.adventureId, this.paragraph);
     }
 
     abortDescriptionChanges() {

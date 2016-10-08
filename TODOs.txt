@@ -4,6 +4,9 @@ bug minor:
 - config avec/sans stats
 - config avec/sans note
 - config avec/sans inventaire
+- config avec lancé de dé?
+- config avec l'option fin de partie?
+- bug: modif. text > battle > back, changement perdu
 
 nouvelles fonctionnalités
 - game paths vizualiser

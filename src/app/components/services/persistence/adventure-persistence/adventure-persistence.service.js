@@ -294,6 +294,9 @@ class AdventurePersistenceService {
         for (let i = 0; i < adventure.stats.length; i++) {
             delete adventure.stats[i]["$$hashKey"];
         }
+        delete adventure.downloadHistory;
+        delete adventure.downloadUrl;
+        delete adventure.numberOfParagraphs;
 
         adventure = this.sortObjectKeys(adventure);
 
