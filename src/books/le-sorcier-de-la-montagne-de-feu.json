@@ -140,12 +140,46 @@
     {
       "choices": [
         {
+          "description": "Vous revenez sur vos pas et prenez l'ouverture étroite",
+          "paragraphNr": 89
+        }
+      ],
+      "description": "Vous essayez en vain d'ouvrir la porte.",
+      "paragraphNr": 6
+    },
+    {
+      "choices": [
+        {
           "description": "Poursuivre",
           "paragraphNr": 214
         }
       ],
       "description": "Vous êtes sur la berge nord d'une rivière au fort courant, dans une grande caverne.",
       "paragraphNr": 7
+    },
+    {
+      "choices": [
+        {
+          "description": "Aller au nord",
+          "paragraphNr": 366
+        },
+        {
+          "description": "Aller au sud",
+          "paragraphNr": 250
+        }
+      ],
+      "description": "Vous arrivez à un cul-de-sac ou des objets magiques sont en train de construire un escalier qui descend. Vous discutez avec les outils. Le spectacle et la pause vous fait gagner 2 points d'ENDURANCE et 1 point d'HABILITE. Vous retournez au croisement précédent.",
+      "paragraphNr": 11
+    },
+    {
+      "choices": [
+        {
+          "description": "Les créatures sont sur vous avant de vous être relevées",
+          "paragraphNr": 282
+        }
+      ],
+      "description": "Vous n'arrivez pas à atteindre la porte du sud. Vous glissez sur un caillou.",
+      "paragraphNr": 13
     },
     {
       "choices": [
@@ -343,6 +377,7 @@
         }
       ],
       "description": "",
+      "notes": [],
       "paragraphNr": 48
     },
     {
@@ -408,6 +443,20 @@
       ],
       "description": "Vous rampez le long du long couloir. Il y a un solide banc de bois dans un coin avec une inscription: \"Repose-toi ici, voyageur fourbu\"",
       "paragraphNr": 58
+    },
+    {
+      "choices": [
+        {
+          "description": "Vous essayez d'ouvrir la porte",
+          "paragraphNr": 6
+        },
+        {
+          "description": "Vous revenez en arrière et passer par l'ouverture étroite",
+          "paragraphNr": 89
+        }
+      ],
+      "description": "Le couloir vous amène devant une porte massive blindée.",
+      "paragraphNr": 62
     },
     {
       "choices": [],
@@ -709,16 +758,26 @@
     {
       "choices": [
         {
-          "description": "Regarder le parchemin",
+          "description": "Aller vers le nord",
           "paragraphNr": 120
         },
         {
-          "description": "Aller vers le nord",
+          "description": "Regarder le parchemin",
           "paragraphNr": 212
         }
       ],
       "description": "C'est de l'EAU SAINTE. Vous récupérer quasi tous vos points d'endurance (-2 total initial), vos points d'habilité (-1 total initial) et 4 points de chance.",
       "paragraphNr": 109
+    },
+    {
+      "choices": [
+        {
+          "description": "Poursuivre",
+          "paragraphNr": 319
+        }
+      ],
+      "description": "Vous trouvez en plus de 8 pièces d'or encore 2 pièces d'or dans la botte du cadavre.",
+      "paragraphNr": 110
     },
     {
       "choices": [
@@ -829,6 +888,16 @@
     {
       "choices": [
         {
+          "description": "Vous essayez la porte aménagée au milieu du pan de roc",
+          "paragraphNr": 104
+        }
+      ],
+      "description": "Vous revenez au bord de la rivière",
+      "paragraphNr": 129
+    },
+    {
+      "choices": [
+        {
           "description": "Quitter la pièce",
           "paragraphNr": 280
         }
@@ -885,6 +954,16 @@
       ],
       "description": "Contenu de la boîte : 1 Pièce d'Or. Gain de 2 points de CHANCE",
       "paragraphNr": 147
+    },
+    {
+      "choices": [
+        {
+          "description": "Il vous attaque",
+          "paragraphNr": 230
+        }
+      ],
+      "description": "Vous évitez de peu un coup de griffe de la créature qui s'est réveillé.",
+      "paragraphNr": 148
     },
     {
       "choices": [
@@ -987,6 +1066,11 @@
       "paragraphNr": 159
     },
     {
+      "choices": [],
+      "description": "Lancez un dé et combattez la créature correspondante de la liste suivante. 1:LUTIN ayant HABILITE: 5, ENDURANCE: 3, 2:FARFADET a H: 6 E: 3, 3:DIABLOTIN a H: 6, E: 4, 4:RAT GEANT a H: 5, E: 4, 5:SQUELETTE a H: 6, E: 5, 6:TROLL a H: 8, E: 4.",
+      "paragraphNr": 161
+    },
+    {
       "choices": [
         {
           "description": "Continuer vers le nord",
@@ -1017,6 +1101,16 @@
       ],
       "description": "Il y a un coffre au centre de la pièce. Une créature de taille humaine fouette une autre créature semblable.",
       "paragraphNr": 168
+    },
+    {
+      "choices": [
+        {
+          "description": "Poursuivre",
+          "paragraphNr": 319
+        }
+      ],
+      "description": "Le crucifix vaut 4 pièces d'or",
+      "paragraphNr": 170
     },
     {
       "choices": [
@@ -1059,6 +1153,24 @@
       ],
       "description": "Vous arrivez dans une grotte naturelle.",
       "paragraphNr": 176
+    },
+    {
+      "choices": [
+        {
+          "description": "Partir vers l'est",
+          "paragraphNr": 52
+        },
+        {
+          "description": "Aller au sud",
+          "paragraphNr": 391
+        },
+        {
+          "description": "Passer par la porte secrète dans le mur ouest",
+          "paragraphNr": 175
+        }
+      ],
+      "description": "",
+      "paragraphNr": 177
     },
     {
       "choices": [
@@ -1383,6 +1495,28 @@
     {
       "choices": [
         {
+          "description": "L'armure",
+          "paragraphNr": 72
+        },
+        {
+          "description": "Le bouclier",
+          "paragraphNr": 132
+        },
+        {
+          "description": "L'or",
+          "paragraphNr": 110
+        },
+        {
+          "description": "Le crucifix",
+          "paragraphNr": 170
+        }
+      ],
+      "description": "Quels sont ces mystérieux objets que vous avez rassemblés? Qu'avez-vous inscrit en premier sur votre Liste d'Equipement?",
+      "paragraphNr": 221
+    },
+    {
+      "choices": [
+        {
           "description": "Forcer la porte",
           "paragraphNr": 53
         },
@@ -1545,6 +1679,16 @@
     {
       "choices": [
         {
+          "description": "Vous revenez au croisement et parter vers le nord",
+          "paragraphNr": 366
+        }
+      ],
+      "description": "Vous arrivez à un cul-de-sac.",
+      "paragraphNr": 250
+    },
+    {
+      "choices": [
+        {
           "description": "Si vous remportez la victoire",
           "paragraphNr": 344
         },
@@ -1633,8 +1777,17 @@
       "paragraphNr": 263
     },
     {
-      "choices": [],
-      "description": "",
+      "choices": [
+        {
+          "description": "Si vous possèdez la clef du hangar à bateaux",
+          "paragraphNr": 80
+        },
+        {
+          "description": "Sinon vous retournez à la rivière",
+          "paragraphNr": 129
+        }
+      ],
+      "description": "La porte en bois de chêne massif ne peut pas être enfoncée. Vous vous êtes blessé à votre bras de maniement de l'épée et perdez 1 point d'HABILITE.",
       "paragraphNr": 264
     },
     {
@@ -1678,6 +1831,20 @@
       ],
       "description": "",
       "paragraphNr": 267
+    },
+    {
+      "choices": [
+        {
+          "description": "Prendre la fuite par la porte que vous venez de franchir",
+          "paragraphNr": 13
+        },
+        {
+          "description": "Les combattre",
+          "paragraphNr": 282
+        }
+      ],
+      "description": "Les hommes ne font que de grogner et prennent leur arme. Ils semblent que vous allez devoir les combattre",
+      "paragraphNr": 268
     },
     {
       "choices": [
@@ -1856,6 +2023,17 @@
     {
       "choices": [
         {
+          "description": "Combattre la créature",
+          "paragraphNr": 161
+        }
+      ],
+      "description": "Vous ne trouvez pas de passage secret. En revanche une créature vous a répérée. Combattez la créature et rendez-vous au paragraphe 48 en cas de succès. Notez-bien ce no 48.",
+      "notes": [],
+      "paragraphNr": 295
+    },
+    {
+      "choices": [
+        {
           "description": "Quitter la pièce",
           "paragraphNr": 42
         }
@@ -2002,6 +2180,16 @@
     {
       "choices": [
         {
+          "description": "Poursuivre",
+          "paragraphNr": 221
+        }
+      ],
+      "description": "Vous fouillez le cadavre. Il possède une cuirasse comme la votre, un bouclier en bois, une épée en acier, 8 pièces d'or et un crucifix en argent. Vous pouvez prendre deux de ces objets au choix Prenez 1 point de CHANCE et 1 point d'HABILITE.",
+      "paragraphNr": 313
+    },
+    {
+      "choices": [
+        {
           "description": "Ouvrir la porte",
           "paragraphNr": 223
         },
@@ -2036,6 +2224,20 @@
       ],
       "description": "Le nain est déjà mort. Les lutins possède un gros fromage à l'odeur alléchante. Vous pouvez l'emporter dans votre sac à dos.",
       "paragraphNr": 317
+    },
+    {
+      "choices": [
+        {
+          "description": "pour découvrir le secret du second objet",
+          "paragraphNr": 221
+        },
+        {
+          "description": "Si vous savez déjà tout des deux objets",
+          "paragraphNr": 81
+        }
+      ],
+      "description": "",
+      "paragraphNr": 319
     },
     {
       "choices": [
@@ -2222,6 +2424,11 @@
       ],
       "description": "Vous tuez le vieil homme sans problème. Sa présence dans la pièce vous restera inconnue",
       "paragraphNr": 353
+    },
+    {
+      "choices": [],
+      "description": "",
+      "paragraphNr": 354
     },
     {
       "choices": [
