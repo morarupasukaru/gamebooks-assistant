@@ -310,6 +310,16 @@
     {
       "choices": [
         {
+          "description": "Vous nagez ensuite dans la rivière",
+          "paragraphNr": 399
+        }
+      ],
+      "description": "Vous finissez le repas entamé",
+      "paragraphNr": 44
+    },
+    {
+      "choices": [
+        {
           "description": "Un 6 vous précipite dans la rivière",
           "paragraphNr": 158
         },
@@ -407,6 +417,20 @@
     {
       "choices": [
         {
+          "description": "Prendre la fuite par la porte le long du couloir",
+          "paragraphNr": 293
+        },
+        {
+          "description": "Poursuivre le combat",
+          "paragraphNr": 372
+        }
+      ],
+      "description": "Les deux créatures vous attaquent malgré le fait que vous ayez tenté de sauver l'une d'elle.",
+      "paragraphNr": 65
+    },
+    {
+      "choices": [
+        {
           "description": "Se rendre devant la porte qui se trouve au milieu du pan de roc",
           "paragraphNr": 104
         },
@@ -417,6 +441,16 @@
       ],
       "description": "Le passage mène à la berge de la rivière.",
       "paragraphNr": 66
+    },
+    {
+      "choices": [
+        {
+          "description": "Vous quittez la pièce et partez en direction du nord",
+          "paragraphNr": 303
+        }
+      ],
+      "description": "Les lutins sont perplexes. Ils vont chercher un autre nain à torturer",
+      "paragraphNr": 68
     },
     {
       "choices": [
@@ -665,6 +699,16 @@
     {
       "choices": [
         {
+          "description": "Si vous êtes vainqueur",
+          "paragraphNr": 185
+        }
+      ],
+      "description": "Des mains se matérialisent sur les dalles en forme de main. Celle sur laquelle vous avez marché vous aggripe. Vous la combattez. La MAIN possède HABILITE: 6, ENDURANCE: 4",
+      "paragraphNr": 108
+    },
+    {
+      "choices": [
+        {
           "description": "Regarder le parchemin",
           "paragraphNr": 120
         },
@@ -805,11 +849,31 @@
     {
       "choices": [
         {
+          "description": "Si vous êtes vainqueur",
+          "paragraphNr": 44
+        },
+        {
+          "description": "Prendre la fuite après 3 assauts contre la bête en sautant dans la rivière (vous perdez un provision de ce fait)",
+          "paragraphNr": 399
+        }
+      ],
+      "description": "Un VER MARIN GEANT apparait de la berge et vous attaque. Il possède HABILITE: 7, ENDURANCE: 7",
+      "paragraphNr": 143
+    },
+    {
+      "choices": [
+        {
           "description": "Poursuivre",
           "paragraphNr": 363
         }
       ],
       "description": "La boîte contiens une clé avec le chiffre 99. Ajouter un point de CHANCE",
+      "notes": [
+        {
+          "note": "Clé 99",
+          "playerName": "Pascal"
+        }
+      ],
       "paragraphNr": 145
     },
     {
@@ -821,6 +885,24 @@
       ],
       "description": "Contenu de la boîte : 1 Pièce d'Or. Gain de 2 points de CHANCE",
       "paragraphNr": 147
+    },
+    {
+      "choices": [
+        {
+          "description": "Revenir vers la rive sud. Vous perdez 1 point d'ENDURANCE du à votre épuisement",
+          "paragraphNr": 218
+        },
+        {
+          "description": "Affrontez les yeux",
+          "paragraphNr": 86
+        },
+        {
+          "description": "Faire un détour qui vous approchera de la turbulence",
+          "paragraphNr": 158
+        }
+      ],
+      "description": "La turbulence ne vous a pas rattrapé. Des yeux de reptile s'approche de vous.",
+      "paragraphNr": 151
     },
     {
       "choices": [
@@ -879,6 +961,16 @@
       ],
       "description": "",
       "paragraphNr": 157
+    },
+    {
+      "choices": [
+        {
+          "description": "Si vous gagnez, vous arrivez sur la rive sud. Vous pouvez prendre un repas",
+          "paragraphNr": 218
+        }
+      ],
+      "description": "La turbulence sont en fait des PIRANHAS. Combattez-les comme une seule et même créature. PIRANHAS a HABILITE:5, ENDURANCE: 5",
+      "paragraphNr": 158
     },
     {
       "choices": [
@@ -1023,6 +1115,16 @@
     {
       "choices": [
         {
+          "description": "Quiitter la pièce",
+          "paragraphNr": 162
+        }
+      ],
+      "description": "La main se ratatine. Les autres mains des autres dalles disparaissent également. Vous traversez la pièce en marchant sur les dalles en forme d'étoiles. Vous gagnez 2 points de CHANCE.",
+      "paragraphNr": 185
+    },
+    {
+      "choices": [
+        {
           "description": "Explorer le cul de sac au nord",
           "paragraphNr": 171
         },
@@ -1033,6 +1135,16 @@
       ],
       "description": "",
       "paragraphNr": 187
+    },
+    {
+      "choices": [
+        {
+          "description": "Rebrousser vers le sud en direction de la bifurcation",
+          "paragraphNr": 280
+        }
+      ],
+      "description": "Vous ne trouvez pas de mécanisme pour ouvrir la porte secrète. Vous trouvez 5 pièces d'or dans un tiroir.",
+      "paragraphNr": 196
     },
     {
       "choices": [
@@ -1066,6 +1178,12 @@
         }
       ],
       "description": "Il y a 25 Pièces d'Or, 1 dose de Potion d'Invisibilité, un gant de soie noire. Ranger une de ces trois trouvailles. Vous pouvez prendre un Repas.",
+      "notes": [
+        {
+          "note": "25 Pièces d'Or, 1 dose de Potion d'Invisibilité, un gant de soie noire",
+          "playerName": "Pascal"
+        }
+      ],
       "paragraphNr": 201
     },
     {
@@ -1361,6 +1479,16 @@
     {
       "choices": [
         {
+          "description": "Tirer le levier de droite",
+          "paragraphNr": 128
+        }
+      ],
+      "description": "C'est un piège. Le levier est en fait une épée. Lancer un dé, si le chiffre est impair, c'est la main que vous tenez votre épée qui est blessé. Vous perdez dans ce cas 3 points d'HABILITE et 1 point d'ENDURANCE. Sinon vous êtes blessée à votre autre main et perdez 1 point d'HABILITE et 2 points d'ENDURANCE.",
+      "paragraphNr": 243
+    },
+    {
+      "choices": [
+        {
           "description": "Se reposer et prendre un repas",
           "paragraphNr": 143
         },
@@ -1503,6 +1631,11 @@
         }
       ],
       "paragraphNr": 263
+    },
+    {
+      "choices": [],
+      "description": "",
+      "paragraphNr": 264
     },
     {
       "choices": [
@@ -1728,6 +1861,12 @@
         }
       ],
       "description": "La boîte contiens une formule magique de l'auteur Farrigo Di Maggio qui permet de neutraliser les Dragons. La page de la formule se consume une fois celle-ci retenue.",
+      "notes": [
+        {
+          "note": "Formule magique de neutralisation des dragons de Farrigo Di Maggio",
+          "playerName": "Pascal"
+        }
+      ],
       "paragraphNr": 296
     },
     {
@@ -1873,6 +2012,20 @@
       ],
       "description": "Une porte se trouve dans le mur est du passage. Vous n'entendez pas le moindre son.",
       "paragraphNr": 314
+    },
+    {
+      "choices": [
+        {
+          "description": "Le chiffre est <= pt. ENDURANCE, vous nagez de toutes vos forces en direction du nord",
+          "paragraphNr": 151
+        },
+        {
+          "description": "Le chiffre est > pt. ENDURANCE, vous préférez retourner à la berge sud. Vous pouvez prendre 1 repas ensuite",
+          "paragraphNr": 218
+        }
+      ],
+      "description": "L'eau est glaciale. Vos mouvements attirent une turbulence vers vous. Lancez 2 dés,",
+      "paragraphNr": 316
     },
     {
       "choices": [
@@ -2039,6 +2192,16 @@
     {
       "choices": [
         {
+          "description": "Si vous êtes vainqueur, vous gagnez 1 point de CHANCE et pouvez prendre un repas une fois arrivez à terre ferme.",
+          "paragraphNr": 7
+        }
+      ],
+      "description": "La turbulence vous entoure. Ce sont des PIRANHAS. Ils attaquent l'opposant blessé et en préférence le crocodile. Sinon jetez un dé. La plupart des PIRANHAS vous attaquent pour 1-2 ou sinon le crodile pour 3-6. Les PIRANHAS ont HABILITE: 5, ENDURANCE: 5 s'il vous attaque en majorité ou sinon 1.",
+      "paragraphNr": 350
+    },
+    {
+      "choices": [
+        {
           "description": "Combattre l'homme",
           "paragraphNr": 74
         },
@@ -2049,6 +2212,16 @@
       ],
       "description": "Son regard vous fait perdre 1 point d'ENDURANCE et votre volonté vous échappe peu à peu.",
       "paragraphNr": 352
+    },
+    {
+      "choices": [
+        {
+          "description": "Poursuivre votre chemin",
+          "paragraphNr": 314
+        }
+      ],
+      "description": "Vous tuez le vieil homme sans problème. Sa présence dans la pièce vous restera inconnue",
+      "paragraphNr": 353
     },
     {
       "choices": [
@@ -2082,6 +2255,12 @@
         }
       ],
       "description": "Vous prenez la clé qui porte le numéro 125. Vos poumons brûlent. Lancez 2 dés. Si le chiffre est superieur à votre HABILITÉ, vous perdez 2 points d'HABILITÉ et 3 points d'ENDURANCE.",
+      "notes": [
+        {
+          "note": "Clé 125",
+          "playerName": "Pascal"
+        }
+      ],
       "paragraphNr": 361
     },
     {
@@ -2203,6 +2382,16 @@
       ],
       "description": "Vous êtes de retour à la bifurcation",
       "paragraphNr": 375
+    },
+    {
+      "choices": [
+        {
+          "description": "Si vous êtes vainqueur",
+          "paragraphNr": 196
+        }
+      ],
+      "description": "Le DIABLOTIN AILE du vieil homme vous attaque. Il possède HABILITE: 5, ENDURANCE: 7. Pendant ce temps, le vieil homme arrive à s'échapper par une porte cachée.",
+      "paragraphNr": 377
     },
     {
       "choices": [

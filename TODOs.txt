@@ -6,7 +6,10 @@ bug minor:
 - config avec/sans inventaire
 - config avec lancé de dé?
 - config avec l'option fin de partie?
-- bug: modif. text > battle > back, changement perdu
+- download auto si downloadable et choix de jeu
+- export adventure si pas telecharge > marche pas
+- display adventure si pas telecharge > qu'une partie...
+
 
 nouvelles fonctionnalités
 - game paths vizualiser
@@ -14,3 +17,9 @@ nouvelles fonctionnalités
 - integrate battle rules, luck rules in json of adventure
 - gestion des images (& autre multimedia)
 - angular js 2?
+- interface skinable (enfant, fantasy, ...)
+
+
+- island: screenshot c64, loading
+- a la googlemap > visite labyrinthe, musee
+- generateur de labyrinthe (dont vous etes le heros)
