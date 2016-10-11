@@ -145,6 +145,11 @@ class AdventuresListController {
         return !!selectedRow && !!selectedRow.downloadUrl;
     }
 
+    isSelectedAdventureAvailable() {
+        let selectedRow = this.getSelectedRow();
+        return !!selectedRow && (!selectedRow.downloadUrl || !!selectedRow.downloaded);
+    }
+
     getSelectedRow() {
         if (!!this.rows) {
             for (let i = 0; i < this.rows.length; i++) {

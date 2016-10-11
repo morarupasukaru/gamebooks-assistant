@@ -30,6 +30,7 @@ class AdventurePersistenceService {
                 }
                 self.addDownloadHistory(json, self.now() + ' : downloaded')
                 json.downloadUrl = downloadUrl;
+                json.downloaded = true;
                 self.import(json);
                 self.messagesService.successMessage('Adventure ' + json.name + ' is downloaded', false);
                 deferred.resolve('Success');
@@ -92,7 +93,8 @@ class AdventurePersistenceService {
                 authors : adventure.authors,
                 serie: adventure.serie,
                 downloadUrl: adventure.downloadUrl,
-                downloadHistory: adventure.downloadHistory
+                downloadHistory: adventure.downloadHistory,
+                downloaded: adventure.downloaded
             });
         }
         return adventures;

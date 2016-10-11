@@ -70,7 +70,7 @@
         <button type="button" class="btn btn-default"
                 aria-label="{{ 'Display selected adventure' | translate }}"
                 title="{{ 'Display selected adventure' | translate }}"
-                ng-disabled="!$ctrl.hasSelectedRow()"
+                ng-disabled="!$ctrl.isSelectedAdventureAvailable()"
                 ng-click="$ctrl.display()">{{ 'Display' | translate }}</button>
         <button type="button" class="btn btn-danger"
                 ng-disabled="!$ctrl.hasSelectedRow()"
@@ -78,7 +78,7 @@
                 title="{{ 'Remove selected adventure' | translate }}"
                 ng-click="$ctrl.displayRemoveAdventurePopup()">{{ 'Remove' | translate }}</button>
         <button type="button" class="btn btn-default"
-                ng-disabled="!$ctrl.hasSelectedRow()"
+                ng-disabled="!$ctrl.isSelectedAdventureAvailable()"
                 aria-label="{{ 'Export selected adventure' | translate }}"
                 title="{{ 'Export selected adventure' | translate }}"
                 ng-click="$ctrl.displayExportAdventurePopup()">{{ 'Export' | translate }}</button>

@@ -7,9 +7,7 @@ bug minor:
 - config avec lancé de dé?
 - config avec l'option fin de partie?
 - download auto si downloadable et choix de jeu
-- export adventure si pas telecharge > marche pas
-- display adventure si pas telecharge > qu'une partie...
-
+- fr
 
 nouvelles fonctionnalités
 - game paths vizualiser
