@@ -6,7 +6,6 @@ bug minor:
 - config avec/sans inventaire
 - config avec lancé de dé?
 - config avec l'option fin de partie?
-- download auto si downloadable et choix de jeu
 - fr
 
 nouvelles fonctionnalités

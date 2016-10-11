@@ -36,6 +36,24 @@ class SelectAdventureController {
     }
 
     next() {
+        let adventure = this.adventurePersistenceService.getAdventure(this.selectedAdventureId);
+        if (!!adventure && !!adventure.downloadUrl && !adventure.downloaded) {
+            let self = this;
+            let promise = this.adventurePersistenceService.downloadAdventureWithId(this.selectedAdventureId);
+            promise.then(
+                function(json) {
+                    self.toPlayerNameSelection();
+                },
+                function(reason) {
+                    self.initData();
+                }
+            );
+        } else {
+            this.toPlayerNameSelection();
+        }
+    }
+
+    toPlayerNameSelection() {
         this.$location.url(this.constants.url.createPlayerForNewGame + "?adventureId=" + encodeURIComponent(this.selectedAdventureId));
     }
 }
