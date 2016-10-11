@@ -56,6 +56,9 @@ class GamePersistenceService {
 
     exportGame(gameId) {
         let game = this.getGame(gameId);
+        for (let i = 0; i < game.stats.length; i++) {
+            delete game.stats[i]["$$hashKey"];
+        }
         return this.sortObjectKeys(game);
     }
 
