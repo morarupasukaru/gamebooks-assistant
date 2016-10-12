@@ -341,7 +341,9 @@ class AdventurePersistenceService {
 
     sortObjectKeys(object) {
         let result;
-        if (Array.isArray(object)) {
+        if (object == null) {
+            result = object;
+        } else if (Array.isArray(object)) {
             result = [];
             for (let i = 0; i < object.length; i++) {
                 result.push(this.sortObjectKeys(object[i]));
