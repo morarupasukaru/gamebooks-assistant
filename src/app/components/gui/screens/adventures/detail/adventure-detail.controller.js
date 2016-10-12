@@ -30,7 +30,15 @@ class AdventureDetailController {
             if ("create" === adventureId) {
                 this.adventure = {
                     stats: [],
-                    items: []
+                    items: [],
+                    toggle: {
+                        battle: true,
+                        stats: true,
+                        note: true,
+                        items: true,
+                        dices: true,
+                        endGame: true
+                    }
                 };
                 this.mode = "create";
             } else {

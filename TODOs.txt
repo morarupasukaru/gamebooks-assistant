@@ -7,6 +7,8 @@ bug minor:
 - config avec lancé de dé?
 - config avec l'option fin de partie?
 - fr
+- aide au jeu (sections texte? html?)
+- adventure.Start game's note ?
 
 nouvelles fonctionnalités
 - game paths vizualiser
@@ -15,6 +17,7 @@ nouvelles fonctionnalités
 - gestion des images (& autre multimedia)
 - angular js 2?
 - interface skinable (enfant, fantasy, ...)
+
 
 
 - island: screenshot c64, loading

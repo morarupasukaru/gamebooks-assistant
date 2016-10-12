@@ -1,5 +1,6 @@
 {
   "authors": "Steve Jackson et Ian Livingstone",
+  "downloadUrl": "le-sorcier-de-la-montagne-de-feu.json",
   "id": "le-sorcier-de-la-montagne-de-feu",
   "isbn": "978-2-07-064740-8",
   "language": "Français",
@@ -7,6 +8,14 @@
   "serie": "Défis Fantastiques",
   "startGameNote": "Veuilliez choisir soit la potion d'habilité, de force ou de chance (supprimez les potions non choisies de l'inventaire).",
   "startParagraphNr": "1",
+  "toggle": {
+    "battle": true,
+    "dices": true,
+    "endGame": true,
+    "items": true,
+    "note": true,
+    "stats": true
+  },
   "version": "0.1",
   "items": [
     {
@@ -99,7 +108,6 @@
       "paragraphNr": 1
     },
     {
-      "choices": [],
       "description": "",
       "notes": [
         {
@@ -377,7 +385,6 @@
         }
       ],
       "description": "",
-      "notes": [],
       "paragraphNr": 48
     },
     {
@@ -459,7 +466,6 @@
       "paragraphNr": 62
     },
     {
-      "choices": [],
       "description": "Alors que vous êtes paralysée, la goule vous dévore. Votre aventure est terminée.",
       "paragraphNr": 64
     },
@@ -1066,7 +1072,6 @@
       "paragraphNr": 159
     },
     {
-      "choices": [],
       "description": "Lancez un dé et combattez la créature correspondante de la liste suivante. 1:LUTIN ayant HABILITE: 5, ENDURANCE: 3, 2:FARFADET a H: 6 E: 3, 3:DIABLOTIN a H: 6, E: 4, 4:RAT GEANT a H: 5, E: 4, 5:SQUELETTE a H: 6, E: 5, 6:TROLL a H: 8, E: 4.",
       "paragraphNr": 161
     },
@@ -2028,7 +2033,6 @@
         }
       ],
       "description": "Vous ne trouvez pas de passage secret. En revanche une créature vous a répérée. Combattez la créature et rendez-vous au paragraphe 48 en cas de succès. Notez-bien ce no 48.",
-      "notes": [],
       "paragraphNr": 295
     },
     {
@@ -2426,7 +2430,6 @@
       "paragraphNr": 353
     },
     {
-      "choices": [],
       "description": "",
       "paragraphNr": 354
     },

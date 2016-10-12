@@ -30,7 +30,6 @@ class AdventurePersistenceService {
                 }
                 self.addDownloadHistory(json, self.now() + ' : downloaded')
                 json.downloadUrl = downloadUrl;
-                json.downloaded = true;
                 self.import(json);
                 self.messagesService.successMessage('Adventure ' + json.name + ' is downloaded', false);
                 deferred.resolve('Success');
@@ -152,6 +151,9 @@ class AdventurePersistenceService {
             } else {
                 if (!!adventure.paragraphs) {
                     adventure.numberOfParagraphs = adventure.paragraphs.length;
+                }
+                if (!!adventure.downloadUrl) {
+                    adventure.downloaded = true;
                 }
                 this.updateAdventureWithoutParagraphs(adventure);
                 if (!!adventure.paragraphs) {
@@ -297,7 +299,7 @@ class AdventurePersistenceService {
             delete adventure.stats[i]["$$hashKey"];
         }
         delete adventure.downloadHistory;
-        delete adventure.downloadUrl;
+        adventure.downloadUrl;
         delete adventure.numberOfParagraphs;
 
         adventure = this.sortObjectKeys(adventure);
@@ -306,6 +308,7 @@ class AdventurePersistenceService {
         delete adventure.stats;
         let items = adventure.items;
         delete adventure.items;
+        delete adventure.downloaded;
 
         adventure.items = items;
         adventure.stats = stats;
@@ -321,6 +324,12 @@ class AdventurePersistenceService {
                     if (!!paragraph) {
                         delete paragraph.version;
                         delete paragraph.adventureId;
+                        if (!!paragraph.choices && paragraph.choices.length === 0) {
+                            delete paragraph.choices;
+                        }
+                        if (!!paragraph.notes && paragraph.notes.length === 0) {
+                            delete paragraph.notes;
+                        }
                         adventure.paragraphs.push(this.sortObjectKeys(paragraph));
                     }
                 }
