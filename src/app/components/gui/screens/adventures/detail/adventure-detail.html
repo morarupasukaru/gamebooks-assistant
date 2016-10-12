@@ -54,60 +54,60 @@
                 <div>
                     <div class="form-group">
                         <label>
-                            <input type="checkbox" checked="true" ng-model="$ctrl.adventure.toggle.stats">
+                            <input type="checkbox" checked="true" ng-model="$ctrl.adventure.toggles.stats">
                             Enable stats
                         </label>
                     </div>
                     <div class="form-group">
                         <label>
-                            <input type="checkbox" value="" ng-model="$ctrl.adventure.toggle.note">
+                            <input type="checkbox" value="" ng-model="$ctrl.adventure.toggles.note">
                             Enable notes in-game
                         </label>
                     </div>
                     <div class="form-group">
                         <label>
-                            <input type="checkbox" value="" ng-model="$ctrl.adventure.toggle.battle">
+                            <input type="checkbox" value="" ng-model="$ctrl.adventure.toggles.battle">
                             Enable battle
                         </label>
                     </div>
                     <div class="form-group">
                         <label>
-                            <input type="checkbox" value="" ng-model="$ctrl.adventure.toggle.items">
+                            <input type="checkbox" value="" ng-model="$ctrl.adventure.toggles.items">
                             Enable items
                         </label>
                     </div>
                     <div class="form-group">
                         <label>
-                            <input type="checkbox" value="" ng-model="$ctrl.adventure.toggle.dices">
+                            <input type="checkbox" value="" ng-model="$ctrl.adventure.toggles.dices">
                             Enable dices
                         </label>
                     </div>
                     <div class="form-group">
                         <label>
-                            <input type="checkbox" value="" ng-model="$ctrl.adventure.toggle.endGame">
+                            <input type="checkbox" value="" ng-model="$ctrl.adventure.toggles.endGame">
                             Enable end-game button
                         </label>
                     </div>
                 </div>
 
-                <div ng-if="$ctrl.adventure.toggle.stats">
+                <div ng-if="$ctrl.adventure.toggles.stats">
                     <h3>{{ 'Stats rules' | translate }}</h3>
                     <div>
                         <table class="table table-striped">
-                            <col ng-if="!$ctrl.adventure.toggle.battle" style="width:30%">
-                            <col ng-if="!$ctrl.adventure.toggle.battle" style="width:55%">
-                            <col ng-if="!$ctrl.adventure.toggle.battle" style="width:5%">
-                            <col ng-if="!$ctrl.adventure.toggle.battle" style="width:5%">
-                            <col ng-if="!$ctrl.adventure.toggle.battle" style="width:5%">
+                            <col ng-if="!$ctrl.adventure.toggles.battle" style="width:30%">
+                            <col ng-if="!$ctrl.adventure.toggles.battle" style="width:55%">
+                            <col ng-if="!$ctrl.adventure.toggles.battle" style="width:5%">
+                            <col ng-if="!$ctrl.adventure.toggles.battle" style="width:5%">
+                            <col ng-if="!$ctrl.adventure.toggles.battle" style="width:5%">
 
-                            <col ng-if="$ctrl.adventure.toggle.battle" style="width:20%">
-                            <col ng-if="$ctrl.adventure.toggle.battle" style="width:35%">
-                            <col ng-if="$ctrl.adventure.toggle.battle" style="width:10%">
-                            <col ng-if="$ctrl.adventure.toggle.battle" style="width:10%">
-                            <col ng-if="$ctrl.adventure.toggle.battle" style="width:10%">
-                            <col ng-if="$ctrl.adventure.toggle.battle" style="width:5%">
-                            <col ng-if="$ctrl.adventure.toggle.battle" style="width:5%">
-                            <col ng-if="$ctrl.adventure.toggle.battle" style="width:5%">
+                            <col ng-if="$ctrl.adventure.toggles.battle" style="width:20%">
+                            <col ng-if="$ctrl.adventure.toggles.battle" style="width:35%">
+                            <col ng-if="$ctrl.adventure.toggles.battle" style="width:10%">
+                            <col ng-if="$ctrl.adventure.toggles.battle" style="width:10%">
+                            <col ng-if="$ctrl.adventure.toggles.battle" style="width:10%">
+                            <col ng-if="$ctrl.adventure.toggles.battle" style="width:5%">
+                            <col ng-if="$ctrl.adventure.toggles.battle" style="width:5%">
+                            <col ng-if="$ctrl.adventure.toggles.battle" style="width:5%">
                             <thead>
                             <tr>
                                 <th>
@@ -116,17 +116,17 @@
                                 <th>
                                     {{ 'Player stats value generation' | translate }}
                                 </th>
-                                <th ng-if="$ctrl.adventure.toggle.battle"
+                                <th ng-if="$ctrl.adventure.toggles.battle"
                                     aria-label="{{ 'Is this stats displayed in battle?' | translate }}"
                                     title="{{ 'Is this stat displayed in battle?' | translate }}">
                                     {{ 'For battle?' | translate }}
                                 </th>
-                                <th ng-if="$ctrl.adventure.toggle.battle"
+                                <th ng-if="$ctrl.adventure.toggles.battle"
                                     aria-label="{{ 'Is it a enemy stats?' | translate }}"
                                     title="{{ 'Is it a enemy stats?' | translate }}">
                                     {{ 'For enemy?' | translate }}
                                 </th>
-                                <th ng-if="$ctrl.adventure.toggle.battle"
+                                <th ng-if="$ctrl.adventure.toggles.battle"
                                     aria-label="{{ 'Default value of the stats for enemy' | translate }}"
                                     title="{{ 'Default value of the stats for enemy' | translate }}">
                                     {{ 'Default enemy value' | translate }}
@@ -175,24 +175,24 @@
                                     </div>
                                 </td>
 
-                                <td ng-if="$ctrl.adventure.toggle.battle && !$ctrl.isRowEdited(row)">
+                                <td ng-if="$ctrl.adventure.toggles.battle && !$ctrl.isRowEdited(row)">
                                     {{ 'yesno_' + row.battle.displayed | translate }}
                                 </td>
-                                <td ng-if="$ctrl.adventure.toggle.battle && $ctrl.isRowEdited(row)">
+                                <td ng-if="$ctrl.adventure.toggles.battle && $ctrl.isRowEdited(row)">
                                     <input type="checkbox" class="form-control" ng-model="row.battle.displayed" id="displayed"><br>
                                 </td>
 
-                                <td ng-if="$ctrl.adventure.toggle.battle && !$ctrl.isRowEdited(row)">
+                                <td ng-if="$ctrl.adventure.toggles.battle && !$ctrl.isRowEdited(row)">
                                     {{ 'yesno_' + row.battle.editableForEnemy | translate }}
                                 </td>
-                                <td ng-if="$ctrl.adventure.toggle.battle && $ctrl.isRowEdited(row)">
+                                <td ng-if="$ctrl.adventure.toggles.battle && $ctrl.isRowEdited(row)">
                                     <input type="checkbox" class="form-control" ng-model="row.battle.editableForEnemy" id="editableForEnemy"><br>
                                 </td>
 
-                                <td ng-if="$ctrl.adventure.toggle.battle && !$ctrl.isRowEdited(row)">
+                                <td ng-if="$ctrl.adventure.toggles.battle && !$ctrl.isRowEdited(row)">
                                     {{ row.battle.enemyDefaultValue }}
                                 </td>
-                                <td ng-if="$ctrl.adventure.toggle.battle && $ctrl.isRowEdited(row)">
+                                <td ng-if="$ctrl.adventure.toggles.battle && $ctrl.isRowEdited(row)">
                                     <input id="enemyDefaultValue" type="number" class="form-control" ng-model="row.battle.enemyDefaultValue" ng-required="!!row.battle.editableForEnemy" >
                                     <div class="error" ng-show="!!row.battle.editableForEnemy && !row.battle.enemyDefaultValue">
                                         <!-- check error only on field -->
@@ -247,7 +247,7 @@
                     </div>
                 </div>
 
-                <div ng-if="$ctrl.adventure.toggle.items">
+                <div ng-if="$ctrl.adventure.toggles.items">
                     <h3>{{ 'Initial items' | translate }}</h3>
                     <div>
                         <items items="$ctrl.adventure.items"></items>

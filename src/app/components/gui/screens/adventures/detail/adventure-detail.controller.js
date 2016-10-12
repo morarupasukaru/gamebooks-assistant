@@ -31,7 +31,7 @@ class AdventureDetailController {
                 this.adventure = {
                     stats: [],
                     items: [],
-                    toggle: {
+                    toggles: {
                         battle: true,
                         stats: true,
                         note: true,

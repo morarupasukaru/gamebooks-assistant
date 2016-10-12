@@ -8,7 +8,7 @@
   "serie": "Défis Fantastiques",
   "startGameNote": "Veuilliez choisir soit la potion d'habilité, de force ou de chance (supprimez les potions non choisies de l'inventaire).",
   "startParagraphNr": "1",
-  "toggle": {
+  "toggles": {
     "battle": true,
     "dices": true,
     "endGame": true,

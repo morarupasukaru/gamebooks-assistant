@@ -7,8 +7,8 @@ bug minor:
 - config avec lancé de dé?
 - config avec l'option fin de partie?
 - fr
-- aide au jeu (sections texte? html?)
-- adventure.Start game's note ?
+- aide au jeu (sections texte? html?) > paragraph zero?
+- adventure.Start game's note ? > if no items, startNotes are skipped > into first paragraph?
 
 nouvelles fonctionnalités
 - game paths vizualiser

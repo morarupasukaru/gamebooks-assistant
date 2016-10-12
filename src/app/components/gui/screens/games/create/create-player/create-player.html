@@ -29,8 +29,11 @@
 
             <div class="form-group">
                 <button type="button" class="btn btn-default" ng-click="$ctrl.back()">{{ 'Back' | translate }}</button>
-                <button type="button" class="btn btn-default" ng-click="$ctrl.generateStats()">{{ 'Random Stats' | translate }}</button>
-                <button type="button" class="btn btn-primary" ng-click="$ctrl.next(playerForm.$invalid)">{{ 'Next' | translate }}</button>
+                <button ng-if="$ctrl.hasStats()"
+                        type="button" class="btn btn-default" ng-click="$ctrl.generateStats()">{{ 'Random Stats' | translate }}</button>
+                <button type="button" class="btn btn-primary" ng-click="$ctrl.next(playerForm.$invalid)">
+                    {{  ($ctrl.hasStats() ? 'Next' : 'Start') | translate }}
+                </button>
             </div>
         </form>
     </div>

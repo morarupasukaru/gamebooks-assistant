@@ -1,12 +1,14 @@
 class CreatePlayerController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $stateParams, $window, $location, constants, dicesService, adventurePersistenceService, $timeout) {
+    constructor(preScreenLoadingInterceptorsCallerService, $stateParams, $window, $location, constants, dicesService, adventurePersistenceService, $timeout, createGameService) {
         preScreenLoadingInterceptorsCallerService.intercept();
         this.constants = constants;
         this.$window = $window;
         this.$location = $location;
         this.dicesService = dicesService;
         this.$timeout = $timeout;
+        this.$stateParams = $stateParams;
+        this.createGameService = createGameService;
         this.adventure = adventurePersistenceService.getAdventure($stateParams.adventureId);
         this.loadData(this.adventure);
         this.generateStats();
@@ -54,19 +56,27 @@ class CreatePlayerController {
             return ;
         }
 
-        let nextUrl = this.constants.url.chooseItemsForNewGame +
-          "?adventureId=" + encodeURIComponent(this.adventure.id) +
-          "&playerName=" + encodeURIComponent(this.playerName);
+        if (this.hasStats()) {
+            let nextUrl = this.constants.url.chooseItemsForNewGame +
+              "?adventureId=" + encodeURIComponent(this.adventure.id) +
+              "&playerName=" + encodeURIComponent(this.playerName);
 
-        let statsParam = '';
+            let statsParam = '';
 
-        for (let i = 0; i < this.stats.length; i++) {
-            let stats = this.stats[i];
-            statsParam = statsParam + encodeURIComponent(stats.name) + encodeURIComponent(stats.value) + ',';
+            for (let i = 0; i < this.stats.length; i++) {
+                let stats = this.stats[i];
+                statsParam = statsParam + encodeURIComponent(stats.name) + encodeURIComponent(stats.value) + ',';
+            }
+
+            nextUrl = nextUrl + "&stats=" + statsParam;
+            this.$location.url(nextUrl);
+        } else {
+            this.createGameService.startGame(this.adventure, this.playerName, []);
         }
+    }
 
-        nextUrl = nextUrl + "&stats=" + statsParam;
-        this.$location.url(nextUrl);
+    hasStats() {
+        return !!this.adventure.items && this.adventure.items.length > 0 && !!this.adventure.toggles && !!this.adventure.toggles.stats;
     }
 }
 

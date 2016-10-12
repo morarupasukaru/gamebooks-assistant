@@ -6,7 +6,7 @@
   "language": "English",
   "name": "Adventure example",
   "startParagraphNr": "1",
-  "toggle": {
+  "toggles": {
     "battle": true,
     "dices": true,
     "endGame": true,
