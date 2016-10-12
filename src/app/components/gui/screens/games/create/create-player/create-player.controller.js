@@ -56,7 +56,7 @@ class CreatePlayerController {
             return ;
         }
 
-        if (this.hasStats()) {
+        if (this.hasItems()) {
             let nextUrl = this.constants.url.chooseItemsForNewGame +
               "?adventureId=" + encodeURIComponent(this.adventure.id) +
               "&playerName=" + encodeURIComponent(this.playerName);
@@ -76,7 +76,11 @@ class CreatePlayerController {
     }
 
     hasStats() {
-        return !!this.adventure.items && this.adventure.items.length > 0 && !!this.adventure.toggles && !!this.adventure.toggles.stats;
+        return !!this.adventure.stats && this.adventure.stats.length > 0 && !!this.adventure.toggles && !!this.adventure.toggles.stats;
+    }
+
+    hasItems() {
+        return !!this.adventure.items && this.adventure.items.length > 0 && !!this.adventure.toggles && !!this.adventure.toggles.items;
     }
 }
 
