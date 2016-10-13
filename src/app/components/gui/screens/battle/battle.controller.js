@@ -116,7 +116,7 @@ class BattleController {
 
     lastColumnSizeInPercent() {
         let lastColumnSizeInPercent = 75;
-        if (!!this.stats) {
+        if (!!this.stats && this.isStatsAvailable()) {
             lastColumnSizeInPercent = lastColumnSizeInPercent - (this.stats.length * 10);
         }
         return lastColumnSizeInPercent;
@@ -128,6 +128,10 @@ class BattleController {
 
     isDicesAvailable() {
         return !!this.adventure.toggles.dices;
+    }
+
+    isStatsAvailable() {
+        return !!this.adventure.toggles.stats;
     }
 }
 
