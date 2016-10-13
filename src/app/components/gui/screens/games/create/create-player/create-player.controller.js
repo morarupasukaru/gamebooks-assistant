@@ -61,17 +61,19 @@ class CreatePlayerController {
               "?adventureId=" + encodeURIComponent(this.adventure.id) +
               "&playerName=" + encodeURIComponent(this.playerName);
 
-            let statsParam = '';
+            if (this.hasStats()) {
+                let statsParam = '';
 
-            for (let i = 0; i < this.stats.length; i++) {
-                let stats = this.stats[i];
-                statsParam = statsParam + encodeURIComponent(stats.name) + encodeURIComponent(stats.value) + ',';
+                for (let i = 0; i < this.stats.length; i++) {
+                    let stats = this.stats[i];
+                    statsParam = statsParam + encodeURIComponent(stats.name) + encodeURIComponent(stats.value) + ',';
+                }
+
+                nextUrl = nextUrl + "&stats=" + statsParam;
             }
-
-            nextUrl = nextUrl + "&stats=" + statsParam;
             this.$location.url(nextUrl);
         } else {
-            this.createGameService.startGame(this.adventure, this.playerName, []);
+            this.createGameService.startGame(this.adventure, this.playerName, [], this.stats);
         }
     }
 

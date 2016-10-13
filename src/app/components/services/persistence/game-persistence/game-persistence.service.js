@@ -40,14 +40,16 @@ class GamePersistenceService {
             id : this.newGameId(),
             playerName : game.playerName,
             adventureId : game.adventureId,
-            items : game.items,
-            stats : game.stats,
             currentParagraphNr : game.currentParagraphNr
         };
-
-        savedGame.stats = [];
-        for (let i = 0; i < game.stats.length;i++) {
-            savedGame.stats.push({ name: game.stats[i].name, initial: game.stats[i].value, current: game.stats[i].value});
+        if (!!game.items) {
+            savedGame.items = game.items;
+        }
+        if (!!game.stats) {
+            savedGame.stats = [];
+            for (let i = 0; i < game.stats.length;i++) {
+                savedGame.stats.push({ name: game.stats[i].name, initial: game.stats[i].value, current: game.stats[i].value});
+            }
         }
 
         this.updateGame(savedGame);
@@ -56,8 +58,10 @@ class GamePersistenceService {
 
     exportGame(gameId) {
         let game = this.getGame(gameId);
-        for (let i = 0; i < game.stats.length; i++) {
-            delete game.stats[i]["$$hashKey"];
+        if (!!game.stats) {
+            for (let i = 0; i < game.stats.length; i++) {
+                delete game.stats[i]["$$hashKey"];
+            }
         }
         return this.sortObjectKeys(game);
     }

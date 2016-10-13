@@ -1,8 +1,4 @@
-en cours:
-- config avec/sans inventaire
-
 bug minor:
-- config avec/sans stats
 - eviter dice-image-html & map-image.html
 - fr
 - aide au jeu (sections texte? html?) > paragraph zero?
