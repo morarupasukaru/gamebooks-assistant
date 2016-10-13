@@ -42,6 +42,10 @@ class GameDetailController {
         this.$location.url(this.constants.url.battle + '/' + this.game.id);
     }
 
+    isAbandonGameAvailable() {
+        return !!this.adventure.toggles.endGame;
+    }
+
     displayAbandonGamePopup(removedRow) {
         let self = this;
         this.endGamePopupService.show(

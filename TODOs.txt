@@ -6,7 +6,6 @@ bug minor:
 - config avec/sans note
 - config avec/sans inventaire
 - config avec lancé de dé?
-- config avec l'option fin de partie?
 - fr
 - aide au jeu (sections texte? html?) > paragraph zero?
 - adventure.Start game's note ? > if no items, startNotes are skipped > into first paragraph?

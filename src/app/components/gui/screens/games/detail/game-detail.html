@@ -23,7 +23,12 @@
                     ng-click="$ctrl.startBattle()">
                 {{ 'Start Battle' | translate }}
             </button>
-            <button type="button" class="btn btn-default" ng-click="$ctrl.displayAbandonGamePopup()">{{ 'End Game' | translate }}</button>
+            <button type="button"
+                    class="btn btn-default"
+                    ng-if="$ctrl.isAbandonGameAvailable()"
+                    ng-click="$ctrl.displayAbandonGamePopup()">
+                {{ 'End Game' | translate }}
+            </button>
         </div>
     </div>
 
