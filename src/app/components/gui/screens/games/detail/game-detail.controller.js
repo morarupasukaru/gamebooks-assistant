@@ -23,15 +23,19 @@ class GameDetailController {
         }
         this.adventureId = this.$stateParams.adventureId;
         this.paragraph = this.adventurePersistenceService.getOrCreateParagraph(this.adventureId, this.$stateParams.paragraphNr);
+        this.adventure = this.adventurePersistenceService.getAdventure(this.adventureId);
         this.popupAbandonGameConfig = { id : 'popupAbandonGame' };
         this.checkAvailableAdventure();
     }
 
     checkAvailableAdventure() {
-        let adventure = this.adventurePersistenceService.getAdventure(this.adventureId);
-        if (!adventure) {
+        if (!this.adventure) {
             this.messagesService.errorMessage('The adventure is not available', false)
         }
+    }
+
+    isBattleAvailable() {
+        return !!this.adventure.toggles.battle;
     }
 
     startBattle() {
@@ -50,7 +54,6 @@ class GameDetailController {
             }
         );
     }
-
 }
 
 export default GameDetailController;

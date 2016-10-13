@@ -1,6 +1,7 @@
+en cours:
+
 bug minor:
 - eviter dice-image-html & map-image.html
-- config avec/sans combats
 - config avec/sans stats
 - config avec/sans note
 - config avec/sans inventaire
