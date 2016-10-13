@@ -3,7 +3,6 @@ en cours:
 bug minor:
 - eviter dice-image-html & map-image.html
 - config avec/sans stats
-- config avec/sans note
 - config avec/sans inventaire
 - config avec lancé de dé?
 - fr

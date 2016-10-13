@@ -11,7 +11,7 @@
     "dices": true,
     "endGame": true,
     "items": true,
-    "note": true,
+    "notes": true,
     "stats": true
   },
   "version": "1",

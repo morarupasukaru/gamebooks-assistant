@@ -34,7 +34,7 @@ class AdventureDetailController {
                     toggles: {
                         battle: true,
                         stats: true,
-                        note: true,
+                        notes: true,
                         items: true,
                         dices: true,
                         endGame: true

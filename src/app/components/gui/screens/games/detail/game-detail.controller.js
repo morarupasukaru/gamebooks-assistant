@@ -34,6 +34,10 @@ class GameDetailController {
         }
     }
 
+    isNotesAvailable() {
+        return !!this.adventure.toggles.notes;
+    }
+
     isBattleAvailable() {
         return !!this.adventure.toggles.battle;
     }
