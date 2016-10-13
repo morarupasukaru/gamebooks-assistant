@@ -42,6 +42,10 @@ class GameDetailController {
         return !!this.adventure.toggles.dices;
     }
 
+    isItemsAvailable() {
+        return !!this.adventure.toggles.items;
+    }
+
     isBattleAvailable() {
         return !!this.adventure.toggles.battle;
     }

@@ -1,9 +1,9 @@
 en cours:
+- config avec/sans inventaire
 
 bug minor:
-- eviter dice-image-html & map-image.html
 - config avec/sans stats
-- config avec/sans inventaire
+- eviter dice-image-html & map-image.html
 - fr
 - aide au jeu (sections texte? html?) > paragraph zero?
 - adventure.Start game's note ? > if no items, startNotes are skipped > into first paragraph?
