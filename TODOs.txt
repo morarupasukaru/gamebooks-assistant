@@ -4,7 +4,6 @@ bug minor:
 - eviter dice-image-html & map-image.html
 - config avec/sans stats
 - config avec/sans inventaire
-- config avec lancé de dé?
 - fr
 - aide au jeu (sections texte? html?) > paragraph zero?
 - adventure.Start game's note ? > if no items, startNotes are skipped > into first paragraph?

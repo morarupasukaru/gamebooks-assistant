@@ -38,6 +38,10 @@ class GameDetailController {
         return !!this.adventure.toggles.notes;
     }
 
+    isDicesAvailable() {
+        return !!this.adventure.toggles.dices;
+    }
+
     isBattleAvailable() {
         return !!this.adventure.toggles.battle;
     }

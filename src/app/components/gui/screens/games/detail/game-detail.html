@@ -18,7 +18,7 @@
             <h2>{{ 'Player' | translate }} {{ $ctrl.playerName }}</h2>
             <stats game-id="{{$ctrl.game.id}}" stats="$ctrl.stats"></stats>
             <items game-id="{{$ctrl.game.id}}" items="$ctrl.items"></items>
-            <dices></dices>
+            <dices ng-if="$ctrl.isDicesAvailable()"></dices>
             <back-button></back-button>
             <button type="button"
                     class="btn btn-default"

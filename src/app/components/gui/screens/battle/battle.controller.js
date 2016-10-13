@@ -125,6 +125,10 @@ class BattleController {
     back() {
         this.$window.history.back();
     }
+
+    isDicesAvailable() {
+        return !!this.adventure.toggles.dices;
+    }
 }
 
 export default BattleController;
