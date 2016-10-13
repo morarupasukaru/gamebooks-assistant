@@ -1,4 +1,5 @@
 const englishTranslations = {
+    "application.description" : "The 'Gamebooks Assistant' Website is an aid to play fighting fantasy gamebooks (or similar books). The app allow to keep the statistics, items and notes of the player. Paragraphs'choices & description of the book can be edited and shared between several games.",
     'yesno_true': 'yes',
     'yesno_false': 'no',
     'NumberOfParagraphs': '{{ (!!numberOfParagraphs ? numberOfParagraphs + " paragraphs" : "") }}',

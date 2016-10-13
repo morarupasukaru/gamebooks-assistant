@@ -12,8 +12,7 @@ nouvelles fonctionnalités
 - angular js 2?
 - interface skinable (enfant, fantasy, ...)
 
-
-
+idée de jeux:
 - island: screenshot c64, loading
 - a la googlemap > visite labyrinthe, musee
 - generateur de labyrinthe (dont vous etes le heros)
