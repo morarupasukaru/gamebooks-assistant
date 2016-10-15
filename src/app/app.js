@@ -15,6 +15,7 @@ import i18n_fr from './i18n/fr.js';
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import ngTranslate from 'angular-translate';
+import ngTranslateHandlerLog from 'angular-translate-handler-log';
 import uiBootstrap from 'angular-ui-bootstrap';
 
 // Interne Modul-Imports
@@ -25,7 +26,7 @@ import AppComponent from './app.component';
 require('string.prototype.startswith');
 
 angular.module('app', [
-    uiRouter, ngTranslate, uiBootstrap, Components.name
+    uiRouter, ngTranslate, ngTranslateHandlerLog, uiBootstrap, Components.name
     ])
 
     .config(['$translateProvider', function ($translateProvider) {
@@ -33,6 +34,7 @@ angular.module('app', [
       $translateProvider.translations('fr', i18n_fr);
       $translateProvider.preferredLanguage('en');
       $translateProvider.useSanitizeValueStrategy('escape');
+      $translateProvider.useMissingTranslationHandlerLog();
     }])
 
     .config(['$compileProvider', function ($compileProvider) {

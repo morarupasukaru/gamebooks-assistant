@@ -1,10 +1,11 @@
 class GameDetailController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $location, constants, endGamePopupService, $stateParams, gamePersistenceService, adventurePersistenceService, $translate, messagesService) {
+    constructor(preScreenLoadingInterceptorsCallerService, $location, constants, endGamePopupService, popupService, $stateParams, gamePersistenceService, adventurePersistenceService, $translate, messagesService) {
         preScreenLoadingInterceptorsCallerService.intercept();
         this.$location = $location;
         this.constants = constants;
         this.endGamePopupService = endGamePopupService;
+        this.popupService = popupService;
         this.$stateParams = $stateParams;
         this.gamePersistenceService = gamePersistenceService;
         this.adventurePersistenceService = adventurePersistenceService;
@@ -24,7 +25,17 @@ class GameDetailController {
         this.adventureId = this.$stateParams.adventureId;
         this.paragraph = this.adventurePersistenceService.getOrCreateParagraph(this.adventureId, this.$stateParams.paragraphNr);
         this.adventure = this.adventurePersistenceService.getAdventure(this.adventureId);
+
         this.popupAbandonGameConfig = { id : 'popupAbandonGame' };
+
+        this.popupGameRulesConfig = {
+            id : 'popupGameRules',
+            text : this.adventure.gameRules,
+            choices : [constants.choices.ok],
+            withCloseButton : true,
+            closeOnClickOutsideModal : false
+        };
+
         this.checkAvailableAdventure();
     }
 
@@ -71,6 +82,19 @@ class GameDetailController {
                 updatedGame.endGameReason = endGameReason;
                 self.gamePersistenceService.updateGame(updatedGame);
                 self.$location.url(self.constants.url.games);
+            }
+        );
+    }
+
+    isGameRulesAvailable() {
+        return !!this.adventure.gameRules;
+    }
+
+    displayGameRulesPopup() {
+        let self = this;
+        this.popupService.show(
+            this.popupGameRulesConfig.id,
+            function(popupDomElementId) {
             }
         );
     }
