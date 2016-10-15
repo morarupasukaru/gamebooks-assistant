@@ -1,6 +1,8 @@
 bug minor:
 - eviter dice-image-html & map-image.html
 - fr
+- '' translate necessaire?
+- messageService > i18n?
 - aide au jeu (sections texte? html?) > paragraph zero?
 - adventure.Start game's note ? > if no items, startNotes are skipped > into first paragraph?
 
