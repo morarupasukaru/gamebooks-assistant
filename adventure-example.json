@@ -1,63 +1,72 @@
 {
+  "authors": "morarupasukaru",
+  "downloadUrl": "adventure-example.json",
+  "homepage": "https://github.com/morarupasukaru/gamebooks-assistant",
+  "id": "adventure-example",
+  "language": "English",
+  "name": "Adventure example",
+  "startParagraphNr": "1",
+  "toggles": {
+    "battle": true,
+    "dices": true,
+    "endGame": true,
+    "items": true,
+    "notes": true,
+    "stats": true
+  },
+  "version": "1",
+  "items": [
+    {
+      "description": "Sword",
+      "quantity": 1
+    }
+  ],
   "stats": [
     {
-      "init": {
-        "sixDiceQuantity": 1,
-        "constant": 6
-      },
       "battle": {
         "displayed": true,
         "editableForEnemy": true,
         "enemyDefaultValue": 5
       },
+      "init": {
+        "constant": 6,
+        "sixDiceQuantity": 1
+      },
       "name": "Strength"
     },
     {
-      "init": {
-        "sixDiceQuantity": 1,
-        "constant": null
-      },
       "battle": {
         "displayed": true,
         "editableForEnemy": true,
         "enemyDefaultValue": 2
       },
+      "init": {
+        "constant": null,
+        "sixDiceQuantity": 1
+      },
       "name": "Stamina"
     }
   ],
-  "items": [
-    {
-      "quantity": 1,
-      "description": "Sword"
-    }
-  ],
-  "name": "Adventure example",
-  "authors": "morarupasukaru",
-  "version": "1",
-  "language": "English",
-  "homepage": "https://github.com/morarupasukaru/gamebooks-assistant",
-  "startParagraphNr": "1",
-  "id": "adventure-example",
   "paragraphs": [
     {
-      "paragraphNr": 1,
-      "description": "",
       "choices": [
         {
-          "paragraphNr": 2,
-          "description": "Start a wonderful journey"
+          "description": "Start a wonderful journey",
+          "paragraphNr": 2
         }
-      ]
+      ],
+      "description": "",
+      "paragraphNr": 1
     },
     {
-      "paragraphNr": 2,
-      "description": "",
       "choices": [
         {
-          "paragraphNr": 3,
-          "description": "Go back to home"
+          "description": "Go back to home",
+          "paragraphNr": 3
         }
-      ]
+      ],
+      "description": "",
+      "paragraphNr": 2
     }
   ]
 }
