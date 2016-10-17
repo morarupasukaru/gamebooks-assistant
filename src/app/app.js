@@ -41,7 +41,9 @@ angular.module('app', [
         $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|tel|file|blob):/);
     }])
 
-    .directive('onReadFile', function ($parse) {
+    .directive('onReadFile',
+    /*@ngInject*/
+    function ($parse) {
     	return {
     		restrict: 'A',
     		scope: false,
