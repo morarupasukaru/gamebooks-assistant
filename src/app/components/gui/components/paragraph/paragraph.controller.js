@@ -29,6 +29,9 @@ class ParagraphController {
 
     addRow() {
         let row = { paragraphNr : this.inputParagraphNr, description : this.inputDescription };
+        if  (!this.paragraph.choices) {
+            this.paragraph.choices = [];
+        }
         this.paragraph.choices.push(row);
         this.inputParagraphNr = '';
         this.inputDescription = '';
