@@ -2,9 +2,13 @@ bug minor:
 - eviter dice-image-html & map-image.html
 - fr
 - '' translate necessaire?
-- messageService > i18n?
+- TODO messageService > i18n?
 - aide au jeu (sections texte? html?) > paragraph zero?
 - adventure.Start game's note ? > if no items, startNotes are skipped > into first paragraph?
+- variante: liens paragraphe direct dans texte (permet de reprend 1-1 project aeon)
+- yokohama > version offline
+- expand pour items, notes, stats
+- intégrer comme dépendance npm offline-files
 
 nouvelles fonctionnalités
 - game paths vizualiser
