@@ -9,3 +9,5 @@ Credits
 * JamesWhite for the dice image; see http://opengameart.org/content/dice-4
 * SBB for the Web/JS framework used to build the initial version of the game; see https://github.com/SchweizerischeBundesbahnen/esta-webjs
 * Authors of all these cool libraries&tools like Angular JS, Bootstrap, Webpack, etc.
+
+URL of the application: http://morarupasukaru.github.io/gamebooks-assistant/#
