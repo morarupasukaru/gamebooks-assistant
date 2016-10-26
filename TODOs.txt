@@ -1,4 +1,5 @@
 bug minor:
+- remove "Schweizerische...."
 - eviter dice-image-html & map-image.html
 - fr
 - '' translate necessaire?
