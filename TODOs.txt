@@ -1,25 +1,20 @@
-bug minor:
+minor changes:
 - remove "Schweizerische...."
-- eviter dice-image-html & map-image.html
-- fr
-- '' translate necessaire?
-- TODO messageService > i18n?
-- aide au jeu (sections texte? html?) > paragraph zero?
-- adventure.Start game's note ? > if no items, startNotes are skipped > into first paragraph?
-- variante: liens paragraphe direct dans texte (permet de reprend 1-1 project aeon)
-- yokohama > version offline
+- '' | translate necessaire?
+- traduction fr (naviguer dans tous les écrans et résoudre les warn dans la console
+- traduction en (copie-paste i18n fr. value=key)
+- ajout TODO pour l'appel à messagesService via service, controller
 - expand pour items, notes, stats
-- intégrer comme dépendance npm offline-files
 
-nouvelles fonctionnalités
+major changes:
+- aide au jeu
+    (sections texte? html?) > paragraph zero?
+    adventure.Start game's note ? > if no items, startNotes are skipped > into first paragraph?
+- variante: liens paragraphe direct dans texte (permet de reprend 1-1 project aeon)
+    - possibilité de reprendre 1-1 textes de lonesome wolf
+- integrer projet offline-file (copy-paste)
+    - eviter dice-image-html & map-image.html
 - game paths vizualiser
-- traduction fr une fois l'application un peu stable
 - integrate battle rules, luck rules in json of adventure
-- gestion des images (& autre multimedia)
-- angular js 2?
+    - integrate lonesome wolf rules
 - interface skinable (enfant, fantasy, ...)
-
-idée de jeux:
-- island: screenshot c64, loading
-- a la googlemap > visite labyrinthe, musee
-- generateur de labyrinthe (dont vous etes le heros)
