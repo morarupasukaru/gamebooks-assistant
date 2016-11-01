@@ -39,7 +39,7 @@
                         </td>
                         <td>{{ row.language | translate }}</td>
                         <td>{{ row.version }}</td>
-                        <td>{{ row.downloadStatus | translate }}</td>
+                        <td>{{ row.downloadStatus }}</td>
                         <td>
                             <button type="button" class="btn" ng-class="{ 'btn-success' : row.selected, 'btn-default' : !row.selected}"
                                     aria-label="{{ !row.selected ?

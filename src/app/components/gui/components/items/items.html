@@ -67,17 +67,18 @@
                 </button>
             </td>
 
+
             <td>
                 <button type="button" class="btn btn-default"
-                        aria-label="{{ 'Edit item' | translate }} '{{ row.description | translate }}'"
-                        title="{{ 'Edit item' | translate }} '{{ row.description | translate }}'"
+                        aria-label="{{ 'EditItem' | translate: {description: row.description} }}"
+                        title="{{ 'EditItem' | translate: {description: row.description} }}"
                         ng-click="$ctrl.editRow(row)"
                         ng-show="!$ctrl.hasEditedRow()">
                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                 </button>
                 <button type="button" class="btn btn-danger"
-                        aria-label="{{ 'Remove item' | translate }} '{{ row.description | translate }}'"
-                        title="{{ 'Remove item' | translate }} '{{ row.description | translate }}'"
+                        aria-label="{{ 'RemoveItem' | translate: {description: row.description} }}"
+                        title="{{ 'RemoveItem' | translate: {description: row.description} }}"
                         ng-click="$ctrl.displayRemovePopup(row)"
                         ng-disabled="$ctrl.addedRow"
                         ng-show="$ctrl.isRowEdited(row)">
