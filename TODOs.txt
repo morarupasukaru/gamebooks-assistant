@@ -1,5 +1,4 @@
 minor changes:
-- remove "Schweizerische...."
 - '' | translate necessaire?
 - traduction fr (naviguer dans tous les écrans et résoudre les warn dans la console
 - traduction en (copie-paste i18n fr. value=key)

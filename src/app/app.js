@@ -1,13 +1,3 @@
-/**
- * Copyright (C) Schweizerische Bundesbahnen SBB, 2015.
- *
- * ESTA WebJS: Angular-Modul der Hauptkomponente
- *
- * @author u220374 (Reto Lehmann)
- * @version: 0.0.1
- * @since 23.10.2015, 2015.
- */
-
 import i18n_en from './i18n/en.js';
 import i18n_fr from './i18n/fr.js';
 
