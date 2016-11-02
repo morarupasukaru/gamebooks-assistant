@@ -68,8 +68,8 @@
             <tr ng-repeat="row in $ctrl.paragraph.choices">
                 <td ng-if="!$ctrl.isRowEdited(row) && !$ctrl.hasEditedRow()">
                     <button type="button" class="btn btn-default"
-                            aria-label="{{ 'Choice paragragh' | translate}} {{ row.paragraphNr }}"
-                            title="{{ 'Choice paragragh' | translate}} '{{ row.paragraphNr }}'"
+                            aria-label="{{ 'ChooseParagraph' | translate: {paragraph: row.paragraphNr} }}"
+                            title="{{ 'ChooseParagraph' | translate: {paragraph: row.paragraphNr} }}"
                             ng-click="$ctrl.goTo(row.paragraphNr)">
                         <div ng-if="!!$ctrl.isAlreadyChoosen(row)">{{ row.paragraphNr }}</div>
                         <div ng-if="!$ctrl.isAlreadyChoosen(row)"><strong>{{ row.paragraphNr }}</strong></div>
@@ -113,15 +113,15 @@
                 </td>
                 <td>
                     <button type="button" class="btn btn-default"
-                            aria-label="{{ 'Edit choice' | translate}} {{ row.paragraphNr }}"
-                            title="{{ 'Edit choice' | translate}} '{{ row.paragraphNr }}'"
+                            aria-label="{{ 'EditParagraphChoice' | translate: {paragraph: row.paragraphNr} }}"
+                            title="{{ 'EditParagraphChoice' | translate: {paragraph: row.paragraphNr} }}"
                             ng-click="$ctrl.editRow(row)"
                             ng-show="!$ctrl.hasEditedRow()">
                         <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                     </button>
                     <button type="button" class="btn btn-danger"
-                            aria-label="{{ 'Remove choice' | translate}} {{ row.paragraphNr }}"
-                            title="{{ 'Remove choice' | translate}} '{{ row.paragraphNr }}'"
+                            aria-label="{{ 'RemoveParagraphChoice' | translate: {paragraph: row.paragraphNr} }}"
+                            title="{{ 'RemoveParagraphChoice' | translate: {paragraph: row.paragraphNr} }}"
                             ng-click="$ctrl.displayRemovePopup(row)"
                             ng-disabled="$ctrl.addedRow"
                             ng-show="$ctrl.isRowEdited(row)">
