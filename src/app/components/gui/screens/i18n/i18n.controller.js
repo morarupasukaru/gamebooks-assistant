@@ -3,11 +3,11 @@ import i18n_fr from '../../../../i18n/fr.js';
 
 class I18nController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $stateParams, messagesService, $translate) {
+    constructor(preScreenLoadingInterceptorsCallerService, messagesService, $translate) {
         preScreenLoadingInterceptorsCallerService.intercept();
         this.messagesService = messagesService;
         this.$translate = $translate;
-        this.language = $stateParams.language;
+        this.language = $translate.use();
         this.initData();
     }
 

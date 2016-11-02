@@ -1,7 +1,7 @@
 minor changes:
 - '' | translate necessaire?
 - traduction fr (naviguer dans tous les écrans et résoudre les warn dans la console
-- traduction en (copie-paste i18n fr. value=key)
+- traduction en (copie-paste i18n fr. value=key): http://localhost:3001/#/adventures/le-sorcier-de-la-montagne-de-feu
 - ajout TODO pour l'appel à messagesService via service, controller
 - expand pour items, notes, stats
 

@@ -11,7 +11,7 @@ let i18nModule = angular.module('app.components.gui.screen.i18n', [
         $urlRouterProvider.otherwise('/');
 
         $stateProvider.state('i18n', {
-            url: constants.url.i18n + '/{language}', template: '<i18n></i18n>'
+            url: constants.url.i18n, template: '<i18n></i18n>'
         });
     })
 
