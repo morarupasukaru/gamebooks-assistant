@@ -137,7 +137,15 @@ const englishTranslations = {
     'Is this stats displayed in battle?': 'Is this stats displayed in battle?',
     'Is it a enemy stats?': 'Is it a enemy stats?',
     'Default value of the stats for enemy': 'Default value of the stats for enemy',
-    'Edit stats': 'Edit stats'
+    'Edit stats': 'Edit stats',
+    'Player stats value generation': 'Player stats value generation',
+    'For battle?': 'For battle?',
+    'For enemy?': 'For enemy?',
+    'Default enemy value': 'Default enemy value',
+    'Initial items': 'Initial items',
+    'Quantity': 'Quantity',
+    'Item': 'Item',
+    'Are you sure to remove the item?': 'Are you sure to remove the item?'
 };
 
 export {englishTranslations as default};
