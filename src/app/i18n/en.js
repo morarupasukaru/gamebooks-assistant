@@ -194,7 +194,24 @@ const englishTranslations = {
     'RemoveNote': "Remove note '{{ note }}'",
     'ChooseParagraph': "Choose paragraph '{{ paragraph }}'",
     'EditParagraphChoice': "Edit choice '{{ paragraph }}'",
-    'RemoveParagraphChoice': "Remove choice '{{ paragraph }}'"
+    'RemoveParagraphChoice': "Remove choice '{{ paragraph }}'",
+    'Add enemy': 'Add enemy',
+    'Battle': 'Battle',
+    'Remove enemy': 'Remove enemy',
+    'Enemy': 'Enemy',
+    'Are you sure to remove the enemy?': 'Are you sure to remove the enemy?',
+    'Please fill a value': 'Please fill a value',
+    'Please fill the name': 'Please fill the name',
+    'RemoveEnemy': "Remove enemy '{{ enemy }}'",
+    'Select Adventure': 'Select Adventure',
+    'Create Player': 'Create Player',
+    'Choose Items': 'Choose Items',
+    'Select an adventure': 'Select an adventure',
+    'Next': 'Next',
+    'PlayerName': 'PlayerName',
+    'Please fill the player name': 'Please fill the player name',
+    'Random Stats': 'Random Stats',
+    'Start Game': 'Start Game'
 };
 
 export {englishTranslations as default};

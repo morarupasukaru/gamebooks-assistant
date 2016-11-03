@@ -15,7 +15,7 @@
                 <thead>
                 <tr>
                     <th></th>
-                    <th ng-if="$ctrl.isStatsAvailable()" ng-repeat="row in $ctrl.stats">{{ row.name | translate }}</th>
+                    <th ng-if="$ctrl.isStatsAvailable()" ng-repeat="row in $ctrl.stats">{{ row.name }}</th>
                     <th></th>
                     <th>
                         <button type="button" class="btn btn-default"
@@ -56,8 +56,8 @@
 
                     <td>
                         <button type="button" class="btn btn-danger"
-                                aria-label="{{ 'Remove enemy' | translate }} {{ row.name | translate }}"
-                                title="{{ 'Remove enemy' | translate }} '{{ row.name | translate }}'"
+                                aria-label="{{ 'RemoveEnemy' | translate: {enemy: row.name} }}"
+                                title="{{ 'RemoveEnemy' | translate: {enemy: row.name} }}"
                                 ng-click="$ctrl.displayRemovePopup(row)"
                                 ng-show="$ctrl.isEnemy(row)">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
