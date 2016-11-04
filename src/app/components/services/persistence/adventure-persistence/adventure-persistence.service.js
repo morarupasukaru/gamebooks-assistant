@@ -1,7 +1,7 @@
 class AdventurePersistenceService {
 
     /*@ngInject*/
-    constructor(constants, persistenceService, messagesService, $translate, $q, remoteJsonRetrieverService, $filter) {
+    constructor(constants, persistenceService, messagesService, $translate, $q, remoteJsonRetrieverService, $filter, $translate) {
         this.constants = constants;
         this.persistenceService = persistenceService;
         this.messagesService = messagesService;
@@ -9,6 +9,7 @@ class AdventurePersistenceService {
         this.$q = $q;
         this.remoteJsonRetrieverService = remoteJsonRetrieverService;
         this.$filter = $filter;
+        this.$translate = $translate;
     }
 
     downloadAdventureWithId(adventureId) {
