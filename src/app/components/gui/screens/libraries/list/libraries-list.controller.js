@@ -11,7 +11,8 @@ class LibrariesListController {
                 exportDataPopupService,
                 importDataPopupService,
                 libraryPersistenceService,
-                $stateParams) {
+                $stateParams,
+                $log) {
         this.constants = constants;
         preScreenLoadingInterceptorsCallerService.intercept();
         this.$location = $location;
@@ -24,6 +25,7 @@ class LibrariesListController {
         this.exportDataPopupService = exportDataPopupService;
         this.importDataPopupService = importDataPopupService;
         this.$stateParams = $stateParams;
+        this.$log = $log;
 
         this.popupDeleteLibraryConfig = {
             id : 'popupDeleteLibrary',
@@ -106,7 +108,7 @@ class LibrariesListController {
                     self.libraryPersistenceService.importLibrariesStr(data);
                     self.initData();
                 } catch (error) {
-                    self.messagesService.errorMessage(error, false);
+                    self.$log.warn(error);
                 }
             }
         );

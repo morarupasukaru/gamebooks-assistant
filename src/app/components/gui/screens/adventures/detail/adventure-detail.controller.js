@@ -1,6 +1,6 @@
 class AdventureDetailController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, persistenceService, adventurePersistenceService, $stateParams, $location, constants, popupService, messagesService, $timeout, $window, formHelperService) {
+    constructor(preScreenLoadingInterceptorsCallerService, persistenceService, adventurePersistenceService, $stateParams, $location, constants, popupService, messagesService, $timeout, $window, formHelperService, $translate, $log) {
         preScreenLoadingInterceptorsCallerService.intercept();
         this.persistenceService = persistenceService;
         this.adventurePersistenceService = adventurePersistenceService;
@@ -12,6 +12,8 @@ class AdventureDetailController {
         this.$timeout = $timeout;
         this.$window = $window;
         this.formHelperService = formHelperService;
+        this.$translate = $translate;
+        this.$log = $log;
         this.initData();
 
         this.popupDeleteStatsConfig = {
@@ -83,7 +85,7 @@ class AdventureDetailController {
             this.adventurePersistenceService.updateAdventureWithoutParagraphs(this.adventure);
             this.$location.url(this.constants.url.adventures);
         } catch (error) {
-            this.messagesService.errorMessage(error, false);
+            this.$log.warn(error);
         }
     }
 

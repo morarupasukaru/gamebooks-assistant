@@ -1,6 +1,6 @@
 class LibraryDetailController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, libraryPersistenceService, $stateParams, $location, constants, messagesService, $timeout, $window, formHelperService) {
+    constructor(preScreenLoadingInterceptorsCallerService, libraryPersistenceService, $stateParams, $location, constants, messagesService, $timeout, $window, $translate, formHelperService, $log) {
         preScreenLoadingInterceptorsCallerService.intercept();
         this.libraryPersistenceService = libraryPersistenceService;
         this.$stateParams = $stateParams;
@@ -10,6 +10,8 @@ class LibraryDetailController {
         this.$timeout = $timeout;
         this.$window = $window;
         this.formHelperService = formHelperService;
+        this.$translate = $translate;
+        this.$log = $log;
         this.initData();
         this.setInitialFocus();
     }
@@ -47,7 +49,7 @@ class LibraryDetailController {
             this.libraryPersistenceService.updateLibrary(this.library);
             this.$location.url(this.constants.url.libraries);
         } catch (error) {
-            this.messagesService.errorMessage(error, false);
+            this.$log.warn(error);
         }
     }
 }

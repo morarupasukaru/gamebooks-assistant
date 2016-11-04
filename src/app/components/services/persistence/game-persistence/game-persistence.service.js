@@ -118,7 +118,7 @@ class GamePersistenceService {
                 this.updateGame(game);
             }
         } catch (error) {
-            this.messagesService.errorMessage('Cannot import game', false);
+            this.messagesService.errorMessage(this.$translate.instant('Cannot import game'), false);
         }
     }
 

@@ -71,7 +71,7 @@ class LibraryPersistenceService {
             let libraries = JSON.parse(librariesStr);
             this.importLibraries(libraries);
         } catch (error) {
-            this.messagesService.errorMessage('Cannot import libraries', false);
+            this.messagesService.errorMessage(this.$translate.instant('Cannot import libraries'), false);
             throw error;
         }
     }
@@ -120,6 +120,7 @@ class LibraryPersistenceService {
     checkDupplicateLibrary(library) {
         if (!!library.libraryUrl) {
             if (this.hasLibraryUrl(library.libraryUrl)) {
+                this.messagesService.errorMessage(this.$translate.instant("LibraryAlreadyExists", {libraryUrl: library.libraryUrl }), false);
                 throw this.constants.errors.libraryAlreadyExist;
             }
         }

@@ -46,8 +46,6 @@ const englishTranslations = {
     'downloaded': 'downloaded',
     'DupplicateParagraph': "The paragraph '{{paragraphNr}}' already exist",
     'en': 'English',
-    'error.adventureAlreadyExist': 'Adventure already exists',
-    'error.libraryAlreadyExist': 'Library already exists (JSON url)',
     'Export': 'Export',
     'Export libraries': 'Export libraries',
     'Export selected adventure': 'Export selected adventure',
@@ -225,7 +223,8 @@ const englishTranslations = {
     'Cannot import adventure': 'Cannot import adventure',
     'AdventureDownloaded': "Adventure '{{ adventure }}' is downloaded",
     'ImportGameFailedMissingFields': "Cannot import game because of missing mandatory fields: '{{ missingMandatoryFields }}'",
-    'AdventureAlreadyExists': "The adventure already exists with id '{{ adventure }}'"
+    'AdventureAlreadyExists': "The adventure already exists with id '{{ adventure }}'",
+    'LibraryAlreadyExists': "The library already exists with url '{{ libraryUrl }}'"
 };
 
 export {englishTranslations as default};

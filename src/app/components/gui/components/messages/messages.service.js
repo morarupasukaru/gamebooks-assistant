@@ -38,10 +38,9 @@ class MessagesService {
     }
 
     _addMessage(msg, type, keepAfterLocationChange) {
-        let translatedMsg = this.$translate.instant(msg);
-        if (!this._hasMessage(translatedMsg, type)) {
+        if (!this._hasMessage(msg, type)) {
             this.$rootScope.messages.push({
-                message: translatedMsg,
+                message: msg,
                 type: type,
                 keepAfterLocationChange: keepAfterLocationChange
             });

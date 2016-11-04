@@ -1,5 +1,4 @@
 en cours:
-- voir throw error si besoin i18n
 
 minor changes:
 - traduction fr (naviguer dans tous les écrans et résoudre les warn dans la console

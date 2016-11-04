@@ -1,7 +1,7 @@
 class AdventurePersistenceService {
 
     /*@ngInject*/
-    constructor(constants, persistenceService, messagesService, $translate, $q, remoteJsonRetrieverService, $filter, $translate) {
+    constructor(constants, persistenceService, messagesService, $translate, $q, remoteJsonRetrieverService, $filter) {
         this.constants = constants;
         this.persistenceService = persistenceService;
         this.messagesService = messagesService;
@@ -9,7 +9,6 @@ class AdventurePersistenceService {
         this.$q = $q;
         this.remoteJsonRetrieverService = remoteJsonRetrieverService;
         this.$filter = $filter;
-        this.$translate = $translate;
     }
 
     downloadAdventureWithId(adventureId) {
@@ -120,7 +119,7 @@ class AdventurePersistenceService {
             let adventure = JSON.parse(adventureAsStr, true);
             this.import(adventure);
         } catch (error) {
-            this.messagesService.errorMessage('Cannot import adventure', false);
+            this.messagesService.errorMessage(this.$translate.instant('Cannot import adventure'), false);
         }
     }
 
@@ -164,7 +163,7 @@ class AdventurePersistenceService {
                 }
             }
         } catch (error) {
-            this.messagesService.errorMessage('Cannot import adventure', false);
+            this.messagesService.errorMessage(this.$translate.instant('Cannot import adventure'), false);
         }
     }
 
@@ -174,6 +173,7 @@ class AdventurePersistenceService {
             adventure.id = adventureIdFromFromAdventureName;
             let existingAdventure = this.getAdventure(adventureIdFromFromAdventureName);
             if (!!existingAdventure) {
+                this.messagesService.errorMessage(this.$translate.instant("AdventureAlreadyExists", {adventure: adventureIdFromFromAdventureName }), false);
                 throw this.constants.errors.adventureAlreadyExist;
             }
         }
