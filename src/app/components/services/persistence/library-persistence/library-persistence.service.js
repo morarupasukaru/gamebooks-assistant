@@ -94,7 +94,7 @@ class LibraryPersistenceService {
                 missingMandatoryFields.push('libraryUrl');
             }
             if (missingMandatoryFields.length > 0) {
-                this.messagesService.errorMessage('Cannot import a library because of missing mandatory fields: ' + missingMandatoryFields.join(', '), false);
+                this.messagesService.errorMessage(this.$translate.instant("ImportLibrariesFailedMissingFields", {missingMandatoryFields: missingMandatoryFields.join(', ') }), false);
                 throw this.constants.errors.missingMandatoryFields;
             }
         }

@@ -49,7 +49,7 @@ class GamesListController {
                 games[i].adventureName = adventure.name;
                 games[i].serie = adventure.serie;
             } else {
-                this.messagesService.errorMessage(this.$translate.instant('Cannot find adventure') + " '"  + games[i].adventureId + "'", false);
+                this.messagesService.errorMessage(this.$translate.instant('CannotFindAdventure', { adventure: games[i].adventureId}), false);
                 games[i].adventureName = games[i].adventureId;
             }
         }
@@ -75,7 +75,7 @@ class GamesListController {
         let game = this.gamePersistenceService.getGame(this.getSelectedRow().id);
         let adventure = this.adventurePersistenceService.getAdventure(game.adventureId);
         if (!adventure) {
-            this.messagesService.errorMessage('The adventure is not available', false)
+            this.messagesService.errorMessage(this.$translate.instant('CannotFindAdventure', { adventure: this.getSelectedRow().id}), false)
         } else {
             let nextUrl = this.gamePersistenceService.getUrlOfGame(this.getSelectedRow().id);
             this.$location.url(nextUrl);

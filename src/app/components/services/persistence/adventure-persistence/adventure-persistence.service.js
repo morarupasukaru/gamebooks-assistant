@@ -31,7 +31,7 @@ class AdventurePersistenceService {
                 self.addDownloadHistory(json, self.now() + ' : ' + self.$translate.instant('downloaded'))
                 json.downloadUrl = downloadUrl;
                 self.import(json);
-                self.messagesService.successMessage('Adventure ' + json.name + ' is downloaded', false); // TODO
+                self.messagesService.successMessage(self.$translate.instant("AdventureDownloaded", {adventure: json.name }), false);
                 deferred.resolve('Success');
             },
             function(reason) {
@@ -145,9 +145,9 @@ class AdventurePersistenceService {
                 missingMandatoryFields.push('startParagraphNr');
             }
             if (missingMandatoryFields.length > 0) {
-                this.messagesService.errorMessage('Cannot import game because of missing mandatory fields: ' + missingMandatoryFields.join(', '), false); // TODO
+                this.messagesService.errorMessage(this.$translate.instant("ImportGameFailedMissingFields", {missingMandatoryFields: missingMandatoryFields.join(', ') }), false);
             } else if (!!checkDupplicate && !!this.getAdventure(adventure.id)) {
-                this.messagesService.errorMessage("The adventure already exists with id '" + adventure.id + "'", false); // TODO
+                this.messagesService.errorMessage(this.$translate.instant("AdventureAlreadyExists", {adventure: adventure.id }), false);
             } else {
                 if (!!adventure.paragraphs) {
                     adventure.numberOfParagraphs = adventure.paragraphs.length;

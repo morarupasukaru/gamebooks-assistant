@@ -1,13 +1,14 @@
 class GamePersistenceService {
 
     /*@ngInject*/
-    constructor(constants, persistenceService, adventurePersistenceService, messagesService, $q, remoteJsonRetrieverService) {
+    constructor(constants, persistenceService, adventurePersistenceService, messagesService, $q, remoteJsonRetrieverService, $translate) {
         this.persistenceService = persistenceService;
         this.adventurePersistenceService = adventurePersistenceService;
         this.constants = constants;
         this.messagesService = messagesService;
         this.$q = $q;
         this.remoteJsonRetrieverService = remoteJsonRetrieverService;
+        this.$translate = $translate;
     }
 
     downloadGame(url) {
@@ -110,9 +111,9 @@ class GamePersistenceService {
             }
 
             if (missingMandatoryFields.length > 0) {
-                this.messagesService.errorMessage('Cannot import game because of missing mandatory fields: ' + missingMandatoryFields.join(', '), false);
+                this.messagesService.errorMessage(this.$translate.instant("ImportGameFailedMissingFields", {missingMandatoryFields: missingMandatoryFields.join(', ') }), false);
             } else if (!!this.getGame(game.id)) {
-                this.messagesService.errorMessage("The game already exists with id '" + game.id + "'", false);
+                this.messagesService.errorMessage(this.$translate.instant("GameAlreadyExists", { gameId : game.id }), false);
             } else {
                 this.updateGame(game);
             }

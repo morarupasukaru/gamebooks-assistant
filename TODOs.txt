@@ -1,10 +1,8 @@
 en cours:
-- traduction en (copie-paste i18n fr. value=key): http://localhost:3001/#/battle/1475992519281
-=> game detail
+- voir throw error si besoin i18n
 
 minor changes:
 - traduction fr (naviguer dans tous les écrans et résoudre les warn dans la console
-- ajout TODO pour l'appel à messagesService via service, controller
 - expand pour items, notes, stats
 
 major changes:
