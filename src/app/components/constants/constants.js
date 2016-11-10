@@ -25,7 +25,8 @@ let constantsModule = angular.module('app.components.constants', [])
             adventureDetail: '/adventures',
             libraries: '/libraries',
             libraryDetail: '/libraries',
-            i18n: '/i18n'
+            i18n: '/i18n',
+            map: '/map'
         },
         choices : {
             yes : 'Yes',
