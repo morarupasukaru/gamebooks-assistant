@@ -1,6 +1,11 @@
 en cours:
 - game paths vizualiser
 
+map:
+- translate
+- button in-game
+- etc.
+
 minor changes:
 - traduction fr
 - expand pour items, notes, stats > component with template
