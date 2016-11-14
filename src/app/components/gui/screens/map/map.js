@@ -12,7 +12,7 @@ let mapModule = angular.module('app.components.gui.screen.map', [
         $urlRouterProvider.otherwise('/');
 
         $stateProvider.state('map', {
-            url: constants.url.map, template: '<map></map>'
+            url: constants.url.map + '/{adventureId}', template: '<map></map>'
         });
     })
 

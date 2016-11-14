@@ -240,6 +240,18 @@ class GamePersistenceService {
             return choosen;
         }
     }
+
+    getGames(adventureId) {
+        let gamePersistenceKeys = this.getGamePersistenceKeys();
+        let games = [];
+        for (let i = 0; i < gamePersistenceKeys.length; i++) {
+            let game = this.getGame(gamePersistenceKeys[i]);
+            if (game.adventureId === adventureId) {
+                games.push(game);
+            }
+        }
+        return games;
+    }
 }
 
 export default GamePersistenceService;
