@@ -1,8 +1,9 @@
 en cours:
+- game paths vizualiser
 
 minor changes:
-- traduction fr (naviguer dans tous les écrans et résoudre les warn dans la console
-- expand pour items, notes, stats
+- traduction fr
+- expand pour items, notes, stats > component with template
 
 major changes:
 - aide au jeu
@@ -12,7 +13,6 @@ major changes:
     - possibilité de reprendre 1-1 textes de lonesome wolf
 - integrer projet offline-file (copy-paste)
     - eviter dice-image-html & map-image.html
-- game paths vizualiser
 - integrate battle rules, luck rules in json of adventure
     - integrate lonesome wolf rules
 - interface skinable (enfant, fantasy, ...)

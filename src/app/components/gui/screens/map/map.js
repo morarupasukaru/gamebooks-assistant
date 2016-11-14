@@ -1,12 +1,13 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 
+import Node from './node/node';
 import template from './map.html';
 import controller from './map.controller';
 import './map.css';
 
 let mapModule = angular.module('app.components.gui.screen.map', [
-    uiRouter
+    uiRouter, Node.name
 ])
     .config(/*@ngInject*/($stateProvider, $urlRouterProvider, constants) => {
         $urlRouterProvider.otherwise('/');

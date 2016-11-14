@@ -9,7 +9,7 @@ class MapController {
 
     initData() {
         let adventureId = encodeURIComponent(this.$stateParams.adventureId);
-        this.map = this.mapPersistenceService.getMap(adventureId);
+        this.rootNode = this.mapPersistenceService.getMap(adventureId);
     }
 
     /*
