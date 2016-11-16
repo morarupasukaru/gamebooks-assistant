@@ -27,7 +27,12 @@ li {
   border: 1px solid transparent;
 }
 li:hover {
+    /* TODO change text color */
+}
+/*
+li:hover {
   border: 1px solid grey;
   border-radius: 3px;
   background-color: lightgrey;
 }
+*/
