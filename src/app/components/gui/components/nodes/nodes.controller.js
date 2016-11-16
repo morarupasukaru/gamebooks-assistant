@@ -7,8 +7,7 @@ class NodesController {
     }
 
     initData() {
-        debugger;
-        this.rootNode = this.mapPersistenceService.getMap(this.adventureId);
+        this.rootNode = this.mapPersistenceService.getMap(this.adventureId, this.rootParagraphNr);
     }
 
     /*

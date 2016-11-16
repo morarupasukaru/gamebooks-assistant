@@ -23,6 +23,8 @@
                    game-id="{{$ctrl.game.id}}"
                    items="$ctrl.items"></items>
             <dices ng-if="$ctrl.isDicesAvailable()"></dices>
+            <h2>{{ 'Map' | translate }}</h2>
+            <nodes adventure-id="$ctrl.adventureId" root-paragraph-nr="$ctrl.paragraph.paragraphNr"></nodes>
             <back-button></back-button>
             <button type="button"
                     class="btn btn-default"

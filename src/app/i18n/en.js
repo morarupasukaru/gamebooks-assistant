@@ -219,7 +219,11 @@ const englishTranslations = {
     'x2': 'x2',
     'Yes': 'Yes',
     'yesno_false': 'no',
-    'yesno_true': 'yes'
+    'yesno_true': 'yes',
+    'Paragraph link': 'Paragraph link',
+    'Paragraph not played': 'Paragraph not played',
+    'No way further': 'No way further',
+    'Map': 'Map'
 };
 
 export {englishTranslations as default};

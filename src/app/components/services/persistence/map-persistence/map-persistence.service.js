@@ -10,7 +10,7 @@ class MapPersistenceService {
     getMap(adventureId, rootParagrahNr) {
         let adventure = this.adventurePersistenceService.exportAdventure(adventureId);
         let knownNodes = this.getKnownNodes(adventureId);
-        let root = this.createNodeRecursively(adventure.paragraphs, adventure.startParagraphNr, [], knownNodes);
+        let root = this.createNodeRecursively(adventure.paragraphs, rootParagrahNr, [], knownNodes);
         return root;
     }
 
