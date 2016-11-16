@@ -1,22 +1,17 @@
 class MapController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $stateParams, mapPersistenceService) {
+    constructor(preScreenLoadingInterceptorsCallerService, $stateParams, adventurePersistenceService) {
         preScreenLoadingInterceptorsCallerService.intercept();
         this.$stateParams = $stateParams;
-        this.mapPersistenceService = mapPersistenceService;
+        this.adventurePersistenceService = adventurePersistenceService;
         this.initData();
     }
 
     initData() {
-        let adventureId = encodeURIComponent(this.$stateParams.adventureId);
-        this.rootNode = this.mapPersistenceService.getMap(adventureId);
+        this.adventureId = encodeURIComponent(this.$stateParams.adventureId);
+        let adventure = this.adventurePersistenceService.getAdventure(this.adventureId);
+        this.rootParagraphNr = adventure.startParagraphNr;
     }
-
-    /*
-                checked: false,
-                collapsed: false,
-                selected: false
-*/
 }
 
 export default MapController;

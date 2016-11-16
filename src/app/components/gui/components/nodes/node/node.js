@@ -4,7 +4,7 @@ import template from './node.html';
 import controller from './node.controller';
 import './node.css';
 
-let nodeModule = angular.module('app.components.gui.screen.map.node', [])
+let nodeModule = angular.module('app.components.gui.components.nodes.node', [])
     .component('node', {
         template,
         controller,
