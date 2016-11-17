@@ -3,14 +3,13 @@ en cours:
 
 map:
 - translate
-- button in-game
 - etc.
+- change mouse hover like link
+- hightlight link node
 
 minor changes:
 - traduction fr
 - expand pour items, notes, stats > component with template
-- change mouse hover like link
-- hightlight link node
 
 major changes:
 - aide au jeu

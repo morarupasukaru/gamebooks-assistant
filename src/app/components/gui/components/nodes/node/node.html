@@ -1,22 +1,31 @@
-<input type="checkbox" id="{{ $ctrl.data.id }}" ng-show="!!$ctrl.data.children" />
-<i class="glyphicon glyphicon-menu-right" ng-show="!!$ctrl.data.children"></i>
-<i class="glyphicon glyphicon-menu-down" ng-show="!!$ctrl.data.children"></i>
-<label for="{{ $ctrl.data.id }}">{{ $ctrl.data.name }}</label>
-<span class="glyphicon glyphicon-hand-left"
-      aria-label="{{ 'Paragraph link' | translate }}"
-      title="{{ 'Paragraph link' | translate }}"
-      ng-show="!!$ctrl.data.linkNodeId"></span>
-<span class="glyphicon glyphicon-question-sign"
-      aria-label="{{ 'Paragraph not played' | translate }}"
-      title="{{ 'Paragraph not played' | translate }}"
-      ng-show="!!$ctrl.data.unknown"></span>
-<span class="glyphicon glyphicon-minus-sign"
-      aria-label="{{ 'No way further' | translate }}"
-      title="{{ 'No way further' | translate }}"
-      ng-show="!$ctrl.data.children && !!$ctrl.data.linkNodeId && !!$ctrl.data.unknown">
-</span>
-<ul ng-if="!!$ctrl.data.children">
-    <li ng-repeat="childNode in $ctrl.data.children">
-        <node data="childNode"></node>
-    </li>
-</ul>
+<div ng-click="$ctrl.toggleCollapse($ctrl.data)">
+    <span class="glyphicon glyphicon-menu-right"
+          ng-show="!!$ctrl.data.children && !!$ctrl.data.collapsed">
+    </span>
+    <span class="glyphicon glyphicon-menu-down"
+          ng-show="!!$ctrl.data.children && !$ctrl.data.collapsed">
+    </span>
+        {{ $ctrl.data.name }}
+    <span class="glyphicon glyphicon-hand-right"
+          aria-label="{{ 'Paragraph link' | translate }}"
+          title="{{ 'Paragraph link' | translate }}"
+          ng-show="!!$ctrl.data.linkNodeId">
+    </span>
+    <span class="glyphicon glyphicon-question-sign"
+          aria-label="{{ 'Paragraph not played' | translate }}"
+          title="{{ 'Paragraph not played' | translate }}"
+          ng-show="!!$ctrl.data.unknown">
+    </span>
+    <span class="glyphicon glyphicon-minus-sign"
+          aria-label="{{ 'No way further' | translate }}"
+          title="{{ 'No way further' | translate }}"
+          ng-show="!$ctrl.data.children && !!$ctrl.data.linkNodeId && !!$ctrl.data.unknown">
+    </span>
+</div>
+<div ng-if="!!$ctrl.data.children" uib-collapse="!!$ctrl.data.collapsed">
+    <ul>
+        <li ng-repeat="childNode in $ctrl.data.children">
+            <node data="childNode"></node>
+        </li>
+    </ul>
+</div>

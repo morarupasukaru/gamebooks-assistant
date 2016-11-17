@@ -1,38 +1,3 @@
-/* fonctionnel */
-input {
-  display: none;
-}
-input ~ ul {
- display: none;
-}
-input:checked ~ ul {
- display: block;
-}
-input ~ .glyphicon-menu-down {
-  display: none;
-}
-input:checked ~ .glyphicon-menu-right {
-  display: none;
-}
-input:checked ~ .glyphicon-menu-down {
-  display: inline;
-}
-
-/* habillage */
 li {
   display: block;
-  font-family: 'Arial';
-  font-size: 15px;
-  padding: 0.2em;
-  border: 1px solid transparent;
 }
-li:hover {
-    /* TODO change text color */
-}
-/*
-li:hover {
-  border: 1px solid grey;
-  border-radius: 3px;
-  background-color: lightgrey;
-}
-*/
