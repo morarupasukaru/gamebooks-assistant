@@ -9,7 +9,8 @@ let nodeModule = angular.module('app.components.gui.components.nodes.node', [])
         template,
         controller,
         bindings: {
-            data: '<'
+            data: '<',
+            rootNode: '<'
         }
     });
 

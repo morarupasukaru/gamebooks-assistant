@@ -4,8 +4,11 @@ en cours:
 map:
 - translate
 - etc.
-- change mouse hover like link
-- hightlight link node
+- allow to see parent .. > required?
+- label (treasure, gameover, sens-unique, battle, ...)
+- compute linkNode according to visible tree subset
+- compute linkNode according to expand tree subset, => required?
+- display notes with popup?
 
 minor changes:
 - traduction fr

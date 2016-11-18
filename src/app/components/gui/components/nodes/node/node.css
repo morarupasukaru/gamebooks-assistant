@@ -1,3 +1,15 @@
 li {
   display: block;
 }
+
+.highlighted {
+    background-color: lightgrey;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.clickable:hove {
+    text-decoration: underline;
+}
