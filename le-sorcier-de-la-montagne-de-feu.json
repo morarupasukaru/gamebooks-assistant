@@ -134,6 +134,20 @@
     {
       "choices": [
         {
+          "description": "Explorer un passage vers le nord",
+          "paragraphNr": 46
+        },
+        {
+          "description": "Partir vers le sud",
+          "paragraphNr": 332
+        }
+      ],
+      "description": "",
+      "paragraphNr": 4
+    },
+    {
+      "choices": [
+        {
           "description": "Frapper à la porte et entrer",
           "paragraphNr": 97
         },
@@ -192,6 +206,16 @@
     {
       "choices": [
         {
+          "description": "Combattre la créature",
+          "paragraphNr": 161
+        }
+      ],
+      "description": "Une créature vous a découvert suite à vos bruits de recherche. Lorsque vous avez vaincu la créature rendez-vous au 117",
+      "paragraphNr": 14
+    },
+    {
+      "choices": [
+        {
           "description": "Avancez le long du couloir",
           "paragraphNr": 367
         }
@@ -212,6 +236,20 @@
     {
       "choices": [
         {
+          "description": "Si vous êtes vainqueur",
+          "paragraphNr": 376
+        },
+        {
+          "description": "Vous pouvez fuire si le combat tourne mal (otez vos points de pénalités)",
+          "paragraphNr": 291
+        }
+      ],
+      "description": "1er NAIN a HABILITE: 7, ENDURANCE: 4, 2ème NAIN: H6/E6, 3ème NAIN: H7/E5, 4ème NAIN: H7/E5",
+      "paragraphNr": 20
+    },
+    {
+      "choices": [
+        {
           "description": "Briser la serrure avec votre épée",
           "paragraphNr": 339
         },
@@ -226,6 +264,16 @@
     {
       "choices": [
         {
+          "description": "Poursuivre",
+          "paragraphNr": 4
+        }
+      ],
+      "description": "Vous ne trouvez pas de porte secrète. Un mince jet de gaz s'échappe du plafond. Vous étouffez et perdez connaissance. Lorsque vous revenez à vous, vous ne reconnaissez pas les lieux",
+      "paragraphNr": 22
+    },
+    {
+      "choices": [
+        {
           "description": "Entrer dans la pièce",
           "paragraphNr": 326
         },
@@ -236,6 +284,20 @@
       ],
       "description": "Le couloir aboutit à une porte bien solide.",
       "paragraphNr": 23
+    },
+    {
+      "choices": [
+        {
+          "description": "tirer sur la corde",
+          "paragraphNr": 67
+        },
+        {
+          "description": "revenir au croisement",
+          "paragraphNr": 267
+        }
+      ],
+      "description": "Une pierre se détache du roc et révèle une anfractuosité dans laquelle est cachée une corde.",
+      "paragraphNr": 30
     },
     {
       "choices": [
@@ -352,12 +414,40 @@
     {
       "choices": [
         {
+          "description": "Aller au nord",
+          "paragraphNr": 354
+        },
+        {
+          "description": "Aller au sud",
+          "paragraphNr": 52
+        }
+      ],
+      "description": "",
+      "paragraphNr": 43
+    },
+    {
+      "choices": [
+        {
           "description": "Vous nagez ensuite dans la rivière",
           "paragraphNr": 399
         }
       ],
       "description": "Vous finissez le repas entamé",
       "paragraphNr": 44
+    },
+    {
+      "choices": [
+        {
+          "description": "Aller à l'ouest puis au sud",
+          "paragraphNr": 4
+        },
+        {
+          "description": "Traverser une porte qui bloque votre passage vers l'est",
+          "paragraphNr": 206
+        }
+      ],
+      "description": "",
+      "paragraphNr": 46
     },
     {
       "choices": [
@@ -440,6 +530,20 @@
     {
       "choices": [
         {
+          "description": "Repartir vers le sud",
+          "paragraphNr": 308
+        },
+        {
+          "description": "Passer la porte",
+          "paragraphNr": 179
+        }
+      ],
+      "description": "Vous arrivez devant une porte au nord",
+      "paragraphNr": 54
+    },
+    {
+      "choices": [
+        {
           "description": "S'asseoir sur le banc et prendre un repas",
           "paragraphNr": 15
         },
@@ -450,6 +554,16 @@
       ],
       "description": "Vous rampez le long du long couloir. Il y a un solide banc de bois dans un coin avec une inscription: \"Repose-toi ici, voyageur fourbu\"",
       "paragraphNr": 58
+    },
+    {
+      "choices": [
+        {
+          "description": "Le passage se termine avec une lourde herse, vous faites demi-tour",
+          "paragraphNr": 48
+        }
+      ],
+      "description": "",
+      "paragraphNr": 60
     },
     {
       "choices": [
@@ -500,6 +614,20 @@
     {
       "choices": [
         {
+          "description": "Revenir au croisement",
+          "paragraphNr": 267
+        },
+        {
+          "description": "Passer par la porte secrète",
+          "paragraphNr": 177
+        }
+      ],
+      "description": "Une petite porte s'ouvre menant sur un passage nord-sud",
+      "paragraphNr": 67
+    },
+    {
+      "choices": [
+        {
           "description": "Vous quittez la pièce et partez en direction du nord",
           "paragraphNr": 303
         }
@@ -516,6 +644,16 @@
       ],
       "description": "Vous vous dirigez vers le nord.",
       "paragraphNr": 69
+    },
+    {
+      "choices": [
+        {
+          "description": "Vous aboutissez à un autre croisement",
+          "paragraphNr": 267
+        }
+      ],
+      "description": "",
+      "paragraphNr": 70
     },
     {
       "choices": [
@@ -572,6 +710,20 @@
       ],
       "description": "Passage aboutit à une porte massive. Vous entendez quelqu'un marmonner et des bruits de casseroles.",
       "paragraphNr": 78
+    },
+    {
+      "choices": [
+        {
+          "description": "Chercher un passage secret",
+          "paragraphNr": 137
+        },
+        {
+          "description": "Retourner au croisement",
+          "paragraphNr": 267
+        }
+      ],
+      "description": "Le couloir se finit en cul-de-sac.",
+      "paragraphNr": 79
     },
     {
       "choices": [
@@ -678,12 +830,36 @@
     {
       "choices": [
         {
+          "description": "Poursuivre",
+          "paragraphNr": 131
+        }
+      ],
+      "description": "Tentez votre chance. Si vous êtes chanceux vous pouvez repartir avec 2d6 de pièces d'or",
+      "paragraphNr": 91
+    },
+    {
+      "choices": [
+        {
           "description": "Avancer droit devant",
           "paragraphNr": 71
         }
       ],
       "description": "Croisement caverne",
       "paragraphNr": 92
+    },
+    {
+      "choices": [
+        {
+          "description": "Chercher des passages le long du couloir",
+          "paragraphNr": 260
+        },
+        {
+          "description": "Aller au croisement",
+          "paragraphNr": 329
+        }
+      ],
+      "description": "",
+      "paragraphNr": 94
     },
     {
       "choices": [
@@ -726,6 +902,20 @@
     {
       "choices": [
         {
+          "description": "Jouer pour de bon",
+          "paragraphNr": 346
+        },
+        {
+          "description": "Tricher",
+          "paragraphNr": 91
+        }
+      ],
+      "description": "",
+      "paragraphNr": 100
+    },
+    {
+      "choices": [
+        {
           "description": "Refermer aussitôt la porte et poursuivre votre chemin",
           "paragraphNr": 303
         },
@@ -740,6 +930,20 @@
       ],
       "description": "La porte n'est pas verrouillé. Dans la pièce, 2 bossus torturent un nain. Le nain s'évanouit dans un cri. Les bossus se tournent vers vous",
       "paragraphNr": 102
+    },
+    {
+      "choices": [
+        {
+          "description": "Tirer le levier",
+          "paragraphNr": 252
+        },
+        {
+          "description": "Revenir en arrière",
+          "paragraphNr": 359
+        }
+      ],
+      "description": "Vous découvrez un levier",
+      "paragraphNr": 103
     },
     {
       "choices": [
@@ -834,12 +1038,40 @@
     {
       "choices": [
         {
+          "description": "Aller à l'est",
+          "paragraphNr": 354
+        },
+        {
+          "description": "Aller à l'ouest",
+          "paragraphNr": 308
+        }
+      ],
+      "description": "",
+      "paragraphNr": 117
+    },
+    {
+      "choices": [
+        {
           "description": "Poursuivre",
           "paragraphNr": 197
         }
       ],
       "description": "Vous suivez un court passage puis gravissez un escalier.",
       "paragraphNr": 120
+    },
+    {
+      "choices": [
+        {
+          "description": "Examiner le cul-de-sac",
+          "paragraphNr": 103
+        },
+        {
+          "description": "Retourner au croisement",
+          "paragraphNr": 359
+        }
+      ],
+      "description": "Vous arrivez à un cul-de-sac",
+      "paragraphNr": 121
     },
     {
       "choices": [
@@ -914,12 +1146,42 @@
     {
       "choices": [
         {
+          "description": "Sortir de la pièce",
+          "paragraphNr": 291
+        }
+      ],
+      "description": "Prendre un repas avec les nains mais ne récupérez que 2 points d'ENDURANCE",
+      "paragraphNr": 131
+    },
+    {
+      "choices": [
+        {
+          "description": "Poursuivre",
+          "paragraphNr": 52
+        }
+      ],
+      "description": "Une pierre tombe sur votre tête. Lorsque vous reprenez vos esprits, vous vous trouvez à un croisement",
+      "paragraphNr": 133
+    },
+    {
+      "choices": [
+        {
           "description": "Vous vous dirigez vers la bifurcation",
           "paragraphNr": 229
         }
       ],
       "description": "Vous quittez la pièce et revenez à la bifurcation.",
       "paragraphNr": 136
+    },
+    {
+      "choices": [
+        {
+          "description": "Poursuivre",
+          "paragraphNr": 354
+        }
+      ],
+      "description": "Un déclic se fait entendre et vous avez un étourdissement. Lorsque vous reprenez conscience, vous ne savez pas ou vous êtes.",
+      "paragraphNr": 137
     },
     {
       "choices": [
@@ -970,6 +1232,24 @@
       ],
       "description": "Vous évitez de peu un coup de griffe de la créature qui s'est réveillé.",
       "paragraphNr": 148
+    },
+    {
+      "choices": [
+        {
+          "description": "Aller au nord",
+          "paragraphNr": 222
+        },
+        {
+          "description": "Aller à l'est",
+          "paragraphNr": 297
+        },
+        {
+          "description": "Aller au sud",
+          "paragraphNr": 133
+        }
+      ],
+      "description": "",
+      "paragraphNr": 150
     },
     {
       "choices": [
@@ -1072,6 +1352,16 @@
       "paragraphNr": 159
     },
     {
+      "choices": [
+        {
+          "description": "Vous arrivez à un croisement après divers détours",
+          "paragraphNr": 267
+        }
+      ],
+      "description": "",
+      "paragraphNr": 160
+    },
+    {
       "description": "Lancez un dé et combattez la créature correspondante de la liste suivante. 1:LUTIN ayant HABILITE: 5, ENDURANCE: 3, 2:FARFADET a H: 6 E: 3, 3:DIABLOTIN a H: 6, E: 4, 4:RAT GEANT a H: 5, E: 4, 5:SQUELETTE a H: 6, E: 5, 6:TROLL a H: 8, E: 4.",
       "paragraphNr": 161
     },
@@ -1088,6 +1378,20 @@
       ],
       "description": "Vous arrivez à une bifurcation",
       "paragraphNr": 162
+    },
+    {
+      "choices": [
+        {
+          "description": "Franchir la porte secrète",
+          "paragraphNr": 187
+        },
+        {
+          "description": "Revenir au croisement précédent",
+          "paragraphNr": 359
+        }
+      ],
+      "description": "Vous découvrez une porte secrète",
+      "paragraphNr": 167
     },
     {
       "choices": [
@@ -1190,6 +1494,38 @@
     {
       "choices": [
         {
+          "description": "Vous pouvez prendre la fuite après le troisième assaut OU si vous êtes déjà venu dans la pièce, vous la quittez",
+          "paragraphNr": 54
+        },
+        {
+          "description": "Si vous tuez le minotaure",
+          "paragraphNr": 258
+        }
+      ],
+      "description": "Vous arrivez dans une pièce où un MINOTAURE vous attaque. Il possède HABILITE: 9, ENDURANCE: 9",
+      "paragraphNr": 179
+    },
+    {
+      "choices": [
+        {
+          "description": "Aller à l'est",
+          "paragraphNr": 70
+        },
+        {
+          "description": "Aller au nord",
+          "paragraphNr": 329
+        },
+        {
+          "description": "Explorer le cul-de-sac",
+          "paragraphNr": 22
+        }
+      ],
+      "description": "Vous arrivez à un cul-de-sac",
+      "paragraphNr": 180
+    },
+    {
+      "choices": [
+        {
           "description": "Chercher une issue dans le mur ouest",
           "paragraphNr": 355
         },
@@ -1252,6 +1588,38 @@
       ],
       "description": "",
       "paragraphNr": 187
+    },
+    {
+      "choices": [
+        {
+          "description": "Explorer l'impasse",
+          "paragraphNr": 167
+        },
+        {
+          "description": "Revenir au croisement",
+          "paragraphNr": 359
+        }
+      ],
+      "description": "Vous arrivez à un cul-de-sac",
+      "paragraphNr": 190
+    },
+    {
+      "choices": [
+        {
+          "description": "Partir par la porte sud et accèder à la deuxième bifurcation",
+          "paragraphNr": 308
+        },
+        {
+          "description": "Partir par porte sud et suivre un autre chemin",
+          "paragraphNr": 392
+        },
+        {
+          "description": "Sortir par la porte ouest",
+          "paragraphNr": 46
+        }
+      ],
+      "description": "Il est terrifié par votre comportement agressif. Il vous explique qu'il est le maître du Labyrinthe de Zagor. Il vous indique votre chemin pour sortir du labyrinthe et accèder au domaine du sorcier de la montagne. Il faut franchir la porte sud, puis passer devant une porte située à l'ouest, jusqu'au bout du couloir, tourner à gauche, traverser un couloir et prendre à gauche à la bifurcation suivante.",
+      "paragraphNr": 191
     },
     {
       "choices": [
@@ -1348,6 +1716,20 @@
       ],
       "description": "La porte s'ouvre sur une crypte obscure. Un autel est dressée à l'une des extrémités de la crypte et des cerceils sont posés ça et là sur le sol.",
       "paragraphNr": 205
+    },
+    {
+      "choices": [
+        {
+          "description": "Si vous êtes déjà venu dans cette pièce",
+          "paragraphNr": 284
+        },
+        {
+          "description": "Si vous n'avez pas encore rencontré ce personnage",
+          "paragraphNr": 341
+        }
+      ],
+      "description": "Vous entrez dans une grande pièce remplis de papier et parchemins. Un vieil homme est assis à un bureau. Il lève les yeux vers vous.",
+      "paragraphNr": 206
     },
     {
       "choices": [
@@ -1550,6 +1932,28 @@
     {
       "choices": [
         {
+          "description": "Bavarder avec eux",
+          "paragraphNr": 131
+        },
+        {
+          "description": "Quitter la pièce",
+          "paragraphNr": 291
+        },
+        {
+          "description": "Les joindre aux cartes",
+          "paragraphNr": 100
+        },
+        {
+          "description": "Attaquer leur chef",
+          "paragraphNr": 20
+        }
+      ],
+      "description": "Il y a 4 nains en train de jouer aux cartes à moins que vous soyez déjà venu.",
+      "paragraphNr": 227
+    },
+    {
+      "choices": [
+        {
           "description": "Vous prenez à droite",
           "paragraphNr": 69
         }
@@ -1584,6 +1988,16 @@
     {
       "choices": [
         {
+          "description": "Combattre la créature",
+          "paragraphNr": 161
+        }
+      ],
+      "description": "Une créature vous attaque alors vous effectuez vos recherches. Rendez-vous au paragraphe 43 une fois la créature défaite",
+      "paragraphNr": 234
+    },
+    {
+      "choices": [
+        {
           "description": "Prendre le passage à l'ouest",
           "paragraphNr": 176
         },
@@ -1604,6 +2018,24 @@
       ],
       "description": "Vous arrivez à la précédente bifurcation et prenez la direction du nord.",
       "paragraphNr": 237
+    },
+    {
+      "choices": [
+        {
+          "description": "Aller à l'est",
+          "paragraphNr": 70
+        },
+        {
+          "description": "Aller à l'ouest",
+          "paragraphNr": 180
+        },
+        {
+          "description": "Aller au nord",
+          "paragraphNr": 329
+        }
+      ],
+      "description": "",
+      "paragraphNr": 238
     },
     {
       "choices": [
@@ -1708,6 +2140,20 @@
     {
       "choices": [
         {
+          "description": "Aller au nord",
+          "paragraphNr": 312
+        },
+        {
+          "description": "Aller au sud",
+          "paragraphNr": 226
+        }
+      ],
+      "description": "",
+      "paragraphNr": 252
+    },
+    {
+      "choices": [
+        {
           "description": "Vous approchez de lui comme il le souhaite",
           "paragraphNr": 352
         },
@@ -1744,12 +2190,36 @@
     {
       "choices": [
         {
+          "description": "Quitter la pièce",
+          "paragraphNr": 54
+        }
+      ],
+      "description": "Vous trouvez 8 Pièces d'Or. Vous trouvez une clé rouge ayant le numéro 111. Vous pouvez prendre un repas. Vous gagnez 2 points de CHANCE.",
+      "paragraphNr": 258
+    },
+    {
+      "choices": [
+        {
           "description": "Poursuivre",
           "paragraphNr": 7
         }
       ],
       "description": "Vous atteignez la berge alors que la mystérieuse turbulence n'a laissé aucune trace du crocodile. Vous gagnez 1 point d'HABILITE et 2 points de CHANCE.",
       "paragraphNr": 259
+    },
+    {
+      "choices": [
+        {
+          "description": "Aller au nord",
+          "paragraphNr": 359
+        },
+        {
+          "description": "Aller au sud",
+          "paragraphNr": 329
+        }
+      ],
+      "description": "Vous ne trouvez pas de passage secret",
+      "paragraphNr": 260
     },
     {
       "choices": [
@@ -1968,6 +2438,20 @@
     {
       "choices": [
         {
+          "description": "Sortir par la porte ouest",
+          "paragraphNr": 46
+        },
+        {
+          "description": "Sortir par la porte sud",
+          "paragraphNr": 392
+        }
+      ],
+      "description": "Le vieil homme vous expédie dehors",
+      "paragraphNr": 284
+    },
+    {
+      "choices": [
+        {
           "description": "Ouvrir la porte",
           "paragraphNr": 213
         },
@@ -2000,6 +2484,24 @@
       ],
       "description": "Vous arrivez à une grande salle ou trois cadavres sont étendus au sol",
       "paragraphNr": 286
+    },
+    {
+      "choices": [
+        {
+          "description": "Examiner le cul-de-sac",
+          "paragraphNr": 315
+        },
+        {
+          "description": "Partir vers l'ouest",
+          "paragraphNr": 52
+        },
+        {
+          "description": "Franchir une porte au nord",
+          "paragraphNr": 227
+        }
+      ],
+      "description": "Vous vous trouvez dans un couloir est-ouest. A l'est, il y a cul-de-sac.",
+      "paragraphNr": 291
     },
     {
       "choices": [
@@ -2054,6 +2556,20 @@
     {
       "choices": [
         {
+          "description": "Aller vers l'ouest",
+          "paragraphNr": 150
+        },
+        {
+          "description": "Aller vers l'est",
+          "paragraphNr": 256
+        }
+      ],
+      "description": "",
+      "paragraphNr": 297
+    },
+    {
+      "choices": [
+        {
           "description": "Si vous faites 6, vous tombez dans la rivière",
           "paragraphNr": 86
         },
@@ -2064,6 +2580,20 @@
       ],
       "description": "Le pont devient glissant et vous glissez sur une plaque de mousse humide. Lancez un dé.",
       "paragraphNr": 298
+    },
+    {
+      "choices": [
+        {
+          "description": "Essayer de découvrir des passages secrets au long de votre chemin",
+          "paragraphNr": 260
+        },
+        {
+          "description": "Continuer vers le nord",
+          "paragraphNr": 359
+        }
+      ],
+      "description": "",
+      "paragraphNr": 299
     },
     {
       "choices": [
@@ -2120,6 +2650,16 @@
       ],
       "description": "Le vieil homme est furieux et se transforme en LOUP-GAROU qui a HABILITÉ:8,ENDURANCE:8",
       "paragraphNr": 304
+    },
+    {
+      "choices": [
+        {
+          "description": "Combattre la créature",
+          "paragraphNr": 161
+        }
+      ],
+      "description": "Une créature vous a découvert en train de chercher un passage secret. En cas de succès de combat, rendez-vous au paragraphe 291",
+      "paragraphNr": 306
     },
     {
       "choices": [
@@ -2204,6 +2744,20 @@
       ],
       "description": "Une porte se trouve dans le mur est du passage. Vous n'entendez pas le moindre son.",
       "paragraphNr": 314
+    },
+    {
+      "choices": [
+        {
+          "description": "S'assurer qu'il n'y aie pas de passage secret",
+          "paragraphNr": 306
+        },
+        {
+          "description": "Revenir en arrière",
+          "paragraphNr": 291
+        }
+      ],
+      "description": "Il n'y apparement pas de passage secret.",
+      "paragraphNr": 315
     },
     {
       "choices": [
@@ -2312,6 +2866,20 @@
     {
       "choices": [
         {
+          "description": "Franchir la porte",
+          "paragraphNr": 329
+        },
+        {
+          "description": "Partir vers le nord",
+          "paragraphNr": 4
+        }
+      ],
+      "description": "Une porte barre votre passage",
+      "paragraphNr": 332
+    },
+    {
+      "choices": [
+        {
           "description": "Si vous terrassez le vampire",
           "paragraphNr": 327
         }
@@ -2360,6 +2928,28 @@
     {
       "choices": [
         {
+          "description": "Sortir par la porte ouest",
+          "paragraphNr": 46
+        },
+        {
+          "description": "Sortir par la porte sud",
+          "paragraphNr": 392
+        },
+        {
+          "description": "Parler au vieil homme de manière aimable",
+          "paragraphNr": 220
+        },
+        {
+          "description": "Exiger de manière péremptoire qu'il réponde à vos questions",
+          "paragraphNr": 191
+        }
+      ],
+      "description": "Le vieil homme vous lance un regard courroucé.",
+      "paragraphNr": 341
+    },
+    {
+      "choices": [
+        {
           "description": "Hisser hors de la fosse et faire rebrousse-chemin",
           "paragraphNr": 92
         }
@@ -2398,6 +2988,30 @@
     {
       "choices": [
         {
+          "description": "Poursuivre",
+          "paragraphNr": 131
+        }
+      ],
+      "description": "Voir instructions jeux du livre",
+      "paragraphNr": 346
+    },
+    {
+      "choices": [
+        {
+          "description": "Retourner au croisement",
+          "paragraphNr": 267
+        },
+        {
+          "description": "Explorer le cul-de-sac",
+          "paragraphNr": 30
+        }
+      ],
+      "description": "Vous arrivez bientôt à un cul-de-sac",
+      "paragraphNr": 349
+    },
+    {
+      "choices": [
+        {
           "description": "Si vous êtes vainqueur, vous gagnez 1 point de CHANCE et pouvez prendre un repas une fois arrivez à terre ferme.",
           "paragraphNr": 7
         }
@@ -2430,6 +3044,24 @@
       "paragraphNr": 353
     },
     {
+      "choices": [
+        {
+          "description": "Aller à l'ouest",
+          "paragraphNr": 308
+        },
+        {
+          "description": "Aller au sud",
+          "paragraphNr": 52
+        },
+        {
+          "description": "Découvrir des passages secrets en allant à l'ouest",
+          "paragraphNr": 14
+        },
+        {
+          "description": "Découvrir des passages secrets en allant au sud",
+          "paragraphNr": 234
+        }
+      ],
       "description": "",
       "paragraphNr": 354
     },
@@ -2446,6 +3078,28 @@
       ],
       "description": "Vous ne trouvez pas d'issue. Le bruit vous fait perdre encore 1 point d'HABILITE.",
       "paragraphNr": 355
+    },
+    {
+      "choices": [
+        {
+          "description": "Aller au nord",
+          "paragraphNr": 190
+        },
+        {
+          "description": "Aller au sud",
+          "paragraphNr": 94
+        },
+        {
+          "description": "Aller à l'est",
+          "paragraphNr": 121
+        },
+        {
+          "description": "Aller à l'ouest",
+          "paragraphNr": 385
+        }
+      ],
+      "description": "",
+      "paragraphNr": 359
     },
     {
       "choices": [
@@ -2596,6 +3250,16 @@
     {
       "choices": [
         {
+          "description": "Quitter la pièce",
+          "paragraphNr": 291
+        }
+      ],
+      "description": "Vous ramassez l'équivalent de 4 Pièces d'Or. Vous pouvez prendre un repas et vous gagnez 3 points de Chance.",
+      "paragraphNr": 376
+    },
+    {
+      "choices": [
+        {
           "description": "Si vous êtes vainqueur",
           "paragraphNr": 196
         }
@@ -2676,6 +3340,20 @@
     {
       "choices": [
         {
+          "description": "Aller au sud",
+          "paragraphNr": 114
+        },
+        {
+          "description": "Aller à l'ouest",
+          "paragraphNr": 297
+        }
+      ],
+      "description": "",
+      "paragraphNr": 385
+    },
+    {
+      "choices": [
+        {
           "description": "Aller au nord",
           "paragraphNr": 120
         },
@@ -2704,6 +3382,20 @@
       ],
       "description": "",
       "paragraphNr": 391
+    },
+    {
+      "choices": [
+        {
+          "description": "Franchir une haute porte de bois",
+          "paragraphNr": 206
+        },
+        {
+          "description": "Partir pour le sud",
+          "paragraphNr": 329
+        }
+      ],
+      "description": "",
+      "paragraphNr": 392
     },
     {
       "choices": [
