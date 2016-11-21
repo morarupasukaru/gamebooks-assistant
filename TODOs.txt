@@ -1,7 +1,4 @@
 en cours:
-- release
-
-todo:
 - traduction fr (supprimer ensuite /languages)
 
 major changes:
