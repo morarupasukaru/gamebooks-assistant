@@ -69,7 +69,7 @@ exports.production = extend({}, commonConfig, {
                 warnings: true
             }
         }),
-        new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js')
+        new webpack.optimize.CommonsChunkPlugin('vendor', 'base.bundle.js')
     ], devtool: 'cheap-source-map'
 });
 
@@ -84,6 +84,6 @@ exports.development = extend({}, commonConfig, {
         new browserSyncPlugin({
             proxy: 'localhost:3000'
         }),
-        new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js')
+        new webpack.optimize.CommonsChunkPlugin('vendor', 'base.bundle.js')
     ], watch: true, devtool: 'source-map'
 });
