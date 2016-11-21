@@ -1,3 +1,11 @@
+let collapse = {
+    map : false,
+    notes : false,
+    stats : false,
+    items : false,
+    dices : false,
+};
+
 class GameDetailController {
     /*@ngInject*/
     constructor(preScreenLoadingInterceptorsCallerService, $location, constants, endGamePopupService, popupService, $stateParams, gamePersistenceService, adventurePersistenceService, $translate, messagesService) {
@@ -33,7 +41,8 @@ class GameDetailController {
             text : this.adventure.gameRules,
             choices : [constants.choices.ok],
             withCloseButton : true,
-            closeOnClickOutsideModal : false
+            closeOnClickOutsideModal : false,
+            withoutTranslate: true
         };
 
         this.checkAvailableAdventure();
@@ -97,6 +106,46 @@ class GameDetailController {
             function(popupDomElementId) {
             }
         );
+    }
+
+    toogleCollapseMap() {
+        collapse.map = !collapse.map;
+    }
+
+    toogleCollapseNotes() {
+        collapse.notes = !collapse.notes;
+    }
+
+    toogleCollapseStats() {
+        collapse.stats = !collapse.stats;
+    }
+
+    toogleCollapseItems() {
+        collapse.items = !collapse.items;
+    }
+
+    toogleCollapseDices() {
+        collapse.dices = !collapse.dices;
+    }
+
+    mapCollapsed() {
+        return collapse.map;
+    }
+
+    notesCollapsed() {
+        return collapse.notes;
+    }
+
+    statsCollapsed() {
+        return collapse.stats;
+    }
+
+    itemsCollapsed() {
+        return collapse.items;
+    }
+
+    dicesCollapsed() {
+        return collapse.dices;
     }
 }
 

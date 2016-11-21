@@ -132,6 +132,27 @@ class ParagraphController {
     isAlreadyChoosen(choice) {
         return this.alreadyChoosen.indexOf(choice.paragraphNr) !== -1;
     }
+
+    editTag() {
+        this.tagEditable = true;
+        this.originalTag = this.paragraph.tag;
+    }
+
+    isTagEditable() {
+        return this.tagEditable;
+    }
+
+    saveTagChanges() {
+        this.originalTag = null;
+        this.tagEditable = false;
+        this.adventurePersistenceService.updateParagraph(this.adventureId, this.paragraph);
+    }
+
+    abortTagChanges() {
+        this.paragraph.tag = this.originalTag;
+        this.originalTag = null;
+        this.tagEditable = false;
+    }
 }
 
 export default ParagraphController;

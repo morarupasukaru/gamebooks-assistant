@@ -1,27 +1,16 @@
 en cours:
-- game paths vizualiser
+- release
 
-map:
-- translate
-- etc.
-- allow to see parent .. > required?
-- label (treasure, gameover, sens-unique, battle, ...)
-- compute linkNode according to visible tree subset
-- compute linkNode according to expand tree subset, => required?
-- display notes with popup?
-
-minor changes:
-- traduction fr
-- expand pour items, notes, stats > component with template
+todo:
+- traduction fr (supprimer ensuite /languages)
 
 major changes:
-- aide au jeu
-    (sections texte? html?) > paragraph zero?
-    adventure.Start game's note ? > if no items, startNotes are skipped > into first paragraph?
+- améliorer la gestion de l'aide au jeu
 - variante: liens paragraphe direct dans texte (permet de reprend 1-1 project aeon)
-    - possibilité de reprendre 1-1 textes de lonesome wolf
+    => possibilité de reprendre 1-1 textes de lonesome wolf
 - integrer projet offline-file (copy-paste)
-    - eviter dice-image-html & map-image.html
+    => eviter dice-image-html & map-image.html
+    => image pour labels propre par livre
 - integrate battle rules, luck rules in json of adventure
     - integrate lonesome wolf rules
 - interface skinable (enfant, fantasy, ...)

@@ -223,7 +223,14 @@ const englishTranslations = {
     'Paragraph link': 'Paragraph link',
     'Paragraph not played': 'Paragraph not played',
     'No way further': 'No way further',
-    'Map': 'Map'
+    'Map': 'Map',
+    'Tag': 'Tag',
+    'Edit tag': 'Edit tag',
+    'Save tag changes': 'Save tag changes',
+    'Abort tag changes': 'Abort tag changes',
+    'Notes': 'Notes',
+    'Items': 'Items',
+    'Dices': 'Dices'
 };
 
 export {englishTranslations as default};

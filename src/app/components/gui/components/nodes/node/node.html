@@ -1,4 +1,4 @@
-<div ng-click="!!$ctrl.data.children && $ctrl.toggleCollapse($ctrl.data)">
+<div id="{{$ctrl.data.id}}" ng-click="$ctrl.click()">
     <span class="glyphicon glyphicon-menu-right"
           ng-class="{ 'clickable' : !!$ctrl.data.children }"
           ng-show="!!$ctrl.data.children && !!$ctrl.data.collapsed"
@@ -16,7 +16,7 @@
           ng-mouseleave="$ctrl.leave()">
         {{ $ctrl.data.name }}
     </span>
-    <span class="glyphicon glyphicon-hand-right"
+    <span class="glyphicon glyphicon-link"
           ng-class="{ 'clickable' : !!$ctrl.data.children }"
           aria-label="{{ 'Paragraph link' | translate }}"
           title="{{ 'Paragraph link' | translate }}"
@@ -39,6 +39,16 @@
           ng-show="!$ctrl.data.children && !!$ctrl.data.linkNodeId && !!$ctrl.data.unknown"
           ng-mouseover="$ctrl.over()"
           ng-mouseleave="$ctrl.leave()">
+    </span>
+    <span class="glyphicon glyphicon-info-sign"
+          aria-label="{{ $ctrl.getNotesSummary() }}"
+          title="{{ $ctrl.getNotesSummary() }}"
+          ng-show="!!$ctrl.data.notes && !$ctrl.data.unknown">
+    </span>
+    <span class="glyphicon glyphicon-tag"
+          aria-label="{{ $ctrl.data.tag }}"
+          title="{{ $ctrl.data.tag }}"
+          ng-show="!!$ctrl.data.tag && !$ctrl.data.unknown">
     </span>
 </div>
 <div ng-if="!!$ctrl.data.children" uib-collapse="!!$ctrl.data.collapsed">

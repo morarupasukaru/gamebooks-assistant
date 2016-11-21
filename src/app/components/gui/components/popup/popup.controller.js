@@ -1,8 +1,13 @@
 class PopupController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, popupService) {
+    constructor(preScreenLoadingInterceptorsCallerService, popupService, $translate) {
         this.cfg = JSON.parse(this.config);
         this.popupService = popupService;
+        if (!!this.cfg.withoutTranslate) {
+            this.cfg.textToDisplay = this.cfg.text;
+        } else {
+            this.cfg.textToDisplay = $translate.instant(this.cfg.text);
+        }
         if (this.cfg.closeOnClickOutsideModal) {
             this.close();
         }

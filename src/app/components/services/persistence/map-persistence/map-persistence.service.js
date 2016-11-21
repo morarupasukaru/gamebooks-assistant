@@ -69,6 +69,9 @@ class MapPersistenceService {
         if (!!paragraph.label) {
             node.label = paragraph.label;
         }
+        if (!!paragraph.tag) {
+            node.tag = paragraph.tag;
+        }
         return node;
     }
 

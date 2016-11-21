@@ -2,29 +2,60 @@
 <messages></messages>
 <main>
     <div class="container bg-white" role="main">
-        <div class="page-header">
-            <h1>{{ 'Paragraph' | translate }} {{ $ctrl.paragraph.paragraphNr }}</h1>
-        </div>
-
         <div id="paragraphEdit">
             <paragraph paragraph="$ctrl.paragraph" game-id="{{$ctrl.game.id}}"></paragraph>
+
+            <h2 ng-click="$ctrl.toogleCollapseMap()">
+                {{ 'Map' | translate }}
+                <span class="glyphicon glyphicon-menu-right"
+                      ng-class="{ 'glyphicon glyphicon-menu-right' : !!$ctrl.mapCollapsed(), 'glyphicon glyphicon-menu-down' : !$ctrl.mapCollapsed() }">
+                </span>
+            </h2>
+            <nodes adventure-id="$ctrl.adventureId" root-paragraph-nr="$ctrl.paragraph.paragraphNr" uib-collapse="!!$ctrl.mapCollapsed()"></nodes>
+
+            <h2 ng-click="$ctrl.toogleCollapseNotes()">
+                {{ 'Notes' | translate }}
+                <span class="glyphicon glyphicon-menu-right"
+                      ng-class="{ 'glyphicon glyphicon-menu-right' : !!$ctrl.notesCollapsed(), 'glyphicon glyphicon-menu-down' : !$ctrl.notesCollapsed() }">
+                </span>
+            </h2>
             <notes ng-if="$ctrl.isNotesAvailable()"
                    adventure-id="{{$ctrl.adventureId}}"
                    paragraph-nr="{{$ctrl.paragraph.paragraphNr}}"
-                   game-id="{{$ctrl.game.id}}"></notes>
+                   game-id="{{$ctrl.game.id}}"
+                   uib-collapse="!!$ctrl.notesCollapsed()"></notes>
         </div>
 
         <div id="playerSheet" ng-if="!!$ctrl.playerName">
-            <h2>{{ 'Player' | translate }} {{ $ctrl.playerName }}</h2>
+            <h2 ng-click="$ctrl.toogleCollapseStats()">
+                {{ 'Player' | translate }} {{ $ctrl.playerName }}
+                <span class="glyphicon glyphicon-menu-right"
+                      ng-class="{ 'glyphicon glyphicon-menu-right' : !!$ctrl.statsCollapsed(), 'glyphicon glyphicon-menu-down' : !$ctrl.statsCollapsed() }">
+                </span>
+            </h2>
             <stats ng-if="$ctrl.isStatsAvailable()"
                    game-id="{{$ctrl.game.id}}"
-                   stats="$ctrl.stats"></stats>
+                   stats="$ctrl.stats"
+                   uib-collapse="!!$ctrl.statsCollapsed()"></stats>
+
+            <h2 ng-click="$ctrl.toogleCollapseItems()">
+                {{ 'Items' | translate }}
+                <span class="glyphicon glyphicon-menu-right"
+                      ng-class="{ 'glyphicon glyphicon-menu-right' : !!$ctrl.itemsCollapsed(), 'glyphicon glyphicon-menu-down' : !$ctrl.itemsCollapsed() }">
+                </span>
+            </h2>
             <items ng-if="$ctrl.isItemsAvailable()"
                    game-id="{{$ctrl.game.id}}"
-                   items="$ctrl.items"></items>
-            <dices ng-if="$ctrl.isDicesAvailable()"></dices>
-            <h2>{{ 'Map' | translate }}</h2>
-            <nodes adventure-id="$ctrl.adventureId" root-paragraph-nr="$ctrl.paragraph.paragraphNr"></nodes>
+                   items="$ctrl.items"
+                   uib-collapse="!!$ctrl.itemsCollapsed()"></items>
+
+            <h2 ng-click="$ctrl.toogleCollapseDices()">
+                {{ 'Dices' | translate }}
+                <span class="glyphicon glyphicon-menu-right"
+                      ng-class="{ 'glyphicon glyphicon-menu-right' : !!$ctrl.dicesCollapsed(), 'glyphicon glyphicon-menu-down' : !$ctrl.dicesCollapsed() }">
+                </span>
+            </h2>
+            <dices ng-if="$ctrl.isDicesAvailable()" uib-collapse="!!$ctrl.dicesCollapsed()"></dices>
             <back-button></back-button>
             <button type="button"
                     class="btn btn-default"
