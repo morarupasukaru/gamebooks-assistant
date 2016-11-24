@@ -1,10 +1,9 @@
 en cours:
-- traduction fr (supprimer ensuite /languages)
+- variante: liens paragraphe direct dans texte (permet de reprend 1-1 project aeon)
 
 major changes:
+- supporter, importer premier livre lonesome wolf
 - améliorer la gestion de l'aide au jeu
-- variante: liens paragraphe direct dans texte (permet de reprend 1-1 project aeon)
-    => possibilité de reprendre 1-1 textes de lonesome wolf
 - integrer projet offline-file (copy-paste)
     => eviter dice-image-html & map-image.html
     => image pour labels propre par livre
