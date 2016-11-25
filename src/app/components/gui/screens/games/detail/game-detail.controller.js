@@ -108,6 +108,10 @@ class GameDetailController {
         );
     }
 
+    isChoicesTableAvailable() {
+        return !!this.adventure.toggles.choicesTable;
+    }
+
     toogleCollapseMap() {
         collapse.map = !collapse.map;
     }

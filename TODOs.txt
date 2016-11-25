@@ -5,9 +5,10 @@ en cours:
 major changes:
 - supporter, importer premier livre lonesome wolf
 - améliorer la gestion de l'aide au jeu
-- integrer projet offline-file (copy-paste)
-    => eviter dice-image-html & map-image.html
-    => image pour labels propre par livre
 - integrate battle rules, luck rules in json of adventure
     - integrate lonesome wolf rules
 - interface skinable (enfant, fantasy, ...)
+- images paragraphes
+    => integrer projet offline-file (copy-paste)
+    => eviter dice-image-html & map-image.html
+    => image pour "tag" propre par livre
