@@ -59,37 +59,49 @@
                     <div class="form-group">
                         <label>
                             <input type="checkbox" checked="true" ng-model="$ctrl.adventure.toggles.stats">
-                            Enable stats
+                            {{ 'Enable stats' | translate }}
                         </label>
                     </div>
                     <div class="form-group">
                         <label>
                             <input type="checkbox" value="" ng-model="$ctrl.adventure.toggles.notes">
-                            Enable notes
+                            {{ 'Enable notes' | translate }}
                         </label>
                     </div>
                     <div class="form-group">
                         <label>
                             <input type="checkbox" value="" ng-model="$ctrl.adventure.toggles.battle">
-                            Enable battle
+                            {{ 'Enable battle' | translate }}
                         </label>
                     </div>
                     <div class="form-group">
                         <label>
                             <input type="checkbox" value="" ng-model="$ctrl.adventure.toggles.items">
-                            Enable items
+                            {{ 'Enable items' | translate }}
                         </label>
                     </div>
                     <div class="form-group">
                         <label>
                             <input type="checkbox" value="" ng-model="$ctrl.adventure.toggles.dices">
-                            Enable dices
+                            {{ 'Enable dices' | translate }}
                         </label>
                     </div>
                     <div class="form-group">
                         <label>
                             <input type="checkbox" value="" ng-model="$ctrl.adventure.toggles.endGame">
-                            Enable end-game button
+                            {{ 'Enable end-game button' | translate }}
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" value="" ng-model="$ctrl.adventure.toggles.choicesTable">
+                            {{ "Enable choices table" | translate }}
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" value="" ng-model="$ctrl.adventure.toggles.choicesInText">
+                            {{ "Enable choices available in paragraph's description" | translate }}
                         </label>
                     </div>
                 </div>

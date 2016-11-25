@@ -14,7 +14,8 @@
     "endGame": true,
     "items": true,
     "notes": true,
-    "stats": true
+    "stats": true,
+    "choicesTable": true
   },
   "version": "0.1",
   "items": [

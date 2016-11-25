@@ -39,7 +39,9 @@ class AdventureDetailController {
                         notes: true,
                         items: true,
                         dices: true,
-                        endGame: true
+                        endGame: true,
+                        choicesTable: true,
+                        choicesInText: false
                     }
                 };
                 this.mode = "create";
