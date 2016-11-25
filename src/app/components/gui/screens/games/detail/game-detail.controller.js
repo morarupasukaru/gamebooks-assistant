@@ -112,6 +112,10 @@ class GameDetailController {
         return !!this.adventure.toggles.choicesTable;
     }
 
+    isChoicesInTextAvailable() {
+        return !!this.adventure.toggles.choicesInText;
+    }
+
     toogleCollapseMap() {
         collapse.map = !collapse.map;
     }

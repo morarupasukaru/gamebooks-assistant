@@ -3,7 +3,11 @@
 <main>
     <div class="container bg-white" role="main">
         <div id="paragraphEdit">
-            <paragraph paragraph="$ctrl.paragraph" game-id="{{$ctrl.game.id}}" choices-table-available="$ctrl.isChoicesTableAvailable()"></paragraph>
+            <paragraph paragraph="$ctrl.paragraph"
+                       game-id="{{$ctrl.game.id}}"
+                       choices-table-available="$ctrl.isChoicesTableAvailable()"
+                       choices-in-text-available="$ctrl.isChoicesInTextAvailable()">
+            </paragraph>
 
             <h2 ng-click="$ctrl.toogleCollapseMap()">
                 {{ 'Map' | translate }}

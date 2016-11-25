@@ -10,7 +10,8 @@ let paragraphModule = angular.module('app.components.gui.screen.paragraph', [])
         bindings: {
             gameId: '@',
             paragraph: '=',
-            choicesTableAvailable: '<'
+            choicesTableAvailable: '<',
+            choicesInTextAvailable: '<'
         }
     });
 
