@@ -10,87 +10,48 @@
             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
         </button>
     </h1>
-
-    <table class="table table-borderless" ng-if="!!$ctrl.isTagEditable()">
-        <col style="width:90%">
-        <col style="width:5%">
-        <col style="width:5%">
-        <thead>
-        <tr>
-            <th>{{ 'Tag' | translate }}</th>
-            <th></th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>
-                <input id="inputTag" type="text" class="form-control" ng-model="$ctrl.paragraph.tag">
-            </td>
-            <td>
-                <button type="button" class="btn btn-success"
-                        aria-label="{{ 'Save tag changes' | translate}}"
-                        title="{{ 'Save tag changes' | translate}}"
-                        ng-click="$ctrl.saveTagChanges()"
-                        ng-show="$ctrl.isTagEditable()">
-                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                </button>
-            </td>
-            <td>
-                <button type="button" class="btn btn-danger"
-                        aria-label="{{ 'Abort tag changes' | translate}}"
-                        title="{{ 'Abort tag changes' | translate}}"
-                        ng-click="$ctrl.abortTagChanges()"
-                        ng-show="$ctrl.isTagEditable()">
-                    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-                </button>
-            </td>
-        </tr>
-        </tbody>
-    </table>
 </div>
 
-<table class="table table-borderless">
-    <col style="width:95%">
+<table class="table table-borderless" ng-if="!!$ctrl.isTagEditable()">
+    <col style="width:90%">
+    <col style="width:5%">
     <col style="width:5%">
     <thead>
     <tr>
-        <th>{{ 'Description' | translate }}</th>
+        <th>{{ 'Tag' | translate }}</th>
+        <th></th>
         <th></th>
     </tr>
     </thead>
     <tbody>
     <tr>
         <td>
-            <textarea id="inputCurrentDescription" class="form-control" ng-model="$ctrl.paragraph.description" ng-if="!!$ctrl.isDescriptionEditable()"></textarea>
-            <div ng-if="!$ctrl.isDescriptionEditable()">{{ $ctrl.paragraph.description }}</div>
+            <input id="inputTag" type="text" class="form-control" ng-model="$ctrl.paragraph.tag">
         </td>
         <td>
-            <button type="button" class="btn btn-default"
-                    aria-label="{{ 'Edit description' | translate}}"
-                    title="{{ 'Edit description' | translate}}"
-                    ng-click="$ctrl.editDescription()"
-                    ng-show="!$ctrl.isDescriptionEditable()">
-                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-            </button>
             <button type="button" class="btn btn-success"
-                    aria-label="{{ 'Save description changes' | translate}}"
-                    title="{{ 'Save description changes' | translate}}"
-                    ng-click="$ctrl.saveDescriptionChanges()"
-                    ng-show="$ctrl.isDescriptionEditable()">
+                    aria-label="{{ 'Save tag changes' | translate}}"
+                    title="{{ 'Save tag changes' | translate}}"
+                    ng-click="$ctrl.saveTagChanges()"
+                    ng-show="$ctrl.isTagEditable()">
                 <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
             </button>
+        </td>
+        <td>
             <button type="button" class="btn btn-danger"
-                    aria-label="{{ 'Abort description changes' | translate}}"
-                    title="{{ 'Abort description changes' | translate}}"
-                    ng-click="$ctrl.abortDescriptionChanges()"
-                    ng-show="$ctrl.isDescriptionEditable()">
+                    aria-label="{{ 'Abort tag changes' | translate}}"
+                    title="{{ 'Abort tag changes' | translate}}"
+                    ng-click="$ctrl.abortTagChanges()"
+                    ng-show="$ctrl.isTagEditable()">
                 <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
             </button>
         </td>
     </tr>
     </tbody>
 </table>
+
+<description game-id="$ctrl.gameId" paragraph="$ctrl.paragraph" choices-table-available="$ctrl.choicesTableAvailable" choices-in-text-available="$ctrl.choicesInTextAvailable">
+</description>
 
 <form name="choicesTableForm" novalidate="novalidate" ng-if="$ctrl.choicesTableAvailable">
     <table class="table table-striped">

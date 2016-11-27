@@ -1,0 +1,60 @@
+<table class="table table-borderless">
+    <col style="width:95%">
+    <col style="width:5%">
+    <thead>
+    <tr>
+        <th>{{ 'Description' | translate }}</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            <textarea id="inputCurrentDescription" class="form-control" ng-model="$ctrl.paragraph.description" ng-if="!!$ctrl.isDescriptionEditable()"></textarea>
+            <div ng-if="!$ctrl.isDescriptionEditable()">{{ $ctrl.paragraph.description }}</div>
+        </td>
+        <td>
+            <button type="button" class="btn btn-default"
+                    aria-label="{{ 'Edit description' | translate}}"
+                    title="{{ 'Edit description' | translate}}"
+                    ng-click="$ctrl.editDescription()"
+                    ng-show="!$ctrl.isDescriptionEditable()">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="btn btn-success"
+                    aria-label="{{ 'Save description changes' | translate}}"
+                    title="{{ 'Save description changes' | translate}}"
+                    ng-click="$ctrl.saveDescriptionChanges()"
+                    ng-show="$ctrl.isDescriptionEditable()">
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="btn btn-danger"
+                    aria-label="{{ 'Abort description changes' | translate}}"
+                    title="{{ 'Abort description changes' | translate}}"
+                    ng-click="$ctrl.abortDescriptionChanges()"
+                    ng-show="$ctrl.isDescriptionEditable()">
+                <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+            </button>
+        </td>
+    </tr>
+    <tr ng-if="!!$ctrl.choicesInTextAvailable && !$ctrl.choicesTableAvailable">
+        <td>
+            <div class="input-group">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default"
+                            aria-label="{{ 'Go to paragraph' | translate}}"
+                            title="{{ 'Go to paragraph' | translate}}"
+                            ng-click="$ctrl.goTo($ctrl.paragraphNrChoice)"
+                            ng-disabled="!$ctrl.paragraphNrChoice">
+                        {{ 'Go to' | translate}}
+                    </button>
+                </div>
+                <input id="goToParagraphNr" type="number" class="form-control" ng-model="$ctrl.paragraphNrChoice">
+            </div>
+        </td>
+        <td>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
