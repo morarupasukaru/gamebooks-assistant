@@ -11,7 +11,21 @@
     <tr>
         <td>
             <textarea id="inputCurrentDescription" class="form-control" ng-model="$ctrl.paragraph.description" ng-if="!!$ctrl.isDescriptionEditable()"></textarea>
-            <div ng-if="!$ctrl.isDescriptionEditable()">{{ $ctrl.paragraph.description }}</div>
+            <div ng-if="!$ctrl.isDescriptionEditable() && !$ctrl.choicesInTextAvailable">{{ $ctrl.paragraph.description }}</div>
+            <div ng-if="!$ctrl.isDescriptionEditable() && !!$ctrl.choicesInTextAvailable">
+                <ng-repeat ng-repeat="text in $ctrl.descriptionWithChoices">
+                    <ng-if ng-if="!!text.choice"
+                           ng-class="{ 'highlighted clickable' : !!text.highlighted, 'clickable' : !text.highlighted}"
+                           ng-mouseover="$ctrl.over(text)"
+                           ng-mouseleave="$ctrl.leave(text)"
+                           ng-click="$ctrl.goTo(text.text)">
+                        {{ '§' + text.text }}
+                    </ng-if>
+                    <ng-if ng-if="!text.choice">
+                        {{ text.text }}
+                    </ng-if>
+                </ng-repeat>
+            </div>
         </td>
         <td>
             <button type="button" class="btn btn-default"
