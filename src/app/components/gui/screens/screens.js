@@ -8,10 +8,10 @@ import About from './about/about';
 import Adventures from './adventures/adventures';
 import Libraries from './libraries/libraries';
 import I18n from './i18n/i18n';
-import Map from './map/map';
+import ImportProjectAon from './import-projectaon/import-projectaon';
 
 let screensModule = angular.module('app.components.gui.screens', [
-    Home.name, Games.name, Battle.name, Administration.name, ChooseLanguage.name, About.name, Adventures.name, Libraries.name, I18n.name, Map.name
+    Home.name, Games.name, Battle.name, Administration.name, ChooseLanguage.name, About.name, Adventures.name, Libraries.name, I18n.name, ImportProjectAon.name
 ]);
 
 export default screensModule;

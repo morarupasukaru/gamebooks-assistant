@@ -26,7 +26,7 @@ let constantsModule = angular.module('app.components.constants', [])
             libraries: '/libraries',
             libraryDetail: '/libraries',
             i18n: '/i18n',
-            map: '/map'
+            importProjectaon: '/import-projectaon'
         },
         choices : {
             yes : 'Yes',

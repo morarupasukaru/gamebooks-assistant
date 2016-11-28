@@ -1,6 +1,4 @@
 en cours:
-- variante: liens paragraphe direct dans texte (permet de reprend 1-1 project aeon)
-    => gérer choicesInText
 
 major changes:
 - supporter, importer premier livre lonesome wolf

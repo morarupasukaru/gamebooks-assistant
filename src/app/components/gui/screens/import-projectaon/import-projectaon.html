@@ -1,0 +1,33 @@
+<navbar></navbar>
+<messages></messages>
+<main>
+    <div class="container bg-white" role="main">
+        <h2>{{ 'Import a single-page edition project aon book' | translate }}</h2>
+        <div class="col-md-12">
+            <form name="importForm" novalidate="novalidate" ng-submit="$ctrl.import()">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default"
+                                    aria-label="{{ 'Import' | translate}}"
+                                    title="{{ 'Import' | translate}}"
+                                    ng-click="$ctrl.import()"
+                                    ng-disabled="!$ctrl.projectaonUrl">
+                                {{ 'Import' | translate}}
+                            </button>
+                        </div>
+                        <input type="text" required class="form-control" id="projectaonUrl" ng-model="$ctrl.projectaonUrl" placeholder="{{ 'placeholder.projectaon.book' | translate }}">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="bookContent">{{ "Content of the book" | translate }}</label>
+                    <pre id="bookContent">{{ $ctrl.bookContent }}</pre>
+                </div>
+            </form>
+
+        </div>
+
+        <back-button></back-button>
+    </div>
+</main>

@@ -42,7 +42,7 @@ let paths = {
  * Gulp-Task: Kopiert alle statischen Dateien nach /dist
  */
 gulp.task('copyHtml', () => {
-    gulp.src(path.join(root, 'books/*.json')).pipe(gulp.dest(paths.output));
+    gulp.src(path.join(root, 'books/*.*')).pipe(gulp.dest(paths.output));
     return gulp.src(path.join(root, '*.*')).pipe(gulp.dest(paths.output));
 });
 
