@@ -15,6 +15,12 @@ let importProjectaonModule = angular.module('app.components.gui.screen.import-pr
         });
     })
 
-    .component('importProjectaon', { template, controller });
+    .component('importProjectaon', { template, controller })
+    .constant('paragraphElementType', {
+        text: 'text',
+        choice: 'choice',
+        illustration: 'illustration',
+        illustrationAsText: 'illustrationAsText'
+    });
 
 export default importProjectaonModule;

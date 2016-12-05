@@ -1,12 +1,13 @@
 class ImportProjectAeonController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $http, messagesService, $translate, adventurePersistenceService) {
+    constructor(preScreenLoadingInterceptorsCallerService, $http, messagesService, $translate, adventurePersistenceService, paragraphElementType) {
         preScreenLoadingInterceptorsCallerService.intercept();
         this.$http = $http;
         this.messagesService = messagesService;
         this.$translate = $translate;
         this.adventurePersistenceService = adventurePersistenceService;
-        this.projectaonUrl = 'Flight from the Dark.htm';
+        this.projectaonUrl = 'book1-single.htm';
+        this.paragraphElementType = paragraphElementType;
         this.import();
     }
 
@@ -54,21 +55,6 @@ class ImportProjectAeonController {
         for (let i = 0; i< keys.length; i++) {
             this.bookParsedContent = this.bookParsedContent + keys[i] + ': ' + book[keys[i]] + ',\n';
         }
-
-        /*:
-        {
-            "paragraphs": [
-              {
-                "choices": [
-                  {
-                    "description": "Bifurquer vers l'ouest",
-                    "paragraphNr": 71
-                  },
-                ],
-                "description": "Caverne sombre",
-                "paragraphNr": 1
-              },
-          */
     }
 
     getParagraphAnchors(bookDocument) {
@@ -91,37 +77,89 @@ class ImportProjectAeonController {
             siblings.push(next);
             next = next.nextElementSibling;
         }
-        let descriptionValue = '';
-        let choicesValue = [];
-        let illustrationValue;
+        let contentValue = [];
+        let paragraphNr = paragraphAnchor.textContent;
         for (let i = 0; i < siblings.length; i++) {
-            let sibling = siblings[i];
-            if ((sibling.tagName === 'P' && (!sibling.className || sibling.className === 'combat')) ||
-                    (sibling.tagName === 'SPAN' && sibling.className === 'signpost') ||
-                    sibling.tagName === 'BLOCKQUOTE' ||
-                    (sibling.tagName === 'A' && sibling.href === '#action')) {
-                descriptionValue = descriptionValue + sibling.textContent + '\n';
-            } else if (sibling.tagName === 'P' && sibling.className === 'choice') {
-                choicesValue.push(sibling.textContent);
-            } else if (sibling.tagName === 'DIV' && sibling.className === 'illustration') {
-                if (!illustrationValue) {
-                    illustrationValue = sibling.textContent;
-                } else {
-                    throw 'illustration already exist for paragraph: ' + paragraphAnchor.name;
-                }
-            } else {
-                debugger;
-                throw 'tag unknown: ' + sibling.tagName + ' for paragraph: ' + paragraphAnchor.name;
+            let elementValue = this.getParagraphElementValue(siblings[i], paragraphNr);
+            if (!!elementValue) {
+                contentValue.push(elementValue);
             }
         }
         let paragraph = {
-            paragraphNr: paragraphAnchor.textContent,
-            description: descriptionValue,
-            choices: choicesValue,
-            illustration: illustrationValue
+            paragraphNr: paragraphNr,
+            content: contentValue
         };
         return paragraph;
     }
+
+    getParagraphElementValue(element, paragraphNr) {
+
+        let elementType = this.getParagraphElementTyp(element, paragraphNr);
+        if (this.paragraphElementType.text === elementType) {
+            return {
+                type : this.paragraphElementType.text,
+                text : element.textContent
+            };
+        } else if (this.paragraphElementType.choice === elementType) {
+            return {
+                type : this.paragraphElementType.choice,
+                text : element.textContent,
+                paragraphNr : this.choiceParagraphNr(element)
+            };
+        } else if (this.paragraphElementType.illustration === elementType) {
+            let imageElements = element.getElementsByTagName('IMG');
+            if (imageElements.length > 1) {
+                this.messagesService.errorMessage(this.$translate.instant("MoreThanOneIllustrationInLoneWolfBookParagraph", {paragraphNr: paragraphNr }), false);
+            }
+            return {
+                type : this.paragraphElementType.illustration,
+                imageSource : imageElements[0].src,
+                imageAlternativeText : imageElements[0].alt,
+                imageText : element.textContent
+            };
+        } else if (this.paragraphElementType.illustrationAsText === elementType) {
+            return {
+                type : this.paragraphElementType.illustrationAsText,
+                imageText : element.textContent
+            };
+        }
+    }
+
+    getParagraphElementTyp(element, paragraphNr) {
+        let tagName = element.tagName;
+        let className = element.className;
+        if ((tagName === 'P' && (!className || className === 'combat')) ||
+                (tagName === 'SPAN' && className === 'signpost') ||
+                tagName === 'BLOCKQUOTE' ||
+                (tagName === 'A' && element.href === '#action')) {
+            return this.paragraphElementType.text;
+        } else if (tagName === 'P' && className === 'choice') {
+            return this.paragraphElementType.choice;
+        } else if (!!element.getElementsByTagName('IMG')) {
+            return this.paragraphElementType.illustration;
+        } else if (tagName === 'DIV' && className === 'illustration') {
+            return this.paragraphElementType.illustrationAsText;
+        } else {
+            this.messagesService.errorMessage(this.$translate.instant("UnsupportedTagClassInLoneWolfBook", {tagName: tagName, className: className, paragraphNr: paragraphNr }), false);
+            return null;
+        }
+    }
+
+    choiceParagraphNr(element) {
+        let result = null;
+        if (!!element.childNodes) {
+            for (let i = 0; i < element.childNodes.length; i++) {
+                let childNode = element.childNodes[i];
+                if (childNode.tagName === 'A' && !!childNode.href && childNode.href.indexOf('#sect') === 0) {
+                    result = childNode.href.substring(5);
+                    break;
+                }
+            }
+        }
+        return result;
+    }
+
+
 
     isParagraphAnchor(element) {
         let name = element.name;

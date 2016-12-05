@@ -1,4 +1,14 @@
 en cours:
+- autre tags, contenu à intégrer?
+- telecharger les illustrations et sauver en base64
+- lancer import sur tous les livres single avec/sans images
+- sauver les livres en versions sans règles et tester (lecture)
+- permettre d'éditer les paragraphes (syntax?)
+- faire popup pour aide saisie (explique la syntaxe)
+- ajout des pages "base"
+- css?
+- insérer tag avec dropdrown, edition contenu dropdown
+- tag en image importé base64
 
 major changes:
 - supporter, importer premier livre lonesome wolf
@@ -8,5 +18,4 @@ major changes:
 - interface skinable (enfant, fantasy, ...)
 - images paragraphes
     => integrer projet offline-file (copy-paste)
-    => eviter dice-image-html & map-image.html
     => image pour "tag" propre par livre
