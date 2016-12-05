@@ -90,6 +90,13 @@ en cours:
 - tags dans sauvé au niveau de l'aventure: tags: [ {id: <unique>, alternativeText: '', data: 'base64'}, ...
 - tag trié par nom altenativeText
 
+#list à la place de tableau
+- note, items, dices, stats, enemy
+- icon/bouton edit à coté du titre de la section au lieu dans le header du tableau
+- [v] / [x] dans le titre de la section en mode edition
+- note joueurs = "type d'items"
+- note paragraphe = commentaire joueur unique par paragraphe (et pas une liste)
+
 #localstorage alternative
 - intégrer localforage/offline-file afin de sauver des aventures de plusieurs megabyites
 
