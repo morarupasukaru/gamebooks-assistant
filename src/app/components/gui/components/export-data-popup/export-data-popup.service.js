@@ -20,7 +20,7 @@ class ExportDataPopupService {
         return url.createObjectURL(blob);
     }
 
-    close(popupDomElementId, choice, endGameReason) {
+    close(popupDomElementId, choice) {
         let modalElement = window.document.getElementById(popupDomElementId);
         modalElement.style.display = "none";
 

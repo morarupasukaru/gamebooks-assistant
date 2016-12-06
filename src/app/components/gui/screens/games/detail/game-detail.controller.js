@@ -8,11 +8,10 @@ let collapse = {
 
 class GameDetailController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $location, constants, endGamePopupService, popupService, $stateParams, gamePersistenceService, adventurePersistenceService, $translate, messagesService) {
+    constructor(preScreenLoadingInterceptorsCallerService, $location, constants, popupService, $stateParams, gamePersistenceService, adventurePersistenceService, $translate, messagesService) {
         preScreenLoadingInterceptorsCallerService.intercept();
         this.$location = $location;
         this.constants = constants;
-        this.endGamePopupService = endGamePopupService;
         this.popupService = popupService;
         this.$stateParams = $stateParams;
         this.gamePersistenceService = gamePersistenceService;
@@ -33,8 +32,6 @@ class GameDetailController {
         this.adventureId = this.$stateParams.adventureId;
         this.paragraph = this.adventurePersistenceService.getOrCreateParagraph(this.adventureId, this.$stateParams.paragraphNr);
         this.adventure = this.adventurePersistenceService.getAdventure(this.adventureId);
-
-        this.popupAbandonGameConfig = { id : 'popupAbandonGame' };
 
         this.popupGameRulesConfig = {
             id : 'popupGameRules',
@@ -76,23 +73,6 @@ class GameDetailController {
 
     startBattle() {
         this.$location.url(this.constants.url.battle + '/' + this.game.id);
-    }
-
-    isAbandonGameAvailable() {
-        return !!this.adventure.toggles.endGame;
-    }
-
-    displayAbandonGamePopup(removedRow) {
-        let self = this;
-        this.endGamePopupService.show(
-            this.popupAbandonGameConfig.id,
-            function(popupDomElementId, endGameReason) {
-                let updatedGame = self.gamePersistenceService.getGame(self.game.id);
-                updatedGame.endGameReason = endGameReason;
-                self.gamePersistenceService.updateGame(updatedGame);
-                self.$location.url(self.constants.url.games);
-            }
-        );
     }
 
     isGameRulesAvailable() {

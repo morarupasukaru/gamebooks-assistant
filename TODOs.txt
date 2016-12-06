@@ -20,9 +20,6 @@ en cours:
 - l'écran de combat est un paragraphe éditable spéciale dont on ne voit pas toutes les sections (item, stats, etc.)
 - écran de combat est un choix customisable par aventure
 
-#end game
-- le choix end game est supprimé car il peut être remplacé par un tag + une note
-
 #illustration
 - lors de l'édition de la description du paragraphe, s'affiche un tableau permettant d'éditer, ajouter, effacer des illustrations
 - lors du clic sur nouvelle illustration, apparait une popup ou une ligne éditable, afin de saisir: un id (a utiliser dans la description comme placeholder), un text alternatif, une légende, un filepicker
@@ -74,7 +71,7 @@ en cours:
 - permettre de pouvoir changer le nom du joueur
 - permettre de "tagger" le nom du joueur (chevalier, magicien, ...)
 - level of kai training : fait partie du nom du joueur
-- voir le tag, dans l'appercu des jeux
+- voir le tag, dans l'apercu des jeux
 
 #tag
 - dropdown contenant une liste d'entrée ayant une image (optionnelle) et un text (obligatoire)

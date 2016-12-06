@@ -9,7 +9,6 @@
   "toggles": {
     "battle": true,
     "dices": true,
-    "endGame": true,
     "items": true,
     "notes": true,
     "stats": true
