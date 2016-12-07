@@ -3,10 +3,8 @@ class DicesController {
     constructor(dicesService) {
         this.dicesService = dicesService;
         this.clear();
-    }
-
-    roll2d6() {
-        this.appendToResult(this.dicesService.rollDices(2, 6));
+        this.min = 1;
+        this.max = 6;
     }
 
     roll1d6() {

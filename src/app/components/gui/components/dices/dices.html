@@ -1,50 +1,23 @@
-<form>
-    <table class="table table-striped">
-        <col style="width:5%">
-        <col style="width:5%">
-        <col style="width:85%">
-        <col style="width:5%">
-        <thead>
-        <tr>
-            <th>
-                <dice-image></dice-image>
-            </th>
-            <th></th>
-            <th>{{ 'Sum of dices value' | translate }}</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>
-                <button class="btn btn-default"
-                        ng-click="$ctrl.roll1d6()"
-                        aria-label="{{ 'Roll one dice 6 faces' | translate }}"
-                        title="{{ 'Roll one dice 6 faces' | translate }}">
-                    {{ 'x1' | translate }}
-                </button>
-            </td>
-            <td>
-                <button class="btn btn-default"
-                        ng-click="$ctrl.roll2d6()"
-                        aria-label="{{ 'Roll two dices 6 faces' | translate }}"
-                        title="{{ 'Roll two dices 6 faces' | translate }}">
-                    {{ 'x2' | translate }}
-                </button>
-            </td>
-            <td>
-                {{ $ctrl.dicesValue }}
-            </td>
-            <td>
-                <button class="btn btn-default glyphicon glyphicon-erase"
-                        title="{{ 'Clear values' | translate }}"
-                        aria-label="{{ 'Clear values' | translate }}"
-                        ng-click="$ctrl.clear()">
+<div class="row">
+    <div class="col-lg-12">
+        <div class="input-group">
+        <span class="input-group-btn">
+            <button class="btn btn-default"
+                    ng-click="$ctrl.roll1d6()"
+                    aria-label="{{ 'Roll dice' | translate }}"
+                    title="{{ 'Roll dice' | translate }}">
+                {{ 'Roll dice' | translate }} {{ '[' + $ctrl.min + ',' + $ctrl.max + ']' }}
+            </button>
+        </span>
+        <span class="input-group-btn">
+            <button class="btn btn-default glyphicon glyphicon-erase"
+                    title="{{ 'Clear values' | translate }}"
+                    aria-label="{{ 'Clear values' | translate }}"
+                    ng-click="$ctrl.clear()">
 
-                </button>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</form>
-
+            </button>
+        </span>
+            <label class="form-control" >{{ $ctrl.dicesValue }}</label>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,12 @@
 en cours:
 
+#generalize dices component
+- permet de spécifier, min, max des dés:
+ bouton icon [min,max], bouton efface :
+- valeur min, max par défaut définit dans l'aventure
+- config
+- espace après boutons
+
 #lone wolf
 - autre tags, contenu à intégrer?
 - telecharger les illustrations et sauver en base64
@@ -51,11 +58,6 @@ en cours:
 - insérer tag avec dropdrown, edition contenu dropdown
 - tag en image importé base64
     => image pour "tag" propre par livre
-
-#dice
-- permet de spécifier, min, max des dés:
-    min [  ], max [  ], quantity [  ] [Jette dés] : .....                   [Efface]
-- valeur min, max par défaut définit dans l'aventure
 
 #stats generation
 - permet de spécifier min, max du dé au lieu de prendre 1 dé 6 par défaut
