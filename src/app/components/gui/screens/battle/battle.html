@@ -68,7 +68,7 @@
             </table>
         </form>
 
-        <dices ng-if="$ctrl.isDicesAvailable()"></dices>
+        <dices ng-if="$ctrl.isDicesAvailable()" game-id="{{$ctrl.game.id}}"></dices>
         <back-button></back-button>
 
         <popup config="{{ $ctrl.popupDeleteEnemyConfig }}"></popup>

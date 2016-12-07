@@ -59,7 +59,10 @@
                       ng-class="{ 'glyphicon glyphicon-menu-right' : !!$ctrl.dicesCollapsed(), 'glyphicon glyphicon-menu-down' : !$ctrl.dicesCollapsed() }">
                 </span>
             </h2>
-            <dices ng-if="$ctrl.isDicesAvailable()" uib-collapse="!!$ctrl.dicesCollapsed()"></dices>
+            <dices ng-if="$ctrl.isDicesAvailable()"
+                   game-id="{{$ctrl.game.id}}"
+                   uib-collapse="!!$ctrl.dicesCollapsed()">
+            </dices>
             <back-button></back-button>
             <button type="button"
                     class="btn btn-default"

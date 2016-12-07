@@ -1,5 +1,9 @@
 {
   "authors": "morarupasukaru",
+  "dice": {
+    "max": 6,
+    "min": 1
+  },
   "downloadUrl": "adventure-example.json",
   "homepage": "https://github.com/morarupasukaru/gamebooks-assistant",
   "id": "adventure-example",

@@ -155,6 +155,8 @@ const frenchTranslations = {
     'List of the adventures of the library is downloaded': 'La liste des aventures est téléchargée',
     'Map': 'Carte',
     'map image used as favicon': 'image de carte utilisée comme favicon',
+    "Minimal dice's value": "Valeur de dé minimale",
+    "Maximal dice's value": "Valeur de dé maximale",
     'Name': 'Nom',
     'MoreThanOneIllustrationInLoneWolfBookParagraph': "Il y a plus d'une illustration avec le paragraphe '{{ paragraphNr }}'",
     'New game': 'Nouveau jeu',

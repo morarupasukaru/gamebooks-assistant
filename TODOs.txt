@@ -1,11 +1,8 @@
 en cours:
 
 #generalize dices component
-- permet de spécifier, min, max des dés:
- bouton icon [min,max], bouton efface :
-- valeur min, max par défaut définit dans l'aventure
-- config
-- espace après boutons
+- stats generation diceQuantity instead of dice6
+- by save in adventure detail > delete data of disabled parts (items, stats, dices, enemy, ...)
 
 #lone wolf
 - autre tags, contenu à intégrer?

@@ -263,6 +263,22 @@
                         <items items="$ctrl.adventure.items"></items>
                     </div>
                 </div>
+
+                <div ng-if="$ctrl.adventure.toggles.dices || $ctrl.adventure.toggles.stats">
+                    <h3>{{ 'Dices' | translate }}</h3>
+                    <div>
+                        <div class="form-group">
+                            <label for="diceMin">{{ "Minimal dice's value" | translate }}</label>
+                            <input type="number" class="form-control" id="diceMin" ng-model="$ctrl.adventure.dice.min"
+                                   ng-required="$ctrl.adventure.toggles.dices || $ctrl.adventure.toggles.stats">
+                        </div>
+                        <div class="form-group">
+                            <label for="diceMax">{{ "Maximal dice's value" | translate }}</label>
+                            <input type="number" class="form-control" id="diceMax" ng-model="$ctrl.adventure.dice.max"
+                                   ng-required="$ctrl.adventure.toggles.dices || $ctrl.adventure.toggles.stats">
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
         <back-button></back-button>

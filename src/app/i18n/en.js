@@ -155,6 +155,8 @@ const englishTranslations = {
     'List of the adventures of the library is downloaded': 'List of the adventures of the library is downloaded',
     'Map': 'Map',
     'map image used as favicon': 'map image used as favicon',
+    "Minimal dice's value": "Minimal dice's value",
+    "Maximal dice's value": "Maximal dice's value",
     'Name': 'Name',
     'New game': 'New game',
     'Next': 'Next',

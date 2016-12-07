@@ -1,14 +1,24 @@
 class DicesController {
     /*@ngInject*/
-    constructor(dicesService) {
+    constructor(dicesService, gamePersistenceService, adventurePersistenceService) {
         this.dicesService = dicesService;
+        this.gamePersistenceService = gamePersistenceService;
+        this.adventurePersistenceService = adventurePersistenceService;
+        this.initData();
         this.clear();
-        this.min = 1;
-        this.max = 6;
     }
 
-    roll1d6() {
-        this.appendToResult(this.dicesService.rollDices(1, 6));
+    initData() {
+        let game = this.gamePersistenceService.getGame(decodeURIComponent(this.gameId));
+        let adventure = this.adventurePersistenceService.getAdventure(game.adventureId);
+        if (!!adventure.dice) {
+            this.min = adventure.dice.min;
+            this.max = adventure.dice.max;
+        }
+    }
+
+    rollDice() {
+        this.appendToResult(this.dicesService.rollDices(this.min, this.max));
     }
 
     clear() {

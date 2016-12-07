@@ -1,23 +1,22 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="input-group">
-        <span class="input-group-btn">
-            <button class="btn btn-default"
-                    ng-click="$ctrl.roll1d6()"
-                    aria-label="{{ 'Roll dice' | translate }}"
-                    title="{{ 'Roll dice' | translate }}">
-                {{ 'Roll dice' | translate }} {{ '[' + $ctrl.min + ',' + $ctrl.max + ']' }}
-            </button>
-        </span>
-        <span class="input-group-btn">
-            <button class="btn btn-default glyphicon glyphicon-erase"
-                    title="{{ 'Clear values' | translate }}"
-                    aria-label="{{ 'Clear values' | translate }}"
-                    ng-click="$ctrl.clear()">
-
-            </button>
-        </span>
+            <span class="input-group-btn">
+                <button class="btn btn-default"
+                        ng-click="$ctrl.rollDice()"
+                        aria-label="{{ 'Roll dice' | translate }}"
+                        title="{{ 'Roll dice' | translate }}">
+                    {{ 'Roll dice' | translate }} {{ '[' + $ctrl.min + ',' + $ctrl.max + ']' }}
+                </button>
+                <button class="btn btn-default"
+                        title="{{ 'Clear values' | translate }}"
+                        aria-label="{{ 'Clear values' | translate }}"
+                        ng-click="$ctrl.clear()">
+                    <span class="glyphicon glyphicon-erase"></span>
+                </button>
+            </span>
             <label class="form-control" >{{ $ctrl.dicesValue }}</label>
         </div>
     </div>
 </div>
+<br/>

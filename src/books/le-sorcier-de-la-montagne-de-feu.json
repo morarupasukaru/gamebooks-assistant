@@ -1,5 +1,9 @@
 {
   "authors": "Steve Jackson et Ian Livingstone",
+  "dice": {
+    "max": 6,
+    "min": 1
+  },
   "downloadUrl": "le-sorcier-de-la-montagne-de-feu.json",
   "id": "le-sorcier-de-la-montagne-de-feu",
   "isbn": "978-2-07-064740-8",
