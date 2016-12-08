@@ -18,7 +18,7 @@ class DicesController {
     }
 
     rollDice() {
-        this.appendToResult(this.dicesService.rollDices(this.min, this.max));
+        this.appendToResult(this.dicesService.rollDices(1, this.min, this.max));
     }
 
     clear() {

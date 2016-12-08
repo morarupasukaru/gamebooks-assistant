@@ -25,7 +25,7 @@ class CreatePlayerController {
                     generate : function() {
                             return currentStats.init.constant + self.dicesService.rollDices(
                                 currentStats.init.dicesQuantity,
-                                // TODO min
+                                adventure.dice.min,
                                 adventure.dice.max);
                         }
                     });

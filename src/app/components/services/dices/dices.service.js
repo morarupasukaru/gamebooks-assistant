@@ -4,10 +4,10 @@ class DicesService {
     constructor() {
     }
 
-    rollDices(qty, maxDiceValue) {
+    rollDices(qty, minDiceValue, maxDiceValue) {
         let dicesValue = 0;
         for (let i = 0; i < qty; i++) {
-            dicesValue = dicesValue + this.randomIntInclusive(1, maxDiceValue);
+            dicesValue = dicesValue + this.randomIntInclusive(minDiceValue, maxDiceValue);
         }
         return dicesValue;
     }

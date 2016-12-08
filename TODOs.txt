@@ -1,8 +1,5 @@
 en cours:
 
-#generalize dices component
-- stats generation diceQuantity instead of dice6
-
 #lone wolf
 - autre tags, contenu à intégrer?
 - telecharger les illustrations et sauver en base64
