@@ -57,9 +57,6 @@ en cours:
 - tag en image importé base64
     => image pour "tag" propre par livre
 
-#stats generation
-- permet de spécifier min, max du dé au lieu de prendre 1 dé 6 par défaut
-
 #items
 - permet de spécifier une catégorie d'items > "Kai Discipline", "Items"
 - permet de spécifier le titre de "l'item"
