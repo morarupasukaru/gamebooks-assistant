@@ -49,8 +49,9 @@ class GamesListController {
                 games[i].adventureName = adventure.name;
                 games[i].serie = adventure.serie;
                 let paragraph = this.adventurePersistenceService.getParagraph(games[i].adventureId, games[i].currentParagraphNr);
-                games[i].paragraphTag = paragraph.tag;
-
+                if (!!paragraph) {
+                    games[i].paragraphTag = paragraph.tag;
+                }
             } else {
                 this.messagesService.errorMessage(this.$translate.instant('CannotFindAdventure', { adventure: games[i].adventureId}), false);
                 games[i].adventureName = games[i].adventureId;

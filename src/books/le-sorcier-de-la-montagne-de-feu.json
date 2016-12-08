@@ -14,11 +14,11 @@
   "startParagraphNr": "1",
   "toggles": {
     "battle": true,
+    "choicesTable": true,
     "dices": true,
     "items": true,
     "notes": true,
-    "stats": true,
-    "choicesTable": true
+    "stats": true
   },
   "version": "0.1",
   "items": [
@@ -68,7 +68,7 @@
       },
       "init": {
         "constant": 6,
-        "sixDiceQuantity": 1
+        "dicesQuantity": 1
       },
       "name": "Habilité"
     },
@@ -80,7 +80,7 @@
       },
       "init": {
         "constant": 12,
-        "sixDiceQuantity": 2
+        "dicesQuantity": 2
       },
       "name": "Endurance"
     },
@@ -91,7 +91,7 @@
       },
       "init": {
         "constant": 6,
-        "sixDiceQuantity": 1
+        "dicesQuantity": 1
       },
       "name": "Chance"
     }
