@@ -82,6 +82,15 @@ class AdventureDetailController {
             }
             this.adventure.items = modifiedItems;
         }
+        if (!this.adventure.toggles.stats) {
+            delete this.adventure.stats;
+        }
+        if (!this.adventure.toggles.items) {
+            delete this.adventure.items;
+        }
+        if (!this.adventure.toggles.dices) {
+            delete this.adventure.dice;
+        }
         try {
             this.adventurePersistenceService.updateAdventureWithoutParagraphs(this.adventure);
             this.$location.url(this.constants.url.adventures);
@@ -121,7 +130,7 @@ class AdventureDetailController {
         this.originalRow = {
             name : row.name,
             init: {
-                sixDiceQuantity: row.init.sixDiceQuantity,
+                dicesQuantity: row.init.dicesQuantity,
                 constants: row.init.constant
             },
             battle: {
@@ -154,7 +163,7 @@ class AdventureDetailController {
         if (!this.getEditRow().name) {
             return ;
         }
-        if (!this.getEditRow().init.sixDiceQuantity) {
+        if (!this.getEditRow().init.dicesQuantity) {
             return ;
         }
         if (!this.getEditRow().battle.editableForEnemy && !!this.getEditRow().battle.enemyDefaultValue) {

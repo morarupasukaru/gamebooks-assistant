@@ -33,7 +33,7 @@
       },
       "init": {
         "constant": 6,
-        "sixDiceQuantity": 1
+        "dicesQuantity": 1
       },
       "name": "Strength"
     },
@@ -45,7 +45,7 @@
       },
       "init": {
         "constant": null,
-        "sixDiceQuantity": 1
+        "dicesQuantity": 1
       },
       "name": "Stamina"
     }

@@ -100,6 +100,22 @@
                     </div>
                 </div>
 
+                <div ng-if="$ctrl.adventure.toggles.dices || $ctrl.adventure.toggles.stats">
+                    <h3>{{ 'Dices' | translate }}</h3>
+                    <div>
+                        <div class="form-group">
+                            <label for="diceMin">{{ "Minimal dice's value" | translate }}</label>
+                            <input type="number" class="form-control" id="diceMin" ng-model="$ctrl.adventure.dice.min"
+                                   ng-required="$ctrl.adventure.toggles.dices || $ctrl.adventure.toggles.stats">
+                        </div>
+                        <div class="form-group">
+                            <label for="diceMax">{{ "Maximal dice's value" | translate }}</label>
+                            <input type="number" class="form-control" id="diceMax" ng-model="$ctrl.adventure.dice.max"
+                                   ng-required="$ctrl.adventure.toggles.dices || $ctrl.adventure.toggles.stats">
+                        </div>
+                    </div>
+                </div>
+
                 <div ng-if="$ctrl.adventure.toggles.stats">
                     <h3>{{ 'Stats rules' | translate }}</h3>
                     <div>
@@ -168,20 +184,26 @@
                                 </td>
 
                                 <td ng-if="!$ctrl.isRowEdited(row)">
-                                    {{ row.init.sixDiceQuantity + 'd6' + (!!row.init.constant ? '+' + row.init.constant : '')   }}
+                                    {{ 'attributValueGenerationRule' | translate: {
+                                            dicesQuantity: (!!row.init && !!row.init.dicesQuantity) ? row.init.dicesQuantity: '?',
+                                            min: (!!$ctrl.adventure.dice && !!$ctrl.adventure.dice.min) ? $ctrl.adventure.dice.min : '?',
+                                            max: (!!$ctrl.adventure.dice && !!$ctrl.adventure.dice.max) ? $ctrl.adventure.dice.max : '?',
+                                            constant: (!!row.init && !!row.init.constant) ? row.init.constant : '0' } }}
                                 </td>
                                 <td ng-if="$ctrl.isRowEdited(row)">
                                     <div class="form-group">
-                                        <label for="sixDiceQuantity">{{ "Quantity of dices 6 faces" | translate }}</label>
-                                        <input required id="sixDiceQuantity" type="number" class="form-control" ng-model="row.init.sixDiceQuantity">
+                                        <label for="dicesQuantity">{{ "dicesQuantity" | translate: {
+                                            min: (!!$ctrl.adventure.dice && !!$ctrl.adventure.dice.min) ? $ctrl.adventure.dice.min : '?',
+                                            max: (!!$ctrl.adventure.dice && !!$ctrl.adventure.dice.max) ? $ctrl.adventure.dice.max : '?' } }}</label>
+                                        <input required id="dicesQuantity" type="number" class="form-control" ng-model="row.init.dicesQuantity">
                                     </div>
                                     <div class="form-group">
                                         <label for="constant">{{ "Constant" | translate }}</label>
                                         <input id="constant" type="number" class="form-control" ng-model="row.init.constant">
                                     </div>
-                                    <div class="error" ng-show="!row.init.sixDiceQuantity">
+                                    <div class="error" ng-show="!row.init.dicesQuantity">
                                         <!-- check error only on field -->
-                                        {{ 'Please fill the quantity of dices 6 faces used to generate a value for this stats' | translate }}
+                                        {{ 'Please fill the quantity of dices used to generate a value for this stats' | translate }}
                                     </div>
                                 </td>
 
@@ -261,22 +283,6 @@
                     <h3>{{ 'Initial items' | translate }}</h3>
                     <div>
                         <items items="$ctrl.adventure.items"></items>
-                    </div>
-                </div>
-
-                <div ng-if="$ctrl.adventure.toggles.dices || $ctrl.adventure.toggles.stats">
-                    <h3>{{ 'Dices' | translate }}</h3>
-                    <div>
-                        <div class="form-group">
-                            <label for="diceMin">{{ "Minimal dice's value" | translate }}</label>
-                            <input type="number" class="form-control" id="diceMin" ng-model="$ctrl.adventure.dice.min"
-                                   ng-required="$ctrl.adventure.toggles.dices || $ctrl.adventure.toggles.stats">
-                        </div>
-                        <div class="form-group">
-                            <label for="diceMax">{{ "Maximal dice's value" | translate }}</label>
-                            <input type="number" class="form-control" id="diceMax" ng-model="$ctrl.adventure.dice.max"
-                                   ng-required="$ctrl.adventure.toggles.dices || $ctrl.adventure.toggles.stats">
-                        </div>
                     </div>
                 </div>
             </form>

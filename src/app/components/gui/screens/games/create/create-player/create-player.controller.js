@@ -23,7 +23,10 @@ class CreatePlayerController {
                 let currentStats = adventure.stats[i];
                 this.stats.push({ name : currentStats.name,
                     generate : function() {
-                            return currentStats.init.constant + self.dicesService.rollDices(currentStats.init.sixDiceQuantity, 6);
+                            return currentStats.init.constant + self.dicesService.rollDices(
+                                currentStats.init.dicesQuantity,
+                                // TODO min
+                                adventure.dice.max);
                         }
                     });
             }

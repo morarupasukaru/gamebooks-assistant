@@ -2,7 +2,6 @@ en cours:
 
 #generalize dices component
 - stats generation diceQuantity instead of dice6
-- by save in adventure detail > delete data of disabled parts (items, stats, dices, enemy, ...)
 
 #lone wolf
 - autre tags, contenu à intégrer?
@@ -16,9 +15,12 @@ en cours:
 
 #règles de jeu
 - supporter le fait que des paragraphes aient du text au lieu de chiffre comme "no" de paragraphe
-- flag "paragraphe non jouable"
+- la conversion en Number des no de paragaphes est fait que pour l'export (tri)
+- flag "paragraphe non traceable sur la carte" qui est un checkbox clickable dans l'edition du paragraphe
+=> un clic, declic implique une maj de la carte
 - ignorer les "jumps" dans les paragraphes non jouable
 - aide de jeu accessible depuis écran paragraphe & combat, "choix" customisable de manière général (point d'entrée de l'aide pour les combats diffère de celui de l'aide générale)
+=> pas de liens d'aide pour les combats car cet écran sera supprimé
 
 #combat as paragraphe
 - l'écran de combat est un paragraphe éditable spéciale dont on ne voit pas toutes les sections (item, stats, etc.)
@@ -46,10 +48,12 @@ en cours:
 - tooltup d'aide avec explication des syntaxes
 - affichage des choix deja pris dans une autre couleur (a moins que liens est non jouable)
 - supprimer l'édition de choix via un tableau (conversion le-sorcier-de-la-montagne-de-feu.json?)
-
 - permettre d'éditer les paragraphes (syntax?)
 - faire popup pour aide saisie (explique la syntaxe)
 - images paragraphes
+- cacher des sections config par paragraphe, accessible en mode édition
+=> permet de faire un paragraphe combat ou aide custom
+- valeur par défaut de l'affichage des sections dans l'aventure?
 
 #tag
 - insérer tag avec dropdrown, edition contenu dropdown
@@ -62,9 +66,17 @@ en cours:
 #items
 - permet de spécifier une catégorie d'items > "Kai Discipline", "Items"
 - permet de spécifier le titre de "l'item"
-- permet de spécifier si "l'item" est numérique
+- supprimer quantité des items
 - afficher la catégorie d'item dans un tableau à part avec expand à part
 - pouvoir éditer la liste des items possibles dans l'édition de l'aventure
+
+#notes as items
+- les notes du joueur sont une type de items
+
+#enemy as character
+- généraliser la notion d'ennemi en tant que character
+- flag friend/enemy
+- section cachable d'un paragraphe (pas d'écran spécifique au combat)
 
 #playername
 - permettre de pouvoir changer le nom du joueur
