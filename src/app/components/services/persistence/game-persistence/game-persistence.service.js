@@ -233,7 +233,7 @@ class GamePersistenceService {
                 for (let i = 0; i < paragraph.choices.length; i++) {
                     let keyArray = paragraph.choices[i].paragraphNr;
                     if (!!choosenParagraphs[keyArray]) {
-                        choosen.push(paragraph.choices[i].paragraphNr);
+                        choosen.push('' + paragraph.choices[i].paragraphNr);
                     }
                 }
             }

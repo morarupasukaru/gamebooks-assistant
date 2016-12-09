@@ -18,6 +18,8 @@ en cours:
 - ignorer les "jumps" dans les paragraphes non jouable
 - aide de jeu accessible depuis écran paragraphe & combat, "choix" customisable de manière général (point d'entrée de l'aide pour les combats diffère de celui de l'aide générale)
 => pas de liens d'aide pour les combats car cet écran sera supprimé
+- liens de paragraphe trackable dans les paragraphes non trackable sont visible seulement si le path du joueur est vide (joueur n'a pas encore débuté le jeu)
+- afficher liens règles de jeu dans paragraphes différents
 
 #combat as paragraphe
 - l'écran de combat est un paragraphe éditable spéciale dont on ne voit pas toutes les sections (item, stats, etc.)
@@ -38,12 +40,9 @@ en cours:
 },
 - l'id d'une illustration est unique par paragraphe (check lors de la sauvegarde de l'edition)
 
-#editable paragraphe & liens
-- support des retours à la ligne (check si ca joue actuellement)
-- §123§ => § délimiteur de choix de paragraphe (ou saut dans un paragraphe d'aide, p.ex. §combat§)
+#editable paragraph with link
 - [[imageId]] => pour indiquer ou ajouter une illustration
 - tooltup d'aide avec explication des syntaxes
-- affichage des choix deja pris dans une autre couleur (a moins que liens est non jouable)
 - supprimer l'édition de choix via un tableau (conversion le-sorcier-de-la-montagne-de-feu.json?)
 - permettre d'éditer les paragraphes (syntax?)
 - faire popup pour aide saisie (explique la syntaxe)
@@ -51,6 +50,7 @@ en cours:
 - cacher des sections config par paragraphe, accessible en mode édition
 => permet de faire un paragraphe combat ou aide custom
 - valeur par défaut de l'affichage des sections dans l'aventure?
+- ne pas changer la couleur d'un lien si celui-ci est non traceable
 
 #tag
 - insérer tag avec dropdrown, edition contenu dropdown

@@ -16,11 +16,21 @@ class DescriptionController {
     }
 
     computeDescriptionWithChoice(description) {
-        let splits = description.split('§');
-        this.descriptionWithChoices = [];
-        for (let i = 0; i < splits.length; i++) {
-            let split = splits[i];
-            this.descriptionWithChoices.push({ choice: this.isNumber(split), text: split });
+        let textsDelimitedWithEol = description.split('\n');
+        this.paragraphs = [];
+        for (let i = 0; i < textsDelimitedWithEol.length; i++) {
+            let textDelimitedWithEol = textsDelimitedWithEol[i];
+            if (!!textDelimitedWithEol && textDelimitedWithEol.trim().length > 0) {
+                let splits = textDelimitedWithEol.split('§');
+                let descriptionWithChoices = [];
+                for (let i = 0; i < splits.length; i++) {
+                    let split = splits[i];
+                    if (!!split && split.trim().length > 0) {
+                        descriptionWithChoices.push({ choice: this.isNumber(split), text: split });
+                    }
+                }
+                this.paragraphs.push(descriptionWithChoices);
+            }
         }
     }
 
@@ -57,34 +67,8 @@ class DescriptionController {
         this.$location.url(nextUrl);
     }
 
-    isAlreadyChoosen(choice) {
-        return this.alreadyChoosen.indexOf(choice.paragraphNr) !== -1;
-    }
-
-    over(data) {
-        this.mouseOver(data, true);
-    }
-
-    leave(data) {
-        this.mouseOver(data, false);
-    }
-
-    mouseOver(data, hasMouseOver) {
-        if (!data.mouseOver && hasMouseOver) {
-            data.mouseOver = hasMouseOver;
-            this.highlight(data, true);
-        } else {
-            delete data.mouseOver;
-            this.highlight(data, false);
-        }
-    }
-
-    highlight(data, highlighted) {
-        if (!!highlighted) {
-            data.highlighted = true;
-        } else {
-            delete data.highlighted;
-        }
+    isAlreadyChoosen(paragraphNr) {
+        return this.alreadyChoosen.indexOf(paragraphNr) !== -1;
     }
 }
 
