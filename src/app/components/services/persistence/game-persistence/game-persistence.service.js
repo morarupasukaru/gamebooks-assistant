@@ -154,9 +154,6 @@ class GamePersistenceService {
                     paragraph.notes = newNotes;
                     this.adventurePersistenceService.updateParagraph(game.adventureId, paragraph);
                 }
-                if (!!deleteParagraphChoicesOfGame) {
-                    // TODO
-                }
             }
         }
         localStorage.removeItem(key);
