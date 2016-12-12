@@ -4,12 +4,12 @@
   "description": "Gamebooks Assistant",
   "homepage": "https://github.com/morarupasukaru/gamebooks-assistant",
   "dependencies": {
-    "angular": "^1.5.8",
-    "angular-translate": "^2.12.1",
-    "angular-translate-handler-log": "^2.12.1",
-    "angular-ui-bootstrap": "^2.1.4",
-    "angular-ui-router": "^0.3.1",
-    "bootstrap": "^3.3.7",
+    "angular": "1.5.8",
+    "angular-translate": "2.13.1",
+    "angular-translate-handler-log": "2.13.1",
+    "angular-ui-bootstrap": "2.3.1",
+    "angular-ui-router": "0.3.2",
+    "bootstrap": "3.3.7",
     "string.prototype.startswith": "0.2.0"
   },
   "devDependencies": {

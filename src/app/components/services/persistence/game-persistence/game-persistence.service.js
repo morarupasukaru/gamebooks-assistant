@@ -216,7 +216,7 @@ class GamePersistenceService {
         if (!game.path) {
             game.path = [];
         }
-        game.path.push(new Number(toParagraphNr));
+        game.path.push(toParagraphNr);
         this.updateGame(game);
     }
 

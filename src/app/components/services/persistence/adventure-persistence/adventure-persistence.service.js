@@ -220,7 +220,7 @@ class AdventurePersistenceService {
             let paragraph = {
                 version : this.constants.version,
                 adventureId : adventureId,
-                paragraphNr : new Number(paragraphNr),
+                paragraphNr : paragraphNr,
                 description : '',
                 choices : []
             };

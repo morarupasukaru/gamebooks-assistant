@@ -102,10 +102,10 @@ en cours:
 #localstorage alternative
 - intégrer localforage/offline-file afin de sauver des aventures de plusieurs megabyites
 
-plus tard
-    #angular js 2
-    #skinnable
-    - limiter dépendance à bootstrap?
-    - intégrer projet oleg?
-    - css?
-    - interface skinable (enfant, fantasy, ...)
+#angular-ui-router delete
+
+#angular-translate delete
+
+#angular-ui-bootstrap delete
+
+#string.prototype.startswith delete

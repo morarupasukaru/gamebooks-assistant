@@ -21,6 +21,8 @@ class DescriptionController {
         for (let i = 0; i < textsDelimitedWithEol.length; i++) {
             let textDelimitedWithEol = textsDelimitedWithEol[i];
             if (!!textDelimitedWithEol && textDelimitedWithEol.trim().length > 0) {
+
+                // TODO refactor to avoid use of new Number()
                 let splits = textDelimitedWithEol.split('§');
                 let descriptionWithChoices = [];
                 for (let i = 0; i < splits.length; i++) {
