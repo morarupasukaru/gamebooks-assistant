@@ -100,8 +100,9 @@ en cours:
 #localstorage alternative
 - intégrer localforage/offline-file afin de sauver des aventures de plusieurs megabyites
 
-#angular-ui-router delete
-
-#angular-translate delete
-
 #decouple bootstrap css
+
+( #angular-ui-router delete )
+    http://viralpatel.net/blogs/angularjs-routing-and-views-tutorial-with-example/
+
+( #angular-translate delete )
