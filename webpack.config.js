@@ -18,7 +18,6 @@ var commonConfig = exports.commonConfig = {
             'angular',
             'angular-ui-router',
             'angular-translate',
-            'angular-ui-bootstrap',
             'bootstrap/dist/css/bootstrap.css'
         ]
     },

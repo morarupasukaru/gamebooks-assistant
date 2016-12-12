@@ -15,7 +15,7 @@
                       ng-class="{ 'glyphicon glyphicon-menu-right' : !!$ctrl.mapCollapsed(), 'glyphicon glyphicon-menu-down' : !$ctrl.mapCollapsed() }">
                 </span>
             </h2>
-            <nodes adventure-id="$ctrl.adventureId" root-paragraph-nr="$ctrl.paragraph.paragraphNr" uib-collapse="!!$ctrl.mapCollapsed()"></nodes>
+            <nodes adventure-id="$ctrl.adventureId" root-paragraph-nr="$ctrl.paragraph.paragraphNr" ng-if="!$ctrl.mapCollapsed()"></nodes>
 
             <h2 ng-click="$ctrl.toogleCollapseNotes()">
                 {{ 'Notes' | translate }}
@@ -23,11 +23,11 @@
                       ng-class="{ 'glyphicon glyphicon-menu-right' : !!$ctrl.notesCollapsed(), 'glyphicon glyphicon-menu-down' : !$ctrl.notesCollapsed() }">
                 </span>
             </h2>
-            <notes ng-if="$ctrl.isNotesAvailable()"
+            <notes ng-if="$ctrl.isNotesAvailable() && !$ctrl.notesCollapsed()"
                    adventure-id="{{$ctrl.adventureId}}"
                    paragraph-nr="{{$ctrl.paragraph.paragraphNr}}"
-                   game-id="{{$ctrl.game.id}}"
-                   uib-collapse="!!$ctrl.notesCollapsed()"></notes>
+                   game-id="{{$ctrl.game.id}}">
+            </notes>
         </div>
 
         <div id="playerSheet" ng-if="!!$ctrl.playerName">
@@ -37,10 +37,10 @@
                       ng-class="{ 'glyphicon glyphicon-menu-right' : !!$ctrl.statsCollapsed(), 'glyphicon glyphicon-menu-down' : !$ctrl.statsCollapsed() }">
                 </span>
             </h2>
-            <stats ng-if="$ctrl.isStatsAvailable()"
+            <stats ng-if="$ctrl.isStatsAvailable() && !$ctrl.statsCollapsed()"
                    game-id="{{$ctrl.game.id}}"
-                   stats="$ctrl.stats"
-                   uib-collapse="!!$ctrl.statsCollapsed()"></stats>
+                   stats="$ctrl.stats">
+            </stats>
 
             <h2 ng-click="$ctrl.toogleCollapseItems()">
                 {{ 'Items' | translate }}
@@ -48,10 +48,10 @@
                       ng-class="{ 'glyphicon glyphicon-menu-right' : !!$ctrl.itemsCollapsed(), 'glyphicon glyphicon-menu-down' : !$ctrl.itemsCollapsed() }">
                 </span>
             </h2>
-            <items ng-if="$ctrl.isItemsAvailable()"
+            <items ng-if="$ctrl.isItemsAvailable() && !$ctrl.itemsCollapsed()"
                    game-id="{{$ctrl.game.id}}"
-                   items="$ctrl.items"
-                   uib-collapse="!!$ctrl.itemsCollapsed()"></items>
+                   items="$ctrl.items">
+            </items>
 
             <h2 ng-click="$ctrl.toogleCollapseDices()">
                 {{ 'Dices' | translate }}
@@ -59,9 +59,8 @@
                       ng-class="{ 'glyphicon glyphicon-menu-right' : !!$ctrl.dicesCollapsed(), 'glyphicon glyphicon-menu-down' : !$ctrl.dicesCollapsed() }">
                 </span>
             </h2>
-            <dices ng-if="$ctrl.isDicesAvailable()"
-                   game-id="{{$ctrl.game.id}}"
-                   uib-collapse="!!$ctrl.dicesCollapsed()">
+            <dices ng-if="$ctrl.isDicesAvailable() && !$ctrl.dicesCollapsed()"
+                   game-id="{{$ctrl.game.id}}">
             </dices>
             <back-button></back-button>
             <button type="button"

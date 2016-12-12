@@ -103,5 +103,3 @@ en cours:
 #angular-ui-router delete
 
 #angular-translate delete
-
-#angular-ui-bootstrap delete

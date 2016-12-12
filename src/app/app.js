@@ -6,14 +6,13 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import ngTranslate from 'angular-translate';
 import ngTranslateHandlerLog from 'angular-translate-handler-log';
-import uiBootstrap from 'angular-ui-bootstrap';
 
 // Interne Modul-Imports
 import Components from './components/components';
 import AppComponent from './app.component';
 
 angular.module('app', [
-    uiRouter, ngTranslate, ngTranslateHandlerLog, uiBootstrap, Components.name
+    uiRouter, ngTranslate, ngTranslateHandlerLog, Components.name
     ])
 
     .config(['$translateProvider', function ($translateProvider) {

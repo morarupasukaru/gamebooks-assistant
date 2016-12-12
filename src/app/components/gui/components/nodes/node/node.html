@@ -51,7 +51,7 @@
           ng-show="!!$ctrl.data.tag && !$ctrl.data.unknown">
     </span>
 </div>
-<div ng-if="!!$ctrl.data.children" uib-collapse="!!$ctrl.data.collapsed">
+<div ng-if="!!$ctrl.data.children && !$ctrl.data.collapsed">
     <ul>
         <li ng-repeat="childNode in $ctrl.data.children">
             <node data="childNode" root-node="$ctrl.rootNode"></node>
