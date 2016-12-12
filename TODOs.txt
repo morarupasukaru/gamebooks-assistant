@@ -103,3 +103,5 @@ en cours:
 #angular-ui-router delete
 
 #angular-translate delete
+
+#decouple bootstrap css
