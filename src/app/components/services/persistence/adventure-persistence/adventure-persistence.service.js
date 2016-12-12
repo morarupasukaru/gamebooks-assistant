@@ -103,7 +103,7 @@ class AdventurePersistenceService {
         let keys = Object.keys(localStorage);
         let result = [];
         for (let i = 0; i < keys.length; i++) {
-            if (keys[i].startsWith(this.constants.data.adventure) && keys[i].indexOf('paragraph.') === -1 && keys[i].indexOf('.choosen') === -1) {
+            if (keys[i].indexOf(this.constants.data.adventure) === 0 && keys[i].indexOf('paragraph.') === -1 && keys[i].indexOf('.choosen') === -1) {
                 result.push(keys[i]);
             }
         }
@@ -272,7 +272,7 @@ class AdventurePersistenceService {
         let keys = Object.keys(localStorage);
         let keyAdventureId = this.constants.data.adventure + '.' + adventureId;
         for (let i = 0; i < keys.length; i++) {
-            if (keys[i].startsWith(this.constants.data.adventure) && keys[i].indexOf('paragraph.') !== -1) {
+            if (keys[i].indexOf(this.constants.data.adventure) === 0 && keys[i].indexOf('paragraph.') !== -1) {
                 let adventureIdInKey = keys[i].substring(0, keys[i].indexOf('.paragraph'));
                 if (adventureIdInKey === keyAdventureId) {
                     paragraphKeys.push(keys[i]);
@@ -288,7 +288,7 @@ class AdventurePersistenceService {
 
     getAdventurePersistenceKey(adventureId) {
         let key = adventureId;
-        if (!key.startsWith(this.constants.data.adventure + ".")) {
+        if (key.indexOf(this.constants.data.adventure + ".") !== 0) {
             key = this.constants.data.adventure + "." + key;
         }
         return key;
@@ -318,7 +318,7 @@ class AdventurePersistenceService {
         let keys = Object.keys(localStorage);
         let adventureIdKeyPrefix = this.constants.data.adventure + '.' + adventureId;
         for (let i = 0; i < keys.length; i++) {
-            if (keys[i].startsWith(adventureIdKeyPrefix + ".paragraph") !== -1) {
+            if (keys[i].indexOf(adventureIdKeyPrefix + ".paragraph") === 0) {
                 let currentAdventureIdPrefix = keys[i].substring(0, keys[i].indexOf('.paragraph'));
                 if (currentAdventureIdPrefix === adventureIdKeyPrefix) {
                     let paragraph = this.persistenceService.get(keys[i]);

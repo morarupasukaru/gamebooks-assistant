@@ -11,8 +11,6 @@ en cours:
 - gestion des "capacités" en tant que item?
 
 #règles de jeu
-- supporter le fait que des paragraphes aient du text au lieu de chiffre comme "no" de paragraphe
-- la conversion en Number des no de paragaphes est fait que pour l'export (tri)
 - flag "paragraphe non traceable sur la carte" qui est un checkbox clickable dans l'edition du paragraphe
 => un clic, declic implique une maj de la carte
 - ignorer les "jumps" dans les paragraphes non jouable
@@ -107,5 +105,3 @@ en cours:
 #angular-translate delete
 
 #angular-ui-bootstrap delete
-
-#string.prototype.startswith delete

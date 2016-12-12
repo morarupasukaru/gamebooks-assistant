@@ -183,7 +183,7 @@ class GamePersistenceService {
 
     getGamePersistenceKey(gameId) {
         let key = gameId;
-        if (!key.startsWith(this.constants.data.game)) {
+        if (key.indexOf(this.constants.data.game) !== 0) {
             key = this.constants.data.game + "." + key;
         }
         return key;

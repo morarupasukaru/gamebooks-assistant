@@ -187,7 +187,7 @@ class LibraryPersistenceService {
         let keys = Object.keys(localStorage);
         let result = [];
         for (let i = 0; i < keys.length; i++) {
-            if (keys[i].startsWith(this.constants.data.library)) {
+            if (keys[i].indexOf(this.constants.data.library) === 0) {
                 result.push(keys[i]);
             }
         }
@@ -204,7 +204,7 @@ class LibraryPersistenceService {
 
     getLibraryPersistenceKey(libraryId) {
         let key = libraryId;
-        if (!key.startsWith(this.constants.data.library)) {
+        if (key.indexOf(this.constants.data.library) !== 0) {
             key = this.constants.data.library + "." + key;
         }
         return key;

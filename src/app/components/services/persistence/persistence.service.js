@@ -14,7 +14,7 @@ class PersistenceService {
         let keys = Object.keys(localStorage);
         let result = [];
         for (let i = 0; i < keys.length; i++) {
-            if (keys[i].startsWith(keyPrefix)) {
+            if (keys[i].indexOf(keyPrefix) === 0) {
                 result.push(keys[i]);
             }
         }

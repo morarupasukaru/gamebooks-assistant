@@ -14,7 +14,7 @@ class LanguageAvailabilityCheckerService {
         if (!!selectedLanguage) {
             this.$translate.use(selectedLanguage);
         } else {
-            if (!!currentUrl && !currentUrl.startsWith('/choose-language')) {
+            if (!!currentUrl && currentUrl.indexOf('/choose-language') !== 0) {
                 this.$location.url(this.constants.url.chooseLanguage);
             }
         }

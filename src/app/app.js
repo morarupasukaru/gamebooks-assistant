@@ -12,9 +12,6 @@ import uiBootstrap from 'angular-ui-bootstrap';
 import Components from './components/components';
 import AppComponent from './app.component';
 
-// A robust & optimized ES3-compatible polyfill for the String.prototype.startsWith method in ECMAScript 6
-require('string.prototype.startswith');
-
 angular.module('app', [
     uiRouter, ngTranslate, ngTranslateHandlerLog, uiBootstrap, Components.name
     ])
