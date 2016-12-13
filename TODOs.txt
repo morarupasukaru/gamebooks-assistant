@@ -1,5 +1,12 @@
 en cours:
 
+#editable paragraph with link
+- supprimer l'édition de choix via un tableau
+- conversion choix le-sorcier-de-la-montagne-de-feu.json
+
+
+next todo:
+
 #lone wolf
 - autre tags, contenu à intégrer?
 - telecharger les illustrations et sauver en base64
@@ -18,7 +25,10 @@ en cours:
 => pas de liens d'aide pour les combats car cet écran sera supprimé
 - liens de paragraphe trackable dans les paragraphes non trackable sont visible seulement si le path du joueur est vide (joueur n'a pas encore débuté le jeu)
 - afficher liens règles de jeu dans paragraphes différents
+- cacher des sections config par paragraphe, accessible en mode édition
+=> permet de faire un paragraphe combat ou aide custom
 
+- valeur par défaut de l'affichage des sections dans l'aventure?
 #combat as paragraphe
 - l'écran de combat est un paragraphe éditable spéciale dont on ne voit pas toutes les sections (item, stats, etc.)
 - écran de combat est un choix customisable par aventure
@@ -41,13 +51,8 @@ en cours:
 #editable paragraph with link
 - [[imageId]] => pour indiquer ou ajouter une illustration
 - tooltup d'aide avec explication des syntaxes
-- supprimer l'édition de choix via un tableau (conversion le-sorcier-de-la-montagne-de-feu.json?)
-- permettre d'éditer les paragraphes (syntax?)
 - faire popup pour aide saisie (explique la syntaxe)
 - images paragraphes
-- cacher des sections config par paragraphe, accessible en mode édition
-=> permet de faire un paragraphe combat ou aide custom
-- valeur par défaut de l'affichage des sections dans l'aventure?
 - ne pas changer la couleur d'un lien si celui-ci est non traceable
 
 #tag
