@@ -1,7 +1,6 @@
 class LibrariesListController {
     /*@ngInject*/
     constructor($location,
-                preScreenLoadingInterceptorsCallerService,
                 constants,
                 gamePersistenceService,
                 adventurePersistenceService,
@@ -14,7 +13,6 @@ class LibrariesListController {
                 $stateParams,
                 $log) {
         this.constants = constants;
-        preScreenLoadingInterceptorsCallerService.intercept();
         this.$location = $location;
         this.gamePersistenceService = gamePersistenceService;
         this.adventurePersistenceService = adventurePersistenceService;
@@ -46,6 +44,7 @@ class LibrariesListController {
     }
 
     initData() {
+        this.loadPredefinedData();
         this.rows = this.libraryPersistenceService.getLibraries();
         for (let i = 0; i < this.rows.length; i++) {
             if (!!this.rows[i].downloadHistory) {
@@ -53,6 +52,13 @@ class LibrariesListController {
             }
         }
         this.clearSelection();
+    }
+
+    loadPredefinedData() {
+        if (!this.libraryPersistenceService.hasLibraryUrl('library-example.json')) {
+            let libraryStr = '[{"siteName":"Example Library","libraryUrl":"library-example.json"}]';
+            this.libraryPersistenceService.importLibrariesStr(libraryStr);
+        }
     }
 
     select(row) {

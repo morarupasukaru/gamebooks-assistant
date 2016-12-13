@@ -1,7 +1,6 @@
 class CreatePlayerController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $stateParams, $window, $location, constants, dicesService, adventurePersistenceService, $timeout, createGameService) {
-        preScreenLoadingInterceptorsCallerService.intercept();
+    constructor($stateParams, $window, $location, constants, dicesService, adventurePersistenceService, $timeout, createGameService) {
         this.constants = constants;
         this.$window = $window;
         this.$location = $location;

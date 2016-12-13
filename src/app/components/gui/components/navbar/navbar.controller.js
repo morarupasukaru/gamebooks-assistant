@@ -1,8 +1,7 @@
 class NavbarController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $location, languagePickerService) {
+    constructor($location, languagePickerService) {
         this.languagePickerService = languagePickerService;
-        preScreenLoadingInterceptorsCallerService.intercept();
         let params = $location.search();
         if (!!params.admin) {
             this.admin = true;

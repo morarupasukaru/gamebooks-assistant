@@ -1,7 +1,6 @@
 class ItemsController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, popupService, constants, gamePersistenceService) {
-        preScreenLoadingInterceptorsCallerService.intercept();
+    constructor(popupService, constants, gamePersistenceService) {
         this.rows = this.items;
         this.popupService = popupService;
         this.constants = constants;

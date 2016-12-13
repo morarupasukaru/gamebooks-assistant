@@ -1,7 +1,6 @@
 class NodesController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, mapPersistenceService) {
-        preScreenLoadingInterceptorsCallerService.intercept();
+    constructor(mapPersistenceService) {
         this.mapPersistenceService = mapPersistenceService;
         this.initData();
     }

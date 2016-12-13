@@ -1,7 +1,6 @@
 class AdministrationController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, persistenceService, adventurePersistenceService, constants, popupService, $window) {
-        preScreenLoadingInterceptorsCallerService.intercept();
+    constructor(persistenceService, adventurePersistenceService, constants, popupService, $window) {
         this.persistenceService = persistenceService;
         this.adventurePersistenceService = adventurePersistenceService;
         this.constants = constants;

@@ -1,8 +1,7 @@
 class StatsController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, gamePersistenceService) {
+    constructor(gamePersistenceService) {
         this.gamePersistenceService = gamePersistenceService;
-        preScreenLoadingInterceptorsCallerService.intercept();
     }
 
     increment(row) {

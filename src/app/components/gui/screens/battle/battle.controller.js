@@ -1,7 +1,6 @@
 class BattleController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $window, popupService, constants, gamePersistenceService, adventurePersistenceService, $stateParams) {
-        preScreenLoadingInterceptorsCallerService.intercept();
+    constructor($window, popupService, constants, gamePersistenceService, adventurePersistenceService, $stateParams) {
         this.$window = $window;
         this.popupService = popupService;
         this.constants = constants;

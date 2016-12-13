@@ -1,6 +1,6 @@
 class ExportDataPopupController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, exportDataPopupService, constants, exportMethods, $window, formHelperService) {
+    constructor(exportDataPopupService, constants, exportMethods, $window, formHelperService) {
         this.constants = constants;
         this.exportDataPopupService = exportDataPopupService;
         this.exportMethods = exportMethods;

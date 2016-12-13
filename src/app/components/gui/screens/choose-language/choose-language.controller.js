@@ -1,9 +1,8 @@
 class ChooseLanguageController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $location, constants) {
+    constructor($location, constants) {
         this.$location = $location;
         this.constants = constants;
-        preScreenLoadingInterceptorsCallerService.intercept();
     }
 
     goForward() {

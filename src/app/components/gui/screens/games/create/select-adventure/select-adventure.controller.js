@@ -1,7 +1,6 @@
 class SelectAdventureController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, constants, $location, $window, adventurePersistenceService, $timeout) {
-        preScreenLoadingInterceptorsCallerService.intercept();
+    constructor(constants, $location, $window, adventurePersistenceService, $timeout) {
         this.$location = $location;
         this.$window = $window;
         this.constants = constants;

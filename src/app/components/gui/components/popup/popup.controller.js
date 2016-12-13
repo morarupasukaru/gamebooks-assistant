@@ -1,6 +1,6 @@
 class PopupController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, popupService, $translate) {
+    constructor(popupService, $translate) {
         this.cfg = JSON.parse(this.config);
         this.popupService = popupService;
         if (!!this.cfg.withoutTranslate) {

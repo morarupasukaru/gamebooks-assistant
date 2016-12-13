@@ -1,7 +1,6 @@
 class ParagraphController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, popupService, constants, gamePersistenceService, adventurePersistenceService, $location) {
-        preScreenLoadingInterceptorsCallerService.intercept();
+    constructor(popupService, constants, gamePersistenceService, adventurePersistenceService, $location) {
         this.popupService = popupService;
         this.constants = constants;
         this.gamePersistenceService = gamePersistenceService;

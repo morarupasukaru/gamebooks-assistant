@@ -1,8 +1,7 @@
 class AdventuresListController {
     /*@ngInject*/
-    constructor($location, preScreenLoadingInterceptorsCallerService, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, exportDataPopupService, importDataPopupService, $stateParams) {
+    constructor($location, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, exportDataPopupService, importDataPopupService, $stateParams) {
         this.constants = constants;
-        preScreenLoadingInterceptorsCallerService.intercept();
         this.$location = $location;
         this.gamePersistenceService = gamePersistenceService;
         this.adventurePersistenceService = adventurePersistenceService;

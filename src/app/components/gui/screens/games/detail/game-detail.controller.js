@@ -8,8 +8,7 @@ let collapse = {
 
 class GameDetailController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $location, constants, popupService, $stateParams, gamePersistenceService, adventurePersistenceService, $translate, messagesService) {
-        preScreenLoadingInterceptorsCallerService.intercept();
+    constructor($location, constants, popupService, $stateParams, gamePersistenceService, adventurePersistenceService, $translate, messagesService) {
         this.$location = $location;
         this.constants = constants;
         this.popupService = popupService;

@@ -1,7 +1,6 @@
 class LibraryDetailController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, libraryPersistenceService, $stateParams, $location, constants, messagesService, $timeout, $window, $translate, formHelperService, $log) {
-        preScreenLoadingInterceptorsCallerService.intercept();
+    constructor(libraryPersistenceService, $stateParams, $location, constants, messagesService, $timeout, $window, $translate, formHelperService, $log) {
         this.libraryPersistenceService = libraryPersistenceService;
         this.$stateParams = $stateParams;
         this.$location = $location;

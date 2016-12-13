@@ -1,6 +1,6 @@
 class ImportDataPopupController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, importDataPopupService, constants, importMethods, $window, formHelperService) {
+    constructor(importDataPopupService, constants, importMethods, $window, formHelperService) {
         this.constants = constants;
         this.importDataPopupService = importDataPopupService;
         this.importMethods = importMethods;

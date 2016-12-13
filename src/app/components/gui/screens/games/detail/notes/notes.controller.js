@@ -1,8 +1,6 @@
 class NotesController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, popupService, constants, gamePersistenceService, adventurePersistenceService) {
-        preScreenLoadingInterceptorsCallerService.intercept();
-
+    constructor(popupService, constants, gamePersistenceService, adventurePersistenceService) {
         this.popupService = popupService;
         this.constants = constants;
         this.gamePersistenceService = gamePersistenceService;

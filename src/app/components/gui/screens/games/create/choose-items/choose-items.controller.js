@@ -1,7 +1,6 @@
 class ChooseItemsController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $stateParams, messagesService, $window, adventurePersistenceService, createGameService) {
-        preScreenLoadingInterceptorsCallerService.intercept();
+    constructor($stateParams, messagesService, $window, adventurePersistenceService, createGameService) {
         this.messagesService = messagesService;
         this.adventurePersistenceService = adventurePersistenceService;
         this.$window = $window;

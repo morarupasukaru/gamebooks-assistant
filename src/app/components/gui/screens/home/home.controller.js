@@ -1,8 +1,7 @@
 class HomeController {
 
     /*@ngInject*/
-    constructor($location, preScreenLoadingInterceptorsCallerService, constants) {
-        preScreenLoadingInterceptorsCallerService.intercept();
+    constructor($location, constants) {
         $location.url(constants.url.games);
     }
 }

@@ -1,7 +1,6 @@
 class AdventureDetailController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, persistenceService, adventurePersistenceService, $stateParams, $location, constants, popupService, messagesService, $timeout, $window, formHelperService, $translate, $log) {
-        preScreenLoadingInterceptorsCallerService.intercept();
+    constructor(persistenceService, adventurePersistenceService, $stateParams, $location, constants, popupService, messagesService, $timeout, $window, formHelperService, $translate, $log) {
         this.persistenceService = persistenceService;
         this.adventurePersistenceService = adventurePersistenceService;
         this.$stateParams = $stateParams;

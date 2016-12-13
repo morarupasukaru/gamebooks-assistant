@@ -1,7 +1,6 @@
 class ImportProjectAeonController {
     /*@ngInject*/
-    constructor(preScreenLoadingInterceptorsCallerService, $http, messagesService, $translate, adventurePersistenceService, paragraphElementType) {
-        preScreenLoadingInterceptorsCallerService.intercept();
+    constructor($http, messagesService, $translate, adventurePersistenceService, paragraphElementType) {
         this.$http = $http;
         this.messagesService = messagesService;
         this.$translate = $translate;
