@@ -12,7 +12,6 @@ let constantsModule = angular.module('app.components.constants', [])
         },
         url: {
             battle : '/battle',
-            chooseLanguage : '/choose-language',
             administration: '/administration',
             games : '/games',
             root: '/',
