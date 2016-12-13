@@ -46,7 +46,6 @@ const frenchTranslations = {
     'Change language to en': 'Change language to english',
     'Change language to fr': 'Changez la langue en français',
     'Choice': 'Choix',
-    'Choose language': 'Choix de la langue',
     'Choice paragragh': 'Choix du paragraghe',
     'ChoiceAdventure': "Sélectionne l'aventure '{{ adventureName }}'",
     'ChoiceGame': "Sélectionne  le jeu '{{ adventureName }}' du joueur '{{ playerName }}'",

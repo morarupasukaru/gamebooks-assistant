@@ -1,6 +1,4 @@
 en cours:
-# remove prechecks
-# remove language-chooser initial
 
 #lone wolf
 - autre tags, contenu à intégrer?
@@ -116,6 +114,4 @@ en cours:
 
 # $windows wrapper
 
-# remove language selection first
-
-# check localstorage inside constructor of persistence-service
+#import-projectaon as separate apps

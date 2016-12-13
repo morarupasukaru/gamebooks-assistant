@@ -51,7 +51,6 @@ const englishTranslations = {
     'ChoiceGame': "Select the game '{{ adventureName }}' of the player '{{ playerName }}'",
     'ChoiceLibrary': "Select the library '{{ siteName }}'",
     'Choose Items': 'Choose Items',
-    'Choose language': 'Choose language',
     'ChoosenAdventure': "The adventure '{{ adventureName }}' is choosen",
     'ChoosenGame': "The game '{{ adventureName }}' of the player '{{ playerName }}' is choosen",
     'ChoosenLibrary': "The library '{{ siteName }}' is choosen",
