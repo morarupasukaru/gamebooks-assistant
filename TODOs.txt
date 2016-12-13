@@ -110,3 +110,9 @@ en cours:
 # translate rewritten
 
 # $windows wrapper
+
+# delete export as email
+
+# delete export as text
+
+# delete import as text
