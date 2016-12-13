@@ -107,11 +107,6 @@ en cours:
 
 ( #angular-translate delete )
 
-#i18n screen away
-    separate apps (angular apps first)
-
-#translate rewritten
+# translate rewritten
 
 # $windows wrapper
-
-#import-projectaon as separate apps
