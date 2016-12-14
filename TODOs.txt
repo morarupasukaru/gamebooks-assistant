@@ -5,6 +5,10 @@ en cours:
 - supprimer l'édition de choix via un tableau
 - conversion choix le-sorcier-de-la-montagne-de-feu.json
 
+# jump to paragraph
+- jump to paragraph as separate component (split from description)
+- jump to paragraph as toogle
+- jump to paragraph without collapse, expand
 
 next todo:
 
@@ -122,3 +126,5 @@ next todo:
 # delete export as text
 
 # delete import as text
+
+# simplify favicon
