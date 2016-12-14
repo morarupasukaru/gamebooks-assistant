@@ -14,7 +14,6 @@
   "startParagraphNr": "1",
   "toggles": {
     "battle": true,
-    "choicesTable": true,
     "dices": true,
     "items": true,
     "notes": true,

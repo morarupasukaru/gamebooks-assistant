@@ -87,14 +87,6 @@ class GameDetailController {
         );
     }
 
-    isChoicesTableAvailable() {
-        return !!this.adventure.toggles.choicesTable;
-    }
-
-    isChoicesInTextAvailable() {
-        return !!this.adventure.toggles.choicesInText;
-    }
-
     toogleCollapseMap() {
         collapse.map = !collapse.map;
     }

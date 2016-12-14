@@ -10,9 +10,7 @@ let descriptionModule = angular.module('app.components.gui.screen.paragraph.desc
         controller,
         bindings: {
             gameId: '<',
-            paragraph: '<',
-            choicesTableAvailable: '<',
-            choicesInTextAvailable: '<'
+            paragraph: '<'
         }
     });
 

@@ -11,8 +11,7 @@
     <tr>
         <td>
             <textarea id="inputCurrentDescription" class="form-control" ng-model="$ctrl.paragraph.description" ng-if="!!$ctrl.isDescriptionEditable()"></textarea>
-            <div ng-if="!$ctrl.isDescriptionEditable() && !$ctrl.choicesInTextAvailable">{{ $ctrl.paragraph.description }}</div>
-            <div ng-if="!$ctrl.isDescriptionEditable() && !!$ctrl.choicesInTextAvailable">
+            <div ng-if="!$ctrl.isDescriptionEditable()">
                 <div ng-repeat="paragraph in $ctrl.paragraphs">
                     <ng-repeat ng-repeat="paragraphElement in paragraph">
                         <button class="btn btn-default" ng-if="!!paragraphElement.choice && !!$ctrl.isAlreadyChoosen(paragraphElement.text)" ng-click="$ctrl.goTo(paragraphElement.text)">
