@@ -128,3 +128,9 @@ next todo:
 # delete import as text
 
 # simplify favicon
+
+# remove not needed glyphicon
+
+# replace table in libraries as list?
+
+# replace "selected" and other row button with a menu "..."
