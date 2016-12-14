@@ -1,7 +1,6 @@
 en cours:
 
 #editable paragraph with link
-- search choicesInText, choicesTable
 - supprimer l'édition de choix via un tableau
 - conversion choix le-sorcier-de-la-montagne-de-feu.json
 
