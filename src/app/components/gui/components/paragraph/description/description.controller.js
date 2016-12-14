@@ -12,57 +12,7 @@ class DescriptionController {
         this.adventureId = game.adventureId;
         this.descriptionEditable = false;
         this.alreadyChoosen = this.gamePersistenceService.getChoosenChoices(this.gameId, this.paragraph.paragraphNr);
-        this.computeDescriptionWithChoice(this.paragraph.description);
-    }
-
-    computeDescriptionWithChoice(description) {
-        let lines = this.getLines(description);
-        this.paragraphs = [];
-        for (let i = 0; i < lines.length; i++) {
-            let line = lines[i];
-            let descriptionWithChoices = [];
-            while (this.hasChoice(line)) {
-                let indexOfFirstDelimiter = line.indexOf('§');
-                let indexOfSecondDelimiter = line.indexOf('§', indexOfFirstDelimiter + 1);
-                let textBeforeChoice = line.slice(0, indexOfFirstDelimiter);
-                if (!!textBeforeChoice && textBeforeChoice.trim().length > 0) {
-                    descriptionWithChoices.push({ choice: false, text: textBeforeChoice });
-                }
-
-                let textOfChoice = line.slice(indexOfFirstDelimiter + 1, indexOfSecondDelimiter);
-                if (!!textOfChoice && textOfChoice.trim().length > 0) {
-                    descriptionWithChoices.push({ choice: true, text: textOfChoice });
-                }
-                line = line.substr(indexOfSecondDelimiter + 1);
-            }
-            if (!!line && line.trim().length > 0) {
-                descriptionWithChoices.push({ choice: false, text: line });
-            }
-            this.paragraphs.push(descriptionWithChoices);
-        }
-    }
-
-    getLines(description) {
-        let textsDelimitedWithEol = description.split('\n');
-        let lines = [];
-        for (let i = 0; i < textsDelimitedWithEol.length; i++) {
-            let textDelimitedWithEol = textsDelimitedWithEol[i];
-            if (!!textDelimitedWithEol && textDelimitedWithEol.trim().length > 0) {
-                lines.push(textDelimitedWithEol);
-            }
-        }
-        return lines;
-    }
-
-    hasChoice(text) {
-        let indexOfFirstDelimiter = text.indexOf('§');
-        let indexOfSecondDelimiter = text.indexOf('§', indexOfFirstDelimiter + 1);
-        return indexOfFirstDelimiter !== -1 && indexOfSecondDelimiter !== -1;
-    }
-
-    isNumber(text) {
-        let result = new Number(text).toString();
-        return result !== "NaN";
+        this.paragraphs = this.adventurePersistenceService.getDescriptionParts(this.paragraph.description);
     }
 
     editDescription() {

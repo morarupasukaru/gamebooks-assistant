@@ -222,8 +222,6 @@ class AdventurePersistenceService {
                 adventureId : adventureId,
                 paragraphNr : paragraphNr,
                 description : ''
-                // TODO remove
-                choices : []
             };
             let adventure = this.getAdventure(adventureId);
             if (!adventure.numberOfParagraphs) {
@@ -247,31 +245,53 @@ class AdventurePersistenceService {
         }
         paragraph = JSON.parse(JSON.stringify(paragraph));
         let key = this.getParagraphPersistenceKey(adventureId, paragraph.paragraphNr);
-        // TODO remove
-        if (!!paragraph.choices) {
-            for (let i = 0; i < paragraph.choices.length; i++) {
-                delete paragraph.choices[i]['$$hashKey'];
-            }
-        }
-        this.checkDupplicateChoices(paragraph);
         this.persistenceService.save(key, paragraph);
     }
 
-    checkDupplicateChoices(paragraph) {
-        // TODO remove
-        if (!!paragraph && !!paragraph.choices) {
-            let choices = [];
-            for (let i = 0; i < paragraph.choices.length; i++) {
-                if (choices.indexOf(paragraph.choices[i].paragraphNr) !== -1) {
-                    this.messagesService.errorMessage(this.$translate.instant("DupplicateParagraphChoices", {paragraphNr: paragraph.paragraphNr, choiceParagraphNr : paragraph.choices[i].paragraphNr }), true);
+    getDescriptionParts(description) {
+        let lines = this.getLines(description);
+        let parts = [];
+        for (let i = 0; i < lines.length; i++) {
+            let line = lines[i];
+            let descriptionWithChoices = [];
+            while (this.hasChoice(line)) {
+                let indexOfFirstDelimiter = line.indexOf('§');
+                let indexOfSecondDelimiter = line.indexOf('§', indexOfFirstDelimiter + 1);
+                let textBeforeChoice = line.slice(0, indexOfFirstDelimiter);
+                if (!!textBeforeChoice && textBeforeChoice.trim().length > 0) {
+                    descriptionWithChoices.push({ choice: false, text: textBeforeChoice });
                 }
-                choices.push(paragraph.choices[i].paragraphNr);
+
+                let textOfChoice = line.slice(indexOfFirstDelimiter + 1, indexOfSecondDelimiter);
+                if (!!textOfChoice && textOfChoice.trim().length > 0) {
+                    descriptionWithChoices.push({ choice: true, text: textOfChoice });
+                }
+                line = line.substr(indexOfSecondDelimiter + 1);
             }
+            if (!!line && line.trim().length > 0) {
+                descriptionWithChoices.push({ choice: false, text: line });
+            }
+            parts.push(descriptionWithChoices);
         }
+        return parts;
     }
 
-    getParagraphChoices(paragraph) {
-        // TODO distinct choices (can appear several times)
+    getLines(description) {
+        let textsDelimitedWithEol = description.split('\n');
+        let lines = [];
+        for (let i = 0; i < textsDelimitedWithEol.length; i++) {
+            let textDelimitedWithEol = textsDelimitedWithEol[i];
+            if (!!textDelimitedWithEol && textDelimitedWithEol.trim().length > 0) {
+                lines.push(textDelimitedWithEol);
+            }
+        }
+        return lines;
+    }
+
+    hasChoice(text) {
+        let indexOfFirstDelimiter = text.indexOf('§');
+        let indexOfSecondDelimiter = text.indexOf('§', indexOfFirstDelimiter + 1);
+        return indexOfFirstDelimiter !== -1 && indexOfSecondDelimiter !== -1;
     }
 
     getAdventureParagraphKeys(adventureId) {
@@ -332,10 +352,6 @@ class AdventurePersistenceService {
                     if (!!paragraph) {
                         delete paragraph.version;
                         delete paragraph.adventureId;
-                        // TODO remove
-                        if (!!paragraph.choices && paragraph.choices.length === 0) {
-                            delete paragraph.choices;
-                        }
                         if (!!paragraph.notes && paragraph.notes.length === 0) {
                             delete paragraph.notes;
                         }
