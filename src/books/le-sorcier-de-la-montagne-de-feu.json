@@ -19,7 +19,7 @@
     "notes": true,
     "stats": true
   },
-  "version": "0.1",
+  "version": "0.2",
   "items": [
     {
       "description": "Epée",
@@ -109,16 +109,6 @@
       ],
       "description": "Caverne sombre",
       "paragraphNr": 1
-    },
-    {
-      "description": "",
-      "notes": [
-        {
-          "note": "test",
-          "playerName": "pascal"
-        }
-      ],
-      "paragraphNr": 2
     },
     {
       "choices": [

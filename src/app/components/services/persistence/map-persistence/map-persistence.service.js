@@ -47,6 +47,7 @@ class MapPersistenceService {
             } else {
                 node = this.createNode(currentParagraph);
                 paragraphsMapId[currentParagraph.paragraphNr] = node.id;
+                // TODO adventurePersistenceService.getChoices(...)
                 if (!!currentParagraph.choices) {
                     node.children = [];
                     for (let i = 0; i < currentParagraph.choices.length; i++) {

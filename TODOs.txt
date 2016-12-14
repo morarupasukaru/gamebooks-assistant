@@ -133,3 +133,7 @@ next todo:
 # replace table in libraries as list?
 
 # replace "selected" and other row button with a menu "..."
+
+# simplify admin (direct action with url)
+
+# simplify about

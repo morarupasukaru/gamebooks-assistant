@@ -221,7 +221,8 @@ class AdventurePersistenceService {
                 version : this.constants.version,
                 adventureId : adventureId,
                 paragraphNr : paragraphNr,
-                description : '',
+                description : ''
+                // TODO remove
                 choices : []
             };
             let adventure = this.getAdventure(adventureId);
@@ -246,6 +247,7 @@ class AdventurePersistenceService {
         }
         paragraph = JSON.parse(JSON.stringify(paragraph));
         let key = this.getParagraphPersistenceKey(adventureId, paragraph.paragraphNr);
+        // TODO remove
         if (!!paragraph.choices) {
             for (let i = 0; i < paragraph.choices.length; i++) {
                 delete paragraph.choices[i]['$$hashKey'];
@@ -256,6 +258,7 @@ class AdventurePersistenceService {
     }
 
     checkDupplicateChoices(paragraph) {
+        // TODO remove
         if (!!paragraph && !!paragraph.choices) {
             let choices = [];
             for (let i = 0; i < paragraph.choices.length; i++) {
@@ -265,6 +268,10 @@ class AdventurePersistenceService {
                 choices.push(paragraph.choices[i].paragraphNr);
             }
         }
+    }
+
+    getParagraphChoices(paragraph) {
+        // TODO distinct choices (can appear several times)
     }
 
     getAdventureParagraphKeys(adventureId) {
@@ -325,6 +332,7 @@ class AdventurePersistenceService {
                     if (!!paragraph) {
                         delete paragraph.version;
                         delete paragraph.adventureId;
+                        // TODO remove
                         if (!!paragraph.choices && paragraph.choices.length === 0) {
                             delete paragraph.choices;
                         }

@@ -138,6 +138,7 @@ class GamePersistenceService {
     }
 
     deleteGame(gameId, deleteParagraphNotesOfGame, deleteParagraphChoicesOfGame) {
+        // TODO deleteGame call
         let game = this.getGame(gameId);
         let key = this.getGamePersistenceKey(gameId);
         if (!!deleteParagraphNotesOfGame || !!deleteParagraphChoicesOfGame) {
@@ -226,6 +227,7 @@ class GamePersistenceService {
         } else {
             let paragraph = this.adventurePersistenceService.getParagraph(game.adventureId, paragraphNr);
             let choosen = [];
+            // TODO getChoices(...)
             if (!!paragraph.choices) {
                 for (let i = 0; i < paragraph.choices.length; i++) {
                     let keyArray = paragraph.choices[i].paragraphNr;
