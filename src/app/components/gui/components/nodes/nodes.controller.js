@@ -33,11 +33,6 @@ class NodesController {
             }
         }
     }
-
-    /*
-                checked: false,
-                selected: false
-*/
 }
 
 export default NodesController;

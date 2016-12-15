@@ -248,7 +248,24 @@ class AdventurePersistenceService {
         this.persistenceService.save(key, paragraph);
     }
 
-    getDescriptionParts(description) {
+    getParagraphChoices(currentParagraph) {
+        let paragraphs = this.getDescriptionParagraphs(currentParagraph.description);
+        let paragraphNrInChoices = [];
+        if (!!paragraphs) {
+            for (let i = 0; i < paragraphs.length; i++) {
+                let paragraph = paragraphs[i];
+                for (let j = 0; j < paragraph.length; j++) {
+                    let part = paragraph[j];
+                    if (!!part.choice) {
+                        paragraphNrInChoices.push(part.text);
+                    }
+                }
+            }
+        }
+        return paragraphNrInChoices;
+    }
+
+    getDescriptionParagraphs(description) {
         let lines = this.getLines(description);
         let parts = [];
         for (let i = 0; i < lines.length; i++) {
@@ -277,12 +294,14 @@ class AdventurePersistenceService {
     }
 
     getLines(description) {
-        let textsDelimitedWithEol = description.split('\n');
         let lines = [];
-        for (let i = 0; i < textsDelimitedWithEol.length; i++) {
-            let textDelimitedWithEol = textsDelimitedWithEol[i];
-            if (!!textDelimitedWithEol && textDelimitedWithEol.trim().length > 0) {
-                lines.push(textDelimitedWithEol);
+        if (!!description) {
+            let textsDelimitedWithEol = description.split('\n');
+            for (let i = 0; i < textsDelimitedWithEol.length; i++) {
+                let textDelimitedWithEol = textsDelimitedWithEol[i];
+                if (!!textDelimitedWithEol && textDelimitedWithEol.trim().length > 0) {
+                    lines.push(textDelimitedWithEol);
+                }
             }
         }
         return lines;

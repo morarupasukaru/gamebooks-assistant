@@ -12,7 +12,7 @@ class DescriptionController {
         this.adventureId = game.adventureId;
         this.descriptionEditable = false;
         this.alreadyChoosen = this.gamePersistenceService.getChoosenChoices(this.gameId, this.paragraph.paragraphNr);
-        this.paragraphs = this.adventurePersistenceService.getDescriptionParts(this.paragraph.description);
+        this.paragraphs = this.adventurePersistenceService.getDescriptionParagraphs(this.paragraph.description);
     }
 
     editDescription() {

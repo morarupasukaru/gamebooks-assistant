@@ -47,11 +47,11 @@ class MapPersistenceService {
             } else {
                 node = this.createNode(currentParagraph);
                 paragraphsMapId[currentParagraph.paragraphNr] = node.id;
-                // TODO adventurePersistenceService.getChoices(...)
-                if (!!currentParagraph.choices) {
+                let choices = this.adventurePersistenceService.getParagraphChoices(currentParagraph);
+                if (!!choices) {
                     node.children = [];
-                    for (let i = 0; i < currentParagraph.choices.length; i++) {
-                        node.children.push(this.createNodeRecursively(paragraphs, currentParagraph.choices[i].paragraphNr, paragraphsMapId, knownNodes));
+                    for (let i = 0; i < choices.length; i++) {
+                        node.children.push(this.createNodeRecursively(paragraphs, choices[i], paragraphsMapId, knownNodes));
                     }
                 }
             }
