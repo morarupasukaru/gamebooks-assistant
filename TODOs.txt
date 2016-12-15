@@ -2,8 +2,6 @@ en cours:
 
 next todo:
 
-# jump to paragraph as toogle
-
 #lone wolf
 - autre tags, contenu à intégrer?
 - telecharger les illustrations et sauver en base64

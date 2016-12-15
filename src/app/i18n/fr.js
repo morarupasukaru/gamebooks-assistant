@@ -91,6 +91,7 @@ const frenchTranslations = {
     'English': 'English',
     'Enable battle': 'Active les combats',
     'Enable dices': 'Active les dés',
+    'Enable Go to paragraph': 'Active les sauts de paragraphe',
     'Enable items': 'Active les objets',
     'Enable notes': 'Active les notes',
     'Enable stats': 'Active les attributs',

@@ -9,7 +9,7 @@ let gotoModule = angular.module('app.components.gui.screen.paragraph.goto', [])
         controller,
         bindings: {
             gameId: '<',
-            paragraph: '<'
+            paragraph: '<',
         }
     });
 

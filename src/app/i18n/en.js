@@ -91,6 +91,7 @@ const englishTranslations = {
     'English': 'English',
     'Enable battle': 'Enable battle',
     'Enable dices': 'Enable dices',
+    'Enable Go to paragraph': 'Enable Go to paragraph',
     'Enable items': 'Enable items',
     'Enable notes': 'Enable notes',
     'Enable stats': 'Enable stats',

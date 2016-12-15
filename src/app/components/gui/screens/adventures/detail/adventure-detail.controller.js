@@ -37,7 +37,8 @@ class AdventureDetailController {
                         stats: true,
                         notes: true,
                         items: true,
-                        dices: true
+                        dices: true,
+                        goto: true
                     }
                 };
                 this.mode = "create";

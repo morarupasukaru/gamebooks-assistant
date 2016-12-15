@@ -15,6 +15,7 @@
   "toggles": {
     "battle": true,
     "dices": true,
+    "goto": true,
     "items": true,
     "notes": true,
     "stats": true

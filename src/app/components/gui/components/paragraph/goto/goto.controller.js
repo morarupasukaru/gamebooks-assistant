@@ -1,13 +1,16 @@
 class GoToController {
     /*@ngInject*/
-    constructor(gamePersistenceService, $location) {
+    constructor(gamePersistenceService, adventurePersistenceService, $location) {
         this.gamePersistenceService = gamePersistenceService;
+        this.adventurePersistenceService = adventurePersistenceService;
         this.$location = $location;
         this.initData();
     }
 
     initData() {
         let game = this.gamePersistenceService.getGame(this.gameId);
+        let adventure = this.adventurePersistenceService.getAdventure(game.adventureId);
+        this.gotoAvailable = !!adventure.toggles.goto;
     }
 
     goTo(paragraphNr) {
