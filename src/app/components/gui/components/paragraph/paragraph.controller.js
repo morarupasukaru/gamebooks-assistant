@@ -12,7 +12,6 @@ class ParagraphController {
         this.adventureId = game.adventureId;
         this.playerName = game.playerName;
         this.descriptionEditable = false;
-        this.alreadyChoosen = this.gamePersistenceService.getChoosenChoices(this.gameId, this.paragraph.paragraphNr);
     }
 
     editDescription() {

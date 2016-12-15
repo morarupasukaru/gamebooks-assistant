@@ -227,12 +227,11 @@ class GamePersistenceService {
         } else {
             let paragraph = this.adventurePersistenceService.getParagraph(game.adventureId, paragraphNr);
             let choosen = [];
-            // TODO getChoices(...)
-            if (!!paragraph.choices) {
-                for (let i = 0; i < paragraph.choices.length; i++) {
-                    let keyArray = paragraph.choices[i].paragraphNr;
-                    if (!!choosenParagraphs[keyArray]) {
-                        choosen.push('' + paragraph.choices[i].paragraphNr);
+            let choices = this.adventurePersistenceService.getParagraphChoices(paragraph);
+            if (!!choices) {
+                for (let i = 0; i < choices.length; i++) {
+                    if (!!choosenParagraphs[choices[i]]) {
+                        choosen.push('' + choices[i]);
                     }
                 }
             }
