@@ -51,23 +51,5 @@
             </button>
         </td>
     </tr>
-    <tr>
-        <td>
-            <div class="input-group">
-                <div class="input-group-btn">
-                    <button type="button" class="btn btn-default"
-                            aria-label="{{ 'Go to paragraph' | translate}}"
-                            title="{{ 'Go to paragraph' | translate}}"
-                            ng-click="$ctrl.goTo($ctrl.paragraphNrChoice)"
-                            ng-disabled="!$ctrl.paragraphNrChoice">
-                        {{ 'Go to' | translate}}
-                    </button>
-                </div>
-                <input id="goToParagraphNr" type="number" class="form-control" ng-model="$ctrl.paragraphNrChoice">
-            </div>
-        </td>
-        <td>
-        </td>
-    </tr>
     </tbody>
 </table>

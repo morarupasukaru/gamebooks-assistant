@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button class="btn btn-default"
+                        aria-label="{{ 'Go to paragraph' | translate }}"
+                        title="{{ 'Go to paragraph' | translate }}"
+                        ng-click="$ctrl.goTo($ctrl.paragraphNrChoice)"
+                        ng-disabled="!$ctrl.paragraphNrChoice">
+                    {{ 'Go to paragraph' | translate }}
+                </button>
+            </span>
+            <input id="goToParagraphNr" type="number" class="form-control" ng-model="$ctrl.paragraphNrChoice">
+        </div>
+    </div>
+</div>
+<br/>

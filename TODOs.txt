@@ -1,14 +1,8 @@
 en cours:
 
-#editable paragraph with link
-- supprimer l'édition de choix via un tableau
-
-# jump to paragraph
-- jump to paragraph as separate component (split from description)
-- jump to paragraph as toogle
-- jump to paragraph without collapse, expand
-
 next todo:
+
+# jump to paragraph as toogle
 
 #lone wolf
 - autre tags, contenu à intégrer?
