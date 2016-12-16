@@ -10,7 +10,7 @@ class CreateGameService {
     startGame(adventure, playerName, playerItems, stats) {
         let game = this.buildGame(adventure, playerName, playerItems, stats);
         game = this.gamePersistenceService.addGame(game);
-        this.gamePersistenceService.setCurrentParagraphNrOfGame(game.id, null, adventure.startParagraphNr);
+        this.gamePersistenceService.setCurrentParagraphNrOfGame(game.id, null, adventure.startParagraphId);
         this.$location.url(this.gamePersistenceService.getUrlOfGame(game.id));
     }
 

@@ -109,6 +109,7 @@ const englishTranslations = {
     'fr': 'Français',
     'Français': 'Français',
     "Game's rules": "Game's rules",
+    "Game's rules paragraph": "Game's rules paragraph",
     'GameAlreadyExists': "The game already exists with id '{{ gameId }}'",
     'Games': 'Games',
     'General': 'General',

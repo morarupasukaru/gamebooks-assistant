@@ -76,12 +76,11 @@
             <button type="button"
                     class="btn btn-default"
                     ng-if="$ctrl.isGameRulesAvailable()"
-                    ng-click="$ctrl.displayGameRulesPopup()">
+                    ng-click="$ctrl.goToGameRulesParagraph()">
                 {{ "Game's rules" | translate }}
             </button>
         </div>
     </div>
 
-    <popup config="{{ $ctrl.popupGameRulesConfig }}"></popup>
     <end-game-popup config="{{ $ctrl.popupAbandonGameConfig }}"></end-game-popup>
 </main>

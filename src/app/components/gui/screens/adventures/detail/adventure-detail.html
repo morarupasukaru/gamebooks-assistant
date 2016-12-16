@@ -40,16 +40,16 @@
                         <input type="text" class="form-control" id="isbn" ng-model="$ctrl.adventure.isbn">
                     </div>
                     <div class="form-group">
-                        <label for="startParagraphNr">{{ "First paragraph" | translate }}</label>
-                        <input type="text" class="form-control" id="startParagraphNr" ng-model="$ctrl.adventure.startParagraphNr" required>
+                        <label for="startParagraphId">{{ "First paragraph" | translate }}</label>
+                        <input type="text" class="form-control" id="startParagraphId" ng-model="$ctrl.adventure.startParagraphId" required>
                     </div>
                     <div class="form-group">
                         <label for="startGameNote">{{ "Start game's note" | translate }}</label>
                         <textarea id="startGameNote" class="form-control" ng-model="$ctrl.adventure.startGameNote"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="gameRules">{{ "Game's rules" | translate }}</label>
-                        <textarea id="gameRules" class="form-control" ng-model="$ctrl.adventure.gameRules" rows="10"></textarea>
+                        <label for="gameRulesParagraphId">{{ "Game's rules paragraph" | translate }}</label>
+                        <input type="text" class="form-control" id="gameRulesParagraphId" ng-model="$ctrl.adventure.gameRulesParagraphId" required>
                     </div>
                 </div>
 

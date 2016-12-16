@@ -1,4 +1,7 @@
 en cours:
+#rules as paragraph
+remove startGameNote replaced by startGameWizard
+remove step choose item in start game?
 
 
 next todo:
@@ -7,7 +10,7 @@ next todo:
     - flag "paragraphe non traceable sur la carte" qui est un checkbox clickable dans l'edition du paragraphe
     - un changement du flag implique une maj des données de la "map"
     - ignorer les "jumps" dans les paragraphes non jouable
-    - liens de paragraphe trackable dans les paragraphes non trackable sont visible seulement si le path du joueur est vide (joueur n'a pas encore débuté le jeu)
+    - liens de paragraphe trackable dans les paragraphes non trackable sont visible seulement si le path du joueur est vide (joueur n'a parems encore débuté le jeu)
     => permet de faire un "wizard"
 
     #lone wolf

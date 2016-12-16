@@ -5,13 +5,14 @@
     "min": 1
   },
   "downloadUrl": "le-sorcier-de-la-montagne-de-feu.json",
+  "gameRulesParagraphId": "règles de jeu",
   "id": "le-sorcier-de-la-montagne-de-feu",
   "isbn": "978-2-07-064740-8",
   "language": "Français",
   "name": "Le Sorcier de la Montagne de Feu",
   "serie": "Défis Fantastiques",
   "startGameNote": "Veuilliez choisir soit la potion d'habilité, de force ou de chance (supprimez les potions non choisies de l'inventaire).",
-  "startParagraphNr": "1",
+  "startParagraphId": "1",
   "toggles": {
     "battle": true,
     "dices": true,

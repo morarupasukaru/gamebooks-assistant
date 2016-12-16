@@ -32,15 +32,6 @@ class GameDetailController {
         this.paragraph = this.adventurePersistenceService.getOrCreateParagraph(this.adventureId, this.$stateParams.paragraphNr);
         this.adventure = this.adventurePersistenceService.getAdventure(this.adventureId);
 
-        this.popupGameRulesConfig = {
-            id : 'popupGameRules',
-            text : this.adventure.gameRules,
-            choices : [constants.choices.ok],
-            withCloseButton : true,
-            closeOnClickOutsideModal : false,
-            withoutTranslate: true
-        };
-
         this.checkAvailableAdventure();
     }
 
@@ -75,16 +66,13 @@ class GameDetailController {
     }
 
     isGameRulesAvailable() {
-        return !!this.adventure.gameRules;
+        return !!this.adventure.gameRulesParagraphId;
     }
 
-    displayGameRulesPopup() {
-        let self = this;
-        this.popupService.show(
-            this.popupGameRulesConfig.id,
-            function(popupDomElementId) {
-            }
-        );
+    goToGameRulesParagraph() {
+        this.gamePersistenceService.setCurrentParagraphNrOfGame(this.game.id, this.paragraph.paragraphNr, this.adventure.gameRulesParagraphId);
+        let nextUrl = this.gamePersistenceService.getUrlOfGame(this.game.id);
+l        this.$location.url(nextUrl);
     }
 
     toogleCollapseMap() {

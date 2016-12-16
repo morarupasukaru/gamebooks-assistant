@@ -9,7 +9,7 @@
   "id": "adventure-example",
   "language": "English",
   "name": "Adventure example",
-  "startParagraphNr": "1",
+  "startParagraphId": "1",
   "toggles": {
     "battle": true,
     "dices": true,

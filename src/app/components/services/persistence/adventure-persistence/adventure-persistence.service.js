@@ -141,8 +141,8 @@ class AdventurePersistenceService {
             if (!adventure.language) {
                 missingMandatoryFields.push('language');
             }
-            if (!adventure.startParagraphNr) {
-                missingMandatoryFields.push('startParagraphNr');
+            if (!adventure.startParagraphId) {
+                missingMandatoryFields.push('startParagraphId');
             }
             if (missingMandatoryFields.length > 0) {
                 this.messagesService.errorMessage(this.$translate.instant("ImportGameFailedMissingFields", {missingMandatoryFields: missingMandatoryFields.join(', ') }), false);
