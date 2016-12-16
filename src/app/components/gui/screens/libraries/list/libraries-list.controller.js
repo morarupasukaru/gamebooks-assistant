@@ -96,7 +96,6 @@ class LibrariesListController {
 
     displayImportLibrariesPopup() {
         let self = this;
-        this.popupImportLibrariesConfig.title = this.$translate.instant('Import libraries');
         this.importDataPopupService.show(
             this.popupImportLibrariesConfig.id,
             function(popupDomElementId, data) {

@@ -103,7 +103,6 @@ class GamesListController {
 
     displayImportGamePopup() {
         let self = this;
-        this.popupImportGameConfig.title = this.$translate.instant('Import a game');
         this.importDataPopupService.show(
             this.popupImportGameConfig.id,
             function(popupDomElementId, data) {

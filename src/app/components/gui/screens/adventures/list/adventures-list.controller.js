@@ -91,7 +91,6 @@ class AdventuresListController {
 
     displayImportAdventurePopup() {
         let self = this;
-        this.popupImportAdventureConfig.title = this.$translate.instant('Import an adventure');
         this.importDataPopupService.show(
             this.popupImportAdventureConfig.id,
             function(popupDomElementId, data) {

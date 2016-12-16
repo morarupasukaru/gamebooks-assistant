@@ -12,7 +12,6 @@ let importDataPopupModule = angular.module('app.components.gui.components.import
             config: '<'
         }
     })
-    .service('importDataPopupService', importDataPopupService)
-    .constant('importMethods', { file:'file', text:'text'});
+    .service('importDataPopupService', importDataPopupService);
 
 export default importDataPopupModule;

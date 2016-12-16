@@ -208,7 +208,6 @@ class AdventurePersistenceService {
                 return ;
             }
         }
-        this.checkDupplicateChoices(paragraph);
         this.persistenceService.save(key, paragraph);
     }
 
