@@ -16,17 +16,10 @@ class ChooseItemsController {
         } else {
             this.playerItems = [];
         }
-        this.displayNotes();
     }
 
     isItemsDisplayed() {
         return !!this.adventure.items && this.adventure.items.length > 0;
-    }
-
-    displayNotes() {
-        if (!!this.adventure.startGameNote) {
-            this.messagesService.infoMessage(this.adventure.startGameNote, false);
-        }
     }
 
     getItems() {

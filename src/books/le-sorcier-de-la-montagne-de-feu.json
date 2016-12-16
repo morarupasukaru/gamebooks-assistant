@@ -11,8 +11,7 @@
   "language": "Français",
   "name": "Le Sorcier de la Montagne de Feu",
   "serie": "Défis Fantastiques",
-  "startGameNote": "Veuilliez choisir soit la potion d'habilité, de force ou de chance (supprimez les potions non choisies de l'inventaire).",
-  "startParagraphId": "1",
+  "startParagraphId": "Sélection de l'inventaire",
   "toggles": {
     "battle": true,
     "dices": true,
@@ -103,258 +102,8 @@
       "paragraphNr": 1
     },
     {
-      "description": "",
-      "notes": [
-        {
-          "note": "test",
-          "playerName": "pascal"
-        }
-      ],
-      "paragraphNr": 2
-    },
-    {
-      "description": "Le passeur, un vieil homme vous demande 3 pièces d'or pour traverser la rivière.\nPayer 3 pièces d'or§272§\nLe menacer§127§",
-      "paragraphNr": 3
-    },
-    {
-      "description": "\nExplorer un passage vers le nord§46§\nPartir vers le sud§332§",
-      "paragraphNr": 4
-    },
-    {
-      "description": "Il y a une porte de bois dans le mur est du passage. Vous entendez quelqu'un chantonner gaiement.\nFrapper à la porte et entrer§97§\nContinuer vers le nord§292§",
-      "paragraphNr": 5
-    },
-    {
-      "description": "Vous essayez en vain d'ouvrir la porte.\nVous revenez sur vos pas et prenez l'ouverture étroite§89§",
-      "paragraphNr": 6
-    },
-    {
-      "description": "Vous êtes sur la berge nord d'une rivière au fort courant, dans une grande caverne.\nPoursuivre§214§",
-      "paragraphNr": 7
-    },
-    {
-      "description": "Vous arrivez à un cul-de-sac ou des objets magiques sont en train de construire un escalier qui descend. Vous discutez avec les outils. Le spectacle et la pause vous fait gagner 2 points d'ENDURANCE et 1 point d'HABILITE. Vous retournez au croisement précédent.\nAller au nord§366§\nAller au sud§250§",
-      "paragraphNr": 11
-    },
-    {
-      "description": "Vous n'arrivez pas à atteindre la porte du sud. Vous glissez sur un caillou.\nLes créatures sont sur vous avant de vous être relevées§282§",
-      "paragraphNr": 13
-    },
-    {
-      "description": "Une créature vous a découvert suite à vos bruits de recherche. Lorsque vous avez vaincu la créature rendez-vous au 117\nCombattre la créature§161§",
-      "paragraphNr": 14
-    },
-    {
-      "description": "Ce lieu de repos est enchanté. Vous récupérez 2 points d'endurance supplémentaire du repas ainsi que 1 point d'habilité.\nAvancez le long du couloir§367§",
-      "paragraphNr": 15
-    },
-    {
-      "description": "1er LUTIN a HABILITÉ:5, ENDURANCE:5\n2ème LUTIN a HABILITÉ:5, ENDURANCE:6\nVous sortez vainqueur du combat§317§",
-      "paragraphNr": 19
-    },
-    {
-      "description": "1er NAIN a HABILITE: 7, ENDURANCE: 4, 2ème NAIN: H6/E6, 3ème NAIN: H7/E5, 4ème NAIN: H7/E5\nSi vous êtes vainqueur§376§\nVous pouvez fuire si le combat tourne mal (otez vos points de pénalités)§291§",
-      "paragraphNr": 20
-    },
-    {
-      "description": "Le coffre est solide et bien fermé.\nBriser la serrure avec votre épée§339§\nQuitter la pièce§293§",
-      "paragraphNr": 21
-    },
-    {
-      "description": "Vous ne trouvez pas de porte secrète. Un mince jet de gaz s'échappe du plafond. Vous étouffez et perdez connaissance. Lorsque vous revenez à vous, vous ne reconnaissez pas les lieux\nPoursuivre§4§",
-      "paragraphNr": 22
-    },
-    {
-      "description": "Le couloir aboutit à une porte bien solide.\nEntrer dans la pièce§326§\nRetourner à la bifurcation§229§",
-      "paragraphNr": 23
-    },
-    {
-      "description": "Une pierre se détache du roc et révèle une anfractuosité dans laquelle est cachée une corde.\ntirer sur la corde§67§\nrevenir au croisement§267§",
-      "paragraphNr": 30
-    },
-    {
-      "description": "Le farfadet se réveille en sursaut et vous attaque.\nFARFADET a HABILITÉ:6, ENDURANCE: 4\nPrendre la fuite§320§\nPrendre la boîte si vous êtes vainqueur§147§",
-      "paragraphNr": 33
-    },
-    {
-      "description": "Un jet de gaz à l'odeur âcre s'échappe d'un orifice.\nPrendre la fuite§136§\nRetenir votre respiration et s'emparer de la clé rapidement§361§",
-      "paragraphNr": 35
-    },
-    {
-      "description": "Vous débouchez dans la pièce. Un vieil homme en haillons se rue sur vous en hurlant.\nCrier pour essayer de le calmer§263§\nL'attaquer§353§",
-      "paragraphNr": 36
-    },
-    {
-      "description": "Vous vous trouvez à un croisement\nAller au nord§366§\nA l'ouest§11§\nAu sud§277§",
-      "paragraphNr": 37
-    },
-    {
-      "description": "Vous trouvez le garde-manger du loup-garou. Vous trouvez l'équivalent de 2 repas.\nSortir par la porte sud§66§",
-      "paragraphNr": 38
-    },
-    {
-      "description": "Le bruit perçant devient de plus en plus fort. La douleur vous fait perdre 1 point d'HABILITE. Vous avancez à tâtons.\nExaminer le mur ouest§355§\nExaminer le mur nord§265§\nExaminer le mur est§181§",
-      "paragraphNr": 40
-    },
-    {
-      "description": "ÊTRE a HABILITÉ:9,ENDURANCE:6\nLorsque lui infligé une blessure§310§",
-      "paragraphNr": 41
-    },
-    {
-      "description": "Vous arrivez au bout du couloir avec un croisement.\nAller à l'ouest§257§\nAller à l'est§113§",
-      "paragraphNr": 42
-    },
-    {
-      "description": "\nAller au nord§354§\nAller au sud§52§",
-      "paragraphNr": 43
-    },
-    {
-      "description": "Vous finissez le repas entamé\nVous nagez ensuite dans la rivière§399§",
-      "paragraphNr": 44
-    },
-    {
-      "description": "\nAller à l'ouest puis au sud§4§\nTraverser une porte qui bloque votre passage vers l'est§206§",
-      "paragraphNr": 46
-    },
-    {
-      "description": "Lorsque vous êtes au milieu de la rivière, le pont se met à se balancer sous votre poids. La rambarbe se dérobe brusquement au moment où vous vous appuyez dessus. Lancer 1 dé\nUn 6 vous précipite dans la rivière§158§\nDe 1 à 5, vous retrouvez votre équilibre§298§",
-      "paragraphNr": 47
-    },
-    {
-      "description": "\nPartir vers le nord§391§\nAller à l'ouest§60§",
-      "paragraphNr": 48
-    },
-    {
-      "description": "La pièce est sombre. Vous entendez un bruissemet de pas mais avant d'avoir pu réagir, un coup sur la tête vous assome. Vous perdez 2 points d'ENDURANCE.\nPoursuivre§122§",
-      "paragraphNr": 49
-    },
-    {
-      "description": "\nAller au sud§391§\nChercher un passage secret dans le couloir sud§362§\nAller au nord§354§\nChercher un passage secret dans le couloir nord§234§\nAller à l'est§291§",
-      "paragraphNr": 52
-    },
-    {
-      "description": "Lancer 2 dés. Si le chiffre obtenu est égal ou inférieur à votre total d'HABILITÉ, la porte s'ouvre. Sinon la porte ne bouge pas et vous perdez 1 point d'ENDURANCE.\nSi la porte est enfoncée§155§\nSi la porte reste fermée§300§",
-      "paragraphNr": 53
-    },
-    {
-      "description": "Vous arrivez devant une porte au nord\nRepartir vers le sud§308§\nPasser la porte§179§",
-      "paragraphNr": 54
-    },
-    {
-      "description": "Vous rampez le long du long couloir. Il y a un solide banc de bois dans un coin avec une inscription: \"Repose-toi ici, voyageur fourbu\"\nS'asseoir sur le banc et prendre un repas§15§\nContinuer votre chemin§367§",
-      "paragraphNr": 58
-    },
-    {
-      "description": "\nLe passage se termine avec une lourde herse, vous faites demi-tour§48§",
-      "paragraphNr": 60
-    },
-    {
-      "description": "Le couloir vous amène devant une porte massive blindée.\nVous essayez d'ouvrir la porte§6§\nVous revenez en arrière et passer par l'ouverture étroite§89§",
-      "paragraphNr": 62
-    },
-    {
-      "description": "Alors que vous êtes paralysée, la goule vous dévore. Votre aventure est terminée.",
-      "paragraphNr": 64
-    },
-    {
-      "description": "Les deux créatures vous attaquent malgré le fait que vous ayez tenté de sauver l'une d'elle.\nPrendre la fuite par la porte le long du couloir§293§\nPoursuivre le combat§372§",
-      "paragraphNr": 65
-    },
-    {
-      "description": "Le passage mène à la berge de la rivière.\nSe rendre devant la porte qui se trouve au milieu du pan de roc§104§\nSuivre le passage vers l'est le long de la rivière§99§",
-      "paragraphNr": 66
-    },
-    {
-      "description": "Une petite porte s'ouvre menant sur un passage nord-sud\nRevenir au croisement§267§\nPasser par la porte secrète§177§",
-      "paragraphNr": 67
-    },
-    {
-      "description": "Les lutins sont perplexes. Ils vont chercher un autre nain à torturer\nVous quittez la pièce et partez en direction du nord§303§",
-      "paragraphNr": 68
-    },
-    {
-      "description": "Vous vous dirigez vers le nord.\nVous partez vers le nord§244§",
-      "paragraphNr": 69
-    },
-    {
-      "description": "\nVous aboutissez à un autre croisement§267§",
-      "paragraphNr": 70
-    },
-    {
-      "description": "Lutin endormi dans une guérite du passage. Tentez votre chance pour passer devant lui sans le réveiller.\nRéussite : le lutin ne se réveille pas.§301§\nÉchec : le lutin se réveille§248§",
-      "paragraphNr": 71
-    },
-    {
-      "description": "Tentez votre chance.\nSi vous êtes chanceux, vous échappez à la puissance de son regard§279§\nSi vous êtes malchanceux, vous laissez tomber votre épée comme il vous l'ordonne§118§",
-      "paragraphNr": 74
-    },
-    {
-      "description": "Vous arrivez à un croisement. Un abri vous permet de prendre un repas.\nAller à l'est§345§\nAller à l'ouest§18§",
-      "paragraphNr": 77
-    },
-    {
-      "description": "Passage aboutit à une porte massive. Vous entendez quelqu'un marmonner et des bruits de casseroles.\nFranchir la porte§159§\nRebrousser chemin§237§",
-      "paragraphNr": 78
-    },
-    {
-      "description": "Le couloir se finit en cul-de-sac.\nChercher un passage secret§137§\nRetourner au croisement§267§",
-      "paragraphNr": 79
-    },
-    {
-      "description": "La porte s'ouvre sur un hangar à bateaux. Les squelettes interrompent leur travail et s'avancent vers vous armé de planches et marteaux. Il y a une autre porte dans le mur nord\nRevenir sur vos pas§129§\nSe faire passer pour un acheteur de bateau§123§\nSe faire passer pour leur nouveau patron§195§",
-      "paragraphNr": 80
-    },
-    {
-      "description": "Un bruit vous fait sursauter et vous incite à quitter la pièce au plus vite\nExaminer la porte nord§205§",
-      "paragraphNr": 81
-    },
-    {
-      "description": "Petite pièce avec créature endormie et une petite boîte en bois. Tentez votre chance pour essayer de voler la boîte sans réveiller la créature\nQuitter la pièce et continuer vers le nord§208§\nRéussite : la créature ne se réveille pas§147§\nÉchec : la créature se réveille§33§",
-      "paragraphNr": 82
-    },
-    {
-      "description": "La pièce donne sur une pièce confortable. Un vieil homme est assis à une table avec une petite créature ailée à ses côtés. Il tient dans sa main 2 petits objets blancs qu'il agite devant vous.\nVous asseoir comme il vous y invite§204§\nQuitter la pièce et revenir au croisement§280§\nAttaquer le vieil homme§377§",
-      "paragraphNr": 84
-    },
-    {
-      "description": "Un CROCODILE vous attaque. Il possède HABILITE: 7, ENDURANCE: 6. Au bout de 2 assauts, votre combat attire une turbulence qui se déplace dans votre direction\nPoursuivre le combat avec le crocodile§259§\nContinuer le combat pendant un assaut en espérant que le visiteur vous aide dans le combat§350§",
-      "paragraphNr": 86
-    },
-    {
-      "description": "Vous entrez dans une autre pièce vide au milieu de laquelle se trouve une fontaine avec un pancarte en bois dans la langue des lutins. Vous réussissez à lire \"... non potable\".\nAllez-vous quand même boire à cette fontaine§216§\nPasser votre chemin et quittez la pièce par une porte dans le mur nord§384§",
-      "paragraphNr": 88
-    },
-    {
-      "description": "Vous arrivez en haut d'un escalier\nVous descendez celui-ci§286§",
-      "paragraphNr": 89
-    },
-    {
-      "description": "Tentez votre chance. Si vous êtes chanceux vous pouvez repartir avec 2d6 de pièces d'or\nPoursuivre§131§",
-      "paragraphNr": 91
-    },
-    {
-      "description": "Croisement caverne\nAvancer droit devant§71§",
-      "paragraphNr": 92
-    },
-    {
-      "description": "\nChercher des passages le long du couloir§260§\nAller au croisement§329§",
-      "paragraphNr": 94
-    },
-    {
-      "description": "Vous arrivez dans un petit couloir. Vous vous dissimulez dans une cachette alors que 4 squelettes armées courent vers vous sans vous avoir vu\nPoursuivre§374§",
-      "paragraphNr": 96
-    },
-    {
-      "description": "Un petit homme assis sur un rocking-chair au milieu d'une pièce bien meublé vous souhaite bonjour\nEngager la conversation avec lui§334§\nL'attaquer§247§\nQuitter la pièce et repartir en direction du nord§292§",
-      "paragraphNr": 97
-    },
-    {
-      "description": "Le couloir vous mène à une porte solide.\nVous examiner la porte§383§",
-      "paragraphNr": 99
-    },
-    {
-      "description": "\nJouer pour de bon§346§\nTricher§91§",
-      "paragraphNr": 100
+      "description": "Veuilliez choisir soit la potion d'habilité, de force ou de chance (supprimez les potions non choisies de l'inventaire).\n\nDébuter l'aventure §1§",
+      "paragraphNr": "Sélection de l'inventaire"
     },
     {
       "description": "La porte n'est pas verrouillé. Dans la pièce, 2 bossus torturent un nain. Le nain s'évanouit dans un cri. Les bossus se tournent vers vous\nRefermer aussitôt la porte et poursuivre votre chemin§303§\nAttaquer les créatures§19§\nDonner un coup d'épée au nain avec un rire diabolique§68§",
@@ -375,6 +124,10 @@
     {
       "description": "C'est de l'EAU SAINTE. Vous récupérer quasi tous vos points d'endurance (-2 total initial), vos points d'habilité (-1 total initial) et 4 points de chance.\nAller vers le nord§120§\nRegarder le parchemin§212§",
       "paragraphNr": 109
+    },
+    {
+      "description": "Vous arrivez à un cul-de-sac ou des objets magiques sont en train de construire un escalier qui descend. Vous discutez avec les outils. Le spectacle et la pause vous fait gagner 2 points d'ENDURANCE et 1 point d'HABILITE. Vous retournez au croisement précédent.\nAller au nord§366§\nAller au sud§250§",
+      "paragraphNr": 11
     },
     {
       "description": "Vous trouvez en plus de 8 pièces d'or encore 2 pièces d'or dans la botte du cadavre.\nPoursuivre§319§",
@@ -421,6 +174,10 @@
       "paragraphNr": 129
     },
     {
+      "description": "Vous n'arrivez pas à atteindre la porte du sud. Vous glissez sur un caillou.\nLes créatures sont sur vous avant de vous être relevées§282§",
+      "paragraphNr": 13
+    },
+    {
       "description": "Vous pouvez miser autant de pièces que vous avez par partie et tant que vous en possédez. Lancer 2 dés pour vous et le vieil homme. Le gagnant à le montant le plus gros.\nSi vous gagnez, prenez 2 points d'HABILITÉ, 2 points d'ENDURANCE, 2 points de CHANCE.\nQuitter la pièce§280§",
       "paragraphNr": 130
     },
@@ -439,6 +196,10 @@
     {
       "description": "Un déclic se fait entendre et vous avez un étourdissement. Lorsque vous reprenez conscience, vous ne savez pas ou vous êtes.\nPoursuivre§354§",
       "paragraphNr": 137
+    },
+    {
+      "description": "Une créature vous a découvert suite à vos bruits de recherche. Lorsque vous avez vaincu la créature rendez-vous au 117\nCombattre la créature§161§",
+      "paragraphNr": 14
     },
     {
       "description": "Un VER MARIN GEANT apparait de la berge et vous attaque. Il possède HABILITE: 7, ENDURANCE: 7\nSi vous êtes vainqueur§44§\nPrendre la fuite après 3 assauts contre la bête en sautant dans la rivière (vous perdez un provision de ce fait)§399§",
@@ -461,6 +222,10 @@
     {
       "description": "Vous évitez de peu un coup de griffe de la créature qui s'est réveillé.\nIl vous attaque§230§",
       "paragraphNr": 148
+    },
+    {
+      "description": "Ce lieu de repos est enchanté. Vous récupérez 2 points d'endurance supplémentaire du repas ainsi que 1 point d'habilité.\nAvancez le long du couloir§367§",
+      "paragraphNr": 15
     },
     {
       "description": "\nAller au nord§222§\nAller à l'est§297§\nAller au sud§133§",
@@ -571,6 +336,10 @@
       "paragraphNr": 187
     },
     {
+      "description": "1er LUTIN a HABILITÉ:5, ENDURANCE:5\n2ème LUTIN a HABILITÉ:5, ENDURANCE:6\nVous sortez vainqueur du combat§317§",
+      "paragraphNr": 19
+    },
+    {
       "description": "Vous arrivez à un cul-de-sac\nExplorer l'impasse§167§\nRevenir au croisement§359§",
       "paragraphNr": 190
     },
@@ -589,6 +358,20 @@
     {
       "description": "Vous arrivez dans une caverne ou deux HOMMES DES CAVERNES vous attaquent. 1er HOMME DES CAVERNES a HABILITE: 7, ENDURANCE: 6, 2ème a HABILITE: 6, ENDURANCE: 4\nSi vous êtes vainqueur§283§",
       "paragraphNr": 199
+    },
+    {
+      "description": "",
+      "notes": [
+        {
+          "note": "test",
+          "playerName": "pascal"
+        }
+      ],
+      "paragraphNr": 2
+    },
+    {
+      "description": "1er NAIN a HABILITE: 7, ENDURANCE: 4, 2ème NAIN: H6/E6, 3ème NAIN: H7/E5, 4ème NAIN: H7/E5\nSi vous êtes vainqueur§376§\nVous pouvez fuire si le combat tourne mal (otez vos points de pénalités)§291§",
+      "paragraphNr": 20
     },
     {
       "description": "Il y a 25 Pièces d'Or, 1 dose de Potion d'Invisibilité, un gant de soie noire. Ranger une de ces trois trouvailles. Vous pouvez prendre un Repas.\nQuittez la pièce§293§",
@@ -629,6 +412,10 @@
       "paragraphNr": 209
     },
     {
+      "description": "Le coffre est solide et bien fermé.\nBriser la serrure avec votre épée§339§\nQuitter la pièce§293§",
+      "paragraphNr": 21
+    },
+    {
       "description": "Vous arrivez à une autre bifurcation.\nContinuer en direction de l'ouest§225§\nPrendre la direction du nord§357§",
       "paragraphNr": 210
     },
@@ -657,6 +444,10 @@
       "paragraphNr": 218
     },
     {
+      "description": "Vous ne trouvez pas de porte secrète. Un mince jet de gaz s'échappe du plafond. Vous étouffez et perdez connaissance. Lorsque vous revenez à vous, vous ne reconnaissez pas les lieux\nPoursuivre§4§",
+      "paragraphNr": 22
+    },
+    {
       "description": "Quels sont ces mystérieux objets que vous avez rassemblés? Qu'avez-vous inscrit en premier sur votre Liste d'Equipement?\nL'armure§72§\nLe bouclier§132§\nL'or§110§\nLe crucifix§170§",
       "paragraphNr": 221
     },
@@ -675,6 +466,10 @@
     {
       "description": "Vous êtes de retour à la bifurcation.\nVous prenez à droite§69§",
       "paragraphNr": 229
+    },
+    {
+      "description": "Le couloir aboutit à une porte bien solide.\nEntrer dans la pièce§326§\nRetourner à la bifurcation§229§",
+      "paragraphNr": 23
     },
     {
       "description": "La GOULE va attaque. Elle a HABILITÉ: 8, ENDURANCE:7\nSi vous êtes vainqueur§390§\nElle vous paralyse au bout de 4 blessures§64§",
@@ -831,8 +626,8 @@
       "paragraphNr": 284
     },
     {
-      "description": "Il y a une porte le long du mur du passage. Vous entendez un homme appeler à l'aide par le trou de serrure.\nOuvrir la porte§213§\nPoursuivre votre chemin§314§",
-      "paragraphNr": 285
+      "description": "\nJouer pour de bon§346§\nTricher§91§",
+      "paragraphNr": 100
     },
     {
       "description": "Vous arrivez à une grande salle ou trois cadavres sont étendus au sol\nFouiller le premier cadavre§294§\nFouiller le deuxième cadavre§275§\nFouiller le troisième cadavre§148§\nTraverser la salle sur la pointe des pieds§107§",
@@ -875,6 +670,14 @@
     {
       "description": "\nEssayer de découvrir des passages secrets au long de votre chemin§260§\nContinuer vers le nord§359§",
       "paragraphNr": 299
+    },
+    {
+      "description": "Le passeur, un vieil homme vous demande 3 pièces d'or pour traverser la rivière.\nPayer 3 pièces d'or§272§\nLe menacer§127§",
+      "paragraphNr": 3
+    },
+    {
+      "description": "Une pierre se détache du roc et révèle une anfractuosité dans laquelle est cachée une corde.\ntirer sur la corde§67§\nrevenir au croisement§267§",
+      "paragraphNr": 30
     },
     {
       "description": "Dans le mur est du passage, il y a une porte. Des hurlements se font entendre liées certainement à une séance de torture.\nTenter d'ouvrir la porte§102§\nPoursuivre votre chemin§303§",
@@ -953,6 +756,10 @@
       "paragraphNr": 329
     },
     {
+      "description": "Le farfadet se réveille en sursaut et vous attaque.\nFARFADET a HABILITÉ:6, ENDURANCE: 4\nPrendre la fuite§320§\nPrendre la boîte si vous êtes vainqueur§147§",
+      "paragraphNr": 33
+    },
+    {
       "description": "Vous trouvez du rhum qui vous fait gagner 1 point de CHANCE et 6 d'ENDURANCE.\nPoursuivre§81§",
       "paragraphNr": 330
     },
@@ -1001,6 +808,10 @@
       "paragraphNr": 349
     },
     {
+      "description": "Un jet de gaz à l'odeur âcre s'échappe d'un orifice.\nPrendre la fuite§136§\nRetenir votre respiration et s'emparer de la clé rapidement§361§",
+      "paragraphNr": 35
+    },
+    {
       "description": "La turbulence vous entoure. Ce sont des PIRANHAS. Ils attaquent l'opposant blessé et en préférence le crocodile. Sinon jetez un dé. La plupart des PIRANHAS vous attaquent pour 1-2 ou sinon le crodile pour 3-6. Les PIRANHAS ont HABILITE: 5, ENDURANCE: 5 s'il vous attaque en majorité ou sinon 1.\nSi vous êtes vainqueur, vous gagnez 1 point de CHANCE et pouvez prendre un repas une fois arrivez à terre ferme.§7§",
       "paragraphNr": 350
     },
@@ -1023,6 +834,10 @@
     {
       "description": "\nAller au nord§190§\nAller au sud§94§\nAller à l'est§121§\nAller à l'ouest§385§",
       "paragraphNr": 359
+    },
+    {
+      "description": "Vous débouchez dans la pièce. Un vieil homme en haillons se rue sur vous en hurlant.\nCrier pour essayer de le calmer§263§\nL'attaquer§353§",
+      "paragraphNr": 36
     },
     {
       "description": "Vous arrivez à une étroite ouverture. Vous décidez de la franchir\nPoursuivre§89§",
@@ -1063,6 +878,10 @@
       "paragraphNr": 369
     },
     {
+      "description": "Vous vous trouvez à un croisement\nAller au nord§366§\nA l'ouest§11§\nAu sud§277§",
+      "paragraphNr": 37
+    },
+    {
       "description": "Pièce avec une table autour de laquelle deux créatures éméchées sont assises. Il y a une petite boîte sous la table.\nCombattre les créatures§116§\nRefermer la porte et courir le long du passage§42§",
       "paragraphNr": 370
     },
@@ -1089,6 +908,10 @@
     {
       "description": "La boîte est intitulé \"Farrigo Di Maggio\"\nOuvrir la boîte§296§\nQuitter la pièce sans l'examiner§42§",
       "paragraphNr": 378
+    },
+    {
+      "description": "Vous trouvez le garde-manger du loup-garou. Vous trouvez l'équivalent de 2 repas.\nSortir par la porte sud§66§",
+      "paragraphNr": 38
     },
     {
       "description": "Vous partez dans la direction d'un croisement\nPoursuivre§37§",
@@ -1137,6 +960,186 @@
     {
       "description": "Le fort courant vous amène dans une grande caverne ou vous vous échouez à une des rives\nPoursuivre§218§",
       "paragraphNr": 399
+    },
+    {
+      "description": "\nExplorer un passage vers le nord§46§\nPartir vers le sud§332§",
+      "paragraphNr": 4
+    },
+    {
+      "description": "Le bruit perçant devient de plus en plus fort. La douleur vous fait perdre 1 point d'HABILITE. Vous avancez à tâtons.\nExaminer le mur ouest§355§\nExaminer le mur nord§265§\nExaminer le mur est§181§",
+      "paragraphNr": 40
+    },
+    {
+      "description": "ÊTRE a HABILITÉ:9,ENDURANCE:6\nLorsque lui infligé une blessure§310§",
+      "paragraphNr": 41
+    },
+    {
+      "description": "Vous arrivez au bout du couloir avec un croisement.\nAller à l'ouest§257§\nAller à l'est§113§",
+      "paragraphNr": 42
+    },
+    {
+      "description": "\nAller au nord§354§\nAller au sud§52§",
+      "paragraphNr": 43
+    },
+    {
+      "description": "Vous finissez le repas entamé\nVous nagez ensuite dans la rivière§399§",
+      "paragraphNr": 44
+    },
+    {
+      "description": "\nAller à l'ouest puis au sud§4§\nTraverser une porte qui bloque votre passage vers l'est§206§",
+      "paragraphNr": 46
+    },
+    {
+      "description": "Lorsque vous êtes au milieu de la rivière, le pont se met à se balancer sous votre poids. La rambarbe se dérobe brusquement au moment où vous vous appuyez dessus. Lancer 1 dé\nUn 6 vous précipite dans la rivière§158§\nDe 1 à 5, vous retrouvez votre équilibre§298§",
+      "paragraphNr": 47
+    },
+    {
+      "description": "\nPartir vers le nord§391§\nAller à l'ouest§60§",
+      "paragraphNr": 48
+    },
+    {
+      "description": "La pièce est sombre. Vous entendez un bruissemet de pas mais avant d'avoir pu réagir, un coup sur la tête vous assome. Vous perdez 2 points d'ENDURANCE.\nPoursuivre§122§",
+      "paragraphNr": 49
+    },
+    {
+      "description": "Il y a une porte de bois dans le mur est du passage. Vous entendez quelqu'un chantonner gaiement.\nFrapper à la porte et entrer§97§\nContinuer vers le nord§292§",
+      "paragraphNr": 5
+    },
+    {
+      "description": "\nAller au sud§391§\nChercher un passage secret dans le couloir sud§362§\nAller au nord§354§\nChercher un passage secret dans le couloir nord§234§\nAller à l'est§291§",
+      "paragraphNr": 52
+    },
+    {
+      "description": "Lancer 2 dés. Si le chiffre obtenu est égal ou inférieur à votre total d'HABILITÉ, la porte s'ouvre. Sinon la porte ne bouge pas et vous perdez 1 point d'ENDURANCE.\nSi la porte est enfoncée§155§\nSi la porte reste fermée§300§",
+      "paragraphNr": 53
+    },
+    {
+      "description": "Vous arrivez devant une porte au nord\nRepartir vers le sud§308§\nPasser la porte§179§",
+      "paragraphNr": 54
+    },
+    {
+      "description": "Vous rampez le long du long couloir. Il y a un solide banc de bois dans un coin avec une inscription: \"Repose-toi ici, voyageur fourbu\"\nS'asseoir sur le banc et prendre un repas§15§\nContinuer votre chemin§367§",
+      "paragraphNr": 58
+    },
+    {
+      "description": "Vous essayez en vain d'ouvrir la porte.\nVous revenez sur vos pas et prenez l'ouverture étroite§89§",
+      "paragraphNr": 6
+    },
+    {
+      "description": "\nLe passage se termine avec une lourde herse, vous faites demi-tour§48§",
+      "paragraphNr": 60
+    },
+    {
+      "description": "Le couloir vous amène devant une porte massive blindée.\nVous essayez d'ouvrir la porte§6§\nVous revenez en arrière et passer par l'ouverture étroite§89§",
+      "paragraphNr": 62
+    },
+    {
+      "description": "Alors que vous êtes paralysée, la goule vous dévore. Votre aventure est terminée.",
+      "paragraphNr": 64
+    },
+    {
+      "description": "Les deux créatures vous attaquent malgré le fait que vous ayez tenté de sauver l'une d'elle.\nPrendre la fuite par la porte le long du couloir§293§\nPoursuivre le combat§372§",
+      "paragraphNr": 65
+    },
+    {
+      "description": "Le passage mène à la berge de la rivière.\nSe rendre devant la porte qui se trouve au milieu du pan de roc§104§\nSuivre le passage vers l'est le long de la rivière§99§",
+      "paragraphNr": 66
+    },
+    {
+      "description": "Une petite porte s'ouvre menant sur un passage nord-sud\nRevenir au croisement§267§\nPasser par la porte secrète§177§",
+      "paragraphNr": 67
+    },
+    {
+      "description": "Les lutins sont perplexes. Ils vont chercher un autre nain à torturer\nVous quittez la pièce et partez en direction du nord§303§",
+      "paragraphNr": 68
+    },
+    {
+      "description": "Vous vous dirigez vers le nord.\nVous partez vers le nord§244§",
+      "paragraphNr": 69
+    },
+    {
+      "description": "Vous êtes sur la berge nord d'une rivière au fort courant, dans une grande caverne.\nPoursuivre§214§",
+      "paragraphNr": 7
+    },
+    {
+      "description": "\nVous aboutissez à un autre croisement§267§",
+      "paragraphNr": 70
+    },
+    {
+      "description": "Lutin endormi dans une guérite du passage. Tentez votre chance pour passer devant lui sans le réveiller.\nRéussite : le lutin ne se réveille pas.§301§\nÉchec : le lutin se réveille§248§",
+      "paragraphNr": 71
+    },
+    {
+      "description": "Tentez votre chance.\nSi vous êtes chanceux, vous échappez à la puissance de son regard§279§\nSi vous êtes malchanceux, vous laissez tomber votre épée comme il vous l'ordonne§118§",
+      "paragraphNr": 74
+    },
+    {
+      "description": "Vous arrivez à un croisement. Un abri vous permet de prendre un repas.\nAller à l'est§345§\nAller à l'ouest§18§",
+      "paragraphNr": 77
+    },
+    {
+      "description": "Passage aboutit à une porte massive. Vous entendez quelqu'un marmonner et des bruits de casseroles.\nFranchir la porte§159§\nRebrousser chemin§237§",
+      "paragraphNr": 78
+    },
+    {
+      "description": "Le couloir se finit en cul-de-sac.\nChercher un passage secret§137§\nRetourner au croisement§267§",
+      "paragraphNr": 79
+    },
+    {
+      "description": "La porte s'ouvre sur un hangar à bateaux. Les squelettes interrompent leur travail et s'avancent vers vous armé de planches et marteaux. Il y a une autre porte dans le mur nord\nRevenir sur vos pas§129§\nSe faire passer pour un acheteur de bateau§123§\nSe faire passer pour leur nouveau patron§195§",
+      "paragraphNr": 80
+    },
+    {
+      "description": "Un bruit vous fait sursauter et vous incite à quitter la pièce au plus vite\nExaminer la porte nord§205§",
+      "paragraphNr": 81
+    },
+    {
+      "description": "Petite pièce avec créature endormie et une petite boîte en bois. Tentez votre chance pour essayer de voler la boîte sans réveiller la créature\nQuitter la pièce et continuer vers le nord§208§\nRéussite : la créature ne se réveille pas§147§\nÉchec : la créature se réveille§33§",
+      "paragraphNr": 82
+    },
+    {
+      "description": "La pièce donne sur une pièce confortable. Un vieil homme est assis à une table avec une petite créature ailée à ses côtés. Il tient dans sa main 2 petits objets blancs qu'il agite devant vous.\nVous asseoir comme il vous y invite§204§\nQuitter la pièce et revenir au croisement§280§\nAttaquer le vieil homme§377§",
+      "paragraphNr": 84
+    },
+    {
+      "description": "Un CROCODILE vous attaque. Il possède HABILITE: 7, ENDURANCE: 6. Au bout de 2 assauts, votre combat attire une turbulence qui se déplace dans votre direction\nPoursuivre le combat avec le crocodile§259§\nContinuer le combat pendant un assaut en espérant que le visiteur vous aide dans le combat§350§",
+      "paragraphNr": 86
+    },
+    {
+      "description": "Vous entrez dans une autre pièce vide au milieu de laquelle se trouve une fontaine avec un pancarte en bois dans la langue des lutins. Vous réussissez à lire \"... non potable\".\nAllez-vous quand même boire à cette fontaine§216§\nPasser votre chemin et quittez la pièce par une porte dans le mur nord§384§",
+      "paragraphNr": 88
+    },
+    {
+      "description": "Vous arrivez en haut d'un escalier\nVous descendez celui-ci§286§",
+      "paragraphNr": 89
+    },
+    {
+      "description": "Tentez votre chance. Si vous êtes chanceux vous pouvez repartir avec 2d6 de pièces d'or\nPoursuivre§131§",
+      "paragraphNr": 91
+    },
+    {
+      "description": "Croisement caverne\nAvancer droit devant§71§",
+      "paragraphNr": 92
+    },
+    {
+      "description": "\nChercher des passages le long du couloir§260§\nAller au croisement§329§",
+      "paragraphNr": 94
+    },
+    {
+      "description": "Vous arrivez dans un petit couloir. Vous vous dissimulez dans une cachette alors que 4 squelettes armées courent vers vous sans vous avoir vu\nPoursuivre§374§",
+      "paragraphNr": 96
+    },
+    {
+      "description": "Un petit homme assis sur un rocking-chair au milieu d'une pièce bien meublé vous souhaite bonjour\nEngager la conversation avec lui§334§\nL'attaquer§247§\nQuitter la pièce et repartir en direction du nord§292§",
+      "paragraphNr": 97
+    },
+    {
+      "description": "Le couloir vous mène à une porte solide.\nVous examiner la porte§383§",
+      "paragraphNr": 99
+    },
+    {
+      "description": "Il y a une porte le long du mur du passage. Vous entendez un homme appeler à l'aide par le trou de serrure.\nOuvrir la porte§213§\nPoursuivre votre chemin§314§",
+      "paragraphNr": 285
     }
   ]
 }

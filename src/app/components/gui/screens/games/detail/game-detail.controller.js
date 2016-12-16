@@ -72,7 +72,7 @@ class GameDetailController {
     goToGameRulesParagraph() {
         this.gamePersistenceService.setCurrentParagraphNrOfGame(this.game.id, this.paragraph.paragraphNr, this.adventure.gameRulesParagraphId);
         let nextUrl = this.gamePersistenceService.getUrlOfGame(this.game.id);
-l        this.$location.url(nextUrl);
+        this.$location.url(nextUrl);
     }
 
     toogleCollapseMap() {

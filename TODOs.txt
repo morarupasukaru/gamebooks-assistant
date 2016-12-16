@@ -2,6 +2,7 @@ en cours:
 #rules as paragraph
 remove startGameNote replaced by startGameWizard
 remove step choose item in start game?
+remove choose-items.controller (create item in previous step)
 
 
 next todo:

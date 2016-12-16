@@ -204,7 +204,6 @@ const frenchTranslations = {
     'Start a new game': 'Débute un nouveau jeu',
     'Start Battle': 'Débute un combat',
     'Start Game': 'Débute un jeu',
-    "Start game's note": 'La note de début de jeu',
     'State': 'Attribut',
     'Stats': 'Attributs',
     'Stats rules': "Règles d'attributs",

@@ -28,7 +28,7 @@ class DescriptionController {
         this.originalDescription = null;
         this.descriptionEditable = false;
         this.adventurePersistenceService.updateParagraph(this.adventureId, this.paragraph);
-        this.computeDescriptionWithChoice(this.paragraph.description);
+        this.paragraphs = this.adventurePersistenceService.getDescriptionParagraphs(this.paragraph.description);
     }
 
     abortDescriptionChanges() {

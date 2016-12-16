@@ -204,7 +204,6 @@ const englishTranslations = {
     'Start a new game': 'Start a new game',
     'Start Battle': 'Start Battle',
     'Start Game': 'Start Game',
-    "Start game's note": "Start game's note",
     'State': 'State',
     'Stats': 'Stats',
     'Stats rules': 'Stats rules',
