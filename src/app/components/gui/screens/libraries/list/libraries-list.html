@@ -63,10 +63,7 @@
                 aria-label="{{ 'Remove selected library' | translate }}"
                 title="{{ 'Remove selected library' | translate }}"
                 ng-click="$ctrl.displayRemoveLibraryPopup()">{{ 'Remove' | translate }}</button>
-        <button type="button" class="btn btn-default"
-                aria-label="{{ 'Export libraries' | translate }}"
-                title="{{ 'Export libraries' | translate }}"
-                ng-click="$ctrl.displayExportLibrariesPopup()">{{ 'Export' | translate }}</button>
+        <export-button data="$ctrl.exportData" title="{{ 'Export libraries' | translate }}"></export-button>
         <button type="button" class="btn btn-default"
                 aria-label="{{ 'Download libraries' | translate }}"
                 title="{{ 'Download libraries' | translate }}"
@@ -76,5 +73,4 @@
 </main>
 
 <popup config="{{ $ctrl.popupDeleteLibraryConfig }}"></popup>
-<export-data-popup config="$ctrl.popupExportLibrariesConfig"></export-data-popup>
 <import-data-popup config="$ctrl.popupImportLibrariesConfig"></import-data-popup>

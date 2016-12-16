@@ -7,11 +7,9 @@ class LibrariesListController {
                 messagesService,
                 $translate,
                 popupService,
-                exportDataPopupService,
                 importDataPopupService,
                 libraryPersistenceService,
-                $stateParams,
-                $log) {
+                $stateParams) {
         this.constants = constants;
         this.$location = $location;
         this.gamePersistenceService = gamePersistenceService;
@@ -20,10 +18,8 @@ class LibrariesListController {
         this.messagesService = messagesService;
         this.$translate = $translate;
         this.popupService = popupService;
-        this.exportDataPopupService = exportDataPopupService;
         this.importDataPopupService = importDataPopupService;
         this.$stateParams = $stateParams;
-        this.$log = $log;
 
         this.popupDeleteLibraryConfig = {
             id : 'popupDeleteLibrary',
@@ -33,7 +29,6 @@ class LibrariesListController {
             closeOnClickOutsideModal : false
         };
 
-        this.popupExportLibrariesConfig = { id : 'popupExportLibraries' };
         this.popupImportLibrariesConfig = { id : 'popupImportLibraries' };
 
         if (!!$stateParams.import) {
@@ -52,6 +47,8 @@ class LibrariesListController {
             }
         }
         this.clearSelection();
+
+        this.exportData = this.libraryPersistenceService.exportLibraries();
     }
 
     loadPredefinedData() {
@@ -95,13 +92,6 @@ class LibrariesListController {
     deleteLibrary() {
         this.libraryPersistenceService.deleteLibrary(this.getSelectedRow().id);
         this.initData();
-    }
-
-    displayExportLibrariesPopup() {
-        this.popupExportLibrariesConfig.exportData = this.libraryPersistenceService.exportLibraries();
-        this.popupExportLibrariesConfig.exportDownloadBlobUrl = this.exportDataPopupService.createDownloadBlobUrl(this.popupExportLibrariesConfig.exportData);
-        this.popupExportLibrariesConfig.exportTitle = this.$translate.instant('Export libraries');
-        this.exportDataPopupService.show(this.popupExportLibrariesConfig.id);
     }
 
     displayImportLibrariesPopup() {

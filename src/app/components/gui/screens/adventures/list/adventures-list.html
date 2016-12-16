@@ -77,11 +77,10 @@
                 aria-label="{{ 'Remove selected adventure' | translate }}"
                 title="{{ 'Remove selected adventure' | translate }}"
                 ng-click="$ctrl.displayRemoveAdventurePopup()">{{ 'Remove' | translate }}</button>
-        <button type="button" class="btn btn-default"
-                ng-disabled="!$ctrl.isSelectedAdventureAvailable()"
-                aria-label="{{ 'Export selected adventure' | translate }}"
-                title="{{ 'Export selected adventure' | translate }}"
-                ng-click="$ctrl.displayExportAdventurePopup()">{{ 'Export' | translate }}</button>
+        <export-button data="$ctrl.exportData"
+                           title="{{ 'Export selected adventure' | translate }}"
+                           disabled="!$ctrl.isSelectedAdventureAvailable()">
+        </export-button>
         <button type="button" class="btn btn-default"
                 ng-disabled="!$ctrl.isSelectedRowDownloadable()"
                 aria-label="{{ 'Download selected adventure' | translate }}"
@@ -92,5 +91,4 @@
 
 <popup config="{{ $ctrl.popupDeleteAdventureConfig }}"></popup>
 <popup config="{{ $ctrl.popupDownloadAdventureConfig }}"></popup>
-<export-data-popup config="$ctrl.popupExportAdventureConfig"></export-data-popup>
 <import-data-popup config="$ctrl.popupImportAdventureConfig"></import-data-popup>

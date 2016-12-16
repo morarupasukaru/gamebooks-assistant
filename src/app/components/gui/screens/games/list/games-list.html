@@ -68,14 +68,12 @@
                 aria-label="{{ 'Remove the selected game' | translate }}"
                 title="{{ 'Remove the selected game' | translate }}">{{ 'Remove' | translate }}
         </button>
-        <button type="button" class="btn btn-default"
-                ng-disabled="!$ctrl.hasSelectedRow()"
-                ng-click="$ctrl.displayExportGamePopup()"
-                aria-label="{{ 'Export selected adventure' | translate }}"
-                title="{{ 'Export selected adventure' | translate }}">{{ 'Export' | translate }}</button>
+        <export-button data="$ctrl.exportData"
+                           title="{{ 'Export selected game' | translate }}"
+                           disabled="!$ctrl.hasSelectedRow()">
+        </export-button>
     </div>
 </main>
 
 <popup config="{{ $ctrl.popupDeleteGameConfig }}"></popup>
-<export-data-popup config="$ctrl.popupExportGameConfig"></export-data-popup>
 <import-data-popup config="$ctrl.popupImportGameConfig"></import-data-popup>

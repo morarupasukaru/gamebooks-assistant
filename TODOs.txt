@@ -1,5 +1,13 @@
 en cours:
 
+#non mappable paragraph
+- trouver non pour flag mappable?
+- flag "paragraphe non traceable sur la carte" qui est un checkbox clickable dans l'edition du paragraphe
+- un changement du flag implique une maj des données de la "map"
+- ignorer les "jumps" dans les paragraphes non jouable
+- liens de paragraphe trackable dans les paragraphes non trackable sont visible seulement si le path du joueur est vide (joueur n'a pas encore débuté le jeu)
+=> permet de faire un "wizard"
+
 next todo:
 
 #lone wolf
@@ -13,15 +21,11 @@ next todo:
 - gestion des "capacités" en tant que item?
 
 #règles de jeu
-- flag "paragraphe non traceable sur la carte" qui est un checkbox clickable dans l'edition du paragraphe
-=> un clic, declic implique une maj de la carte
-- ignorer les "jumps" dans les paragraphes non jouable
+- avoir un paragraphe avec les différents paragraphes de règles (liste)
+- les autres paragraphes de règles fonctionnent tel un wizard (dernier liens = premier paragraphe)
 - aide de jeu accessible depuis écran paragraphe & combat, "choix" customisable de manière général (point d'entrée de l'aide pour les combats diffère de celui de l'aide générale)
 => pas de liens d'aide pour les combats car cet écran sera supprimé
-- liens de paragraphe trackable dans les paragraphes non trackable sont visible seulement si le path du joueur est vide (joueur n'a pas encore débuté le jeu)
-- afficher liens règles de jeu dans paragraphes différents
 - cacher des sections config par paragraphe, accessible en mode édition
-=> permet de faire un paragraphe combat ou aide custom
 
 - valeur par défaut de l'affichage des sections dans l'aventure?
 #combat as paragraphe
@@ -111,8 +115,6 @@ next todo:
 
 # $windows wrapper
 
-# delete export as email
-
 # delete export as text
 
 # delete import as text
@@ -124,7 +126,3 @@ next todo:
 # replace table in libraries as list?
 
 # replace "selected" and other row button with a menu "..."
-
-# simplify admin (direct action with url)
-
-# simplify about

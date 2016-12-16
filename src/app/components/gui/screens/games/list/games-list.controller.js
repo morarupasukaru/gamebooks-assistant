@@ -1,6 +1,6 @@
 class GamesListController {
     /*@ngInject*/
-    constructor($location, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, exportDataPopupService, importDataPopupService, $stateParams) {
+    constructor($location, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, importDataPopupService, $stateParams) {
         this.constants = constants;
         this.$location = $location;
         this.gamePersistenceService = gamePersistenceService;
@@ -8,7 +8,6 @@ class GamesListController {
         this.messagesService = messagesService;
         this.$translate = $translate;
         this.popupService = popupService;
-        this.exportDataPopupService = exportDataPopupService;
         this.importDataPopupService = importDataPopupService;
         this.$stateParams = $stateParams;
 
@@ -20,7 +19,6 @@ class GamesListController {
             closeOnClickOutsideModal : false
         };
 
-        this.popupExportGameConfig = { id : 'popupExportGame' };
         this.popupImportGameConfig = { id : 'popupImportGame' };
 
         if (!!$stateParams.import) {
@@ -63,6 +61,7 @@ class GamesListController {
             this.rows[i].selected = false;
         }
         row.selected = true;
+        this.exportData = JSON.stringify(this.gamePersistenceService.exportGame(row.id));
     }
 
     startNewGame() {
@@ -100,13 +99,6 @@ class GamesListController {
     deleteGame() {
         this.gamePersistenceService.deleteGame(this.getSelectedRow().id, true, true);
         this.initData();
-    }
-
-    displayExportGamePopup() {
-        this.popupExportGameConfig.exportData = JSON.stringify(this.gamePersistenceService.exportGame(this.getSelectedRow().id));
-        this.popupExportGameConfig.exportDownloadBlobUrl = this.exportDataPopupService.createDownloadBlobUrl(this.popupExportGameConfig.exportData);
-        this.popupExportGameConfig.exportTitle = this.$translate.instant('ExportGame', {playerName: this.getSelectedRow().playerName, adventureName: this.getSelectedRow().adventureName });
-        this.exportDataPopupService.show(this.popupExportGameConfig.id);
     }
 
     displayImportGamePopup() {

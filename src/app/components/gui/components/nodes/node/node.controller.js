@@ -1,7 +1,6 @@
 class NodeController {
     /*@ngInject*/
-    constructor($log) {
-        this.$log = $log;
+    constructor() {
     }
 
     click() {
