@@ -41,6 +41,10 @@ class GameDetailController {
         }
     }
 
+    isMapAvailable() {
+        return !!this.adventure.toggles.map;
+    }
+
     isNotesAvailable() {
         return !!this.adventure.toggles.notes;
     }

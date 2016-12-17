@@ -1,9 +1,11 @@
 en cours:
-#rules as paragraph
-remove startGameNote replaced by startGameWizard
-remove step choose item in start game?
-remove choose-items.controller (create item in previous step)
+toggle map available
 
+#rules as paragraph
+    remove choose-items.controller (create item in previous step)
+
+#tag on paragraph
+    supprimer end-game qui sera remplacé par un tag sur le paragraphe
 
 next todo:
     #non mappable paragraph
@@ -89,6 +91,7 @@ next todo:
     - dropdown dispo lors de l'edition du titre du paragraphe
     - dropdown dispo lors de l'edition du nom du joueur
     - tag s'affiche à coté du paragraphe / nom du joueur ainsi:  ... - image (texte)
+    - test tag "game over"
     - tag s'affiche dans la carte, seulement l'image, le texte en tooltip, s'il n'y a pas d'image, un icon de bootstrap est pris par défaut
     - [v] [x] d'édition sans au niveau du titre du paragraphe, du nom du joueur
     - la dropdown a un bouton a coté permettant d'éditer la liste des tags
@@ -126,3 +129,5 @@ next todo:
     # replace table in libraries as list?
 
     # replace "selected" and other row button with a menu "..."
+
+    # more small ui angular components

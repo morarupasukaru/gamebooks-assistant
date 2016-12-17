@@ -11,7 +11,6 @@
             <ol class="breadcrumb">
                 <li>{{ 'Select Adventure' | translate }}</li>
                 <li class="active">{{ 'Create Player' | translate }}</li>
-                <li>{{ 'Choose Items' | translate }}</li>
             </ol>
 
             <div class="form-group">
@@ -31,9 +30,7 @@
                 <button type="button" class="btn btn-default" ng-click="$ctrl.back()">{{ 'Back' | translate }}</button>
                 <button ng-if="$ctrl.hasStats()"
                         type="button" class="btn btn-default" ng-click="$ctrl.generateStats()">{{ 'Random Stats' | translate }}</button>
-                <button type="button" class="btn btn-primary" ng-click="$ctrl.next(playerForm.$invalid)">
-                    {{  ($ctrl.hasItems() ? 'Next' : 'Start') | translate }}
-                </button>
+                <button type="button" class="btn btn-primary" ng-click="$ctrl.startGame(playerForm.$invalid)">{{ 'Start Game' | translate }}</button>
             </div>
         </form>
     </div>

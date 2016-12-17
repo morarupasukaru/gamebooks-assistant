@@ -17,6 +17,7 @@
     "dices": true,
     "goto": true,
     "items": true,
+    "map": true,
     "notes": true,
     "stats": true
   },

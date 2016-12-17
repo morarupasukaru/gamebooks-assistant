@@ -341,8 +341,10 @@ class AdventurePersistenceService {
 
     exportAdventure(adventureId) {
         let adventure = this.getAdventure(adventureId);
-        for (let i = 0; i < adventure.stats.length; i++) {
-            delete adventure.stats[i]["$$hashKey"];
+        if (!!adventure.stats) {
+            for (let i = 0; i < adventure.stats.length; i++) {
+                delete adventure.stats[i]["$$hashKey"];
+            }
         }
         delete adventure.downloadHistory;
         adventure.downloadUrl;
