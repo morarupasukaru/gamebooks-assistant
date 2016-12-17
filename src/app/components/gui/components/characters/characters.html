@@ -1,0 +1,59 @@
+<form name="battleTableForm" novalidate="novalidate">
+    <table class="table">
+        <col style="width:20%">
+        <col style="width:10%" ng-if="$ctrl.isStatsAvailable()" ng-repeat="row in $ctrl.stats">
+        <col style="width:{{ $ctrl.lastColumnSizeInPercent() }}%">
+        <col style="width:5%">
+        <thead>
+        <tr>
+            <th></th>
+            <th ng-if="$ctrl.isStatsAvailable()" ng-repeat="row in $ctrl.stats">{{ row.name }}</th>
+            <th></th>
+            <th>
+                <button type="button" class="btn btn-default"
+                        aria-label="{{ 'Add enemy' | translate}}"
+                        title="{{ 'Add enemy' | translate}}"
+                        ng-click="$ctrl.addEnemy()">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </button>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="row in $ctrl.rows">
+            <td>
+                <input required type="text" class="form-control" ng-model="row.name">
+                <div class="error" ng-show="!row.name">
+                    {{ 'Please fill the name' | translate }}
+                </div>
+            </td>
+
+            <td ng-if="$ctrl.isStatsAvailable()" ng-repeat="stats in $ctrl.stats">
+                <div ng-if="!stats.editableForEnemy">
+                    {{ row[stats.name] }} TODO remove
+                </div>
+
+                <div ng-if="!!stats.editableForEnemy">
+                    <input required type="number" class="form-control" ng-model="row[stats.name]" ng-change="$ctrl.save()">
+                    <div class="error" ng-show="!row[stats.name]">
+                        {{ 'Please fill a value' | translate }}
+                    </div>
+                </div>
+            </td>
+
+            <td></td>
+
+            <td>
+                <button type="button" class="btn btn-danger"
+                        aria-label="{{ 'RemoveEnemy' | translate: {enemy: row.name} }}"
+                        title="{{ 'RemoveEnemy' | translate: {enemy: row.name} }}"
+                        ng-click="$ctrl.displayRemovePopup(row)">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+
+<popup config="{{ $ctrl.popupDeleteCharacterConfig }}"></popup>

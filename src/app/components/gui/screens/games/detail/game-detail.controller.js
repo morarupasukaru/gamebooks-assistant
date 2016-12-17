@@ -66,8 +66,8 @@ class GameDetailController {
         return !!this.adventure.toggles.stats;
     }
 
-    isBattleAvailable() {
-        return !!this.adventure.toggles.battle;
+    isCharactersAvailable() {
+        return !!this.adventure.toggles.characters;
     }
 
     startBattle() {
@@ -98,6 +98,10 @@ class GameDetailController {
         collapse.dices = !collapse.dices;
     }
 
+    toogleCollapseCharacters() {
+        collapse.characters = !collapse.characters;
+    }
+
     mapCollapsed() {
         return collapse.map;
     }
@@ -116,6 +120,10 @@ class GameDetailController {
 
     dicesCollapsed() {
         return collapse.dices;
+    }
+
+    charactersCollapsed() {
+        return collapse.characters;
     }
 }
 

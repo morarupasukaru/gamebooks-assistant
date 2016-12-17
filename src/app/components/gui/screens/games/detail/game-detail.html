@@ -40,6 +40,14 @@
                    stats="$ctrl.stats">
             </stats>
 
+            <h2 ng-if="$ctrl.isCharactersAvailable()" ng-click="$ctrl.toogleCollapseCharacters()">
+                {{ 'Characters' | translate }}
+                <span class="glyphicon glyphicon-menu-right"
+                      ng-class="{ 'glyphicon glyphicon-menu-right' : !!$ctrl.charactersCollapsed(), 'glyphicon glyphicon-menu-down' : !$ctrl.charactersCollapsed() }">
+                </span>
+            </h2>
+            <characters ng-if="$ctrl.isCharactersAvailable()" game-id="$ctrl.game.id"></characters>
+
             <h2 ng-if="$ctrl.isItemsAvailable()" ng-click="$ctrl.toogleCollapseItems()">
                 {{ 'Items' | translate }}
                 <span class="glyphicon glyphicon-menu-right"
@@ -61,12 +69,6 @@
                    game-id="{{$ctrl.game.id}}">
             </dices>
             <back-button></back-button>
-            <button type="button"
-                    class="btn btn-default"
-                    ng-if="$ctrl.isBattleAvailable()"
-                    ng-click="$ctrl.startBattle()">
-                {{ 'Start Battle' | translate }}
-            </button>
             <button type="button"
                     class="btn btn-default"
                     ng-if="$ctrl.isGameRulesAvailable()"

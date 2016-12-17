@@ -1,5 +1,12 @@
 en cours:
 
+#combat as paragraphe
+- l'écran de combat est un paragraphe éditable spéciale dont on ne voit pas toutes les sections (item, stats, etc.)
+- écran de combat est un choix customisable par aventure
+
+- Characters, Personnages
+- battle as character module
+
 next todo:
     #non mappable paragraph
     - trouver non pour flag mappable?
@@ -25,11 +32,7 @@ next todo:
     - aide de jeu accessible depuis écran paragraphe & combat, "choix" customisable de manière général (point d'entrée de l'aide pour les combats diffère de celui de l'aide générale)
     => pas de liens d'aide pour les combats car cet écran sera supprimé
     - cacher des sections config par paragraphe, accessible en mode édition
-
     - valeur par défaut de l'affichage des sections dans l'aventure?
-    #combat as paragraphe
-    - l'écran de combat est un paragraphe éditable spéciale dont on ne voit pas toutes les sections (item, stats, etc.)
-    - écran de combat est un choix customisable par aventure
 
     #illustration
     - lors de l'édition de la description du paragraphe, s'affiche un tableau permettant d'éditer, ajouter, effacer des illustrations
@@ -128,3 +131,5 @@ next todo:
     # remove constants?
 
     # oop class for data / model?
+
+    # simplify enemy config

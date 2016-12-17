@@ -1,16 +1,17 @@
-class BattleController {
+class CharactersController {
     /*@ngInject*/
-    constructor($window, popupService, constants, gamePersistenceService, adventurePersistenceService, $stateParams) {
+    constructor($window, popupService, constants, gamePersistenceService, adventurePersistenceService) {
         this.$window = $window;
         this.popupService = popupService;
         this.constants = constants;
-        this.$stateParams = $stateParams;
         this.gamePersistenceService = gamePersistenceService;
         this.adventurePersistenceService = adventurePersistenceService;
+        this.game = this.gamePersistenceService.getGame(decodeURIComponent(this.gameId));
+        this.adventure = this.adventurePersistenceService.getAdventure(this.game.adventureId);
 
-        this.popupDeleteEnemyConfig = {
-            id : 'popupDeleteEnemy',
-            text : 'Are you sure to remove the enemy?',
+        this.popupDeleteCharacterConfig = {
+            id : 'popupDeleteCharacter',
+            text : 'Are you sure to remove the character?',
             choices : [constants.choices.yes, constants.choices.no],
             withCloseButton : false,
             closeOnClickOutsideModal : false
@@ -20,13 +21,8 @@ class BattleController {
     }
 
     initData() {
-        if (!!this.$stateParams.game) {
-            this.game = this.gamePersistenceService.getGame(decodeURIComponent(this.$stateParams.game));
-            this.adventure = this.adventurePersistenceService.getAdventure(this.game.adventureId);
-        }
-
+        this.rows = [];
         this.initStatsData();
-        this.initPlayerStats();
         this.defaultEnemy = this.initDefaultEnemy();
         this.addEnemy();
     }
@@ -36,33 +32,15 @@ class BattleController {
             this.stats = [];
             for (let i = 0; i < this.adventure.stats.length; i++) {
                 let currentStats = this.adventure.stats[i];
-                if (!!currentStats.battle && !!currentStats.battle.displayed) {
+                if (!!currentStats.battle && !!currentStats.battle.displayed && !!currentStats.battle.editableForEnemy) {
                     this.stats.push({ name: currentStats.name, enemyDefaultValue: currentStats.battle.enemyDefaultValue, editableForEnemy: currentStats.battle.editableForEnemy});
                 }
             }
         }
     }
 
-    initPlayerStats() {
-        if (!!this.stats) {
-            this.statsPlayer = { name : this.game.playerName};
-
-            for (let i = 0; i < this.stats.length; i++) {
-                let currentStats = this.stats[i];
-                for (let j = 0; j < this.game.stats.length; j++) {
-                    let currentGameStats = this.game.stats[j];
-                    if (currentStats.name === currentGameStats.name) {
-                        this.statsPlayer[currentStats.name] = currentGameStats.current;
-                        break;
-                    }
-                }
-            }
-            this.rows = [ this.statsPlayer ];
-        }
-    }
-
     initDefaultEnemy() {
-        let defaultEnemyName = 'Enemy';
+        let defaultEnemyName = 'Character';
         if (!!this.adventure.defaultEnemyName) {
             defaultEnemyName = this.adventure.defaultEnemyName;
         }
@@ -82,19 +60,11 @@ class BattleController {
         this.rows.push(JSON.parse(JSON.stringify(this.defaultEnemy)));
     }
 
-    save() {
-        for (let i = 0; i < this.game.stats.length; i++) {
-            let currentStats = this.game.stats[i];
-            currentStats.current = this.statsPlayer[currentStats.name];
-        }
-        this.gamePersistenceService.updateGame(this.game);
-    }
-
     displayRemovePopup(removedRow) {
         this.rowToBeRemoved = removedRow;
         let self = this;
         this.popupService.show(
-            this.popupDeleteEnemyConfig.id,
+            this.popupDeleteCharacterConfig.id,
             function(popupDomElementId, choice) {
                 if (choice === self.constants.choices.yes) {
                     self.removeRow(self.rowToBeRemoved);
@@ -109,10 +79,6 @@ class BattleController {
         this.rows.splice(index, 1);
     }
 
-    isEnemy(row) {
-        return this.rows.indexOf(row) !== 0;
-    }
-
     lastColumnSizeInPercent() {
         let lastColumnSizeInPercent = 75;
         if (!!this.stats && this.isStatsAvailable()) {
@@ -125,13 +91,9 @@ class BattleController {
         this.$window.history.back();
     }
 
-    isDicesAvailable() {
-        return !!this.adventure.toggles.dices;
-    }
-
     isStatsAvailable() {
         return !!this.adventure.toggles.stats;
     }
 }
 
-export default BattleController;
+export default CharactersController;
