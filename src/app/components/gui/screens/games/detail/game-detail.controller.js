@@ -8,10 +8,9 @@ let collapse = {
 
 class GameDetailController {
     /*@ngInject*/
-    constructor($location, constants, popupService, $stateParams, gamePersistenceService, adventurePersistenceService, $translate, messagesService) {
+    constructor($location, constants, $stateParams, gamePersistenceService, adventurePersistenceService, $translate, messagesService) {
         this.$location = $location;
         this.constants = constants;
-        this.popupService = popupService;
         this.$stateParams = $stateParams;
         this.gamePersistenceService = gamePersistenceService;
         this.adventurePersistenceService = adventurePersistenceService;
@@ -39,6 +38,12 @@ class GameDetailController {
         if (!this.adventure) {
             this.messagesService.errorMessage('The adventure is not available', false)
         }
+    }
+
+    goToGameRulesParagraph() {
+        this.gamePersistenceService.setCurrentParagraphNrOfGame(this.game.id, this.paragraph.paragraphNr, this.adventure.gameRulesParagraphId);
+        let nextUrl = this.gamePersistenceService.getUrlOfGame(this.game.id);
+        this.$location.url(nextUrl);
     }
 
     isMapAvailable() {
@@ -71,12 +76,6 @@ class GameDetailController {
 
     isGameRulesAvailable() {
         return !!this.adventure.gameRulesParagraphId;
-    }
-
-    goToGameRulesParagraph() {
-        this.gamePersistenceService.setCurrentParagraphNrOfGame(this.game.id, this.paragraph.paragraphNr, this.adventure.gameRulesParagraphId);
-        let nextUrl = this.gamePersistenceService.getUrlOfGame(this.game.id);
-        this.$location.url(nextUrl);
     }
 
     toogleCollapseMap() {

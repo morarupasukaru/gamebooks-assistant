@@ -94,7 +94,6 @@ const frenchTranslations = {
     'Enable map': 'Active la carte',
     'Enable notes': 'Active les notes',
     'Enable stats': 'Active les attributs',
-    'End Game': 'Termine la partie',
     'Enemy': 'Enemi',
     'Export': 'Exporte',
     'Export libraries': 'Exporte librairies',

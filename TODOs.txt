@@ -1,11 +1,4 @@
 en cours:
-toggle map available
-
-#rules as paragraph
-    remove choose-items.controller (create item in previous step)
-
-#tag on paragraph
-    supprimer end-game qui sera remplacé par un tag sur le paragraphe
 
 next todo:
     #non mappable paragraph
@@ -131,3 +124,7 @@ next todo:
     # replace "selected" and other row button with a menu "..."
 
     # more small ui angular components
+
+    # remove constants?
+
+    # oop class for data / model?

@@ -94,7 +94,6 @@ const englishTranslations = {
     'Enable items': 'Enable items',
     'Enable notes': 'Enable notes',
     'Enable stats': 'Enable stats',
-    'End Game': 'End Game',
     'Enemy': 'Enemy',
     'Export': 'Export',
     'Export libraries': 'Export libraries',

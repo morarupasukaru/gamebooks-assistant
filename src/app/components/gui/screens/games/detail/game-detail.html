@@ -69,18 +69,10 @@
             </button>
             <button type="button"
                     class="btn btn-default"
-                    ng-if="$ctrl.isAbandonGameAvailable()"
-                    ng-click="$ctrl.displayAbandonGamePopup()">
-                {{ 'End Game' | translate }}
-            </button>
-            <button type="button"
-                    class="btn btn-default"
                     ng-if="$ctrl.isGameRulesAvailable()"
                     ng-click="$ctrl.goToGameRulesParagraph()">
                 {{ "Game's rules" | translate }}
             </button>
         </div>
     </div>
-
-    <end-game-popup config="{{ $ctrl.popupAbandonGameConfig }}"></end-game-popup>
 </main>
