@@ -1,5 +1,11 @@
 en cours:
 
+#hide sections
+    - possibilité de cacher les sections suivantes pour un "type" de paragraphe donnée,
+    - type = tag
+    - sections: carte, joueur, personnages, dés, lists (*)
+    - choix disponible en éditant le paragraphe (=tag)
+
 next todo:
     #combat as paragraphe
     - l'écran de combat est un paragraphe éditable spéciale dont on ne voit pas toutes les sections (item, stats, etc.)
