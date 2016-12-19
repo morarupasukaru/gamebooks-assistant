@@ -1,11 +1,18 @@
+
+let collapse = {};
+
 class CollapseController {
     /*@ngInject*/
     constructor() {
-        this.collapsed = !!this.mapCollapsed;
+        if (!collapse[this.flag]) {
+            collapse[this.flag] = false;
+        }
+        this.collapsed = !!collapse[this.flag];
     }
 
     toogleCollapse() {
         this.collapsed = !this.collapsed;
+        collapse[this.flag] = this.collapsed;
     }
 }
 

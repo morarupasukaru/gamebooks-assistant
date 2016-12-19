@@ -19,7 +19,6 @@ class CreateGameService {
             playerName : playerName,
             adventureId : adventure.id
         };
-        debugger;
         if (!!adventure.lists && !!adventure.lists.keys) {
             game.lists = {};
             for (let i = 0; i < adventure.lists.keys.length; i++) {

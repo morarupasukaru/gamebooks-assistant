@@ -10,7 +10,7 @@ let collapseModule = angular.module('app.components.gui.components.collapse', []
         transclude: true,
         bindings: {
             title: '@',
-            flag: '<'
+            flag: '@'
         }
     });
 

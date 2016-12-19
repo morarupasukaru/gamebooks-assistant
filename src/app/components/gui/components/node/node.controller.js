@@ -79,22 +79,6 @@ class NodeController {
         path.splice(index, 1);
         return null;
     }
-
-    getNotesSummary() {
-        let notesSummary = '';
-        if (!!this.data.notes) {
-            for (let i = 0; i < this.data.notes.length; i++) {
-                notesSummary = notesSummary + this.data.notes[i].note;
-                if (!!this.data.notes[i].playerName) {
-                    notesSummary = notesSummary + ' (' + this.data.notes[i].playerName + ')';
-                }
-                if (i < this.data.notes.length - 1) {
-                    notesSummary = notesSummary + '\n';
-                }
-            }
-        }
-        return notesSummary;
-    }
 }
 
 export default NodeController;

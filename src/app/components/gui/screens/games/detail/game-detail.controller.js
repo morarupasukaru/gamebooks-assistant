@@ -54,9 +54,8 @@ class GameDetailController {
         return !!this.adventure.gameRulesParagraphId;
     }
 
-    onSubListSave(list, entries) {
-        this.game.lists[list] = entries;
-        this.gamePersistenceService.updateGame(this.game);
+    onCollapseChange() {
+        debugger;
     }
 }
 

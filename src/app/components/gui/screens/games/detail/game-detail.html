@@ -5,24 +5,24 @@
         <paragraph paragraph="$ctrl.paragraph" game-id="{{$ctrl.game.id}}">
         </paragraph>
 
-        <collapse ng-if="$ctrl.isMapAvailable()" title="{{ 'Map' | translate }}" flag="$ctrl.mapCollapsed">
+        <collapse ng-if="$ctrl.isMapAvailable()" title="{{ 'Map' | translate }}" flag="game.map">
             <nodes adventure-id="$ctrl.adventureId" root-paragraph-nr="$ctrl.paragraph.paragraphNr"></nodes>
         </collapse>
 
-        <collapse ng-if="$ctrl.isStatsAvailable()" title="{{ 'Player' | translate }} {{ $ctrl.playerName }}" flag="$ctrl.statsCollapsed">
+        <collapse ng-if="$ctrl.isStatsAvailable()" title="{{ 'Player' | translate }} {{ $ctrl.playerName }}" flag="game.stats">
             <stats game-id="{{$ctrl.game.id}}" stats="$ctrl.stats"></stats>
         </collapse>
 
-        <collapse ng-if="$ctrl.isCharactersAvailable()" title="{{ 'Characters' | translate }}" flag="$ctrl.charactersCollapsed">
+        <collapse ng-if="$ctrl.isCharactersAvailable()" title="{{ 'Characters' | translate }}" flag="game.characters">
             <characters game-id="$ctrl.game.id"></characters>
         </collapse>
 
-        <collapse ng-if="$ctrl.isDicesAvailable()" title="{{ 'Dices' | translate }}" flag="$ctrl.dicesCollapsed">
+        <collapse ng-if="$ctrl.isDicesAvailable()" title="{{ 'Dices' | translate }}" flag="game.dices">
             <dices ng-if="$ctrl.isDicesAvailable() && !$ctrl.dicesCollapsed()" game-id="{{$ctrl.game.id}}"></dices>
         </collapse>
 
         <div ng-repeat="list in $ctrl.adventure.lists.keys">
-            <collapse title="{{ list }}" flag="$ctrl[list+'Collapsed']">
+            <collapse title="{{ list }}" flag="game.{{list}}">
                 <list entries="$ctrl.game.lists[list]" on-save="$ctrl.onSubListSave(list, entries)"></list>
             </collapse>
         </div>
