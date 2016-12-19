@@ -1,11 +1,5 @@
 en cours:
 
-#hide sections
-    - possibilité de cacher les sections suivantes pour un "type" de paragraphe donnée,
-    - type = tag
-    - sections: carte, joueur, personnages, dés, lists (*)
-    - choix disponible en éditant le paragraphe (=tag)
-
 next todo:
 
 #merge player & characters
@@ -17,6 +11,12 @@ next todo:
     - permettre de changer le nom du joueur
     - afficher la liste des personnages en liste
     - en mode édition apparaissent des champs d'édition pour les caractéristiques & le noms
+
+#hide sections
+    - possibilité de cacher les sections suivantes pour un "type" de paragraphe donnée,
+    - type = tag
+    - sections: carte, joueur, personnages, dés, lists (*)
+    - choix disponible en éditant le paragraphe (=tag)
 
 #integrate lone wolf
  - download images from lone wolf html
@@ -49,12 +49,6 @@ next todo:
     - images paragraphes
     - ne pas changer la couleur d'un lien si celui-ci est non traceable
 
-    #playername
-    - permettre de pouvoir changer le nom du joueur
-    - permettre de "tagger" le nom du joueur (chevalier, magicien, ...)
-    - level of kai training : fait partie du nom du joueur
-    - voir le tag, dans l'apercu des jeux
-
     #tag
     - insérer tag avec dropdrown, edition contenu dropdown
     - tag en image importé base64
@@ -74,13 +68,6 @@ next todo:
     - supporter export/import tags
     - tags dans sauvé au niveau de l'aventure: tags: [ {id: <unique>, alternativeText: '', data: 'base64'}, ...
     - tag trié par nom altenativeText
-
-    #list à la place de tableau
-    - note, items, dices, stats, enemy
-    - icon/bouton edit à coté du titre de la section au lieu dans le header du tableau
-    - [v] / [x] dans le titre de la section en mode edition
-    - note joueurs = "type d'items"
-    - note paragraphe = commentaire joueur unique par paragraphe (et pas une liste)
 
     #localstorage alternative
     - intégrer localforage/offline-file afin de sauver des aventures de plusieurs megabyites
@@ -111,3 +98,5 @@ next todo:
     # oop class for data / model?
 
     # touch-screen? (hover?)
+
+    # correct menu when screen is small
