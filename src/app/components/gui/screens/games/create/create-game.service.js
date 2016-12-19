@@ -7,20 +7,29 @@ class CreateGameService {
         this.$stateParams = $stateParams;
     }
 
-    startGame(adventure, playerName, playerItems, stats) {
-        let game = this.buildGame(adventure, playerName, playerItems, stats);
+    startGame(adventure, playerName, stats) {
+        let game = this.buildGame(adventure, playerName, stats);
         game = this.gamePersistenceService.addGame(game);
         this.gamePersistenceService.setCurrentParagraphNrOfGame(game.id, null, adventure.startParagraphId);
         this.$location.url(this.gamePersistenceService.getUrlOfGame(game.id));
     }
 
-    buildGame(adventure, playerName, playerItems, stats) {
+    buildGame(adventure, playerName, stats) {
         let game = {
             playerName : playerName,
             adventureId : adventure.id
         };
-        if (!!playerItems && !!adventure.toggles.items) {
-            game.items = JSON.parse(JSON.stringify(playerItems));
+        debugger;
+        if (!!adventure.lists && !!adventure.lists.keys) {
+            game.lists = {};
+            for (let i = 0; i < adventure.lists.keys.length; i++) {
+                game.lists[adventure.lists.keys[i]] = [];
+            }
+
+            let keys = Object.keys(adventure.lists.values);
+            for (let i = 0; i < keys.length; i++) {
+                game.lists[keys[i]] = adventure.lists.values[keys[i]];
+            }
         }
         if (!!stats && !!adventure.toggles.stats) {
             game.stats = stats;

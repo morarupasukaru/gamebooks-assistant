@@ -14,18 +14,6 @@
                 </span>
             </h2>
             <nodes ng-if="$ctrl.isMapAvailable() && !$ctrl.mapCollapsed()" adventure-id="$ctrl.adventureId" root-paragraph-nr="$ctrl.paragraph.paragraphNr" ng-if="!$ctrl.mapCollapsed()"></nodes>
-
-            <h2 ng-if="$ctrl.isNotesAvailable()" ng-click="$ctrl.toogleCollapseNotes()">
-                {{ 'Notes' | translate }}
-                <span class="glyphicon glyphicon-menu-right"
-                      ng-class="{ 'glyphicon glyphicon-menu-right' : !!$ctrl.notesCollapsed(), 'glyphicon glyphicon-menu-down' : !$ctrl.notesCollapsed() }">
-                </span>
-            </h2>
-            <notes ng-if="$ctrl.isNotesAvailable() && !$ctrl.notesCollapsed()"
-                   adventure-id="{{$ctrl.adventureId}}"
-                   paragraph-nr="{{$ctrl.paragraph.paragraphNr}}"
-                   game-id="{{$ctrl.game.id}}">
-            </notes>
         </div>
 
         <div id="playerSheet" ng-if="!!$ctrl.playerName">
@@ -48,17 +36,6 @@
             </h2>
             <characters ng-if="$ctrl.isCharactersAvailable() && !$ctrl.charactersCollapsed()" game-id="$ctrl.game.id"></characters>
 
-            <h2 ng-if="$ctrl.isItemsAvailable()" ng-click="$ctrl.toogleCollapseItems()">
-                {{ 'Items' | translate }}
-                <span class="glyphicon glyphicon-menu-right"
-                      ng-class="{ 'glyphicon glyphicon-menu-right' : !!$ctrl.itemsCollapsed(), 'glyphicon glyphicon-menu-down' : !$ctrl.itemsCollapsed() }">
-                </span>
-            </h2>
-            <items ng-if="$ctrl.isItemsAvailable() && !$ctrl.itemsCollapsed()"
-                   game-id="{{$ctrl.game.id}}"
-                   items="$ctrl.items">
-            </items>
-
             <h2 ng-if="$ctrl.isDicesAvailable()" ng-click="$ctrl.toogleCollapseDices()">
                 {{ 'Dices' | translate }}
                 <span class="glyphicon glyphicon-menu-right"
@@ -68,6 +45,11 @@
             <dices ng-if="$ctrl.isDicesAvailable() && !$ctrl.dicesCollapsed()"
                    game-id="{{$ctrl.game.id}}">
             </dices>
+
+            <div ng-repeat="list in $ctrl.adventure.lists.keys">
+                <h2>{{ list }}</h2>
+                <list entries="$ctrl.game.lists[list]" on-save="$ctrl.onSubListSave(list, entries)"></list>
+            </div>
             <back-button></back-button>
             <button type="button"
                     class="btn btn-default"

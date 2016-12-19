@@ -58,20 +58,11 @@ class CreatePlayerController {
         if (!!invalid) {
             return ;
         }
-        let playerItems = [];
-        if (this.hasItems()) {
-            playerItems = this.adventure.items;
-        }
-
-        this.createGameService.startGame(this.adventure, this.playerName, playerItems, this.stats);
+        this.createGameService.startGame(this.adventure, this.playerName, this.stats);
     }
 
     hasStats() {
         return !!this.adventure.stats && this.adventure.stats.length > 0 && !!this.adventure.toggles && !!this.adventure.toggles.stats;
-    }
-
-    hasItems() {
-        return !!this.adventure.items && this.adventure.items.length > 0 && !!this.adventure.toggles && !!this.adventure.toggles.items;
     }
 }
 

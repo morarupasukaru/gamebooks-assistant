@@ -1,8 +1,6 @@
 let collapse = {
     map : false,
-    notes : false,
     stats : false,
-    items : false,
     dices : false,
     characters : false
 };
@@ -17,14 +15,10 @@ class GameDetailController {
         this.adventurePersistenceService = adventurePersistenceService;
         this.$translate = $translate;
         this.messagesService = messagesService;
-        this.items = [];
         this.stats = [];
 
         this.game = this.gamePersistenceService.getGame(decodeURIComponent(this.$stateParams.gameId));
         this.playerName = this.game.playerName;
-        if (!!this.game.items) {
-            this.items = this.items.concat(this.game.items);
-        }
         if (!!this.game.stats) {
             this.stats = this.stats.concat(this.game.stats);
         }
@@ -51,16 +45,8 @@ class GameDetailController {
         return !!this.adventure.toggles.map;
     }
 
-    isNotesAvailable() {
-        return !!this.adventure.toggles.notes;
-    }
-
     isDicesAvailable() {
         return !!this.adventure.toggles.dices;
-    }
-
-    isItemsAvailable() {
-        return !!this.adventure.toggles.items;
     }
 
     isStatsAvailable() {
@@ -79,16 +65,8 @@ class GameDetailController {
         collapse.map = !collapse.map;
     }
 
-    toogleCollapseNotes() {
-        collapse.notes = !collapse.notes;
-    }
-
     toogleCollapseStats() {
         collapse.stats = !collapse.stats;
-    }
-
-    toogleCollapseItems() {
-        collapse.items = !collapse.items;
     }
 
     toogleCollapseDices() {
@@ -103,16 +81,8 @@ class GameDetailController {
         return collapse.map;
     }
 
-    notesCollapsed() {
-        return collapse.notes;
-    }
-
     statsCollapsed() {
         return collapse.stats;
-    }
-
-    itemsCollapsed() {
-        return collapse.items;
     }
 
     dicesCollapsed() {
@@ -121,6 +91,11 @@ class GameDetailController {
 
     charactersCollapsed() {
         return collapse.characters;
+    }
+
+    onSubListSave(list, entries) {
+        this.game.lists[list] = entries;
+        this.gamePersistenceService.updateGame(this.game);
     }
 }
 

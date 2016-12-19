@@ -43,8 +43,8 @@ class GamePersistenceService {
             adventureId : game.adventureId,
             currentParagraphNr : game.currentParagraphNr
         };
-        if (!!game.items) {
-            savedGame.items = game.items;
+        if (!!game.lists) {
+            savedGame.lists = game.lists;
         }
         if (!!game.stats) {
             savedGame.stats = [];
@@ -134,11 +134,6 @@ class GamePersistenceService {
         game = JSON.parse(JSON.stringify(game));
 
         let key = this.getGamePersistenceKey(game.id);
-        if (!!game.items) {
-            for (let i = 0; i < game.items.length; i++) {
-                delete game.items[i]['$$hashKey'];
-            }
-        }
         this.persistenceService.save(key, game);
     }
 
