@@ -7,50 +7,30 @@ en cours:
     - choix disponible en éditant le paragraphe (=tag)
 
 next todo:
-    #combat as paragraphe
-    - l'écran de combat est un paragraphe éditable spéciale dont on ne voit pas toutes les sections (item, stats, etc.)
-    - écran de combat est un choix customisable par aventure
 
-    #non mappable paragraph
-    - trouver non pour flag mappable?
-    - flag "paragraphe non traceable sur la carte" qui est un checkbox clickable dans l'edition du paragraphe
-    - un changement du flag implique une maj des données de la "map"
-    - ignorer les "jumps" dans les paragraphes non jouable
-    - liens de paragraphe trackable dans les paragraphes non trackable sont visible seulement si le path du joueur est vide (joueur n'a parems encore débuté le jeu)
-    => permet de faire un "wizard"
+#integrate lone wolf
+ - download images from lone wolf html
+ - test import with all lone wolf books
+ - integrate game rules paragraphs separatelly
+ - feature: import player from another book (fix?)
 
-    #lone wolf
-    - autre tags, contenu à intégrer?
-    - telecharger les illustrations et sauver en base64
-    - lancer import sur tous les livres single avec/sans images
-    - sauver les livres en versions sans règles et tester (lecture)
-    - supporter, importer premier livre lonesome wolf
-    - supporter les règles différentes (?) de combat différentes
-    - importation d'un caractère d'une partie d'une aventure précédente (id fixe?) - aussi utile pour sorcellerie et quete du graal
-    - gestion des "capacités" en tant que item?
-
-    #règles de jeu
-    - avoir un paragraphe avec les différents paragraphes de règles (liste)
-    - les autres paragraphes de règles fonctionnent tel un wizard (dernier liens = premier paragraphe)
-    - aide de jeu accessible depuis écran paragraphe & combat, "choix" customisable de manière général (point d'entrée de l'aide pour les combats diffère de celui de l'aide générale)
-    => pas de liens d'aide pour les combats car cet écran sera supprimé
-    - cacher des sections config par paragraphe, accessible en mode édition
-    - valeur par défaut de l'affichage des sections dans l'aventure?
-
-    #illustration
-    - lors de l'édition de la description du paragraphe, s'affiche un tableau permettant d'éditer, ajouter, effacer des illustrations
-    - lors du clic sur nouvelle illustration, apparait une popup ou une ligne éditable, afin de saisir: un id (a utiliser dans la description comme placeholder), un text alternatif, une légende, un filepicker
-    - les images ont un expand propre
-    - si on a fermé l'expand d'une image, lorsque l'on jump dans le prochain paragraphe, l'expand des nouvelles images restent fermées
-    - json du paragraphe
-    {
-          ...
-          "paragraphNr": 2,
-          illustrations: [
-            {id: xx, alternativeText: '', legend: '', data:'base64}
-          ]
-    },
-    - l'id d'une illustration est unique par paragraphe (check lors de la sauvegarde de l'edition)
+#paragraph's illustrations
+ - collapse on illustration
+ - support more than one illustration?
+ - to clarify:
+        - lors de l'édition de la description du paragraphe, s'affiche un tableau permettant d'éditer, ajouter, effacer des illustrations
+        - lors du clic sur nouvelle illustration, apparait une popup ou une ligne éditable, afin de saisir: un id (a utiliser dans la description comme placeholder), un text alternatif, une légende, un filepicker
+        - les images ont un expand propre
+        - si on a fermé l'expand d'une image, lorsque l'on jump dans le prochain paragraphe, l'expand des nouvelles images restent fermées
+        - json du paragraphe
+        {
+              ...
+              "paragraphNr": 2,
+              illustrations: [
+                {id: xx, alternativeText: '', legend: '', data:'base64}
+              ]
+        },
+        - l'id d'une illustration est unique par paragraphe (check lors de la sauvegarde de l'edition)
 
     #editable paragraph with link
     - [[imageId]] => pour indiquer ou ajouter une illustration
