@@ -1,5 +1,6 @@
 {
   "authors": "Steve Jackson et Ian Livingstone",
+  "defaultCharacterName": "Ennemi",
   "dice": {
     "max": 6,
     "min": 1
@@ -62,10 +63,8 @@
   ],
   "stats": [
     {
-      "battle": {
-        "displayed": true,
-        "editableForEnemy": true,
-        "enemyDefaultValue": 5
+      "characters": {
+        "defaultValue": 3
       },
       "init": {
         "constant": 6,
@@ -74,10 +73,8 @@
       "name": "Habilité"
     },
     {
-      "battle": {
-        "displayed": true,
-        "editableForEnemy": true,
-        "enemyDefaultValue": 5
+      "characters": {
+        "defaultValue": 4
       },
       "init": {
         "constant": 12,
@@ -86,10 +83,6 @@
       "name": "Endurance"
     },
     {
-      "battle": {
-        "displayed": true,
-        "editableForEnemy": false
-      },
       "init": {
         "constant": 6,
         "dicesQuantity": 1

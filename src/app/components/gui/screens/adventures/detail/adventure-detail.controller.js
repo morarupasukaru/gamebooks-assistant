@@ -130,13 +130,13 @@ class AdventureDetailController {
 
     editRow(row) {
         this.editedRow = row;
+        row.editableForCharacters = !!row.characters;
         this.originalRow = {
             name : row.name,
             init: {
                 dicesQuantity: row.init.dicesQuantity,
                 constants: row.init.constant
             },
-            editableForCharacters : !!row.characters,
             characters : {
                 defaultValue: !!row.characters ? row.characters.defaultValue : null
             }
@@ -174,8 +174,8 @@ class AdventureDetailController {
         }
         if (!editedRow.editableForCharacters) {
             delete editedRow.characters;
-            delete editedRow.editableForCharacters;
         }
+        delete editedRow.editableForCharacters;
         this.clearEditedRow();
     }
 

@@ -210,7 +210,7 @@
                                 </td>
 
                                 <td ng-if="$ctrl.adventure.toggles.characters && !$ctrl.isRowEdited(row)">
-                                    {{ 'yesno_' + !!row.editableForCharacters | translate }}
+                                    {{ 'yesno_' + !!row.characters | translate }}
                                 </td>
                                 <td ng-if="$ctrl.adventure.toggles.characters && $ctrl.isRowEdited(row)">
                                     <input type="checkbox" class="form-control" ng-model="row.editableForCharacters" id="displayed"><br>
