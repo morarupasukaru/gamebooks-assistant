@@ -1,10 +1,3 @@
-let collapse = {
-    map : false,
-    stats : false,
-    dices : false,
-    characters : false
-};
-
 class GameDetailController {
     /*@ngInject*/
     constructor($location, constants, $stateParams, gamePersistenceService, adventurePersistenceService, $translate, messagesService) {
@@ -59,38 +52,6 @@ class GameDetailController {
 
     isGameRulesAvailable() {
         return !!this.adventure.gameRulesParagraphId;
-    }
-
-    toogleCollapseMap() {
-        collapse.map = !collapse.map;
-    }
-
-    toogleCollapseStats() {
-        collapse.stats = !collapse.stats;
-    }
-
-    toogleCollapseDices() {
-        collapse.dices = !collapse.dices;
-    }
-
-    toogleCollapseCharacters() {
-        collapse.characters = !collapse.characters;
-    }
-
-    mapCollapsed() {
-        return collapse.map;
-    }
-
-    statsCollapsed() {
-        return collapse.stats;
-    }
-
-    dicesCollapsed() {
-        return collapse.dices;
-    }
-
-    charactersCollapsed() {
-        return collapse.characters;
     }
 
     onSubListSave(list, entries) {

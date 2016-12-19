@@ -14,6 +14,7 @@ import Characters from './characters/characters';
 import List from './list/list';
 import Description from './description/description';
 import Goto from './goto/goto';
+import Collapse from './collapse/collapse';
 
 let guiComponentsModule = angular.module('app.components.gui.components', [
     Dices.name,
@@ -30,7 +31,8 @@ let guiComponentsModule = angular.module('app.components.gui.components', [
     Characters.name,
     List.name,
     Description.name,
-    Goto.name
+    Goto.name,
+    Collapse.name
 ]);
 
 export default guiComponentsModule;

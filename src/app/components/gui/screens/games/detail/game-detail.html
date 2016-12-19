@@ -2,61 +2,38 @@
 <messages></messages>
 <main>
     <div class="container bg-white" role="main">
-        <div id="paragraphEdit">
-            <paragraph paragraph="$ctrl.paragraph"
-                       game-id="{{$ctrl.game.id}}"3>
-            </paragraph>
+        <paragraph paragraph="$ctrl.paragraph" game-id="{{$ctrl.game.id}}">
+        </paragraph>
 
-            <h2 ng-if="$ctrl.isMapAvailable()" ng-click="$ctrl.toogleCollapseMap()">
-                {{ 'Map' | translate }}
-                <span class="glyphicon glyphicon-menu-right"
-                      ng-class="{ 'glyphicon glyphicon-menu-right' : !!$ctrl.mapCollapsed(), 'glyphicon glyphicon-menu-down' : !$ctrl.mapCollapsed() }">
-                </span>
-            </h2>
-            <nodes ng-if="$ctrl.isMapAvailable() && !$ctrl.mapCollapsed()" adventure-id="$ctrl.adventureId" root-paragraph-nr="$ctrl.paragraph.paragraphNr" ng-if="!$ctrl.mapCollapsed()"></nodes>
-        </div>
+        <collapse ng-if="$ctrl.isMapAvailable()" title="{{ 'Map' | translate }}" flag="$ctrl.mapCollapsed">
+            <nodes adventure-id="$ctrl.adventureId" root-paragraph-nr="$ctrl.paragraph.paragraphNr"></nodes>
+        </collapse>
 
-        <div id="playerSheet" ng-if="!!$ctrl.playerName">
-            <h2 ng-if="$ctrl.isStatsAvailable()" ng-click="$ctrl.toogleCollapseStats()">
-                {{ 'Player' | translate }} {{ $ctrl.playerName }}
-                <span class="glyphicon glyphicon-menu-right"
-                      ng-class="{ 'glyphicon glyphicon-menu-right' : !!$ctrl.statsCollapsed(), 'glyphicon glyphicon-menu-down' : !$ctrl.statsCollapsed() }">
-                </span>
-            </h2>
-            <stats ng-if="$ctrl.isStatsAvailable() && !$ctrl.statsCollapsed()"
-                   game-id="{{$ctrl.game.id}}"
-                   stats="$ctrl.stats">
-            </stats>
+        <collapse ng-if="$ctrl.isStatsAvailable()" title="{{ 'Player' | translate }} {{ $ctrl.playerName }}" flag="$ctrl.statsCollapsed">
+            <stats game-id="{{$ctrl.game.id}}" stats="$ctrl.stats"></stats>
+        </collapse>
 
-            <h2 ng-if="$ctrl.isCharactersAvailable()" ng-click="$ctrl.toogleCollapseCharacters()">
-                {{ 'Characters' | translate }}
-                <span class="glyphicon glyphicon-menu-right"
-                      ng-class="{ 'glyphicon glyphicon-menu-right' : !!$ctrl.charactersCollapsed(), 'glyphicon glyphicon-menu-down' : !$ctrl.charactersCollapsed() }">
-                </span>
-            </h2>
-            <characters ng-if="$ctrl.isCharactersAvailable() && !$ctrl.charactersCollapsed()" game-id="$ctrl.game.id"></characters>
+        <collapse ng-if="$ctrl.isCharactersAvailable()" title="{{ 'Characters' | translate }}" flag="$ctrl.charactersCollapsed">
+            <characters game-id="$ctrl.game.id"></characters>
+        </collapse>
 
-            <h2 ng-if="$ctrl.isDicesAvailable()" ng-click="$ctrl.toogleCollapseDices()">
-                {{ 'Dices' | translate }}
-                <span class="glyphicon glyphicon-menu-right"
-                      ng-class="{ 'glyphicon glyphicon-menu-right' : !!$ctrl.dicesCollapsed(), 'glyphicon glyphicon-menu-down' : !$ctrl.dicesCollapsed() }">
-                </span>
-            </h2>
-            <dices ng-if="$ctrl.isDicesAvailable() && !$ctrl.dicesCollapsed()"
-                   game-id="{{$ctrl.game.id}}">
-            </dices>
+        <collapse ng-if="$ctrl.isDicesAvailable()" title="{{ 'Dices' | translate }}" flag="$ctrl.dicesCollapsed">
+            <dices ng-if="$ctrl.isDicesAvailable() && !$ctrl.dicesCollapsed()" game-id="{{$ctrl.game.id}}"></dices>
+        </collapse>
 
-            <div ng-repeat="list in $ctrl.adventure.lists.keys">
-                <h2>{{ list }}</h2>
+        <div ng-repeat="list in $ctrl.adventure.lists.keys">
+            <collapse title="{{ list }}" flag="$ctrl[list+'Collapsed']">
                 <list entries="$ctrl.game.lists[list]" on-save="$ctrl.onSubListSave(list, entries)"></list>
-            </div>
-            <back-button></back-button>
-            <button type="button"
-                    class="btn btn-default"
-                    ng-if="$ctrl.isGameRulesAvailable()"
-                    ng-click="$ctrl.goToGameRulesParagraph()">
-                {{ "Game's rules" | translate }}
-            </button>
+            </collapse>
         </div>
+
+        <back-button></back-button>
+
+        <button type="button"
+                class="btn btn-default"
+                ng-if="$ctrl.isGameRulesAvailable()"
+                ng-click="$ctrl.goToGameRulesParagraph()">
+            {{ "Game's rules" | translate }}
+        </button>
     </div>
 </main>
