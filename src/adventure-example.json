@@ -12,17 +12,9 @@
   "startParagraphId": "1",
   "toggles": {
     "dices": true,
-    "items": true,
-    "notes": true,
     "stats": true
   },
   "version": "1",
-  "items": [
-    {
-      "description": "Sword",
-      "quantity": 1
-    }
-  ],
   "stats": [
     {
       "battle": {

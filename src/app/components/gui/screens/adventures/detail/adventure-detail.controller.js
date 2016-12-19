@@ -31,12 +31,9 @@ class AdventureDetailController {
             if ("create" === adventureId) {
                 this.adventure = {
                     stats: [],
-                    items: [],
                     toggles: {
                         battle: true,
                         stats: true,
-                        notes: true,
-                        items: true,
                         dices: true,
                         goto: true,
                         characters: true,
@@ -75,21 +72,8 @@ class AdventureDetailController {
             return ;
         }
 
-        if (!!this.adventure.items) {
-            let modifiedItems = [];
-            for (let i = 0; i < this.adventure.items.length; i++) {
-                modifiedItems.push({
-                    quantity: this.adventure.items[i].quantity,
-                    description: this.adventure.items[i].description
-                });
-            }
-            this.adventure.items = modifiedItems;
-        }
         if (!this.adventure.toggles.stats) {
             delete this.adventure.stats;
-        }
-        if (!this.adventure.toggles.items) {
-            delete this.adventure.items;
         }
         if (!this.adventure.toggles.dices) {
             delete this.adventure.dice;

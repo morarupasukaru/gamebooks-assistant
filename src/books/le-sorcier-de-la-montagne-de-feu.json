@@ -36,50 +36,10 @@
     "characters": true,
     "dices": true,
     "goto": true,
-    "items": true,
     "map": true,
-    "notes": true,
     "stats": true
   },
   "version": "0.1",
-  "items": [
-    {
-      "description": "Epée",
-      "quantity": 1
-    },
-    {
-      "description": "Bouclier",
-      "quantity": 1
-    },
-    {
-      "description": "Armure de cuir",
-      "quantity": 1
-    },
-    {
-      "description": "Sac à dos",
-      "quantity": 1
-    },
-    {
-      "description": "Lanterne",
-      "quantity": 1
-    },
-    {
-      "description": "Repas (restitue 4 points d'endurance)",
-      "quantity": 10
-    },
-    {
-      "description": "Mesures de potion d'Adresse (rend vos points d'HABILITE)",
-      "quantity": 2
-    },
-    {
-      "description": "Mesures de potion de Vigueur (rend vos points d'ENDURANCE)",
-      "quantity": 2
-    },
-    {
-      "description": "Mesures de Bonne Fortune (rend vos points de CHANCE + 1 point)",
-      "quantity": 2
-    }
-  ],
   "stats": [
     {
       "characters": {
