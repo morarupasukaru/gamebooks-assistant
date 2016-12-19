@@ -1,20 +1,5 @@
 en cours:
 
-#items as list
-
-#notes as list
-
-
-    #items
-    - permet de spécifier une catégorie d'items > "Kai Discipline", "Items"
-    - permet de spécifier le titre de "l'item"
-    - supprimer quantité des items
-    - afficher la catégorie d'item dans un tableau à part avec expand à part
-    - pouvoir éditer la liste des items possibles dans l'édition de l'aventure
-
-    #notes as items
-    - les notes du joueur sont une type de items
-
 next todo:
 
     #expand
