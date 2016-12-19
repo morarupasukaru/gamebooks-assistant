@@ -4,6 +4,7 @@ let collapse = {
     stats : false,
     items : false,
     dices : false,
+    characters : false
 };
 
 class GameDetailController {
@@ -68,10 +69,6 @@ class GameDetailController {
 
     isCharactersAvailable() {
         return !!this.adventure.toggles.characters;
-    }
-
-    startBattle() {
-        this.$location.url(this.constants.url.battle + '/' + this.game.id);
     }
 
     isGameRulesAvailable() {

@@ -23,8 +23,7 @@ class CharactersController {
     initData() {
         this.rows = [];
         this.initStatsData();
-        this.defaultEnemy = this.initDefaultEnemy();
-        this.addEnemy();
+        this.defaultCharacter = this.initDefaultCharacter();
     }
 
     initStatsData() {
@@ -32,32 +31,32 @@ class CharactersController {
             this.stats = [];
             for (let i = 0; i < this.adventure.stats.length; i++) {
                 let currentStats = this.adventure.stats[i];
-                if (!!currentStats.battle && !!currentStats.battle.displayed && !!currentStats.battle.editableForEnemy) {
-                    this.stats.push({ name: currentStats.name, enemyDefaultValue: currentStats.battle.enemyDefaultValue, editableForEnemy: currentStats.battle.editableForEnemy});
+                if (!!currentStats.characters) {
+                    this.stats.push({ name: currentStats.name, value: currentStats.characters.defaultValue });
                 }
             }
         }
     }
 
-    initDefaultEnemy() {
-        let defaultEnemyName = 'Character';
-        if (!!this.adventure.defaultEnemyName) {
-            defaultEnemyName = this.adventure.defaultEnemyName;
+    initDefaultCharacter() {
+        let defaultCharacterName = 'Character';
+        if (!!this.adventure.defaultCharacterName) {
+            defaultCharacterName = this.adventure.defaultCharacterName;
         }
 
-        let statsDefaultEnemy = { name : defaultEnemyName };
+        let statsDefaultCharacter = { name : defaultCharacterName };
 
         for (let i = 0; i < this.stats.length; i++) {
             let currentStats = this.stats[i];
-            statsDefaultEnemy[currentStats.name] = currentStats.enemyDefaultValue;
+            statsDefaultCharacter[currentStats.name] = currentStats.value;
         }
 
 
-        return statsDefaultEnemy;
+        return statsDefaultCharacter;
     }
 
-    addEnemy() {
-        this.rows.push(JSON.parse(JSON.stringify(this.defaultEnemy)));
+    addCharacter() {
+        this.rows.push(JSON.parse(JSON.stringify(this.defaultCharacter)));
     }
 
     displayRemovePopup(removedRow) {
@@ -87,12 +86,12 @@ class CharactersController {
         return lastColumnSizeInPercent;
     }
 
-    back() {
-        this.$window.history.back();
-    }
-
     isStatsAvailable() {
         return !!this.adventure.toggles.stats;
+    }
+
+    back() {
+        this.$window.history.back();
     }
 }
 

@@ -38,7 +38,9 @@ class AdventureDetailController {
                         notes: true,
                         items: true,
                         dices: true,
-                        goto: true
+                        goto: true,
+                        characters: true,
+                        map: true
                     }
                 };
                 this.mode = "create";
@@ -89,6 +91,9 @@ class AdventureDetailController {
         if (!this.adventure.toggles.dices) {
             delete this.adventure.dice;
         }
+        if (!this.adventure.toggles.characters) {
+            delete this.adventure.defaultCharacterName;
+        }
         try {
             this.adventurePersistenceService.updateAdventureWithoutParagraphs(this.adventure);
             this.$location.url(this.constants.url.adventures);
@@ -98,7 +103,7 @@ class AdventureDetailController {
     }
 
     addRow() {
-        let stats = { init: {}, battle: { displayed: true, editableForEnemy: false }};
+        let stats = { init: {}, characters: {}, editableForCharacters : true };
         this.adventure.stats.push(stats);
         this.addedRow = stats;
     }
@@ -131,10 +136,9 @@ class AdventureDetailController {
                 dicesQuantity: row.init.dicesQuantity,
                 constants: row.init.constant
             },
-            battle: {
-                displayed: row.battle.displayed,
-                enemyDefaultValue: row.battle.enemyDefaultValue,
-                editableForEnemy: row.battle.editableForEnemy,
+            editableForCharacters : !!row.characters,
+            characters : {
+                defaultValue: !!row.characters ? row.characters.defaultValue : null
             }
         };
     }
@@ -158,14 +162,19 @@ class AdventureDetailController {
     }
 
     saveRowChanges($invalid) {
-        if (!this.getEditRow().name) {
+        let editedRow = this.getEditRow();
+        if (!editedRow.name) {
             return ;
         }
-        if (!this.getEditRow().init.dicesQuantity) {
+        if (!editedRow.init.dicesQuantity) {
             return ;
         }
-        if (!this.getEditRow().battle.editableForEnemy && !!this.getEditRow().battle.enemyDefaultValue) {
+        if (!!editedRow.editableForCharacters && !editedRow.characters.defaultValue) {
             return ;
+        }
+        if (!editedRow.editableForCharacters) {
+            delete editedRow.characters;
+            delete editedRow.editableForCharacters;
         }
         this.clearEditedRow();
     }
@@ -177,7 +186,8 @@ class AdventureDetailController {
         if (!!this.editedRow) {
             this.editedRow.name = this.originalRow.name;
             this.editedRow.init = this.originalRow.init;
-            this.editedRow.battle = this.originalRow.battle;
+            this.editedRow.characters = this.originalRow.characters;
+            delete this.editedRow.editableForCharacters;
         }
         this.clearEditedRow();
     }

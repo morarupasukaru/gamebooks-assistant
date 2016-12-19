@@ -131,5 +131,3 @@ next todo:
     # remove constants?
 
     # oop class for data / model?
-
-    # simplify enemy config

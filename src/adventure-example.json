@@ -11,7 +11,6 @@
   "name": "Adventure example",
   "startParagraphId": "1",
   "toggles": {
-    "battle": true,
     "dices": true,
     "items": true,
     "notes": true,
