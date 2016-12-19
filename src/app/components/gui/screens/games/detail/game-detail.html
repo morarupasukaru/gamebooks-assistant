@@ -13,7 +13,7 @@
                       ng-class="{ 'glyphicon glyphicon-menu-right' : !!$ctrl.mapCollapsed(), 'glyphicon glyphicon-menu-down' : !$ctrl.mapCollapsed() }">
                 </span>
             </h2>
-            <nodes ng-if="$ctrl.isMapAvailable()" adventure-id="$ctrl.adventureId" root-paragraph-nr="$ctrl.paragraph.paragraphNr" ng-if="!$ctrl.mapCollapsed()"></nodes>
+            <nodes ng-if="$ctrl.isMapAvailable() && !$ctrl.mapCollapsed()" adventure-id="$ctrl.adventureId" root-paragraph-nr="$ctrl.paragraph.paragraphNr" ng-if="!$ctrl.mapCollapsed()"></nodes>
 
             <h2 ng-if="$ctrl.isNotesAvailable()" ng-click="$ctrl.toogleCollapseNotes()">
                 {{ 'Notes' | translate }}
@@ -46,7 +46,7 @@
                       ng-class="{ 'glyphicon glyphicon-menu-right' : !!$ctrl.charactersCollapsed(), 'glyphicon glyphicon-menu-down' : !$ctrl.charactersCollapsed() }">
                 </span>
             </h2>
-            <characters ng-if="$ctrl.isCharactersAvailable()" game-id="$ctrl.game.id"></characters>
+            <characters ng-if="$ctrl.isCharactersAvailable() && !$ctrl.charactersCollapsed()" game-id="$ctrl.game.id"></characters>
 
             <h2 ng-if="$ctrl.isItemsAvailable()" ng-click="$ctrl.toogleCollapseItems()">
                 {{ 'Items' | translate }}

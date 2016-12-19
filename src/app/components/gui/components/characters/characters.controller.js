@@ -56,7 +56,9 @@ class CharactersController {
     }
 
     addCharacter() {
-        this.rows.push(JSON.parse(JSON.stringify(this.defaultCharacter)));
+        let newRow = JSON.parse(JSON.stringify(this.defaultCharacter));
+        this.rows.push(newRow);
+        this.addedRow = newRow;
     }
 
     displayRemovePopup(removedRow) {
@@ -78,8 +80,63 @@ class CharactersController {
         this.rows.splice(index, 1);
     }
 
+    editRow(row) {
+        this.editedRow = row;
+        this.originalRow = { name : row.name };
+        for (let i = 0; i < this.stats.length; i++) {
+            let currentStats = this.stats[i];
+            this.originalRow[currentStats.name] = row[currentStats.name];
+        }
+    }
+
+    isRowEdited(row) {
+        return row === this.editedRow || row === this.addedRow;
+    }
+
+    hasEditedRow() {
+        return !!this.editedRow || !! this.addedRow;
+    }
+
+    saveRowChanges($invalid) {
+        if ($invalid) {
+            return ;
+        }
+        this.clearEditedRow();
+        this.saveInPersistence();
+    }
+
+    abortRowChanges() {
+        if (!!this.addedRow) {
+            this.removeRow(this.addedRow);
+        }
+        if (!!this.editedRow) {
+            this.editedRow.name = this.originalRow.name;
+            for (let i = 0; i < this.stats.length; i++) {
+                let currentStats = this.stats[i];
+                this.editedRow[currentStats.name] = this.originalRow[currentStats.name];
+            }
+        }
+        this.clearEditedRow();
+    }
+
+    clearEditedRow() {
+        this.addedRow = null;
+        this.editedRow = null;
+        this.originalRow = null;
+    }
+
+    saveInPersistence() {
+        /*
+        if (!!this.gameId) {
+            let updatedGame = this.gamePersistenceService.getGame(this.gameId);
+            updatedGame.items = this.items;
+            this.gamePersistenceService.updateGame(updatedGame);
+        }
+        */
+    }
+
     lastColumnSizeInPercent() {
-        let lastColumnSizeInPercent = 75;
+        let lastColumnSizeInPercent = 55;
         if (!!this.stats && this.isStatsAvailable()) {
             lastColumnSizeInPercent = lastColumnSizeInPercent - (this.stats.length * 10);
         }

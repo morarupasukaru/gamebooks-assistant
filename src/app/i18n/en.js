@@ -1,5 +1,6 @@
 const englishTranslations = {
     'Abort description changes': 'Abort description changes',
+    'Abort character changes': 'Abort character changes',
     'Abort item changes': 'Abort item changes',
     'Abort note changes': 'Abort note changes',
     'Abort stats changes': 'Abort stats changes',
@@ -86,6 +87,7 @@ const englishTranslations = {
     'Edit note': 'Edit note',
     'Edit stats': 'Edit stats',
     'Edit tag': 'Edit tag',
+    'EditCharacter': "Edit character '{{ character }}'",
     'EditItem': "Edit item '{{ description }}'",
     'EditNote': "Edit note '{{ note }}'",
     'en': 'English',
@@ -191,6 +193,7 @@ const englishTranslations = {
     'Save': 'Save',
     'Save changes': 'Save changes',
     'Save description changes': 'Save description changes',
+    'Save character changes': 'Save character changes',
     'Save item changes': 'Save item changes',
     'Save note changes': 'Save note changes',
     'Save stats changes': 'Save stats changes',

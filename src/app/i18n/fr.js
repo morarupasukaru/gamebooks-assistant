@@ -1,5 +1,6 @@
 const frenchTranslations = {
     'Abort description changes': 'Annule les changements de la description',
+    'Abort character changes': 'Annule les changements du personnage',
     'Abort item changes': "Annule les changements de l'objet",
     'Abort note changes': 'Annule les changements de la note',
     'Abort stats changes': "Annule les changements de l'attribut",
@@ -86,6 +87,7 @@ const frenchTranslations = {
     'Edit note': 'Edite la note',
     'Edit stats': "Edite l'attribut",
     'Edit tag': 'Edite le tag',
+    'EditCharacter': "Edite le personnage '{{ character }}'",
     'EditItem': "Edite l'objet '{{ description }}'",
     'EditNote': "Edite la note '{{ note }}'",
     'en': 'English',
@@ -191,6 +193,7 @@ const frenchTranslations = {
     'Save': 'Sauvegarde',
     'Save changes': 'Sauvegarde les changements',
     'Save description changes': 'Sauvegarde les changements de la description',
+    'Save character changes': 'Sauvegarde les changements du personnage',
     'Save item changes': "Sauvegarde les changements de l'objet",
     'Save note changes': 'Sauvegarde les changements de la note',
     'Save stats changes': "Sauvegarde les changements de l'attribut",

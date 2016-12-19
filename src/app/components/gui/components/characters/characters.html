@@ -4,10 +4,14 @@
         <col style="width:10%" ng-if="$ctrl.isStatsAvailable()" ng-repeat="row in $ctrl.stats">
         <col style="width:{{ $ctrl.lastColumnSizeInPercent() }}%">
         <col style="width:5%">
+        <col style="width:5%">
+        <col style="width:5%">
         <thead>
         <tr>
-            <th></th>
+            <th>{{ 'Name' | translate }}</th>
             <th ng-if="$ctrl.isStatsAvailable()" ng-repeat="row in $ctrl.stats">{{ row.name }}</th>
+            <th></th>
+            <th></th>
             <th></th>
             <th>
                 <button type="button" class="btn btn-default"
@@ -21,27 +25,59 @@
         </thead>
         <tbody>
         <tr ng-repeat="row in $ctrl.rows">
-            <td>
+            <td ng-if="!$ctrl.isRowEdited(row)">
+                {{ row.name }}
+            </td>
+            <td ng-if="$ctrl.isRowEdited(row)">
                 <input required type="text" class="form-control" ng-model="row.name">
                 <div class="error" ng-show="!row.name">
                     {{ 'Please fill the name' | translate }}
                 </div>
             </td>
 
-            <td ng-if="$ctrl.isStatsAvailable()" ng-repeat="stats in $ctrl.stats">
+            <td ng-if="!$ctrl.isRowEdited(row) && $ctrl.isStatsAvailable()" ng-repeat="stats in $ctrl.stats">
+                {{ row[stats.name] }}
+            </td>
+            <td ng-if="$ctrl.isRowEdited(row) && $ctrl.isStatsAvailable()" ng-repeat="stats in $ctrl.stats">
                 <input required type="number" class="form-control" ng-model="row[stats.name]" ng-change="$ctrl.save()">
                 <div class="error" ng-show="!row[stats.name]">
                     {{ 'Please fill a value' | translate }}
                 </div>
             </td>
 
-            <td></td>
-
+            <th></th>
             <td>
+                <button type="button" class="btn btn-success"
+                        aria-label="{{ 'Save character changes' | translate}}"
+                        title="{{ 'Save character changes' | translate}}"
+                        ng-click="$ctrl.saveRowChanges(notesTableForm.$invalid)"
+                        ng-show="$ctrl.isRowEdited(row)">
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                </button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-danger"
+                        aria-label="{{ 'Abort character changes' | translate}}"
+                        title="{{ 'Abort character changes' | translate}}"
+                        ng-click="$ctrl.abortRowChanges()"
+                        ng-show="$ctrl.isRowEdited(row)">
+                    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+                </button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-default"
+                        aria-label="{{ 'EditCharacter' | translate: {character: row.name} }}"
+                        title="{{ 'EditCharacter' | translate: {character: row.name} }}"
+                        ng-click="$ctrl.editRow(row)"
+                        ng-show="!$ctrl.hasEditedRow()">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                </button>
                 <button type="button" class="btn btn-danger"
                         aria-label="{{ 'RemoveCharacter' | translate: {character: row.name} }}"
                         title="{{ 'RemoveCharacter' | translate: {character: row.name} }}"
-                        ng-click="$ctrl.displayRemovePopup(row)">
+                        ng-click="$ctrl.displayRemovePopup(row)"
+                        ng-disabled="$ctrl.addedRow"
+                        ng-show="$ctrl.isRowEdited(row)">
                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 </button>
             </td>

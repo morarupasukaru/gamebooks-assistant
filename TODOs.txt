@@ -1,11 +1,12 @@
 en cours:
 
+#characters as items
+    save characters
+    characters table as items
+
 #combat as paragraphe
 - l'écran de combat est un paragraphe éditable spéciale dont on ne voit pas toutes les sections (item, stats, etc.)
 - écran de combat est un choix customisable par aventure
-
-- Characters, Personnages
-- battle as character module
 
 next todo:
     #non mappable paragraph
