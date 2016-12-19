@@ -197,6 +197,10 @@ class AdventureDetailController {
         this.editedRow = null;
         this.originalRow = null;
     }
+
+    onListSave(entries) {
+        this.adventure.lists = entries;
+    }
 }
 
 export default AdventureDetailController;

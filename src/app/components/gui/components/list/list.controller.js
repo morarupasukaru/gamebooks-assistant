@@ -2,11 +2,16 @@ class ListController {
 
     /*@ngInject*/
     constructor() {
-        this.entries = [ { value: 'Notes' }, { value: 'Objets' } ];
+        this.innerEntries = [];
+        if (!!this.entries) {
+            for (let i = 0; i < this.entries.length; i++) {
+                this.innerEntries.push({ value: this.entries[i] });
+            }
+        }
     }
 
     addEntry() {
-        this.entries.push({ value: this.newEntry });
+        this.innerEntries.push({ value: this.newEntry });
         this.newEntry = null;
         this.save();
     }
@@ -19,8 +24,8 @@ class ListController {
     }
 
     removeEntry(entry) {
-        let index = this.entries.indexOf(entry);
-        this.entries.splice(index, 1);
+        let index = this.innerEntries.indexOf(entry);
+        this.innerEntries.splice(index, 1);
         this.save();
     }
 
@@ -40,6 +45,13 @@ class ListController {
     }
 
     save() {
+        let entriesValues = [];
+        if (!!this.innerEntries) {
+            for (let i = 0; i < this.innerEntries.length; i++) {
+                entriesValues.push(this.innerEntries[i].value);
+            }
+        }
+        this.onSave({entries : entriesValues });
     }
 }
 

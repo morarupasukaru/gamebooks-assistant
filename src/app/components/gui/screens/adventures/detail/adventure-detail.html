@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <form name="adventureTableForm" novalidate="novalidate" ng-submit="$ctrl.save()">
                 <h2>{{ 'Lists' | translate }}</h2>
-                <list></list>
+                <list entries="$ctrl.adventure.lists" on-save="$ctrl.onListSave(entries)"></list>
 
                 <h2>{{ 'General' | translate }}</h2>
                 <div>

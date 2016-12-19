@@ -8,8 +8,8 @@ let listModule = angular.module('app.components.gui.components.list', [])
         template,
         controller,
         bindings: {
-            gameId: '@?',
-            items: '='
+            entries: '<',
+            onSave: '&'
         }
      });
 

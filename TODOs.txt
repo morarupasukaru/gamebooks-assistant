@@ -17,6 +17,10 @@ en cours:
     - les notes du joueur sont une type de items
 
 next todo:
+
+    #expand
+        - component pour faire le collapse
+
     #combat as paragraphe
     - l'écran de combat est un paragraphe éditable spéciale dont on ne voit pas toutes les sections (item, stats, etc.)
     - écran de combat est un choix customisable par aventure
