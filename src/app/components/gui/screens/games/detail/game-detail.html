@@ -19,85 +19,60 @@
         <div ng-if="!!$ctrl.isTagEditable()">
             <h2>{{ 'Visible sections' | translate }}</h2>
             <selectable-list entries="$ctrl.sections" on-save="$ctrl.onSectionsSave(entries)"></selectable-list>
-        </div>
 
-        <div ng-if="!!$ctrl.isTagEditable()">
             <h2>{{ 'Tag' | translate }}</h2>
+            <input id="inputTag" type="text" class="form-control" ng-model="$ctrl.paragraph.tag">
+            <br>
 
-            <table class="table table-borderless">
-                <col style="width:90%">
-                <col style="width:5%">
-                <col style="width:5%">
-                <thead>
-                <tr>
-                    <th>{{ 'Tag' | translate }}</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>
-                        <input id="inputTag" type="text" class="form-control" ng-model="$ctrl.paragraph.tag">
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-success"
-                                aria-label="{{ 'Save tag changes' | translate}}"
-                                title="{{ 'Save tag changes' | translate}}"
-                                ng-click="$ctrl.saveTagChanges()"
-                                ng-show="$ctrl.isTagEditable()">
-                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                        </button>
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-danger"
-                                aria-label="{{ 'Abort tag changes' | translate}}"
-                                title="{{ 'Abort tag changes' | translate}}"
-                                ng-click="$ctrl.abortTagChanges()"
-                                ng-show="$ctrl.isTagEditable()">
-                            <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-                        </button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+            <button type="button" class="btn btn-default"
+                    aria-label="{{ 'Back' | translate}}"
+                    title="{{ 'Back' | translate}}"
+                    ng-click="$ctrl.abortTagChanges()">
+                {{ 'Back' | translate }}
+            </button>
+            <button type="button" class="btn btn-primary"
+                    aria-label="{{ 'Save changes' | translate }}"
+                    title="{{ 'Save changes' | translate }}"
+                    ng-click="$ctrl.saveTagChanges()">{{ 'Save' | translate }}</button>
         </div>
 
-        <description game-id="$ctrl.game.id" paragraph="$ctrl.paragraph">
-        </description>
+        <div ng-if="!$ctrl.isTagEditable()">
+            <description game-id="$ctrl.game.id" paragraph="$ctrl.paragraph">
+            </description>
 
-        <goto game-id="$ctrl.game.id" paragraph="$ctrl.paragraph">
-        </goto>
+            <goto game-id="$ctrl.game.id" paragraph="$ctrl.paragraph">
+            </goto>
 
-        <collapse ng-if="$ctrl.isMapAvailable()" title="{{ 'Map' | translate }}" flag="game.map">
-            <nodes adventure-id="$ctrl.adventureId" root-paragraph-nr="$ctrl.paragraph.paragraphNr"></nodes>
-        </collapse>
-
-        <collapse ng-if="$ctrl.isStatsAvailable()" title="{{ 'Player' | translate }} {{ $ctrl.playerName }}" flag="game.stats">
-            <stats game-id="{{$ctrl.game.id}}" stats="$ctrl.stats"></stats>
-        </collapse>
-
-        <collapse ng-if="$ctrl.isCharactersAvailable()" title="{{ 'Characters' | translate }}" flag="game.characters">
-            <characters game-id="$ctrl.game.id"></characters>
-        </collapse>
-
-        <collapse ng-if="$ctrl.isDicesAvailable()" title="{{ 'Dices' | translate }}" flag="game.dices">
-            <dices ng-if="$ctrl.isDicesAvailable() && !$ctrl.dicesCollapsed()" game-id="{{$ctrl.game.id}}"></dices>
-        </collapse>
-
-        <div ng-repeat="list in $ctrl.adventure.lists.keys">
-            <collapse ng-if="$ctrl.isEntriesAvailable(list)" title="{{ list }}" flag="game.{{list}}">
-                <list entries="$ctrl.game.lists[list]" on-save="$ctrl.onSubListSave(list, entries)"></list>
+            <collapse ng-if="$ctrl.isMapAvailable()" title="{{ 'Map' | translate }}" flag="game.map">
+                <nodes adventure-id="$ctrl.adventureId" root-paragraph-nr="$ctrl.paragraph.paragraphNr"></nodes>
             </collapse>
+
+            <collapse ng-if="$ctrl.isStatsAvailable()" title="{{ 'Player' | translate }} {{ $ctrl.playerName }}" flag="game.stats">
+                <stats game-id="{{$ctrl.game.id}}" stats="$ctrl.stats"></stats>
+            </collapse>
+
+            <collapse ng-if="$ctrl.isCharactersAvailable()" title="{{ 'Characters' | translate }}" flag="game.characters">
+                <characters game-id="$ctrl.game.id"></characters>
+            </collapse>
+
+            <collapse ng-if="$ctrl.isDicesAvailable()" title="{{ 'Dices' | translate }}" flag="game.dices">
+                <dices ng-if="$ctrl.isDicesAvailable() && !$ctrl.dicesCollapsed()" game-id="{{$ctrl.game.id}}"></dices>
+            </collapse>
+
+            <div ng-repeat="list in $ctrl.adventure.lists.keys">
+                <collapse ng-if="$ctrl.isEntriesAvailable(list)" title="{{ list }}" flag="game.{{list}}">
+                    <list entries="$ctrl.game.lists[list]" on-save="$ctrl.onSubListSave(list, entries)"></list>
+                </collapse>
+            </div>
+
+            <back-button></back-button>
+
+            <button type="button"
+                    class="btn btn-default"
+                    ng-if="$ctrl.isGameRulesAvailable()"
+                    ng-click="$ctrl.goToGameRulesParagraph()">
+                {{ "Game's rules" | translate }}
+            </button>
         </div>
-
-        <back-button></back-button>
-
-        <button type="button"
-                class="btn btn-default"
-                ng-if="$ctrl.isGameRulesAvailable()"
-                ng-click="$ctrl.goToGameRulesParagraph()">
-            {{ "Game's rules" | translate }}
-        </button>
     </div>
 </main>

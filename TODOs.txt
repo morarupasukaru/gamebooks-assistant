@@ -1,5 +1,10 @@
 en cours:
 
+#hide sections
+    - chargement des sections cachés au chargement de l'écran
+    - possibilité de cacher les sections suivantes pour un "type" de paragraphe donnée,
+    - type = tag
+
 next todo:
 
 #merge player & characters
@@ -11,12 +16,6 @@ next todo:
     - permettre de changer le nom du joueur
     - afficher la liste des personnages en liste
     - en mode édition apparaissent des champs d'édition pour les caractéristiques & le noms
-
-#hide sections
-    - possibilité de cacher les sections suivantes pour un "type" de paragraphe donnée,
-    - type = tag
-    - sections: carte, joueur, personnages, dés, lists (*)
-    - choix disponible en éditant le paragraphe (=tag)
 
 #integrate lone wolf
  - download images from lone wolf html
