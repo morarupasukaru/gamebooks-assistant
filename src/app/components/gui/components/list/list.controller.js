@@ -1,92 +1,46 @@
-class ItemsController {
+class ListController {
+
     /*@ngInject*/
-    constructor(popupService, constants, gamePersistenceService) {
-        this.rows = this.items;
-        this.popupService = popupService;
-        this.constants = constants;
-        this.gamePersistenceService = gamePersistenceService;
-
-        this.popupDeleteItemConfig = {
-            id : 'popupDeleteItem',
-            text : 'Are you sure to remove the item?',
-            choices : [constants.choices.yes, constants.choices.no],
-            withCloseButton : false,
-            closeOnClickOutsideModal : false
-        };
+    constructor() {
+        this.entries = [ { value: 'Notes' }, { value: 'Objets' } ];
     }
 
-    addRow() {
-        let row = { quantity: 1};
-        this.rows.push(row);
-        this.addedRow = row;
+    addEntry() {
+        this.entries.push({ value: this.newEntry });
+        this.newEntry = null;
+        this.save();
     }
 
-    displayRemovePopup(removedRow) {
-        this.rowToBeRemoved = removedRow;
-        let self = this;
-        this.popupService.show(
-            this.popupDeleteItemConfig.id,
-            function(popupDomElementId, choice) {
-                if (choice === self.constants.choices.yes) {
-                    self.removeRow(self.rowToBeRemoved);
-                }
-                self.rowToBeRemoved = null;
-            }
-        );
-    }
-
-    removeRow(removedRow) {
-        var index = this.rows.indexOf(removedRow);
-        this.rows.splice(index, 1);
-        this.clearEditedRow();
-        this.saveInPersistence();
-    }
-
-    editRow(row) {
-        this.editedRow = row;
-        this.originalRow = { quantity : row.quantity, description : row.description };
-    }
-
-    isRowEdited(row) {
-        return row === this.editedRow || row === this.addedRow;
-    }
-
-    hasEditedRow() {
-        return !!this.editedRow || !! this.addedRow;
-    }
-
-    saveRowChanges($invalid) {
-        if ($invalid) {
-            return ;
+    editEntry(entry) {
+        if (!entry.edited) {
+            entry.edited = true;
+            entry.originalValue = entry.value;
         }
-        this.clearEditedRow();
-        this.saveInPersistence();
     }
 
-    abortRowChanges() {
-        if (!!this.addedRow) {
-            this.removeRow(this.addedRow);
-        }
-        if (!!this.editedRow) {
-            this.editedRow.quantity = this.originalRow.quantity;
-            this.editedRow.description = this.originalRow.description;
-        }
-        this.clearEditedRow();
+    removeEntry(entry) {
+        let index = this.entries.indexOf(entry);
+        this.entries.splice(index, 1);
+        this.save();
     }
 
-    clearEditedRow() {
-        this.addedRow = null;
-        this.editedRow = null;
-        this.originalRow = null;
+    saveChanges(entry) {
+        this.clearEdition(entry);
+        this.save();
     }
 
-    saveInPersistence() {
-        if (!!this.gameId) {
-            let updatedGame = this.gamePersistenceService.getGame(this.gameId);
-            updatedGame.items = this.items;
-            this.gamePersistenceService.updateGame(updatedGame);
-        }
+    abortChanges(entry) {
+        entry.value = entry.originalValue;
+        this.clearEdition(entry);
+    }
+
+    clearEdition(entry) {
+        delete entry.originalValue;
+        delete entry.edited;
+    }
+
+    save() {
     }
 }
 
-export default ItemsController;
+export default ListController;

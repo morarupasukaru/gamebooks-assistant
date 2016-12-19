@@ -1,4 +1,11 @@
 en cours:
+
+
+#list
+    - click, affiche edition
+    - clear contenu > supprime la liste
+
+
     #items
     - permet de spécifier une catégorie d'items > "Kai Discipline", "Items"
     - permet de spécifier le titre de "l'item"
@@ -122,3 +129,5 @@ next todo:
     # remove constants?
 
     # oop class for data / model?
+
+    # touch-screen? (hover?)

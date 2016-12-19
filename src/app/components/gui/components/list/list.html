@@ -1,93 +1,41 @@
-<form name="itemsTableForm" novalidate="novalidate">
-    <table class="table table-striped">
-        <col style="width:10%">
-        <col style="width:75%">
-        <col style="width:5%">
-        <col style="width:5%">
-        <col style="width:5%">
-        <thead>
-        <tr>
-            <th>{{ 'Quantity' | translate }}</th>
-            <th>{{ 'Item' | translate }}</th>
-            <th></th>
-            <th></th>
-            <th>
-                <button type="button"
-                        class="btn btn-default"
-                        aria-label="{{ 'Add item' | translate}}"
-                        title="{{ 'Add item' | translate}}"
-                        ng-show="!$ctrl.hasEditedRow()"
-                        ng-click="$ctrl.addRow()">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                </button>
-            </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="row in $ctrl.rows">
-            <td ng-if="!$ctrl.isRowEdited(row)">
-                {{ row.quantity }}
-            </td>
-            <td ng-if="$ctrl.isRowEdited(row)">
-                <input required name="quantity" type="number" class="form-control" ng-model="row.quantity">
-                <div class="error" ng-show="!row.quantity">
-                    <!-- check error only on field -->
-                    {{ 'Please fill the quantity' | translate }}
-                </div>
-            </td>
-
-            <td ng-if="!$ctrl.isRowEdited(row)">
-                {{ row.description }}
-            </td>
-            <td ng-if="$ctrl.isRowEdited(row)">
-                <input required name="description" type="text" class="form-control description" ng-model="row.description">
-                <div class="error" ng-show="!row.description">
-                    <!-- check error only on field -->
-                    {{ 'Please fill the description' | translate }}
-                </div>
-            </td>
-
-            <td>
-                <button type="button" class="btn btn-success"
-                        aria-label="{{ 'Save item changes' | translate}}"
-                        title="{{ 'Save item changes' | translate}}"
-                        ng-click="$ctrl.saveRowChanges(notesTableForm.$invalid)"
-                        ng-show="$ctrl.isRowEdited(row)">
-                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                </button>
-            </td>
-
-            <td>
-                <button type="button" class="btn btn-danger"
-                        aria-label="{{ 'Abort item changes' | translate}}"
-                        title="{{ 'Abort item changes' | translate}}"
-                        ng-click="$ctrl.abortRowChanges()"
-                        ng-show="$ctrl.isRowEdited(row)">
-                    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-                </button>
-            </td>
-
-
-            <td>
-                <button type="button" class="btn btn-default"
-                        aria-label="{{ 'EditItem' | translate: {description: row.description} }}"
-                        title="{{ 'EditItem' | translate: {description: row.description} }}"
-                        ng-click="$ctrl.editRow(row)"
-                        ng-show="!$ctrl.hasEditedRow()">
-                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                </button>
-                <button type="button" class="btn btn-danger"
-                        aria-label="{{ 'RemoveItem' | translate: {description: row.description} }}"
-                        title="{{ 'RemoveItem' | translate: {description: row.description} }}"
-                        ng-click="$ctrl.displayRemovePopup(row)"
-                        ng-disabled="$ctrl.addedRow"
-                        ng-show="$ctrl.isRowEdited(row)">
-                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                </button>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</form>
-
-<popup config="{{ $ctrl.popupDeleteItemConfig }}"></popup>
+<ul>
+    <li ng-repeat="entry in $ctrl.entries">
+        <span ng-show="!entry.edited" ng-click="$ctrl.editEntry(entry)">{{ entry.value }}</span>
+        <input type="text" ng-model="entry.value" ng-show="!!entry.edited"/>
+        <button type="button"
+                class="btn btn-xs btn-default"
+                aria-label="{{ 'Abort entry changes' | translate}}"
+                title="{{ 'Abort entry changes' | translate}}"
+                ng-click="$ctrl.abortChanges(entry)"
+                ng-show="!!entry.edited">
+            <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+        </button>
+        <button type="button"
+                class="btn btn-xs btn-success"
+                aria-label="{{ 'Save entry changes' | translate}}"
+                title="{{ 'Save entry changes' | translate}}"
+                ng-click="$ctrl.saveChanges(entry)"
+                ng-show="!!entry.edited">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        </button>
+        <button type="button"
+                class="btn btn-xs btn-danger"
+                aria-label="{{ 'Remove entry' | translate}}"
+                title="{{ 'Remove entry' | translate}}"
+                ng-click="$ctrl.removeEntry(entry)"
+                ng-show="!!entry.edited">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </button>
+    </li>
+    <li>
+        <input id="newEntry" type="text" placeholder="{{ 'New entry' | translate }}" ng-model="$ctrl.newEntry"/>
+        <button type="button"
+                class="btn btn-xs btn-success"
+                aria-label="{{ 'Add entry' | translate}}"
+                title="{{ 'Add entry' | translate}}"
+                ng-click="$ctrl.addEntry()"
+                ng-show="!!$ctrl.newEntry">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </button>
+    </li>
+</ul>

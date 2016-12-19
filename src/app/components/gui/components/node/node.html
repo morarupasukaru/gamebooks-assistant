@@ -53,7 +53,7 @@
 </div>
 <div ng-if="!!$ctrl.data.children && !$ctrl.data.collapsed">
     <ul>
-        <li ng-repeat="childNode in $ctrl.data.children">
+        <li class="node" ng-repeat="childNode in $ctrl.data.children">
             <node data="childNode" root-node="$ctrl.rootNode"></node>
         </li>
     </ul>
