@@ -1,9 +1,8 @@
 en cours:
 
+#items as list
 
-#list
-    - click, affiche edition
-    - clear contenu > supprime la liste
+#notes as list
 
 
     #items

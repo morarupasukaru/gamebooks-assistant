@@ -48,6 +48,9 @@ class AdventureDetailController {
                 this.adventure = this.adventurePersistenceService.getAdventure(adventureId);
                 this.mode = "edit";
             }
+            if (!this.adventure.lists) {
+                this.adventure.lists = { values: {} };
+            }
         }
     }
 
@@ -199,7 +202,19 @@ class AdventureDetailController {
     }
 
     onListSave(entries) {
-        this.adventure.lists = entries;
+        if (!!this.adventure.lists.keys) {
+            for (let i = 0; i < this.adventure.lists.keys.length; i++) {
+                let key = this.adventure.lists.keys[i];
+                if (entries.indexOf(key) === -1) {
+                    delete this.adventure.lists.values[key];
+                }
+            }
+        }
+        this.adventure.lists.keys = entries;
+    }
+
+    onSubListSave(list, entries) {
+        this.adventure.lists.values[list] = entries;
     }
 }
 

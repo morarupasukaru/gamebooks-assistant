@@ -5,9 +5,6 @@
         <h2>{{ $ctrl.adventure.name }}</h2>
         <div class="col-md-12">
             <form name="adventureTableForm" novalidate="novalidate" ng-submit="$ctrl.save()">
-                <h2>{{ 'Lists' | translate }}</h2>
-                <list entries="$ctrl.adventure.lists" on-save="$ctrl.onListSave(entries)"></list>
-
                 <h2>{{ 'General' | translate }}</h2>
                 <div>
                     <div class="form-group" ng-if="!$ctrl.adventure.id">
@@ -282,6 +279,14 @@
                     <div>
                         <items items="$ctrl.adventure.items"></items>
                     </div>
+                </div>
+
+                <h2>{{ 'Lists' | translate }}</h2>
+                <list entries="$ctrl.adventure.lists.keys" on-save="$ctrl.onListSave(entries)"></list>
+
+                <div ng-repeat="list in $ctrl.adventure.lists.keys">
+                    <h2>{{ list }}</h2>
+                    <list entries="$ctrl.adventure.lists.values[list]" on-save="$ctrl.onSubListSave(list, entries)"></list>
                 </div>
             </form>
         </div>

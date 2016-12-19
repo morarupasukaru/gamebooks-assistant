@@ -10,6 +10,25 @@
   "id": "le-sorcier-de-la-montagne-de-feu",
   "isbn": "978-2-07-064740-8",
   "language": "Français",
+  "lists": {
+    "keys": [
+      "Notes",
+      "Objets"
+    ],
+    "values": {
+      "Objets": [
+        "Epée",
+        "Bouclier",
+        "Armure de cuir",
+        "Sac à dos",
+        "Lanterne",
+        "10 Repas (restitue 4 points d'endurance)",
+        "2 Mesures de potion d'Adresse (rend vos points d'HABILITE)",
+        "2 \tMesures de potion de Vigueur (rend vos points d'ENDURANCE)",
+        "2 Mesures de Bonne Fortune (rend vos points de CHANCE + 1 point)"
+      ]
+    }
+  },
   "name": "Le Sorcier de la Montagne de Feu",
   "serie": "Défis Fantastiques",
   "startParagraphId": "Sélection de l'inventaire",
