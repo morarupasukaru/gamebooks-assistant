@@ -1,13 +1,10 @@
 en cours:
 
-#characters as items
-    save characters
-
-#combat as paragraphe
-- l'écran de combat est un paragraphe éditable spéciale dont on ne voit pas toutes les sections (item, stats, etc.)
-- écran de combat est un choix customisable par aventure
-
 next todo:
+    #combat as paragraphe
+    - l'écran de combat est un paragraphe éditable spéciale dont on ne voit pas toutes les sections (item, stats, etc.)
+    - écran de combat est un choix customisable par aventure
+
     #non mappable paragraph
     - trouver non pour flag mappable?
     - flag "paragraphe non traceable sur la carte" qui est un checkbox clickable dans l'edition du paragraphe

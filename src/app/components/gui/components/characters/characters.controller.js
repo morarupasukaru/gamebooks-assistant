@@ -21,7 +21,12 @@ class CharactersController {
     }
 
     initData() {
-        this.rows = [];
+        let game = this.gamePersistenceService.getGame(this.gameId);
+        if (game.characters) {
+            this.rows = game.characters;
+        } else {
+            this.rows = [];
+        }
         this.initStatsData();
         this.defaultCharacter = this.initDefaultCharacter();
     }
@@ -126,13 +131,11 @@ class CharactersController {
     }
 
     saveInPersistence() {
-        /*
         if (!!this.gameId) {
             let updatedGame = this.gamePersistenceService.getGame(this.gameId);
-            updatedGame.items = this.items;
+            updatedGame.characters = this.rows;
             this.gamePersistenceService.updateGame(updatedGame);
         }
-        */
     }
 
     lastColumnSizeInPercent() {

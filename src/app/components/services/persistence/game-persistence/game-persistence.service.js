@@ -64,6 +64,11 @@ class GamePersistenceService {
                 delete game.stats[i]["$$hashKey"];
             }
         }
+        if (!!game.characters) {
+            for (let i = 0; i < game.characters.length; i++) {
+                delete game.characters[i]["$$hashKey"];
+            }
+        }
         return this.sortObjectKeys(game);
     }
 
