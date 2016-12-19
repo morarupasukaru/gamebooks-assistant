@@ -3,7 +3,7 @@ import angular from 'angular';
 import template from './stats.html';
 import controller from './stats.controller';
 
-let statsModule = angular.module('app.components.gui.screen.stats', [])
+let statsModule = angular.module('app.components.gui.components.stats', [])
     .component('stats', {
         template,
         controller,
