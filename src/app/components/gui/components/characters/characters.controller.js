@@ -85,6 +85,8 @@ class CharactersController {
     removeRow(removedRow) {
         var index = this.rows.indexOf(removedRow);
         this.rows.splice(index, 1);
+        this.clearEditedRow();
+        this.saveInPersistence();
     }
 
     editRow(row) {

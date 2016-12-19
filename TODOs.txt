@@ -8,6 +8,16 @@ en cours:
 
 next todo:
 
+#merge player & characters
+    - afficher valeur initial courant / initial en mode non édition (tooltip)
+    - afficher tous les attributs
+    - permettre de mettre de ne pas mettre de valeurs pour les characters
+    - afficher le joueur en premier dans la liste
+    - ne pas permettre de supprime le joueur
+    - permettre de changer le nom du joueur
+    - afficher la liste des personnages en liste
+    - en mode édition apparaissent des champs d'édition pour les caractéristiques & le noms
+
 #integrate lone wolf
  - download images from lone wolf html
  - test import with all lone wolf books
