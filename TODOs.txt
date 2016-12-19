@@ -1,4 +1,13 @@
 en cours:
+    #items
+    - permet de spécifier une catégorie d'items > "Kai Discipline", "Items"
+    - permet de spécifier le titre de "l'item"
+    - supprimer quantité des items
+    - afficher la catégorie d'item dans un tableau à part avec expand à part
+    - pouvoir éditer la liste des items possibles dans l'édition de l'aventure
+
+    #notes as items
+    - les notes du joueur sont une type de items
 
 next todo:
     #combat as paragraphe
@@ -53,31 +62,16 @@ next todo:
     - images paragraphes
     - ne pas changer la couleur d'un lien si celui-ci est non traceable
 
-    #tag
-    - insérer tag avec dropdrown, edition contenu dropdown
-    - tag en image importé base64
-        => image pour "tag" propre par livre
-
-    #items
-    - permet de spécifier une catégorie d'items > "Kai Discipline", "Items"
-    - permet de spécifier le titre de "l'item"
-    - supprimer quantité des items
-    - afficher la catégorie d'item dans un tableau à part avec expand à part
-    - pouvoir éditer la liste des items possibles dans l'édition de l'aventure
-
-    #notes as items
-    - les notes du joueur sont une type de items
-
-    #enemy as character
-    - généraliser la notion d'ennemi en tant que character
-    - flag friend/enemy
-    - section cachable d'un paragraphe (pas d'écran spécifique au combat)
-
     #playername
     - permettre de pouvoir changer le nom du joueur
     - permettre de "tagger" le nom du joueur (chevalier, magicien, ...)
     - level of kai training : fait partie du nom du joueur
     - voir le tag, dans l'apercu des jeux
+
+    #tag
+    - insérer tag avec dropdrown, edition contenu dropdown
+    - tag en image importé base64
+        => image pour "tag" propre par livre
 
     #tag
     - dropdown contenant une liste d'entrée ayant une image (optionnelle) et un text (obligatoire)

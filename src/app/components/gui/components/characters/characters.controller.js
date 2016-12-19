@@ -34,10 +34,12 @@ class CharactersController {
     initStatsData() {
         if (!!this.game && !!this.adventure) {
             this.stats = [];
-            for (let i = 0; i < this.adventure.stats.length; i++) {
-                let currentStats = this.adventure.stats[i];
-                if (!!currentStats.characters) {
-                    this.stats.push({ name: currentStats.name, value: currentStats.characters.defaultValue });
+            if (!!this.adventure.stats) {
+                for (let i = 0; i < this.adventure.stats.length; i++) {
+                    let currentStats = this.adventure.stats[i];
+                    if (!!currentStats.characters) {
+                        this.stats.push({ name: currentStats.name, value: currentStats.characters.defaultValue });
+                    }
                 }
             }
         }
