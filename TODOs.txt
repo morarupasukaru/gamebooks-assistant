@@ -78,6 +78,7 @@ next todo:
         http://viralpatel.net/blogs/angularjs-routing-and-views-tutorial-with-example/
 
     ( #angular-translate delete )
+        - bug with translate used inside controller
 
     # translate rewritten
 

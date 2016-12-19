@@ -194,6 +194,7 @@ const frenchTranslations = {
     'Title': 'Titre',
     "Used Local's Storage": "Local's Storage utilisé",
     "Used Local's Storage in Percent": "Local's Storage utilisé en pourcent",
+    'Visible sections': 'Sections visibles',
     'Version': 'Version',
     'Web/JS Framework': 'Framework Web/JS',
     'Who': 'Qui',

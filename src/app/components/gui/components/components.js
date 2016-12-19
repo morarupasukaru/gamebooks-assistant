@@ -4,7 +4,6 @@ import Messages from './messages/messages';
 import Navbar from './navbar/navbar';
 import Popup from './popup/popup';
 import Stats from './stats/stats';
-import Paragraph from './paragraph/paragraph';
 import BackButton from './back-button/back-button';
 import ExportButton from './export-button/export-button';
 import ImportDataPopup from './import-data-popup/import-data-popup';
@@ -15,6 +14,7 @@ import List from './list/list';
 import Description from './description/description';
 import Goto from './goto/goto';
 import Collapse from './collapse/collapse';
+import SelectableList from './selectable-list/selectable-list';
 
 let guiComponentsModule = angular.module('app.components.gui.components', [
     Dices.name,
@@ -22,7 +22,6 @@ let guiComponentsModule = angular.module('app.components.gui.components', [
     Navbar.name,
     Popup.name,
     Stats.name,
-    Paragraph.name,
     BackButton.name,
     ExportButton.name,
     ImportDataPopup.name,
@@ -32,7 +31,8 @@ let guiComponentsModule = angular.module('app.components.gui.components', [
     List.name,
     Description.name,
     Goto.name,
-    Collapse.name
+    Collapse.name,
+    SelectableList.name
 ]);
 
 export default guiComponentsModule;

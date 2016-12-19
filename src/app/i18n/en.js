@@ -195,6 +195,7 @@ const englishTranslations = {
     "Used Local's Storage": "Used Local's Storage",
     "Used Local's Storage in Percent": "Used Local's Storage in Percent",
     'Version': 'Version',
+    'Visible sections': 'Visible sections',
     'Web/JS Framework': 'Web/JS Framework',
     'Who': 'Who',
     'Yes': 'Yes',

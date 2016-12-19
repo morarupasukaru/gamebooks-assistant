@@ -8,10 +8,10 @@
             <div ng-if="!$ctrl.isDescriptionEditable()">
                 <div ng-repeat="paragraph in $ctrl.paragraphs">
                     <ng-repeat ng-repeat="paragraphElement in paragraph">
-                        <button class="btn btn-default" ng-if="!!paragraphElement.choice && !!$ctrl.isAlreadyChoosen(paragraphElement.text)" ng-click="$ctrl.goTo(paragraphElement.text)">
+                        <button class="btn btn-xs btn-default" ng-if="!!paragraphElement.choice && !!$ctrl.isAlreadyChoosen(paragraphElement.text)" ng-click="$ctrl.goTo(paragraphElement.text)">
                             {{ paragraphElement.text }}
                         </button>
-                        <button class="btn btn-default" ng-if="!!paragraphElement.choice && !$ctrl.isAlreadyChoosen(paragraphElement.text)" ng-click="$ctrl.goTo(paragraphElement.text)">
+                        <button class="btn btn-xs btn-default" ng-if="!!paragraphElement.choice && !$ctrl.isAlreadyChoosen(paragraphElement.text)" ng-click="$ctrl.goTo(paragraphElement.text)">
                             <strong>{{ paragraphElement.text }}</strong>
                         </button>
                         <ng-if ng-if="!paragraphElement.choice">
