@@ -26,6 +26,23 @@
                 ng-show="!!entry.edited && !!entry.deletable">
             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
         </button>
+        <ul>
+            <li ng-repeat="stats in entry.stats">
+                {{ stats.name + ' [' + stats.current + '/' + stats.initial + ']' }}
+                <button type="button" class="btn btn-xs btn-default"
+                        aria-label="{{ 'IncrementStatsTitle' | translate: {stats: stats.name} }}"
+                        title="{{ 'IncrementStatsTitle' | translate: {stats: stats.name} }}"
+                        ng-click="$ctrl.increment(row)">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="btn btn-xs btn-default"
+                        aria-label="{{ 'DecrementStatsTitle' | translate: {stats: stats.name} }}"
+                        title="{{ 'DecrementStatsTitle' | translate: {stats: stats.name} }}"
+                        ng-click="$ctrl.decrement(row)">
+                    <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                </button>
+            </li>
+        </ul>
     </li>
     <li>
         <input id="newEntry" type="text" placeholder="{{ 'New character' | translate }}" ng-model="$ctrl.newEntry"/>
