@@ -52,6 +52,7 @@
             </collapse>
 
             <collapse ng-if="$ctrl.isCharactersAvailable()" title="{{ 'Characters' | translate }}" flag="game.characters">
+                <characters-deprecated game-id="$ctrl.game.id"></characters-deprecated>
                 <characters game-id="$ctrl.game.id"></characters>
             </collapse>
 

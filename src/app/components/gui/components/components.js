@@ -10,6 +10,7 @@ import ImportDataPopup from './import-data-popup/import-data-popup';
 import Nodes from './nodes/nodes';
 import Node from './node/node';
 import Characters from './characters/characters';
+import CharactersDeprecated from './characters-deprecated/characters-deprecated';
 import List from './list/list';
 import Description from './description/description';
 import Goto from './goto/goto';
@@ -28,6 +29,7 @@ let guiComponentsModule = angular.module('app.components.gui.components', [
     Nodes.name,
     Node.name,
     Characters.name,
+    CharactersDeprecated.name,
     List.name,
     Description.name,
     Goto.name,

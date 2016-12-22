@@ -1,161 +1,100 @@
 class CharactersController {
+
     /*@ngInject*/
-    constructor($window, popupService, constants, gamePersistenceService, adventurePersistenceService) {
-        this.$window = $window;
-        this.popupService = popupService;
-        this.constants = constants;
+    constructor(gamePersistenceService) {
         this.gamePersistenceService = gamePersistenceService;
-        this.adventurePersistenceService = adventurePersistenceService;
-        this.game = this.gamePersistenceService.getGame(decodeURIComponent(this.gameId));
-        this.adventure = this.adventurePersistenceService.getAdventure(this.game.adventureId);
-
-        this.popupDeleteCharacterConfig = {
-            id : 'popupDeleteCharacter',
-            text : 'Are you sure to remove the character?',
-            choices : [constants.choices.yes, constants.choices.no],
-            withCloseButton : false,
-            closeOnClickOutsideModal : false
-        };
-
         this.initData();
     }
 
     initData() {
-        let game = this.gamePersistenceService.getGame(this.gameId);
-        if (game.characters) {
-            this.rows = game.characters;
-        } else {
-            this.rows = [];
+        this.game = this.gamePersistenceService.getGame(decodeURIComponent(this.gameId));
+        this.innerEntries = [];
+        this.innerEntries.push({ value: this.displayValueForPlayer(this.game), deletable : false });
+        if (this.game.characters) {
+            for (let i = 0; i < this.game.characters.length; i++) {
+                this.innerEntries.push({ value: this.displayValueForCharacter(this.game.characters[i]), deletable : true });
+            }
         }
-        this.initStatsData();
-        this.defaultCharacter = this.initDefaultCharacter();
     }
 
-    initStatsData() {
-        if (!!this.game && !!this.adventure) {
-            this.stats = [];
-            if (!!this.adventure.stats) {
-                for (let i = 0; i < this.adventure.stats.length; i++) {
-                    let currentStats = this.adventure.stats[i];
-                    if (!!currentStats.characters) {
-                        this.stats.push({ name: currentStats.name, value: currentStats.characters.defaultValue });
-                    }
+    displayValueForPlayer(game) {
+        let value = game.playerName;
+        if (!!game.stats && game.stats.length > 0) {
+            value = value + ' - ';
+            for (let i = 0; i < game.stats.length; i++) {
+                let stats = game.stats[i];
+                let statsValue = stats.name + ' ['+ stats.current + '/' + stats.initial + ']';
+                value = value + statsValue;
+                if (i < game.stats.length - 1) {
+                    value = value + ', ';
                 }
             }
         }
+        return value;
     }
 
-    initDefaultCharacter() {
-        let defaultCharacterName = 'Character';
-        if (!!this.adventure.defaultCharacterName) {
-            defaultCharacterName = this.adventure.defaultCharacterName;
-        }
-
-        let statsDefaultCharacter = { name : defaultCharacterName };
-
-        for (let i = 0; i < this.stats.length; i++) {
-            let currentStats = this.stats[i];
-            statsDefaultCharacter[currentStats.name] = currentStats.value;
-        }
-
-
-        return statsDefaultCharacter;
-    }
-
-    addCharacter() {
-        let newRow = JSON.parse(JSON.stringify(this.defaultCharacter));
-        this.rows.push(newRow);
-        this.addedRow = newRow;
-    }
-
-    displayRemovePopup(removedRow) {
-        this.rowToBeRemoved = removedRow;
-        let self = this;
-        this.popupService.show(
-            this.popupDeleteCharacterConfig.id,
-            function(popupDomElementId, choice) {
-                if (choice === self.constants.choices.yes) {
-                    self.removeRow(self.rowToBeRemoved);
+    displayValueForCharacter(character) {
+        let value = character.name;
+        let keys  = Object.keys(character);
+        keys.splice(keys.indexOf('name'), 1);
+        keys.splice(keys.indexOf('$$hashKey$$'), 1);
+        if (keys .length > 0) {
+            value = value + ' - ';
+            for (let i = 0; i < keys.length; i++) {
+                let key = keys[i];
+                let statsValue = key + ' ['+ character[key] + ']';
+                value = value + statsValue;
+                if (i < keys.length - 1) {
+                    value = value + ', ';
                 }
-                self.rowToBeRemoved = null;
-            }
-        );
-    }
-
-    removeRow(removedRow) {
-        var index = this.rows.indexOf(removedRow);
-        this.rows.splice(index, 1);
-        this.clearEditedRow();
-        this.saveInPersistence();
-    }
-
-    editRow(row) {
-        this.editedRow = row;
-        this.originalRow = { name : row.name };
-        for (let i = 0; i < this.stats.length; i++) {
-            let currentStats = this.stats[i];
-            this.originalRow[currentStats.name] = row[currentStats.name];
-        }
-    }
-
-    isRowEdited(row) {
-        return row === this.editedRow || row === this.addedRow;
-    }
-
-    hasEditedRow() {
-        return !!this.editedRow || !! this.addedRow;
-    }
-
-    saveRowChanges($invalid) {
-        if ($invalid) {
-            return ;
-        }
-        this.clearEditedRow();
-        this.saveInPersistence();
-    }
-
-    abortRowChanges() {
-        if (!!this.addedRow) {
-            this.removeRow(this.addedRow);
-        }
-        if (!!this.editedRow) {
-            this.editedRow.name = this.originalRow.name;
-            for (let i = 0; i < this.stats.length; i++) {
-                let currentStats = this.stats[i];
-                this.editedRow[currentStats.name] = this.originalRow[currentStats.name];
             }
         }
-        this.clearEditedRow();
+        return value;
     }
 
-    clearEditedRow() {
-        this.addedRow = null;
-        this.editedRow = null;
-        this.originalRow = null;
+
+    addEntry() {
+        this.innerEntries.push({ value: this.newEntry });
+        this.newEntry = null;
+        this.save();
     }
 
-    saveInPersistence() {
-        if (!!this.gameId) {
-            let updatedGame = this.gamePersistenceService.getGame(this.gameId);
-            updatedGame.characters = this.rows;
-            this.gamePersistenceService.updateGame(updatedGame);
+    editEntry(entry) {
+        if (!entry.edited) {
+            entry.edited = true;
+            entry.originalValue = entry.value;
         }
     }
 
-    lastColumnSizeInPercent() {
-        let lastColumnSizeInPercent = 55;
-        if (!!this.stats && this.isStatsAvailable()) {
-            lastColumnSizeInPercent = lastColumnSizeInPercent - (this.stats.length * 10);
+    removeEntry(entry) {
+        let index = this.innerEntries.indexOf(entry);
+        this.innerEntries.splice(index, 1);
+        this.save();
+    }
+
+    saveChanges(entry) {
+        this.clearEdition(entry);
+        this.save();
+    }
+
+    abortChanges(entry) {
+        entry.value = entry.originalValue;
+        this.clearEdition(entry);
+    }
+
+    clearEdition(entry) {
+        delete entry.originalValue;
+        delete entry.edited;
+    }
+
+    save() {
+        let entriesValues = [];
+        if (!!this.innerEntries) {
+            for (let i = 0; i < this.innerEntries.length; i++) {
+                entriesValues.push(this.innerEntries[i].value);
+            }
         }
-        return lastColumnSizeInPercent;
-    }
-
-    isStatsAvailable() {
-        return !!this.adventure.toggles.stats;
-    }
-
-    back() {
-        this.$window.history.back();
+        this.onSave({entries : entriesValues });
     }
 }
 
