@@ -21,32 +21,13 @@ class GameDetailController {
         this.adventureId = this.$stateParams.adventureId;
         this.paragraph = this.adventurePersistenceService.getOrCreateParagraph(this.adventureId, this.$stateParams.paragraphNr);
         this.adventure = this.adventurePersistenceService.getAdventure(this.adventureId);
-        this.initSections();
+        this.visibleSections = this.adventurePersistenceService.getOrCreateVisibleSections(this.adventureId, this.paragraph.tag);
         this.checkAvailableAdventure();
     }
 
     checkAvailableAdventure() {
         if (!this.adventure) {
             this.messagesService.errorMessage('The adventure is not available', false)
-        }
-    }
-
-    initSections() {
-        this.sections = {};
-        if (!!this.adventure.toggles.map) {
-            this.sections['Map'] = { value: this.$translate.instant('Map'), checked: true };
-        }
-        if (!!this.adventure.toggles.stats) {
-            this.sections['Stats'] = { value: this.$translate.instant('Stats'), checked: true };
-        }
-        if (!!this.adventure.toggles.characters) {
-            this.sections['Characters'] = { value: this.$translate.instant('Characters'), checked: true };
-        }
-        if (!!this.adventure.toggles.dices) {
-            this.sections['Dices'] = { value: this.$translate.instant('Dices'), checked: true };
-        }
-        for (let i = 0; i < this.adventure.lists.keys.length; i++) {
-            this.sections[this.adventure.lists.keys[i]] = { value: this.adventure.lists.keys[i], checked: true };
         }
     }
 
@@ -57,23 +38,23 @@ class GameDetailController {
     }
 
     isMapAvailable() {
-        return !!this.adventure.toggles.map && !!this.sections['Map'].checked;
+        return !!this.adventure.toggles.map && !!this.visibleSections['Map'].checked;
     }
 
     isDicesAvailable() {
-        return !!this.adventure.toggles.dices && !!this.sections['Dices'].checked;
+        return !!this.adventure.toggles.dices && !!this.visibleSections['Dices'].checked;
     }
 
     isStatsAvailable() {
-        return !!this.adventure.toggles.stats && !!this.sections['Stats'].checked;
+        return !!this.adventure.toggles.stats && !!this.visibleSections['Stats'].checked;
     }
 
     isCharactersAvailable() {
-        return !!this.adventure.toggles.characters && !!this.sections['Characters'].checked;
+        return !!this.adventure.toggles.characters && !!this.visibleSections['Characters'].checked;
     }
 
     isEntriesAvailable(type) {
-        return !!this.sections[type].checked;
+        return !this.visibleSections[type] || !!this.visibleSections[type].checked;
     }
 
     isGameRulesAvailable() {
@@ -111,9 +92,9 @@ class GameDetailController {
     }
 
     saveTagChanges() {
+        this.adventurePersistenceService.updateVisibleSectionsAndParagrahTag(this.adventure.id, this.paragraph, this.visibleSections, this.originalTag);
         this.originalTag = null;
         this.tagEditable = false;
-        this.adventurePersistenceService.updateParagraph(this.adventureId, this.paragraph);
     }
 
     abortTagChanges() {

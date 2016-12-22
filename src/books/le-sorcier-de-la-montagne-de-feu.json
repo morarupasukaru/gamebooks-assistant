@@ -39,7 +39,61 @@
     "map": true,
     "stats": true
   },
-  "version": "0.1",
+  "version": "0.2",
+  "visibleSections": {
+    "choix-objets": {
+      "Characters": {
+        "checked": false,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": false,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": false,
+        "value": "Map"
+      },
+      "Notes": {
+        "checked": false,
+        "value": "Notes"
+      },
+      "Objets": {
+        "checked": true,
+        "value": "Objets"
+      },
+      "Stats": {
+        "checked": false,
+        "value": "Stats"
+      }
+    },
+    "withoutTag": {
+      "Characters": {
+        "checked": false,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      },
+      "Notes": {
+        "checked": true,
+        "value": "Notes"
+      },
+      "Objets": {
+        "checked": true,
+        "value": "Objets"
+      },
+      "Stats": {
+        "checked": true,
+        "value": "Stats"
+      }
+    }
+  },
   "stats": [
     {
       "characters": {
@@ -76,7 +130,8 @@
     },
     {
       "description": "Veuilliez choisir soit la potion d'habilité, de force ou de chance (supprimez les potions non choisies de l'inventaire).\n\nDébuter l'aventure §1§",
-      "paragraphNr": "Sélection de l'inventaire"
+      "paragraphNr": "Sélection de l'inventaire",
+      "tag": "choix-objets"
     },
     {
       "description": "La porte n'est pas verrouillé. Dans la pièce, 2 bossus torturent un nain. Le nain s'évanouit dans un cri. Les bossus se tournent vers vous\nRefermer aussitôt la porte et poursuivre votre chemin§303§\nAttaquer les créatures§19§\nDonner un coup d'épée au nain avec un rire diabolique§68§",

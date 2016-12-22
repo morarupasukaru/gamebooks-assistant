@@ -167,6 +167,94 @@ class AdventurePersistenceService {
         }
     }
 
+    updateVisibleSectionsAndParagrahTag(adventureId, paragraph, visibleSections, originalTag) {
+        if (!paragraph.tag) {
+            delete paragraph.tag;
+        }
+        this.updateParagraph(adventureId, paragraph);
+        this.updateVisibleSections(adventureId, paragraph, visibleSections, originalTag);
+    }
+
+    updateVisibleSections(adventureId, paragraph, visibleSections, originalTag) {
+        originalTag = this.getTag(originalTag);
+        let newTag = this.getTag(paragraph.tag);
+        let newVisibleSections = this.getOrCreateVisibleSections(adventureId, newTag);
+        if (originalTag !== newTag) {
+            this.deleteVisibleSectionsIfUnused(adventureId, originalTag);
+        }
+
+        let keys = Object.keys(visibleSections);
+        for (let i = 0; i < keys.length; i++) {
+            let key = keys[i];
+            newVisibleSections[key] = visibleSections[key];
+        }
+        this.saveVisibleSections(adventureId, newVisibleSections, newTag);
+    }
+
+    deleteVisibleSectionsIfUnused(adventureId, tag) {
+        let foundParagraphWithTag = false;
+        let paragraphs = this.getParagraphs(adventureId);
+        if (!!paragraphs) {
+            for (let i = 0; i < paragraphs.length; i++) {
+                let paragraph = paragraphs[i];
+                if (!!paragraph.tag && tag === paragraph.tag) {
+                    foundParagraphWithTag = true;
+                    break;
+                }
+            }
+        }
+        if (!foundParagraphWithTag) {
+            let adventure = this.getAdventure(adventureId);
+            delete adventure.visibleSections[tag];
+            this.updateAdventureWithoutParagraphs(adventure);
+        }
+    }
+
+    getOrCreateVisibleSections(adventureId, tag) {
+        tag = this.getTag(tag);
+        let adventure = this.getAdventure(adventureId);
+        if (!adventure.visibleSections) {
+            adventure.visibleSections = {};
+        }
+        let tagVisibleSections = adventure.visibleSections[tag];
+        if (!tagVisibleSections) {
+            tagVisibleSections = {};
+            if (!!adventure.toggles.map) {
+                tagVisibleSections['Map'] = { value: this.$translate.instant('Map'), checked: true };
+            }
+            if (!!adventure.toggles.stats) {
+                tagVisibleSections['Stats'] = { value: this.$translate.instant('Stats'), checked: true };
+            }
+            if (!!adventure.toggles.characters) {
+                tagVisibleSections['Characters'] = { value: this.$translate.instant('Characters'), checked: true };
+            }
+            if (!!adventure.toggles.dices) {
+                tagVisibleSections['Dices'] = { value: this.$translate.instant('Dices'), checked: true };
+            }
+            for (let i = 0; i < adventure.lists.keys.length; i++) {
+                tagVisibleSections[adventure.lists.keys[i]] = { value: adventure.lists.keys[i], checked: true };
+            }
+            this.saveVisibleSections(adventure.id, tagVisibleSections, tag);
+        }
+        return tagVisibleSections;
+    }
+
+    saveVisibleSections(adventureId, newVisibleSections, tag) {
+        let adventure = this.getAdventure(adventureId);
+        if (!adventure.visibleSections) {
+            adventure.visibleSections = {};
+        }
+        adventure.visibleSections[tag] = newVisibleSections;
+        this.updateAdventureWithoutParagraphs(adventure);
+    }
+
+    getTag(tag) {
+        if (!tag) {
+            tag = 'withoutTag';
+        }
+        return tag;
+    }
+
     updateAdventureWithoutParagraphs(adventure) {
         let adventureIdFromFromAdventureName = this.getAdventureIdFromAdventureName(adventure.name);
         if (!adventure.id) {
@@ -360,7 +448,12 @@ class AdventurePersistenceService {
 
         adventure.items = items;
         adventure.stats = stats;
-        adventure.paragraphs = [];
+        adventure.paragraphs = this.getParagraphs(adventureId);
+        return adventure;
+    }
+
+    getParagraphs(adventureId) {
+        let paragraphs = [];
 
         let keys = Object.keys(localStorage);
         let adventureIdKeyPrefix = this.constants.data.adventure + '.' + adventureId;
@@ -375,13 +468,13 @@ class AdventurePersistenceService {
                         if (!!paragraph.notes && paragraph.notes.length === 0) {
                             delete paragraph.notes;
                         }
-                        adventure.paragraphs.push(this.sortObjectKeys(paragraph));
+                        paragraphs.push(this.sortObjectKeys(paragraph));
                     }
                 }
             }
         }
-        adventure.paragraphs = this.sortParagraphs(adventure.paragraphs);
-        return adventure;
+        paragraphs = this.sortParagraphs(paragraphs);
+        return paragraphs;
     }
 
     sortObjectKeys(object) {

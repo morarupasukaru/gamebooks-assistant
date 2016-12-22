@@ -1,10 +1,5 @@
 en cours:
 
-#hide sections
-    - chargement des sections cachés au chargement de l'écran
-    - possibilité de cacher les sections suivantes pour un "type" de paragraphe donnée,
-    - type = tag
-
 next todo:
 
 #merge player & characters

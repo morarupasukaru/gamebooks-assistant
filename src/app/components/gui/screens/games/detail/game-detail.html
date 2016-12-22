@@ -18,7 +18,7 @@
 
         <div ng-if="!!$ctrl.isTagEditable()">
             <h2>{{ 'Visible sections' | translate }}</h2>
-            <selectable-list entries="$ctrl.sections" on-save="$ctrl.onSectionsSave(entries)"></selectable-list>
+            <selectable-list entries="$ctrl.visibleSections" on-save="$ctrl.onSectionsSave(entries)"></selectable-list>
 
             <h2>{{ 'Tag' | translate }}</h2>
             <input id="inputTag" type="text" class="form-control" ng-model="$ctrl.paragraph.tag">
