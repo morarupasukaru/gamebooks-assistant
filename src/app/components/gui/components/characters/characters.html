@@ -1,7 +1,23 @@
 <ul>
     <li ng-repeat="entry in $ctrl.innerEntries">
         <span ng-show="!entry.edited" ng-click="$ctrl.editEntry(entry)">{{ entry.value }}</span>
-        <input type="text" ng-model="entry.value" ng-show="!!entry.edited"/>
+
+        <form ng-show="!!entry.edited">
+            <div class="form-group" ng-if="!$ctrl.adventure.id">
+                <label for="name">{{ "Name" | translate }}</label>
+                <input type="text" class="form-control" id="name" ng-model="entry.value" required>
+            </div>
+            <div ng-repeat="stats in entry.stats">
+                <div class="form-group">
+                    <label for="{{ 'stats_current_' + stats.name }}">{{ stats.name + ' current'}}</label>
+                    <input type="text" class="form-control" id="{{ 'stats_current' + stats.name }}" ng-model="stats.current" required>
+                </div>
+                <div class="form-group">
+                    <label for="{{ 'stats_' + stats.name }}">{{ stats.name + ' initial'}}</label>
+                    <input type="text" class="form-control" id="{{ 'stats_' + stats.name }}" ng-model="stats.initial" required>
+                </div>
+            </div>
+        </form>
         <button type="button"
                 class="btn btn-xs btn-default"
                 aria-label="{{ 'Abort character changes' | translate}}"
@@ -26,6 +42,7 @@
                 ng-show="!!entry.edited && !!entry.deletable">
             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
         </button>
+
         <ul>
             <li ng-repeat="stats in entry.stats">
                 {{ stats.name + ' [' + stats.current + '/' + stats.initial + ']' }}
