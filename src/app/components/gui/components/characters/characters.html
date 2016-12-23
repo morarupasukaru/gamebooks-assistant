@@ -9,12 +9,18 @@
             </div>
             <div ng-repeat="stats in entry.stats">
                 <div class="form-group">
-                    <label for="{{ 'stats_current_' + stats.name }}">{{ stats.name + ' current'}}</label>
-                    <input type="text" class="form-control" id="{{ 'stats_current' + stats.name }}" ng-model="stats.current" required>
-                </div>
-                <div class="form-group">
-                    <label for="{{ 'stats_' + stats.name }}">{{ stats.name + ' initial'}}</label>
-                    <input type="text" class="form-control" id="{{ 'stats_' + stats.name }}" ng-model="stats.initial" required>
+                    <label for="{{ stats.name }}">{{ stats.name }}</label>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="input-group">
+                                <input type="number" class="form-control" ng-model="stats.current" id="{{ stats.name }}" required>
+                              <span class="input-group-addon">
+                                <label>/</label>
+                              </span>
+                                <input type="number" class="form-control" ng-model="stats.initial" required>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </form>
