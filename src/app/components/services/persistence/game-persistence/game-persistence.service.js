@@ -39,22 +39,32 @@ class GamePersistenceService {
     addGame(game) {
         let savedGame = {
             id : this.newGameId(),
-            playerName : game.playerName,
             adventureId : game.adventureId,
             currentParagraphNr : game.currentParagraphNr
         };
         if (!!game.lists) {
             savedGame.lists = game.lists;
         }
-        if (!!game.stats) {
-            savedGame.stats = [];
-            for (let i = 0; i < game.stats.length;i++) {
-                savedGame.stats.push({ name: game.stats[i].name, initial: game.stats[i].value, current: game.stats[i].value});
-            }
-        }
-
+        let character = this.addCharacter(game.playerName, game.stats, false);
+        savedGame.characters = [];
+        savedGame.characters.push(character);
         this.updateGame(savedGame);
         return savedGame;
+    }
+
+    addCharacter(characterName, stats, flagDeletable) {
+        let character = {
+            name : characterName,
+            deletable : flagDeletable
+        };
+
+        if (!!stats) {
+            character.stats = [];
+            for (let i = 0; i < stats.length;i++) {
+                character.stats.push({ name: stats[i].name, initial: stats[i].value, current: stats[i].value});
+            }
+        }
+        return character;
     }
 
     exportGame(gameId) {

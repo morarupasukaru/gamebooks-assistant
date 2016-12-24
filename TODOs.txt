@@ -1,15 +1,8 @@
 en cours:
 
 #merge player & characters
-    - afficher valeur initial courant / initial en mode non édition (tooltip)
-    - afficher tous les attributs
-    - permettre de mettre de ne pas mettre de valeurs pour les characters
-    - afficher le joueur en premier dans la liste
-    - ne pas permettre de supprime le joueur
-    - permettre de changer le nom du joueur
-    - afficher la liste des personnages en liste
-    - en mode édition apparaissent des champs d'édition pour les caractéristiques & le noms
-
+    - $ctrl.isCharactersAvailable() || $ctrl.isStatsAvailable() dans game-detail.html > flag redundant?
+        => isStatsAvailable > influence dans <characters>
 
 next todo:
 
@@ -96,3 +89,9 @@ next todo:
     # touch-screen? (hover?)
 
     # correct menu when screen is small
+
+    # aria, tooltip pour tous les elements
+
+    # test aria
+
+    # (selenium-test pour finir le sorcier de la montagne de feu en mode création)

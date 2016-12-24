@@ -183,8 +183,6 @@ const englishTranslations = {
     'Site': 'Site',
     'Start a new game': 'Start a new game',
     'Start Game': 'Start Game',
-    'State': 'State',
-    'Stats': 'Stats',
     'Stats rules': 'Stats rules',
     'Sum of dices value': 'Sum of dices value',
     'Tag': 'Tag',

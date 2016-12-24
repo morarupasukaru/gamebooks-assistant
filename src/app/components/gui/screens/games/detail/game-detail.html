@@ -47,11 +47,7 @@
                 <nodes adventure-id="$ctrl.adventureId" root-paragraph-nr="$ctrl.paragraph.paragraphNr"></nodes>
             </collapse>
 
-            <collapse ng-if="$ctrl.isStatsAvailable()" title="{{ 'Player' | translate }} {{ $ctrl.playerName }}" flag="game.stats">
-                <stats game-id="{{$ctrl.game.id}}" stats="$ctrl.stats"></stats>
-            </collapse>
-
-            <collapse ng-if="$ctrl.isCharactersAvailable()" title="{{ 'Characters' | translate }}" flag="game.characters">
+            <collapse ng-if="$ctrl.isCharactersAvailable() || $ctrl.isStatsAvailable()" title="{{ 'Characters' | translate }}" flag="game.characters">
                 <characters-deprecated game-id="$ctrl.game.id"></characters-deprecated>
                 <characters game-id="$ctrl.game.id"></characters>
             </collapse>

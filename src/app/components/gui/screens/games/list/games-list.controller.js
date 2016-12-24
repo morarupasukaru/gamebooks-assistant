@@ -41,6 +41,8 @@ class GamesListController {
 
     completeAdventureData(games) {
         for (let i = 0; i < games.length; i++) {
+            let game = games[i];
+            game.playerName = this.getPlayerName(game);
             let adventure = this.adventurePersistenceService.getAdventure(games[i].adventureId);
             if (!!adventure) {
                 games[i].adventureName = adventure.name;
@@ -52,6 +54,16 @@ class GamesListController {
             } else {
                 this.messagesService.errorMessage(this.$translate.instant('CannotFindAdventure', { adventure: games[i].adventureId}), false);
                 games[i].adventureName = games[i].adventureId;
+            }
+        }
+    }
+
+    getPlayerName(game) {
+        if (!!game.characters) {
+            for (let i = 0; i < game.characters.length; i++) {
+                if (!game.characters[i].deletable) {
+                    return game.characters[i].name;
+                }
             }
         }
     }

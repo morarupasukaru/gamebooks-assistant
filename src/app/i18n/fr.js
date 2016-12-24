@@ -183,8 +183,6 @@ const frenchTranslations = {
     'Site': 'Site',
     'Start a new game': 'Débute un nouveau jeu',
     'Start Game': 'Débute un jeu',
-    'State': 'Attribut',
-    'Stats': 'Attributs',
     'Stats rules': "Règles d'attributs",
     'Sum of dices value': 'Somme des dés',
     'Tag': 'Tag',
