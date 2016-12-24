@@ -72,9 +72,6 @@ class AdventureDetailController {
             return ;
         }
 
-        if (!this.adventure.toggles.stats) {
-            delete this.adventure.stats;
-        }
         if (!this.adventure.toggles.dices) {
             delete this.adventure.dice;
         }

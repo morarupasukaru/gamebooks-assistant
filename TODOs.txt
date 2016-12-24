@@ -1,9 +1,5 @@
 en cours:
 
-#merge player & characters
-    - $ctrl.isCharactersAvailable() || $ctrl.isStatsAvailable() dans game-detail.html > flag redundant?
-        => isStatsAvailable > influence dans <characters>
-
 next todo:
 
     #integrate lone wolf

@@ -54,12 +54,6 @@
                 <div>
                     <div class="form-group">
                         <label>
-                            <input type="checkbox" checked="true" ng-model="$ctrl.adventure.toggles.stats">
-                            {{ 'Enable stats' | translate }}
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <label>
                             <input type="checkbox" value="" ng-model="$ctrl.adventure.toggles.characters">
                             {{ 'Enable characters' | translate }}
                         </label>
@@ -84,18 +78,18 @@
                     </div>
                 </div>
 
-                <div ng-if="$ctrl.adventure.toggles.dices || $ctrl.adventure.toggles.stats">
+                <div ng-if="$ctrl.adventure.toggles.dices">
                     <h2>{{ 'Dices' | translate }}</h2>
                     <div>
                         <div class="form-group">
                             <label for="diceMin">{{ "Minimal dice's value" | translate }}</label>
                             <input type="number" class="form-control" id="diceMin" ng-model="$ctrl.adventure.dice.min"
-                                   ng-required="$ctrl.adventure.toggles.dices || $ctrl.adventure.toggles.stats">
+                                   ng-required="$ctrl.adventure.toggles.dices">
                         </div>
                         <div class="form-group">
                             <label for="diceMax">{{ "Maximal dice's value" | translate }}</label>
                             <input type="number" class="form-control" id="diceMax" ng-model="$ctrl.adventure.dice.max"
-                                   ng-required="$ctrl.adventure.toggles.dices || $ctrl.adventure.toggles.stats">
+                                   ng-required="$ctrl.adventure.toggles.dices">
                         </div>
                     </div>
                 </div>
@@ -112,7 +106,7 @@
                     </div>
                 </div>
 
-                <div ng-if="$ctrl.adventure.toggles.stats">
+                <div>
                     <h2>{{ 'Stats rules' | translate }}</h2>
                     <div>
                         <table class="table table-striped">

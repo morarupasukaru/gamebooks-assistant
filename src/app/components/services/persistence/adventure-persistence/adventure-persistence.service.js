@@ -222,17 +222,16 @@ class AdventurePersistenceService {
             if (!!adventure.toggles.map) {
                 tagVisibleSections['Map'] = { value: this.$translate.instant('Map'), checked: true };
             }
-            if (!!adventure.toggles.stats) {
-                tagVisibleSections['Stats'] = { value: this.$translate.instant('Stats'), checked: true };
-            }
             if (!!adventure.toggles.characters) {
                 tagVisibleSections['Characters'] = { value: this.$translate.instant('Characters'), checked: true };
             }
             if (!!adventure.toggles.dices) {
                 tagVisibleSections['Dices'] = { value: this.$translate.instant('Dices'), checked: true };
             }
-            for (let i = 0; i < adventure.lists.keys.length; i++) {
-                tagVisibleSections[adventure.lists.keys[i]] = { value: adventure.lists.keys[i], checked: true };
+            if (!adventure.lists) {
+                for (let i = 0; i < adventure.lists.keys.length; i++) {
+                    tagVisibleSections[adventure.lists.keys[i]] = { value: adventure.lists.keys[i], checked: true };
+                }
             }
             this.saveVisibleSections(adventure.id, tagVisibleSections, tag);
         }

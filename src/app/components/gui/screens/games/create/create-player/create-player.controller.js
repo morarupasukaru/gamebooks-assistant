@@ -62,7 +62,7 @@ class CreatePlayerController {
     }
 
     hasStats() {
-        return !!this.adventure.stats && this.adventure.stats.length > 0 && !!this.adventure.toggles && !!this.adventure.toggles.stats;
+        return !!this.adventure.stats && this.adventure.stats.length > 0;
     }
 }
 

@@ -45,10 +45,6 @@ class GameDetailController {
         return !!this.adventure.toggles.dices && !!this.visibleSections['Dices'].checked;
     }
 
-    isStatsAvailable() {
-        return !!this.adventure.toggles.stats && !!this.visibleSections['Stats'].checked;
-    }
-
     isCharactersAvailable() {
         return !!this.adventure.toggles.characters && !!this.visibleSections['Characters'].checked;
     }

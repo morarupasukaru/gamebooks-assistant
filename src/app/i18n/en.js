@@ -86,7 +86,6 @@ const englishTranslations = {
     'Enable dices': 'Enable dices',
     'Enable map': 'Enable map',
     'Enable Go to paragraph': 'Enable Go to paragraph',
-    'Enable stats': 'Enable stats',
     'Enemy': 'Enemy',
     'Export': 'Export',
     'Export libraries': 'Export libraries',

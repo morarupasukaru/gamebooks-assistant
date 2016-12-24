@@ -86,7 +86,6 @@ const frenchTranslations = {
     'Enable dices': 'Active les dés',
     'Enable Go to paragraph': 'Active les sauts de paragraphe',
     'Enable map': 'Active la carte',
-    'Enable stats': 'Active les attributs',
     'Enemy': 'Enemi',
     'Export': 'Exporte',
     'Export libraries': 'Exporte librairies',

@@ -30,7 +30,7 @@ class CreateGameService {
                 game.lists[keys[i]] = adventure.lists.values[keys[i]];
             }
         }
-        if (!!stats && !!adventure.toggles.stats) {
+        if (!!stats) {
             game.stats = stats;
         }
         return game;
