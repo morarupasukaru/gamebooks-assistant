@@ -89,5 +89,3 @@ next todo:
     # aria, tooltip pour tous les elements
 
     # test aria
-
-    # (selenium-test pour finir le sorcier de la montagne de feu en mode création)
