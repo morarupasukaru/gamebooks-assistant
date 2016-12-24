@@ -2,90 +2,59 @@ en cours:
 
 next todo:
 
-    #integrate lone wolf
-     - download images from lone wolf html
-     - test import with all lone wolf books
-     - integrate game rules paragraphs separatelly
-     - feature: import player from another book (fix?)
+feature
+    # replace table of games, adventures, libraries with generic list that allow to add custom actions (btn '...' with a menu)
 
-    #paragraph's illustrations
-     - collapse on illustration
-     - support more than one illustration?
-     - to clarify:
-            - lors de l'édition de la description du paragraphe, s'affiche un tableau permettant d'éditer, ajouter, effacer des illustrations
-            - lors du clic sur nouvelle illustration, apparait une popup ou une ligne éditable, afin de saisir: un id (a utiliser dans la description comme placeholder), un text alternatif, une légende, un filepicker
-            - les images ont un expand propre
-            - si on a fermé l'expand d'une image, lorsque l'on jump dans le prochain paragraphe, l'expand des nouvelles images restent fermées
-            - json du paragraphe
-            {
-                  ...
-                  "paragraphNr": 2,
-                  illustrations: [
-                    {id: xx, alternativeText: '', legend: '', data:'base64}
-                  ]
-            },
-            - l'id d'une illustration est unique par paragraphe (check lors de la sauvegarde de l'edition)
+    # image "view" component
 
-    #editable paragraph with link
-    - [[imageId]] => pour indiquer ou ajouter une illustration
-    - tooltup d'aide avec explication des syntaxes
-    - faire popup pour aide saisie (explique la syntaxe)
-    - images paragraphes
-    - ne pas changer la couleur d'un lien si celui-ci est non traceable
+    # images "edit" component
+        - (image-persistence-service if needed)
 
-    #tag
-    - insérer tag avec dropdrown, edition contenu dropdown
-    - tag en image importé base64
-        => image pour "tag" propre par livre
+    # paragraph's illustrations
+        - integrate image "view" & "edit" components
+        - add collapse
+        - multiple illustrations (mix of text and image)
 
-    #tag
-    - dropdown contenant une liste d'entrée ayant une image (optionnelle) et un text (obligatoire)
-    - dropdown dispo lors de l'edition du titre du paragraphe
-    - dropdown dispo lors de l'edition du nom du joueur
-    - tag s'affiche à coté du paragraphe / nom du joueur ainsi:  ... - image (texte)
-    - test tag "game over"
-    - tag s'affiche dans la carte, seulement l'image, le texte en tooltip, s'il n'y a pas d'image, un icon de bootstrap est pris par défaut
-    - [v] [x] d'édition sans au niveau du titre du paragraphe, du nom du joueur
-    - la dropdown a un bouton a coté permettant d'éditer la liste des tags
-    - une page d'édition avec tableau comme item est utilisé pour gérer les tags
-    - ajout tag-persistence-service
-    - supporter export/import tags
-    - tags dans sauvé au niveau de l'aventure: tags: [ {id: <unique>, alternativeText: '', data: 'base64'}, ...
-    - tag trié par nom altenativeText
+    # paragraph's edition syntax as tooltip
 
-    #localstorage alternative
-    - intégrer localforage/offline-file afin de sauver des aventures de plusieurs megabyites
+    # paragraph tags
+        - integrate image "view" & "edit" components
+        - afficher le tag dans game-list
 
-    #decouple bootstrap css
+    # integrate http://getskeleton.com/
+        - require refactoring "angular components to hide bootstrap css inside"
 
-    ( #angular-ui-router delete )
-        http://viralpatel.net/blogs/angularjs-routing-and-views-tutorial-with-example/
+    # re-import game
+        - from same adventure
+        - from another adventure
 
-    ( #angular-translate delete )
-        - bug with translate used inside controller
+    # import lone wolf games
+        - download images from lone wolf html
+        - test import with all lone wolf books
+        - integrate game rules paragraphs separatelly
 
-    # translate rewritten
-
-    # $windows wrapper
-
-    # simplify favicon
-
-    # remove not needed glyphicon
-
-    # replace table in libraries as list?
-
-    # replace "selected" and other row button with a menu "..."
-
-    # more small ui angular components
+refactoring
+    # oop class for data / model : angular factory
 
     # remove constants?
 
-    # oop class for data / model?
+    # angular components to hide bootstrap css inside
 
-    # touch-screen? (hover?)
+    # remove not needed glyphicon (text + instead of + as image)
+
+    # simplify favicon
+
+    # replace angular-translate with custom i18n feature (service?)
+
+    # remove dependency to angular-ui-router : http://viralpatel.net/blogs/angularjs-routing-and-views-tutorial-with-example/
+
+    # localstorage alternative (localforage?) if required to play lonewolf game
+
+finitions
+    # aria, tooltip pour tous les elements
 
     # correct menu when screen is small
 
-    # aria, tooltip pour tous les elements
+    # test ipad
 
-    # test aria
+    # test android
