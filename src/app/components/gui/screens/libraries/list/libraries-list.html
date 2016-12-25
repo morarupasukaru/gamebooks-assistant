@@ -8,15 +8,11 @@
         <div class="row">
             <div class="col-md-12">
                 <table class="table table-striped">
-                    <col style="width:55%">
-                    <col style="width:20%">
-                    <col style="width:20%">
+                    <col style="width:95%">
                     <col style="width:5%">
                     <thead>
                     <tr>
-                        <th>{{ 'Site' | translate }}</th>
-                        <th>{{ 'Library url' | translate }}</th>
-                        <th>{{ 'Download status' | translate }}</th>
+                        <th></th>
                         <th>{{ 'Selection' | translate }}</th>
                     </tr>
                     </thead>
@@ -24,8 +20,6 @@
                     <tr ng-repeat="row in $ctrl.rows">
                         <td ng-if="!!row.siteUrl"><a href="{{ row.siteUrl }}">{{ row.siteName }}</a></td>
                         <td ng-if="!row.siteUrl">{{ row.siteName }}</td>
-                        <td><a href="{{ row.libraryUrl }}" target="_blank">{{ 'Detail' | translate }}</a></td>
-                        <td>{{ row.lastDownloadStatus }}</td>
                         <td>
                             <button type="button" class="btn" ng-class="{ 'btn-success' : row.selected, 'btn-default' : !row.selected}"
                                     aria-label="{{ !row.selected ?
@@ -44,7 +38,6 @@
             </div>
         </div>
 
-        <back-button></back-button>
         <button type="button" class="btn btn-default"
                 aria-label="{{ 'Create a library' | translate }}"
                 title="{{ 'Create a library' | translate }}"

@@ -8,26 +8,17 @@
         <div class="row">
             <div class="col-md-12">
                 <table class="table table-striped">
-                    <col style="width:25%">
-                    <col style="width:20% ">
-                    <col style="width:20% ">
-                    <col style="width:20%">
+                    <col style="width:95%">
                     <col style="width:5%">
                     <thead>
                     <tr>
-                        <th>{{ 'Adventure' | translate }}</th>
-                        <th>{{ 'Serie' | translate }}</th>
-                        <th>{{ 'Player' | translate }}</th>
-                        <th>{{ 'Paragraph' | translate }}</th>
+                        <th></th>
                         <th>{{ 'Selection' | translate }}</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr ng-repeat="row in $ctrl.rows">
-                        <td>{{ row.adventureName }}</td>
-                        <td>{{ row.serie }}</td>
-                        <td>{{ row.playerName }}</td>
-                        <td>{{ row.currentParagraphNr }} {{ !!row.paragraphTag ? '(' + row.paragraphTag + ')' : '' }}</td>
+                        <td>{{ 'GameOverview' | translate: { serie: row.serie + (!!row.serie ? ': ': ''), adventureName: row.adventureName, playerName: row.playerName, currentParagraphNr: row.currentParagraphNr + (!!row.paragraphTag ? '(' + row.paragraphTag + ')' : '')} }}</td>
                         <td>
                             <button type="button" class="btn" ng-class="{ 'btn-success' : row.selected, 'btn-default' : !row.selected}"
                                     aria-label="{{ !row.selected ?
@@ -46,7 +37,6 @@
             </div>
         </div>
 
-        <back-button></back-button>
         <button type="button" class="btn btn-default"
                 ng-click="$ctrl.startNewGame()"
                 aria-label="{{ 'Start a new game' | translate }}"
