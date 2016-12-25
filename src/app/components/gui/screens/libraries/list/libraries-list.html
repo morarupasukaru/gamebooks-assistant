@@ -13,7 +13,7 @@
                     <thead>
                     <tr>
                         <th></th>
-                        <th>{{ 'Selection' | translate }}</th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -21,16 +21,10 @@
                         <td ng-if="!!row.siteUrl"><a href="{{ row.siteUrl }}">{{ row.siteName }}</a></td>
                         <td ng-if="!row.siteUrl">{{ row.siteName }}</td>
                         <td>
-                            <button type="button" class="btn" ng-class="{ 'btn-success' : row.selected, 'btn-default' : !row.selected}"
-                                    aria-label="{{ !row.selected ?
-                                        ('ChoiceLibrary' | translate: {siteName: row.siteName}) :
-                                        ('ChoosenLibrary' | translate: {siteName: row.siteName}) }}"
-                                    title="{{ !row.selected ?
-                                        ('ChoiceLibrary' | translate: {siteName: row.siteName}) :
-                                        ('ChoosenLibrary' | translate: {siteName: row.siteName}) }}"
-                                    ng-click="$ctrl.select(row)">
-                                <span ng-class="{ 'glyphicon glyphicon-ok' : row.selected, 'glyphicon glyphicon-hand-left' : !row.selected}" aria-hidden="true"></span>
-                            </button>
+                            <button type="button" class="btn btn-default"
+                                    aria-label="{{ 'Display actions' | translate }}"
+                                    title="{{ 'Display actions' | translate }}"
+                                    ng-click="$ctrl.displayActions(row)">...</button>
                         </td>
                     </tr>
                     </tbody>
@@ -46,24 +40,10 @@
                 aria-label="{{ 'Import libraries' | translate }}"
                 title="{{ 'Import libraries' | translate }}"
                 ng-click="$ctrl.displayImportLibrariesPopup()">{{ 'Import' | translate }}</button>
-        <button type="button" class="btn btn-default"
-                aria-label="{{ 'Display selected library' | translate }}"
-                title="{{ 'Display selected library' | translate }}"
-                ng-disabled="!$ctrl.hasSelectedRow()"
-                ng-click="$ctrl.display()">{{ 'Display' | translate }}</button>
-        <button type="button" class="btn btn-danger"
-                ng-disabled="!$ctrl.hasSelectedRow()"
-                aria-label="{{ 'Remove selected library' | translate }}"
-                title="{{ 'Remove selected library' | translate }}"
-                ng-click="$ctrl.displayRemoveLibraryPopup()">{{ 'Remove' | translate }}</button>
         <export-button data="$ctrl.exportData" title="{{ 'Export libraries' | translate }}"></export-button>
-        <button type="button" class="btn btn-default"
-                aria-label="{{ 'Download libraries' | translate }}"
-                title="{{ 'Download libraries' | translate }}"
-                ng-disabled="!$ctrl.hasSelectedRow()"
-                ng-click="$ctrl.downloadLibrary()">{{ 'Download' | translate }}</button>
     </div>
 </main>
 
+<popup config="{{ $ctrl.popupLibraryActionsConfig }}"></popup>
 <popup config="{{ $ctrl.popupDeleteLibraryConfig }}"></popup>
 <import-data-popup config="$ctrl.popupImportLibrariesConfig"></import-data-popup>

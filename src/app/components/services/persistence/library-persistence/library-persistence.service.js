@@ -40,27 +40,18 @@ class LibraryPersistenceService {
         let promise = this.remoteJsonRetrieverService.retrieveJson(library.libraryUrl);
         promise.then(
             function(json) {
-                library.downloadHistory.push(self.now() + ' : downloaded');
                 self.updateLibrary(library);
                 self.adventurePersistenceService.updateDownloadableAdventures(json);
                 self.messagesService.successMessage('List of the adventures of the library is downloaded', false);
                 deferred.resolve('Success');
             },
             function(reason) {
-                library.downloadHistory.push(self.now() + ' : error');
-                self.updateLibrary(library);
                 self.messagesService.errorMessage(reason, false);
                 deferred.reject(reason);
             }
         );
         return deferred.promise;
     }
-
-    now() {
-        let now = new Date();
-        return this.$filter('date')(now, 'dd.MM.yyyy HH:mm');
-    }
-
 
     deleteLibrary(libraryId) {
         this.persistenceService.remove(this.getLibraryPersistenceKey(libraryId));
@@ -106,10 +97,6 @@ class LibraryPersistenceService {
             this.checkDupplicateLibrary(library);
             library.id = this.getIdFromLibrarySiteName(library.siteName);
         }
-        if (!library.downloadHistory) {
-            library.downloadHistory = [];
-            library.downloadHistory.push('Not downloaded yet');
-        }
         this.persistenceService.save(this.getLibraryPersistenceKey(library.id), library);
     }
 
@@ -141,8 +128,6 @@ class LibraryPersistenceService {
         for (let i = 0; i < libraries.length; i++) {
             delete libraries[i].id;
             delete libraries[i]['$$hashKey'];
-            delete libraries[i].downloadHistory;
-            delete libraries[i].lastDownloadStatus;
             delete libraries[i].selected;
         }
         return JSON.stringify(this.sortObjectKeys(libraries));

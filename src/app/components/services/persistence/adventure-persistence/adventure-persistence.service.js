@@ -24,33 +24,19 @@ class AdventurePersistenceService {
             function(json) {
                 if (!!adventure) {
                     json.id = adventure.id;
-                    json.downloadHistory = adventure.downloadHistory;
                 } else {
                     json.id = self.getAdventureIdFromAdventureName(json.name);
                 }
-                self.addDownloadHistory(json, self.now() + ' : ' + self.$translate.instant('downloaded'))
-                json.downloadUrl = downloadUrl;
                 self.import(json);
                 self.messagesService.successMessage(self.$translate.instant("AdventureDownloaded", {adventure: json.name }), false);
                 deferred.resolve('Success');
             },
             function(reason) {
-                if (!!adventure) {
-                    self.addDownloadHistory(adventure, self.now() + ' : error')
-                    self.updateAdventureWithoutParagraphs(adventure);
-                }
                 self.messagesService.errorMessage(reason, false);
                 deferred.reject(reason);
             }
         );
         return deferred.promise;
-    }
-
-    addDownloadHistory(adventure, history) {
-        if (!adventure.downloadHistory) {
-            adventure.downloadHistory = [];
-        }
-        adventure.downloadHistory.push(history);
     }
 
     now() {
@@ -433,7 +419,6 @@ class AdventurePersistenceService {
                 delete adventure.stats[i]["$$hashKey"];
             }
         }
-        delete adventure.downloadHistory;
         adventure.downloadUrl;
         delete adventure.numberOfParagraphs;
 

@@ -3,7 +3,7 @@ en cours:
 next todo:
 
 feature
-    # replace table of games, adventures, libraries with generic list that allow to add custom actions (btn '...' with a menu)
+    # replace table of games, adventures, libraries with list that allow to add custom actions (btn '...' with a menu)
 
     # image "view" component
 
@@ -32,6 +32,8 @@ feature
         - download images from lone wolf html
         - test import with all lone wolf books
         - integrate game rules paragraphs separatelly
+
+    # remove libraries > merge with adventures of a given series?
 
 refactoring
     # oop class for data / model : angular factory

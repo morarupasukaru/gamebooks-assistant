@@ -62,13 +62,13 @@
                         aria-label="{{ 'IncrementStatsTitle' | translate: {stats: stats.name} }}"
                         title="{{ 'IncrementStatsTitle' | translate: {stats: stats.name} }}"
                         ng-click="$ctrl.increment(stats)">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    <span aria-hidden="true"><b>+</b></span>
                 </button>
                 <button type="button" class="btn btn-xs btn-default"
                         aria-label="{{ 'DecrementStatsTitle' | translate: {stats: stats.name} }}"
                         title="{{ 'DecrementStatsTitle' | translate: {stats: stats.name} }}"
                         ng-click="$ctrl.decrement(stats)">
-                    <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                    <span aria-hidden="true"><b>-</b></span>
                 </button>
             </li>
         </ul>

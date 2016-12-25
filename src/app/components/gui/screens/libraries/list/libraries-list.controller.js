@@ -31,6 +31,15 @@ class LibrariesListController {
 
         this.popupImportLibrariesConfig = { id : 'popupImportLibraries' };
 
+
+        this.popupLibraryActionsConfig = {
+            id : 'popupLibraryActions',
+            text : 'Choose an action',
+            choices : [constants.choices.display, constants.choices.remove, constants.choices.download, constants.choices.cancel],
+            withCloseButton : false,
+            closeOnClickOutsideModal : false
+        };
+
         if (!!$stateParams.import) {
             this.importLibraryUrl($stateParams.import);
         }
@@ -41,13 +50,6 @@ class LibrariesListController {
     initData() {
         this.loadPredefinedData();
         this.rows = this.libraryPersistenceService.getLibraries();
-        for (let i = 0; i < this.rows.length; i++) {
-            if (!!this.rows[i].downloadHistory) {
-                this.rows[i].lastDownloadStatus = this.rows[i].downloadHistory[this.rows[i].downloadHistory.length-1];
-            }
-        }
-        this.clearSelection();
-
         this.exportData = this.libraryPersistenceService.exportLibraries();
     }
 
@@ -58,40 +60,41 @@ class LibrariesListController {
         }
     }
 
-    select(row) {
-        this.clearSelection();
-        row.selected = true;
-    }
-
-    clearSelection() {
-        for (let i = 0; i < this.rows.length; i++) {
-            this.rows[i].selected = false;
-        }
+    displayActions(row) {
+        let self = this;
+        this.popupService.show(
+            this.popupLibraryActionsConfig.id,
+            function(popupDomElementId, choice) {
+                if (choice === self.constants.choices.display) {
+                    self.display(row);
+                } else if (choice === self.constants.choices.remove) {
+                    self.displayRemoveLibraryPopup(row);
+                } else if (choice === self.constants.choices.download) {
+                    self.downloadLibrary(row);
+                }
+            }
+        );
     }
 
     create() {
         this.$location.url(this.constants.url.libraryDetail + '/create');
     }
 
-    display() {
-        this.$location.url(this.constants.url.libraryDetail + '/' + this.getSelectedRow().id);
+    display(row) {
+        this.$location.url(this.constants.url.libraryDetail + '/' + row.id);
     }
 
-    displayRemoveLibraryPopup() {
+    displayRemoveLibraryPopup(row) {
         let self = this;
         this.popupService.show(
             this.popupDeleteLibraryConfig.id,
             function(popupDomElementId, choice) {
                 if (choice === self.constants.choices.yes) {
-                    self.deleteLibrary();
+                    self.libraryPersistenceService.deleteLibrary(row.id);
+                    self.initData();
                 }
             }
         );
-    }
-
-    deleteLibrary() {
-        this.libraryPersistenceService.deleteLibrary(this.getSelectedRow().id);
-        this.initData();
     }
 
     displayImportLibrariesPopup() {
@@ -127,10 +130,9 @@ class LibrariesListController {
         this.$location.url(this.constants.url.libraries);
     }
 
-    downloadLibrary() {
+    downloadLibrary(row) {
         let self = this;
-        let selectedLibrary = this.getSelectedRow();
-        let promise = this.libraryPersistenceService.downloadLibrary(selectedLibrary, selectedLibrary.libraryUrl);
+        let promise = this.libraryPersistenceService.downloadLibrary(row, row.libraryUrl);
         promise.then(
             function(json) {
                 self.initData();
@@ -139,22 +141,6 @@ class LibrariesListController {
                 self.initData();
             }
         );
-    }
-
-    hasSelectedRow() {
-        return !!this.getSelectedRow();
-    }
-
-
-    getSelectedRow() {
-        if (!!this.rows) {
-            for (let i = 0; i < this.rows.length; i++) {
-                if (!!this.rows[i].selected) {
-                    return this.rows[i];
-                }
-            }
-        }
-        return null;
     }
 }
 
