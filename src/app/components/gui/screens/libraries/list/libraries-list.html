@@ -1,49 +1,4 @@
 <navbar></navbar>
 <messages></messages>
 <main>
-    <div class="container bg-white" role="main">
-        <div class="page-header">
-            <h1>{{ 'Libraries' | translate }}</h1>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <table class="table table-striped">
-                    <col style="width:95%">
-                    <col style="width:5%">
-                    <thead>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="row in $ctrl.rows">
-                        <td ng-if="!!row.siteUrl"><a href="{{ row.siteUrl }}">{{ row.siteName }}</a></td>
-                        <td ng-if="!row.siteUrl">{{ row.siteName }}</td>
-                        <td>
-                            <button type="button" class="btn btn-default"
-                                    aria-label="{{ 'Display actions' | translate }}"
-                                    title="{{ 'Display actions' | translate }}"
-                                    ng-click="$ctrl.displayActions(row)">...</button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <button type="button" class="btn btn-default"
-                aria-label="{{ 'Create a library' | translate }}"
-                title="{{ 'Create a library' | translate }}"
-                ng-click="$ctrl.create()">{{ 'Create' | translate }}</button>
-        <button type="button" class="btn btn-default"
-                aria-label="{{ 'Import libraries' | translate }}"
-                title="{{ 'Import libraries' | translate }}"
-                ng-click="$ctrl.displayImportLibrariesPopup()">{{ 'Import' | translate }}</button>
-        <export-button data="$ctrl.exportData" title="{{ 'Export libraries' | translate }}"></export-button>
-    </div>
 </main>
-
-<popup config="{{ $ctrl.popupLibraryActionsConfig }}"></popup>
-<popup config="{{ $ctrl.popupDeleteLibraryConfig }}"></popup>
-<import-data-popup config="$ctrl.popupImportLibrariesConfig"></import-data-popup>

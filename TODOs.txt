@@ -35,6 +35,8 @@ feature
 
     # remove libraries > merge with adventures of a given series?
 
+    # remove export-button
+
 refactoring
     # oop class for data / model : angular factory
 

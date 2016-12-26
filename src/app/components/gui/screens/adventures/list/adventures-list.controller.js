@@ -128,6 +128,10 @@ class AdventuresListController {
         return !!selectedRow && (!selectedRow.downloadUrl || !!selectedRow.downloaded);
     }
 
+    hasToBeDownloaded(row) {
+        return !!row.downloadUrl && !row.downloaded;
+    }
+
     getSelectedRow() {
         if (!!this.rows) {
             for (let i = 0; i < this.rows.length; i++) {

@@ -18,7 +18,7 @@
                     </thead>
                     <tbody>
                     <tr ng-repeat="row in $ctrl.rows">
-                        <td>{{ 'AdventureOverview' | translate: { serie: row.serie + (!!row.serie ? ': ': ''), adventureName: row.name} }}</td>
+                        <td>{{ (!!row.serie ? row.serie + ': ': '') +  row.name }} {{ ($ctrl.hasToBeDownloaded(row) ? 'downloadable_in_list' : '') | translate }} </td>
                         <td>
                             <button type="button" class="btn" ng-class="{ 'btn-success' : row.selected, 'btn-default' : !row.selected}"
                                     aria-label="{{ !row.selected ?

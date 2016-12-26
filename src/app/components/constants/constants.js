@@ -20,22 +20,22 @@ let constantsModule = angular.module('app.components.constants', [])
             about: '/about?admin',
             adventures: '/adventures',
             adventureDetail: '/adventures',
-            libraries: '/libraries',
-            libraryDetail: '/libraries'
+            libraries: '/libraries'
         },
         choices : {
             yes : 'Yes',
             no : 'No',
             ok: 'Ok',
+            create: 'Create',
             cancel: 'Cancel',
             display: 'Display',
             remove: 'Remove',
+            import: 'Import',
             export: 'Export',
             download: 'Download'
         },
         errors: {
             adventureAlreadyExist : 'error.adventureAlreadyExist',
-            libraryAlreadyExist : 'error.libraryAlreadyExist',
             missingMandatoryFields: 'error.missingMandatoryFields'
         }
     });
