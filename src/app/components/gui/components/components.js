@@ -14,6 +14,7 @@ import Goto from './goto/goto';
 import Collapse from './collapse/collapse';
 import SelectableList from './selectable-list/selectable-list';
 import Footnote from './footnote/footnote';
+import About from './about/about';
 
 let guiComponentsModule = angular.module('app.components.gui.components', [
     Dices.name,
@@ -30,7 +31,8 @@ let guiComponentsModule = angular.module('app.components.gui.components', [
     Goto.name,
     Collapse.name,
     SelectableList.name,
-    Footnote.name
+    Footnote.name,
+    About.name
 ]);
 
 export default guiComponentsModule;
