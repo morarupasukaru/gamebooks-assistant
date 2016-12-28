@@ -6,6 +6,10 @@
             <form>
                 <div>
                     <div class="form-group">
+                        <label for="appVersion">{{ "Application's version" | translate }}</label>
+                        <div id="appVersion">{{ $ctrl.appVersion }}</div>
+                    </div>
+                    <div class="form-group">
                         <label for="usedLocalStorageInPercent">{{ "Used Local's Storage in Percent" | translate }}</label>
                         <input type="text" class="form-control" id="usedLocalStorageInPercent" value="{{ $ctrl.usedLocalStorageInPercent | number : 2}}%">
                     </div>

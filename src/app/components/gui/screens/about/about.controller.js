@@ -1,7 +1,6 @@
 class AboutController {
     /*@ngInject*/
-    constructor(constants) {
-        this.appVersion = constants.version;
+    constructor() {
     }
 }
 

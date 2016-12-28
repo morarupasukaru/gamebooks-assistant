@@ -26,6 +26,7 @@ class AdministrationController {
     }
 
     initData() {
+        this.appVersion = this.constants.version;
         this.applicationData = this.persistenceService.export();
         this.computeLocalStorageCapacities();
     }
