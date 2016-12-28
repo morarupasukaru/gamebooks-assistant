@@ -34,12 +34,12 @@
                         <button class="btn btn-danger" ng-click="$ctrl.showPopupConfirmDeleteApplicationData()" aria-label="{{ 'Delete application\'s data' | translate }}">{{ "Delete application's data" | translate }}</button>
                     </div>
                 </div>
+                <back-button></back-button>
             </form>
 
             <popup config="{{ $ctrl.popupConfirmImportApplicationDataConfig }}"></popup>
             <popup config="{{ $ctrl.popupConfirmDeleteApplicationDataConfig }}"></popup>
         </div>
-        <back-button></back-button>
     </div>
 </main>
 <footnote></footnote>

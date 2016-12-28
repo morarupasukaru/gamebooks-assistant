@@ -5,7 +5,6 @@ next todo:
 feature
     # single-page
         merge adventure & game list as
-        remove back-button?
 
     # replace table of games, adventures, libraries with list that allow to add custom actions (btn '...' with a menu)
 
