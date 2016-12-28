@@ -1,26 +1,19 @@
 {
   "authors": "morarupasukaru",
+  "dice": {
+    "max": 6,
+    "min": 1
+  },
   "downloadUrl": "adventure-example.json",
   "homepage": "https://github.com/morarupasukaru/gamebooks-assistant",
   "id": "adventure-example",
   "language": "English",
   "name": "Adventure example",
-  "startParagraphNr": "1",
+  "startParagraphId": "1",
   "toggles": {
-    "battle": true,
-    "dices": true,
-    "endGame": true,
-    "items": true,
-    "notes": true,
-    "stats": true
+    "dices": true
   },
   "version": "1",
-  "items": [
-    {
-      "description": "Sword",
-      "quantity": 1
-    }
-  ],
   "stats": [
     {
       "battle": {
@@ -30,7 +23,7 @@
       },
       "init": {
         "constant": 6,
-        "sixDiceQuantity": 1
+        "dicesQuantity": 1
       },
       "name": "Strength"
     },
@@ -42,7 +35,7 @@
       },
       "init": {
         "constant": null,
-        "sixDiceQuantity": 1
+        "dicesQuantity": 1
       },
       "name": "Stamina"
     }
