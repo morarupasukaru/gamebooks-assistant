@@ -1,8 +1,3 @@
-/* to solve navbar hidding main top content */
-body {
-    padding-top: 70px;
-}
-
 .ng-invalid.ng-dirty:required {
     background-color: #ff9999 ! important;
 }

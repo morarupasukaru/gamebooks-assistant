@@ -44,6 +44,8 @@ feature
 
     # remove export-button
 
+    # remove back-button?
+
 refactoring
     # oop class for data / model : angular factory
 
@@ -63,8 +65,6 @@ refactoring
 
 finitions
     # aria, tooltip pour tous les elements
-
-    # correct menu when screen is small
 
     # test ipad
 

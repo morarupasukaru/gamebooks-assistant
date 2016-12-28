@@ -1,12 +1,8 @@
-class NavbarController {
+class FootnoteController {
+
     /*@ngInject*/
-    constructor($location, languagePickerService) {
+    constructor(languagePickerService) {
         this.languagePickerService = languagePickerService;
-        let params = $location.search();
-        if (!!params.admin) {
-            this.admin = true;
-        }
-        this.navCollapsed = true;
         this.initData();
     }
 
@@ -21,4 +17,4 @@ class NavbarController {
     }
 }
 
-export default NavbarController;
+export default FootnoteController;
