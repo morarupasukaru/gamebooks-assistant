@@ -5,10 +5,6 @@ next todo:
 feature
     # single-page
         merge adventure & game list as homepage
-        about in footer (?)
-        language in footer (?)
-        admin as hidden url (no logic with about)
-        no menu
 
     # replace table of games, adventures, libraries with list that allow to add custom actions (btn '...' with a menu)
 
