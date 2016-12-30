@@ -1,6 +1,11 @@
 en cours:
 
 next todo:
+    # update readme
+
+    # afficher les x paragraphes précédents
+
+    # favicon avec https://realfavicongenerator.net/
 
 feature
     # single-page
@@ -63,3 +68,7 @@ finitions
     # test ipad
 
     # test android
+
+    # bug android
+
+    # bug $translate si utilisé dans les controllers et service (ne prend pas compte de la langue choisi)
