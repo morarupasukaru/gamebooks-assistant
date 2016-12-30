@@ -1,8 +1,6 @@
 en cours:
 
 next todo:
-    # update readme
-
     # afficher les x paragraphes précédents
 
     # favicon avec https://realfavicongenerator.net/
@@ -61,6 +59,8 @@ refactoring
     # remove dependency to angular-ui-router : http://viralpatel.net/blogs/angularjs-routing-and-views-tutorial-with-example/
 
     # localstorage alternative (localforage?) if required to play lonewolf game
+
+    # besoin de babel?
 
 finitions
     # aria, tooltip pour tous les elements
