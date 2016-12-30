@@ -1,5 +1,4 @@
 en cours:
-    test favicon
 
 next todo:
     # afficher les x paragraphes précédents
@@ -7,8 +6,6 @@ next todo:
 feature
     # single-page
         merge adventure & game list as
-        descriptif logiciel page principal (a la getskeleton)
-        maj remerciements
 
     # replace table of games, adventures, libraries with list that allow to add custom actions (btn '...' with a menu)
 
@@ -45,8 +42,6 @@ feature
 refactoring
     # oop class for data / model : angular factory
 
-    # remove constants?
-
     # angular components to hide bootstrap css inside
 
     # remove not needed glyphicon (text + instead of + as image)
@@ -62,10 +57,9 @@ refactoring
 finitions
     # aria, tooltip pour tous les elements
 
-    # test ipad
-
-    # test android
-
     # bug android
+        about:debug
 
     # bug $translate si utilisé dans les controllers et service (ne prend pas compte de la langue choisi)
+
+    # tooltip avec touch screen, mobile?
