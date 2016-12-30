@@ -164,7 +164,7 @@ const frenchTranslations = {
     'Select Adventure': "Sélection de l'aventure",
     'Select an adventure': 'Sélectionnez une aventure',
     'Serie': 'Série',
-    'sorted alphabetically': 'triée alphabétiquement',
+    'sorted alphabetically': 'triés alphabétiquement',
     'Start a new game': 'Débute un nouveau jeu',
     'Start Game': 'Débute un jeu',
     'Stats rules': "Règles d'attributs",
