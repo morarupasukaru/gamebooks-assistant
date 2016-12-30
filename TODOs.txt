@@ -1,9 +1,8 @@
 en cours:
+    test favicon
 
 next todo:
     # afficher les x paragraphes précédents
-
-    # favicon avec https://realfavicongenerator.net/
 
 feature
     # single-page
@@ -51,8 +50,6 @@ refactoring
     # angular components to hide bootstrap css inside
 
     # remove not needed glyphicon (text + instead of + as image)
-
-    # simplify favicon
 
     # replace angular-translate with custom i18n feature (service?)
 
