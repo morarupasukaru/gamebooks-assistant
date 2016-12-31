@@ -98,6 +98,11 @@ class GameDetailController {
         this.originalTag = null;
         this.tagEditable = false;
     }
+
+    onSubListSave(list, entries) {
+        this.game.lists[list] = entries;
+        this.gamePersistenceService.updateGame(this.game);
+    }
 }
 
 export default GameDetailController;

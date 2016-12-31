@@ -57,9 +57,6 @@ refactoring
 finitions
     # aria, tooltip pour tous les elements
 
-    # bug android
-        about:debug
-
     # bug $translate si utilisé dans les controllers et service (ne prend pas compte de la langue choisi)
 
     # tooltip avec touch screen, mobile?
