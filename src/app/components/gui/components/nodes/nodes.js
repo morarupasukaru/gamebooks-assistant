@@ -8,6 +8,7 @@ let nodesModule = angular.module('app.components.gui.components.nodes', [])
         template,
         controller,
         bindings: {
+            gameId: '<',
             adventureId: '<',
             rootParagraphNr: '<'
         }

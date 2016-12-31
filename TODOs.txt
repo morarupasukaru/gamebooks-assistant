@@ -1,7 +1,6 @@
 en cours:
 
 next todo:
-    # afficher les x paragraphes précédents
 
 feature
     # single-page

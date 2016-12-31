@@ -43,7 +43,7 @@
             </goto>
 
             <collapse ng-if="$ctrl.isMapAvailable()" title="{{ 'Map' | translate }}" flag="game.map">
-                <nodes adventure-id="$ctrl.adventureId" root-paragraph-nr="$ctrl.paragraph.paragraphNr"></nodes>
+                <nodes game-id="$ctrl.game.id" adventure-id="$ctrl.adventureId" root-paragraph-nr="$ctrl.paragraph.paragraphNr"></nodes>
             </collapse>
 
             <collapse ng-if="$ctrl.isCharactersAvailable()" title="{{ 'Characters' | translate }}" flag="game.characters">

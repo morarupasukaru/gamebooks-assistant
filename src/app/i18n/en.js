@@ -74,6 +74,7 @@ const englishTranslations = {
     'dicesQuantity': 'Quantity of dices[{{ min }},{{ max }}]',
     'Display': 'Display',
     'Display actions': 'Display actions',
+    'Display more paragraphs': 'Display more paragraphs',
     'Download' : 'Download',
     'downloadable_in_list': ' (downloadable)',
     'DupplicateParagraph': "The paragraph '{{paragraphNr}}' already exist",

@@ -74,6 +74,7 @@ const frenchTranslations = {
     'dicesQuantity': 'Quantité de dés[{{ min }},{{ max }}]',
     'Display': 'Affiche',
     'Display actions': 'Affiche actions',
+    'Display more paragraphs': 'Affiche plus de paragraphes',
     'Download' : 'Download',
     'downloadable_in_list': ' (téléchargeable)',
     'DupplicateParagraph': "Le pagraphe '{{paragraphNr}}' existe déjà",

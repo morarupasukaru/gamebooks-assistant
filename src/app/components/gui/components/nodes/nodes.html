@@ -1,3 +1,18 @@
+
+<ul>
+    <li class="node" ng-if="$ctrl.isDisplayMoreParagraphsButtonAvailable()">
+        <button type="button"
+                class="btn btn-xs btn-default"
+                aria-label="{{ 'Display more paragraphs' | translate}}"
+                title="{{ 'Display more paragraphs' | translate}}"
+                ng-click="$ctrl.displayMoreParagraphs()">
+            <span aria-hidden="true">...</span>
+        </button>
+    </li>
+    <li class="node" ng-repeat="path in $ctrl.path">
+        {{ path.value }}
+    </li>
+</ul>
 <ul>
     <node data="$ctrl.rootNode" root-node="$ctrl.rootNode"></node>
 </ul>
