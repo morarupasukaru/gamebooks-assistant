@@ -66,7 +66,6 @@ const englishTranslations = {
     'Current': 'Current',
     'DecrementStatsTitle': "Decrement '{{ stats }}'",
     'Default character value': 'Default character value',
-    "Default character's name": "Default character's name",
     'Default value of the stats for enemy': 'Default value of the stats for enemy',
     "Delete application's data": "Delete application's data",
     'Description': 'Description',

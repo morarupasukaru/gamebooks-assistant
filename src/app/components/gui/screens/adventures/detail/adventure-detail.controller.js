@@ -75,9 +75,6 @@ class AdventureDetailController {
         if (!this.adventure.toggles.dices) {
             delete this.adventure.dice;
         }
-        if (!this.adventure.toggles.characters) {
-            delete this.adventure.defaultCharacterName;
-        }
         try {
             this.adventurePersistenceService.updateAdventureWithoutParagraphs(this.adventure);
             this.$location.url(this.constants.url.adventures);

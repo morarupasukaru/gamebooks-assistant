@@ -1,6 +1,5 @@
 {
   "authors": "Steve Jackson et Ian Livingstone",
-  "defaultCharacterName": "Ennemi",
   "dice": {
     "max": 6,
     "min": 1

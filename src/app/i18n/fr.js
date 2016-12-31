@@ -66,7 +66,6 @@ const frenchTranslations = {
     'Current': 'Actuel',
     'DecrementStatsTitle': "Décrémente '{{ stats }}'",
     'Default character value': 'Valeur par défaut des personnages',
-    "Default character's name": "Nom par défaut des personnages",
     'Default value of the stats for character': "Valeur par défaut de l'attribut des personnages",
     "Delete application's data": "Supprime les données de l'application",
     'Description': 'Description',
