@@ -1,4 +1,4 @@
-class LibrariesListController {
+class LibraryImportController {
     /*@ngInject*/
     constructor($location,
                 constants,
@@ -35,4 +35,4 @@ class LibrariesListController {
     }
 }
 
-export default LibrariesListController;
+export default LibraryImportController;
