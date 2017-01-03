@@ -12,7 +12,7 @@ let constantsModule = angular.module('app.components.constants', [])
         },
         url: {
             administration: '/administration',
-            games : '/',
+            games : '/games',
             selectAdventureForNewGame : '/games/create/select-adventure',
             createPlayerForNewGame : '/games/create/create-player',
             gameDetail: '/{adventureId}/{paragraphNr}/game/{gameId}',

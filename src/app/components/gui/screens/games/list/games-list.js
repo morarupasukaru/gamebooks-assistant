@@ -11,7 +11,7 @@ let gamesListModule = angular.module('app.components.gui.screen.games.list', [
         $urlRouterProvider.otherwise('/');
 
         $stateProvider.state('gamesList', {
-            url: constants.url.games + '?import', template: '<games-list></games-list>'
+            url: constants.url.games + '?importGame&importAdventure', template: '<games-list></games-list>'
         });
     })
 
