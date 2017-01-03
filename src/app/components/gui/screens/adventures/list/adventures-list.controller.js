@@ -33,32 +33,32 @@ class AdventuresListController {
             this.importAdventureFromUrl($stateParams.import);
         }
 
-        this.initData();
+        this.initAdventuresData();
     }
 
-    initData() {
-        this.rows = this.adventurePersistenceService.getAdventuresOverview();
-        this.clearSelection();
+    initAdventuresData() {
+        this.adventures = this.adventurePersistenceService.getAdventuresOverview();
+        this.clearAdventureSelection();
     }
 
-    select(row) {
-        this.clearSelection();
+    selectAdventure(row) {
+        this.clearAdventureSelection();
         row.selected = true;
         this.exportData = JSON.stringify(this.adventurePersistenceService.exportAdventure(row.id));
     }
 
-    clearSelection() {
-        for (let i = 0; i < this.rows.length; i++) {
-            this.rows[i].selected = false;
+    clearAdventureSelection() {
+        for (let i = 0; i < this.adventures.length; i++) {
+            this.adventures[i].selected = false;
         }
     }
 
-    create() {
+    createAdventure() {
         this.$location.url(this.constants.url.adventureDetail + '/create');
     }
 
-    display() {
-        this.$location.url(this.constants.url.adventureDetail + '/' + this.getSelectedRow().id);
+    displayAdventure() {
+        this.$location.url(this.constants.url.adventureDetail + '/' + this.getSelectedAdventure().id);
     }
 
     displayRemoveAdventurePopup() {
@@ -74,7 +74,7 @@ class AdventuresListController {
     }
 
     deleteAdventure() {
-        this.adventurePersistenceService.deleteAdventureAndParagraphs(this.getSelectedRow().id);
+        this.adventurePersistenceService.deleteAdventureAndParagraphs(this.getSelectedAdventure().id);
         this.initData();
     }
 
@@ -103,7 +103,7 @@ class AdventuresListController {
 
     downloadAdventure() {
         let self = this;
-        let promise = this.adventurePersistenceService.downloadAdventureWithId(this.getSelectedRow().id);
+        let promise = this.adventurePersistenceService.downloadAdventureWithId(this.getSelectedAdventure().id);
         promise.then(
             function(json) {
                 self.initData();
@@ -114,29 +114,29 @@ class AdventuresListController {
         );
     }
 
-    hasSelectedRow() {
-        return !!this.getSelectedRow();
+    hasSelectedAdventure() {
+        return !!this.getSelectedAdventure();
     }
 
-    isSelectedRowDownloadable() {
-        let selectedRow = this.getSelectedRow();
+    isSelectedAdventureDownloadable() {
+        let selectedRow = this.getSelectedAdventure();
         return !!selectedRow && !!selectedRow.downloadUrl;
     }
 
     isSelectedAdventureAvailable() {
-        let selectedRow = this.getSelectedRow();
+        let selectedRow = this.getSelectedAdventure();
         return !!selectedRow && (!selectedRow.downloadUrl || !!selectedRow.downloaded);
     }
 
-    hasToBeDownloaded(row) {
+    hasAdventureToBeDownloaded(row) {
         return !!row.downloadUrl && !row.downloaded;
     }
 
-    getSelectedRow() {
-        if (!!this.rows) {
-            for (let i = 0; i < this.rows.length; i++) {
-                if (!!this.rows[i].selected) {
-                    return this.rows[i];
+    getSelectedAdventure() {
+        if (!!this.adventures) {
+            for (let i = 0; i < this.adventures.length; i++) {
+                if (!!this.adventures[i].selected) {
+                    return this.adventures[i];
                 }
             }
         }

@@ -15,7 +15,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="row in $ctrl.rows">
+                    <tr ng-repeat="row in $ctrl.games">
                         <td>{{ 'GameOverview' | translate: { serie: row.serie + (!!row.serie ? ': ': ''), adventureName: row.adventureName, playerName: row.playerName, currentParagraphNr: row.currentParagraphNr + (!!row.paragraphTag ? '(' + row.paragraphTag + ')' : '')} }}</td>
                         <td>
                             <button type="button" class="btn" ng-class="{ 'btn-success' : row.selected, 'btn-default' : !row.selected}"
@@ -25,7 +25,7 @@
                                     title="{{ !row.selected ?
                                         ('ChoiceGame' | translate: {adventureName: row.adventureName, playerName: row.playerName}) :
                                         ('ChoosenGame' | translate: {adventureName: row.adventureName, playerName: row.playerName}) }}"
-                                    ng-click="$ctrl.select(row)">
+                                    ng-click="$ctrl.selectGame(row)">
                                 <span ng-class="{ 'glyphicon glyphicon-ok' : row.selected, 'glyphicon glyphicon-hand-left' : !row.selected}" aria-hidden="true"></span>
                             </button>
                         </td>
@@ -45,20 +45,20 @@
                 title="{{ 'Import a game' | translate }}"
                 ng-click="$ctrl.displayImportGamePopup()">{{ 'Import' | translate }}</button>
         <button type="button" class="btn btn-default"
-                ng-disabled="!$ctrl.hasSelectedRow()"
+                ng-disabled="!$ctrl.hasSelectedGame()"
                 ng-click="$ctrl.continueGame()"
                 aria-label="{{ 'Continue the selected game' | translate }}"
                 title="{{ 'Continue the selected game' | translate }}">{{ 'Continue' | translate }}
         </button>
         <button type="button" class="btn btn-danger"
-                ng-disabled="!$ctrl.hasSelectedRow()"
+                ng-disabled="!$ctrl.hasSelectedGame()"
                 ng-click="$ctrl.displayRemoveGamePopup()"
                 aria-label="{{ 'Remove the selected game' | translate }}"
                 title="{{ 'Remove the selected game' | translate }}">{{ 'Remove' | translate }}
         </button>
         <export-button data="$ctrl.exportData"
                            title="{{ 'Export selected game' | translate }}"
-                           disabled="!$ctrl.hasSelectedRow()">
+                           disabled="!$ctrl.hasSelectedGame()">
         </export-button>
     </div>
 </main>

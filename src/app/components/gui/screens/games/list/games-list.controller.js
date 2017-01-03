@@ -25,18 +25,18 @@ class GamesListController {
             this.importGameFromUrl($stateParams.import);
         }
 
-        this.initData();
+        this.initGamesData();
     }
 
-    initData() {
+    initGamesData() {
         let gamePersistenceKeys = this.gamePersistenceService.getGamePersistenceKeys();
-        this.rows = [];
+        this.games = [];
         for (let i = 0; i < gamePersistenceKeys.length; i++) {
             let game = this.gamePersistenceService.getGame(gamePersistenceKeys[i]);
-            this.rows.push(game);
+            this.games.push(game);
         }
 
-        this.completeAdventureData(this.rows);
+        this.completeAdventureData(this.games);
     }
 
     completeAdventureData(games) {
@@ -68,9 +68,9 @@ class GamesListController {
         }
     }
 
-    select(row) {
-        for (let i = 0; i < this.rows.length; i++) {
-            this.rows[i].selected = false;
+    selectGame(row) {
+        for (let i = 0; i < this.games.length; i++) {
+            this.games[i].selected = false;
         }
         row.selected = true;
         this.exportData = JSON.stringify(this.gamePersistenceService.exportGame(row.id));
@@ -86,12 +86,12 @@ class GamesListController {
     }
 
     continueGame() {
-        let game = this.gamePersistenceService.getGame(this.getSelectedRow().id);
+        let game = this.gamePersistenceService.getGame(this.getSelectedGame().id);
         let adventure = this.adventurePersistenceService.getAdventure(game.adventureId);
         if (!adventure) {
-            this.messagesService.errorMessage(this.$translate.instant('CannotFindAdventure', { adventure: this.getSelectedRow().id}), false)
+            this.messagesService.errorMessage(this.$translate.instant('CannotFindAdventure', { adventure: this.getSelectedGame().id}), false)
         } else {
-            let nextUrl = this.gamePersistenceService.getUrlOfGame(this.getSelectedRow().id);
+            let nextUrl = this.gamePersistenceService.getUrlOfGame(this.getSelectedGame().id);
             this.$location.url(nextUrl);
         }
     }
@@ -109,7 +109,7 @@ class GamesListController {
     }
 
     deleteGame() {
-        this.gamePersistenceService.deleteGame(this.getSelectedRow().id, true, true);
+        this.gamePersistenceService.deleteGame(this.getSelectedGame().id, true, true);
         this.initData();
     }
 
@@ -124,15 +124,15 @@ class GamesListController {
         );
     }
 
-    hasSelectedRow() {
-        return !!this.getSelectedRow();
+    hasSelectedGame() {
+        return !!this.getSelectedGame();
     }
 
 
-    getSelectedRow() {
-        for (let i = 0; i < this.rows.length; i++) {
-            if (!!this.rows[i].selected) {
-                return this.rows[i];
+    getSelectedGame() {
+        for (let i = 0; i < this.games.length; i++) {
+            if (!!this.games[i].selected) {
+                return this.games[i];
             }
         }
         return null;

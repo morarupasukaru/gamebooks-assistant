@@ -1,9 +1,8 @@
 en cours:
+    # replace table of games, adventures, libraries with list that allow to add custom actions (btn '...' with a menu)
 
-next todo:
 
 feature
-
     # language in url
         - ../#/{language}/...
         - si ../#/ sans language alors on remplace url avec la langue stocké dans localstorage
@@ -31,8 +30,6 @@ feature
 
     # single-page
         merge adventure & game list as
-
-    # replace table of games, adventures, libraries with list that allow to add custom actions (btn '...' with a menu)
 
     # image "view" component
 
