@@ -21,6 +21,14 @@ feature
         - si un clef manque dans une langue <> anglais, un log dans la console est fait (si dispo)
         - gestion de paramètre à la String.format
 
+            String.prototype.format = function (args) {
+                var newStr = this;
+                for (var key in args) { // <- TODO nb instead of key name let i = 0; i < args.length ...
+                    newStr = newStr.replace('{' + key + '}', args[key]);
+                }
+                return newStr;
+            }
+
     # single-page
         merge adventure & game list as
 
@@ -58,19 +66,20 @@ feature
 
 refactoring
     # oop class for data / model : angular factory
+        https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript
+        https://medium.com/opinionated-angularjs/angular-model-objects-with-javascript-classes-2e6a067c73bc#.m560drzb6
+        https://docs.angularjs.org/guide/providers
 
     # angular components to hide bootstrap css inside
 
     # remove not needed glyphicon (text + instead of + as image)
-
-    # remove dependency to angular-ui-router : http://viralpatel.net/blogs/angularjs-routing-and-views-tutorial-with-example/
 
     # localstorage alternative (localforage?) if required to play lonewolf game
 
     # besoin de babel?
 
 finitions
-    # aria, tooltip pour tous les elements
-
+    # aria-label & title pour tous les elements (a faire une fois component bootstrap wrapper dans component angular)
+        > il faut les deux aria-label et title (title ne suffit pas)
 
     # tooltip avec touch screen, mobile?
