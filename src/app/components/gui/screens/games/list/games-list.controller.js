@@ -1,6 +1,6 @@
 class GamesListController {
     /*@ngInject*/
-    constructor($location, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, importDataPopupService, $stateParams) {
+    constructor($location, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, importDataPopupService, $stateParams, $window, $timeout) {
         this.constants = constants;
         this.$location = $location;
         this.gamePersistenceService = gamePersistenceService;
@@ -10,6 +10,8 @@ class GamesListController {
         this.popupService = popupService;
         this.importDataPopupService = importDataPopupService;
         this.$stateParams = $stateParams;
+        this.$window = $window;
+        this.$timeout = $timeout;
 
         this.popupDeleteGameConfig = {
             id : 'popupDeleteGame',
@@ -39,6 +41,38 @@ class GamesListController {
             closeOnClickOutsideModal : false
         };
 
+        this.popupDisplaySelectedAdventureActionsConfig = {
+            id : 'popupDisplaySelectedAdventureActions',
+            text : 'Choose an action',
+            choices : [constants.choices.display, constants.choices.remove, constants.choices.export, constants.choices.download, constants.choices.cancel],
+            withCloseButton : false,
+            closeOnClickOutsideModal : false
+        };
+
+        this.popupDisplaySelectedGameActionsConfig = {
+            id : 'popupDisplaySelectedGameActions',
+            text : 'Choose an action',
+            choices : [constants.choices.continue, constants.choices.remove, constants.choices.export, constants.choices.cancel],
+            withCloseButton : false,
+            closeOnClickOutsideModal : false
+        };
+
+        this.popupDisplayCreateActionsConfig = {
+            id : 'popupDisplayCreateActions',
+            text : 'What must be created?',
+            choices : [constants.choices.adventure, constants.choices.game, constants.choices.cancel],
+            withCloseButton : false,
+            closeOnClickOutsideModal : false
+        };
+
+        this.popupDisplayImportActionsConfig = {
+            id : 'popupDisplayImportActions',
+            text : 'What must be imported?',
+            choices : [constants.choices.adventure, constants.choices.game, constants.choices.cancel],
+            withCloseButton : false,
+            closeOnClickOutsideModal : false
+        };
+
         if (!!$stateParams.importGame) {
             this.importGameFromUrl($stateParams.importGame);
         } else if (!!$stateParams.importAdventure) {
@@ -49,8 +83,12 @@ class GamesListController {
     }
 
     initData() {
-        this.initGamesData();
         this.initAdventuresData();
+        this.initGamesData();
+    }
+
+    initAdventuresData() {
+        this.adventures = this.adventurePersistenceService.getAdventuresOverview();
     }
 
     initGamesData() {
@@ -93,12 +131,163 @@ class GamesListController {
         }
     }
 
-    selectGame(row) {
-        for (let i = 0; i < this.games.length; i++) {
-            this.games[i].selected = false;
+    displaySelectedAdventureActions(adventure) {
+        let self = this;
+        this.popupService.show(
+            this.popupDisplaySelectedAdventureActionsConfig.id,
+            function(popupDomElementId, choice) {
+                if (choice === self.constants.choices.display) {
+                    self.displayAdventure(adventure);
+                } else if (choice === self.constants.choices.remove) {
+                    self.displayRemoveAdventurePopup(adventure);
+                } else if (choice === self.constants.choices.export) {
+                    self.exportAdventure(adventure.id);
+                } else if (choice === self.constants.choices.download) {
+                    self.downloadAdventure(adventure);
+                }
+            }
+        );
+    }
+
+    displayAdventure(adventure) {
+        this.$location.url(this.constants.url.adventureDetail + '/' + adventure.id);
+    }
+
+    displayRemoveAdventurePopup(adventure) {
+        let self = this;
+        this.popupService.show(
+            this.popupDeleteAdventureConfig.id,
+            function(popupDomElementId, choice) {
+                if (choice === self.constants.choices.yes) {
+                    self.deleteAdventure(adventure);
+                }
+            }
+        );
+    }
+
+    deleteAdventure(adventure) {
+        this.adventurePersistenceService.deleteAdventureAndParagraphs(adventure.id);
+        this.initData();
+    }
+
+    exportAdventure(adventureId) {
+        let exportData = JSON.stringify(this.adventurePersistenceService.exportAdventure(adventureId));
+        this.exportDownloadBlobUrl = this.createDownloadBlobUrl(exportData);
+        this.$timeout(function() {
+            let href = window.document.getElementById('linkDownloadExportAdventure');
+            href.click();
+        });
+    }
+
+    displayDownloadAdventurePopup(adventure) {
+        let self = this;
+        this.popupService.show(
+            this.popupDownloadAdventureConfig.id,
+            function(popupDomElementId, choice) {
+                if (choice === self.constants.choices.yes) {
+                    self.downloadAdventure(adventure);
+                }
+            }
+        );
+    }
+
+    downloadAdventure(adventure) {
+        let self = this;
+        let promise = this.adventurePersistenceService.downloadAdventureWithId(adventure.id);
+        promise.then(
+            function(json) {
+                self.initData();
+            },
+            function(reason) {
+                self.initData();
+            }
+        );
+    }
+
+    displayCreateActions() {
+        let self = this;
+        this.popupService.show(
+            this.popupDisplayCreateActionsConfig.id,
+            function(popupDomElementId, choice) {
+                if (choice === self.constants.choices.game) {
+                    self.startNewGame();
+                } else if (choice === self.constants.choices.adventure) {
+                    self.createAdventure();
+                 }
+            }
+        );
+    }
+
+    displayImportActions() {
+        let self = this;
+        this.popupService.show(
+            this.popupDisplayCreateActionsConfig.id,
+            function(popupDomElementId, choice) {
+                if (choice === self.constants.choices.game) {
+                    self.displayImportGamePopup();
+                } else if (choice === self.constants.choices.adventure) {
+                    self.displayImportAdventurePopup();
+                 }
+            }
+        );
+    }
+
+    displaySelectedGameActions(game) {
+        let self = this;
+        this.popupService.show(
+            this.popupDisplaySelectedGameActionsConfig.id,
+            function(popupDomElementId, choice) {
+                if (choice === self.constants.choices.continue) {
+                    self.continueGame(game);
+                } else if (choice === self.constants.choices.remove) {
+                    self.displayRemoveGamePopup(game);
+                } else if (choice === self.constants.choices.export) {
+                    self.exportGame(game.id);
+                }
+            }
+        );
+    }
+
+    continueGame(game) {
+        let adventure = this.adventurePersistenceService.getAdventure(game.adventureId);
+        if (!adventure) {
+            this.messagesService.errorMessage(this.$translate.instant('CannotFindAdventure', { adventure: game.adventureId}), false)
+        } else {
+            let nextUrl = this.gamePersistenceService.getUrlOfGame(game.id);
+            this.$location.url(nextUrl);
         }
-        row.selected = true;
-        this.exportData = JSON.stringify(this.gamePersistenceService.exportGame(row.id));
+    }
+
+    displayRemoveGamePopup(game) {
+        let self = this;
+        this.popupService.show(
+            this.popupDeleteGameConfig.id,
+            function(popupDomElementId, choice) {
+                if (choice === self.constants.choices.yes) {
+                    self.deleteGame(game);
+                }
+            }
+        );
+    }
+
+    deleteGame(game) {
+        this.gamePersistenceService.deleteGame(game.id, true, true);
+        this.initData();
+    }
+
+    exportGame(gameId) {
+        let exportData = JSON.stringify(this.gamePersistenceService.exportGame(gameId));
+        this.exportDownloadBlobUrl = this.createDownloadBlobUrl(exportData);
+        this.$timeout(function() {
+            let href = window.document.getElementById('linkDownloadExportGame');
+            href.click();
+        });
+    }
+
+    createDownloadBlobUrl(data) {
+        let blob = new Blob([data], { type: 'text/plain' });
+        let url = this.$window.URL || this.$window.webkitURL;
+        return url.createObjectURL(blob);
     }
 
     startNewGame() {
@@ -108,34 +297,6 @@ class GamesListController {
             return ;
         }
         this.$location.url(this.constants.url.selectAdventureForNewGame);
-    }
-
-    continueGame() {
-        let game = this.gamePersistenceService.getGame(this.getSelectedGame().id);
-        let adventure = this.adventurePersistenceService.getAdventure(game.adventureId);
-        if (!adventure) {
-            this.messagesService.errorMessage(this.$translate.instant('CannotFindAdventure', { adventure: this.getSelectedGame().id}), false)
-        } else {
-            let nextUrl = this.gamePersistenceService.getUrlOfGame(this.getSelectedGame().id);
-            this.$location.url(nextUrl);
-        }
-    }
-
-    displayRemoveGamePopup() {
-        let self = this;
-        this.popupService.show(
-            this.popupDeleteGameConfig.id,
-            function(popupDomElementId, choice) {
-                if (choice === self.constants.choices.yes) {
-                    self.deleteGame();
-                }
-            }
-        );
-    }
-
-    deleteGame() {
-        this.gamePersistenceService.deleteGame(this.getSelectedGame().id, true, true);
-        this.initData();
     }
 
     displayImportGamePopup() {
@@ -149,18 +310,15 @@ class GamesListController {
         );
     }
 
-    hasSelectedGame() {
-        return !!this.getSelectedGame();
-    }
-
-
-    getSelectedGame() {
-        for (let i = 0; i < this.games.length; i++) {
-            if (!!this.games[i].selected) {
-                return this.games[i];
+    displayImportAdventurePopup() {
+        let self = this;
+        this.importDataPopupService.show(
+            this.popupImportAdventureConfig.id,
+            function(popupDomElementId, data) {
+                self.adventurePersistenceService.importAdventure(data);
+                self.initData();
             }
-        }
-        return null;
+        );
     }
 
     importGameFromUrl(url) {
@@ -195,111 +353,12 @@ class GamesListController {
         this.$location.url(this.constants.url.games);
     }
 
-    initAdventuresData() {
-        this.adventures = this.adventurePersistenceService.getAdventuresOverview();
-        this.clearAdventureSelection();
-    }
-
-    selectAdventure(row) {
-        this.clearAdventureSelection();
-        row.selected = true;
-        this.exportData = JSON.stringify(this.adventurePersistenceService.exportAdventure(row.id));
-    }
-
-    clearAdventureSelection() {
-        for (let i = 0; i < this.adventures.length; i++) {
-            this.adventures[i].selected = false;
-        }
-    }
-
     createAdventure() {
         this.$location.url(this.constants.url.adventureDetail + '/create');
     }
 
-    displayAdventure() {
-        this.$location.url(this.constants.url.adventureDetail + '/' + this.getSelectedAdventure().id);
-    }
-
-    displayRemoveAdventurePopup() {
-        let self = this;
-        this.popupService.show(
-            this.popupDeleteAdventureConfig.id,
-            function(popupDomElementId, choice) {
-                if (choice === self.constants.choices.yes) {
-                    self.deleteAdventure();
-                }
-            }
-        );
-    }
-
-    deleteAdventure() {
-        this.adventurePersistenceService.deleteAdventureAndParagraphs(this.getSelectedAdventure().id);
-        this.initData();
-    }
-
-    displayImportAdventurePopup() {
-        let self = this;
-        this.importDataPopupService.show(
-            this.popupImportAdventureConfig.id,
-            function(popupDomElementId, data) {
-                self.adventurePersistenceService.importAdventure(data);
-                self.initData();
-            }
-        );
-    }
-
-    displayDownloadAdventurePopup() {
-        let self = this;
-        this.popupService.show(
-            this.popupDownloadAdventureConfig.id,
-            function(popupDomElementId, choice) {
-                if (choice === self.constants.choices.yes) {
-                    self.downloadAdventure();
-                }
-            }
-        );
-    }
-
-    downloadAdventure() {
-        let self = this;
-        let promise = this.adventurePersistenceService.downloadAdventureWithId(this.getSelectedAdventure().id);
-        promise.then(
-            function(json) {
-                self.initData();
-            },
-            function(reason) {
-                self.initData();
-            }
-        );
-    }
-
-    hasSelectedAdventure() {
-        return !!this.getSelectedAdventure();
-    }
-
-    isSelectedAdventureDownloadable() {
-        let selectedRow = this.getSelectedAdventure();
-        return !!selectedRow && !!selectedRow.downloadUrl;
-    }
-
-    isSelectedAdventureAvailable() {
-        let selectedRow = this.getSelectedAdventure();
-        return !!selectedRow && (!selectedRow.downloadUrl || !!selectedRow.downloaded);
-    }
-
     hasAdventureToBeDownloaded(row) {
         return !!row.downloadUrl && !row.downloaded;
-    }
-
-    getSelectedAdventure() {
-        if (!!this.adventures) {
-            for (let i = 0; i < this.adventures.length; i++) {
-                if (!!this.adventures[i].selected) {
-                    return this.adventures[i];
-                }
-            }
-        }
-        return null;
     }
 }
 

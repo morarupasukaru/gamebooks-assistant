@@ -57,7 +57,9 @@ feature
         - test import with all lone wolf books
         - integrate game rules paragraphs separatelly
 
-    # remove export-button
+    # response-design popup
+
+    # intelligent back-button (e.g. back-button for adventure-detail > game-list)
 
 refactoring
     # oop class for data / model : angular factory

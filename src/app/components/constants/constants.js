@@ -25,13 +25,14 @@ let constantsModule = angular.module('app.components.constants', [])
             yes : 'Yes',
             no : 'No',
             ok: 'Ok',
-            create: 'Create',
             cancel: 'Cancel',
             display: 'Display',
+            continue: 'Continue',
             remove: 'Remove',
-            import: 'Import',
             export: 'Export',
-            download: 'Download'
+            download: 'Download',
+            adventure: 'Adventure',
+            game: 'Game'
         },
         errors: {
             adventureAlreadyExist : 'error.adventureAlreadyExist',
