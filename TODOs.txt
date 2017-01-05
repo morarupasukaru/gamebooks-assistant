@@ -1,31 +1,6 @@
 en cours:
 
 feature
-    # language in url
-        - ../#/{language}/...
-        - si ../#/ sans language alors on remplace url avec la langue stocké dans localstorage
-        - si la langue n'est pas supporté, alors on remplace url avec ../#/en/...
-        - si la langue de l'url est différente de celle de localstorage, alors celle-ci est remplacée
-        - le changement de langue dans le footer modifie l'url actuelle (force un refresh)
-        - service pour la gestion des langues dans url
-        - service pour la gestion des langues dans localstorage
-        - wrapper des 2 services
-
-    # replace $translate with i18n
-        - call by $ctrl.i18n('test') (fonction).
-        - language set with method (inject language of the service that handle localstorage)
-        - par defaut, la langue en paramètre est l'anglais
-        - si un clef manque dans une langue <> anglais, un log dans la console est fait (si dispo)
-        - gestion de paramètre à la String.format
-
-            String.prototype.format = function (args) {
-                var newStr = this;
-                for (var key in args) { // <- TODO nb instead of key name let i = 0; i < args.length ...
-                    newStr = newStr.replace('{' + key + '}', args[key]);
-                }
-                return newStr;
-            }
-
     # image "view" component
 
     # images "edit" component
@@ -54,12 +29,36 @@ feature
         - test import with all lone wolf books
         - integrate game rules paragraphs separatelly
 
-    # response-design popup
+refactoring
+    # language in url
+        - ../#/{language}/...
+        - si ../#/ sans language alors on remplace url avec la langue stocké dans localstorage
+        - si la langue n'est pas supporté, alors on remplace url avec ../#/en/...
+        - si la langue de l'url est différente de celle de localstorage, alors celle-ci est remplacée
+        - le changement de langue dans le footer modifie l'url actuelle (force un refresh)
+        - service pour la gestion des langues dans url
+        - service pour la gestion des langues dans localstorage
+        - wrapper des 2 services
+
+    # replace $translate with i18n
+        - call by $ctrl.i18n('test') (fonction).
+        - language set with method (inject language of the service that handle localstorage)
+        - par defaut, la langue en paramètre est l'anglais
+        - si un clef manque dans une langue <> anglais, un log dans la console est fait (si dispo)
+        - gestion de paramètre à la String.format
+
+            String.prototype.format = function (args) {
+                var newStr = this;
+                for (var key in args) { // <- TODO nb instead of key name let i = 0; i < args.length ...
+                    newStr = newStr.replace('{' + key + '}', args[key]);
+                }
+                return newStr;
+            }
+
+    # response-design popup (clean-up app.css)
 
     # remove <table> from adventure-detail.html
 
-
-refactoring
     # oop class for data / model : angular factory
         https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript
         https://medium.com/opinionated-angularjs/angular-model-objects-with-javascript-classes-2e6a067c73bc#.m560drzb6
@@ -71,10 +70,9 @@ refactoring
 
     # localstorage alternative (localforage?) if required to play lonewolf game
 
-    # besoin de babel?
+    # tooltip avec touch screen, mobile?
 
-finitions
     # aria-label & title pour tous les elements (a faire une fois component bootstrap wrapper dans component angular)
         > il faut les deux aria-label et title (title ne suffit pas)
 
-    # tooltip avec touch screen, mobile?
+    # besoin de babel?
