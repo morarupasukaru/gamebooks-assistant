@@ -1,7 +1,15 @@
 <ul>
     <li ng-repeat="entry in $ctrl.innerEntries">
-        <span ng-show="!entry.edited" ng-click="$ctrl.editEntry(entry)">{{ entry.value }}</span>
+        <span ng-show="!entry.edited">{{ entry.value }}</span>
         <input type="text" ng-model="entry.value" ng-show="!!entry.edited"/>
+        <button type="button"
+                class="btn btn-xs btn-default"
+                aria-label="{{ 'Edit' | translate}}"
+                title="{{ 'Edit' | translate}}"
+                ng-click="$ctrl.editEntry(entry)"
+                ng-show="!entry.edited">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        </button>
         <button type="button"
                 class="btn btn-xs btn-default"
                 aria-label="{{ 'Abort entry changes' | translate}}"

@@ -75,6 +75,7 @@ const frenchTranslations = {
     'Download URL' : 'URL de download',
     'downloadable_in_list': ' (téléchargeable)',
     'DupplicateParagraph': "Le pagraphe '{{paragraphNr}}' existe déjà",
+    'Edit': 'Edite',
     'Edit description': 'Edite la description',
     'Edit note': 'Edite la note',
     'Edit stats': "Edite l'attribut",

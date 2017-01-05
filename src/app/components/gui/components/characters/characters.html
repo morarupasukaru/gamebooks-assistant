@@ -1,6 +1,14 @@
 <ul>
     <li ng-repeat="entry in $ctrl.characters">
-        <span ng-show="!entry.edited" ng-click="$ctrl.editEntry(entry)">{{ entry.name }}</span>
+        <span ng-show="!entry.edited">{{ entry.name }}</span>
+        <button type="button"
+                class="btn btn-xs btn-default"
+                aria-label="{{ 'Edit' | translate}}"
+                title="{{ 'Edit' | translate}}"
+                ng-click="$ctrl.editEntry(entry)"
+                ng-show="!entry.edited">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        </button>
 
         <form ng-show="!!entry.edited">
             <div class="form-group" ng-if="!$ctrl.adventure.id">

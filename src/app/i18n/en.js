@@ -73,6 +73,7 @@ const englishTranslations = {
     'Download URL' : 'Download URL',
     'downloadable_in_list': ' (downloadable)',
     'DupplicateParagraph': "The paragraph '{{paragraphNr}}' already exist",
+    'Edit': 'Edit',
     'Edit description': 'Edit description',
     'Edit note': 'Edit note',
     'Edit stats': 'Edit stats',
