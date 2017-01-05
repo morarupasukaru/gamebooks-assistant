@@ -14,7 +14,7 @@
     <span ng-class="{ 'highlighted' : !!$ctrl.data.highlighted, 'clickable' : !!$ctrl.data.children}"
           ng-mouseover="$ctrl.over()"
           ng-mouseleave="$ctrl.leave()">
-        {{ $ctrl.data.name }}
+        {{ $ctrl.data.name + (!!$ctrl.data.tag ? ' (' + $ctrl.data.tag + ')': '') }}
     </span>
     <span class="glyphicon glyphicon-link"
           ng-class="{ 'clickable' : !!$ctrl.data.children }"
@@ -39,11 +39,6 @@
           ng-show="!$ctrl.data.children && !!$ctrl.data.linkNodeId && !!$ctrl.data.unknown"
           ng-mouseover="$ctrl.over()"
           ng-mouseleave="$ctrl.leave()">
-    </span>
-    <span class="glyphicon glyphicon-tag"
-          aria-label="{{ $ctrl.data.tag }}"
-          title="{{ $ctrl.data.tag }}"
-          ng-show="!!$ctrl.data.tag && !$ctrl.data.unknown">
     </span>
 </div>
 <div ng-if="!!$ctrl.data.children && !$ctrl.data.collapsed">
