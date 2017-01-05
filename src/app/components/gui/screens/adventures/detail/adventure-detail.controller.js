@@ -77,7 +77,7 @@ class AdventureDetailController {
         }
         try {
             this.adventurePersistenceService.updateAdventureWithoutParagraphs(this.adventure);
-            this.$location.url(this.constants.url.adventures);
+            this.$location.url(this.constants.url.games);
         } catch (error) {
             this.$log.warn(error);
         }

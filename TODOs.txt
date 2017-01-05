@@ -56,8 +56,6 @@ feature
 
     # response-design popup
 
-    # intelligent back-button (e.g. back-button for adventure-detail > game-list)
-
     # remove <table> from adventure-detail.html
 
 

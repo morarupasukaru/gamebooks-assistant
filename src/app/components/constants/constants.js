@@ -17,7 +17,6 @@ let constantsModule = angular.module('app.components.constants', [])
             createPlayerForNewGame : '/games/create/create-player',
             gameDetail: '/{adventureId}/{paragraphNr}/game/{gameId}',
             credits: '/credits',
-            adventures: '/adventures',
             adventureDetail: '/adventures',
             libraryImport: '/library-import'
         },
