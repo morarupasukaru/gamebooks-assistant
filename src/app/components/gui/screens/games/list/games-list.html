@@ -13,24 +13,25 @@
                         class="btn btn-xs btn-default"
                         aria-label="{{ 'Display actions' | translate}}"
                         title="{{ 'Display actions' | translate}}"
+                        ng-if="!adventure.missingAdventure"
                         ng-click="$ctrl.displaySelectedAdventureActions(adventure)">
                     <span aria-hidden="true">...</span>
                 </button>
-            </li>
-        </ul>
 
-        <ul>
-            <li ng-repeat="game in $ctrl.games">
-                <span>
-                    {{ 'GameOverview' | translate: { serie: game.serie + (!!game.serie ? ': ': ''), adventureName: game.adventureName, playerName: game.playerName, currentParagraphNr: game.currentParagraphNr + (!!game.paragraphTag ? '(' + game.paragraphTag + ')' : '')} }}
-                </span>
-                <button type="button"
-                        class="btn btn-xs btn-default"
-                        aria-label="{{ 'Display actions' | translate}}"
-                        title="{{ 'Display actions' | translate}}"
-                        ng-click="$ctrl.displaySelectedGameActions(game)">
-                    <span aria-hidden="true">...</span>
-                </button>
+                <ul>
+                    <li ng-repeat="game in adventure.games">
+                        <span>
+                            {{ 'GameOverview' | translate: { playerName: game.playerName, currentParagraphNr: game.currentParagraphNr + (!!game.paragraphTag ? '(' + game.paragraphTag + ')' : '')} }}
+                        </span>
+                        <button type="button"
+                                class="btn btn-xs btn-default"
+                                aria-label="{{ 'Display actions' | translate}}"
+                                title="{{ 'Display actions' | translate}}"
+                                ng-click="$ctrl.displaySelectedGameActions(game)">
+                            <span aria-hidden="true">...</span>
+                        </button>
+                    </li>
+                </ul>
             </li>
         </ul>
 

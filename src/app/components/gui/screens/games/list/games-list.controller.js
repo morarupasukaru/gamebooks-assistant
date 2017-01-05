@@ -21,8 +21,6 @@ class GamesListController {
             closeOnClickOutsideModal : false
         };
 
-        this.popupImportGameConfig = { id : 'popupImportGame' };
-
         this.popupDeleteAdventureConfig = {
             id : 'popupDeleteAdventure',
             text : 'Are you sure to remove the selected adventure?',
@@ -30,8 +28,6 @@ class GamesListController {
             withCloseButton : false,
             closeOnClickOutsideModal : false
         };
-
-        this.popupImportAdventureConfig = { id : 'popupImportAdventure' };
 
         this.popupDownloadAdventureConfig = {
             id : 'popupDownloadAdventure',
@@ -41,18 +37,18 @@ class GamesListController {
             closeOnClickOutsideModal : false
         };
 
-        this.popupDisplaySelectedAdventureActionsConfig = {
-            id : 'popupDisplaySelectedAdventureActions',
-            text : 'Choose an action',
-            choices : [constants.choices.display, constants.choices.remove, constants.choices.export, constants.choices.download, constants.choices.cancel],
-            withCloseButton : false,
-            closeOnClickOutsideModal : false
-        };
-
         this.popupDisplaySelectedGameActionsConfig = {
             id : 'popupDisplaySelectedGameActions',
             text : 'Choose an action',
             choices : [constants.choices.continue, constants.choices.remove, constants.choices.export, constants.choices.cancel],
+            withCloseButton : false,
+            closeOnClickOutsideModal : false
+        };
+
+        this.popupDisplaySelectedAdventureActionsConfig = {
+            id : 'popupDisplaySelectedAdventureActions',
+            text : 'Choose an action',
+            choices : [constants.choices.display, constants.choices.remove, constants.choices.export, constants.choices.download, constants.choices.cancel],
             withCloseButton : false,
             closeOnClickOutsideModal : false
         };
@@ -73,6 +69,10 @@ class GamesListController {
             closeOnClickOutsideModal : false
         };
 
+        this.popupImportGameConfig = { id : 'popupImportGame' };
+
+        this.popupImportAdventureConfig = { id : 'popupImportAdventure' };
+
         if (!!$stateParams.importGame) {
             this.importGameFromUrl($stateParams.importGame);
         } else if (!!$stateParams.importAdventure) {
@@ -83,42 +83,129 @@ class GamesListController {
     }
 
     initData() {
-        this.initAdventuresData();
-        this.initGamesData();
-    }
-
-    initAdventuresData() {
         this.adventures = this.adventurePersistenceService.getAdventuresOverview();
-    }
-
-    initGamesData() {
-        let gamePersistenceKeys = this.gamePersistenceService.getGamePersistenceKeys();
-        this.games = [];
-        for (let i = 0; i < gamePersistenceKeys.length; i++) {
-            let game = this.gamePersistenceService.getGame(gamePersistenceKeys[i]);
-            this.games.push(game);
+        this.adventures.sort(this.compareAdventure);
+        let games = this.getGamesData();
+        let missingAdventures = this.createMissingAdventures(this.getMissingAdventureIds(this.adventures, games));
+        for (let i = 0; i < missingAdventures.length; i++) {
+            this.adventures.push(missingAdventures[i]);
         }
 
-        this.completeAdventureData(this.games);
-    }
-
-    completeAdventureData(games) {
-        for (let i = 0; i < games.length; i++) {
-            let game = games[i];
-            game.playerName = this.getPlayerName(game);
-            let adventure = this.adventurePersistenceService.getAdventure(games[i].adventureId);
-            if (!!adventure) {
-                games[i].adventureName = adventure.name;
-                games[i].serie = adventure.serie;
-                let paragraph = this.adventurePersistenceService.getParagraph(games[i].adventureId, games[i].currentParagraphNr);
-                if (!!paragraph) {
-                    games[i].paragraphTag = paragraph.tag;
+        for (let j = 0; j < games.length; j++) {
+            let game = games[j];
+            for (let i = 0; i < this.adventures.length; i++) {
+                let adventure = this.adventures[i];
+                if (game.adventureId == adventure.id) {
+                    if (!adventure.games) {
+                        adventure.games = [];
+                    }
+                    adventure.games.push(game);
+                    break;
                 }
-            } else {
-                this.messagesService.errorMessage(this.$translate.instant('CannotFindAdventure', { adventure: games[i].adventureId}), false);
-                games[i].adventureName = games[i].adventureId;
             }
         }
+
+        for (let i = 0; i < this.adventures.length; i++) {
+            if (!!this.adventures[i].games) {
+                this.adventures[i].games.sort(this.compareGame);
+            }
+        }
+    }
+
+    getMissingAdventureIds(adventures, games) {
+        let missingAdventuresIds = [];
+        for (let j = 0; j < games.length; j++) {
+            let game = games[j];
+            let foundAdventure = false;
+            for (let i = 0; i < adventures.length; i++) {
+                let adventure = adventures[i];
+                if (game.adventureId == adventure.id) {
+                    foundAdventure = true;
+                    break;
+                }
+            }
+            if (!foundAdventure && missingAdventuresIds.indexOf(game.adventureId) === -1) {
+                missingAdventuresIds.push(game.adventureId);
+            }
+        }
+        return missingAdventuresIds;
+    }
+
+    createMissingAdventures(missingAdventureIds) {
+        let missingAdventures = [];
+        for (let i = 0; i < missingAdventureIds.length; i++) {
+            let missingAdventure = {
+                id: missingAdventureIds[i],
+                name: this.$translate.instant('missing-adventure', { name: missingAdventureIds[i] }),
+                games: [],
+                missingAdventure: true
+            };
+            missingAdventures.push(missingAdventure);
+        }
+        missingAdventures.sort(this.compareAdventure);
+        return missingAdventures;
+    }
+
+    compareAdventure(a1, a2) {
+        if (!a1 && !a2) {
+            return 0;
+        } else if (!a1) {
+            return 1;
+        } else if (!a2) {
+            return -1;
+        } else {
+            let n1 = '';
+            let n2 = '';
+            if (!!a1.serie) {
+                n1 = n1 + 'Z' + a1.serie;
+            } else {
+                n1 = 'A';
+            }
+            if (!!a1.name) {
+                n1 = n1 + a1.name;
+            }
+            if (!!a2.serie) {
+                n2 = n2 + 'Z' + a2.serie;
+            } else {
+                n2 = 'A';
+            }
+            if (!!a2.name) {
+                n2 = n2 + a2.name;
+            }
+            return n1.localeCompare(n2);
+        }
+    }
+
+    compareGame(g1, g2) {
+        if (!g1 && !g2) {
+            return 0;
+        } else if (!g1) {
+            return 1;
+        } else if (!g2) {
+            return -1;
+        } else {
+            return g1.playerName.localeCompare(g2.playerName);
+        }
+    }
+
+    getGamesData() {
+        let gamePersistenceKeys = this.gamePersistenceService.getGamePersistenceKeys();
+        let games = [];
+        for (let i = 0; i < gamePersistenceKeys.length; i++) {
+            let game = this.gamePersistenceService.getGame(gamePersistenceKeys[i]);
+            game.playerName = this.getPlayerName(game);
+            let adventure = this.adventurePersistenceService.getAdventure(game.adventureId);
+            if (!!adventure) {
+                let paragraph = this.adventurePersistenceService.getParagraph(game.adventureId, game.currentParagraphNr);
+                if (!!paragraph) {
+                    game.paragraphTag = paragraph.tag;
+                }
+            } else {
+                game.adventureName = game.adventureId;
+            }
+            games.push(game);
+        }
+        return games;
     }
 
     getPlayerName(game) {
