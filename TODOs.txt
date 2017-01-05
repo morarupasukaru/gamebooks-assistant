@@ -1,7 +1,4 @@
 en cours:
-    # single-page
-        merge adventure & game list as
-        replace table of games, adventures, libraries with list that allow to add custom actions (btn '...' with a menu)
 
 feature
     # language in url
@@ -60,6 +57,9 @@ feature
     # response-design popup
 
     # intelligent back-button (e.g. back-button for adventure-detail > game-list)
+
+    # remove <table> from adventure-detail.html
+
 
 refactoring
     # oop class for data / model : angular factory

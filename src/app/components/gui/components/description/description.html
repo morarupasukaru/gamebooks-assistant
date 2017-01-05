@@ -1,49 +1,43 @@
-<table class="table table-borderless">
-    <col style="width:95%">
-    <col style="width:5%">
-    <tbody>
-    <tr>
-        <td>
-            <textarea id="inputCurrentDescription" class="form-control" ng-model="$ctrl.paragraph.description" ng-if="!!$ctrl.isDescriptionEditable()"></textarea>
-            <div ng-if="!$ctrl.isDescriptionEditable()">
-                <div ng-repeat="paragraph in $ctrl.paragraphs">
-                    <ng-repeat ng-repeat="paragraphElement in paragraph">
-                        <button class="btn btn-xs btn-default" ng-if="!!paragraphElement.choice && !!$ctrl.isAlreadyChoosen(paragraphElement.text)" ng-click="$ctrl.goTo(paragraphElement.text)">
-                            {{ paragraphElement.text }}
-                        </button>
-                        <button class="btn btn-xs btn-default" ng-if="!!paragraphElement.choice && !$ctrl.isAlreadyChoosen(paragraphElement.text)" ng-click="$ctrl.goTo(paragraphElement.text)">
-                            <strong>{{ paragraphElement.text }}</strong>
-                        </button>
-                        <ng-if ng-if="!paragraphElement.choice">
-                            {{ paragraphElement.text }}
-                        </ng-if>
-                    </ng-repeat>
-                </div>
+<div class="row">
+    <div class="col-md-11">
+        <textarea id="inputCurrentDescription" class="form-control" ng-model="$ctrl.paragraph.description" ng-if="!!$ctrl.isDescriptionEditable()"></textarea>
+        <div ng-if="!$ctrl.isDescriptionEditable()">
+            <div ng-repeat="paragraph in $ctrl.paragraphs">
+                <ng-repeat ng-repeat="paragraphElement in paragraph">
+                    <button class="btn btn-xs btn-default" ng-if="!!paragraphElement.choice && !!$ctrl.isAlreadyChoosen(paragraphElement.text)" ng-click="$ctrl.goTo(paragraphElement.text)">
+                        {{ paragraphElement.text }}
+                    </button>
+                    <button class="btn btn-xs btn-default" ng-if="!!paragraphElement.choice && !$ctrl.isAlreadyChoosen(paragraphElement.text)" ng-click="$ctrl.goTo(paragraphElement.text)">
+                        <strong>{{ paragraphElement.text }}</strong>
+                    </button>
+                    <ng-if ng-if="!paragraphElement.choice">
+                        {{ paragraphElement.text }}
+                    </ng-if>
+                </ng-repeat>
             </div>
-        </td>
-        <td>
-            <button type="button" class="btn btn-default"
-                    aria-label="{{ 'Edit description' | translate}}"
-                    title="{{ 'Edit description' | translate}}"
-                    ng-click="$ctrl.editDescription()"
-                    ng-show="!$ctrl.isDescriptionEditable()">
-                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-            </button>
-            <button type="button" class="btn btn-success"
-                    aria-label="{{ 'Save description changes' | translate}}"
-                    title="{{ 'Save description changes' | translate}}"
-                    ng-click="$ctrl.saveDescriptionChanges()"
-                    ng-show="$ctrl.isDescriptionEditable()">
-                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-            </button>
-            <button type="button" class="btn btn-danger"
-                    aria-label="{{ 'Abort description changes' | translate}}"
-                    title="{{ 'Abort description changes' | translate}}"
-                    ng-click="$ctrl.abortDescriptionChanges()"
-                    ng-show="$ctrl.isDescriptionEditable()">
-                <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-            </button>
-        </td>
-    </tr>
-    </tbody>
-</table>
+        </div>
+    </div>
+    <div class="col-md-1">
+        <button type="button" class="btn btn-default"
+                aria-label="{{ 'Edit description' | translate}}"
+                title="{{ 'Edit description' | translate}}"
+                ng-click="$ctrl.editDescription()"
+                ng-show="!$ctrl.isDescriptionEditable()">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="btn btn-success"
+                aria-label="{{ 'Save description changes' | translate}}"
+                title="{{ 'Save description changes' | translate}}"
+                ng-click="$ctrl.saveDescriptionChanges()"
+                ng-show="$ctrl.isDescriptionEditable()">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="btn btn-danger"
+                aria-label="{{ 'Abort description changes' | translate}}"
+                title="{{ 'Abort description changes' | translate}}"
+                ng-click="$ctrl.abortDescriptionChanges()"
+                ng-show="$ctrl.isDescriptionEditable()">
+            <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+        </button>
+    </div>
+</div>
