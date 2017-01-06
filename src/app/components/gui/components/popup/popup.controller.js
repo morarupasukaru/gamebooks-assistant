@@ -8,9 +8,6 @@ class PopupController {
         } else {
             this.cfg.textToDisplay = $translate.instant(this.cfg.text);
         }
-        if (this.cfg.closeOnClickOutsideModal) {
-            this.close();
-        }
     }
 
     select(choice) {

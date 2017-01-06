@@ -16,57 +16,43 @@ class GamesListController {
         this.popupDeleteGameConfig = {
             id : 'popupDeleteGame',
             text : 'Are you sure to remove the selected game?',
-            choices : [constants.choices.yes, constants.choices.no],
-            withCloseButton : false,
-            closeOnClickOutsideModal : false
+            choices : [constants.choices.yes, constants.choices.no]
         };
 
         this.popupDeleteAdventureConfig = {
             id : 'popupDeleteAdventure',
             text : 'Are you sure to remove the selected adventure?',
-            choices : [constants.choices.yes, constants.choices.no],
-            withCloseButton : false,
-            closeOnClickOutsideModal : false
+            choices : [constants.choices.yes, constants.choices.no]
         };
 
         this.popupDownloadAdventureConfig = {
             id : 'popupDownloadAdventure',
             text : 'Are you sure to download the selected adventure? Existing games could be non-playable after the update if the new version is not retro-compatible',
-            choices : [constants.choices.yes, constants.choices.no],
-            withCloseButton : false,
-            closeOnClickOutsideModal : false
+            choices : [constants.choices.yes, constants.choices.no]
         };
 
         this.popupDisplaySelectedGameActionsConfig = {
             id : 'popupDisplaySelectedGameActions',
             text : 'Choose an action',
-            choices : [constants.choices.continue, constants.choices.remove, constants.choices.export, constants.choices.cancel],
-            withCloseButton : false,
-            closeOnClickOutsideModal : false
+            choices : [constants.choices.continue, constants.choices.remove, constants.choices.export, constants.choices.cancel]
         };
 
         this.popupDisplaySelectedAdventureActionsConfig = {
             id : 'popupDisplaySelectedAdventureActions',
             text : 'Choose an action',
-            choices : [constants.choices.display, constants.choices.remove, constants.choices.export, constants.choices.download, constants.choices.cancel],
-            withCloseButton : false,
-            closeOnClickOutsideModal : false
+            choices : [constants.choices.display, constants.choices.remove, constants.choices.export, constants.choices.download, constants.choices.cancel]
         };
 
         this.popupDisplayCreateActionsConfig = {
             id : 'popupDisplayCreateActions',
             text : 'What must be created?',
-            choices : [constants.choices.adventure, constants.choices.game, constants.choices.cancel],
-            withCloseButton : false,
-            closeOnClickOutsideModal : false
+            choices : [constants.choices.adventure, constants.choices.game, constants.choices.cancel]
         };
 
         this.popupDisplayImportActionsConfig = {
             id : 'popupDisplayImportActions',
             text : 'What must be imported?',
-            choices : [constants.choices.adventure, constants.choices.game, constants.choices.cancel],
-            withCloseButton : false,
-            closeOnClickOutsideModal : false
+            choices : [constants.choices.adventure, constants.choices.game, constants.choices.cancel]
         };
 
         this.popupImportGameConfig = { id : 'popupImportGame' };

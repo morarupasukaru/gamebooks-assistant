@@ -11,9 +11,7 @@ class CharactersController {
         this.popupDeleteCharacterConfig = {
             id : 'popupDeleteCharacter',
             text : 'Are you sure to remove the character?',
-            choices : [constants.choices.yes, constants.choices.no],
-            withCloseButton : false,
-            closeOnClickOutsideModal : false
+            choices : [constants.choices.yes, constants.choices.no]
         };
     }
 

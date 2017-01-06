@@ -8,11 +8,10 @@
                         title="{{ 'Roll dice' | translate }}">
                     {{ 'Roll dice' | translate }} {{ '[' + $ctrl.min + ',' + $ctrl.max + ']' }}
                 </button>
-                <button class="btn btn-default"
-                        title="{{ 'Clear values' | translate }}"
-                        aria-label="{{ 'Clear values' | translate }}"
+                <button type="button"
+                        class="btn btn-default"
                         ng-click="$ctrl.clear()">
-                    <span class="glyphicon glyphicon-erase"></span>
+                    {{ 'Clear' | translate }}
                 </button>
             </span>
             <label class="form-control" >{{ $ctrl.dicesValue }}</label>

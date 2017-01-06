@@ -18,26 +18,23 @@
         </div>
     </div>
     <div class="col-md-1">
-        <button type="button" class="btn btn-default"
-                aria-label="{{ 'Edit description' | translate}}"
-                title="{{ 'Edit description' | translate}}"
+        <button type="button"
+                class="btn btn-xs btn-default"
                 ng-click="$ctrl.editDescription()"
                 ng-show="!$ctrl.isDescriptionEditable()">
-            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            {{ 'Edit' | translate }}
         </button>
-        <button type="button" class="btn btn-success"
-                aria-label="{{ 'Save description changes' | translate}}"
-                title="{{ 'Save description changes' | translate}}"
+        <button type="button"
+                class="btn btn-xs btn-success"
                 ng-click="$ctrl.saveDescriptionChanges()"
                 ng-show="$ctrl.isDescriptionEditable()">
-            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            {{ 'Save' | translate }}
         </button>
-        <button type="button" class="btn btn-danger"
-                aria-label="{{ 'Abort description changes' | translate}}"
-                title="{{ 'Abort description changes' | translate}}"
+        <button type="button"
+                class="btn btn-xs btn-danger"
                 ng-click="$ctrl.abortDescriptionChanges()"
                 ng-show="$ctrl.isDescriptionEditable()">
-            <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+            {{ 'Cancel' | translate }}
         </button>
     </div>
 </div>

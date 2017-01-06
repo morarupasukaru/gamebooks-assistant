@@ -11,17 +11,13 @@ class AdministrationController {
         this.popupConfirmImportApplicationDataConfig = {
             id : 'popupConfirmImportApplicationData',
             text : "All existing application's data will be erased during the import. Are you sure to import the application data?",
-            choices : [constants.choices.yes, constants.choices.no],
-            withCloseButton : false,
-            closeOnClickOutsideModal : false
+            choices : [constants.choices.yes, constants.choices.no]
         };
         
         this.popupConfirmDeleteApplicationDataConfig = {
             id : 'popupConfirmDeleteApplicationData',
             text : 'Are you sure to clear the application data?',
-            choices : [constants.choices.yes, constants.choices.no],
-            withCloseButton : false,
-            closeOnClickOutsideModal : false
+            choices : [constants.choices.yes, constants.choices.no]
         };
     }
 

@@ -1,45 +1,28 @@
 <div id="{{$ctrl.data.id}}" ng-click="$ctrl.click()">
-    <span class="glyphicon glyphicon-menu-right"
-          ng-class="{ 'clickable' : !!$ctrl.data.children }"
-          ng-show="!!$ctrl.data.children && !!$ctrl.data.collapsed"
-          ng-mouseover="$ctrl.over()"
-          ng-mouseleave="$ctrl.leave()">
-    </span>
-    <span class="glyphicon glyphicon-menu-down"
-          ng-class="{ 'clickable' : !!$ctrl.data.children }"
-          ng-show="!!$ctrl.data.children && !$ctrl.data.collapsed"
-          ng-mouseover="$ctrl.over()"
-          ng-mouseleave="$ctrl.leave()">
-    </span>
-    <span ng-class="{ 'highlighted' : !!$ctrl.data.highlighted, 'clickable' : !!$ctrl.data.children}"
-          ng-mouseover="$ctrl.over()"
-          ng-mouseleave="$ctrl.leave()">
+    <span>
         {{ $ctrl.data.name + (!!$ctrl.data.tag ? ' (' + $ctrl.data.tag + ')': '') }}
     </span>
     <span class="glyphicon glyphicon-link"
-          ng-class="{ 'clickable' : !!$ctrl.data.children }"
           aria-label="{{ 'Paragraph link' | translate }}"
           title="{{ 'Paragraph link' | translate }}"
-          ng-show="!!$ctrl.data.linkNodeId"
-          ng-mouseover="$ctrl.over()"
-          ng-mouseleave="$ctrl.leave()">
+          ng-show="!!$ctrl.data.linkNodeId">
     </span>
     <span class="glyphicon glyphicon-question-sign"
-          ng-class="{ 'clickable' : !!$ctrl.data.children }"
           aria-label="{{ 'Paragraph not played yet' | translate }}"
           title="{{ 'Paragraph not played yet' | translate }}"
-          ng-show="!!$ctrl.data.unknown"
-          ng-mouseover="$ctrl.over()"
-          ng-mouseleave="$ctrl.leave()">
+          ng-show="!!$ctrl.data.unknown">
     </span>
     <span class="glyphicon glyphicon-minus-sign"
-          ng-class="{ 'clickable' : !!$ctrl.data.children }"
           aria-label="{{ 'No way further' | translate }}"
           title="{{ 'No way further' | translate }}"
-          ng-show="!$ctrl.data.children && !!$ctrl.data.linkNodeId && !!$ctrl.data.unknown"
-          ng-mouseover="$ctrl.over()"
-          ng-mouseleave="$ctrl.leave()">
+          ng-show="!$ctrl.data.children && !!$ctrl.data.linkNodeId && !!$ctrl.data.unknown">
     </span>
+    <button type="button"
+            class="btn btn-xs btn-default"
+            ng-click="$ctrl.toogleCollapse()"
+            ng-show="!!$ctrl.data.children">
+        {{ (!!$ctrl.data.collapsed ? 'Expand': 'Collapse') | translate }}
+    </button>
 </div>
 <div ng-if="!!$ctrl.data.children && !$ctrl.data.collapsed">
     <ul>

@@ -4,46 +4,36 @@
         <input type="text" ng-model="entry.value" ng-show="!!entry.edited"/>
         <button type="button"
                 class="btn btn-xs btn-default"
-                aria-label="{{ 'Edit' | translate}}"
-                title="{{ 'Edit' | translate}}"
                 ng-click="$ctrl.editEntry(entry)"
                 ng-show="!entry.edited">
-            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-        </button>
-        <button type="button"
-                class="btn btn-xs btn-default"
-                aria-label="{{ 'Abort entry changes' | translate}}"
-                title="{{ 'Abort entry changes' | translate}}"
-                ng-click="$ctrl.abortChanges(entry)"
-                ng-show="!!entry.edited">
-            <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+            {{ 'Edit' | translate }}
         </button>
         <button type="button"
                 class="btn btn-xs btn-success"
-                aria-label="{{ 'Save entry changes' | translate}}"
-                title="{{ 'Save entry changes' | translate}}"
                 ng-click="$ctrl.saveChanges(entry)"
                 ng-show="!!entry.edited">
-            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            {{ 'Save' | translate }}
         </button>
         <button type="button"
                 class="btn btn-xs btn-danger"
-                aria-label="{{ 'Remove entry' | translate}}"
-                title="{{ 'Remove entry' | translate}}"
+                ng-click="$ctrl.abortChanges(entry)"
+                ng-show="!!entry.edited">
+            {{ 'Cancel' | translate }}
+        </button>
+        <button type="button"
+                class="btn btn-xs btn-danger"
                 ng-click="$ctrl.removeEntry(entry)"
                 ng-show="!!entry.edited">
-            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            {{ 'Remove' | translate }}
         </button>
     </li>
     <li>
         <input id="newEntry" type="text" placeholder="{{ 'New entry' | translate }}" ng-model="$ctrl.newEntry"/>
         <button type="button"
                 class="btn btn-xs btn-success"
-                aria-label="{{ 'Add entry' | translate}}"
-                title="{{ 'Add entry' | translate}}"
                 ng-click="$ctrl.addEntry()"
                 ng-show="!!$ctrl.newEntry">
-            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            {{ 'Add' | translate }}
         </button>
     </li>
 </ul>

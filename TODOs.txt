@@ -1,4 +1,5 @@
 en cours:
+    # remove not needed glyphicon (text + instead of + as image)
 
 feature
     # image "view" component
@@ -55,8 +56,6 @@ refactoring
                 return newStr;
             }
 
-    # response-design popup (clean-up app.css)
-
     # remove <table> from adventure-detail.html
 
     # oop class for data / model : angular factory
@@ -66,13 +65,21 @@ refactoring
 
     # angular components to hide bootstrap css inside
 
-    # remove not needed glyphicon (text + instead of + as image)
-
     # localstorage alternative (localforage?) if required to play lonewolf game
 
-    # tooltip avec touch screen, mobile?
-
+recherche internet préalable
     # aria-label & title pour tous les elements (a faire une fois component bootstrap wrapper dans component angular)
         > il faut les deux aria-label et title (title ne suffit pas)
+    # aria-label pour div ayant deja du texte?
+        http://heydonworks.com/practical_aria_examples/
 
     # besoin de babel?
+
+    # tooltip avec touch screen, mobile?
+        http://stackoverflow.com/questions/1737773/tooltips-in-the-era-of-touch
+
+    # response-design popup (clean-up app.css)
+
+
+expand,
+collapse en fr

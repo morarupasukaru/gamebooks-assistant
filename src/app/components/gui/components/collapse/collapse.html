@@ -1,8 +1,10 @@
-<h2 ng-click="$ctrl.toogleCollapse()">
+<h2>
     {{ $ctrl.title }}
-    <span class="glyphicon glyphicon-menu-right"
-          ng-class="{ 'glyphicon glyphicon-menu-right' : !!$ctrl.collapsed, 'glyphicon glyphicon-menu-down' : !$ctrl.collapsed }">
-    </span>
+    <button type="button"
+            class="btn btn-xs btn-default"
+            ng-click="$ctrl.toogleCollapse()">
+        {{ (!!$ctrl.collapsed ? 'Expand': 'Collapse') | translate }}
+    </button>
 </h2>
 <div ng-if="!$ctrl.collapsed" ng-transclude>
 </div>

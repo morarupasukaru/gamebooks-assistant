@@ -15,7 +15,7 @@
                         title="{{ 'Display actions' | translate}}"
                         ng-if="!adventure.missingAdventure"
                         ng-click="$ctrl.displaySelectedAdventureActions(adventure)">
-                    <span aria-hidden="true">...</span>
+                    <span aria-hidden="true">{{ 'Display actions' | translate }}</span>
                 </button>
 
                 <ul>
@@ -28,7 +28,7 @@
                                 aria-label="{{ 'Display actions' | translate}}"
                                 title="{{ 'Display actions' | translate}}"
                                 ng-click="$ctrl.displaySelectedGameActions(game)">
-                            <span aria-hidden="true">...</span>
+                            <span aria-hidden="true">{{ 'Display actions' | translate }}</span>
                         </button>
                     </li>
                 </ul>

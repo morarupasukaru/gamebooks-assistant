@@ -18,9 +18,7 @@ class AdventureDetailController {
         this.popupDeleteStatsConfig = {
             id : 'popupDeleteStats',
             text : 'Are you sure to remove the status?',
-            choices : [constants.choices.yes, constants.choices.no],
-            withCloseButton : false,
-            closeOnClickOutsideModal : false
+            choices : [constants.choices.yes, constants.choices.no]
         };
         this.setInitialFocus();
     }

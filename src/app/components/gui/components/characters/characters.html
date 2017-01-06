@@ -3,13 +3,10 @@
         <span ng-show="!entry.edited">{{ entry.name }}</span>
         <button type="button"
                 class="btn btn-xs btn-default"
-                aria-label="{{ 'Edit' | translate}}"
-                title="{{ 'Edit' | translate}}"
                 ng-click="$ctrl.editEntry(entry)"
                 ng-show="!entry.edited">
-            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            {{ 'Edit' | translate }}
         </button>
-
         <form ng-show="!!entry.edited">
             <div class="form-group" ng-if="!$ctrl.adventure.id">
                 <label for="name">{{ "Name" | translate }}</label>
@@ -39,28 +36,22 @@
             </div>
         </form>
         <button type="button"
-                class="btn btn-xs btn-default"
-                aria-label="{{ 'Abort character changes' | translate}}"
-                title="{{ 'Abort character changes' | translate}}"
-                ng-click="$ctrl.abortChanges(entry)"
-                ng-show="!!entry.edited">
-            <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-        </button>
-        <button type="button"
                 class="btn btn-xs btn-success"
-                aria-label="{{ 'Save character changes' | translate}}"
-                title="{{ 'Save character changes' | translate}}"
                 ng-click="$ctrl.saveChanges(entry)"
                 ng-show="!!entry.edited">
-            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            {{ 'Save' | translate }}
         </button>
         <button type="button"
                 class="btn btn-xs btn-danger"
-                aria-label="{{ 'Remove character' | translate}}"
-                title="{{ 'Remove character' | translate}}"
+                ng-click="$ctrl.abortChanges(entry)"
+                ng-show="!!entry.edited">
+            {{ 'Cancel' | translate }}
+        </button>
+        <button type="button"
+                class="btn btn-xs btn-danger"
                 ng-click="$ctrl.displayRemovePopup(entry)"
                 ng-show="!!entry.edited && !!entry.deletable">
-            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            {{ 'Remove' | translate }}
         </button>
 
         <ul>
@@ -85,11 +76,9 @@
         <input id="newEntry" type="text" placeholder="{{ 'New character' | translate }}" ng-model="$ctrl.newEntry"/>
         <button type="button"
                 class="btn btn-xs btn-success"
-                aria-label="{{ 'Add character' | translate}}"
-                title="{{ 'Add character' | translate}}"
                 ng-click="$ctrl.addEntry()"
                 ng-show="!!$ctrl.newEntry">
-            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            {{ 'Add' | translate }}
         </button>
     </li>
 </ul>

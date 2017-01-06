@@ -135,12 +135,11 @@
                                 <th></th>
                                 <th></th>
                                 <th>
-                                    <button type="button" class="btn btn-default"
-                                            aria-label="{{ 'Add stats' | translate}}"
-                                            title="{{ 'Add stats' | translate}}"
+                                    <button type="button"
+                                            class="btn btn-xs btn-default"
                                             ng-click="$ctrl.addRow()"
                                             ng-show="!$ctrl.hasEditedRow()">
-                                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                        {{ 'Add' | translate }}
                                     </button>
                                 </th>
                             </tr>
@@ -205,40 +204,36 @@
                                 </td>
 
                                 <td>
-                                    <button type="button" class="btn btn-success"
-                                            aria-label="{{ 'Save stats changes' | translate}}"
-                                            title="{{ 'Save stats changes' | translate}}"
+                                    <button type="button"
+                                            class="btn btn-xs btn-success"
                                             ng-click="$ctrl.saveRowChanges(adventureTableForm.$invalid, row)"
                                             ng-show="$ctrl.isRowEdited(row)">
-                                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                        {{ 'Save' | translate }}
                                     </button>
                                 </td>
 
                                 <td>
-                                    <button type="button" class="btn btn-danger"
-                                            aria-label="{{ 'Abort stats changes' | translate}}"
-                                            title="{{ 'Abort stats changes' | translate}}"
+                                    <button type="button"
+                                            class="btn btn-xs btn-danger"
                                             ng-click="$ctrl.abortRowChanges()"
                                             ng-show="$ctrl.isRowEdited(row)">
-                                        <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+                                        {{ 'Cancel' | translate }}
                                     </button>
                                 </td>
 
                                 <td>
-                                    <button type="button" class="btn btn-default"
-                                            aria-label="{{ 'Edit stats' | translate}}"
-                                            title="{{ 'Edit stats' | translate}}"
+                                    <button type="button"
+                                            class="btn btn-xs btn-default"
                                             ng-click="$ctrl.editRow(row)"
                                             ng-show="!$ctrl.hasEditedRow()">
-                                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                        {{ 'Edit' | translate }}
                                     </button>
-                                    <button type="button" class="btn btn-danger"
-                                            aria-label="{{ 'Remove stats' | translate }}"
-                                            title="{{ 'Remove stats' | translate }}"
+                                    <button type="button"
+                                            class="btn btn-xs btn-danger"
                                             ng-click="$ctrl.displayRemovePopup(row)"
                                             ng-disabled="$ctrl.addedRow"
                                             ng-show="$ctrl.isRowEdited(row)">
-                                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                        {{ 'Remove' | translate }}
                                     </button>
                                 </td>
                             </tr>

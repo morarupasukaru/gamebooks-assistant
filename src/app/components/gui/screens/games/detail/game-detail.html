@@ -5,12 +5,11 @@
             <h1>
                 {{ 'Paragraph' | translate }} {{ $ctrl.paragraph.paragraphNr }}
                 {{ !!$ctrl.paragraph.tag ? '(' + $ctrl.paragraph.tag +  ')' : '' }}
-                <button type="button" class="btn btn-default"
-                        aria-label="{{ 'Edit tag' | translate}}"
-                        title="{{ 'Edit tag' | translate}}"
+                <button type="button"
+                        class="btn btn-xs btn-default"
                         ng-click="$ctrl.editTag()"
                         ng-show="!$ctrl.isTagEditable()">
-                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                    {{ 'Edit' | translate }}
                 </button>
             </h1>
         </div>
