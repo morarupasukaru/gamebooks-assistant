@@ -4,6 +4,8 @@ en cours:
     # remove not needed glyphicon (text + instead of + as image)
     # expand, collapse en fr?
 
+    # bug: when setting paragraph and updating visible sections, the new displayed sections are visible also for non tagged paragraph afterward
+
 feature
     # image "view" component
 
