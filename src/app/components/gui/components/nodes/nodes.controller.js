@@ -1,17 +1,18 @@
 class NodesController {
     /*@ngInject*/
-    constructor(mapPersistenceService, gamePersistenceService) {
+    constructor(mapPersistenceService, gamePersistenceService, adventurePersistenceService) {
         this.mapPersistenceService = mapPersistenceService;
         this.gamePersistenceService = gamePersistenceService;
+        this.adventurePersistenceService = adventurePersistenceService;
         this.initData();
     }
 
     initData() {
-        this.displayedLastParagraphCount = 3;
+        this.displayedLastParagraphCount = 5;
         this.computeDisplayedLastParagraphs();
         this.rootNode = this.mapPersistenceService.getMap(this.adventureId, this.rootParagraphNr);
         this.collapseAll(this.rootNode)
-        this.expand(this.rootNode, 2);
+        this.expand(this.rootNode, 5);
     }
 
     displayMoreParagraphs() {
@@ -38,7 +39,12 @@ class NodesController {
                 firstIndex = lastIndex - this.displayedLastParagraphCount + 1;
             }
             for (let i = firstIndex; i <= lastIndex; i++) {
-                this.path.push({ value: game.path[i] });
+                let pathElement = { value: game.path[i] };
+                let paragraph = this.adventurePersistenceService.getParagraph(this.adventureId, game.path[i]);
+                if (!!paragraph.tag) {
+                    pathElement.tag = paragraph.tag;
+                }
+                this.path.push(pathElement);
             }
         }
     }

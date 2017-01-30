@@ -10,7 +10,7 @@
         </button>
     </li>
     <li class="node" ng-repeat="path in $ctrl.path">
-        {{ path.value }}
+        {{ path.value + (!!path.tag ? ' (' + path.tag + ')': '') }}
     </li>
 </ul>
 <ul>
