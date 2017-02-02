@@ -1,0 +1,671 @@
+{
+  "authors": "Ian Livingstone",
+  "dice": {
+    "max": 6,
+    "min": 1
+  },
+  "id": "retour-%C3%A0-la-montagne-de-feu",
+  "language": "fr",
+  "lists": {
+    "keys": [
+      "Equipement",
+      "Notes"
+    ],
+    "values": {}
+  },
+  "name": "Retour à la Montagne de Feu",
+  "serie": "Défis fantastiques",
+  "startParagraphId": "1",
+  "toggles": {
+    "battle": true,
+    "characters": true,
+    "dices": true,
+    "goto": true,
+    "map": true,
+    "stats": true
+  },
+  "version": "1.0",
+  "visibleSections": {
+    "1 pièce or, sifflet étain, oeuf onyx": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "3 Pièces d'Or Z, 2 dagues de lancer": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "besion cube en bois": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "besoin gants": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "bouclier": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "champignon de guérison de Ektor Zébulon": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "clef en argent, +1 pt endurance": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "clef en argent, repas +1pt endurance": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "combat": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "fin de partie": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "oeuf en laiton": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "piège": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "piège, -1pt habilité, -1pt endurance": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "piège, -3pt endurance": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "piège, fin de partie": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "rocher avec peint 92": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "épée perdue, -2 force attaque, -1 pt chance": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "épée tranche-tête": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    }
+  },
+  "stats": [
+    {
+      "characters": {
+        "defaultValue": 5
+      },
+      "init": {
+        "constant": 6,
+        "dicesQuantity": 1
+      },
+      "name": "Habilité"
+    },
+    {
+      "characters": {
+        "defaultValue": 5
+      },
+      "init": {
+        "constant": 12,
+        "dicesQuantity": 2
+      },
+      "name": "Endurance"
+    },
+    {
+      "init": {
+        "constant": 6,
+        "dicesQuantity": 1
+      },
+      "name": "Chance"
+    }
+  ],
+  "paragraphs": [
+    {
+      "description": "§341§, §161§",
+      "paragraphNr": "1"
+    },
+    {
+      "description": "§339§, §252§",
+      "paragraphNr": "5",
+      "tag": "piège"
+    },
+    {
+      "description": "§54§, §312§",
+      "paragraphNr": "11"
+    },
+    {
+      "description": "§171§, §64§",
+      "paragraphNr": "19"
+    },
+    {
+      "description": "§193§, §98§",
+      "paragraphNr": "28",
+      "tag": "piège, -3pt endurance"
+    },
+    {
+      "description": "§389§, §56§",
+      "paragraphNr": "37"
+    },
+    {
+      "description": "§11§",
+      "paragraphNr": "40"
+    },
+    {
+      "description": "§309§",
+      "paragraphNr": "44"
+    },
+    {
+      "description": "§168§, §261§",
+      "paragraphNr": "47"
+    },
+    {
+      "description": "§355§, §68§",
+      "paragraphNr": "51"
+    },
+    {
+      "description": "§226§, §273§",
+      "paragraphNr": "56"
+    },
+    {
+      "description": "§395§, §126§",
+      "paragraphNr": "64"
+    },
+    {
+      "description": "§114§, §383§",
+      "paragraphNr": "68"
+    },
+    {
+      "description": "§240§, §131§",
+      "paragraphNr": "71"
+    },
+    {
+      "description": "§306§\nTRAQUEUR (habilité:7, endurance:6)",
+      "paragraphNr": "72",
+      "tag": "combat"
+    },
+    {
+      "description": "",
+      "paragraphNr": "74",
+      "tag": "fin de partie"
+    },
+    {
+      "description": "§40§, §258§",
+      "paragraphNr": "77"
+    },
+    {
+      "description": "§267§",
+      "paragraphNr": "82",
+      "tag": "bouclier"
+    },
+    {
+      "description": "§263§, §357§",
+      "paragraphNr": "86"
+    },
+    {
+      "description": "§5§, §23§",
+      "paragraphNr": "87"
+    },
+    {
+      "description": "§178§, §377§",
+      "paragraphNr": "92",
+      "tag": "besoin gants"
+    },
+    {
+      "description": "§221§",
+      "paragraphNr": "98"
+    },
+    {
+      "description": "§80§, §278§",
+      "paragraphNr": "104",
+      "tag": "piège, -1pt habilité, -1pt endurance"
+    },
+    {
+      "description": "§161§",
+      "paragraphNr": "106"
+    },
+    {
+      "description": "§269§, §283§",
+      "paragraphNr": "108"
+    },
+    {
+      "description": "§185§, §199§",
+      "paragraphNr": "110"
+    },
+    {
+      "description": "§318§, §250§",
+      "paragraphNr": "120"
+    },
+    {
+      "description": "§157§, §319§",
+      "paragraphNr": "126"
+    },
+    {
+      "description": "§166§",
+      "paragraphNr": "131",
+      "tag": "combat"
+    },
+    {
+      "description": "§321§, §281§",
+      "paragraphNr": "140"
+    },
+    {
+      "description": "§350§",
+      "paragraphNr": "143"
+    },
+    {
+      "description": "",
+      "paragraphNr": "147",
+      "tag": "fin de partie"
+    },
+    {
+      "description": "§110§, §353§",
+      "paragraphNr": "157"
+    },
+    {
+      "description": "§316§",
+      "paragraphNr": "159"
+    },
+    {
+      "description": "§286§, §237§",
+      "paragraphNr": "161"
+    },
+    {
+      "description": "§281§, §140§",
+      "paragraphNr": "166"
+    },
+    {
+      "description": "§314§",
+      "paragraphNr": "168"
+    },
+    {
+      "description": "§64§",
+      "paragraphNr": "171",
+      "tag": "rocher avec peint 92"
+    },
+    {
+      "description": "§8§, §159§",
+      "paragraphNr": "182"
+    },
+    {
+      "description": "§86§",
+      "paragraphNr": "185",
+      "tag": "clef en argent, +1 pt endurance"
+    },
+    {
+      "description": "§72§",
+      "paragraphNr": "196"
+    },
+    {
+      "description": "",
+      "paragraphNr": "208"
+    },
+    {
+      "description": "§71§",
+      "paragraphNr": "213"
+    },
+    {
+      "description": "§161§",
+      "paragraphNr": "218",
+      "tag": "piège"
+    },
+    {
+      "description": "§281§, §140§",
+      "paragraphNr": "221"
+    },
+    {
+      "description": "§289§, §273§",
+      "paragraphNr": "226"
+    },
+    {
+      "description": "§116§, §44§",
+      "paragraphNr": "233",
+      "tag": "besion cube en bois"
+    },
+    {
+      "description": "§19§, §120§",
+      "paragraphNr": "237"
+    },
+    {
+      "description": "§398§, §136§",
+      "paragraphNr": "238"
+    },
+    {
+      "description": "§332§, §56§",
+      "paragraphNr": "242",
+      "tag": "1 pièce or, sifflet étain, oeuf onyx"
+    },
+    {
+      "description": "§86§",
+      "paragraphNr": "248",
+      "tag": "clef en argent, repas +1pt endurance"
+    },
+    {
+      "description": "§329§, §143§",
+      "paragraphNr": "250"
+    },
+    {
+      "description": "§28§, §359§",
+      "paragraphNr": "263"
+    },
+    {
+      "description": "§72§, §374§",
+      "paragraphNr": "267"
+    },
+    {
+      "description": "",
+      "paragraphNr": "269",
+      "tag": "piège, fin de partie"
+    },
+    {
+      "description": "§87§, §23§",
+      "paragraphNr": "273"
+    },
+    {
+      "description": "§372§",
+      "paragraphNr": "278"
+    },
+    {
+      "description": "§37§, §152§",
+      "paragraphNr": "281"
+    },
+    {
+      "description": "§237§",
+      "paragraphNr": "286",
+      "tag": "champignon de guérison de Ektor Zébulon"
+    },
+    {
+      "description": "§74§, §147§, §348§",
+      "paragraphNr": "289",
+      "tag": "piège"
+    },
+    {
+      "description": "§218§, §106§",
+      "paragraphNr": "306",
+      "tag": "3 Pièces d'Or Z, 2 dagues de lancer"
+    },
+    {
+      "description": "§213§, §361§",
+      "paragraphNr": "309"
+    },
+    {
+      "description": "§182§",
+      "paragraphNr": "312"
+    },
+    {
+      "description": "§283§, §368§, §269§",
+      "paragraphNr": "314"
+    },
+    {
+      "description": "§233§, §345§",
+      "paragraphNr": "316"
+    },
+    {
+      "description": "§250§",
+      "paragraphNr": "318"
+    },
+    {
+      "description": "§281§",
+      "paragraphNr": "321",
+      "tag": "oeuf en laiton"
+    },
+    {
+      "description": "§92§, §242§, §56§",
+      "paragraphNr": "332"
+    },
+    {
+      "description": "§51§, §215§, §23§",
+      "paragraphNr": "339"
+    },
+    {
+      "description": "§82§, §267§",
+      "paragraphNr": "341"
+    },
+    {
+      "description": "§273§",
+      "paragraphNr": "348",
+      "tag": "épée perdue, -2 force attaque, -1 pt chance"
+    },
+    {
+      "description": "§238§",
+      "paragraphNr": "350"
+    },
+    {
+      "description": "§68§",
+      "paragraphNr": "355",
+      "tag": "épée tranche-tête"
+    },
+    {
+      "description": "§359§",
+      "paragraphNr": "357"
+    },
+    {
+      "description": "§221§",
+      "paragraphNr": "359"
+    },
+    {
+      "description": "RAT GEANT(habilité:5, endurance:3), lancer un dé pour savoir combien de rats il faut affronter\n§108§",
+      "paragraphNr": "368",
+      "tag": "combat"
+    },
+    {
+      "description": "§47§, §173§",
+      "paragraphNr": "372"
+    },
+    {
+      "description": "§49§, §196§",
+      "paragraphNr": "374"
+    },
+    {
+      "description": "§242§, §56§",
+      "paragraphNr": "377",
+      "tag": "piège"
+    },
+    {
+      "description": "§303§, §104§",
+      "paragraphNr": "383"
+    },
+    {
+      "description": "§242§, §332§, §56§",
+      "paragraphNr": "389"
+    },
+    {
+      "description": "OGRE(habilité:8, endurance:10)\n§248§",
+      "paragraphNr": "395",
+      "tag": "combat"
+    },
+    {
+      "description": "§77§, §175§",
+      "paragraphNr": "398",
+      "tag": "piège"
+    }
+  ]
+}
