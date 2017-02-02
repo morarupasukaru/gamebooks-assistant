@@ -34,9 +34,11 @@ class CharactersController {
     }
 
     addEntry() {
-        this.characters.push(this.createCharacter(this.newEntry));
+        let character = this.createCharacter(this.newEntry);
+        this.characters.push(character);
         this.newEntry = null;
         this.save();
+        this.editEntry(character);
     }
 
     createCharacter(characterName) {
