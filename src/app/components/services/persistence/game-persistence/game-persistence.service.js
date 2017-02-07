@@ -113,10 +113,7 @@ class GamePersistenceService {
             let game = JSON.parse(gameAsStr);
             let missingMandatoryFields = [];
             if (!game.id) {
-                missingMandatoryFields.push('id');
-            }
-            if (!game.playerName) {
-                missingMandatoryFields.push('playerName');
+                game.id = this.newGameId();
             }
             if (!game.adventureId) {
                 missingMandatoryFields.push('adventureId');
@@ -124,7 +121,6 @@ class GamePersistenceService {
             if (!game.currentParagraphNr) {
                 missingMandatoryFields.push('currentParagraphNr');
             }
-
             if (missingMandatoryFields.length > 0) {
                 this.messagesService.errorMessage(this.$translate.instant("ImportGameFailedMissingFields", {missingMandatoryFields: missingMandatoryFields.join(', ') }), false);
             } else if (!!this.getGame(game.id)) {
