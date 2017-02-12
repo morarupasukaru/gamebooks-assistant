@@ -1,4 +1,0 @@
-Project suspended until mid-march 2017 (because of other personal objective)
-
-en cours:
-    # NEW: save nb of expanded node

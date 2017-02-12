@@ -8,7 +8,16 @@ class NodesController {
     }
 
     initData() {
+        let game = this.gamePersistenceService.getGame(this.gameId);
+        if (game.expandedTreeLevels !== 0 && !game.expandedTreeLevels) {
+            this.expandedTreeLevels = 5;
+        } else {
+            this.expandedTreeLevels = game.expandedTreeLevels;
+        }
         this.setRootParagraphNr(this.rootParagraphNr);
+    }
+
+    getExpandedTreeLevels() {
     }
 
     displayMoreParagraphs() {
@@ -69,12 +78,33 @@ class NodesController {
     }
 
     setRootParagraphNr(paragraphNr) {
-        this.rootParagraphNr= paragraphNr;
+        this.rootParagraphNr = paragraphNr;
         this.displayedLastParagraphCount = 5;
         this.computeDisplayedLastParagraphs();
         this.rootNode = this.mapPersistenceService.getMap(this.adventureId, this.rootParagraphNr);
         this.collapseAll(this.rootNode)
-        this.expand(this.rootNode, 5);
+        this.expand(this.rootNode, this.expandedTreeLevels);
+    }
+
+    increaseTree() {
+        this.expandedTreeLevels = this.expandedTreeLevels + 1;
+        this.setRootParagraphNr(this.rootParagraphNr);
+        this.saveExpandedTreeLevel();
+    }
+
+    decreaseTree() {
+        this.expandedTreeLevels = this.expandedTreeLevels - 1;
+        if (this.expandedTreeLevels < 0) {
+            this.expandedTreeLevels = 0;
+        }
+        this.setRootParagraphNr(this.rootParagraphNr);
+        this.saveExpandedTreeLevel();
+    }
+
+    saveExpandedTreeLevel() {
+        let game = this.gamePersistenceService.getGame(this.gameId);
+        game.expandedTreeLevels = this.expandedTreeLevels;
+        this.gamePersistenceService.updateGame(game);
     }
 }
 
