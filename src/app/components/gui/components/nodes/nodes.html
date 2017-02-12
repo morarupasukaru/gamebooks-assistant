@@ -10,7 +10,7 @@
         </button>
     </li>
     <li class="node" ng-repeat="path in $ctrl.path">
-        {{ path.value + (!!path.tag ? ' (' + path.tag + ')': '') }}
+        <button type="button" class="btn btn-xs btn-default" ng-click="$ctrl.setRootParagraphNr(path.value)">{{ path.value + (!!path.tag ? ' (' + path.tag + ')': '') }}</button>
     </li>
 </ul>
 <ul>

@@ -8,11 +8,7 @@ class NodesController {
     }
 
     initData() {
-        this.displayedLastParagraphCount = 5;
-        this.computeDisplayedLastParagraphs();
-        this.rootNode = this.mapPersistenceService.getMap(this.adventureId, this.rootParagraphNr);
-        this.collapseAll(this.rootNode)
-        this.expand(this.rootNode, 5);
+        this.setRootParagraphNr(this.rootParagraphNr);
     }
 
     displayMoreParagraphs() {
@@ -70,6 +66,15 @@ class NodesController {
                 }
             }
         }
+    }
+
+    setRootParagraphNr(paragraphNr) {
+        this.rootParagraphNr= paragraphNr;
+        this.displayedLastParagraphCount = 5;
+        this.computeDisplayedLastParagraphs();
+        this.rootNode = this.mapPersistenceService.getMap(this.adventureId, this.rootParagraphNr);
+        this.collapseAll(this.rootNode)
+        this.expand(this.rootNode, 5);
     }
 }
 
