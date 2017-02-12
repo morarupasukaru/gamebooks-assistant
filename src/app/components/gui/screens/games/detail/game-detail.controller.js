@@ -1,6 +1,6 @@
 class GameDetailController {
     /*@ngInject*/
-    constructor($location, constants, $stateParams, gamePersistenceService, adventurePersistenceService, $translate, messagesService, $timeout, $window) {
+    constructor($location, constants, $stateParams, gamePersistenceService, adventurePersistenceService, $translate, messagesService, $filter, $window) {
         this.$location = $location;
         this.constants = constants;
         this.$stateParams = $stateParams;
@@ -8,7 +8,7 @@ class GameDetailController {
         this.adventurePersistenceService = adventurePersistenceService;
         this.$translate = $translate;
         this.messagesService = messagesService;
-        this.$timeout = $timeout;
+        this.$filter = $filter;
         this.$window = $window;
         this.stats = [];
         this.initData();
@@ -108,9 +108,20 @@ class GameDetailController {
     saveGame() {
         let playerName = this.getPlayerName(this.game.characters)
         let adventureName = this.adventure.name;
-        let playerNameWithParagraph = playerName + '@' + this.paragraph.paragraphNr;
-        this.exportGameFilename = 'save_' + adventureName + '_' + playerNameWithParagraph + '.txt';
-        this.exportGame(this.game.id, playerNameWithParagraph);
+        let playerNameWithTime = playerName + ' (' + this.now() + ')';
+
+        let exportData = this.gamePersistenceService.exportGame(this.game.id);
+        this.setPlayerName(exportData.characters, playerNameWithTime);
+        delete exportData.id;
+        let exportDataStr = JSON.stringify(exportData);
+        this.gamePersistenceService.importGame(exportDataStr);
+        this.messagesService.successMessage('Game successfully saved', false)
+        this.$window.scrollTo(0, 0);
+    }
+
+    now() {
+        let now = new Date();
+        return this.$filter('date')(now, 'dd.MM.yyyy HH:mm');
     }
 
     getPlayerName(characters) {
@@ -124,18 +135,6 @@ class GameDetailController {
         return null;
     }
 
-    exportGame(gameId, playerNameWithParagraph) {
-        let exportData = this.gamePersistenceService.exportGame(gameId);
-        this.setPlayerName(exportData.characters, playerNameWithParagraph);
-        delete exportData.id;
-        let exportDataStr = JSON.stringify(exportData);
-        this.exportDownloadBlobUrl = this.createDownloadBlobUrl(exportDataStr);
-        this.$timeout(function() {
-            let href = window.document.getElementById('linkDownloadExportGame');
-            href.click();
-        });
-    }
-
     setPlayerName(characters, newPlayerName) {
         if (!!characters) {
             for (let i = 0; i < characters.length; i++) {
@@ -145,12 +144,6 @@ class GameDetailController {
                 }
             }
         }
-    }
-
-    createDownloadBlobUrl(data) {
-        let blob = new Blob([data], { type: 'text/plain' });
-        let url = this.$window.URL || this.$window.webkitURL;
-        return url.createObjectURL(blob);
     }
 }
 

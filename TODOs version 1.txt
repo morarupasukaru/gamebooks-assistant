@@ -7,7 +7,5 @@ en cours:
 
     # NEW: save nb of expanded node
 
-    # NEW: save vs export game?
-
 feature
     # paragraph's edition syntax as tooltip

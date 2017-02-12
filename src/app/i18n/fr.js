@@ -85,6 +85,7 @@ const frenchTranslations = {
     'fr': 'Français',
     'Français': 'Français',
     'Game': 'Partie',
+    'Game successfully saved': 'Sauvegarde de la partie effectuée',
     'GameOverview': "{{ playerName }} au paragraphe '{{ currentParagraphNr }}'",
     "Game's rules": 'Règles de jeu',
     "Game's rules paragraph": "Paragraphe des règles du jeu",
