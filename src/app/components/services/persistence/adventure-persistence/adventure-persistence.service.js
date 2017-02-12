@@ -214,7 +214,7 @@ class AdventurePersistenceService {
             if (!!adventure.toggles.dices) {
                 tagVisibleSections['Dices'] = { value: this.$translate.instant('Dices'), checked: true };
             }
-            if (!adventure.lists) {
+            if (!!adventure.lists) {
                 for (let i = 0; i < adventure.lists.keys.length; i++) {
                     tagVisibleSections[adventure.lists.keys[i]] = { value: adventure.lists.keys[i], checked: true };
                 }

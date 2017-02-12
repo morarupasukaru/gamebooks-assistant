@@ -82,6 +82,7 @@ class GameDetailController {
     editTag() {
         this.tagEditable = true;
         this.originalTag = this.paragraph.tag;
+        this.originalVisibileSections = JSON.parse(JSON.stringify(this.visibleSections));
     }
 
     isTagEditable() {
@@ -98,6 +99,7 @@ class GameDetailController {
         this.paragraph.tag = this.originalTag;
         this.originalTag = null;
         this.tagEditable = false;
+        this.visibleSections = this.originalVisibileSections;
     }
 
     onSubListSave(list, entries) {
