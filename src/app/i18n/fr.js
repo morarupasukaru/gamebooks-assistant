@@ -59,6 +59,7 @@ const frenchTranslations = {
     'Default value of the stats for character': "Valeur par défaut de l'attribut des personnages",
     "Delete application's data": "Supprime les données de l'application",
     'Description': 'Description',
+    'description.syntax': "Délimiter un numéro de paragraphe avec § afin de l'ajouter comme choix (p.ex. §123§)",
     'Detail': 'Détail',
     'Dices': 'Dés',
     'dicesQuantity': 'Quantité de dés[{{ min }},{{ max }}]',

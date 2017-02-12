@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-11">
-        <textarea id="inputCurrentDescription" class="form-control" ng-model="$ctrl.paragraph.description" ng-if="!!$ctrl.isDescriptionEditable()"></textarea>
+        <textarea id="inputCurrentDescription" class="form-control" ng-model="$ctrl.paragraph.description" ng-if="!!$ctrl.isDescriptionEditable()" title="{{ 'description.syntax' | translate }}"></textarea>
         <div ng-if="!$ctrl.isDescriptionEditable()">
             <div ng-repeat="paragraph in $ctrl.paragraphs">
                 <ng-repeat ng-repeat="paragraphElement in paragraph">

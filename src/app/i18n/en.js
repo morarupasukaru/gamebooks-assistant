@@ -57,6 +57,7 @@ const englishTranslations = {
     'Default value of the stats for enemy': 'Default value of the stats for enemy',
     "Delete application's data": "Delete application's data",
     'Description': 'Description',
+    'description.syntax': 'Surround paragraph number with § to add a choice (e.g. §123§)',
     'Detail': 'Detail',
     'Dices': 'Dices',
     'dicesQuantity': 'Quantity of dices[{{ min }},{{ max }}]',

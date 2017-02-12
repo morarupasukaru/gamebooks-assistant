@@ -6,6 +6,3 @@ en cours:
     # bug: update attribute (+/-) lost when going to another paragraph
 
     # NEW: save nb of expanded node
-
-feature
-    # paragraph's edition syntax as tooltip
