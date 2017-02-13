@@ -1,0 +1,1670 @@
+{
+  "authors": "Ian Livingstone",
+  "dice": {
+    "max": 6,
+    "min": 1
+  },
+  "id": "retour-%C3%A0-la-montagne-de-feu",
+  "language": "fr",
+  "lists": {
+    "keys": [
+      "Equipement",
+      "Notes"
+    ],
+    "values": {
+      "Equipement": [
+        "Epée"
+      ]
+    }
+  },
+  "name": "Retour à la Montagne de Feu",
+  "serie": "Défis fantastiques",
+  "startParagraphId": "1",
+  "toggles": {
+    "battle": true,
+    "characters": true,
+    "dices": true,
+    "goto": true,
+    "map": true,
+    "stats": true
+  },
+  "version": "1.0",
+  "visibleSections": {
+    "+1pt chance": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "+1pt habilité, +2pt endurance": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "+2pt endurance": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "-1pt d'endurance": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "1 pièce or, sifflet étain, oeuf onyx": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "15 pièces d'or": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "2 pièce d'or Z": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "3 Pièces d'Or Z, 2 dagues de lancer": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "3 pièces de cuivre, gousses d'ail, boucle oreille en forme de perce-oreille, bout de papier en forme de jambe": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "Dague, Plaque ardoise avec mot flêche": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "Dent de de dragon en Or 186, +1pt Chance": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "Important: Dent de dragon en Or, +1 pt chance": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "anneau argent 69": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "anneau invisibilité, 1 charge": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "anneau or no 30": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "balle et cube en bois": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "besoin 2 Zagor d'or": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "besoin corde": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "besoin cube en bois": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "besoin gants": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "besoin lanterne": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "bon choix": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "bouclier": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "champignon de guérison de Ektor Zébulon": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "clef en argent, lance, +1 pt endurance": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "clef en argent, repas +1pt endurance": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "clef en fer 142": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "clochette en argent": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "combat": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "combat difficile": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "combat, besoin marteau sinon fin de partie": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "connaître le no de la maison Zoot Zimmer": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "cuillère en or": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "dague, plaque d'ardoise avec mot flêche": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "dent de bronze no 280": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "dent de dragon en bronze 280": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "décès Fyll": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "fin de partie": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "inutile": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "mauvais choix": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "mission: min. 2 dents de dragon en or": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "oeuf en laiton": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "pelote de ficelle": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "piège": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "piège -2pt endurance": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "piège -2pt habilité": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "piège, -1pt habilité, -1pt endurance": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "piège, -3pt endurance": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "piège, 1pt par paragraphe, besoin puces d'Orques": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "piège, fin de partie": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "rocher avec peint 92": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "rue 36 cabochard": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "soin Soufle du Dragon?": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "withoutTag": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "épée": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "épée perdue, -2 force attaque, -1 pt chance": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "épée tranche-tête": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    }
+  },
+  "stats": [
+    {
+      "characters": {
+        "defaultValue": 5
+      },
+      "init": {
+        "constant": 6,
+        "dicesQuantity": 1
+      },
+      "name": "Habilité"
+    },
+    {
+      "characters": {
+        "defaultValue": 5
+      },
+      "init": {
+        "constant": 12,
+        "dicesQuantity": 2
+      },
+      "name": "Endurance"
+    },
+    {
+      "init": {
+        "constant": 6,
+        "dicesQuantity": 1
+      },
+      "name": "Chance"
+    }
+  ],
+  "paragraphs": [
+    {
+      "description": "§341§, §161§",
+      "paragraphNr": "1"
+    },
+    {
+      "description": "§211§, §162§",
+      "paragraphNr": "3"
+    },
+    {
+      "description": "§339§, §252§",
+      "paragraphNr": "5",
+      "tag": "piège"
+    },
+    {
+      "description": "",
+      "paragraphNr": "8",
+      "tag": "fin de partie"
+    },
+    {
+      "description": "§195§, §279§",
+      "paragraphNr": "9"
+    },
+    {
+      "description": "§54§, §312§",
+      "paragraphNr": "11"
+    },
+    {
+      "description": "§124§, §38§",
+      "paragraphNr": "12"
+    },
+    {
+      "description": "§118§, §387§",
+      "paragraphNr": "13"
+    },
+    {
+      "description": "§171§, §64§",
+      "paragraphNr": "19"
+    },
+    {
+      "description": "§308§, §3§",
+      "paragraphNr": "23"
+    },
+    {
+      "description": "§193§, §98§",
+      "paragraphNr": "28",
+      "tag": "piège, -3pt endurance"
+    },
+    {
+      "description": "§393§, §66§",
+      "paragraphNr": "31"
+    },
+    {
+      "description": "§386§, §95§, §180§",
+      "paragraphNr": "33",
+      "tag": "balle et cube en bois"
+    },
+    {
+      "description": "§347§, §41§",
+      "paragraphNr": "35"
+    },
+    {
+      "description": "§253§, §3§",
+      "paragraphNr": "36",
+      "tag": "Dent de de dragon en Or 186, +1pt Chance"
+    },
+    {
+      "description": "§389§, §56§",
+      "paragraphNr": "37"
+    },
+    {
+      "description": "§262§, §141§",
+      "paragraphNr": "38"
+    },
+    {
+      "description": "§11§",
+      "paragraphNr": "40"
+    },
+    {
+      "description": "§154§, §397§, §347§",
+      "paragraphNr": "41"
+    },
+    {
+      "description": "SENTINELLE DE DIAMANT (Habilité: 11, Endurance: 9)\n§63§",
+      "paragraphNr": "42",
+      "tag": "combat, besoin marteau sinon fin de partie"
+    },
+    {
+      "description": "§309§",
+      "paragraphNr": "44"
+    },
+    {
+      "description": "§70§, §191§",
+      "paragraphNr": "45"
+    },
+    {
+      "description": "§168§, §261§",
+      "paragraphNr": "47"
+    },
+    {
+      "description": "§355§, §68§",
+      "paragraphNr": "51"
+    },
+    {
+      "description": "",
+      "paragraphNr": "54"
+    },
+    {
+      "description": "§226§, §273§",
+      "paragraphNr": "56"
+    },
+    {
+      "description": "§176§\n(§36§)",
+      "paragraphNr": "57",
+      "tag": "connaître le no de la maison Zoot Zimmer"
+    },
+    {
+      "description": "§119§, §37§",
+      "paragraphNr": "61"
+    },
+    {
+      "description": "§124§, §38§",
+      "paragraphNr": "63"
+    },
+    {
+      "description": "§395§, §126§",
+      "paragraphNr": "64"
+    },
+    {
+      "description": "§15§, §231§, §334§, §393§",
+      "paragraphNr": "66"
+    },
+    {
+      "description": "§114§, §383§",
+      "paragraphNr": "68"
+    },
+    {
+      "description": "§158§",
+      "paragraphNr": "70",
+      "tag": "dague, plaque d'ardoise avec mot flêche"
+    },
+    {
+      "description": "§240§, §131§",
+      "paragraphNr": "71"
+    },
+    {
+      "description": "§306§\nTRAQUEUR (habilité:7, endurance:6)",
+      "paragraphNr": "72",
+      "tag": "combat"
+    },
+    {
+      "description": "",
+      "paragraphNr": "74",
+      "tag": "fin de partie"
+    },
+    {
+      "description": "§337§",
+      "paragraphNr": "76"
+    },
+    {
+      "description": "§40§, §258§",
+      "paragraphNr": "77"
+    },
+    {
+      "description": "§323§, §372§",
+      "paragraphNr": "80"
+    },
+    {
+      "description": "§267§",
+      "paragraphNr": "82",
+      "tag": "bouclier"
+    },
+    {
+      "description": "§164§, §327§",
+      "paragraphNr": "84"
+    },
+    {
+      "description": "§263§, §357§",
+      "paragraphNr": "86"
+    },
+    {
+      "description": "§5§, §23§",
+      "paragraphNr": "87"
+    },
+    {
+      "description": "§178§, §377§",
+      "paragraphNr": "92",
+      "tag": "besoin gants"
+    },
+    {
+      "description": "§121§",
+      "paragraphNr": "93",
+      "tag": "pelote de ficelle"
+    },
+    {
+      "description": "§352§, §370§",
+      "paragraphNr": "95"
+    },
+    {
+      "description": "§347§, §209§",
+      "paragraphNr": "96"
+    },
+    {
+      "description": "§221§",
+      "paragraphNr": "98"
+    },
+    {
+      "description": "§274§, §299§",
+      "paragraphNr": "100",
+      "tag": "piège"
+    },
+    {
+      "description": "",
+      "paragraphNr": "103",
+      "tag": "fin de partie"
+    },
+    {
+      "description": "§80§, §278§",
+      "paragraphNr": "104",
+      "tag": "piège, -1pt habilité, -1pt endurance"
+    },
+    {
+      "description": "§161§",
+      "paragraphNr": "106"
+    },
+    {
+      "description": "§269§, §283§",
+      "paragraphNr": "108"
+    },
+    {
+      "description": "§185§, §199§",
+      "paragraphNr": "110"
+    },
+    {
+      "description": "§40§, §258§",
+      "paragraphNr": "112",
+      "tag": "décès Fyll"
+    },
+    {
+      "description": "§21§, §84§, §203§, §363§",
+      "paragraphNr": "114",
+      "tag": "-1pt d'endurance"
+    },
+    {
+      "description": "Achat 2 pièces d'or\nLanterne, Corde, Marteau et des Pitons, Ail, Miroir, Hache, Bouteille d'eau, Loupe, Ecritoire de poche, Dague en argent, Gants de cuir, Baume de soins\nMax 5 objets\n\n§309§",
+      "paragraphNr": "116",
+      "tag": "15 pièces d'or"
+    },
+    {
+      "description": "§57§, §287§",
+      "paragraphNr": "118"
+    },
+    {
+      "description": "§37§",
+      "paragraphNr": "119"
+    },
+    {
+      "description": "§318§, §250§",
+      "paragraphNr": "120"
+    },
+    {
+      "description": "Troll (Habilité: 9, Endurance: 9)\n\n§284§",
+      "paragraphNr": "121",
+      "tag": "combat"
+    },
+    {
+      "description": "§291§, §103§",
+      "paragraphNr": "124"
+    },
+    {
+      "description": "§157§, §319§",
+      "paragraphNr": "126"
+    },
+    {
+      "description": "",
+      "paragraphNr": "127",
+      "tag": "fin de partie"
+    },
+    {
+      "description": "§166§",
+      "paragraphNr": "131",
+      "tag": "combat"
+    },
+    {
+      "description": "§13§",
+      "paragraphNr": "132",
+      "tag": "cuillère en or"
+    },
+    {
+      "description": "§242§, §56§",
+      "paragraphNr": "134",
+      "tag": "Important: Dent de dragon en Or, +1 pt chance"
+    },
+    {
+      "description": "§112§, §188§",
+      "paragraphNr": "136"
+    },
+    {
+      "description": "§321§, §281§",
+      "paragraphNr": "140"
+    },
+    {
+      "description": "",
+      "paragraphNr": "141",
+      "tag": "fin de partie"
+    },
+    {
+      "description": "§350§",
+      "paragraphNr": "143"
+    },
+    {
+      "description": "",
+      "paragraphNr": "147",
+      "tag": "fin de partie"
+    },
+    {
+      "description": "§330§, §45§",
+      "paragraphNr": "149"
+    },
+    {
+      "description": "§238§",
+      "paragraphNr": "150",
+      "tag": "+2pt endurance"
+    },
+    {
+      "description": "§210§, §37§",
+      "paragraphNr": "152"
+    },
+    {
+      "description": "§397§, §347§",
+      "paragraphNr": "154",
+      "tag": "piège -2pt habilité"
+    },
+    {
+      "description": "§110§, §353§",
+      "paragraphNr": "157"
+    },
+    {
+      "description": "§399§, §260§",
+      "paragraphNr": "158",
+      "tag": "besoin 2 Zagor d'or"
+    },
+    {
+      "description": "DOPPELGANGER(habilité:9, endurance:0)\n§316§",
+      "paragraphNr": "159",
+      "tag": "combat"
+    },
+    {
+      "description": "§286§, §237§",
+      "paragraphNr": "161"
+    },
+    {
+      "description": "§225§, §93§, §121§",
+      "paragraphNr": "162"
+    },
+    {
+      "description": "§23§",
+      "paragraphNr": "164"
+    },
+    {
+      "description": "§281§, §140§",
+      "paragraphNr": "166"
+    },
+    {
+      "description": "§314§",
+      "paragraphNr": "168"
+    },
+    {
+      "description": "§64§",
+      "paragraphNr": "171",
+      "tag": "rocher avec peint 92"
+    },
+    {
+      "description": "§314§",
+      "paragraphNr": "173",
+      "tag": "piège -2pt endurance"
+    },
+    {
+      "description": "§235§, §134§",
+      "paragraphNr": "178",
+      "tag": "+1pt chance"
+    },
+    {
+      "description": "§150§, §366§",
+      "paragraphNr": "180",
+      "tag": "piège"
+    },
+    {
+      "description": "§8§, §159§",
+      "paragraphNr": "182"
+    },
+    {
+      "description": "METALLIX(Habilité: 8, Endurance: 12)\n§76§",
+      "paragraphNr": "183"
+    },
+    {
+      "description": "§86§",
+      "paragraphNr": "185",
+      "tag": "clef en argent, lance, +1 pt endurance"
+    },
+    {
+      "description": "§40§, §258§",
+      "paragraphNr": "188"
+    },
+    {
+      "description": "FARFADET (Habilité: 5, Endurance: 4)\n§220§",
+      "paragraphNr": "191",
+      "tag": "combat"
+    },
+    {
+      "description": "§72§",
+      "paragraphNr": "196"
+    },
+    {
+      "description": "",
+      "paragraphNr": "208"
+    },
+    {
+      "description": "§41§, §397§",
+      "paragraphNr": "209"
+    },
+    {
+      "description": "§296§, §37§",
+      "paragraphNr": "210"
+    },
+    {
+      "description": "§162§",
+      "paragraphNr": "211",
+      "tag": "+1pt habilité, +2pt endurance"
+    },
+    {
+      "description": "§71§",
+      "paragraphNr": "213"
+    },
+    {
+      "description": "§384§, §51§, §23§",
+      "paragraphNr": "215",
+      "tag": "anneau or no 30"
+    },
+    {
+      "description": "§247§, §124§, §38§",
+      "paragraphNr": "216",
+      "tag": "2 pièce d'or Z"
+    },
+    {
+      "description": "§161§",
+      "paragraphNr": "218",
+      "tag": "piège"
+    },
+    {
+      "description": "§158§",
+      "paragraphNr": "220",
+      "tag": "Dague, Plaque ardoise avec mot flêche"
+    },
+    {
+      "description": "§281§, §140§",
+      "paragraphNr": "221"
+    },
+    {
+      "description": "§93§, §121§",
+      "paragraphNr": "225",
+      "tag": "épée"
+    },
+    {
+      "description": "§289§, §273§",
+      "paragraphNr": "226"
+    },
+    {
+      "description": "Orque (Habilité: 6, Endurance: 5)\nNain(Habilité: 6, Endurance: 4)\n§243§",
+      "paragraphNr": "227",
+      "tag": "combat"
+    },
+    {
+      "description": "§96§, §256§",
+      "paragraphNr": "231"
+    },
+    {
+      "description": "§116§, §44§",
+      "paragraphNr": "233",
+      "tag": "besoin cube en bois"
+    },
+    {
+      "description": "§19§, §120§",
+      "paragraphNr": "237"
+    },
+    {
+      "description": "§398§, §136§",
+      "paragraphNr": "238"
+    },
+    {
+      "description": "§166§",
+      "paragraphNr": "240"
+    },
+    {
+      "description": "§332§, §56§",
+      "paragraphNr": "242",
+      "tag": "1 pièce or, sifflet étain, oeuf onyx"
+    },
+    {
+      "description": "§197§, §13§, §375§, §132§",
+      "paragraphNr": "243",
+      "tag": "soin Soufle du Dragon?"
+    },
+    {
+      "description": "§342§, §124§, §38§",
+      "paragraphNr": "247"
+    },
+    {
+      "description": "§86§",
+      "paragraphNr": "248",
+      "tag": "clef en argent, repas +1pt endurance"
+    },
+    {
+      "description": "§329§, §143§",
+      "paragraphNr": "250"
+    },
+    {
+      "description": "",
+      "paragraphNr": "252",
+      "tag": "fin de partie"
+    },
+    {
+      "description": "§3§",
+      "paragraphNr": "253",
+      "tag": "dent de dragon en bronze 280"
+    },
+    {
+      "description": "§11§",
+      "paragraphNr": "258"
+    },
+    {
+      "description": "RAT-GAROU (Habilité: 8, Endurance: 5)\n§216§",
+      "paragraphNr": "260",
+      "tag": "combat"
+    },
+    {
+      "description": "§127§",
+      "paragraphNr": "262"
+    },
+    {
+      "description": "§28§, §359§",
+      "paragraphNr": "263"
+    },
+    {
+      "description": "",
+      "paragraphNr": "265",
+      "tag": "fin de partie"
+    },
+    {
+      "description": "§72§, §374§",
+      "paragraphNr": "267"
+    },
+    {
+      "description": "",
+      "paragraphNr": "269",
+      "tag": "piège, fin de partie"
+    },
+    {
+      "description": "§87§, §23§",
+      "paragraphNr": "273"
+    },
+    {
+      "description": "§149§",
+      "paragraphNr": "274"
+    },
+    {
+      "description": "si pas de dague en argent, alors -1pt dégat\nMORT VIVANT (Habilité:9, Endurance: 9)\n§35§",
+      "paragraphNr": "277",
+      "tag": "combat"
+    },
+    {
+      "description": "§372§",
+      "paragraphNr": "278"
+    },
+    {
+      "description": "§183§, §195§",
+      "paragraphNr": "279"
+    },
+    {
+      "description": "§37§, §152§",
+      "paragraphNr": "281"
+    },
+    {
+      "description": "§138§, §381§, §294§",
+      "paragraphNr": "283"
+    },
+    {
+      "description": "§100§, §149§",
+      "paragraphNr": "284",
+      "tag": "3 pièces de cuivre, gousses d'ail, boucle oreille en forme de perce-oreille, bout de papier en forme de jambe"
+    },
+    {
+      "description": "§237§",
+      "paragraphNr": "286",
+      "tag": "champignon de guérison de Ektor Zébulon"
+    },
+    {
+      "description": "§387§",
+      "paragraphNr": "287",
+      "tag": "mauvais choix"
+    },
+    {
+      "description": "§74§, §147§, §348§",
+      "paragraphNr": "289",
+      "tag": "piège"
+    },
+    {
+      "description": "ABOMINATION DU CHAOS (habilité:12, endurance: 12), 1 dé à chaque tour: 1-3: rien, 4-6: -1pt endurance\n§9§",
+      "paragraphNr": "291",
+      "tag": "combat difficile"
+    },
+    {
+      "description": "§265§, §31§",
+      "paragraphNr": "294"
+    },
+    {
+      "description": "5 SQUELETTEs, habilité/endurance: 6/5, 6/4, 5/5, 5/4, 6/4\n\n§61§",
+      "paragraphNr": "296",
+      "tag": "combat"
+    },
+    {
+      "description": "§80§, §278§",
+      "paragraphNr": "303",
+      "tag": "besoin lanterne"
+    },
+    {
+      "description": "§218§, §106§",
+      "paragraphNr": "306",
+      "tag": "3 Pièces d'Or Z, 2 dagues de lancer"
+    },
+    {
+      "description": "§3§",
+      "paragraphNr": "308",
+      "tag": "dent de bronze no 280"
+    },
+    {
+      "description": "§213§, §361§",
+      "paragraphNr": "309",
+      "tag": "rue 36 cabochard"
+    },
+    {
+      "description": "",
+      "paragraphNr": "310",
+      "tag": "fin de partie"
+    },
+    {
+      "description": "§182§",
+      "paragraphNr": "312"
+    },
+    {
+      "description": "§283§, §368§, §269§",
+      "paragraphNr": "314"
+    },
+    {
+      "description": "§233§, §345§",
+      "paragraphNr": "316",
+      "tag": "mission: min. 2 dents de dragon en or"
+    },
+    {
+      "description": "§250§",
+      "paragraphNr": "318",
+      "tag": "anneau invisibilité, 1 charge"
+    },
+    {
+      "description": "§281§",
+      "paragraphNr": "321",
+      "tag": "oeuf en laiton"
+    },
+    {
+      "description": "§372§",
+      "paragraphNr": "323",
+      "tag": "piège, 1pt par paragraphe, besoin puces d'Orques"
+    },
+    {
+      "description": "§95§, §386§, §33§, §180§",
+      "paragraphNr": "329"
+    },
+    {
+      "description": "§92§, §242§, §56§",
+      "paragraphNr": "332"
+    },
+    {
+      "description": "§265§",
+      "paragraphNr": "334",
+      "tag": "inutile"
+    },
+    {
+      "description": "",
+      "paragraphNr": "337"
+    },
+    {
+      "description": "§51§, §215§, §23§",
+      "paragraphNr": "339"
+    },
+    {
+      "description": "§82§, §267§",
+      "paragraphNr": "341"
+    },
+    {
+      "description": "§12§, §42§",
+      "paragraphNr": "342",
+      "tag": "besoin gants"
+    },
+    {
+      "description": "§227§, §13§",
+      "paragraphNr": "347",
+      "tag": "bon choix"
+    },
+    {
+      "description": "§273§",
+      "paragraphNr": "348",
+      "tag": "épée perdue, -2 force attaque, -1 pt chance"
+    },
+    {
+      "description": "§238§",
+      "paragraphNr": "350"
+    },
+    {
+      "description": "§238§",
+      "paragraphNr": "352"
+    },
+    {
+      "description": "§68§",
+      "paragraphNr": "355",
+      "tag": "épée tranche-tête"
+    },
+    {
+      "description": "§359§",
+      "paragraphNr": "357"
+    },
+    {
+      "description": "§221§",
+      "paragraphNr": "359"
+    },
+    {
+      "description": "§71§",
+      "paragraphNr": "361"
+    },
+    {
+      "description": "§247§, §124§, §38§",
+      "paragraphNr": "364"
+    },
+    {
+      "description": "RAT GEANT(habilité:5, endurance:3), lancer un dé pour savoir combien de rats il faut affronter\n§108§",
+      "paragraphNr": "368",
+      "tag": "combat"
+    },
+    {
+      "description": "§47§, §173§",
+      "paragraphNr": "372"
+    },
+    {
+      "description": "§49§, §196§",
+      "paragraphNr": "374"
+    },
+    {
+      "description": "§13§, §132§",
+      "paragraphNr": "375",
+      "tag": "clochette en argent"
+    },
+    {
+      "description": "§242§, §56§",
+      "paragraphNr": "377",
+      "tag": "piège"
+    },
+    {
+      "description": "§303§, §104§",
+      "paragraphNr": "383",
+      "tag": "besoin corde"
+    },
+    {
+      "description": "§51§, §23§",
+      "paragraphNr": "384"
+    },
+    {
+      "description": "§33§, §95§, §180§",
+      "paragraphNr": "386",
+      "tag": "clef en fer 142"
+    },
+    {
+      "description": "",
+      "paragraphNr": "387",
+      "tag": "fin de partie"
+    },
+    {
+      "description": "§242§, §332§, §56§",
+      "paragraphNr": "389"
+    },
+    {
+      "description": "OGRE(habilité:8, endurance:10)\n§248§",
+      "paragraphNr": "395",
+      "tag": "combat"
+    },
+    {
+      "description": "§277§, §41§, §347§",
+      "paragraphNr": "397",
+      "tag": "anneau argent 69"
+    },
+    {
+      "description": "§77§, §175§",
+      "paragraphNr": "398",
+      "tag": "piège"
+    },
+    {
+      "description": "§310§, §364§",
+      "paragraphNr": "399",
+      "tag": "piège"
+    }
+  ]
+}

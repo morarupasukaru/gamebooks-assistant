@@ -39,6 +39,132 @@
   },
   "version": "0.2",
   "visibleSections": {
+    ">": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "Clef 99": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "Clé 111": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "Clé 66": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "Clé hangar à bateaux": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "Goule": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "Sort anti-dragon": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "bon choix": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "bonne combinaison": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
     "choix-objets": {
       "Characters": {
         "checked": false,
@@ -61,9 +187,23 @@
         "value": "Objets"
       }
     },
-    "withoutTag": {
+    "clef 99 + 111 + 125": {
       "Characters": {
-        "checked": false,
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "clé 111": {
+      "Characters": {
+        "checked": true,
         "value": "Characters"
       },
       "Dices": {
@@ -81,6 +221,146 @@
       "Objets": {
         "checked": true,
         "value": "Objets"
+      }
+    },
+    "conseil: levier droit": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "dragon": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "fin du jeu": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "lieu repos": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "morceaux bois Y": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "piquets de bois": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "piège": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "test clefs": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "vieil homme": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      }
+    },
+    "échec, mauvaises choix clefs": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
       }
     }
   },
@@ -119,9 +399,8 @@
       "paragraphNr": 1
     },
     {
-      "description": "Veuilliez choisir soit la potion d'habilité, de force ou de chance (supprimez les potions non choisies de l'inventaire).\n\nDébuter l'aventure §1§",
-      "paragraphNr": "Sélection de l'inventaire",
-      "tag": "choix-objets"
+      "description": "",
+      "paragraphNr": "règles de jeu"
     },
     {
       "description": "La porte n'est pas verrouillé. Dans la pièce, 2 bossus torturent un nain. Le nain s'évanouit dans un cri. Les bossus se tournent vers vous\nRefermer aussitôt la porte et poursuivre votre chemin§303§\nAttaquer les créatures§19§\nDonner un coup d'épée au nain avec un rire diabolique§68§",
@@ -134,6 +413,11 @@
     {
       "description": "Vous vous retrouvez dans un petit passage étroit qui aboutit à une porte\nVous essayez d'ouvrir la porte§49§",
       "paragraphNr": 104
+    },
+    {
+      "description": "attaquer le dragon §152§\nautre moyen de le combattre §126§",
+      "paragraphNr": "106",
+      "tag": "dragon"
     },
     {
       "description": "Des mains se matérialisent sur les dalles en forme de main. Celle sur laquelle vous avez marché vous aggripe. Vous la combattez. La MAIN possède HABILITE: 6, ENDURANCE: 4\nSi vous êtes vainqueur§185§",
@@ -154,6 +438,10 @@
     {
       "description": "Une autre bifurcation\nAller au nord§285§\nPoursuivre vers l'est§78§",
       "paragraphNr": 113
+    },
+    {
+      "description": "Vous arrivez à un croisement §359§",
+      "paragraphNr": "114"
     },
     {
       "description": "Vous jetez un coup d'oeil autour de la pièce alors que vous semblez avoir avertis quelqu'un d'autre avec le bruit de votre combat\nExaminer les armes posées à terre§95§\nVous approcher du cadavre étendu dans le coin nord-est§313§\nAller voir les tonneaux§330§",
@@ -184,6 +472,15 @@
       "paragraphNr": 123
     },
     {
+      "description": "§73§",
+      "paragraphNr": "125",
+      "tag": "piège"
+    },
+    {
+      "description": "Est-ce que Farrigo Di Maggio vous dit quelque-chose? Si oui aller au §26§ sinon au §152§",
+      "paragraphNr": "126"
+    },
+    {
       "description": "La herse s'élève et disparaît dans le plafond.\nPoursuivre vers l'ouest§210§\nPoursuivre vers l'est§58§",
       "paragraphNr": 128
     },
@@ -208,12 +505,21 @@
       "paragraphNr": 133
     },
     {
+      "description": "§360§",
+      "paragraphNr": "135"
+    },
+    {
       "description": "Vous quittez la pièce et revenez à la bifurcation.\nVous vous dirigez vers la bifurcation§229§",
       "paragraphNr": 136
     },
     {
       "description": "Un déclic se fait entendre et vous avez un étourdissement. Lorsque vous reprenez conscience, vous ne savez pas ou vous êtes.\nPoursuivre§354§",
       "paragraphNr": 137
+    },
+    {
+      "description": "clé 99 + 111 + 125 = §335§\nclé 66+99+111= §276§\nclé 66+111+111= §288§\nclé 99+111+111= §321§",
+      "paragraphNr": "139",
+      "tag": "test clefs"
     },
     {
       "description": "Une créature vous a découvert suite à vos bruits de recherche. Lorsque vous avez vaincu la créature rendez-vous au 117\nCombattre la créature§161§",
@@ -231,7 +537,8 @@
           "playerName": "Pascal"
         }
       ],
-      "paragraphNr": 145
+      "paragraphNr": 145,
+      "tag": "Clef 99"
     },
     {
       "description": "Contenu de la boîte : 1 Pièce d'Or. Gain de 2 points de CHANCE\nContinuer§208§",
@@ -239,15 +546,18 @@
     },
     {
       "description": "Vous évitez de peu un coup de griffe de la créature qui s'est réveillé.\nIl vous attaque§230§",
-      "paragraphNr": 148
+      "paragraphNr": 148,
+      "tag": "bon choix"
     },
     {
       "description": "Ce lieu de repos est enchanté. Vous récupérez 2 points d'endurance supplémentaire du repas ainsi que 1 point d'habilité.\nAvancez le long du couloir§367§",
-      "paragraphNr": 15
+      "paragraphNr": 15,
+      "tag": "lieu repos"
     },
     {
       "description": "\nAller au nord§222§\nAller à l'est§297§\nAller au sud§133§",
-      "paragraphNr": 150
+      "paragraphNr": 150,
+      "tag": ">"
     },
     {
       "description": "La turbulence ne vous a pas rattrapé. Des yeux de reptile s'approche de vous.\nRevenir vers la rive sud. Vous perdez 1 point d'ENDURANCE du à votre épuisement§218§\nAffrontez les yeux§86§\nFaire un détour qui vous approchera de la turbulence§158§",
@@ -302,12 +612,22 @@
       "paragraphNr": 168
     },
     {
+      "description": "§400§",
+      "paragraphNr": "169",
+      "tag": "bonne combinaison"
+    },
+    {
       "description": "Le crucifix vaut 4 pièces d'or\nPoursuivre§319§",
       "paragraphNr": 170
     },
     {
       "description": "\nExaminer le mur du cul-de-sac.§337§\nAller au sud§187§",
-      "paragraphNr": 171
+      "paragraphNr": 171,
+      "tag": ">"
+    },
+    {
+      "description": "§24§, §135§, §360§",
+      "paragraphNr": "173"
     },
     {
       "description": "\nOuvrir la porte derrière vous vers l'est§177§\nAvancer pour atteindre un croisement§267§",
@@ -338,6 +658,11 @@
       "paragraphNr": 181
     },
     {
+      "description": "",
+      "paragraphNr": "182",
+      "tag": "échec, mauvaises choix clefs"
+    },
+    {
       "description": "Vous découvrez une mallette. Votre victoire vous apporte 1 point d'HABILITÉ et 5 d'ENDURANCE\nOuvrir la mallette§266§\nSortir par la porte§237§",
       "paragraphNr": 183
     },
@@ -351,7 +676,12 @@
     },
     {
       "description": "\nExplorer le cul de sac au nord§171§\nAller vers l'est§308§",
-      "paragraphNr": 187
+      "paragraphNr": 187,
+      "tag": ">"
+    },
+    {
+      "description": "Traverser la pièce §90§\nRegarde les tableaux §25§",
+      "paragraphNr": "189"
     },
     {
       "description": "1er LUTIN a HABILITÉ:5, ENDURANCE:5\n2ème LUTIN a HABILITÉ:5, ENDURANCE:6\nVous sortez vainqueur du combat§317§",
@@ -364,6 +694,10 @@
     {
       "description": "Il est terrifié par votre comportement agressif. Il vous explique qu'il est le maître du Labyrinthe de Zagor. Il vous indique votre chemin pour sortir du labyrinthe et accèder au domaine du sorcier de la montagne. Il faut franchir la porte sud, puis passer devant une porte située à l'ouest, jusqu'au bout du couloir, tourner à gauche, traverser un couloir et prendre à gauche à la bifurcation suivante.\nPartir par la porte sud et accèder à la deuxième bifurcation§308§\nPartir par porte sud et suivre un autre chemin§392§\nSortir par la porte ouest§46§",
       "paragraphNr": 191
+    },
+    {
+      "description": "revenir en arrière §93§\ndessertir pierre précieuse §338§",
+      "paragraphNr": "193"
     },
     {
       "description": "Vous ne trouvez pas de mécanisme pour ouvrir la porte secrète. Vous trouvez 5 pièces d'or dans un tiroir.\nRebrousser vers le sud en direction de la bifurcation§280§",
@@ -403,7 +737,8 @@
     },
     {
       "description": "Prenez 1 point de CHANCE. Vous pouve prendre un repas. Vous pouvez prendre les clés du Hangar à bateaux.\nOuvrir la porte à l'ouest§38§\nAller au sud§66§",
-      "paragraphNr": 203
+      "paragraphNr": 203,
+      "tag": "Clé hangar à bateaux"
     },
     {
       "description": "Le vieil homme vous propose à jouer de l'argent\nSi oui et que vous avez de l'or§130§\nQuitter la pièce§280§\nAttaquer le vieil homme§377§",
@@ -466,8 +801,17 @@
       "paragraphNr": 22
     },
     {
+      "description": "",
+      "paragraphNr": "220"
+    },
+    {
       "description": "Quels sont ces mystérieux objets que vous avez rassemblés? Qu'avez-vous inscrit en premier sur votre Liste d'Equipement?\nL'armure§72§\nLe bouclier§132§\nL'or§110§\nLe crucifix§170§",
       "paragraphNr": 221
+    },
+    {
+      "description": "§85§",
+      "paragraphNr": "222",
+      "tag": ">"
     },
     {
       "description": "La porte est solidement fermée.\nForcer la porte§53§\nContinuer le long du couloir§300§",
@@ -476,6 +820,10 @@
     {
       "description": "Vous arrivez à une autre bifurcation.\nPoursuivre vers le nord§77§\nAller à l'ouest§63§",
       "paragraphNr": 225
+    },
+    {
+      "description": "Vous arrivez à un nouveau croisement §267§",
+      "paragraphNr": "226"
     },
     {
       "description": "Il y a 4 nains en train de jouer aux cartes à moins que vous soyez déjà venu.\nBavarder avec eux§131§\nQuitter la pièce§291§\nLes joindre aux cartes§100§\nAttaquer leur chef§20§",
@@ -491,7 +839,8 @@
     },
     {
       "description": "La GOULE va attaque. Elle a HABILITÉ: 8, ENDURANCE:7\nSi vous êtes vainqueur§390§\nElle vous paralyse au bout de 4 blessures§64§",
-      "paragraphNr": 230
+      "paragraphNr": 230,
+      "tag": "Goule"
     },
     {
       "description": "Vous arrivez à taillader les bottes et les enlever.\nVous retournez au croisement§375§",
@@ -518,6 +867,10 @@
       "paragraphNr": 240
     },
     {
+      "description": "§379§, §139§",
+      "paragraphNr": "242"
+    },
+    {
       "description": "C'est un piège. Le levier est en fait une épée. Lancer un dé, si le chiffre est impair, c'est la main que vous tenez votre épée qui est blessé. Vous perdez dans ce cas 3 points d'HABILITE et 1 point d'ENDURANCE. Sinon vous êtes blessée à votre autre main et perdez 1 point d'HABILITE et 2 points d'ENDURANCE.\nTirer le levier de droite§128§",
       "paragraphNr": 243
     },
@@ -527,7 +880,8 @@
     },
     {
       "description": "\nAller au nord§329§\nAller à l'ouest§180§\nAller à nouveau vers l'est§70§",
-      "paragraphNr": 246
+      "paragraphNr": 246,
+      "tag": ">"
     },
     {
       "description": "Le vieil homme vous assome à l'aide d'un sort. Vous perdez 2 points d'ENDURANCE. Il se moque de vous.\nVous quittez la pièce et prener la direction du nord§292§",
@@ -536,6 +890,10 @@
     {
       "description": "CHIEN a HABILITÉ:7, ENDURANCE:6. Lancer 1 dé à chaque assaut. 1,2: vous perdez 1 point car le chien crache du feu. 3-6: Vous évitez le jet de feu. Vous pouvez tester votre chance pour esquiver la flamme. En cas de succès, vous gagnez 1 point de CHANCE.\nPrendre la fuite avant ou après le combat fini§66§\nRester§304§",
       "paragraphNr": 249
+    },
+    {
+      "description": "Vous enfuire §90§\nCombattre le sorcier §340§",
+      "paragraphNr": "25"
     },
     {
       "description": "Vous arrivez à un cul-de-sac.\nVous revenez au croisement et parter vers le nord§366§",
@@ -550,8 +908,16 @@
       "paragraphNr": 252
     },
     {
+      "description": "§328§, §125§, §73§",
+      "paragraphNr": "253"
+    },
+    {
       "description": "Un homme sort d'un des trois cercueils. Il a des dentts de loup. Il vous fait signe d'approcher.\nVous approchez de lui comme il le souhaite§352§\nL'attaquer§333§\nChercher une arme dans votre sac à dos§279§\nCourir vers la porte ouest§380§",
       "paragraphNr": 254
+    },
+    {
+      "description": "ouvrir porte §193§\nrevenir en arrière §93§",
+      "paragraphNr": "255"
     },
     {
       "description": "Le passage aboutit à une porte. Vous entendez des cris de colère qui proviennent de la pièce.\nEntrer dans la pièce§168§\nRevenir sur vos pas§293§",
@@ -559,15 +925,21 @@
     },
     {
       "description": "Vous trouvez 8 Pièces d'Or. Vous trouvez une clé rouge ayant le numéro 111. Vous pouvez prendre un repas. Vous gagnez 2 points de CHANCE.\nQuitter la pièce§54§",
-      "paragraphNr": 258
+      "paragraphNr": 258,
+      "tag": "clé 111"
     },
     {
       "description": "Vous atteignez la berge alors que la mystérieuse turbulence n'a laissé aucune trace du crocodile. Vous gagnez 1 point d'HABILITE et 2 points de CHANCE.\nPoursuivre§7§",
       "paragraphNr": 259
     },
     {
+      "description": "le sort terasse le dragon. Poursuivez en §371§",
+      "paragraphNr": "26"
+    },
+    {
       "description": "Vous ne trouvez pas de passage secret\nAller au nord§359§\nAller au sud§329§",
-      "paragraphNr": 260
+      "paragraphNr": 260,
+      "tag": ">"
     },
     {
       "description": "Vous arrivez à une autre bifurcation.\nPartir vers l'est§199§\nL'ouest§251§",
@@ -581,7 +953,8 @@
           "playerName": "Pascal"
         }
       ],
-      "paragraphNr": 263
+      "paragraphNr": 263,
+      "tag": "conseil: levier droit"
     },
     {
       "description": "La porte en bois de chêne massif ne peut pas être enfoncée. Vous vous êtes blessé à votre bras de maniement de l'épée et perdez 1 point d'HABILITE.\nSi vous possèdez la clef du hangar à bateaux§80§\nSinon vous retournez à la rivière§129§",
@@ -597,7 +970,8 @@
     },
     {
       "description": "\nAller au nord§312§\nAller au sud§246§\nAller à l'ouest§79§\nAller à l'est§349§",
-      "paragraphNr": 267
+      "paragraphNr": 267,
+      "tag": ">"
     },
     {
       "description": "Les hommes ne font que de grogner et prennent leur arme. Ils semblent que vous allez devoir les combattre\nPrendre la fuite par la porte que vous venez de franchir§13§\nLes combattre§282§",
@@ -616,8 +990,21 @@
       "paragraphNr": 272
     },
     {
+      "description": "Quitter par la porte §189§",
+      "paragraphNr": "273",
+      "tag": "piquets de bois"
+    },
+    {
+      "description": "§324§\n§356§\n§98§",
+      "paragraphNr": "274"
+    },
+    {
       "description": "Le troisième cadavre essaie de vous griffer. Tentez votre chance. Si vous êtes malchanceux, vous perdez 1 point d'ENDURANCE.\nPoursuivre§230§",
       "paragraphNr": 275
+    },
+    {
+      "description": "§182§",
+      "paragraphNr": "276"
     },
     {
       "description": "Passage se termine avec une porte fermée à clé\nEnfoncer la porte§156§\nRebrousser chemin§92§",
@@ -652,6 +1039,14 @@
       "paragraphNr": 286
     },
     {
+      "description": "§182§",
+      "paragraphNr": "288"
+    },
+    {
+      "description": "§396§",
+      "paragraphNr": "289"
+    },
+    {
       "description": "Vous vous trouvez dans un couloir est-ouest. A l'est, il y a cul-de-sac.\nExaminer le cul-de-sac§315§\nPartir vers l'ouest§52§\nFranchir une porte au nord§227§",
       "paragraphNr": 291
     },
@@ -679,7 +1074,8 @@
     },
     {
       "description": "\nAller vers l'ouest§150§\nAller vers l'est§256§",
-      "paragraphNr": 297
+      "paragraphNr": 297,
+      "tag": ">"
     },
     {
       "description": "Le pont devient glissant et vous glissez sur une plaque de mousse humide. Lancez un dé.\nSi vous faites 6, vous tombez dans la rivière§86§\nSi vous faites un autre chiffre, vous vous rattrapez et atteignez la rive nord§7§",
@@ -687,7 +1083,8 @@
     },
     {
       "description": "\nEssayer de découvrir des passages secrets au long de votre chemin§260§\nContinuer vers le nord§359§",
-      "paragraphNr": 299
+      "paragraphNr": 299,
+      "tag": ">"
     },
     {
       "description": "Le passeur, un vieil homme vous demande 3 pièces d'or pour traverser la rivière.\nPayer 3 pièces d'or§272§\nLe menacer§127§",
@@ -719,7 +1116,12 @@
     },
     {
       "description": "\nAller à l'ouest§187§\nAller au nord§54§\nAller au sud§160§\nAller à l'est§354§",
-      "paragraphNr": 308
+      "paragraphNr": 308,
+      "tag": ">"
+    },
+    {
+      "description": "porte nord §90§",
+      "paragraphNr": "31"
     },
     {
       "description": "Le coup n'a pas blessé la créature. Elle est invulnérable aux armes habituelles. Choisissez une autre arme si vous en avez.\nPoursuivre§211§",
@@ -758,8 +1160,21 @@
       "paragraphNr": 319
     },
     {
+      "description": "§169§",
+      "paragraphNr": "321"
+    },
+    {
       "description": "Vous trouvez un clé en cuivre 66 dans un tiroir. Abandonner 1 pièce d'équipement pour prendre la clé.\nAllez voir le bruit vers la porte nord§96§",
-      "paragraphNr": 322
+      "paragraphNr": 322,
+      "tag": "Clé 66"
+    },
+    {
+      "description": "nord §8§\nest §255§",
+      "paragraphNr": "323"
+    },
+    {
+      "description": "§358§",
+      "paragraphNr": "324"
     },
     {
       "description": "Vous entrez dans une petite pièce. Une clé d'or est accroché au mur du fond. La pièce n'a pas d'autre issue.\nChercher la clé§35§\nRevenir à la bifurcation§229§",
@@ -770,8 +1185,14 @@
       "paragraphNr": 327
     },
     {
+      "description": "§73§, §125§",
+      "paragraphNr": "328",
+      "tag": "morceaux bois Y"
+    },
+    {
       "description": "\nAller à la porte du mur ouest§157§\nAller à la porte située au nord§392§\nAller à l'est§299§\nAller au sud§238§",
-      "paragraphNr": 329
+      "paragraphNr": 329,
+      "tag": ">"
     },
     {
       "description": "Le farfadet se réveille en sursaut et vous attaque.\nFARFADET a HABILITÉ:6, ENDURANCE: 4\nPrendre la fuite§320§\nPrendre la boîte si vous êtes vainqueur§147§",
@@ -790,16 +1211,31 @@
       "paragraphNr": 333
     },
     {
+      "description": "§182§",
+      "paragraphNr": "335",
+      "tag": "clef 99 + 111 + 125"
+    },
+    {
       "description": "Un vieil homme est endormi alors que son chien grogne à ses côtés. Un trousseau de clés est accroché au mur. Il y a une porte au sud et une à l'ouest.\nSortir par la porte sud§66§\nRéveiller le vieil homme§172§\nAttaquer le chien§249§",
-      "paragraphNr": 336
+      "paragraphNr": 336,
+      "tag": "vieil homme"
     },
     {
       "description": "Un déclic s'entend et vous vous effondrez. Lorsque vous reprenez connaissance, vous ne reconnaissez pas le décor autours de vous.\nPoursuivre§267§",
-      "paragraphNr": 337
+      "paragraphNr": 337,
+      "tag": ">"
+    },
+    {
+      "description": "CYCLOPE DE FER, HABILITE: 10, ENDURANCE: 10\n\nvainqueur §75§\nprendre la fuite §93§",
+      "paragraphNr": "338"
     },
     {
       "description": "Peu après avoir ouvert le coffre, une fléchette vient vous atteindre à l'estomac. Réduisez un dé de points d'ENDURANCE.\nSi vous survivez§201§",
       "paragraphNr": 339
+    },
+    {
+      "description": "lacérer le tableau avec épée §388§\nbrandir l'oeil du cyclope §31§\ntranspecer à l'aide d'un pieu §241§\njeter un morceau de fromage §45§",
+      "paragraphNr": "340"
     },
     {
       "description": "Le vieil homme vous lance un regard courroucé.\nSortir par la porte ouest§46§\nSortir par la porte sud§392§\nParler au vieil homme de manière aimable§220§\nExiger de manière péremptoire qu'il réponde à vos questions§191§",
@@ -850,8 +1286,13 @@
       "paragraphNr": 355
     },
     {
+      "description": "§142§\n§105§\n§389§",
+      "paragraphNr": "358"
+    },
+    {
       "description": "\nAller au nord§190§\nAller au sud§94§\nAller à l'est§121§\nAller à l'ouest§385§",
-      "paragraphNr": 359
+      "paragraphNr": 359,
+      "tag": ">"
     },
     {
       "description": "Vous débouchez dans la pièce. Un vieil homme en haillons se rue sur vous en hurlant.\nCrier pour essayer de le calmer§263§\nL'attaquer§353§",
@@ -904,6 +1345,10 @@
       "paragraphNr": 370
     },
     {
+      "description": "§274§",
+      "paragraphNr": "371"
+    },
+    {
       "description": "CHEF DES FARFADETS a HABILITÉ : 7, ENDURANCE : 6\nSERVITEUR a HABILITÉ : 5, ENDURANCE : 3\nEn cas de succès§21§",
       "paragraphNr": 372
     },
@@ -925,7 +1370,8 @@
     },
     {
       "description": "La boîte est intitulé \"Farrigo Di Maggio\"\nOuvrir la boîte§296§\nQuitter la pièce sans l'examiner§42§",
-      "paragraphNr": 378
+      "paragraphNr": 378,
+      "tag": "Sort anti-dragon"
     },
     {
       "description": "Vous trouvez le garde-manger du loup-garou. Vous trouvez l'équivalent de 2 repas.\nSortir par la porte sud§66§",
@@ -949,7 +1395,12 @@
     },
     {
       "description": "\nAller au sud§114§\nAller à l'ouest§297§",
-      "paragraphNr": 385
+      "paragraphNr": 385,
+      "tag": ">"
+    },
+    {
+      "description": "§289§, §112§",
+      "paragraphNr": "389"
     },
     {
       "description": "Vous trouvez trouver 6 pièces d'or en fouillant le 1er et 3ème cadavres. Vous gagnez 2 points de CHANCE. Vous pouvez prendre un repas.\nAller au nord§120§\nFouiller le 2ème cadavre§393§",
@@ -972,6 +1423,10 @@
       "paragraphNr": 394
     },
     {
+      "description": "§242§",
+      "paragraphNr": "396"
+    },
+    {
       "description": "Petite pièce avec une table. Sous la table, il y a une petite boîte.\nOuvrir la boîte§240§\nQuitter la pièce§363§",
       "paragraphNr": 397
     },
@@ -986,6 +1441,11 @@
     {
       "description": "Le bruit perçant devient de plus en plus fort. La douleur vous fait perdre 1 point d'HABILITE. Vous avancez à tâtons.\nExaminer le mur ouest§355§\nExaminer le mur nord§265§\nExaminer le mur est§181§",
       "paragraphNr": 40
+    },
+    {
+      "description": "",
+      "paragraphNr": "400",
+      "tag": "fin du jeu"
     },
     {
       "description": "ÊTRE a HABILITÉ:9,ENDURANCE:6\nLorsque lui infligé une blessure§310§",
@@ -1088,8 +1548,17 @@
       "paragraphNr": 71
     },
     {
+      "description": "§218§",
+      "paragraphNr": "73"
+    },
+    {
       "description": "Tentez votre chance.\nSi vous êtes chanceux, vous échappez à la puissance de son regard§279§\nSi vous êtes malchanceux, vous laissez tomber votre épée comme il vous l'ordonne§118§",
       "paragraphNr": 74
+    },
+    {
+      "description": "provision consommable\n50 pièces d'or, clé 111, +3 pt CHANCE\n\nRevenir en arrière §93§",
+      "paragraphNr": "75",
+      "tag": "Clé 111"
     },
     {
       "description": "Vous arrivez à un croisement. Un abri vous permet de prendre un repas.\nAller à l'est§345§\nAller à l'ouest§18§",
@@ -1102,6 +1571,10 @@
     {
       "description": "Le couloir se finit en cul-de-sac.\nChercher un passage secret§137§\nRetourner au croisement§267§",
       "paragraphNr": 79
+    },
+    {
+      "description": "BARBARE, HABILITE: 7, ENDURANCE: 6\nEnfuir du combat §189§\nBarbare vaincu §273§",
+      "paragraphNr": "8"
     },
     {
       "description": "La porte s'ouvre sur un hangar à bateaux. Les squelettes interrompent leur travail et s'avancent vers vous armé de planches et marteaux. Il y a une autre porte dans le mur nord\nRevenir sur vos pas§129§\nSe faire passer pour un acheteur de bateau§123§\nSe faire passer pour leur nouveau patron§195§",
@@ -1120,6 +1593,11 @@
       "paragraphNr": 84
     },
     {
+      "description": "nord §106§\nsud §373§\nest §318§\nouest §59§",
+      "paragraphNr": "85",
+      "tag": ">"
+    },
+    {
       "description": "Un CROCODILE vous attaque. Il possède HABILITE: 7, ENDURANCE: 6. Au bout de 2 assauts, votre combat attire une turbulence qui se déplace dans votre direction\nPoursuivre le combat avec le crocodile§259§\nContinuer le combat pendant un assaut en espérant que le visiteur vous aide dans le combat§350§",
       "paragraphNr": 86
     },
@@ -1132,12 +1610,20 @@
       "paragraphNr": 89
     },
     {
+      "description": "§253§",
+      "paragraphNr": "90"
+    },
+    {
       "description": "Tentez votre chance. Si vous êtes chanceux vous pouvez repartir avec 2d6 de pièces d'or\nPoursuivre§131§",
       "paragraphNr": 91
     },
     {
       "description": "Croisement caverne\nAvancer droit devant§71§",
       "paragraphNr": 92
+    },
+    {
+      "description": "Prendre la direction du nord §8§",
+      "paragraphNr": "93"
     },
     {
       "description": "\nChercher des passages le long du couloir§260§\nAller au croisement§329§",
@@ -1154,6 +1640,11 @@
     {
       "description": "Le couloir vous mène à une porte solide.\nVous examiner la porte§383§",
       "paragraphNr": 99
+    },
+    {
+      "description": "Veuilliez choisir soit la potion d'habilité, de force ou de chance (supprimez les potions non choisies de l'inventaire).\n\nDébuter l'aventure §1§",
+      "paragraphNr": "Sélection de l'inventaire",
+      "tag": "choix-objets"
     },
     {
       "description": "Il y a une porte le long du mur du passage. Vous entendez un homme appeler à l'aide par le trou de serrure.\nOuvrir la porte§213§\nPoursuivre votre chemin§314§",
