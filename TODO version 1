@@ -1,0 +1,14 @@
+Problèmatique
+
+Save: fonctionne pas très bien
+    Solution:
+    - supprime la fonctionnalité save
+    - choix retenu  treemap par joueur et non partagé
+    - option restart sur la partie du joueur, recommence avec le premier paragraphe de l'aventure
+    - flag par aventure pour indiquer ce qui est gardé (notes, objets, titre, ...)
+    - stats du personnage sont reseter à la valeur initial
+
+Treemap: on s'y perd encore si l'arbre est grand, overlap
+    Solution:
+        Noeud leaf: icon sur enfant?
+
