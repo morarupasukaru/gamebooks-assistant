@@ -30,6 +30,28 @@
   },
   "version": "1.0",
   "visibleSections": {
+    "!! Clochette en argent": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Equipement": {
+        "checked": true,
+        "value": "Equipement"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      },
+      "Notes": {
+        "checked": true,
+        "value": "Notes"
+      }
+    },
     "!! Dent de Dragon en Or 94, +1 pt Chance": {
       "Characters": {
         "checked": true,
@@ -68,28 +90,6 @@
       "Map": {
         "checked": true,
         "value": "Carte"
-      },
-      "Notes": {
-        "checked": true,
-        "value": "Notes"
-      }
-    },
-    "!! clochette en argent": {
-      "Characters": {
-        "checked": true,
-        "value": "Characters"
-      },
-      "Dices": {
-        "checked": true,
-        "value": "Dices"
-      },
-      "Equipement": {
-        "checked": true,
-        "value": "Equipement"
-      },
-      "Map": {
-        "checked": true,
-        "value": "Map"
       },
       "Notes": {
         "checked": true,
@@ -213,6 +213,28 @@
       }
     },
     "-1 dé de pt Endurance": {
+      "Characters": {
+        "checked": true,
+        "value": "Personnages"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dés"
+      },
+      "Equipement": {
+        "checked": true,
+        "value": "Equipement"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Carte"
+      },
+      "Notes": {
+        "checked": true,
+        "value": "Notes"
+      }
+    },
+    "-1pt Endurance": {
       "Characters": {
         "checked": true,
         "value": "Personnages"
@@ -438,7 +460,51 @@
         "value": "Notes"
       }
     },
+    ">": {
+      "Characters": {
+        "checked": true,
+        "value": "Personnages"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dés"
+      },
+      "Equipement": {
+        "checked": true,
+        "value": "Equipement"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Carte"
+      },
+      "Notes": {
+        "checked": true,
+        "value": "Notes"
+      }
+    },
     "Anneau invisibilité, 1 charge": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Equipement": {
+        "checked": true,
+        "value": "Equipement"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      },
+      "Notes": {
+        "checked": true,
+        "value": "Notes"
+      }
+    },
+    "Anneau or no 30": {
       "Characters": {
         "checked": true,
         "value": "Characters"
@@ -746,6 +812,50 @@
         "value": "Notes"
       }
     },
+    "Combat Zagor": {
+      "Characters": {
+        "checked": true,
+        "value": "Personnages"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dés"
+      },
+      "Equipement": {
+        "checked": true,
+        "value": "Equipement"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Carte"
+      },
+      "Notes": {
+        "checked": true,
+        "value": "Notes"
+      }
+    },
+    "Cuillère en or": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Equipement": {
+        "checked": true,
+        "value": "Equipement"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      },
+      "Notes": {
+        "checked": true,
+        "value": "Notes"
+      }
+    },
     "Cuirasse, +1pt chance, habilité": {
       "Characters": {
         "checked": true,
@@ -840,6 +950,28 @@
         "value": "Map"
       }
     },
+    "Dent de dragon en bronze 280": {
+      "Characters": {
+        "checked": true,
+        "value": "Characters"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dices"
+      },
+      "Equipement": {
+        "checked": true,
+        "value": "Equipement"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Map"
+      },
+      "Notes": {
+        "checked": true,
+        "value": "Notes"
+      }
+    },
     "Element de l'eau 27 détruit élémental de feu": {
       "Characters": {
         "checked": true,
@@ -907,6 +1039,28 @@
       }
     },
     "Fin de partie": {
+      "Characters": {
+        "checked": true,
+        "value": "Personnages"
+      },
+      "Dices": {
+        "checked": true,
+        "value": "Dés"
+      },
+      "Equipement": {
+        "checked": true,
+        "value": "Equipement"
+      },
+      "Map": {
+        "checked": true,
+        "value": "Carte"
+      },
+      "Notes": {
+        "checked": true,
+        "value": "Notes"
+      }
+    },
+    "Fin du jeu": {
       "Characters": {
         "checked": true,
         "value": "Personnages"
@@ -1149,20 +1303,6 @@
       }
     },
     "anneau argent 69": {
-      "Characters": {
-        "checked": true,
-        "value": "Characters"
-      },
-      "Dices": {
-        "checked": true,
-        "value": "Dices"
-      },
-      "Map": {
-        "checked": true,
-        "value": "Map"
-      }
-    },
-    "anneau or no 30": {
       "Characters": {
         "checked": true,
         "value": "Characters"
@@ -1860,35 +2000,7 @@
         "value": "Map"
       }
     },
-    "cuillère en or": {
-      "Characters": {
-        "checked": true,
-        "value": "Characters"
-      },
-      "Dices": {
-        "checked": true,
-        "value": "Dices"
-      },
-      "Map": {
-        "checked": true,
-        "value": "Map"
-      }
-    },
     "dent de bronze no 280": {
-      "Characters": {
-        "checked": true,
-        "value": "Characters"
-      },
-      "Dices": {
-        "checked": true,
-        "value": "Dices"
-      },
-      "Map": {
-        "checked": true,
-        "value": "Map"
-      }
-    },
-    "dent de dragon en bronze 280": {
       "Characters": {
         "checked": true,
         "value": "Characters"
@@ -2334,28 +2446,6 @@
         "value": "Map"
       }
     },
-    "withoutTag": {
-      "Characters": {
-        "checked": true,
-        "value": "Personnages"
-      },
-      "Dices": {
-        "checked": true,
-        "value": "Dés"
-      },
-      "Equipement": {
-        "checked": true,
-        "value": "Equipement"
-      },
-      "Map": {
-        "checked": true,
-        "value": "Carte"
-      },
-      "Notes": {
-        "checked": true,
-        "value": "Notes"
-      }
-    },
     "élémental de feu 315 détruit l'élémental de terre": {
       "Characters": {
         "checked": true,
@@ -2472,6 +2562,10 @@
       "paragraphNr": "13"
     },
     {
+      "description": "Elemental de l'eau §27§ détruit élémental de feu \n\n§365§",
+      "paragraphNr": "14"
+    },
+    {
       "description": "§265§",
       "paragraphNr": "15"
     },
@@ -2514,6 +2608,11 @@
     {
       "description": "§304§",
       "paragraphNr": "26"
+    },
+    {
+      "description": "Zagor (Habilité: 11, Endurance: 18)\n§400§",
+      "paragraphNr": "27",
+      "tag": "Combat Zagor"
     },
     {
       "description": "§193§, §98§",
@@ -2620,7 +2719,7 @@
       "paragraphNr": "54"
     },
     {
-      "description": "§365§\nDent de de dragon en Or §186§\nDent de dragon en bronze §280§",
+      "description": "§365§\nDent de dragon en or §94§\nDent de de dragon en Or §186§\nDent de dragon en bronze §280§",
       "paragraphNr": "55"
     },
     {
@@ -2769,6 +2868,10 @@
       "description": "§121§",
       "paragraphNr": "93",
       "tag": "Pelote de ficelle"
+    },
+    {
+      "description": "§365§\n\nDent de de dragon en Or §186§\nDent de dragon en Or §27§",
+      "paragraphNr": "94"
     },
     {
       "description": "§352§, §370§",
@@ -2928,7 +3031,7 @@
     {
       "description": "§13§",
       "paragraphNr": "132",
-      "tag": "cuillère en or"
+      "tag": "Cuillère en or"
     },
     {
       "description": "§81§, §73§, §32§",
@@ -3139,7 +3242,8 @@
     },
     {
       "description": "METALLIX(Habilité: 8, Endurance: 12)\n§76§",
-      "paragraphNr": "183"
+      "paragraphNr": "183",
+      "tag": "-1pt Endurance"
     },
     {
       "description": "§172§",
@@ -3151,7 +3255,7 @@
       "tag": "Clef en argent, Lance, +1 pt endurance"
     },
     {
-      "description": "§365§\ndent de dragon en bronze §280§",
+      "description": "§365§\ndent de dragon en bronze §280§\nElemental de feu §315§ détruit l'élémental de terre",
       "paragraphNr": "186"
     },
     {
@@ -3269,7 +3373,7 @@
     {
       "description": "§384§, §51§, §23§",
       "paragraphNr": "215",
-      "tag": "anneau or no 30"
+      "tag": "Anneau or no 30"
     },
     {
       "description": "§247§, §124§, §38§",
@@ -3428,7 +3532,7 @@
     {
       "description": "§3§",
       "paragraphNr": "253",
-      "tag": "dent de dragon en bronze 280"
+      "tag": "Dent de dragon en bronze 280"
     },
     {
       "description": "§172§, §390§",
@@ -3662,6 +3766,10 @@
       "paragraphNr": "314"
     },
     {
+      "description": "§14§, §297§",
+      "paragraphNr": "315"
+    },
+    {
       "description": "§233§, §345§",
       "paragraphNr": "316",
       "tag": "mission: min. 2 dents de dragon en or"
@@ -3773,7 +3881,8 @@
     },
     {
       "description": "§82§, §267§",
-      "paragraphNr": "341"
+      "paragraphNr": "341",
+      "tag": ">"
     },
     {
       "description": "§12§, §42§",
@@ -3783,6 +3892,10 @@
     {
       "description": "§190§",
       "paragraphNr": "343"
+    },
+    {
+      "description": "",
+      "paragraphNr": "344"
     },
     {
       "description": "§309§",
@@ -3901,7 +4014,7 @@
     {
       "description": "§13§, §132§",
       "paragraphNr": "375",
-      "tag": "!! clochette en argent"
+      "tag": "!! Clochette en argent"
     },
     {
       "description": "§249§",
@@ -3997,6 +4110,11 @@
       "description": "§310§, §364§",
       "paragraphNr": "399",
       "tag": "piège"
+    },
+    {
+      "description": "",
+      "paragraphNr": "400",
+      "tag": "Fin du jeu"
     }
   ]
 }
