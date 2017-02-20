@@ -143,26 +143,8 @@ class GamePersistenceService {
         this.persistenceService.save(key, game);
     }
 
-    deleteGame(gameId, deleteParagraphNotesOfGame, deleteParagraphChoicesOfGame) {
-        // TODO deleteGame call
-        let game = this.getGame(gameId);
+    deleteGame(gameId) {
         let key = this.getGamePersistenceKey(gameId);
-        if (!!deleteParagraphNotesOfGame || !!deleteParagraphChoicesOfGame) {
-            let paragraphKeys = this.adventurePersistenceService.getAdventureParagraphKeys(game.adventureId);
-            for (let i = 0; i < paragraphKeys.length; i++) {
-                let paragraph = this.persistenceService.get(paragraphKeys[i]);
-                if (!!deleteParagraphNotesOfGame && !!paragraph.notes) {
-                    let newNotes = [];
-                    for (let j = 0; j < paragraph.notes.length; j++) {
-                        if (!paragraph.notes[j].playerName || paragraph.notes[j].playerName !== game.playerName) {
-                            newNotes.push(paragraph.notes[j]);
-                        }
-                    }
-                    paragraph.notes = newNotes;
-                    this.adventurePersistenceService.updateParagraph(game.adventureId, paragraph);
-                }
-            }
-        }
         localStorage.removeItem(key);
     }
 

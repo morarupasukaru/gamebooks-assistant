@@ -344,7 +344,7 @@ class GamesListController {
     }
 
     deleteGame(game) {
-        this.gamePersistenceService.deleteGame(game.id, true, true);
+        this.gamePersistenceService.deleteGame(game.id);
         this.initData();
     }
 

@@ -6,6 +6,7 @@ Save: fonctionne pas très bien
     - option restart sur la partie du joueur, recommence avec le premier paragraphe de l'aventure
     - flag par aventure pour indiquer ce qui est gardé (notes, objets, titre, ...)
     - stats du personnage sont reseter à la valeur initial
+    - reset path (mais sans influence sur le map)
 
 Treemap: on s'y perd encore si l'arbre est grand, overlap
     Solution:
