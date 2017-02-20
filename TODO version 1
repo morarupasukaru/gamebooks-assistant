@@ -12,3 +12,5 @@ Treemap: on s'y perd encore si l'arbre est grand, overlap
     Solution:
         Noeud leaf: icon sur enfant?
 
+Génération des attributs ne fonctionne pas avec "la légende de zagor"
+    => supprimer cette étape?
