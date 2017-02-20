@@ -107,20 +107,6 @@ class GameDetailController {
         this.gamePersistenceService.updateGame(this.game);
     }
 
-    saveGame() {
-        let playerName = this.getPlayerName(this.game.characters)
-        let adventureName = this.adventure.name;
-        let playerNameWithTime = playerName + ' (' + this.now() + ')';
-
-        let exportData = this.gamePersistenceService.exportGame(this.game.id);
-        this.setPlayerName(exportData.characters, playerNameWithTime);
-        delete exportData.id;
-        let exportDataStr = JSON.stringify(exportData);
-        this.gamePersistenceService.importGame(exportDataStr);
-        this.messagesService.successMessage('Game successfully saved', false)
-        this.$window.scrollTo(0, 0);
-    }
-
     now() {
         let now = new Date();
         return this.$filter('date')(now, 'dd.MM.yyyy HH:mm');

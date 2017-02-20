@@ -85,7 +85,6 @@ const englishTranslations = {
     'fr': 'Français',
     'Français': 'Français',
     'Game': 'Game',
-    'Game successfully saved': 'Game successfully saved',
     'GameOverview': "{{ playerName }} at paragraph '{{ currentParagraphNr }}'",
     "Game's rules": "Game's rules",
     "Game's rules paragraph": "Game's rules paragraph",
