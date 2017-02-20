@@ -2,7 +2,6 @@ Problèmatique
 
 Save: fonctionne pas très bien
     Solution:
-    - supprime la fonctionnalité save
     - choix retenu  treemap par joueur et non partagé
     - option restart sur la partie du joueur, recommence avec le premier paragraphe de l'aventure
     - flag par aventure pour indiquer ce qui est gardé (notes, objets, titre, ...)
@@ -18,6 +17,3 @@ Génération des attributs ne fonctionne pas avec "la légende de zagor"
     => ajout d'attribut dans les personnages à la volée
 
 Mise a jour de l'aventure exemple avec les dernieres maj.
-
-Export game
-    hashKey dans stats

@@ -69,14 +69,14 @@ class GamePersistenceService {
 
     exportGame(gameId) {
         let game = this.getGame(gameId);
-        if (!!game.stats) {
-            for (let i = 0; i < game.stats.length; i++) {
-                delete game.stats[i]["$$hashKey"];
-            }
-        }
         if (!!game.characters) {
             for (let i = 0; i < game.characters.length; i++) {
                 delete game.characters[i]["$$hashKey"];
+                if (!!game.characters[i].stats) {
+                    for (let j = 0; j < game.characters[i].stats.length; j++) {
+                        delete game.characters[i].stats[j]["$$hashKey"];
+                    }
+                }
             }
         }
         return this.sortObjectKeys(game);
