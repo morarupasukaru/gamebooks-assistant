@@ -5,8 +5,5 @@ Treemap: on s'y perd encore si l'arbre est grand, overlap
         Noeud leaf: icon sur enfant?
 
 Génération des attributs ne fonctionne pas avec "la légende de zagor"
-    => supprimer cette étape?, est-ce le seul livre dans ce cas?
     => config attributs: personnage avec attribut: oui, non (supprime le tableau complexe)
     => ajout d'attribut dans les personnages à la volée
-
-Mise a jour de l'aventure exemple avec les dernieres maj.

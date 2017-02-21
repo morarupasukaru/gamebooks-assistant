@@ -27,15 +27,16 @@
   "name": "Adventure example",
   "startParagraphId": "1",
   "toggles": {
-    "dices": true
+    "characters": true,
+    "dices": true,
+    "goto": true,
+    "map": true
   },
   "version": "1",
   "stats": [
     {
-      "battle": {
-        "displayed": true,
-        "editableForEnemy": true,
-        "enemyDefaultValue": 5
+      "characters": {
+        "defaultValue": 3
       },
       "init": {
         "constant": 6,
@@ -44,16 +45,21 @@
       "name": "Strength"
     },
     {
-      "battle": {
-        "displayed": true,
-        "editableForEnemy": true,
-        "enemyDefaultValue": 2
+      "characters": {
+        "defaultValue": 4
       },
       "init": {
-        "constant": null,
-        "dicesQuantity": 1
+        "constant": 12,
+        "dicesQuantity": 2
       },
       "name": "Stamina"
+    },
+    {
+      "init": {
+        "constant": 6,
+        "dicesQuantity": 1
+      },
+      "name": "Luck"
     }
   ],
   "paragraphs": [
