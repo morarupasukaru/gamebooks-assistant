@@ -75,7 +75,7 @@ const frenchTranslations = {
     'Edit': 'Edite',
     'en': 'English',
     'English': 'English',
-    'Enable characters': 'Active les personnages',
+    'Enable characters with attributs': 'Active les personnages avec attributs',
     'Enable dices': 'Active les dés',
     'Enable Go to paragraph': 'Active les sauts de paragraphe',
     'Enable map': 'Active la carte',

@@ -73,7 +73,7 @@ const englishTranslations = {
     'Edit': 'Edit',
     'en': 'English',
     'English': 'English',
-    'Enable characters': 'Enable characters',
+    'Enable characters with attributs': 'Enable characters with attributs',
     'Enable dices': 'Enable dices',
     'Enable map': 'Enable map',
     'Enable Go to paragraph': 'Enable Go to paragraph',
