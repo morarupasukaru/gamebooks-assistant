@@ -103,6 +103,7 @@ const englishTranslations = {
     'Initial': 'Initial',
     "Is it a character's state?": "Is it a character's state?",
     'ISBN': 'ISBN',
+    'Keep on restart': 'Keep on restart',
     'Language': 'Language',
     'link': 'link',
     'Lists': 'Lists',

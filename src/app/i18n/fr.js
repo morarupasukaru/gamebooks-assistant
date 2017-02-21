@@ -105,6 +105,7 @@ const frenchTranslations = {
     'Initial': 'Initiale',
     "Is it a character's state?": 'Est-ce un attribut de personnages?',
     'ISBN': 'ISBN',
+    'Keep on restart': 'Garder lors de recommencement',
     'Language': 'Langue',
     'link': 'lien',
     'Lists': 'Listes',
