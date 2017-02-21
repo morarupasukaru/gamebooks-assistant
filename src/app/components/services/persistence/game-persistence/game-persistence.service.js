@@ -182,20 +182,13 @@ class GamePersistenceService {
     setCurrentParagraphNrOfGame(gameId, fromParagrahNr, toParagraphNr) {
         let game = this.getGame(gameId);
         if (!!fromParagrahNr) {
-            let persistenceKeyChoosenParagraphs = game.adventureId + '.' + 'choosen';
-            let choosenParagraphs = this.persistenceService.get(persistenceKeyChoosenParagraphs);
+            let choosenParagraphs = game.choosenParagraphs;
             if (!choosenParagraphs) {
-                choosenParagraphs = {};
+                choosenParagraphs = [];
+                game.choosenParagraphs = choosenParagraphs;
             }
-            let keyArray = toParagraphNr;
-            let choosenBy = choosenParagraphs[keyArray];
-            if (!choosenBy) {
-                choosenBy = [];
-                choosenParagraphs[keyArray] = choosenBy;
-            }
-            if (choosenBy.indexOf(gameId) === -1) {
-                choosenBy.push(gameId);
-                this.persistenceService.save(persistenceKeyChoosenParagraphs, choosenParagraphs);
+            if (choosenParagraphs.indexOf(toParagraphNr) === -1) {
+                choosenParagraphs.push(toParagraphNr);
             }
         }
         game.currentParagraphNr = toParagraphNr;
@@ -208,8 +201,7 @@ class GamePersistenceService {
 
     getChoosenChoices(gameId, paragraphNr) {
         let game = this.getGame(gameId);
-        let persistenceKeyChoosenParagraphs = game.adventureId + '.' + 'choosen';
-        let choosenParagraphs = this.persistenceService.get(persistenceKeyChoosenParagraphs);
+        let choosenParagraphs = game.choosenParagraphs;
         if (!choosenParagraphs) {
             return [];
         } else {
@@ -218,7 +210,7 @@ class GamePersistenceService {
             let choices = this.adventurePersistenceService.getParagraphChoices(paragraph);
             if (!!choices) {
                 for (let i = 0; i < choices.length; i++) {
-                    if (!!choosenParagraphs[choices[i]]) {
+                    if (choosenParagraphs.indexOf(choices[i]) !== -1) {
                         choosen.push('' + choices[i]);
                     }
                 }
@@ -237,6 +229,23 @@ class GamePersistenceService {
             }
         }
         return games;
+    }
+
+    restart(gameId) {
+        let game = this.getGame(gameId);
+        let adventure = this.adventurePersistenceService.getAdventure(game.adventureId);
+        game.path = [];
+        if (!!game.characters) {
+            for (let i = 0; i < game.characters.length; i++) {
+                if (!!game.characters[i].stats) {
+                    for (let j = 0; j < game.characters[i].stats.length; j++) {
+                        game.characters[i].stats[j].current = game.characters[i].stats[j].initial;
+                    }
+                }
+            }
+        }
+        this.updateGame(game);
+        this.setCurrentParagraphNrOfGame(gameId, null, adventure.startParagraphId);
     }
 }
 

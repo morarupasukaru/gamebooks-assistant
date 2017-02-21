@@ -19,6 +19,12 @@ class GamesListController {
             choices : [constants.choices.yes, constants.choices.no]
         };
 
+        this.popupRestartGameConfig = {
+            id : 'popupRestartGame',
+            text : 'Are you sure to restart the selected game?',
+            choices : [constants.choices.yes, constants.choices.no]
+        };
+
         this.popupDeleteAdventureConfig = {
             id : 'popupDeleteAdventure',
             text : 'Are you sure to remove the selected adventure?',
@@ -34,7 +40,7 @@ class GamesListController {
         this.popupDisplaySelectedGameActionsConfig = {
             id : 'popupDisplaySelectedGameActions',
             text : 'Choose an action',
-            choices : [constants.choices.continue, constants.choices.remove, constants.choices.export, constants.choices.cancel]
+            choices : [constants.choices.continue, constants.choices.restart, constants.choices.remove, constants.choices.export, constants.choices.cancel]
         };
 
         this.popupDisplaySelectedAdventureActionsConfig = {
@@ -312,6 +318,8 @@ class GamesListController {
             function(popupDomElementId, choice) {
                 if (choice === self.constants.choices.continue) {
                     self.continueGame(game);
+                } else if (choice === self.constants.choices.restart) {
+                    self.displayRestartGamePopup(game);
                 } else if (choice === self.constants.choices.remove) {
                     self.displayRemoveGamePopup(game);
                 } else if (choice === self.constants.choices.export) {
@@ -319,6 +327,29 @@ class GamesListController {
                 }
             }
         );
+    }
+
+    displayRestartGamePopup(game) {
+        let self = this;
+        this.popupService.show(
+            this.popupRestartGameConfig.id,
+            function(popupDomElementId, choice) {
+                if (choice === self.constants.choices.yes) {
+                    self.restartGame(game);
+                }
+            }
+        );
+    }
+
+    restartGame(game) {
+        let adventure = this.adventurePersistenceService.getAdventure(game.adventureId);
+        if (!adventure) {
+            this.messagesService.errorMessage(this.$translate.instant('CannotFindAdventure', { adventure: game.adventureId}), false)
+        } else {
+            this.gamePersistenceService.restart(game.id);
+            game = this.gamePersistenceService.getGame(game.id);
+            this.continueGame(game);
+        }
     }
 
     continueGame(game) {

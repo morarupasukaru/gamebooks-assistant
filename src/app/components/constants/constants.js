@@ -31,7 +31,8 @@ let constantsModule = angular.module('app.components.constants', [])
             export: 'Export',
             download: 'Download',
             adventure: 'Adventure',
-            game: 'Game'
+            game: 'Game',
+            restart: 'Restart'
         },
         errors: {
             adventureAlreadyExist : 'error.adventureAlreadyExist',
