@@ -1,9 +1,5 @@
 Problèmatique
 
-Save: fonctionne pas très bien
-    Solution:
-    - flag par aventure pour indiquer ce qui est gardé (notes, objets, titre, ...)
-
 Treemap: on s'y perd encore si l'arbre est grand, overlap
     Solution:
         Noeud leaf: icon sur enfant?

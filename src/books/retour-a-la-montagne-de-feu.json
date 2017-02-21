@@ -7,6 +7,9 @@
   "id": "retour-%C3%A0-la-montagne-de-feu",
   "language": "fr",
   "lists": {
+    "keepOnRestart": {
+      "Notes": true
+    },
     "keys": [
       "Equipement",
       "Notes"

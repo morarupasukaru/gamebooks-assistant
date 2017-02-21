@@ -248,6 +248,11 @@
                 <div ng-repeat="list in $ctrl.adventure.lists.keys">
                     <h2>{{ list }}</h2>
                     <list entries="$ctrl.adventure.lists.values[list]" on-save="$ctrl.onSubListSave(list, entries)"></list>
+
+                    <label>
+                        <input type="checkbox" value="" ng-model="$ctrl.adventure.lists.keepOnRestart[list]">
+                        {{ 'Keep on restart' | translate }}
+                    </label>
                 </div>
             </form>
         </div>

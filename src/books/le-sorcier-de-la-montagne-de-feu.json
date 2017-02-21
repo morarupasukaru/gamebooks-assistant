@@ -10,6 +10,9 @@
   "isbn": "978-2-07-064740-8",
   "language": "Français",
   "lists": {
+    "keepOnRestart": {
+      "Notes": true
+    },
     "keys": [
       "Notes",
       "Objets"

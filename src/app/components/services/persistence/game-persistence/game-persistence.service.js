@@ -244,6 +244,26 @@ class GamePersistenceService {
                 }
             }
         }
+        if (!!adventure.lists && !!adventure.lists.keys) {
+            for (let i = 0; i < adventure.lists.keys.length; i++) {
+                let key = adventure.lists.keys[i];
+                let keep = !!adventure.lists.keepOnRestart && !!adventure.lists.keepOnRestart[key];
+                if (!keep && !!game.lists) {
+                    delete game.lists[key];
+                }
+                if (!!adventure.lists.values && !! adventure.lists.values[key]) {
+                    if (!game.lists[key]) {
+                        game.lists[key] = [];
+                    }
+                    for (let j = 0; j < adventure.lists.values[key].length; j++) {
+                        let value = adventure.lists.values[key][j];
+                        if (game.lists[key].indexOf(value) === -1) {
+                            game.lists[key].push(value);
+                        }
+                    }
+                }
+            }
+        }
         this.updateGame(game);
         this.setCurrentParagraphNrOfGame(gameId, null, adventure.startParagraphId);
     }
