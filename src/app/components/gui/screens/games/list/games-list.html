@@ -36,9 +36,9 @@
         </ul>
 
         <button type="button" class="btn btn-default"
-                aria-label="{{ 'Create' | translate }}"
-                title="{{ 'Create' | translate }}"
-                ng-click="$ctrl.displayCreateActions()">{{ 'Create' | translate }}</button>
+                aria-label="{{ 'Create an adventure' | translate }}"
+                title="{{ 'Create an adventure' | translate }}"
+                ng-click="$ctrl.createAdventure()">{{ 'Create an adventure' | translate }}</button>
         <button type="button" class="btn btn-default"
                 aria-label="{{ 'Import' | translate }}"
                 title="{{ 'Import' | translate }}"
@@ -56,7 +56,6 @@
 <popup config="{{ $ctrl.popupRestartGameConfig }}"></popup>
 <popup config="{{ $ctrl.popupDisplaySelectedAdventureActionsConfig }}"></popup>
 <popup config="{{ $ctrl.popupDisplaySelectedGameActionsConfig }}"></popup>
-<popup config="{{ $ctrl.popupDisplayCreateActionsConfig }}"></popup>
 <popup config="{{ $ctrl.popupDisplayImportActionsConfig }}"></popup>
 <import-data-popup config="$ctrl.popupImportAdventureConfig"></import-data-popup>
 <import-data-popup config="$ctrl.popupImportGameConfig"></import-data-popup>

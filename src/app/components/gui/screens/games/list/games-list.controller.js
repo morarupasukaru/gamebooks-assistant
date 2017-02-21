@@ -46,13 +46,7 @@ class GamesListController {
         this.popupDisplaySelectedAdventureActionsConfig = {
             id : 'popupDisplaySelectedAdventureActions',
             text : 'Choose an action',
-            choices : [constants.choices.display, constants.choices.remove, constants.choices.export, constants.choices.download, constants.choices.cancel]
-        };
-
-        this.popupDisplayCreateActionsConfig = {
-            id : 'popupDisplayCreateActions',
-            text : 'What must be created?',
-            choices : [constants.choices.adventure, constants.choices.game, constants.choices.cancel]
+            choices : [constants.choices.display, constants.choices.remove, constants.choices.createGame, constants.choices.export, constants.choices.download, constants.choices.cancel]
         };
 
         this.popupDisplayImportActionsConfig = {
@@ -223,6 +217,8 @@ class GamesListController {
                     self.exportAdventure(adventure.id);
                 } else if (choice === self.constants.choices.download) {
                     self.downloadAdventure(adventure);
+                } else if (choice === self.constants.choices.createGame) {
+                    self.startNewGame();
                 }
             }
         );
@@ -279,20 +275,6 @@ class GamesListController {
             },
             function(reason) {
                 self.initData();
-            }
-        );
-    }
-
-    displayCreateActions() {
-        let self = this;
-        this.popupService.show(
-            this.popupDisplayCreateActionsConfig.id,
-            function(popupDomElementId, choice) {
-                if (choice === self.constants.choices.game) {
-                    self.startNewGame();
-                } else if (choice === self.constants.choices.adventure) {
-                    self.createAdventure();
-                 }
             }
         );
     }
