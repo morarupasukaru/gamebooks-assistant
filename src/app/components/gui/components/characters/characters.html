@@ -70,6 +70,15 @@
                     <span aria-hidden="true"><b>-</b></span>
                 </button>
             </li>
+            <li>
+                <input id="newStats" type="text" placeholder="{{ 'New stats' | translate }}" ng-model="$ctrl.newStats"/>
+                <button type="button"
+                        class="btn btn-xs btn-success"
+                        ng-click="$ctrl.addStats(entry)"
+                        ng-show="!!$ctrl.newStats">
+                    {{ 'Add' | translate }}
+                </button>
+            </li>
         </ul>
     </li>
     <li>
