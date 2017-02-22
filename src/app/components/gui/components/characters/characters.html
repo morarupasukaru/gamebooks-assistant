@@ -17,7 +17,7 @@
             </div>
             <div ng-repeat="stats in entry.stats">
                 <div class="form-group">
-                    <label for="{{ stats.name }}">{{ stats.name }}</label>
+                    <input type="text" class="form-control" ng-model="stats.name" id="{{ stats.name }}" required>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="input-group">
