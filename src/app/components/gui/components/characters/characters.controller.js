@@ -33,6 +33,9 @@ class CharactersController {
     }
 
     addStats(character) {
+        if (!character.stats) {
+            character.stats = [];
+        }
         character.stats.push({
             name: this.newStats
         });
@@ -108,13 +111,15 @@ class CharactersController {
 
     copyCharacter(src, dest) {
         dest.name = src.name;
-        dest.stats = [];
-        for (let i = 0; i < src.stats.length; i++) {
-            dest.stats.push({
-                name: src.stats[i].name,
-                current: src.stats[i].current,
-                initial: src.stats[i].initial
-            });
+        if (!!src.stats) {
+            dest.stats = [];
+            for (let i = 0; i < src.stats.length; i++) {
+                dest.stats.push({
+                    name: src.stats[i].name,
+                    current: src.stats[i].current,
+                    initial: src.stats[i].initial
+                });
+            }
         }
     }
 

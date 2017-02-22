@@ -5,5 +5,8 @@ Treemap: on s'y perd encore si l'arbre est grand, overlap
         Noeud leaf: icon sur enfant?
 
 Génération des attributs ne fonctionne pas avec "la légende de zagor"
-    => config attributs: personnage avec attribut: oui, non (supprime le tableau complexe)
+    => ajout attribut si plusieurs caractères => modif a 2 endroit
     => personnage player comme personnage effaceable, nom partie?
+    => maj. aventure example
+    => maj. sorcier ...
+    => maj. retour ...

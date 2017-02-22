@@ -231,6 +231,27 @@ class GamePersistenceService {
         return games;
     }
 
+    startGame(adventureId) {
+        let adventure = this.adventurePersistenceService.getAdventure(adventureId);
+        let game = {
+            adventureId : adventure.id
+        };
+        if (!!adventure.lists && !!adventure.lists.keys) {
+            game.lists = {};
+            for (let i = 0; i < adventure.lists.keys.length; i++) {
+                game.lists[adventure.lists.keys[i]] = [];
+            }
+
+            let keys = Object.keys(adventure.lists.values);
+            for (let i = 0; i < keys.length; i++) {
+                game.lists[keys[i]] = adventure.lists.values[keys[i]];
+            }
+        }
+        game = this.addGame(game);
+        this.setCurrentParagraphNrOfGame(game.id, null, adventure.startParagraphId);
+        return game;
+    }
+
     restart(gameId) {
         let game = this.getGame(gameId);
         let adventure = this.adventurePersistenceService.getAdventure(game.adventureId);

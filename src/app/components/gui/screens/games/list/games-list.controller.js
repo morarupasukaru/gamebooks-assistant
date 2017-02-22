@@ -218,7 +218,7 @@ class GamesListController {
                 } else if (choice === self.constants.choices.download) {
                     self.downloadAdventure(adventure);
                 } else if (choice === self.constants.choices.createGame) {
-                    self.startNewGame();
+                    self.startGame(adventure.id);
                 }
             }
         );
@@ -323,6 +323,15 @@ class GamesListController {
         );
     }
 
+    startGame(adventureId) {
+        let adventure = this.adventurePersistenceService.getAdventure(adventureId);
+        if (!adventure) {
+            this.messagesService.errorMessage(this.$translate.instant('CannotFindAdventure', { adventure: game.adventureId}), false)
+        } else {
+            this.continueGame(this.gamePersistenceService.startGame(adventureId));
+        }
+    }
+
     restartGame(game) {
         let adventure = this.adventurePersistenceService.getAdventure(game.adventureId);
         if (!adventure) {
@@ -374,15 +383,6 @@ class GamesListController {
         let blob = new Blob([data], { type: 'text/plain' });
         let url = this.$window.URL || this.$window.webkitURL;
         return url.createObjectURL(blob);
-    }
-
-    startNewGame() {
-        let adventureKeys = this.adventurePersistenceService.getAdventurePersistenceKeys();
-        if (!adventureKeys || adventureKeys.length === 0) {
-            this.messagesService.errorMessage('No adventure available', false);
-            return ;
-        }
-        this.$location.url(this.constants.url.selectAdventureForNewGame);
     }
 
     displayImportGamePopup() {
