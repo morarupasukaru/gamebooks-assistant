@@ -282,7 +282,7 @@ class GamesListController {
     displayImportActions() {
         let self = this;
         this.popupService.show(
-            this.popupDisplayCreateActionsConfig.id,
+            this.popupDisplayImportActionsConfig.id,
             function(popupDomElementId, choice) {
                 if (choice === self.constants.choices.game) {
                     self.displayImportGamePopup();

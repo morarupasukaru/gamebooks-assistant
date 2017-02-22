@@ -15,11 +15,6 @@ class AdventureDetailController {
         this.$log = $log;
         this.initData();
 
-        this.popupDeleteStatsConfig = {
-            id : 'popupDeleteStats',
-            text : 'Are you sure to remove the status?',
-            choices : [constants.choices.yes, constants.choices.no]
-        };
         this.setInitialFocus();
     }
 
@@ -28,10 +23,8 @@ class AdventureDetailController {
         if (!!adventureId) {
             if ("create" === adventureId) {
                 this.adventure = {
-                    stats: [],
                     toggles: {
                         battle: true,
-                        stats: true,
                         dices: true,
                         goto: true,
                         characters: true,
@@ -79,102 +72,6 @@ class AdventureDetailController {
         } catch (error) {
             this.$log.warn(error);
         }
-    }
-
-    addRow() {
-        let stats = { init: {}, characters: {}, editableForCharacters : true };
-        this.adventure.stats.push(stats);
-        this.addedRow = stats;
-    }
-
-    displayRemovePopup(removedRow) {
-        this.rowToBeRemoved = removedRow;
-        let self = this;
-        this.popupService.show(
-            this.popupDeleteStatsConfig.id,
-            function(popupDomElementId, choice) {
-                if (choice === self.constants.choices.yes) {
-                    self.removeRow(self.rowToBeRemoved);
-                }
-                self.rowToBeRemoved = null;
-            }
-        );
-    }
-
-    removeRow(removedRow) {
-        var index = this.adventure.stats.indexOf(removedRow);
-        this.adventure.stats.splice(index, 1);
-        this.clearEditedRow();
-    }
-
-    editRow(row) {
-        this.editedRow = row;
-        row.editableForCharacters = !!row.characters;
-        this.originalRow = {
-            name : row.name,
-            init: {
-                dicesQuantity: row.init.dicesQuantity,
-                constants: row.init.constant
-            },
-            characters : {
-                defaultValue: !!row.characters ? row.characters.defaultValue : null
-            }
-        };
-    }
-
-    isRowEdited(row) {
-        return row === this.editedRow || row === this.addedRow;
-    }
-
-    hasEditedRow() {
-        return !!this.editedRow || !! this.addedRow;
-    }
-
-    getEditRow() {
-        if (!!this.addedRow) {
-            return this.addedRow;
-        } else if (!!this.editedRow) {
-            return this.editedRow;
-        } else {
-            return null;
-        }
-    }
-
-    saveRowChanges($invalid) {
-        let editedRow = this.getEditRow();
-        if (!editedRow.name) {
-            return ;
-        }
-        if (!editedRow.init.dicesQuantity) {
-            return ;
-        }
-        if (!!editedRow.editableForCharacters && !editedRow.characters.defaultValue) {
-            return ;
-        }
-        if (!editedRow.editableForCharacters) {
-            delete editedRow.characters;
-        }
-        delete editedRow.editableForCharacters;
-        this.clearEditedRow();
-    }
-
-    abortRowChanges() {
-        if (!!this.addedRow) {
-            this.removeRow(this.addedRow);
-        }
-        if (!!this.editedRow) {
-            this.editedRow.name = this.originalRow.name;
-            this.editedRow.init = this.originalRow.init;
-            this.editedRow.characters = this.originalRow.characters;
-            delete this.editedRow.editableForCharacters;
-        }
-        this.clearEditedRow();
-    }
-
-    clearEditedRow() {
-        this.addedRow = null;
-        this.editedRow = null;
-        this.originalRow = null;
     }
 
     onListSave(entries) {

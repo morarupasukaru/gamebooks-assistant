@@ -22,15 +22,6 @@ class CharactersController {
         } else {
             this.characters = game.characters;
         }
-
-        let adventure = this.adventurePersistenceService.getAdventure(game.adventureId);
-        this.defaultCharacterStats = {};
-        for (let i = 0; i < adventure.stats.length; i++) {
-            let currentStats = adventure.stats[i];
-            if (!!currentStats.characters) {
-                this.defaultCharacterStats[currentStats.name] = currentStats.characters.defaultValue;
-            }
-        }
     }
 
     addEntry() {
@@ -54,14 +45,6 @@ class CharactersController {
             deletable: true
         };
         character.stats = [];
-        let keys = Object.keys(this.defaultCharacterStats);
-        for (let i = 0; i < keys.length; i++) {
-            character.stats.push({
-                name: keys[i],
-                current: this.defaultCharacterStats[keys[i]],
-                initial: this.defaultCharacterStats[keys[i]]
-            });
-        }
         return character;
     }
 

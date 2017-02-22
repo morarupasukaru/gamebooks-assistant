@@ -33,35 +33,6 @@
     "map": true
   },
   "version": "1",
-  "stats": [
-    {
-      "characters": {
-        "defaultValue": 3
-      },
-      "init": {
-        "constant": 6,
-        "dicesQuantity": 1
-      },
-      "name": "Strength"
-    },
-    {
-      "characters": {
-        "defaultValue": 4
-      },
-      "init": {
-        "constant": 12,
-        "dicesQuantity": 2
-      },
-      "name": "Stamina"
-    },
-    {
-      "init": {
-        "constant": 6,
-        "dicesQuantity": 1
-      },
-      "name": "Luck"
-    }
-  ],
   "paragraphs": [
     {
       "choices": [

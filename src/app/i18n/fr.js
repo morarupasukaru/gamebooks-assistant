@@ -15,7 +15,6 @@ const frenchTranslations = {
     'Are you sure to remove the character?': "Etes-vous certain(e) de vouloir supprimer le personnage?",
     'Are you sure to remove the selected adventure?': "Etes-vous certain(e) de vouloir supprimer l'aventure sélectionnée?",
     'Are you sure to remove the selected game?': 'Etes-vous certain(e) de vouloir supprimer la partie sélectionnée?',
-    'Are you sure to remove the status?': "Etes-vous certain(e) de vouloir supprimer l'attribut?",
     'attributValueGenerationRule': '{{ dicesQuantity}} dés[{{ min }},{{ max }}] + {{ constant }}',
     'Author(s)': 'Auteur(s)',
     'Back': 'Retour',
@@ -59,8 +58,6 @@ const frenchTranslations = {
     'Current': 'Actuel',
     'Decrease tree': "Réduit l'arborescence",
     'DecrementStatsTitle': "Décrémente '{{ stats }}'",
-    'Default character value': 'Valeur par défaut des personnages',
-    'Default value of the stats for character': "Valeur par défaut de l'attribut des personnages",
     "Delete application's data": "Supprime les données de l'application",
     'Description': 'Description',
     'description.syntax': "Délimiter un numéro de paragraphe avec § afin de l'ajouter comme choix (p.ex. §123§)",
@@ -86,7 +83,6 @@ const frenchTranslations = {
     'Expand': 'Expand',
     'Features': 'Fonctionnalitées',
     'First paragraph': 'Premier paragraphe',
-    'For characters?': 'Pour personnages?',
     'fr': 'Français',
     'Français': 'Français',
     'Game': 'Partie',
@@ -105,7 +101,6 @@ const frenchTranslations = {
     'Increase tree': "Augmente l'arborescence",
     'IncrementStatsTitle': "Incrémente '{{ stats }}'",
     'Initial': 'Initiale',
-    "Is it a character's state?": 'Est-ce un attribut de personnages?',
     'ISBN': 'ISBN',
     'Keep on restart': 'Garder lors de recommencement',
     'Language': 'Langue',
@@ -130,7 +125,6 @@ const frenchTranslations = {
     'Paragraph link': 'Liens du paragraphe',
     'Paragraph not played yet': "Le paragraphe n'a pas encore été jouée",
     "Paste the application's data copied from another browser": "Collez les données de l'application précédent copié depuis une autre navigateur",
-    'Player stats value generation': 'Génération des attributs du joueur',
     "Player's name": 'Nom du joueur',
     'Please complete mandatory fields': 'Veuilliez compléter les champs obligatoires',
     'Please fill a value': 'Veuilliez saisir une valeur',
@@ -154,7 +148,6 @@ const frenchTranslations = {
     'Serie': 'Série',
     'sorted alphabetically': 'triés alphabétiquement',
     'Start Game': 'Débute un jeu',
-    'Stats rules': "Règles d'attributs",
     'Sum of dices value': 'Somme des dés',
     'Tag': 'Tag',
     'The adventure is not available': "L'aventure n'est pas disponible",
@@ -164,9 +157,7 @@ const frenchTranslations = {
     'Visible sections': 'Sections visibles',
     'Version': 'Version',
     'What must be imported?': "Qu'est-ce qui doit être importé?",
-    'Yes': 'Oui',
-    'yesno_false': 'non',
-    'yesno_true': 'oui'
+    'Yes': 'Oui'
 };
 
 export {frenchTranslations as default};
