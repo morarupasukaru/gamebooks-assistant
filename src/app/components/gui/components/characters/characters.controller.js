@@ -93,7 +93,15 @@ class CharactersController {
         this.save();
     }
 
-    saveChanges(entry) {
+    removeStats(entry, stats) {
+        let index = entry.stats.indexOf(stats);
+        entry.stats.splice(index, 1);
+    }
+
+    saveChanges(entry, form) {
+        if (form.$invalid) {
+            return ;
+        }
         this.clearEdition(entry);
         this.save();
     }

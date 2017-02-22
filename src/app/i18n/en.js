@@ -141,6 +141,8 @@ const englishTranslations = {
     'Random Stats': 'Random Stats',
     "Remaining Local's Storage": "Remaining Local's Storage",
     'Remove': 'Remove',
+    'Remove the character': 'Remove the character',
+    'Remove the stats': 'Remove the stats',
     'Restart': 'Restart',
     'Roll dice': 'Roll dice',
     'Save': 'Save',

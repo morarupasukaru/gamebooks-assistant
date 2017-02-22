@@ -143,6 +143,8 @@ const frenchTranslations = {
     'Random Stats': 'Génére les attributs',
     "Remaining Local's Storage": "Local's Storage disponible",
     'Remove': 'Supprime',
+    'Remove the character': 'Supprime le caractère',
+    'Remove the stats': "Supprime l'attribut",
     'Restart': 'Recommence',
     'Roll dice': 'Lance un dé',
     'Save': 'Sauvegarde',
