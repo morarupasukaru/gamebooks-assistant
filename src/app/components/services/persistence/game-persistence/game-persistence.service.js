@@ -39,6 +39,7 @@ class GamePersistenceService {
     addGame(game) {
         let savedGame = {
             id : this.newGameId(),
+            name: game.name,
             adventureId : game.adventureId,
             currentParagraphNr : game.currentParagraphNr
         };
@@ -231,9 +232,10 @@ class GamePersistenceService {
         return games;
     }
 
-    startGame(adventureId) {
+    startGame(adventureId, gameName) {
         let adventure = this.adventurePersistenceService.getAdventure(adventureId);
         let game = {
+            name : gameName,
             adventureId : adventure.id
         };
         if (!!adventure.lists && !!adventure.lists.keys) {

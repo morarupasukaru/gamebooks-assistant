@@ -21,7 +21,7 @@
                 <ul>
                     <li ng-repeat="game in adventure.games">
                         <span>
-                            {{ 'GameOverview' | translate: { playerName: game.playerName, currentParagraphNr: game.currentParagraphNr + (!!game.paragraphTag ? '(' + game.paragraphTag + ')' : '')} }}
+                            {{ 'GameOverview' | translate: { name: game.name, currentParagraphNr: game.currentParagraphNr + (!!game.paragraphTag ? '(' + game.paragraphTag + ')' : '')} }}
                         </span>
                         <button type="button"
                                 class="btn btn-xs btn-default"
@@ -57,5 +57,6 @@
 <popup config="{{ $ctrl.popupDisplaySelectedAdventureActionsConfig }}"></popup>
 <popup config="{{ $ctrl.popupDisplaySelectedGameActionsConfig }}"></popup>
 <popup config="{{ $ctrl.popupDisplayImportActionsConfig }}"></popup>
+<popup config="{{ $ctrl.popupStartGameConfig }}"></popup>
 <import-data-popup config="$ctrl.popupImportAdventureConfig"></import-data-popup>
 <import-data-popup config="$ctrl.popupImportGameConfig"></import-data-popup>

@@ -10,12 +10,12 @@ class PopupController {
         }
     }
 
-    select(choice) {
-        this.close(choice);
+    select(choice, text) {
+        this.close(choice, text);
     }
 
-    close(choice) {
-        this.popupService.close(this.cfg.id, choice);
+    close(choice, text) {
+        this.popupService.close(this.cfg.id, choice, text);
     }
 }
 

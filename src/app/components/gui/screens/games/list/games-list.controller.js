@@ -13,6 +13,14 @@ class GamesListController {
         this.$window = $window;
         this.$timeout = $timeout;
 
+        this.popupStartGameConfig = {
+            id : 'popupStartGame',
+            text : 'Please fill the name of the game',
+            withText : true,
+            textRequired: true,
+            choices : [constants.choices.ok, constants.choices.cancel]
+        };
+
         this.popupDeleteGameConfig = {
             id : 'popupDeleteGame',
             text : 'Are you sure to remove the selected game?',
@@ -170,7 +178,15 @@ class GamesListController {
         } else if (!g2) {
             return -1;
         } else {
-            return g1.playerName.localeCompare(g2.playerName);
+            if (!g1.name && !g2.name) {
+                return 0;
+            } else if (!g1.name) {
+                return 1;
+            } else if (!g2.name) {
+                return -1;
+            } else {
+                return g1.name.localeCompare(g2.name);
+            }
         }
     }
 
@@ -179,7 +195,6 @@ class GamesListController {
         let games = [];
         for (let i = 0; i < gamePersistenceKeys.length; i++) {
             let game = this.gamePersistenceService.getGame(gamePersistenceKeys[i]);
-            game.playerName = this.getPlayerName(game);
             let adventure = this.adventurePersistenceService.getAdventure(game.adventureId);
             if (!!adventure) {
                 let paragraph = this.adventurePersistenceService.getParagraph(game.adventureId, game.currentParagraphNr);
@@ -192,16 +207,6 @@ class GamesListController {
             games.push(game);
         }
         return games;
-    }
-
-    getPlayerName(game) {
-        if (!!game.characters) {
-            for (let i = 0; i < game.characters.length; i++) {
-                if (!game.characters[i].deletable) {
-                    return game.characters[i].name;
-                }
-            }
-        }
     }
 
     displaySelectedAdventureActions(adventure) {
@@ -218,7 +223,7 @@ class GamesListController {
                 } else if (choice === self.constants.choices.download) {
                     self.downloadAdventure(adventure);
                 } else if (choice === self.constants.choices.createGame) {
-                    self.startGame(adventure.id);
+                    self.displayStartGamePopup(adventure);
                 }
             }
         );
@@ -235,6 +240,18 @@ class GamesListController {
             function(popupDomElementId, choice) {
                 if (choice === self.constants.choices.yes) {
                     self.deleteAdventure(adventure);
+                }
+            }
+        );
+    }
+
+    displayStartGamePopup(adventure) {
+        let self = this;
+        this.popupService.show(
+            this.popupStartGameConfig.id,
+            function(popupDomElementId, choice, text) {
+                if (choice === self.constants.choices.ok) {
+                    self.startGame(adventure.id, text);
                 }
             }
         );
@@ -323,12 +340,12 @@ class GamesListController {
         );
     }
 
-    startGame(adventureId) {
+    startGame(adventureId, gameName) {
         let adventure = this.adventurePersistenceService.getAdventure(adventureId);
         if (!adventure) {
             this.messagesService.errorMessage(this.$translate.instant('CannotFindAdventure', { adventure: game.adventureId}), false)
         } else {
-            this.continueGame(this.gamePersistenceService.startGame(adventureId));
+            this.continueGame(this.gamePersistenceService.startGame(adventureId, gameName));
         }
     }
 

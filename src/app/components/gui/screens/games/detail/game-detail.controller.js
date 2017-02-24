@@ -111,28 +111,6 @@ class GameDetailController {
         let now = new Date();
         return this.$filter('date')(now, 'dd.MM.yyyy HH:mm');
     }
-
-    getPlayerName(characters) {
-        if (!!characters) {
-            for (let i = 0; i < characters.length; i++) {
-                if (!characters[i].deletable) {
-                    return characters[i].name;
-                }
-            }
-        }
-        return null;
-    }
-
-    setPlayerName(characters, newPlayerName) {
-        if (!!characters) {
-            for (let i = 0; i < characters.length; i++) {
-                if (!characters[i].deletable) {
-                    characters[i].name = newPlayerName;
-                    return ;
-                }
-            }
-        }
-    }
 }
 
 export default GameDetailController;
