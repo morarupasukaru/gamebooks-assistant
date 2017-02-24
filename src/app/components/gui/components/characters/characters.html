@@ -62,7 +62,7 @@
                 aria-label="{{ 'Remove the character' | translate }}"
                 title="{{ 'Remove the character' | translate }}"
                 ng-click="$ctrl.displayRemovePopup(entry)"
-                ng-show="!!entry.edited && !!entry.deletable">
+                ng-show="!!entry.edited">
             {{ 'Remove' | translate }}
         </button>
 
@@ -82,7 +82,7 @@
                     <span aria-hidden="true"><b>-</b></span>
                 </button>
             </li>
-            <li>
+            <li ng-show="!entry.edited">
                 <input id="newStats" type="text" placeholder="{{ 'New stats' | translate }}" ng-model="$ctrl.newStats"/>
                 <button type="button"
                         class="btn btn-xs btn-success"

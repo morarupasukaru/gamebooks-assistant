@@ -44,8 +44,7 @@ class CharactersController {
 
     createCharacter(characterName) {
         let character = {
-            name: characterName,
-            deletable: true
+            name: characterName
         };
         character.stats = [];
         return character;
