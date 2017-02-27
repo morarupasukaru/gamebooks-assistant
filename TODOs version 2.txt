@@ -57,8 +57,6 @@ refactoring
                 return newStr;
             }
 
-    # remove <table> from adventure-detail.html
-
     # oop class for data / model : angular factory
         https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript
         https://medium.com/opinionated-angularjs/angular-model-objects-with-javascript-classes-2e6a067c73bc#.m560drzb6
