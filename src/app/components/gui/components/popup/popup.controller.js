@@ -11,6 +11,9 @@ class PopupController {
     }
 
     select(choice, text) {
+        if (!!this.cfg.withText && !text) {
+            return ;
+        }
         this.close(choice, text);
     }
 

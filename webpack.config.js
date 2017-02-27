@@ -81,7 +81,7 @@ exports.development = extend({}, commonConfig, {
         path: path.resolve(__dirname, 'dist')
     }, plugins: [
         new browserSyncPlugin({
-            proxy: 'localhost:3000'
+            proxy: 'localhost:4000'
         }),
         new webpack.optimize.CommonsChunkPlugin('vendor', 'base.bundle.js')
     ], watch: true, devtool: 'source-map'

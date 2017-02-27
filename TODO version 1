@@ -6,7 +6,6 @@ Treemap: on s'y perd encore si l'arbre est grand, overlap
 
 Génération des attributs ne fonctionne pas avec "la légende de zagor"
     => ajout attribut si plusieurs caractères => modif a 2 endroit
-    => nom required (interdire la fermeture de la popup)
     => Game list: "Nom partie (Date:Heure)"
     => maj. aventure example
     => maj. sorcier ...
