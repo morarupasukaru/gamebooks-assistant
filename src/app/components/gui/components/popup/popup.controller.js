@@ -1,7 +1,8 @@
 class PopupController {
     /*@ngInject*/
-    constructor(popupService, $translate) {
+    constructor(popupService, $translate, constants) {
         this.cfg = JSON.parse(this.config);
+        this.constants = constants;
         this.popupService = popupService;
         if (!!this.cfg.withoutTranslate) {
             this.cfg.textToDisplay = this.cfg.text;
@@ -11,7 +12,7 @@ class PopupController {
     }
 
     select(choice, text) {
-        if (!!this.cfg.withText && !text) {
+        if (!!this.cfg.withText && !text && choice !== this.constants.choices.cancel) {
             return ;
         }
         this.close(choice, text);
