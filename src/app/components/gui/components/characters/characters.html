@@ -83,11 +83,11 @@
                 </button>
             </li>
             <li ng-show="!entry.edited">
-                <input id="newStats" type="text" placeholder="{{ 'New stats' | translate }}" ng-model="$ctrl.newStats"/>
+                <input id="newStats" type="text" placeholder="{{ 'New stats' | translate }}" ng-model="entry.newStats"/>
                 <button type="button"
                         class="btn btn-xs btn-success"
                         ng-click="$ctrl.addStats(entry)"
-                        ng-show="!!$ctrl.newStats">
+                        ng-show="!!entry.newStats">
                     {{ 'Add' | translate }}
                 </button>
             </li>

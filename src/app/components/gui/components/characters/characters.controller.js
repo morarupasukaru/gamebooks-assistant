@@ -37,7 +37,7 @@ class CharactersController {
             character.stats = [];
         }
         character.stats.push({
-            name: this.newStats
+            name: character.newStats
         });
         this.editEntry(character);
     }
@@ -93,10 +93,10 @@ class CharactersController {
 
     abortChanges(entry) {
         this.copyCharacter(entry.originalValues, entry);
-        if (!!this.newStats) {
+        if (!!entry.newStats) {
             let foundIndex = -1;
             for (let i = 0; i < entry.stats.length; i++) {
-                if (this.newStats == entry.stats[i].name) {
+                if (entry.newStats == entry.stats[i].name) {
                     foundIndex = i;
                     break;
                 }
@@ -125,7 +125,7 @@ class CharactersController {
     clearEdition(entry) {
         delete entry.originalValues;
         delete entry.edited;
-        this.newStats = null;
+        entry.newStats = null;
     }
 
     increment(stats) {
