@@ -85,7 +85,6 @@ const frenchTranslations = {
     'fr': 'Français',
     'Français': 'Français',
     'Game': 'Partie',
-    'GameOverview': "{{ name }} au paragraphe '{{ currentParagraphNr }}'",
     "Game's rules": 'Règles de jeu',
     "Game's rules paragraph": "Paragraphe des règles du jeu",
     'GameAlreadyExists': "Le jeu existe déjà avec l'id '{{ gameId }}'",

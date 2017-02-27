@@ -122,6 +122,7 @@ class GamePersistenceService {
             return ;
         }
         game = JSON.parse(JSON.stringify(game));
+        game.time = this.adventurePersistenceService.now();
 
         let key = this.getGamePersistenceKey(game.id);
         this.persistenceService.save(key, game);

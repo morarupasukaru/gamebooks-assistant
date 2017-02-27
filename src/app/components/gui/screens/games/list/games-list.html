@@ -21,7 +21,7 @@
                 <ul>
                     <li ng-repeat="game in adventure.games">
                         <span>
-                            {{ 'GameOverview' | translate: { name: game.name, currentParagraphNr: game.currentParagraphNr + (!!game.paragraphTag ? '(' + game.paragraphTag + ')' : '')} }}
+                            {{ game.name + ' (' + game.time + ')' }}
                         </span>
                         <button type="button"
                                 class="btn btn-xs btn-default"
