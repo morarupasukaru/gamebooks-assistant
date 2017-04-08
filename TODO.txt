@@ -1,8 +1,17 @@
+Project status: suspended because of other on-going projects
 
 en cours:
     # remove not needed glyphicon (text + instead of + as image)
 
     # expand, collapse en fr?
+
+
+    # treemap: on s'y perd encore si l'arbre est grand, overlap => Noeud leaf: icon sur enfant?
+
+    # Génération des attributs ne fonctionne pas avec "la légende de zagor"
+        => maj. aventure example
+        => maj. sorcier ...
+        => maj. retour ...
 
 feature
     # image "view" component
