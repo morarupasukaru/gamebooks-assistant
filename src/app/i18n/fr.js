@@ -27,7 +27,6 @@ const frenchTranslations = {
     'Change language to fr': 'Changez la langue en français',
     'Characters': 'Personnages',
     'ChoiceGame': "Sélectionne  le jeu '{{ adventureName }}' du joueur '{{ playerName }}'",
-    'Choose an action': 'Choisissez une action',
     'ChoosenGame': "Le jeu '{{ adventureName }}' du joueur '{{ playerName }}' est choisi",
     'Clear': 'Efface',
     'Collapse': 'Collapse',

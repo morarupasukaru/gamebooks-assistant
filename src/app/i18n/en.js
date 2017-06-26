@@ -26,7 +26,6 @@ const englishTranslations = {
     'Change language to en': 'Change language to english',
     'Change language to fr': 'Changez la langue en français',
     'Characters': 'Characters',
-    'Choose an action': 'Choose an action',
     'Clear': 'Clear',
     'Collapse': 'Collapse',
     'Constant': 'Constant',

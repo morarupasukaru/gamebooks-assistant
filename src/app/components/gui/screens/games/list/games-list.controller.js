@@ -45,18 +45,6 @@ class GamesListController {
             choices : [constants.choices.yes, constants.choices.no]
         };
 
-        this.popupDisplaySelectedGameActionsConfig = {
-            id : 'popupDisplaySelectedGameActions',
-            text : 'Choose an action',
-            choices : [constants.choices.continue, constants.choices.restart, constants.choices.remove, constants.choices.export, constants.choices.cancel]
-        };
-
-        this.popupDisplaySelectedAdventureActionsConfig = {
-            id : 'popupDisplaySelectedAdventureActions',
-            text : 'Choose an action',
-            choices : [constants.choices.display, constants.choices.remove, constants.choices.createGame, constants.choices.export, constants.choices.download, constants.choices.cancel]
-        };
-
         this.popupDisplayImportActionsConfig = {
             id : 'popupDisplayImportActions',
             text : 'What must be imported?',
@@ -209,26 +197,6 @@ class GamesListController {
         return games;
     }
 
-    displaySelectedAdventureActions(adventure) {
-        let self = this;
-        this.popupService.show(
-            this.popupDisplaySelectedAdventureActionsConfig.id,
-            function(popupDomElementId, choice) {
-                if (choice === self.constants.choices.display) {
-                    self.displayAdventure(adventure);
-                } else if (choice === self.constants.choices.remove) {
-                    self.displayRemoveAdventurePopup(adventure);
-                } else if (choice === self.constants.choices.export) {
-                    self.exportAdventure(adventure.id);
-                } else if (choice === self.constants.choices.download) {
-                    self.downloadAdventure(adventure);
-                } else if (choice === self.constants.choices.createGame) {
-                    self.displayStartGamePopup(adventure);
-                }
-            }
-        );
-    }
-
     displayAdventure(adventure) {
         this.$location.url(this.constants.url.adventureDetail + '/' + adventure.id);
     }
@@ -306,24 +274,6 @@ class GamesListController {
                 } else if (choice === self.constants.choices.adventure) {
                     self.displayImportAdventurePopup();
                  }
-            }
-        );
-    }
-
-    displaySelectedGameActions(game) {
-        let self = this;
-        this.popupService.show(
-            this.popupDisplaySelectedGameActionsConfig.id,
-            function(popupDomElementId, choice) {
-                if (choice === self.constants.choices.continue) {
-                    self.continueGame(game);
-                } else if (choice === self.constants.choices.restart) {
-                    self.displayRestartGamePopup(game);
-                } else if (choice === self.constants.choices.remove) {
-                    self.displayRemoveGamePopup(game);
-                } else if (choice === self.constants.choices.export) {
-                    self.exportGame(game.id);
-                }
             }
         );
     }

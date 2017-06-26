@@ -9,46 +9,56 @@
                 <span>
                     {{ (!!adventure.serie ? adventure.serie + ': ': '') +  adventure.name }} {{ ($ctrl.hasAdventureToBeDownloaded(adventure) ? 'downloadable_in_list' : '') | translate }}
                 </span>
-                <md-button class="md-fab"
-                           type="button"
-                           aria-label="{{ 'Display actions' | translate}}"
-                           title="{{ 'Display actions' | translate}}"
-                           ng-if="!adventure.missingAdventure"
-                           ng-click="$ctrl.displaySelectedAdventureActions(adventure)">
-                    <md-icon ng-bind="'menu'"></md-icon>
-                </md-button>
+                <md-menu ng-if="!adventure.missingAdventure">
+                    <md-button ng-click="$mdMenu.open($event)"
+                               class="md-fab"
+                               aria-label="{{ 'Display actions' | translate}}"
+                               title="{{ 'Display actions' | translate}}">
+                        <md-icon ng-bind="'menu'"></md-icon>
+                    </md-button>
+                    <md-menu-content>
+                        <md-menu-item><md-button ng-click="$ctrl.displayAdventure(adventure)">{{ 'Display' | translate }}</md-button></md-menu-item>
+                        <md-menu-item><md-button ng-click="$ctrl.displayRemoveAdventurePopup(adventure)">{{ 'Remove' | translate }}</md-button></md-menu-item>
+                        <md-menu-item><md-button ng-click="$ctrl.exportAdventure(adventure.id)">{{ 'Export' | translate }}</md-button></md-menu-item>
+                        <md-menu-item><md-button ng-click="$ctrl.downloadAdventure(adventure)">{{ 'Download' | translate }}</md-button></md-menu-item>
+                        <md-menu-item><md-button ng-click="$ctrl.displayStartGamePopup(adventure)">{{ 'Create a game' | translate }}</md-button></md-menu-item>
+                    </md-menu-content>
+                </md-menu>
 
                 <ul>
                     <li ng-repeat="game in adventure.games">
                         <span>
                             {{ game.name + ' (' + game.time + ')' }}
                         </span>
-                        <md-button class="md-raised"
-                                   type="button"
-                                   aria-label="{{ 'Display actions' | translate}}"
-                                   title="{{ 'Display actions' | translate}}"
-                                   ng-click="$ctrl.displaySelectedGameActions(game)">
-                            <md-icon ng-bind="'menu'"></md-icon>
-                        </md-button>
+                        <md-menu>
+                            <md-button ng-click="$mdMenu.open($event)"
+                                       class="md-fab"
+                                       aria-label="{{ 'Display actions' | translate}}"
+                                       title="{{ 'Display actions' | translate}}">
+                                <md-icon ng-bind="'menu'"></md-icon>
+                            </md-button>
+                            <md-menu-content>
+                                <md-menu-item><md-button ng-click="$ctrl.continueGame(game)">{{ 'Continue' | translate }}</md-button></md-menu-item>
+                                <md-menu-item><md-button ng-click="$ctrl.displayRestartGamePopup(game)">{{ 'Restart' | translate }}</md-button></md-menu-item>
+                                <md-menu-item><md-button ng-click="$ctrl.displayRemoveGamePopup(game)">{{ 'Remove' | translate }}</md-button></md-menu-item>
+                                <md-menu-item><md-button ng-click="$ctrl.exportGame(game.id)">{{ 'Export' | translate }}</md-button></md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
                     </li>
                 </ul>
             </li>
         </ul>
 
         <md-button class="md-raised"
-                   type="button"
                    aria-label="{{ 'Create an adventure' | translate }}"
                    title="{{ 'Create an adventure' | translate }}"
                    ng-click="$ctrl.createAdventure()">{{ 'Create an adventure' | translate }}</md-button>
         <md-button class="md-raised"
-                   type="button"
                    aria-label="{{ 'Import' | translate }}"
                    title="{{ 'Import' | translate }}"
                    ng-click="$ctrl.displayImportActions()">{{ 'Import' | translate }}</md-button>
     </div>
 </main>
-<md-icon md-font-icon="android" aria-label="android"></md-icon>
-<md-icon class="icon_home" aria-label="Home"></md-icon>
 <footnote></footnote>
 
 <a id="linkDownloadExportAdventure" ng-show="false" ng-href="{{$ctrl.exportDownloadBlobUrl}}" download="exportAdventure.txt">download adventure (link hidden)</a>
@@ -58,8 +68,6 @@
 <popup config="{{ $ctrl.popupDownloadAdventureConfig }}"></popup>
 <popup config="{{ $ctrl.popupDeleteGameConfig }}"></popup>
 <popup config="{{ $ctrl.popupRestartGameConfig }}"></popup>
-<popup config="{{ $ctrl.popupDisplaySelectedAdventureActionsConfig }}"></popup>
-<popup config="{{ $ctrl.popupDisplaySelectedGameActionsConfig }}"></popup>
 <popup config="{{ $ctrl.popupDisplayImportActionsConfig }}"></popup>
 <popup config="{{ $ctrl.popupStartGameConfig }}"></popup>
 <import-data-popup config="$ctrl.popupImportAdventureConfig"></import-data-popup>
