@@ -112,10 +112,12 @@
             </form>
         </div>
         <back-button></back-button>
-        <button type="button" class="btn btn-primary"
-                aria-label="{{ 'Save changes' | translate }}"
-                title="{{ 'Save changes' | translate }}"
-                ng-click="$ctrl.save(adventureTableForm)">{{ 'Save' | translate }}</button>
+        <md-button class="md-raised md-primary"
+                   type="button"
+                   aria-label="{{ 'Save changes' | translate }}"
+                   title="{{ 'Save changes' | translate }}"
+                   ng-click="$ctrl.save(adventureTableForm)">{{ 'Save' | translate }}
+        </md-button>
     </div>
 </main>
 <footnote></footnote>
