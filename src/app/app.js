@@ -5,6 +5,9 @@ import i18n_fr from './i18n/fr.js';
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import ngTranslate from 'angular-translate';
+import ngAria from 'angular-aria';
+import ngAnimate from 'angular-animate';
+import ngMaterial from 'angular-material';
 import ngTranslateHandlerLog from 'angular-translate-handler-log';
 
 // Interne Modul-Imports
@@ -12,7 +15,7 @@ import Components from './components/components';
 import AppComponent from './app.component';
 
 angular.module('app', [
-    uiRouter, ngTranslate, ngTranslateHandlerLog, Components.name
+    uiRouter, ngTranslate, ngTranslateHandlerLog, Components.name, ngAria, ngAnimate, ngMaterial
     ])
 
     .config(['$translateProvider', function ($translateProvider) {

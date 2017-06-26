@@ -18,7 +18,10 @@ var commonConfig = exports.commonConfig = {
             'angular',
             'angular-ui-router',
             'angular-translate',
-            'bootstrap/dist/css/bootstrap.css'
+            'angular-aria',
+            'angular-animate',
+            'angular-material',
+            'angular-material/angular-material.css'
         ]
     },
     // Ausgabedatei
@@ -81,7 +84,7 @@ exports.development = extend({}, commonConfig, {
         path: path.resolve(__dirname, 'dist')
     }, plugins: [
         new browserSyncPlugin({
-            proxy: 'localhost:4000'
+            proxy: 'localhost:5000'
         }),
         new webpack.optimize.CommonsChunkPlugin('vendor', 'base.bundle.js')
     ], watch: true, devtool: 'source-map'

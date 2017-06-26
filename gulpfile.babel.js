@@ -56,7 +56,7 @@ gulp.task('serve', () => {
         }, stats: {
             colors: true
         }
-    }).listen(4000, 'localhost', function (err) {
+    }).listen(5000, 'localhost', function (err) {
             if (err) {
                 console.error(err);
             }
