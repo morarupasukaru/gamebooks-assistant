@@ -1,6 +1,6 @@
 class GamesListController {
     /*@ngInject*/
-    constructor($location, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, importDataPopupService, $stateParams, $window, $timeout, $mdDialog) {
+    constructor($location, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, importDataPopupService, $stateParams, $window, $timeout, $mdDialog, $mdToast) {
         this.constants = constants;
         this.$location = $location;
         this.gamePersistenceService = gamePersistenceService;
@@ -13,6 +13,7 @@ class GamesListController {
         this.$window = $window;
         this.$timeout = $timeout;
         this.$mdDialog = $mdDialog;
+        this.$mdToast = $mdToast;
 
         this.popupStartGameConfig = {
             id : 'popupStartGame',

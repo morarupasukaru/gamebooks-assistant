@@ -30,6 +30,7 @@ const frenchTranslations = {
     'ChoiceGame': "Sélectionne  le jeu '{{ adventureName }}' du joueur '{{ playerName }}'",
     'ChoosenGame': "Le jeu '{{ adventureName }}' du joueur '{{ playerName }}' est choisi",
     'Clear': 'Efface',
+    'Close' : 'Fermer',
     'Collapse': 'Collapse',
     'Constant': 'Constant',
     'Continue': 'Poursuivre',

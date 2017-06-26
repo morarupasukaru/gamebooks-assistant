@@ -55,6 +55,11 @@ angular.module('app', [
     })
 
     // Die App als Direktive exportieren
-    .directive('app', AppComponent);
+    .directive('app', AppComponent)
+
+    .config(function($mdThemingProvider) {
+      $mdThemingProvider.theme("success-toast");
+      $mdThemingProvider.theme("success-toast");
+    });
 
 
