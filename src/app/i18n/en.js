@@ -20,6 +20,7 @@ const englishTranslations = {
     'Back': 'Back',
     'Battle': 'Battle',
     'Cancel': 'Cancel',
+    'CannotFindAdventure': "Cannot find adventure '{{ adventure }}'",
     'CannotImportProjectAon': "Cannot import project aon book with url '{{ url }}'",
     'Cannot import adventure': 'Cannot import adventure',
     'Cannot import game': 'Cannot import game',

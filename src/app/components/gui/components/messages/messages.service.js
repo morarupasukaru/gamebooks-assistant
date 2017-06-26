@@ -26,15 +26,15 @@ class MessagesService {
     }
 
     successMessage(msg, keepAfterLocationChange) {
-        this._addMessage(msg, 'success', keepAfterLocationChange);
+        this._addMessage(msg, 'md-primary md-hue-1', keepAfterLocationChange);
     }
 
     errorMessage(msg, keepAfterLocationChange) {
-        this._addMessage(msg, 'error', keepAfterLocationChange);
+        this._addMessage(msg, 'md-warn', keepAfterLocationChange);
     }
 
     infoMessage(msg, keepAfterLocationChange) {
-        this._addMessage(msg, 'info', keepAfterLocationChange);
+        this._addMessage(msg, 'md-primary', keepAfterLocationChange);
     }
 
     _addMessage(msg, type, keepAfterLocationChange) {

@@ -1,11 +1,12 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
+import ngMaterial from 'angular-material';
 
 import template from './games-list.html';
 import controller from './games-list.controller';
 
 let gamesListModule = angular.module('app.components.gui.screen.games.list', [
-    uiRouter
+    uiRouter, ngMaterial
 ])
     .config(/*@ngInject*/($stateProvider, $urlRouterProvider, constants) => {
         $urlRouterProvider.otherwise('/');

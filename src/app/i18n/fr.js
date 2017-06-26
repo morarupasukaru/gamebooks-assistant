@@ -23,6 +23,7 @@ const frenchTranslations = {
     'CannotImportProjectAon': "Impossible d'importer le livre du projet aon à l'adresse '{{ url }}'",
     'Cannot import adventure': "Impossible d'importer l'aventure",
     'Cannot import game': "Impossible d'importer la partie",
+    'CannotFindAdventure': "L'aventure '{{ adventure }}' est introuvable",
     'Change language to en': 'Change language to english',
     'Change language to fr': 'Changez la langue en français',
     'Characters': 'Personnages',

@@ -1,6 +1,6 @@
 class GamesListController {
     /*@ngInject*/
-    constructor($location, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, importDataPopupService, $stateParams, $window, $timeout) {
+    constructor($location, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, importDataPopupService, $stateParams, $window, $timeout, $mdDialog) {
         this.constants = constants;
         this.$location = $location;
         this.gamePersistenceService = gamePersistenceService;
@@ -12,6 +12,7 @@ class GamesListController {
         this.$stateParams = $stateParams;
         this.$window = $window;
         this.$timeout = $timeout;
+        this.$mdDialog = $mdDialog;
 
         this.popupStartGameConfig = {
             id : 'popupStartGame',
@@ -19,24 +20,6 @@ class GamesListController {
             withText : true,
             textRequired: true,
             choices : [constants.choices.ok, constants.choices.cancel]
-        };
-
-        this.popupDeleteGameConfig = {
-            id : 'popupDeleteGame',
-            text : 'Are you sure to remove the selected game?',
-            choices : [constants.choices.yes, constants.choices.no]
-        };
-
-        this.popupRestartGameConfig = {
-            id : 'popupRestartGame',
-            text : 'Are you sure to restart the selected game?',
-            choices : [constants.choices.yes, constants.choices.no]
-        };
-
-        this.popupDeleteAdventureConfig = {
-            id : 'popupDeleteAdventure',
-            text : 'Are you sure to remove the selected adventure?',
-            choices : [constants.choices.yes, constants.choices.no]
         };
 
         this.popupDownloadAdventureConfig = {
@@ -201,16 +184,19 @@ class GamesListController {
         this.$location.url(this.constants.url.adventureDetail + '/' + adventure.id);
     }
 
-    displayRemoveAdventurePopup(adventure) {
+    displayRemoveAdventurePopup(event, adventure) {
+        let confirm = this.$mdDialog.confirm()
+              .title(this.$translate.instant('Are you sure to remove the selected adventure?'))
+              .targetEvent(event)
+              .ok(this.$translate.instant('Yes'))
+              .cancel(this.$translate.instant('No'));
+
         let self = this;
-        this.popupService.show(
-            this.popupDeleteAdventureConfig.id,
-            function(popupDomElementId, choice) {
-                if (choice === self.constants.choices.yes) {
-                    self.deleteAdventure(adventure);
-                }
-            }
-        );
+        this.$mdDialog.show(confirm).then(function() {
+            self.deleteAdventure(adventure);
+        }, function() {
+            // cancel
+        });
     }
 
     displayStartGamePopup(adventure) {
@@ -278,16 +264,19 @@ class GamesListController {
         );
     }
 
-    displayRestartGamePopup(game) {
+    displayRestartGamePopup(event, game) {
+        let confirm = this.$mdDialog.confirm()
+              .title(this.$translate.instant('Are you sure to restart the selected game?'))
+              .targetEvent(event)
+              .ok(this.$translate.instant('Yes'))
+              .cancel(this.$translate.instant('No'));
+
         let self = this;
-        this.popupService.show(
-            this.popupRestartGameConfig.id,
-            function(popupDomElementId, choice) {
-                if (choice === self.constants.choices.yes) {
-                    self.restartGame(game);
-                }
-            }
-        );
+        this.$mdDialog.show(confirm).then(function() {
+            self.restartGame(game);
+        }, function() {
+            // cancel
+        });
     }
 
     startGame(adventureId, gameName) {
@@ -320,16 +309,19 @@ class GamesListController {
         }
     }
 
-    displayRemoveGamePopup(game) {
+    displayRemoveGamePopup(event, game) {
+        let confirm = this.$mdDialog.confirm()
+              .title(this.$translate.instant('Are you sure to remove the selected game?'))
+              .targetEvent(event)
+              .ok(this.$translate.instant('Yes'))
+              .cancel(this.$translate.instant('No'));
+
         let self = this;
-        this.popupService.show(
-            this.popupDeleteGameConfig.id,
-            function(popupDomElementId, choice) {
-                if (choice === self.constants.choices.yes) {
-                    self.deleteGame(game);
-                }
-            }
-        );
+        this.$mdDialog.show(confirm).then(function() {
+            self.deleteGame(game);
+        }, function() {
+            // cancel
+        });
     }
 
     deleteGame(game) {

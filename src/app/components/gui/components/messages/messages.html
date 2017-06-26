@@ -1,6 +1,10 @@
 <div ng-repeat="msg in $ctrl.messages">
-    <div class="alert alert-{{ msg.type === 'error' ? 'danger' : msg.type }}">
-        {{ msg.message }}
-        <a class="close" ng-click="$ctrl.removeMessage($index)">&times;</a>
-    </div>
+    <md-toolbar class="{{ msg.type }}">
+        <div class="md-toolbar-tools" ng-click="removeMessage($index)">
+            <h2 md-truncate flex>{{ msg.message }}</h2>
+            <md-button>
+                <md-icon ng-bind="'close'"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
 </div>

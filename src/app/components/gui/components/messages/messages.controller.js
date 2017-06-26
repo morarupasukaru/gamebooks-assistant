@@ -1,15 +1,16 @@
 class MessagesController {
     /*@ngInject*/
-    constructor(messagesService, $rootScope) {
+    constructor(messagesService, $rootScope, $scope) {
         this.messagesService = messagesService;
 
         $rootScope.$on('$locationChangeStart', () => this.messagesService.clearMessages());
 
         this.messages = messagesService.getMessages();
-    }
 
-    removeMessage(index) {
-        this.messagesService.removeMessage(index);
+        let self = this;
+        $scope.removeMessage = function(index) {
+           self.messagesService.removeMessage(index);
+        }
     }
 }
 
