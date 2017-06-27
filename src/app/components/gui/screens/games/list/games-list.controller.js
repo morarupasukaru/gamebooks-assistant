@@ -15,24 +15,10 @@ class GamesListController {
         this.$mdDialog = $mdDialog;
         this.$mdToast = $mdToast;
 
-        this.popupStartGameConfig = {
-            id : 'popupStartGame',
-            text : 'Please fill the name of the game',
-            withText : true,
-            textRequired: true,
-            choices : [constants.choices.ok, constants.choices.cancel]
-        };
-
         this.popupDownloadAdventureConfig = {
             id : 'popupDownloadAdventure',
             text : 'Are you sure to download the selected adventure? Existing games could be non-playable after the update if the new version is not retro-compatible',
             choices : [constants.choices.yes, constants.choices.no]
-        };
-
-        this.popupDisplayImportActionsConfig = {
-            id : 'popupDisplayImportActions',
-            text : 'What must be imported?',
-            choices : [constants.choices.adventure, constants.choices.game, constants.choices.cancel]
         };
 
         this.popupImportGameConfig = { id : 'popupImportGame' };
@@ -200,16 +186,21 @@ class GamesListController {
         });
     }
 
-    displayStartGamePopup(adventure) {
+    displayStartGamePopup(event, adventure) {
+        let confirm = this.$mdDialog.prompt()
+          .title(this.$translate.instant('Please fill the name of the game'))
+          .placeholder(this.$translate.instant("Game's name"))
+          .ariaLabel(this.$translate.instant("Game's name"))
+          .targetEvent(event)
+          //.required(true) TODO check why required is not available
+          .ok(this.$translate.instant('Ok'))
+          .cancel(this.$translate.instant('Cancel'));
+
         let self = this;
-        this.popupService.show(
-            this.popupStartGameConfig.id,
-            function(popupDomElementId, choice, text) {
-                if (choice === self.constants.choices.ok) {
-                    self.startGame(adventure.id, text);
-                }
-            }
-        );
+        this.$mdDialog.show(confirm).then(function(result) {
+            self.startGame(adventure.id, result);
+        }, function() {
+        });
     }
 
     deleteAdventure(adventure) {
@@ -247,20 +238,6 @@ class GamesListController {
             },
             function(reason) {
                 self.initData();
-            }
-        );
-    }
-
-    displayImportActions() {
-        let self = this;
-        this.popupService.show(
-            this.popupDisplayImportActionsConfig.id,
-            function(popupDomElementId, choice) {
-                if (choice === self.constants.choices.game) {
-                    self.displayImportGamePopup();
-                } else if (choice === self.constants.choices.adventure) {
-                    self.displayImportAdventurePopup();
-                 }
             }
         );
     }

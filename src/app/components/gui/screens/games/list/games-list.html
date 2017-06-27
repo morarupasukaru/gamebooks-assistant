@@ -21,7 +21,7 @@
                         <md-menu-item><md-button ng-click="$ctrl.displayRemoveAdventurePopup($event, adventure)">{{ 'Remove' | translate }}</md-button></md-menu-item>
                         <md-menu-item><md-button ng-click="$ctrl.exportAdventure(adventure.id)">{{ 'Export' | translate }}</md-button></md-menu-item>
                         <md-menu-item><md-button ng-click="$ctrl.downloadAdventure(adventure)">{{ 'Download' | translate }}</md-button></md-menu-item>
-                        <md-menu-item><md-button ng-click="$ctrl.displayStartGamePopup(adventure)">{{ 'Create a game' | translate }}</md-button></md-menu-item>
+                        <md-menu-item><md-button ng-click="$ctrl.displayStartGamePopup($event, adventure)">{{ 'Create a game' | translate }}</md-button></md-menu-item>
                     </md-menu-content>
                 </md-menu>
 
@@ -53,10 +53,18 @@
                    aria-label="{{ 'Create an adventure' | translate }}"
                    title="{{ 'Create an adventure' | translate }}"
                    ng-click="$ctrl.createAdventure()">{{ 'Create an adventure' | translate }}</md-button>
-        <md-button class="md-raised"
-                   aria-label="{{ 'Import' | translate }}"
-                   title="{{ 'Import' | translate }}"
-                   ng-click="$ctrl.displayImportActions()">{{ 'Import' | translate }}</md-button>
+        <md-menu>
+            <md-button ng-click="$mdMenu.open($event)"
+                       class="md-raised"
+                       aria-label="{{ 'Import' | translate}}"
+                       title="{{ 'Import' | translate}}">
+                {{ 'Import' | translate }}
+            </md-button>
+            <md-menu-content>
+                <md-menu-item><md-button ng-click="$ctrl.displayImportAdventurePopup()">{{ 'Adventure' | translate }}</md-button></md-menu-item>
+                <md-menu-item><md-button ng-click="$ctrl.displayImportGamePopup()">{{ 'Game' | translate }}</md-button></md-menu-item>
+            </md-menu-content>
+        </md-menu>
     </div>
 </main>
 <footnote></footnote>
@@ -65,7 +73,5 @@
 <a id="linkDownloadExportGame" ng-show="false" ng-href="{{$ctrl.exportDownloadBlobUrl}}" download="exportGame.txt">download game (link hidden)</a>
 
 <popup config="{{ $ctrl.popupDownloadAdventureConfig }}"></popup>
-<popup config="{{ $ctrl.popupDisplayImportActionsConfig }}"></popup>
-<popup config="{{ $ctrl.popupStartGameConfig }}"></popup>
 <import-data-popup config="$ctrl.popupImportAdventureConfig"></import-data-popup>
 <import-data-popup config="$ctrl.popupImportGameConfig"></import-data-popup>

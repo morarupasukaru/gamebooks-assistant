@@ -86,6 +86,7 @@ const frenchTranslations = {
     'fr': 'Français',
     'Français': 'Français',
     'Game': 'Partie',
+    "Game's name": 'Nom de la partie',
     "Game's rules": 'Règles de jeu',
     "Game's rules paragraph": "Paragraphe des règles du jeu",
     'GameAlreadyExists': "Le jeu existe déjà avec l'id '{{ gameId }}'",

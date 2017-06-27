@@ -1,7 +1,8 @@
 
 angular material
     https://docs.angularjs.org/api/ngMessages
-
+    TODO check why prompt.required is not available
+    local fonts (or local icons)
 
 Project status: suspended because of other on-going projects
 
