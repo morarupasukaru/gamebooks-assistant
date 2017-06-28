@@ -10,7 +10,8 @@
     "angular-ui-router": "0.3.2",
     "angular-material": "1.1.4",
     "angular-animate": "1.5.8",
-    "angular-aria": "1.5.8"
+    "angular-aria": "1.5.8",
+    "lf-ng-md-file-input": "1.5.2"
   },
   "devDependencies": {
     "babel-loader": "^6.2.5",
