@@ -9,177 +9,136 @@
             <section>
                 <md-subheader class="md-primary">{{ 'General' | translate }}</md-subheader>
                 <md-content layout-padding>
-                    <div>
-                        <md-input-container class="md-block" ng-if="!$ctrl.adventure.id">
-                            <label>{{ 'Name' | translate }}</label>
-                            <input id="name" ng-model="$ctrl.adventure.name" required>
-                        </md-input-container>
+                    <md-input-container class="md-block" ng-if="!$ctrl.adventure.id">
+                        <label>{{ 'Name' | translate }}</label>
+                        <input id="name" ng-model="$ctrl.adventure.name" required>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>{{ 'Serie' | translate }}</label>
+                        <input id="serie" ng-model="$ctrl.adventure.serie">
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>{{ 'Author(s)' | translate }}</label>
+                        <input id="authors" ng-model="$ctrl.adventure.authors" required>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>{{ 'Description' | translate }}</label>
+                        <textarea id="description" ng-model="$ctrl.adventure.description" md-maxlength="2000" rows="3" md-select-on-focus></textarea>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>{{ 'Version' | translate }}</label>
+                        <input id="version" ng-model="$ctrl.adventure.version" required>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>{{ 'Language' | translate }}</label>
+                        <input id="language" ng-model="$ctrl.adventure.language" required>
+                    </md-input-container>
 
-                        <md-input-container class="md-block">
-                            <label>{{ 'Serie' | translate }}</label>
-                            <input id="serie" ng-model="$ctrl.adventure.serie">
-                        </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>{{ 'Homepage' | translate }}</label>
+                        <input id="homepage" ng-model="$ctrl.adventure.homepage">
+                    </md-input-container>
 
-                        <md-input-container class="md-block">
-                            <label>{{ 'Author(s)' | translate }}</label>
-                            <input id="authors" ng-model="$ctrl.adventure.authors" required>
-                        </md-input-container>
-
-                        <md-input-container class="md-block">
-                            <label>{{ 'Description' | translate }}</label>
-                            <textarea id="description" ng-model="$ctrl.adventure.description" md-maxlength="2000" rows="3" md-select-on-focus></textarea>
-                        </md-input-container>
-
-                        <md-input-container class="md-block">
-                            <label>Address</label>
-                            <input ng-model="user.address">
-                        </md-input-container>
-                        <div class="form-group">
-                            <label for="version">{{ 'Version' | translate }}</label>
-                            <input type="text" class="form-control" id="version" ng-model="$ctrl.adventure.version" required>
-                        </div>
-
-                        <md-input-container class="md-block">
-                            <label>Address</label>
-                            <input ng-model="user.address">
-                        </md-input-container>
-                        <div class="form-group">
-                            <label for="language">{{ 'Language' | translate }}</label>
-                            <input type="text" class="form-control" id="language" ng-model="$ctrl.adventure.language" required>
-                        </div>
-
-                        <md-input-container class="md-block">
-                            <label>Address</label>
-                            <input ng-model="user.address">
-                        </md-input-container>
-                        <div class="form-group">
-                            <label for="homepage">{{ 'Homepage' | translate }}</label>
-                            <input type="text" class="form-control" id="homepage" ng-model="$ctrl.adventure.homepage">
-                        </div>
-
-                        <md-input-container class="md-block">
-                            <label>Address</label>
-                            <input ng-model="user.address">
-                        </md-input-container>
-                        <div class="form-group">
-                            <label for="isbn">{{ 'ISBN' | translate }}</label>
-                            <input type="text" class="form-control" id="isbn" ng-model="$ctrl.adventure.isbn">
-                        </div>
-
-                        <md-input-container class="md-block">
-                            <label>Address</label>
-                            <input ng-model="user.address">
-                        </md-input-container>
-                        <div class="form-group">
-                            <label for="startParagraphId">{{ 'First paragraph' | translate }}</label>
-                            <input type="text" class="form-control" id="startParagraphId" ng-model="$ctrl.adventure.startParagraphId" required>
-                        </div>
-
-                        <md-input-container class="md-block">
-                            <label>Address</label>
-                            <input ng-model="user.address">
-                        </md-input-container>
-                        <div class="form-group">
-                            <label for="gameRulesParagraphId">{{ "Game's rules paragraph" | translate }}</label>
-                            <input type="text" class="form-control" id="gameRulesParagraphId" ng-model="$ctrl.adventure.gameRulesParagraphId">
-                        </div>
-
-                        <md-input-container class="md-block">
-                            <label>Address</label>
-                            <input ng-model="user.address">
-                        </md-input-container>
-                        <div class="form-group">
-                            <label for="homepage">{{ 'Download URL' | translate }}</label>
-                            <input type="text" class="form-control" id="homepage" ng-model="$ctrl.adventure.downloadUrl">
-                        </div>
-                    </div>
+                    <md-input-container class="md-block">
+                        <label>{{ 'ISBN' | translate }}</label>
+                        <input id="isbn" ng-model="$ctrl.adventure.isbn">
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>{{ 'First paragraph' | translate }}</label>
+                        <input id="startParagraphId" ng-model="$ctrl.adventure.startParagraphId" required>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>{{ "Game's rules paragraph" | translate }}</label>
+                        <input id="gameRulesParagraphId" ng-model="$ctrl.adventure.gameRulesParagraphId">
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>{{ 'Download URL' | translate }}</label>
+                        <input id="homepage" ng-model="$ctrl.adventure.downloadUrl">
+                    </md-input-container>
                 </md-content>
             </section>
 
-            <section>
-                <md-subheader class="md-primary">{{ 'Features' | translate }}</md-subheader>
-                <md-content layout-padding>
-                    <div>
+            <div layout="column" ng-cloak class="md-inline-form" ng-if="$ctrl.adventure.toggles.dices">
+                <section>
+                    <md-subheader class="md-primary">{{ 'Dices' | translate }}</md-subheader>
+
+                    <md-content layout-padding>
                         <md-input-container class="md-block">
-                            <label>Address</label>
-                            <input ng-model="user.address">
+                            <label>{{ "Minimal dice's value" | translate }}</label>
+                            <input id="diceMin"
+                                   type="number"
+                                   ng-model="$ctrl.adventure.dice.min"
+                                   ng-required="$ctrl.adventure.toggles.dices">
                         </md-input-container>
+                        <md-input-container class="md-block">
+                            <label>{{ "Maximal dice's value" | translate }}</label>
+                            <input id="diceMax"
+                                   type="number"
+                                   ng-model="$ctrl.adventure.dice.max"
+                                   ng-required="$ctrl.adventure.toggles.dices">
+                        </md-input-container>
+                    </md-content>
+                </section>
+            </div>
+
+            <div layout="column" ng-cloak class="md-inline-form">
+                <section>
+                    <md-subheader class="md-primary">{{ 'Lists' | translate }}</md-subheader>
+                    <list entries="$ctrl.adventure.lists.keys" on-save="$ctrl.onListSave(entries)"></list>
+
+                    <div ng-repeat="list in $ctrl.adventure.lists.keys">
+                        <md-subheader class="md-primary">{{ list }}</md-subheader>
+                        <list entries="$ctrl.adventure.lists.values[list]" on-save="$ctrl.onSubListSave(list, entries)"></list>
+                        <md-content layout-padding>
+                            <md-input-container class="md-block">
+                                <md-checkbox value=""
+                                             ng-model="$ctrl.adventure.lists.keepOnRestart[list]"
+                                             aria-label="{{ 'Keep on restart' | translate }}">
+                                    {{ 'Keep on restart' | translate }}
+                                </md-checkbox>
+                            </md-input-container>
+                        </md-content>
                     </div>
-                </md-content>
-            </section>
+                </section>
+            </div>
+
+            <fieldset class="standard" >
+                <legend>{{ 'Features' | translate }}</legend>
+                <div layout="row" layout-wrap flex>
+                    <div flex="50">
+                        <md-checkbox ng-model="$ctrl.adventure.toggles.characters"
+                                     aria-label="{{ 'Enable characters with stats' | translate }}">
+                            {{ 'Enable characters with stats' | translate }}
+                        </md-checkbox>
+                    </div>
+                    <div flex="50">
+                        <md-checkbox ng-model="$ctrl.adventure.toggles.dices"
+                                     aria-label="{{ 'Enable dices' | translate }}">
+                            {{ 'Enable dices' | translate }}
+                        </md-checkbox>
+                    </div>
+                    <div flex="50">
+                        <md-checkbox ng-model="$ctrl.adventure.toggles.goto"
+                                     aria-label="{{ 'Enable Go to paragraph' | translate }}">
+                            {{ 'Enable Go to paragraph' | translate }}
+                        </md-checkbox>
+                    </div>
+                    <div flex="50">
+                        <md-checkbox ng-model="$ctrl.adventure.toggles.map"
+                                     aria-label="{{ 'Enable map' | translate }}">
+                            {{ 'Enable map' | translate }}
+                        </md-checkbox>
+                    </div>
+                </div>
+            </fieldset>
         </div>
     </form>
 
-    <!-- TODO align button -->
     <back-button></back-button>
     <md-button class="md-raised md-primary"
                aria-label="{{ 'Save changes' | translate }}"
                title="{{ 'Save changes' | translate }}"
                ng-click="$ctrl.save(adventureTableForm)">{{ 'Save' | translate }}
     </md-button>
-
-    <div class="container bg-white" role="main">
-        <div class="col-md-12">
-            <form>
-                <h2>{{ 'Features' | translate }}</h2>
-
-                <div>
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" value="" ng-model="$ctrl.adventure.toggles.characters">
-                            {{ 'Enable characters with stats' | translate }}
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" value="" ng-model="$ctrl.adventure.toggles.dices">
-                            {{ 'Enable dices' | translate }}
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" value="" ng-model="$ctrl.adventure.toggles.goto">
-                            {{ 'Enable Go to paragraph' | translate }}
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" value="" ng-model="$ctrl.adventure.toggles.map">
-                            {{ 'Enable map' | translate }}
-                        </label>
-                    </div>
-                </div>
-
-                <div ng-if="$ctrl.adventure.toggles.dices">
-                    <h2>{{ 'Dices' | translate }}</h2>
-                    <div>
-                        <div class="form-group">
-                            <label for="diceMin">{{ "Minimal dice's value" | translate }}</label>
-                            <input type="number" class="form-control" id="diceMin" ng-model="$ctrl.adventure.dice.min"
-                                   ng-required="$ctrl.adventure.toggles.dices">
-                        </div>
-                        <div class="form-group">
-                            <label for="diceMax">{{ "Maximal dice's value" | translate }}</label>
-                            <input type="number" class="form-control" id="diceMax" ng-model="$ctrl.adventure.dice.max"
-                                   ng-required="$ctrl.adventure.toggles.dices">
-                        </div>
-                    </div>
-                </div>
-
-                <h2>{{ 'Lists' | translate }}</h2>
-                <list entries="$ctrl.adventure.lists.keys" on-save="$ctrl.onListSave(entries)"></list>
-
-                <div ng-repeat="list in $ctrl.adventure.lists.keys">
-                    <h2>{{ list }}</h2>
-                    <list entries="$ctrl.adventure.lists.values[list]" on-save="$ctrl.onSubListSave(list, entries)"></list>
-
-                    <label>
-                        <input type="checkbox" value="" ng-model="$ctrl.adventure.lists.keepOnRestart[list]">
-                        {{ 'Keep on restart' | translate }}
-                    </label>
-                </div>
-            </form>
-        </div>
-    </div>
 </main>
 <footnote></footnote>
