@@ -58,50 +58,6 @@
                 </md-content>
             </section>
 
-            <div layout="column" ng-cloak class="md-inline-form" ng-if="$ctrl.adventure.toggles.dices">
-                <section>
-                    <md-subheader class="md-primary">{{ 'Dices' | translate }}</md-subheader>
-
-                    <md-content layout-padding>
-                        <md-input-container class="md-block">
-                            <label>{{ "Minimal dice's value" | translate }}</label>
-                            <input id="diceMin"
-                                   type="number"
-                                   ng-model="$ctrl.adventure.dice.min"
-                                   ng-required="$ctrl.adventure.toggles.dices">
-                        </md-input-container>
-                        <md-input-container class="md-block">
-                            <label>{{ "Maximal dice's value" | translate }}</label>
-                            <input id="diceMax"
-                                   type="number"
-                                   ng-model="$ctrl.adventure.dice.max"
-                                   ng-required="$ctrl.adventure.toggles.dices">
-                        </md-input-container>
-                    </md-content>
-                </section>
-            </div>
-
-            <div layout="column" ng-cloak class="md-inline-form">
-                <section>
-                    <md-subheader class="md-primary">{{ 'Lists' | translate }}</md-subheader>
-                    <list entries="$ctrl.adventure.lists.keys" on-save="$ctrl.onListSave(entries)"></list>
-
-                    <div ng-repeat="list in $ctrl.adventure.lists.keys">
-                        <md-subheader class="md-primary">{{ list }}</md-subheader>
-                        <list entries="$ctrl.adventure.lists.values[list]" on-save="$ctrl.onSubListSave(list, entries)"></list>
-                        <md-content layout-padding>
-                            <md-input-container class="md-block">
-                                <md-checkbox value=""
-                                             ng-model="$ctrl.adventure.lists.keepOnRestart[list]"
-                                             aria-label="{{ 'Keep on restart' | translate }}">
-                                    {{ 'Keep on restart' | translate }}
-                                </md-checkbox>
-                            </md-input-container>
-                        </md-content>
-                    </div>
-                </section>
-            </div>
-
             <fieldset class="standard" >
                 <legend>{{ 'Features' | translate }}</legend>
                 <div layout="row" layout-wrap flex>
@@ -131,6 +87,52 @@
                     </div>
                 </div>
             </fieldset>
+
+            <div layout="column" ng-cloak class="md-inline-form" ng-if="$ctrl.adventure.toggles.dices">
+                <section>
+                    <md-subheader class="md-primary">{{ 'Dices' | translate }}</md-subheader>
+
+                    <md-content layout-padding>
+                        <md-input-container class="md-block">
+                            <label>{{ "Minimal dice's value" | translate }}</label>
+                            <input id="diceMin"
+                                   type="number"
+                                   ng-model="$ctrl.adventure.dice.min"
+                                   ng-required="$ctrl.adventure.toggles.dices">
+                        </md-input-container>
+                        <md-input-container class="md-block">
+                            <label>{{ "Maximal dice's value" | translate }}</label>
+                            <input id="diceMax"
+                                   type="number"
+                                   ng-model="$ctrl.adventure.dice.max"
+                                   ng-required="$ctrl.adventure.toggles.dices">
+                        </md-input-container>
+                    </md-content>
+                </section>
+            </div>
+
+            <div layout="column" ng-cloak class="md-inline-form">
+                <section>
+                    <md-subheader class="md-primary">{{ 'Lists' | translate }}</md-subheader>
+                    <list entries="$ctrl.adventure.lists.keys" on-save="$ctrl.onListSave(entries)"></list>
+                    <md-divider ></md-divider>
+
+                    <div ng-repeat="list in $ctrl.adventure.lists.keys">
+                        <md-subheader class="md-primary">{{ list }}</md-subheader>
+                        <list entries="$ctrl.adventure.lists.values[list]" on-save="$ctrl.onSubListSave(list, entries)"></list>
+                        <md-content layout-padding>
+                            <md-input-container class="md-block">
+                                <md-checkbox value=""
+                                             ng-model="$ctrl.adventure.lists.keepOnRestart[list]"
+                                             aria-label="{{ 'Keep on restart' | translate }}">
+                                    {{ 'Keep on restart' | translate }}
+                                </md-checkbox>
+                            </md-input-container>
+                        </md-content>
+                        <md-divider ></md-divider>
+                    </div>
+                </section>
+            </div>
         </div>
     </form>
 
