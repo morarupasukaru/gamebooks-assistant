@@ -1,25 +1,33 @@
-<br>
-<footer role="contentinfo">
-    <div class="container">
-        <p class="text-muted">
-            <a ui-sref="gamesList">
-                {{ 'Home' | translate}}
-            </a>
-            -
-            <a ui-sref="credits">
-                {{ 'Credits' | translate}}
-            </a>
-            -
-            <a href="https://opensource.org/licenses/MIT">
-                {{ 'MIT License' | translate}}
-            </a>
-            -
-            <a ng-repeat="language in $ctrl.supportedLanguages"
-               href ng-click="$ctrl.changeLanguage(language.code)"
-               aria-label="{{ 'Change language to ' + language.code | translate}}"
-               title="{{ 'Change language to ' + language.code | translate}}">
-                {{ language.code }}
-            </a>
-        </p>
+<div layout="row">
+    <div flex="20" hide-sm hide-xs>
     </div>
-</footer>
+    <div flex>
+        <footer role="contentinfo">
+            <div class="container">
+                <p class="text-muted">
+                    <a ui-sref="gamesList">
+                        {{ 'Home' | translate}}
+                    </a>
+                    -
+                    <a ui-sref="credits">
+                        {{ 'Credits' | translate}}
+                    </a>
+                    -
+                    <a href="https://opensource.org/licenses/MIT">
+                        {{ 'MIT License' | translate}}
+                    </a>
+                    -
+                    <a ng-repeat="language in $ctrl.supportedLanguages"
+                       href ng-click="$ctrl.changeLanguage(language.code)"
+                       aria-label="{{ 'Change language to ' + language.code | translate}}"
+                       title="{{ 'Change language to ' + language.code | translate}}">
+                        {{ language.code }}
+                    </a>
+                </p>
+            </div>
+        </footer>
+    </div>
+    <div flex="20" hide-sm hide-xs>
+    </div>
+</div>
+

@@ -1,18 +1,26 @@
 <messages></messages>
 <main>
-    <div class="container bg-white" role="main">
-        <h1>{{ 'Credits' | translate }}</h1>
-        <div class="text-muted">{{ 'sorted alphabetically' | translate }}</div>
+    <div layout="row">
+        <div flex="20" hide-sm hide-xs>
+        </div>
+        <div flex>
+            <div class="container bg-white" role="main">
+                <h1>{{ 'Credits' | translate }}</h1>
+                <div class="text-muted">{{ 'sorted alphabetically' | translate }}</div>
 
-        <ul>
-            <li ng-repeat="credit in $ctrl.credits">
-                <a href="{{ credit.url }}" target="_blank">{{ credit.resourceName }}</a>
-                <ng-if ng-if="!!credit.author">{{ 'by' | translate }} {{ credit.author }}</ng-if>
-                <ng-if ng-if="!!credit.description">({{ credit.description | translate }})</ng-if>
-            </li>
-        </ul>
+                <ul>
+                    <li ng-repeat="credit in $ctrl.credits">
+                        <a href="{{ credit.url }}" target="_blank">{{ credit.resourceName }}</a>
+                        <ng-if ng-if="!!credit.author">{{ 'by' | translate }} {{ credit.author }}</ng-if>
+                        <ng-if ng-if="!!credit.description">({{ credit.description | translate }})</ng-if>
+                    </li>
+                </ul>
 
-        <back-button></back-button>
+                <back-button></back-button>
+            </div>
+        </div>
+        <div flex="20" hide-sm hide-xs>
+        </div>
     </div>
 </main>
 <footnote></footnote>
