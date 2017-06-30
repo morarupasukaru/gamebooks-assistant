@@ -25,6 +25,10 @@ class ToolbarController {
         this.$location.url('/credits');
     }
 
+    displayAdministration() {
+        this.$location.url('/administration');
+    }
+
     displayLicenses() {
         this.$window.open('https://opensource.org/licenses/MIT');
     }

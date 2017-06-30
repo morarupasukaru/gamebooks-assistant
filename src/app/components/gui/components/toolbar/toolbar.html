@@ -6,6 +6,12 @@
             <div class="md-toolbar-tools">
                 <md-truncate>{{ $controller.title }}</md-truncate>
                 <span flex></span>
+                <md-button ng-click="$controller.displayHome()"
+                           class="md-icon-button"
+                           aria-label="{{ 'Home' | translate}}"
+                           title="{{ 'Home' | translate}}">
+                    <md-icon ng-bind="'home'"></md-icon>
+                </md-button>
                 <md-menu ng-if="!adventure.missingAdventure">
                     <md-button ng-click="$mdMenu.open($event)"
                                class="md-icon-button"
@@ -14,12 +20,6 @@
                         <md-icon ng-bind="'menu'"></md-icon>
                     </md-button>
                     <md-menu-content>
-                        <md-menu-item>
-                            <md-button ng-click="$controller.displayHome()">
-                                {{ 'Home' | translate}}
-                            </md-button>
-                        </md-menu-item>
-                        <md-menu-divider></md-menu-divider>
                         <md-menu-item ng-repeat="language in $controller.supportedLanguages">
                             <md-button ng-click="$controller.changeLanguage(language.code)"
                                        aria-label="{{ 'Change language to ' + language.code | translate}}"
@@ -31,6 +31,11 @@
                         <md-menu-item>
                             <md-button ng-click="$controller.displayCredits()">
                                 {{ 'Credits' | translate}}
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button ng-click="$controller.displayAdministration()">
+                                {{ 'Administration' | translate}}
                             </md-button>
                         </md-menu-item>
                         <md-menu-item>
