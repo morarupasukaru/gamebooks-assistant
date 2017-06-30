@@ -1,3 +1,4 @@
+<toolbar title="Gamebook Assistant"></toolbar>
 <messages></messages>
 <main>
     <div layout="row">
@@ -7,6 +8,7 @@
             <div class="container bg-white" role="main">
                 <div class="page-header">
                     <h1>
+                        {{ 'Paragraph' | translate }} {{ $ctrl.paragraph.paragraphNr }}
                         {{ 'Paragraph' | translate }} {{ $ctrl.paragraph.paragraphNr }}
                         {{ !!$ctrl.paragraph.tag ? '(' + $ctrl.paragraph.tag +  ')' : '' }}
                         <button type="button"
@@ -79,4 +81,3 @@
         </div>
     </div>
 </main>
-<footnote></footnote>

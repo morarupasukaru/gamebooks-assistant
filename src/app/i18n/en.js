@@ -8,7 +8,6 @@ const englishTranslations = {
     "All existing application's data will be erased during the import. Are you sure to import the application data?": "All existing application's data will be erased during the import. Are you sure to import the application data?",
     "Application's data": "Application's data",
     "Application's version": "Application's version",
-    'application.description': "ease the resolution of gamebooks",
     'Are you sure to clear the application data?': 'Are you sure to clear the application data?',
     'Are you sure to download the selected adventure? Existing games could be non-playable after the update if the new version is not retro-compatible': 'Are you sure to download the selected adventure? Existing games could be non-playable after the update if the new version is not retro-compatible',
     'Are you sure to restart the selected game?': 'Are you sure to restart the selected game?',

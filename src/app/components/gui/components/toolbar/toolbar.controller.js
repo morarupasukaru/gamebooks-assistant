@@ -1,8 +1,9 @@
-class FootnoteController {
-
+class ToolbarController {
     /*@ngInject*/
-    constructor(languagePickerService) {
+    constructor(languagePickerService, $location, $window) {
         this.languagePickerService = languagePickerService;
+        this.$location = $location;
+        this.$window = $window;
         this.initData();
     }
 
@@ -15,6 +16,18 @@ class FootnoteController {
         this.language = selectedLanguage;
         this.languagePickerService.changeLanguage(selectedLanguage);
     }
+
+    displayHome() {
+        this.$location.url('/');
+    }
+
+    displayCredits() {
+        this.$location.url('/credits');
+    }
+
+    displayLicenses() {
+        this.$window.open('https://opensource.org/licenses/MIT');
+    }
 }
 
-export default FootnoteController;
+export default ToolbarController;

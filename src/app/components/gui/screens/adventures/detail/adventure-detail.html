@@ -1,13 +1,10 @@
+<toolbar title="{{ $ctrl.adventure.name }}"></toolbar>
 <messages></messages>
 <main>
     <div layout="row">
         <div flex="20" hide-sm hide-xs>
         </div>
         <div flex>
-            <md-toolbar md-scroll-shrink>
-                <div class="md-toolbar-tools">{{ $ctrl.adventure.name }}</div>
-            </md-toolbar>
-
             <form name="adventureTableForm" novalidate="novalidate" ng-submit="$ctrl.save()">
                 <div layout="column" ng-cloak class="md-inline-form">
                     <section>
@@ -150,4 +147,3 @@
         </div>
     </div>
 </main>
-<footnote></footnote>

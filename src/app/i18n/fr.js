@@ -8,7 +8,6 @@ const frenchTranslations = {
     "All existing application's data will be erased during the import. Are you sure to import the application data?": "Toutes les données de l'application seront supprimées durant l'importation. Etes-vous certain(e) de vouloir importer les données?",
     "Application's data": "Données de l'application",
     "Application's version": "Version de l'application",
-    'application.description': "facilite la résolution de livres-jeux",
     'Are you sure to clear the application data?': "Etes-vous certain(e) de vouloir supprimer les données de l'application?",
     'Are you sure to download the selected adventure? Existing games could be non-playable after the update if the new version is not retro-compatible': "Etes-vous certain(e) de vouloir télécharger l'aventure sélectionnée? Les parties existantes pourraient ne plus être jouable suite à la mise-à-jour si celle-ci ne supporte pas de retro-compatibilité",
     'Are you sure to restart the selected game?': 'Etes-vous certain(e) de vouloir recommencer la partie séléectionnée?',

@@ -1,5 +1,5 @@
+<toolbar title="Gamebook Assistant"></toolbar>
 <messages></messages>
-<about></about>
 <main>
     <div layout="row">
         <div flex="20" hide-sm hide-xs>
@@ -13,7 +13,7 @@
                     </span>
                     <md-menu ng-if="!adventure.missingAdventure">
                         <md-button ng-click="$mdMenu.open($event)"
-                                   class="md-fab"
+                                   class="md-fab md-mini"
                                    aria-label="{{ 'Display actions' | translate}}"
                                    title="{{ 'Display actions' | translate}}">
                             <md-icon ng-bind="'menu'"></md-icon>
@@ -51,7 +51,7 @@
                             </span>
                             <md-menu>
                                 <md-button ng-click="$mdMenu.open($event)"
-                                           class="md-fab"
+                                           class="md-fab md-mini"
                                            aria-label="{{ 'Display actions' | translate}}"
                                            title="{{ 'Display actions' | translate}}">
                                     <md-icon ng-bind="'menu'"></md-icon>
@@ -108,9 +108,7 @@
         <div flex="20" hide-sm hide-xs>
         </div>
     </div>
-
 </main>
-<footnote></footnote>
 
 <a id="linkDownloadExportAdventure" ng-show="false" ng-href="{{$ctrl.exportDownloadBlobUrl}}"
    download="exportAdventure.txt">download adventure (link hidden)</a>
