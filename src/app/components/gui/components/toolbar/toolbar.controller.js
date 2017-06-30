@@ -18,7 +18,7 @@ class ToolbarController {
     }
 
     displayHome() {
-        this.$location.url('/');
+        this.$location.url('/games');
     }
 
     displayCredits() {
