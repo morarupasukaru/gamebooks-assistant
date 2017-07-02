@@ -1,53 +1,51 @@
 <toolbar title="Gamebook Assistant"></toolbar>
 <messages></messages>
 <main>
-    <div layout="row">
+    <div layout="row"  role="contentinfo">
         <div flex="20" hide-sm hide-xs>
         </div>
         <div flex>
-            <div class="container bg-white" role="contentinfo">
-                <div class="col-md-12">
-                    <form>
-                        <div>
-                            <div class="form-group">
-                                <label for="appVersion">{{ "Application's version" | translate }}</label>
-                                <div id="appVersion">{{ $ctrl.appVersion }}</div>
-                            </div>
-                            <div class="form-group">
-                                <label for="usedLocalStorageInPercent">{{ "Used Local's Storage in Percent" | translate }}</label>
-                                <input type="text" class="form-control" id="usedLocalStorageInPercent" value="{{ $ctrl.usedLocalStorageInPercent | number : 2}}%">
-                            </div>
-                            <div class="form-group">
-                                <label for="usedLocalStorage">{{ "Used Local's Storage" | translate }}</label>
-                                <input type="text" class="form-control" id="usedLocalStorage" value="{{$ctrl.usedLocalStorage / 1024 | number : 2 }}kb">
-                            </div>
-                            <div class="form-group">
-                                <label for="remainingCapacity">{{ "Remaining Local's Storage" | translate }}</label>
-                                <input type="text" class="form-control" id="remainingCapacity" value="{{$ctrl.remainingCapacity / 1024 | number : 2 }}kb">
-                            </div>
-                            <div class="form-group">
-                                <label for="applicationData">{{ "Application's data" | translate }}</label>
-                                <input type="text" class="form-control" id="applicationData" ng-model="$ctrl.applicationData">
-                            </div>
-                            <div class="form-group">
-                                <label for="importData">{{ "Paste the application's data copied from another browser" | translate }}</label>
-                                <input type="text" class="form-control" ng-model="$ctrl.importData" id="importData" placeholder="{{ 'Imported data' | translate }}">
-                            </div>
-                            <div class="form-group">
-                                <button class="btn btn-danger" ng-click="$ctrl.showPopupConfirmImportData()" aria-label="{{ 'Import' | translate }}">{{ 'Import' | translate }}</button>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="form-group">
-                                <button class="btn btn-danger" ng-click="$ctrl.showPopupConfirmDeleteApplicationData()" aria-label="{{ 'Delete application\'s data' | translate }}">{{ "Delete application's data" | translate }}</button>
-                            </div>
-                        </div>
-                        <back-button></back-button>
-                    </form>
+            <div layout="column" ng-cloak class="md-inline-form">
+                <md-content layout-padding>
+                    <div>
+                        <form>
+                            <div>
+                                <section>
+                                    <md-input-container class="md-block">
+                                        <label>{{ "Application's version" | translate }}</label>
+                                        <input ng-model="$ctrl.appVersion" disabled>
+                                    </md-input-container>
 
-                    <popup config="{{ $ctrl.popupConfirmImportApplicationDataConfig }}"></popup>
-                    <popup config="{{ $ctrl.popupConfirmDeleteApplicationDataConfig }}"></popup>
-                </div>
+                                    <md-input-container class="md-block">
+                                        <label>{{ "Used Local's Storage" | translate }}</label>
+                                        <input value="{{$ctrl.usedLocalStorage / 1024 | number : 2 }} / {{$ctrl.remainingCapacity / 1024 | number : 2 }}kb ({{ $ctrl.usedLocalStorageInPercent | number : 2}}%)" disabled>
+                                    </md-input-container>
+
+                                    <div class="form-group">
+                                        <label for="applicationData">{{ "Application's data" | translate }}</label>
+                                        <input type="text" class="form-control" id="applicationData" ng-model="$ctrl.applicationData">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="importData">{{ "Paste the application's data copied from another browser" | translate }}</label>
+                                        <input type="text" class="form-control" ng-model="$ctrl.importData" id="importData" placeholder="{{ 'Imported data' | translate }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-danger" ng-click="$ctrl.showPopupConfirmImportData()" aria-label="{{ 'Import' | translate }}">{{ 'Import' | translate }}</button>
+                                    </div>
+                                </section>
+                            </div>
+                            <div>
+                                <div class="form-group">
+                                    <button class="btn btn-danger" ng-click="$ctrl.showPopupConfirmDeleteApplicationData()" aria-label="{{ 'Delete application\'s data' | translate }}">{{ "Delete application's data" | translate }}</button>
+                                </div>
+                            </div>
+                            <back-button></back-button>
+                        </form>
+
+                        <popup config="{{ $ctrl.popupConfirmImportApplicationDataConfig }}"></popup>
+                        <popup config="{{ $ctrl.popupConfirmDeleteApplicationDataConfig }}"></popup>
+                    </div>
+                </md-content>
             </div>
         </div>
         <div flex="20" hide-sm hide-xs>

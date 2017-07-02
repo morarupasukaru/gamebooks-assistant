@@ -1,7 +1,7 @@
 class HomeController {
     /*@ngInject*/
-    constructor($location, constants) {
-        $location.url(constants.url.games);
+    constructor($location) {
+        $location.url('/games');
     }
 }
 
