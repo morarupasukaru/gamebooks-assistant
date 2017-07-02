@@ -21,14 +21,16 @@
                                         <input value="{{$ctrl.usedLocalStorage / 1024 | number : 2 }} / {{$ctrl.remainingCapacity / 1024 | number : 2 }}kb ({{ $ctrl.usedLocalStorageInPercent | number : 2}}%)" disabled>
                                     </md-input-container>
 
-                                    <div class="form-group">
-                                        <label for="applicationData">{{ "Application's data" | translate }}</label>
-                                        <input type="text" class="form-control" id="applicationData" ng-model="$ctrl.applicationData">
-                                    </div>
+                                    <md-input-container class="md-block">
+                                        <label>{{ "Application's data" | translate }}</label>
+                                        <textarea ng-model="$ctrl.applicationData" rows="5" md-no-autogrow disabled></textarea>
+                                    </md-input-container>
+
                                     <div class="form-group">
                                         <label for="importData">{{ "Paste the application's data copied from another browser" | translate }}</label>
                                         <input type="text" class="form-control" ng-model="$ctrl.importData" id="importData" placeholder="{{ 'Imported data' | translate }}">
                                     </div>
+
                                     <div class="form-group">
                                         <button class="btn btn-danger" ng-click="$ctrl.showPopupConfirmImportData()" aria-label="{{ 'Import' | translate }}">{{ 'Import' | translate }}</button>
                                     </div>
