@@ -1,7 +1,7 @@
 <toolbar title="Gamebook Assistant"></toolbar>
 <messages></messages>
 <main>
-    <div layout="row"  role="contentinfo">
+    <div layout="row" role="contentinfo">
         <div flex="20" hide-sm hide-xs>
         </div>
         <div flex>
@@ -36,12 +36,13 @@
                                     </div>
                                 </section>
                             </div>
-                            <div>
-                                <div class="form-group">
-                                    <button class="btn btn-danger" ng-click="$ctrl.showPopupConfirmDeleteApplicationData()" aria-label="{{ 'Delete application\'s data' | translate }}">{{ "Delete application's data" | translate }}</button>
-                                </div>
-                            </div>
                             <back-button></back-button>
+                            <md-button class="md-raised md-primary"
+                                       aria-label="{{ 'Delete application\'s data' | translate }}"
+                                       title="{{ 'Delete application\'s data' | translate }}"
+                                       ng-click="$ctrl.showPopupConfirmDeleteApplicationData()">
+                                {{ 'Delete application\'s data' | translate }}
+                            </md-button>
                         </form>
 
                         <popup config="{{ $ctrl.popupConfirmImportApplicationDataConfig }}"></popup>
