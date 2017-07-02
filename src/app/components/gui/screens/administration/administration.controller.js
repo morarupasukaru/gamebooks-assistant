@@ -1,20 +1,13 @@
 class AdministrationController {
     /*@ngInject*/
-    constructor(persistenceService, adventurePersistenceService, constants, popupService, $window, $mdDialog, $translate) {
+    constructor(persistenceService, adventurePersistenceService, constants, $window, $mdDialog, $translate) {
         this.persistenceService = persistenceService;
         this.adventurePersistenceService = adventurePersistenceService;
         this.constants = constants;
-        this.popupService = popupService;
         this.initData();
         this.$window = $window;
         this.$mdDialog = $mdDialog;
         this.$translate = $translate;
-
-        this.popupConfirmImportApplicationDataConfig = {
-            id : 'popupConfirmImportApplicationData',
-            text : "All existing application's data will be erased during the import. Are you sure to import the application data?",
-            choices : [constants.choices.yes, constants.choices.no]
-        };
     }
 
     initData() {
@@ -33,17 +26,23 @@ class AdministrationController {
         this.usedLocalStorageInPercent = this.persistenceService.getUsedCapacityInPercent();
     }
 
-    showPopupConfirmImportData() {
+    showPopupConfirmImportData(event, adventure) {
+        // TODO textarea in dialog
+        let confirm = this.$mdDialog.prompt()
+          .title(this.$translate.instant("All existing application's data will be erased during the import. Are you sure to import the application data?"))
+          .placeholder(this.$translate.instant("Paste the application's data copied from another browser"))
+          .ariaLabel(this.$translate.instant("Paste the application's data copied from another browser"))
+          .targetEvent(event)
+          //.required(true) TODO check why required is not available
+          .ok(this.$translate.instant('Ok'))
+          .cancel(this.$translate.instant('Cancel'));
+
         let self = this;
-        this.popupService.show(
-            this.popupConfirmImportApplicationDataConfig.id,
-            function(popupDomElementId, choice) {
-                if (choice === self.constants.choices.yes) {
-                    self.persistenceService.import(self.importData);
-                    self.$window.location.reload();
-                }
-            }
-        );
+        this.$mdDialog.show(confirm).then(function(result) {
+            self.persistenceService.import(result);
+            self.$window.location.reload();
+        }, function() {
+        });
     }
 
     showPopupConfirmDeleteApplicationData() {

@@ -203,6 +203,15 @@ class GamesListController {
         });
     }
 
+    startGame(adventureId, gameName) {
+        let adventure = this.adventurePersistenceService.getAdventure(adventureId);
+        if (!adventure) {
+            this.messagesService.errorMessage(this.$translate.instant('CannotFindAdventure', { adventure: game.adventureId}), false)
+        } else {
+            this.continueGame(this.gamePersistenceService.startGame(adventureId, gameName));
+        }
+    }
+
     deleteAdventure(adventure) {
         this.adventurePersistenceService.deleteAdventureAndParagraphs(adventure.id);
         this.initData();
@@ -255,15 +264,6 @@ class GamesListController {
         }, function() {
             // cancel
         });
-    }
-
-    startGame(adventureId, gameName) {
-        let adventure = this.adventurePersistenceService.getAdventure(adventureId);
-        if (!adventure) {
-            this.messagesService.errorMessage(this.$translate.instant('CannotFindAdventure', { adventure: game.adventureId}), false)
-        } else {
-            this.continueGame(this.gamePersistenceService.startGame(adventureId, gameName));
-        }
     }
 
     restartGame(game) {
