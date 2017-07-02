@@ -1,4 +1,4 @@
-<toolbar title="Gamebook Assistant"></toolbar>
+<toolbar title="Gamebook Assistant - {{ 'Administration' | translate}}"></toolbar>
 <messages></messages>
 <main>
     <div layout="row" role="contentinfo">
@@ -23,7 +23,7 @@
 
                                     <md-input-container class="md-block">
                                         <label>{{ "Application's data" | translate }}</label>
-                                        <textarea ng-model="$ctrl.applicationData" rows="5" md-no-autogrow disabled></textarea>
+                                        <textarea ng-model="$ctrl.applicationData" rows="{{ $ctrl.applicationDataRows }}" md-no-autogrow disabled></textarea>
                                     </md-input-container>
 
                                     <div class="form-group">
@@ -46,7 +46,6 @@
                         </form>
 
                         <popup config="{{ $ctrl.popupConfirmImportApplicationDataConfig }}"></popup>
-                        <popup config="{{ $ctrl.popupConfirmDeleteApplicationDataConfig }}"></popup>
                     </div>
                 </md-content>
             </div>

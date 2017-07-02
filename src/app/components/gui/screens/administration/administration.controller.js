@@ -1,22 +1,18 @@
 class AdministrationController {
     /*@ngInject*/
-    constructor(persistenceService, adventurePersistenceService, constants, popupService, $window) {
+    constructor(persistenceService, adventurePersistenceService, constants, popupService, $window, $mdDialog, $translate) {
         this.persistenceService = persistenceService;
         this.adventurePersistenceService = adventurePersistenceService;
         this.constants = constants;
         this.popupService = popupService;
         this.initData();
         this.$window = $window;
+        this.$mdDialog = $mdDialog;
+        this.$translate = $translate;
 
         this.popupConfirmImportApplicationDataConfig = {
             id : 'popupConfirmImportApplicationData',
             text : "All existing application's data will be erased during the import. Are you sure to import the application data?",
-            choices : [constants.choices.yes, constants.choices.no]
-        };
-        
-        this.popupConfirmDeleteApplicationDataConfig = {
-            id : 'popupConfirmDeleteApplicationData',
-            text : 'Are you sure to clear the application data?',
             choices : [constants.choices.yes, constants.choices.no]
         };
     }
@@ -24,6 +20,10 @@ class AdministrationController {
     initData() {
         this.appVersion = this.constants.version;
         this.applicationData = this.persistenceService.export();
+        this.applicationDataRows = this.applicationData.length / 100;
+        if (this.applicationDataRows > 10) {
+            this.applicationDataRows = 10;
+        }
         this.computeLocalStorageCapacities();
     }
 
@@ -46,18 +46,20 @@ class AdministrationController {
         );
     }
 
-
     showPopupConfirmDeleteApplicationData() {
+        let confirm = this.$mdDialog.confirm()
+              .title(this.$translate.instant('Are you sure to clear the application data?'))
+              .targetEvent(event)
+              .ok(this.$translate.instant('Yes'))
+              .cancel(this.$translate.instant('No'));
+
         let self = this;
-        this.popupService.show(
-            this.popupConfirmDeleteApplicationDataConfig.id,
-            function(popupDomElementId, choice) {
-                if (choice === self.constants.choices.yes) {
-                    self.persistenceService.cleanAllData();
-                    self.$window.location.reload();
-                }
-            }
-        );
+        this.$mdDialog.show(confirm).then(function() {
+            self.persistenceService.cleanAllData();
+            self.$window.location.reload();
+        }, function() {
+            // cancel
+        });
     }
 }
 

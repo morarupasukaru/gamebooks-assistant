@@ -1,12 +1,11 @@
 class BackButtonController {
     /*@ngInject*/
-    constructor($location, constants) {
+    constructor($location) {
         this.$location = $location;
-        this.constants = constants;
     }
 
     back() {
-        this.$location.url(this.constants.url.games);
+        this.$location.url('/games');
     }
 }
 
