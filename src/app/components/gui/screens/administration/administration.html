@@ -6,10 +6,16 @@
         </div>
         <div flex>
             <div layout="column" ng-cloak class="md-inline-form">
+                <md-content layout-padding ng-if="!!$ctrl.loading">
+                    <div layout="column" layout-align="center center">
+                        <h2>Please wait</h2>
+                        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                    </div>
+                </md-content>
                 <md-content layout-padding>
                     <div>
                         <form>
-                            <div>
+                            <div ng-if="!$ctrl.loading">
                                 <section>
                                     <md-input-container class="md-block">
                                         <label>{{ "Application's version" | translate }}</label>
@@ -31,13 +37,15 @@
                             <md-button class="md-raised"
                                        aria-label="{{ 'Import' | translate }}"
                                        title="{{ 'Import' | translate }}"
-                                       ng-click="$ctrl.showPopupConfirmImportData()">
+                                       ng-click="$ctrl.showPopupConfirmImportData()"
+                                       ng-if="!$ctrl.loading">
                                 {{ 'Import' | translate }}
                             </md-button>
                             <md-button class="md-raised"
                                        aria-label="{{ 'Delete application\'s data' | translate }}"
                                        title="{{ 'Delete application\'s data' | translate }}"
-                                       ng-click="$ctrl.showPopupConfirmDeleteApplicationData()">
+                                       ng-click="$ctrl.showPopupConfirmDeleteApplicationData()"
+                                       ng-if="!$ctrl.loading">
                                 {{ 'Delete application\'s data' | translate }}
                             </md-button>
                         </form>

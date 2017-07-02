@@ -12,12 +12,14 @@ class AdministrationController {
 
     initData() {
         this.appVersion = this.constants.version;
+        this.loading = true;
         this.applicationData = this.persistenceService.export();
         this.applicationDataRows = this.applicationData.length / 100;
         if (this.applicationDataRows > 10) {
             this.applicationDataRows = 10;
         }
         this.computeLocalStorageCapacities();
+        this.loading = true;
     }
 
     computeLocalStorageCapacities() {
