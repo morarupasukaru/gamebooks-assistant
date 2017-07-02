@@ -1,13 +1,15 @@
 class AdministrationController {
     /*@ngInject*/
-    constructor(persistenceService, adventurePersistenceService, constants, $window, $mdDialog, $translate) {
+    constructor(persistenceService, adventurePersistenceService, constants, $window, $mdDialog, $translate, $q, $timeout) {
         this.persistenceService = persistenceService;
         this.adventurePersistenceService = adventurePersistenceService;
         this.constants = constants;
-        this.initData();
         this.$window = $window;
         this.$mdDialog = $mdDialog;
         this.$translate = $translate;
+        this.$q = $q;
+        this.$timeout = $timeout;
+        this.initData();
     }
 
     initData() {
@@ -18,8 +20,25 @@ class AdministrationController {
         if (this.applicationDataRows > 10) {
             this.applicationDataRows = 10;
         }
-        this.computeLocalStorageCapacities();
-        this.loading = true;
+        let promise = this.asyncLoading();
+        let self = this;
+        promise.then(
+            function() {
+                self.loading = false;
+            }, function(reason) {
+                self.loading = false;
+            }
+        );
+    }
+
+    asyncLoading() {
+        let self = this;
+        let deferred = this.$q.defer();
+        this.$timeout(function() {
+            self.computeLocalStorageCapacities();
+            deferred.resolve();
+        }, 1000);
+        return deferred.promise;
     }
 
     computeLocalStorageCapacities() {
