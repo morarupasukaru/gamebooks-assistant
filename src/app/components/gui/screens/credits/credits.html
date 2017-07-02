@@ -1,23 +1,21 @@
 <toolbar title="Gamebook Assistant - {{ 'Credits' | translate }}"></toolbar>
 <messages></messages>
 <main>
-    <div layout="row">
+    <div layout="row" role="main">
         <div flex="20" hide-sm hide-xs>
         </div>
         <div flex>
-            <div class="container bg-white" role="main">
-                <div class="text-muted">{{ 'sorted alphabetically' | translate }}</div>
-
-                <ul>
-                    <li ng-repeat="credit in $ctrl.credits">
+            <md-list class="md-dense" flex>
+                <md-subheader class="md-no-sticky">{{ 'sorted alphabetically' | translate }}</md-subheader>
+                <md-list-item ng-repeat="credit in $ctrl.credits">
+                    <div class="md-list-item-text">
                         <a href="{{ credit.url }}" target="_blank">{{ credit.resourceName }}</a>
                         <ng-if ng-if="!!credit.author">{{ 'by' | translate }} {{ credit.author }}</ng-if>
                         <ng-if ng-if="!!credit.description">({{ credit.description | translate }})</ng-if>
-                    </li>
-                </ul>
-
-                <back-button></back-button>
-            </div>
+                    </div>
+                </md-list-item>
+            </md-list>
+            <back-button></back-button>
         </div>
         <div flex="20" hide-sm hide-xs>
         </div>

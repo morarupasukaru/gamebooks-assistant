@@ -28,10 +28,10 @@ class CreditsController {
                 description: 'credit_description_angularjs'
             },
             {
-                resourceName : 'Bootstrap',
-                author: 'Twitter',
-                url: 'http://getbootstrap.com/',
-                description: 'credit_description_bootstrap'
+                resourceName : 'Angular Material',
+                author: 'Google',
+                url: 'https://material.angularjs.org/latest/',
+                description: 'credit_description_angularmaterial'
             },
             {
                 resourceName : 'Webpack',
@@ -82,12 +82,6 @@ class CreditsController {
                 resourceName : 'GitHub',
                 url: 'https://github.com/',
                 description: 'credit_description_github'
-            },
-            {
-                resourceName : 'Modern Clean CSS “Sticky Footer”',
-                author: 'Rizqy Hidayat',
-                url: 'http://mystrd.at/modern-clean-css-sticky-footer/',
-                description: 'credit_description_article_sticky_footer'
             },
             {
                 resourceName : 'Responsive Navigation Patterns',
