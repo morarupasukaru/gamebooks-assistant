@@ -11,7 +11,7 @@ let creditsModule = angular.module('app.components.gui.screen.credits', [
         $urlRouterProvider.otherwise('/');
 
         $stateProvider.state('credits', {
-            url: constants.url.credits, template: '<credits></credits>'
+            url: '/credits', template: '<credits></credits>'
         });
     })
 

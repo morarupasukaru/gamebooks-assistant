@@ -10,7 +10,7 @@ let gameDetailModule = angular.module('app.components.gui.screen.games.detail', 
     .config(/*@ngInject*/($stateProvider, $urlRouterProvider, constants) => {
         $urlRouterProvider.otherwise('/');
         $stateProvider.state('game-detail', {
-            url: constants.url.gameDetail, template: '<game-detail></game-detail>'
+            url: '/{adventureId}/{paragraphNr}/game/{gameId}', template: '<game-detail></game-detail>'
         });
     })
 

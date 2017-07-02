@@ -11,7 +11,7 @@ let libraryImportModule = angular.module('app.components.gui.screen.library-impo
         $urlRouterProvider.otherwise('/');
 
         $stateProvider.state('libraryImport', {
-            url: constants.url.libraryImport + '?import', template: '<library-import></library-import>'
+            url: '/library-import?import', template: '<library-import></library-import>'
         });
     })
 

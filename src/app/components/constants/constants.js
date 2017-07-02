@@ -10,14 +10,6 @@ let constantsModule = angular.module('app.components.constants', [])
             game: 'game',
             library: 'library'
         },
-        url: {
-            administration: '/administration',
-            games : '/games',
-            gameDetail: '/{adventureId}/{paragraphNr}/game/{gameId}',
-            credits: '/credits',
-            adventureDetail: '/adventures',
-            libraryImport: '/library-import'
-        },
         choices : {
             yes : 'Yes',
             no : 'No',

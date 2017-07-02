@@ -11,7 +11,7 @@ let administrationModule = angular.module('app.components.gui.screen.administrat
         $urlRouterProvider.otherwise('/');
 
         $stateProvider.state('administration', {
-            url: constants.url.administration, template: '<administration></administration>'
+            url: '/administration', template: '<administration></administration>'
         });
     })
 

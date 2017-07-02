@@ -168,7 +168,7 @@ class GamesListController {
     }
 
     displayAdventure(adventure) {
-        this.$location.url(this.constants.url.adventureDetail + '/' + adventure.id);
+        this.$location.url('adventure/' + adventure.id);
     }
 
     displayRemoveAdventurePopup(event, adventure) {
@@ -373,11 +373,11 @@ class GamesListController {
     }
 
     clearUrl() {
-        this.$location.url(this.constants.url.games);
+        this.$location.url('/games');
     }
 
     createAdventure() {
-        this.$location.url(this.constants.url.adventureDetail + '/create');
+        this.$location.url('/adventure/create');
     }
 
     hasAdventureToBeDownloaded(row) {
