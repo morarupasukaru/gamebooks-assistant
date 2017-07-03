@@ -31,7 +31,7 @@ class LibraryImportController {
     }
 
     displayAdventures() {
-        this.$location.url(this.constants.url.games);
+        this.$location.url('/games');
     }
 }
 
