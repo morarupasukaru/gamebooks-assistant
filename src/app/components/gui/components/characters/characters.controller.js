@@ -1,18 +1,12 @@
 class CharactersController {
 
     /*@ngInject*/
-    constructor(gamePersistenceService, adventurePersistenceService, popupService, constants) {
+    constructor(gamePersistenceService, adventurePersistenceService, $translate, $mdDialog) {
         this.gamePersistenceService = gamePersistenceService;
         this.adventurePersistenceService = adventurePersistenceService;
-        this.popupService = popupService;
-        this.constants = constants;
+        this.$translate = $translate;
+        this.$mdDialog = $mdDialog;
         this.initData();
-
-        this.popupDeleteCharacterConfig = {
-            id : 'popupDeleteCharacter',
-            text : 'Are you sure to remove the character?',
-            choices : [constants.choices.yes, constants.choices.no]
-        };
     }
 
     initData() {
@@ -58,18 +52,21 @@ class CharactersController {
         }
     }
 
-    displayRemovePopup(removedRow) {
+    displayRemovePopup(event, removedRow) {
+        let confirm = this.$mdDialog.confirm()
+              .title(this.$translate.instant('Are you sure to remove the character?'))
+              .targetEvent(event)
+              .ok(this.$translate.instant('Yes'))
+              .cancel(this.$translate.instant('No'));
+
         this.rowToBeRemoved = removedRow;
         let self = this;
-        this.popupService.show(
-            this.popupDeleteCharacterConfig.id,
-            function(popupDomElementId, choice) {
-                if (choice === self.constants.choices.yes) {
-                    self.removeEntry(self.rowToBeRemoved);
-                }
-                self.rowToBeRemoved = null;
-            }
-        );
+        this.$mdDialog.show(confirm).then(function() {
+            self.removeEntry(self.rowToBeRemoved);
+            self.rowToBeRemoved = null;
+        }, function() {
+            // cancel
+        });
     }
 
     removeEntry(entry) {

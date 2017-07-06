@@ -57,15 +57,12 @@
                 ng-show="!!entry.edited">
             {{ 'Cancel' | translate }}
         </button>
-        <button type="button"
-                class="btn btn-xs btn-danger"
-                aria-label="{{ 'Remove the character' | translate }}"
-                title="{{ 'Remove the character' | translate }}"
-                ng-click="$ctrl.displayRemovePopup(entry)"
-                ng-show="!!entry.edited">
+        <md-button aria-label="{{ 'Remove the character' | translate }}"
+                   title="{{ 'Remove the character' | translate }}"
+                   ng-click="$ctrl.displayRemovePopup($event, entry)"
+                   ng-show="!!entry.edited">
             {{ 'Remove' | translate }}
-        </button>
-
+        </md-button>
         <ul>
             <li ng-repeat="stats in entry.stats">
                 {{ stats.name + ' [' + stats.current + '/' + stats.initial + ']' }}
@@ -103,5 +100,3 @@
         </button>
     </li>
 </ul>
-
-<popup config="{{ $ctrl.popupDeleteCharacterConfig }}"></popup>
