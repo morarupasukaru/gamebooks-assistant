@@ -1,6 +1,6 @@
 class GamesListController {
     /*@ngInject*/
-    constructor($location, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, importDataPopupService, $stateParams, $window, $timeout, $mdDialog, $mdToast) {
+    constructor($location, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, $stateParams, $window, $timeout, $mdDialog, $mdToast) {
         this.constants = constants;
         this.$location = $location;
         this.gamePersistenceService = gamePersistenceService;
@@ -8,7 +8,6 @@ class GamesListController {
         this.messagesService = messagesService;
         this.$translate = $translate;
         this.popupService = popupService;
-        this.importDataPopupService = importDataPopupService;
         this.$stateParams = $stateParams;
         this.$window = $window;
         this.$timeout = $timeout;
@@ -20,10 +19,6 @@ class GamesListController {
             text : 'Are you sure to download the selected adventure? Existing games could be non-playable after the update if the new version is not retro-compatible',
             choices : [constants.choices.yes, constants.choices.no]
         };
-
-        this.popupImportGameConfig = { id : 'popupImportGame' };
-
-        this.popupImportAdventureConfig = { id : 'popupImportAdventure' };
 
         if (!!$stateParams.importGame) {
             this.importGameFromUrl($stateParams.importGame);
@@ -322,26 +317,46 @@ class GamesListController {
         return url.createObjectURL(blob);
     }
 
-    displayImportGamePopup() {
+    displayImportGamePopup(event) {
         let self = this;
-        this.importDataPopupService.show(
-            this.popupImportGameConfig.id,
-            function(popupDomElementId, data) {
-                self.gamePersistenceService.importGame(data);
+        this.$mdDialog.show({
+            contentElement: '#importGameDialog',
+            parent: angular.element(document.body),
+            targetEvent: event,
+            clickOutsideToClose: true
+        }).then(
+            function(answer) {
+                self.gamePersistenceService.importGame(self.gameFileContent);
                 self.initData();
+            },
+            function() {
             }
         );
     }
 
+    notifyGameFileContent($fileContent) {
+        this.gameFileContent = $fileContent;
+    }
+
     displayImportAdventurePopup() {
         let self = this;
-        this.importDataPopupService.show(
-            this.popupImportAdventureConfig.id,
-            function(popupDomElementId, data) {
-                self.adventurePersistenceService.importAdventure(data);
+        this.$mdDialog.show({
+            contentElement: '#importAdventureDialog',
+            parent: angular.element(document.body),
+            targetEvent: event,
+            clickOutsideToClose: true
+        }).then(
+            function(answer) {
+                self.adventurePersistenceService.importAdventure(self.adventureFileContent);
                 self.initData();
+            },
+            function() {
             }
         );
+    }
+
+    notifyAdventureFileContent($fileContent) {
+        this.adventureFileContent = $fileContent;
     }
 
     importGameFromUrl(url) {

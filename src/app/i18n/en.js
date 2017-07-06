@@ -91,6 +91,8 @@ const englishTranslations = {
     'Homepage': 'Homepage',
     'Home': 'Home',
     'Import': 'Import',
+    'Import an adventure': 'Import an adventure',
+    'Import a game': 'Import a game',
     'Imported data': 'Imported data',
     'ImportGameFailedMissingFields': "Cannot import game because of missing mandatory fields: '{{ missingMandatoryFields }}'",
     'Increase tree': 'Increase tree',

@@ -94,6 +94,8 @@ const frenchTranslations = {
     'Home': 'Accueil',
     'Homepage': "Page d'accueil",
     'Import': 'Importe',
+    'Import an adventure': 'Importe une aventure',
+    'Import a game': 'Importe une partie',
     'Imported data': 'Données importées',
     'ImportGameFailedMissingFields': "Impossible d'importer le jeu car il manque les champs obligatoires suivants: '{{ missingMandatoryFields }}'",
     'Increase tree': "Augmente l'arborescence",

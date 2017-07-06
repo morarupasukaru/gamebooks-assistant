@@ -3,7 +3,6 @@ import Dices from './dices/dices';
 import Messages from './messages/messages';
 import Popup from './popup/popup';
 import BackButton from './back-button/back-button';
-import ImportDataPopup from './import-data-popup/import-data-popup';
 import Nodes from './nodes/nodes';
 import Node from './node/node';
 import Characters from './characters/characters';
@@ -19,7 +18,6 @@ let guiComponentsModule = angular.module('app.components.gui.components', [
     Messages.name,
     Popup.name,
     BackButton.name,
-    ImportDataPopup.name,
     Nodes.name,
     Node.name,
     Characters.name,

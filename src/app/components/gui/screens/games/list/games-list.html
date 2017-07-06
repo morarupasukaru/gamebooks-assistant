@@ -130,5 +130,45 @@
     game (link hidden)</a>
 
 <popup config="{{ $ctrl.popupDownloadAdventureConfig }}"></popup>
-<import-data-popup config="$ctrl.popupImportAdventureConfig"></import-data-popup>
-<import-data-popup config="$ctrl.popupImportGameConfig"></import-data-popup>
+
+<div style="visibility: hidden">
+    <div class="md-dialog-container" id="importGameDialog">
+        <md-dialog layout-padding>
+            <md-dialog-content>
+                <div class="md-dialog-content">
+                    <h2>{{ 'Import a game' | translate}}</h2>
+                    <input id="importGameUpload" type="file" ng-model="$ctrl.uploadGameFile" on-read-file="$ctrl.notifyGameFileContent($fileContent)" />
+                </div>
+            </md-dialog-content>
+            <md-dialog-actions layout="row">
+                <md-button ng-click="$ctrl.$mdDialog.cancel()">
+                    {{ 'Cancel' | translate }}
+                </md-button>
+                <md-button ng-click="$ctrl.$mdDialog.hide()">
+                    {{ 'Ok' | translate }}
+                </md-button>
+            </md-dialog-actions>
+        </md-dialog>
+    </div>
+</div>
+
+<div style="visibility: hidden">
+    <div class="md-dialog-container" id="importAdventureDialog">
+        <md-dialog layout-padding>
+            <md-dialog-content>
+                <div class="md-dialog-content">
+                    <h2>{{ 'Import an adventure' | translate}}</h2>
+                    <input id="importAdventureUpload" type="file" ng-model="$ctrl.uploadAdventureFile" on-read-file="$ctrl.notifyAdventureFileContent($fileContent)" />
+                </div>
+            </md-dialog-content>
+            <md-dialog-actions layout="row">
+                <md-button ng-click="$ctrl.$mdDialog.cancel()">
+                    {{ 'Cancel' | translate }}
+                </md-button>
+                <md-button ng-click="$ctrl.$mdDialog.hide()">
+                    {{ 'Ok' | translate }}
+                </md-button>
+            </md-dialog-actions>
+        </md-dialog>
+    </div>
+</div>
