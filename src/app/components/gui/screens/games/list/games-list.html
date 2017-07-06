@@ -38,9 +38,8 @@
                                                 translate }}
                                             </md-button>
                                         </md-menu-item>
-                                        <md-menu-item>
-                                            <md-button ng-click="$ctrl.downloadAdventure(adventure)">{{ 'Download' |
-                                                translate }}
+                                        <md-menu-item ng-if="!!adventure.downloadUrl">
+                                            <md-button ng-click="$ctrl.displayDownloadAdventurePopup($event, adventure)">{{ 'Download' | translate }}
                                             </md-button>
                                         </md-menu-item>
                                         <md-menu-item>
@@ -128,8 +127,6 @@
    download="exportAdventure.txt">download adventure (link hidden)</a>
 <a id="linkDownloadExportGame" ng-show="false" ng-href="{{$ctrl.exportDownloadBlobUrl}}" download="exportGame.txt">download
     game (link hidden)</a>
-
-<popup config="{{ $ctrl.popupDownloadAdventureConfig }}"></popup>
 
 <div style="visibility: hidden">
     <div class="md-dialog-container" id="importGameDialog">

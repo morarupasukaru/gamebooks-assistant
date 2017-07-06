@@ -1,24 +1,17 @@
 class GamesListController {
     /*@ngInject*/
-    constructor($location, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, popupService, $stateParams, $window, $timeout, $mdDialog, $mdToast) {
+    constructor($location, constants, gamePersistenceService, adventurePersistenceService, messagesService, $translate, $stateParams, $window, $timeout, $mdDialog, $mdToast) {
         this.constants = constants;
         this.$location = $location;
         this.gamePersistenceService = gamePersistenceService;
         this.adventurePersistenceService = adventurePersistenceService;
         this.messagesService = messagesService;
         this.$translate = $translate;
-        this.popupService = popupService;
         this.$stateParams = $stateParams;
         this.$window = $window;
         this.$timeout = $timeout;
         this.$mdDialog = $mdDialog;
         this.$mdToast = $mdToast;
-
-        this.popupDownloadAdventureConfig = {
-            id : 'popupDownloadAdventure',
-            text : 'Are you sure to download the selected adventure? Existing games could be non-playable after the update if the new version is not retro-compatible',
-            choices : [constants.choices.yes, constants.choices.no]
-        };
 
         if (!!$stateParams.importGame) {
             this.importGameFromUrl($stateParams.importGame);
@@ -187,7 +180,7 @@ class GamesListController {
           .placeholder(this.$translate.instant("Game's name"))
           .ariaLabel(this.$translate.instant("Game's name"))
           .targetEvent(event)
-          //.required(true) TODO check why required is not available
+          //.required(true) TODO update new release of angular-material to have required available
           .ok(this.$translate.instant('Ok'))
           .cancel(this.$translate.instant('Cancel'));
 
@@ -221,16 +214,23 @@ class GamesListController {
         });
     }
 
-    displayDownloadAdventurePopup(adventure) {
-        let self = this;
-        this.popupService.show(
-            this.popupDownloadAdventureConfig.id,
-            function(popupDomElementId, choice) {
-                if (choice === self.constants.choices.yes) {
-                    self.downloadAdventure(adventure);
-                }
-            }
-        );
+    displayDownloadAdventurePopup(event, adventure) {
+        if (!!adventure.games && adventure.games.length > 0) {
+            let confirm = this.$mdDialog.confirm()
+                   .title(this.$translate.instant('Are you sure to download the selected adventure? Existing games could be non-playable after the update if the new version is not retro-compatible'))
+                   .targetEvent(event)
+                   .ok(this.$translate.instant('Yes'))
+                   .cancel(this.$translate.instant('No'));
+
+             let self = this;
+             this.$mdDialog.show(confirm).then(function() {
+                self.downloadAdventure(adventure);
+             }, function() {
+                 // cancel
+             });
+         } else {
+            this.downloadAdventure(adventure);
+        }
     }
 
     downloadAdventure(adventure) {

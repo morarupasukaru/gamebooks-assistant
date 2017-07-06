@@ -1,7 +1,6 @@
 import angular from 'angular';
 import Dices from './dices/dices';
 import Messages from './messages/messages';
-import Popup from './popup/popup';
 import BackButton from './back-button/back-button';
 import Nodes from './nodes/nodes';
 import Node from './node/node';
@@ -16,7 +15,6 @@ import Toolbar from './toolbar/toolbar';
 let guiComponentsModule = angular.module('app.components.gui.components', [
     Dices.name,
     Messages.name,
-    Popup.name,
     BackButton.name,
     Nodes.name,
     Node.name,
