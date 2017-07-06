@@ -1,12 +1,11 @@
 class AdventureDetailController {
     /*@ngInject*/
-    constructor(persistenceService, adventurePersistenceService, $stateParams, $location, constants, popupService, messagesService, $timeout, $window, formHelperService, $translate, $log) {
+    constructor(persistenceService, adventurePersistenceService, $stateParams, $location, constants, messagesService, $timeout, $window, formHelperService, $translate, $log) {
         this.persistenceService = persistenceService;
         this.adventurePersistenceService = adventurePersistenceService;
         this.$stateParams = $stateParams;
         this.$location = $location;
         this.constants = constants;
-        this.popupService = popupService;
         this.messagesService = messagesService;
         this.$timeout = $timeout;
         this.$window = $window;
