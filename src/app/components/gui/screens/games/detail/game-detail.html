@@ -9,7 +9,6 @@
                 <div class="page-header">
                     <h1>
                         {{ 'Paragraph' | translate }} {{ $ctrl.paragraph.paragraphNr }}
-                        {{ 'Paragraph' | translate }} {{ $ctrl.paragraph.paragraphNr }}
                         {{ !!$ctrl.paragraph.tag ? '(' + $ctrl.paragraph.tag +  ')' : '' }}
                         <button type="button"
                                 class="btn btn-xs btn-default"
@@ -21,8 +20,7 @@
                 </div>
 
                 <div ng-if="!!$ctrl.isTagEditable()">
-                    <h2>{{ 'Visible sections' | translate }}</h2>
-                    <selectable-list entries="$ctrl.visibleSections"></selectable-list>
+                    <selectable-list entries="$ctrl.visibleSections" title="{{ 'Visible sections' | translate }}"></selectable-list>
 
                     <h2>{{ 'Tag' | translate }}</h2>
                     <input id="inputTag" type="text" class="form-control" ng-model="$ctrl.paragraph.tag">

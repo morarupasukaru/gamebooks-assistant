@@ -1,9 +1,10 @@
-<ul class="list-unstyled">
-    <li ng-repeat="entry in $ctrl.entries">
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" ng-model="entry.checked">{{ entry.value }}
-            </label>
-        </div>
-    </li>
-</ul>
+<fieldset class="standard" flex-gt-sm>
+    <legend>{{ $ctrl.title }}</legend>
+    <div layout-gt-sm="row">
+        <md-checkbox ng-repeat="entry in $ctrl.entries"
+                ng-model="entry.checked"
+                     aria-label="{{ entry.value }}" flex-gt-sm>
+            {{ entry.value }}
+        </md-checkbox>
+    </div>
+</fieldset>

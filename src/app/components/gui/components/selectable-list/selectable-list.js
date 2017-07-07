@@ -8,6 +8,7 @@ let selectableListModule = angular.module('app.components.gui.components.selecta
         template,
         controller,
         bindings: {
+            title: '@',
             entries: '='
         }
      });

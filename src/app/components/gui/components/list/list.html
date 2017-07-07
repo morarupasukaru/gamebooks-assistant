@@ -1,39 +1,40 @@
-<ul>
-    <li ng-repeat="entry in $ctrl.innerEntries">
-        <span ng-show="!entry.edited">{{ entry.value }}</span>
-        <input type="text" ng-model="entry.value" ng-show="!!entry.edited"/>
-        <button type="button"
-                class="btn btn-xs btn-default"
-                ng-click="$ctrl.editEntry(entry)"
-                ng-show="!entry.edited">
-            {{ 'Edit' | translate }}
-        </button>
-        <button type="button"
-                class="btn btn-xs btn-success"
-                ng-click="$ctrl.saveChanges(entry)"
-                ng-show="!!entry.edited">
-            {{ 'Save' | translate }}
-        </button>
-        <button type="button"
-                class="btn btn-xs btn-danger"
+<md-content>
+    <md-list class="md-dense" flex>
+        <md-list-item ng-repeat="entry in $ctrl.innerEntries">
+            <div class="md-list-item-text" flex>
+                <span ng-show="!entry.edited">{{ entry.value }}</span>
+                <input type="text" ng-model="entry.value" ng-show="!!entry.edited"/>
+            </div>
+            <md-button class="md-secondary md-raised"
+                       ng-click="$ctrl.editEntry(entry)"
+                       ng-show="!entry.edited">
+                {{ 'Edit' | translate }}
+            </md-button>
+            <md-button class="md-secondary md-raised"
+                    ng-click="$ctrl.saveChanges(entry)"
+                    ng-show="!!entry.edited">
+                {{ 'Confirm' | translate }}
+            </md-button>
+            <md-button class="md-secondary md-raised"
                 ng-click="$ctrl.abortChanges(entry)"
                 ng-show="!!entry.edited">
-            {{ 'Cancel' | translate }}
-        </button>
-        <button type="button"
-                class="btn btn-xs btn-danger"
+                {{ 'Cancel' | translate }}
+            </md-button>
+            <md-button class="md-secondary md-raised md-warn"
                 ng-click="$ctrl.removeEntry(entry)"
                 ng-show="!!entry.edited">
-            {{ 'Remove' | translate }}
-        </button>
-    </li>
-    <li>
-        <input id="newEntry" type="text" placeholder="{{ 'New entry' | translate }}" ng-model="$ctrl.newEntry"/>
-        <button type="button"
-                class="btn btn-xs btn-success"
-                ng-click="$ctrl.addEntry()"
-                ng-show="!!$ctrl.newEntry">
-            {{ 'Add' | translate }}
-        </button>
-    </li>
-</ul>
+                {{ 'Remove' | translate }}
+            </md-button>
+        </md-list-item>
+        <md-list-item>
+            <div class="md-list-item-text">
+                <input id="newEntry" type="text" placeholder="{{ 'New entry' | translate }}" ng-model="$ctrl.newEntry"/>
+            </div>
+            <md-button class="md-secondary md-raised"
+                       ng-click="$ctrl.addEntry()"
+                       ng-show="!!$ctrl.newEntry">
+                {{ 'Add' | translate }}
+            </md-button>
+        </md-list-item>
+    </md-list>
+</md-content>
