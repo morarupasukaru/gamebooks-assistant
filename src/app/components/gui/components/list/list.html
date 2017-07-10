@@ -1,45 +1,40 @@
 <md-content>
-    <md-list class="md-dense" flex>
+    <md-list class="md-1-line md-whiteframe-z1">
         <md-list-item ng-repeat="entry in $ctrl.innerEntries">
-            <div class="md-list-item-text" flex>
-                <span ng-show="!entry.edited">{{ entry.value }}</span>
-                <input type="text" ng-model="entry.value" ng-show="!!entry.edited"/>
-
-                <md-input-container flex-gt-xs>
-                    <label>{{ "Paragraph" | translate }}</label>
-                    <input id="goToParagraphNr" type="text" class="form-control" ng-model="$ctrl.paragraphNrChoice">
-                </md-input-container>
-            </div>
+            <span ng-show="!entry.edited">{{ entry.value }}</span>
+            <input type="text" ng-model="entry.value" ng-show="!!entry.edited" flex/>
             <md-button class="md-secondary md-raised"
                        ng-click="$ctrl.editEntry(entry)"
                        ng-show="!entry.edited">
                 {{ 'Edit' | translate }}
             </md-button>
             <md-button class="md-secondary md-raised"
-                    ng-click="$ctrl.saveChanges(entry)"
-                    ng-show="!!entry.edited">
+                       ng-click="$ctrl.saveChanges(entry)"
+                       ng-show="!!entry.edited">
                 {{ 'Confirm' | translate }}
             </md-button>
             <md-button class="md-secondary md-raised"
-                ng-click="$ctrl.abortChanges(entry)"
-                ng-show="!!entry.edited">
+                       ng-click="$ctrl.abortChanges(entry)"
+                       ng-show="!!entry.edited">
                 {{ 'Cancel' | translate }}
             </md-button>
             <md-button class="md-secondary md-raised md-warn"
-                ng-click="$ctrl.removeEntry(entry)"
-                ng-show="!!entry.edited">
+                       ng-click="$ctrl.removeEntry(entry)"
+                       ng-show="!!entry.edited">
                 {{ 'Remove' | translate }}
             </md-button>
         </md-list-item>
         <md-list-item>
-            <div class="md-list-item-text">
-                <input id="newEntry" type="text" placeholder="{{ 'New entry' | translate }}" ng-model="$ctrl.newEntry"/>
-            </div>
+            <input id="newEntry" type="text" placeholder="{{ 'New entry' | translate }}" ng-model="$ctrl.newEntry" flex/>
             <md-button class="md-secondary md-raised"
                        ng-click="$ctrl.addEntry()"
                        ng-show="!!$ctrl.newEntry">
                 {{ 'Add' | translate }}
             </md-button>
+        </md-list-item>
+        <md-list-item ng-show="'true' == $ctrl.withTransclude">
+            <div ng-transclude>
+            </div>
         </md-list-item>
     </md-list>
 </md-content>

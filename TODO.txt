@@ -1,10 +1,8 @@
-
 angular material
     https://docs.angularjs.org/api/ngMessages
-    TODO check why prompt.required is not available
     local fonts (or local icons)
     form header?
-    list with valeur complete resized
+    integrate release > 1.1.4 (required corrected)
 
 Project status: suspended because of other on-going projects
 

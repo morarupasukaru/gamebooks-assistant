@@ -122,17 +122,14 @@
 
                             <div ng-repeat="list in $ctrl.adventure.lists.keys">
                                 <md-subheader class="md-primary">{{ list }}</md-subheader>
-                                <list entries="$ctrl.adventure.lists.values[list]" on-save="$ctrl.onSubListSave(list, entries)"></list>
-                                <md-content layout-padding>
-                                    <md-input-container class="md-block">
-                                        <md-checkbox value=""
-                                                     ng-model="$ctrl.adventure.lists.keepOnRestart[list]"
-                                                     aria-label="{{ 'Keep on restart' | translate }}">
-                                            {{ 'Keep on restart' | translate }}
-                                        </md-checkbox>
-                                    </md-input-container>
-                                </md-content>
-                                <md-divider ></md-divider>
+                                <list entries="$ctrl.adventure.lists.values[list]" on-save="$ctrl.onSubListSave(list, entries)" with-transclude="true">
+                                    <md-checkbox value=""
+                                                 ng-model="$ctrl.adventure.lists.keepOnRestart[list]"
+                                                 aria-label="{{ 'Keep on restart' | translate }}">
+                                        {{ 'Keep on restart' | translate }}
+                                    </md-checkbox>
+                                </list>
+                                <md-divider></md-divider>
                             </div>
                         </section>
                     </div>

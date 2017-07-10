@@ -7,9 +7,11 @@ let listModule = angular.module('app.components.gui.components.list', [])
     .component('list', {
         template,
         controller,
+        transclude: true,
         bindings: {
             entries: '<',
-            onSave: '&'
+            onSave: '&',
+            withTransclude: '@'
         }
      });
 
