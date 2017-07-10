@@ -50,7 +50,7 @@ md-toast.md-error-toast-theme div.md-toast-content{
     background-color: red !important;
 }
 
-md-toast.md-success-toast-theme div.md-toast-content{
-    color: white !important;
-    background-color: green !important;
+/* solve a bug to align button & input field in the same line */
+md-input-container .md-errors-spacer {
+    min-height: 0;
 }

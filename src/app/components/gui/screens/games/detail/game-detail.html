@@ -10,12 +10,13 @@
                     <h1>
                         {{ 'Paragraph' | translate }} {{ $ctrl.paragraph.paragraphNr }}
                         {{ !!$ctrl.paragraph.tag ? '(' + $ctrl.paragraph.tag +  ')' : '' }}
-                        <button type="button"
-                                class="btn btn-xs btn-default"
-                                ng-click="$ctrl.editTag()"
-                                ng-show="!$ctrl.isTagEditable()">
+                        <md-button class="md-raised"
+                                   aria-label="{{ 'Edit' | translate }}"
+                                   title="{{ 'Edit' | translate }}"
+                                   ng-click="$ctrl.editTag()"
+                                   ng-show="!$ctrl.isTagEditable()">
                             {{ 'Edit' | translate }}
-                        </button>
+                        </md-button>
                     </h1>
                 </div>
 
@@ -25,17 +26,18 @@
                     <h2>{{ 'Tag' | translate }}</h2>
                     <input id="inputTag" type="text" class="form-control" ng-model="$ctrl.paragraph.tag">
                     <br>
-
-                    <button type="button" class="btn btn-default"
-                            aria-label="{{ 'Back' | translate}}"
-                            title="{{ 'Back' | translate}}"
-                            ng-click="$ctrl.abortTagChanges()">
+                    <md-button class="md-raised"
+                               aria-label="{{ 'Back' | translate}}"
+                               title="{{ 'Back' | translate}}"
+                               ng-click="$ctrl.abortTagChanges()">
                         {{ 'Back' | translate }}
-                    </button>
-                    <button type="button" class="btn btn-primary"
-                            aria-label="{{ 'Save changes' | translate }}"
-                            title="{{ 'Save changes' | translate }}"
-                            ng-click="$ctrl.saveTagChanges()">{{ 'Save' | translate }}</button>
+                    </md-button>
+                    <md-button class="md-raised md-primary"
+                               aria-label="{{ 'Save changes' | translate }}"
+                               title="{{ 'Save changes' | translate }}"
+                               ng-click="$ctrl.saveTagChanges()">
+                        {{ 'Save' | translate }}
+                    </md-button>
                 </div>
 
                 <div ng-if="!$ctrl.isTagEditable()">
@@ -65,13 +67,11 @@
                     </div>
 
                     <back-button></back-button>
-
-                    <button type="button"
-                            class="btn btn-default"
-                            ng-if="$ctrl.isGameRulesAvailable()"
-                            ng-click="$ctrl.goToGameRulesParagraph()">
+                    <md-button class="md-raised"
+                               ng-if="$ctrl.isGameRulesAvailable()"
+                               ng-click="$ctrl.goToGameRulesParagraph()">
                         {{ "Game's rules" | translate }}
-                    </button>
+                    </md-button>
                 </div>
             </div>
         </div>
