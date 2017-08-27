@@ -357,9 +357,7 @@ class AdventurePersistenceService {
                 }
                 line = line.substr(indexOfSecondDelimiter + 1);
             }
-            if (!!line && line.trim().length > 0) {
-                descriptionWithChoices.push({ choice: false, text: line });
-            }
+            descriptionWithChoices.push({ choice: false, text: line });
             parts.push(descriptionWithChoices);
         }
         return parts;
@@ -371,9 +369,7 @@ class AdventurePersistenceService {
             let textsDelimitedWithEol = description.split('\n');
             for (let i = 0; i < textsDelimitedWithEol.length; i++) {
                 let textDelimitedWithEol = textsDelimitedWithEol[i];
-                if (!!textDelimitedWithEol && textDelimitedWithEol.trim().length > 0) {
-                    lines.push(textDelimitedWithEol);
-                }
+                lines.push(textDelimitedWithEol);
             }
         }
         return lines;
