@@ -13,6 +13,7 @@
                     <ng-if ng-if="!paragraphElement.choice">
                         {{ paragraphElement.text }}
                     </ng-if>
+                    <br ng-if="!paragraphElement.text && !paragraphElement.choice" />
                 </ng-repeat>
             </div>
         </div>
