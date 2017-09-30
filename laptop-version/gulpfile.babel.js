@@ -32,7 +32,7 @@ let resolveToComponents = (glob) => {
 let paths = {
     js: resolveToComponents('**/*!(.spec.js).js'), // Alle .js ohne .spec.js
     css: resolveToApp('**/*.css'),
-    html: [resolveToApp('**/*.html'), path.join(root, 'index.html')],
+    html: [resolveToApp('**/*.html'), path.join(root, 'laptop.html')],
     entry: path.join(root, 'app/app.js'),
     output: 'dist',
     build: path.join(__dirname, 'target/build')
