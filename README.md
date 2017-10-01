@@ -6,9 +6,9 @@ URL of the application: http://morarupasukaru.github.io/gamebooks-assistant/
 
 
 ## Project status
-https://getbootstrap.com/docs/3.3/
+
 ### Year 2016
-* A first version is developed with [AngularJS](https://angularjs.org/) framework and [Bootstrap v3]()
+* A first version is developed with [AngularJS](https://angularjs.org/) framework and [Bootstrap v3](https://getbootstrap.com/docs/3.3/)
 * This version works well on desktop but not very well on mobile (the use of the apps required to many user-interaction)
 
 ### Year 2017
