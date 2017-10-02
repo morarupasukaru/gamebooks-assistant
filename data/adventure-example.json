@@ -1,0 +1,58 @@
+{
+  "authors": "morarupasukaru",
+  "dice": {
+    "max": 6,
+    "min": 1
+  },
+  "downloadUrl": "adventure-example.json",
+  "homepage": "https://github.com/morarupasukaru/gamebooks-assistant",
+  "id": "adventure-example",
+  "language": "English",
+  "lists": {
+    "keepOnRestart": {
+      "Equipement": false,
+      "Notes": true
+    },
+    "keys": [
+      "Equipement",
+      "Notes"
+    ],
+    "values": {
+      "Equipement": [
+        "Crayon",
+        "Feuille de papier"
+      ]
+    }
+  },
+  "name": "Adventure example",
+  "startParagraphId": "1",
+  "toggles": {
+    "characters": true,
+    "dices": true,
+    "goto": true,
+    "map": true
+  },
+  "version": "1",
+  "paragraphs": [
+    {
+      "choices": [
+        {
+          "description": "Start a wonderful journey",
+          "paragraphNr": 2
+        }
+      ],
+      "description": "",
+      "paragraphNr": 1
+    },
+    {
+      "choices": [
+        {
+          "description": "Go back to home",
+          "paragraphNr": 3
+        }
+      ],
+      "description": "",
+      "paragraphNr": 2
+    }
+  ]
+}
