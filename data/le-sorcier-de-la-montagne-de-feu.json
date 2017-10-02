@@ -4,7 +4,7 @@
     "max": 6,
     "min": 1
   },
-  "downloadUrl": "http://morarupasukaru.github.io/gamebooks-assistant/le-sorcier-de-la-montagne-de-feu.json",
+  "downloadUrl": "http://morarupasukaru.github.io/gamebooks-assistant/data/le-sorcier-de-la-montagne-de-feu.json",
   "gameRulesParagraphId": "règles de jeu",
   "id": "le-sorcier-de-la-montagne-de-feu",
   "isbn": "978-2-07-064740-8",
