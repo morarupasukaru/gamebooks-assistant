@@ -7,5 +7,23 @@
     "version": "0.1",
     "language": "Français",
     "downloadUrl" : "http://morarupasukaru.github.io/gamebooks-assistant/data/le-sorcier-de-la-montagne-de-feu.json"
-  }
+  },
+  {
+    "id": "retour-%C3%A0-la-montagne-de-feu",
+    "name": "Retour à la Montagne de Feu",
+    "serie": "Défis Fantastiques",
+    "authors": "Ian Livingstone",
+    "version": "0.1",
+    "language": "Français",
+    "downloadUrl" : "http://morarupasukaru.github.io/gamebooks-assistant/data/retour-a-la-montagne-de-feu.json"
+  },
+  {
+    "id": "la-l%C3%A9gende-de-zagor",
+    "name": "La Légende de Zagor",
+    "serie": "Défis Fantastiques",
+    "authors": "Ian Livingstone",
+    "version": "0.1",
+    "language": "Français",
+    "downloadUrl" : "http://morarupasukaru.github.io/gamebooks-assistant/data/legende-zagor.json"
+  },
 ]
