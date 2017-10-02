@@ -1,89 +1,22 @@
-Project status: suspended because of other on-going projects
+Development of the desktop version is suspended because the focus is on the mobile version.
 
-en cours:
-    # remove not needed glyphicon (text + instead of + as image)
+Last status of the development is:
+* idea was to replace bootstrap glyphicon with text => let's see what is done with mobile version
+* treemap widget is not quite usable => let's see what can be designed with mobile version
 
-    # expand, collapse en fr?
-
-
-    # treemap: on s'y perd encore si l'arbre est grand, overlap => Noeud leaf: icon sur enfant?
-
-    # Génération des attributs ne fonctionne pas avec "la légende de zagor"
-        => maj. aventure example
-        => maj. sorcier ...
-        => maj. retour ...
-
-feature
-    # image "view" component
-
-    # images "edit" component
-        - (image-persistence-service if needed)
-
-    # paragraph's illustrations
-        - integrate image "view" & "edit" components
-        - add collapse
-        - multiple illustrations (mix of text and image)
-
-    # paragraph tags
-        - integrate image "view" & "edit" components
-        - afficher le tag dans game-list
-
-    # integrate http://getskeleton.com/
-        - require refactoring "angular components to hide bootstrap css inside"
-
-    # re-import game
-        - from same adventure
-        - from another adventure
-
-    # import lone wolf games
-        - download images from lone wolf html
-        - test import with all lone wolf books
-        - integrate game rules paragraphs separatelly
-
-refactoring
-    # language in url
-        - ../#/{language}/...
-        - si ../#/ sans language alors on remplace url avec la langue stocké dans localstorage
-        - si la langue n'est pas supporté, alors on remplace url avec ../#/en/...
-        - si la langue de l'url est différente de celle de localstorage, alors celle-ci est remplacée
-        - le changement de langue dans le footer modifie l'url actuelle (force un refresh)
-        - service pour la gestion des langues dans url
-        - service pour la gestion des langues dans localstorage
-        - wrapper des 2 services
-
-    # replace $translate with i18n
-        - call by $ctrl.i18n('test') (fonction).
-        - language set with method (inject language of the service that handle localstorage)
-        - par defaut, la langue en paramètre est l'anglais
-        - si un clef manque dans une langue <> anglais, un log dans la console est fait (si dispo)
-        - gestion de paramètre à la String.format
-
-            String.prototype.format = function (args) {
-                var newStr = this;
-                for (var key in args) { // <- TODO nb instead of key name let i = 0; i < args.length ...
-                    newStr = newStr.replace('{' + key + '}', args[key]);
-                }
-                return newStr;
-            }
-
-    # oop class for data / model : angular factory
-        https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript
-        https://medium.com/opinionated-angularjs/angular-model-objects-with-javascript-classes-2e6a067c73bc#.m560drzb6
-        https://docs.angularjs.org/guide/providers
-
-    # angular components to hide bootstrap css inside
-
-    # localstorage alternative (localforage?) if required to play lonewolf game
-
-recherche internet préalable
-    # aria-label & title pour tous les elements (a faire une fois component bootstrap wrapper dans component angular)
-        > il faut les deux aria-label et title (title ne suffit pas)
-    # aria-label pour div ayant deja du texte?
-        http://heydonworks.com/practical_aria_examples/
-
-    # besoin de babel?
-
-    # tooltip avec touch screen, mobile?
-        http://stackoverflow.com/questions/1737773/tooltips-in-the-era-of-touch
-
-    # response-design popup (clean-up app.css)
+Feature originally foreseen:
+* display of images (to be able to play a "real" gamebook with a mix-in of text and images)
+    => let's see that point later (text is not supported on minimal mobile version)
+* replace css of bootstrap with http://getskeleton.com/
+    => abandoned if google material layout of mobile version is nice enough for desktop as well
+* re-import game (same to be a bug)
+    => let's see what is done with mobile version
+* import lone wolf games as they are freely available on the net
+    => could require quite complex work to integrate well the rules of this game
+    => require maybe greater storage as localstorage (see localforage)
+* language in url
+* better oop class for data/model
+* support better aria
+    => more as technical purpose as gamebooks won't likely be in braille
+* tooltip with touch screen, mobile
+    => see what's is implemented with mobile version
