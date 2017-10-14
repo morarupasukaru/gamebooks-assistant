@@ -1,55 +1,113 @@
-<html class="mdc-typography">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Gamebooks Assistant</title>
-    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Gamebooks Assistant</title>
+  <meta name="description" content="Gamebook assistant">
+  <meta name="author" content="morarupasukaru">
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="skeleton.css">
 
-    <meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1 user-scalable=no">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="description" content="Gamebooks Assistant">
-    <meta name="application-name" content="Gamebooks Assistant"/>
+  <meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1 user-scalable=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="description" content="Gamebooks Assistant">
+  <meta name="application-name" content="Gamebooks Assistant"/>
 
-    <!-- favicon start -->
-    <link rel="apple-touch-icon" sizes="180x180" href="http://morarupasukaru.github.io/gamebooks-assistant/desktop/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="http://morarupasukaru.github.io/gamebooks-assistant/desktop/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="http://morarupasukaru.github.io/gamebooks-assistant/desktop/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="http://morarupasukaru.github.io/gamebooks-assistant/desktop/manifest.json">
-    <link rel="mask-icon" href="http://morarupasukaru.github.io/gamebooks-assistant/desktop/safari-pinned-tab.svg" color="#d5885b">
-    <meta name="theme-color" content="#ffffff">
-    <meta name="msapplication-config" content="http://morarupasukaru.github.io/gamebooks-assistant/desktop/browserconfig.xml" />
-    <!-- favicon end -->
+  <!-- favicon start -->
+  <link rel="apple-touch-icon" sizes="180x180" href="http://morarupasukaru.github.io/gamebooks-assistant/desktop/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="http://morarupasukaru.github.io/gamebooks-assistant/desktop/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="http://morarupasukaru.github.io/gamebooks-assistant/desktop/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="http://morarupasukaru.github.io/gamebooks-assistant/desktop/manifest.json">
+  <link rel="mask-icon" href="http://morarupasukaru.github.io/gamebooks-assistant/desktop/safari-pinned-tab.svg" color="#d5885b">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="msapplication-config" content="http://morarupasukaru.github.io/gamebooks-assistant/desktop/browserconfig.xml" />
+  <!-- favicon end -->
 
-    <style>
-        h1, h2 {
-            text-align: center;
-        }
+  <style>
+/*
+ * -- SPLASH STYLES --
+ * This is the blue top section that appears on the page.
+ */
 
-        .main {
-          text-align: center;
-          padding: 1em 0;
-          clear: both;
-        }
+.splash-container {
+    background: white;
+    z-index: 1;
+    overflow: hidden;
+    /* The following styles are required for the "scroll-over" effect */
+    width: 100%;
+    height: 88%;
+    top: 0;
+    left: 0;
+    position: fixed !important;
+}
 
-        .main-button {
-            margin-bottom: 10px;
-        }
+.splash {
+    /* absolute center .splash within .splash-container */
+    width: 80%;
+    height: 50%;
+    margin: auto;
+    position: absolute;
+    top: 100px; left: 0; bottom: 0; right: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* This is the main heading that appears on the blue section */
+.splash-head {
+    border: 3px solid black;
+    padding: 0.5em 0.5em;
+    border-radius: 5px;
+}
+
+/* This is the subheading that appears on the blue section */
+.splash-subhead {
+    opacity: 0.8;
+}
+
+/* Larger than mobile */
+@media (min-width: 360px) {
+  .splash-head {
+      padding: 1em 1em;
+  }
+}
+
+/* Larger than mobile */
+@media (min-width: 400px) {
+  .splash-head {
+      padding: 1em 1.6em;
+  }
+}
+
+/* This is the class used for the footer */
+.footer {
+    background: rgb(238, 238, 238);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: right;
+}
     </style>
 </head>
 
 <body>
-<h1 class="mdc-typography--display1">Gamebook assistant</h1>
-<h2 class="mdc-typography--subheading2">ease the resolution of gamebooks</h2>
-
-<div class="main">
-    <a class="mdc-button mdc-button--raised main-button"
-       href="desktop/desktop.html#/library-import?import=http://morarupasukaru.github.io/gamebooks-assistant/data/library-defis-fantastiques.json">Desktop Version</a>
-    <a class="mdc-button mdc-button--raised main-button" href="mobile.html">Mobile Version</a>
-</div>
-
-</body>
+  <div class="splash-container">
+    <div class="splash">
+      <h1 class="splash-head">Gamebook assistant</h1>
+      <p class="splash-subhead">
+        ease the resolution of gamebooks
+      </p>
+      <p>
+        <a class="button"
+           href="desktop/desktop.html#/library-import?import=http://morarupasukaru.github.io/gamebooks-assistant/data/library-defis-fantastiques.json">Desktop Version</a>
+        <a class="button" href="mobile.html">Mobile Version</a>
+      </p>
+    </div>
+  </div>
+  <div class="footer">
+    <a href="https://github.com/morarupasukaru/gamebooks-assistant/">GitHub Project</a>
+  </div>
 </html>
