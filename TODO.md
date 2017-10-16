@@ -2,7 +2,7 @@
 
 ## Requirement of minimal mobile version
 * must work on an android mobile
-* nice google material design
+* nice google material design or alternative (like skeleton or pure.css)
 * as few user-interaction as possible (click & input)
 * able to replay an adventure with some reusable data of previous play (map, notes, etc.)
 * able to use same json (library, adventure, game) files as desktop version
