@@ -1,3 +1,9 @@
 * laptop & mobile version share the same localstorage
 => save a flag in the game object to indicate that the game is the unique game
 * try to display also paragraph text if available in mobile version (can enhance text in laptop version)
+
+
+* em au lieu de px
+
+* "Français", "English" dans le footer de la homepage
+* Texte en francais Homepage, Gamechoice
