@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Gamebooks Assistant</title>
+  <meta name="description" content="Gamebook assistant">
+  <meta name="author" content="morarupasukaru">
+  <link rel="stylesheet" href="assets/googlefont/Raleway-400-300-600.css">
+  <link rel="stylesheet" href="assets/skeleton/normalize.css">
+  <link rel="stylesheet" href="assets/skeleton/skeleton.css">
+
+  <meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1 user-scalable=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="description" content="Gamebooks Assistant">
+  <meta name="application-name" content="Gamebooks Assistant"/>
+
+  <!-- favicon start -->
+  <link rel="apple-touch-icon" sizes="180x180" href="http://morarupasukaru.github.io/gamebooks-assistant/desktop/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="http://morarupasukaru.github.io/gamebooks-assistant/desktop/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="http://morarupasukaru.github.io/gamebooks-assistant/desktop/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="http://morarupasukaru.github.io/gamebooks-assistant/desktop/manifest.json">
+  <link rel="mask-icon" href="http://morarupasukaru.github.io/gamebooks-assistant/desktop/safari-pinned-tab.svg" color="#d5885b">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="msapplication-config" content="http://morarupasukaru.github.io/gamebooks-assistant/desktop/browserconfig.xml" />
+  <!-- favicon end -->
+
+  <!--
+  Sources:
+    - CSS of http://getskeleton.com/ taken for the CSS base
+    - Source of the layout of the splash screen copied from https://purecss.io/layouts/marketing/
+  -->
+
+  <style>
+/*
+ * -- SPLASH STYLES --
+ * This is the blue top section that appears on the page.
+ */
+
+.splash-container {
+    background: white;
+    z-index: 1;
+    overflow: hidden;
+    /* The following styles are required for the "scroll-over" effect */
+    width: 100%;
+    height: 88%;
+    top: 10px;
+    left: 0;
+    position: fixed !important;
+}
+
+.splash {
+    width: 80%;
+    height: 50%;
+    margin: auto;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* This is the main heading that appears on the blue section */
+.splash-head {
+    border: 3px solid black;
+    padding: 0.5em 0.5em;
+    border-radius: 5px;
+}
+
+/* This is the subheading that appears on the blue section */
+.splash-subhead {
+    opacity: 0.8;
+}
+
+/* This is the class used for the footer */
+.footer {
+    background: rgb(238, 238, 238);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: right;
+}
+
+/* Larger than mobile */
+@media (min-width: 360px) {
+  .splash-head {
+      padding: 1em 1em;
+  }
+}
+
+/* Larger than mobile */
+@media (min-width: 400px) {
+  .splash {
+       /* absolute center .splash within .splash-container */
+       position: absolute;
+       top: 100px; left: 0; bottom: 0; right: 0;
+  }
+
+  .splash-container {
+      top: 0;
+  }
+
+  .splash-head {
+      padding: 1em 1.6em;
+  }
+}
+    </style>
+</head>
+
+<body>
+  <div class="splash-container">
+    <div class="splash">
+      <h1 class="splash-head">Gamebook assistant</h1>
+      <p class="splash-subhead">
+        facilite la résolution de livre-jeu
+      </p>
+      <p>
+        <a class="button"
+           href="desktop/desktop.html#/library-import?import=http://morarupasukaru.github.io/gamebooks-assistant/data/library-defis-fantastiques.json">Version Desktop</a>
+        <a class="button" href="mobile.html">Version Mobile</a>
+      </p>
+    </div>
+  </div>
+  <div class="footer">
+    <!-- TODO language left -->
+      <a href="xxx">English</a>
+      <a href="https://github.com/morarupasukaru/gamebooks-assistant/">Projet GitHub</a>
+  </div>
+</html>
