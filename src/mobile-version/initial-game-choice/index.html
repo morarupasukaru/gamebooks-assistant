@@ -29,7 +29,7 @@
   <link rel="icon" type="image/png" href="images/favicon.png">
 
     <style>
-  h1, h2 {
+  h1, h2, h3 {
     text-align: center;
   }
 
@@ -81,36 +81,29 @@
     }
 }
 
-.title-left {
+.footer-left {
   text-align: left;
 }
 
-.title-right {
+.footer-right {
   text-align: right;
 }
 
-.title {
+/* This is the class used for the footer */
+.footer {
     background: rgb(238, 238, 238);
+    position: fixed;
+    bottom: 0;
     width: 100%;
 }
+
+
   </style>
 </head>
 
 <body>
 
 <div class="container">
-
-    <div class="title">
-        <div class="pure-g">
-            <div class="pure-u-1-2 title-left">
-                <h1>Gamebook assistant</h1>
-            </div>
-            <div class="pure-u-1-2 title-right">
-                <a href="xxx">English</a>
-                <a href="..">Acceuil</a>
-            </div>
-        </div>
-    </div>
 
     <div class="pure-g">
         <div class="pure-u-1">
@@ -230,8 +223,20 @@
     </div>
 </div>
 
-<!-- TODO footer -->
-<!-- TODO Homepage in footer -->
+<!-- line-break to have the footer not overlaping the last adventure choice -->
+<br/>
+
+<div class="footer">
+    <div class="pure-g">
+        <div class="pure-u-1-2 footer-left">
+            Gamebook assistant
+        </div>
+        <div class="pure-u-1-2 footer-right">
+            <a href="xxx">English</a>
+            <a href="..">Acceuil</a>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
