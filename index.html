@@ -9,7 +9,12 @@
   <link rel="stylesheet" href="assets/googlefont/Raleway-400-300-600.css">
   <link rel="stylesheet" href="assets/pure/base-min.css">
   <link rel="stylesheet" href="assets/pure/grids-min.css">
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="assets/pure/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
   <link rel="stylesheet" href="assets/pure/grids-responsive-min.css">
+  <!--<![endif]-->
   <link rel="stylesheet" href="assets/skeleton/skeleton.css">
 
   <meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1 user-scalable=no">
@@ -140,4 +145,6 @@
       </div>
     </div>
   </div>
+
+  <!-- TODO correct layout problem is rendering on landscape -->
 </html>
