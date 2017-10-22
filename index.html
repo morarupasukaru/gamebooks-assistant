@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gamebooks Assistant</title>
   <meta name="description" content="Gamebook assistant">
   <meta name="author" content="morarupasukaru">
@@ -17,7 +17,7 @@
   <!--<![endif]-->
   <link rel="stylesheet" href="assets/skeleton/skeleton.css">
 
-  <meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1 user-scalable=no">
+  <meta name="viewport" content="width=device-width initial-scale=1">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -45,18 +45,6 @@
  * -- SPLASH STYLES --
  * This is the blue top section that appears on the page.
  */
-
-.splash-container {
-    background: white;
-    z-index: 1;
-    overflow: hidden;
-    /* The following styles are required for the "scroll-over" effect */
-    width: 100%;
-    height: 88%;
-    top: 10px;
-    left: 0;
-    position: fixed !important;
-}
 
 .splash {
     width: 80%;
@@ -101,10 +89,6 @@
        top: 100px; left: 0; bottom: 0; right: 0;
   }
 
-  .splash-container {
-      top: 0;
-  }
-
   .splash-head {
       padding: 1em 1.6em;
   }
@@ -116,11 +100,6 @@
        position: absolute;
        top: 100px; left: 0; bottom: 0; right: 0;
   }
-
-  .splash-container {
-      top: 0;
-  }
-
   .splash-head {
       padding: 1em 1.6em;
   }
@@ -138,7 +117,7 @@
 </head>
 
 <body>
-  <div class="splash-container">
+  <div>
     <div class="splash">
       <h1 class="splash-head">Gamebook assistant</h1>
       <p class="splash-subhead">
