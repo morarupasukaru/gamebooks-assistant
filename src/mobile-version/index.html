@@ -46,18 +46,6 @@
  * This is the blue top section that appears on the page.
  */
 
-.splash-container {
-    background: white;
-    z-index: 1;
-    overflow: hidden;
-    /* The following styles are required for the "scroll-over" effect */
-    width: 100%;
-    height: 88%;
-    top: 10px;
-    left: 0;
-    position: fixed !important;
-}
-
 .splash {
     width: 80%;
     height: 50%;
@@ -101,10 +89,6 @@
        top: 100px; left: 0; bottom: 0; right: 0;
   }
 
-  .splash-container {
-      top: 0;
-  }
-
   .splash-head {
       padding: 1em 1.6em;
   }
@@ -116,11 +100,6 @@
        position: absolute;
        top: 100px; left: 0; bottom: 0; right: 0;
   }
-
-  .splash-container {
-      top: 0;
-  }
-
   .splash-head {
       padding: 1em 1.6em;
   }
@@ -138,7 +117,7 @@
 </head>
 
 <body>
-  <div class="splash-container">
+  <div>
     <div class="splash">
       <h1 class="splash-head">Gamebook assistant</h1>
       <p class="splash-subhead">
