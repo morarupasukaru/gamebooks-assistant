@@ -8,13 +8,6 @@
   <meta name="author" content="morarupasukaru">
   <link rel="stylesheet" href="assets/googlefont/Raleway-400-300-600.css">
   <link rel="stylesheet" href="assets/pure/base-min.css">
-  <link rel="stylesheet" href="assets/pure/grids-min.css">
-  <!--[if lte IE 8]>
-  <link rel="stylesheet" href="assets/pure/grids-responsive-old-ie-min.css">
-  <![endif]-->
-  <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="assets/pure/grids-responsive-min.css">
-  <!--<![endif]-->
   <link rel="stylesheet" href="assets/skeleton/skeleton.css">
 
   <meta name="viewport" content="width=device-width initial-scale=1">
@@ -112,6 +105,11 @@
 .footer-github {
   text-align: left;
 }
+
+  * {
+    /* correct css conflict between pure and skeleton */
+    font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
 
     </style>
 </head>
