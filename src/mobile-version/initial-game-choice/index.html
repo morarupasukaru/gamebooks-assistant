@@ -80,12 +80,12 @@
     }
 }
 
-.footer-left {
-  text-align: left;
-}
-
-.footer-right {
-  text-align: right;
+/* This is the class used for the footer */
+.footer {
+    background: rgb(238, 238, 238);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 /* This is the class used for the footer */
@@ -96,10 +96,23 @@
     width: 100%;
 }
 
+.footer-left {
+  text-align: left;
+  float: left;
+  width: 50%;
+}
+
+.footer-right {
+  text-align: right;
+  float: right;
+  width: 50%;
+}
+
   * {
     /* correct css conflict between pure and skeleton */
     font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
+
 
 
   </style>
@@ -231,14 +244,12 @@
 <br/>
 
 <div class="footer">
-    <div class="pure-g">
-        <div class="pure-u-1-2 footer-left">
-            Gamebook assistant
-        </div>
-        <div class="pure-u-1-2 footer-right">
-            <a href="xxx">English</a>
-            <a href="..">Acceuil</a>
-        </div>
+    <div class="footer-left">
+        Gamebook assistant
+    </div>
+    <div class="footer-right">
+        <a href="xxx">English</a>
+        <a href="..">Acceuil</a>
     </div>
 </div>
 

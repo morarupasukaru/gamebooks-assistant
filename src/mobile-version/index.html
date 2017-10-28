@@ -59,14 +59,6 @@
     opacity: 0.8;
 }
 
-/* This is the class used for the footer */
-.footer {
-    background: rgb(238, 238, 238);
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
 /* Larger than mobile */
 @media only screen and (orientation: portrait) and (min-width: 360px) {
   .splash-head {
@@ -98,12 +90,24 @@
   }
 }
 
+/* This is the class used for the footer */
+.footer {
+    background: rgb(238, 238, 238);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
 .footer-language {
-  text-align: right;
+  text-align: left;
+  float: left;
+  width: 50%;
 }
 
 .footer-github {
-  text-align: left;
+  text-align: right;
+  float: right;
+  width: 50%;
 }
 
   * {
@@ -129,13 +133,11 @@
     </div>
   </div>
   <div class="footer">
-    <div class="pure-g">
-      <div class="pure-u-1-2 footer-github">
-        <a href="https://github.com/morarupasukaru/gamebooks-assistant/">Projet GitHub</a>
-      </div>
-      <div class="pure-u-1-2 footer-language">
-        <a href="xxx">English</a>
-      </div>
+    <div class="footer-github">
+      <a href="https://github.com/morarupasukaru/gamebooks-assistant/">Projet GitHub</a>
+    </div>
+    <div class="footer-language">
+      <a href="xxx">English</a>
     </div>
   </div>
 </html>
