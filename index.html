@@ -8,13 +8,6 @@
   <meta name="author" content="morarupasukaru">
   <link rel="stylesheet" href="assets/googlefont/Raleway-400-300-600.css">
   <link rel="stylesheet" href="assets/pure/base-min.css">
-  <link rel="stylesheet" href="assets/pure/grids-min.css">
-  <!--[if lte IE 8]>
-  <link rel="stylesheet" href="assets/pure/grids-responsive-old-ie-min.css">
-  <![endif]-->
-  <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="assets/pure/grids-responsive-min.css">
-  <!--<![endif]-->
   <link rel="stylesheet" href="assets/skeleton/skeleton.css">
 
   <meta name="viewport" content="width=device-width initial-scale=1">
@@ -66,14 +59,6 @@
     opacity: 0.8;
 }
 
-/* This is the class used for the footer */
-.footer {
-    background: rgb(238, 238, 238);
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
 /* Larger than mobile */
 @media only screen and (orientation: portrait) and (min-width: 360px) {
   .splash-head {
@@ -105,13 +90,30 @@
   }
 }
 
+/* This is the class used for the footer */
+.footer {
+    background: rgb(238, 238, 238);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
 .footer-language {
-  text-align: right;
+  text-align: left;
+  float: left;
+  width: 50%;
 }
 
 .footer-github {
-  text-align: left;
+  text-align: right;
+  float: right;
+  width: 50%;
 }
+
+  * {
+    /* correct css conflict between pure and skeleton */
+    font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
 
     </style>
 </head>
@@ -131,13 +133,11 @@
     </div>
   </div>
   <div class="footer">
-    <div class="pure-g">
-      <div class="pure-u-1-2 footer-github">
-        <a href="https://github.com/morarupasukaru/gamebooks-assistant/">Projet GitHub</a>
-      </div>
-      <div class="pure-u-1-2 footer-language">
-        <a href="xxx">English</a>
-      </div>
+    <div class="footer-github">
+      <a href="https://github.com/morarupasukaru/gamebooks-assistant/">Projet GitHub</a>
+    </div>
+    <div class="footer-language">
+      <a href="xxx">English</a>
     </div>
   </div>
 </html>
