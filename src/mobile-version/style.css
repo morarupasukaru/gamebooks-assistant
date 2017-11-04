@@ -1,0 +1,8 @@
+* {
+    /* correct css conflict between pure and skeleton */
+    font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.no-text-decoration {
+    text-decoration: none;
+}
