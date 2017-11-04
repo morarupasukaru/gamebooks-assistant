@@ -1,6 +1,6 @@
 * {
     /* correct css conflict between pure and skeleton */
-    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 .no-text-decoration {
