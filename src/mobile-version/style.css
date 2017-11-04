@@ -77,3 +77,13 @@ h1, h2, h3 {
     letter-spacing: -.05rem;
 }
 
+.trim-text {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+
+.nowrap-text {
+    white-space: nowrap;
+}
