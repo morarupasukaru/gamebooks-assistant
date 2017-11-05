@@ -7,6 +7,22 @@
     text-decoration: none;
 }
 
+.small-icon-button {
+    text-decoration: none;
+    color:inherit;
+    border-radius: 4px;
+    border: 1px solid #bbb;
+    padding: 3px 3px 0px 3px;
+}
+
+.small-text-button {
+    text-decoration: none;
+    color:inherit;
+    border-radius: 4px;
+    border: 1px solid #bbb;
+    padding: 3px 3px 3px 3px;
+}
+
 h1, h2, h3 {
     text-align: center;
 }
