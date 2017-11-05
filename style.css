@@ -88,8 +88,8 @@ h1, h2, h3 {
 }
 
 @media (min-width: 1024px) {
-    .button-horizontal-pack {
-        margin-left: 4%;
+    .small-margin-right {
+        margin-right: 10px;
     }
 }
 
@@ -124,4 +124,9 @@ h1, h2, h3 {
     color: #333;
     border-color: #888;
     outline: 0;
+}
+
+.no-value-set {
+    color: #bbb;
+    font-style: italic;
 }
