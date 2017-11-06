@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 
   <!-- Basic Page Needs
@@ -31,18 +31,22 @@
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/forms-min.css">
 
     <link rel="stylesheet" href="../assets/skeleton/skeleton.css">
-    <link rel="stylesheet" href="../style.css">
+
+    <link rel="stylesheet" href="../style/font.css">
+    <link rel="stylesheet" href="../style/trim-text.css">
+    <link rel="stylesheet" href="../style/nowrap-text.css">
+    <link rel="stylesheet" href="../style/anchor.css">
+    <link rel="stylesheet" href="../style/footer.css">
+    <link rel="stylesheet" href="../style/titles.css">
+    <link rel="stylesheet" href="../style/button.css">
+    <link rel="stylesheet" href="../style/fullwidth.css">
+    <link rel="stylesheet" href="../style/margin-right.css">
+    <link rel="stylesheet" href="../style/radiobutton.css">
+
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.png">
-
-    <style>
-
-    .small-margin-left {
-        margin-left: 10px;
-    }
-    </style>
 </head>
 
 <body>
@@ -53,40 +57,38 @@
             <h1 class="main-title">Choisissez un label</h1>
         </div>
         <div class="pure-u-1">
-            <ul style="list-style-type: none;">
-                <li>
-                    <input type="radio" id="noLabel" name="choice-label">
-                    <label for="noLabel"><em>Pas de label</em></label>
-                </li>
-                <li>
-                    <input type="radio" id="Trésor" name="choice-label" checked>
-                    <label for="Trésor">Trésor</label>
-                </li>
-                <li>
-                    <input type="radio" id="Piège" name="choice-label">
-                    <label for="Piège">Piège</label>
-                </li>
-                <li>
-                    <input type="radio" id="Combat" name="choice-label">
-                    <label for="Combat">Combat</label>
-                </li>
-                <li>
-                    <input type="radio" id="neuValue" name="choice-label">
-                    <label for="neuValue"><input type="text" placeholder="Nouveau label"/></label>
-                </li>
-            </ul>
+            <div>
+                <input type="radio" id="noLabel" name="choice-label">
+                <label for="noLabel"><em>Pas de label</em></label>
+            </div>
+            <div>
+                <input type="radio" id="Trésor" name="choice-label" checked>
+                <label for="Trésor">Trésor</label>
+            </div>
+            <div>
+                <input type="radio" id="Piège" name="choice-label">
+                <label for="Piège">Piège</label>
+            </div>
+            <div>
+                <input type="radio" id="Combat" name="choice-label">
+                <label for="Combat">Combat</label>
+            </div>
+            <div>
+                <input type="radio" id="neuValue" name="choice-label">
+                <label for="neuValue"><input type="text" placeholder="Nouveau label"/></label>
+            </div>
         </div>
 
         <div class="pure-u-1 pure-u-lg-1-3">
-            <a class="button button-fullwidth small-margin-right" href="#">Annuler</a>
+            <a class="button fullwidth margin-right" href="#">Annuler</a>
         </div>
         <div class="pure-u-1 pure-u-lg-1-3">
             <!-- TODO desactiver button si pas de selection -->
-            <a class="button button-fullwidth small-margin-right" href="#"><span class="icon-bin"></span>&nbsp;Supprimer</a>
+            <a class="button fullwidth margin-right" href="#"><span class="icon-bin"></span>&nbsp;Supprimer</a>
         </div>
         <div class="pure-u-1 pure-u-lg-1-3">
             <!-- TODO desactiver button si pas de selection -->
-            <a class="button button-primary button-fullwidth small-margin-right" href="../paragraph-carrousel-throw-dice-with-tag-description-expanded"><span class="icon-checkmark"></span>&nbsp;Choisir</a>
+            <a class="button button-primary fullwidth margin-right" href="../paragraph-carrousel-throw-dice-with-tag-description-expanded"><span class="icon-checkmark"></span>&nbsp;Choisir</a>
         </div>
     </div>
 </div>
@@ -99,8 +101,8 @@
         Le Sorcier de la Montagne de Feu
     </div>
     <div class="footer-right nowrap-text">
-        <a class="no-text-decoration" href="xxx"><span class="icon-sphere"></span>&nbsp;English&nbsp;</a>
-        <a class="no-text-decoration" href=".."><span class="icon-home3"></span>&nbsp;Acceuil&nbsp;</a>
+        <a href="#"><span class="icon-sphere"></span>&nbsp;English&nbsp;</a>
+        <a href=".."><span class="icon-home3"></span>&nbsp;Acceuil&nbsp&nbsp;</a>
     </div>
 </div>
 

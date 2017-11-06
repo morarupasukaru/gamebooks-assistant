@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,12 @@
   <link rel="stylesheet" href="assets/icons/icomoon/style.css">
   <link rel="stylesheet" href="assets/pure/base-min.css">
   <link rel="stylesheet" href="assets/skeleton/skeleton.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style/font.css">
+  <link rel="stylesheet" href="style/trim-text.css">
+  <link rel="stylesheet" href="style/nowrap-text.css">
+  <link rel="stylesheet" href="style/anchor.css">
+  <link rel="stylesheet" href="style/footer.css">
+  <link rel="stylesheet" href="style/splash.css">
 
   <meta name="viewport" content="width=device-width initial-scale=1">
   <meta name="mobile-web-app-capable" content="yes">
@@ -28,71 +33,6 @@
   <meta name="theme-color" content="#ffffff">
   <meta name="msapplication-config" content="http://morarupasukaru.github.io/gamebooks-assistant/desktop/browserconfig.xml" />
   <!-- favicon end -->
-
-  <!--
-  Sources:
-    - CSS of http://getskeleton.com/ taken for the CSS base
-    - Source of the layout of the splash screen copied from https://purecss.io/layouts/marketing/
-  -->
-
-  <style>
-/*
- * -- SPLASH STYLES --
- * This is the blue top section that appears on the page.
- */
-
-.splash {
-    width: 80%;
-    height: 50%;
-    margin: auto;
-    text-align: center;
-    padding-top: 0.5em;
-    text-transform: uppercase;
-}
-
-/* This is the main heading that appears on the blue section */
-.splash-head {
-    border: 3px solid black;
-    padding: 0.5em 0.5em;
-    border-radius: 5px;
-}
-
-/* This is the subheading that appears on the blue section */
-.splash-subhead {
-    opacity: 0.8;
-}
-
-/* Larger than mobile */
-@media only screen and (orientation: portrait) and (min-width: 360px) {
-  .splash-head {
-      padding: 1em 1em;
-  }
-}
-
-/* Larger than mobile */
-@media only screen and (orientation: portrait) and (min-width: 400px) {
-  .splash {
-       /* absolute center .splash within .splash-container */
-       position: absolute;
-       top: 100px; left: 0; bottom: 0; right: 0;
-  }
-
-  .splash-head {
-      padding: 1em 1.6em;
-  }
-}
-
-@media only screen and (orientation: landscape) and (min-width: 768px) {
-  .splash {
-       /* absolute center .splash within .splash-container */
-       position: absolute;
-       top: 100px; left: 0; bottom: 0; right: 0;
-  }
-  .splash-head {
-      padding: 1em 1.6em;
-  }
-}
-    </style>
 </head>
 
 <body>
@@ -103,7 +43,6 @@
         facilite la résolution de livre-jeu
       </p>
       <p>
-        <!-- TODO github icon -->
         <a class="button"
            href="desktop/desktop.html#/library-import?import=http://morarupasukaru.github.io/gamebooks-assistant/data/library-defis-fantastiques.json">VERSION DESKTOP</a>
         <a class="button" href="initial-game-choice">VERSION MOBILE</a>
@@ -112,10 +51,10 @@
   </div>
   <div class="footer">
     <div class="footer-left trim-text">
-      <a class="no-text-decoration" href="https://github.com/morarupasukaru/gamebooks-assistant/">&nbsp;<span class="icon-github"></span>&nbsp;Projet GitHub</a>
+      <a href="https://github.com/morarupasukaru/gamebooks-assistant/">&nbsp;<span class="icon-github"></span>&nbsp;Projet GitHub</a>
     </div>
     <div class="footer-right nowrap-text">
-      <a class="no-text-decoration" href="xxx"><span class="icon-sphere"></span>&nbsp;English&nbsp;</a>
+      <a href="#"><span class="icon-sphere"></span>&nbsp;English&nbsp;</a>
     </div>
   </div>
 </html>

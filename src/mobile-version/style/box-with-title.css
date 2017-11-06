@@ -1,0 +1,16 @@
+.box-with-title {
+    padding: 0.2em 0.5em;
+    border-radius: 4px;
+    border: 1px solid #bbb;
+}
+
+.box-with-title:hover,
+.box-with-title:focus {
+    color: #333;
+    border-color: #888;
+    outline: 0;
+}
+
+.box-with-title:last-child {
+    padding-bottom: 10px;
+}

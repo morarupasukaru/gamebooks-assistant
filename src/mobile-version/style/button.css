@@ -1,0 +1,4 @@
+/* disable uppercase transformation that come per default with skeleton */
+.button {
+    text-transform: none;
+}
