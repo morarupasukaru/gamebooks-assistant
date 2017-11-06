@@ -1,4 +1,40 @@
+Actions jeu à "layouter":
+1) lancer 1 dé x (d'après paramatres de l'aventure)
+	=> si possible dispo dans écran personnage (voir partout) -> extend?
+2) gestion de listes
+	- gérer des notes
+	- gérer l'inventaire
+	- gérer d'autres listes
+3) gérer les caractéristiques du personnage (1 liste par héros)
+	=> liste avec valeur courante et valeur max (ajout +/-)
+4) gestion des combats => retenir les points de degats via des traits (dégats)
+5) abandonner partie courante
+6) recommencer le livre-jeu (en gardant les caractéristiques, notes, etc.)
+7) continuer l'aventure avec un autre tome
+8) supprimer un saut (afin de ne pas polluer des choix faux, supprimer le paragraphe si celui-ci vient d'être ajouter par le saut, s'il ne fait pas partie des données de base, s'il n'est pas référencé par d'autres paragraphes)
+
+Actions jeu prise en compte:
+9) sélectionner un choix d'un paragraphe dans la description
+10) édition label
+
+Actions implicites (javascript):
+- sauver / charger (non-> auto-save)
+    => définir quand a lieu la sauvegarde, chargement
+- ajout choix dans la description (possibilité de supprimer un choix?)
+
+Actions non disponible v1:
+- gestion de plusieurs héros à la fois
+- voir la map (comment sur un smartphone?)
+- lancer des dés quelconque (à choix, possibilité de retenir les points)
+- voir les règles
+
+Actions non disponible par rapport à la version desktop:
+- édition livre-jeu
+- édition description livre-jeu
+- import, export données (dispo en admin, via texte à copier-coller)
+- gestion des jeux, aventures (ajout, suppression)
+- gestion de plus d'une partie à la fois
+
+Technical Todo:
 * laptop & mobile version share the same localstorage
 => save a flag in the game object to indicate that the game is the unique game
-* "Français", "English" dans le footer de la homepage
-* Texte en francais Homepage, Gamechoice
