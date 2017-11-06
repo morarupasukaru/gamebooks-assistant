@@ -135,8 +135,7 @@ h1, h2, h3 {
 /* custom radiobutton - start */
 [type="radio"]:checked,
 [type="radio"]:not(:checked) {
-    position: absolute;
-    left: -9999px;
+    display: none;
 }
 
 [type="radio"]:checked + label,
@@ -171,4 +170,12 @@ h1, h2, h3 {
     top: 0px;
     left: 0px;
 }
+
+/* override skeleton js label (find another solution if label must be used like normal form with fields) */
+label {
+  display: inherit;
+  margin-bottom: inherit;
+  font-weight: inherit;
+}
+
 /* custom radiobutton - end */
