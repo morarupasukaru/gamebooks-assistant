@@ -130,3 +130,52 @@ h1, h2, h3 {
     color: #bbb;
     font-style: italic;
 }
+
+
+/* custom radiobutton - start */
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    display: none;
+}
+
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 20px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+[type="radio"]:checked + label:after {
+    font-family: 'icomoon' !important;
+    content: "\ea54";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+[type="radio"]:not(:checked) + label:after {
+    font-family: 'icomoon' !important;
+    content: '\ea56';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+/* override skeleton js label (find another solution if label must be used like normal form with fields) */
+label {
+  display: inherit;
+  margin-bottom: inherit;
+  font-weight: inherit;
+}
+
+/* custom radiobutton - end */
