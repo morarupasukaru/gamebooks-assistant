@@ -1,0 +1,18 @@
+.footer {
+    background: rgb(238, 238, 238);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-left {
+    text-align: left;
+    float: left;
+    width: 50%;
+}
+
+.footer-right {
+    text-align: right;
+    float: right;
+    width: 50%;
+}
