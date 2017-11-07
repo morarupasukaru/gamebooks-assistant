@@ -47,23 +47,6 @@
     <!-- Favicon
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link rel="icon" type="image/png" href="images/favicon.png">
-
-  <script>
-    function rollDice() {
-        var element = document.getElementById("diceValues");
-        if (element.innerHTML === '...') {
-            element.innerHTML = '3 <span class="icon-bin"></span>';
-        } else {
-            element.innerHTML = '3, ' + element.innerHTML;
-        }
-    }
-
-    function clearDiceValues() {
-        var element = document.getElementById("diceValues");
-        element.textContent += '...';
-    }
-  </script>
-
 </head>
 
 <body>
@@ -74,31 +57,14 @@
             <h1 class="main-title">Paragraphe 1</h1>
         </div>
         <div class="pure-u-1">
-            <h2 class="sub-title"><span class="icon-quotes-left"></span> Trésor <span class="icon-quotes-right"></span>&nbsp;&nbsp;<a class="small-icon-button" href="../label-selection"><span class="icon-pencil"></span></a></h2>
+            <h2 class="sub-title"><span class="icon-quote-left"></span> Trésor <span class="icon-quote-right"></span>&nbsp;&nbsp;<a class="small-icon-button" href="../label-selection"><span class="icon-pencil2"></span></a></h2>
         </div>
 
         <div class="pure-u-1">
             <fieldset class="box-with-title">
-                <legend>&nbsp;Description <span class="icon-circle-down"></span>&nbsp;</legend>
-                <div class="u-full-width" id="paragraphDescription">blah blah <a class="small-text-button" href="tbd">199 <span class="icon-quotes-left"></span> Piège <span class="icon-quotes-right"></a> dassadsa dasadad dadad a dadasd <a class="small-text-button" href="">23</a></div>
+                <legend>&nbsp;Description <span class="icon-chevron-down"></span>&nbsp;</legend>
+                <div class="u-full-width" id="paragraphDescription">blah blah <a class="small-text-button" href="tbd">199 <span class="icon-quote-left"></span> Piège <span class="icon-quote-right"></a> dassadsa dasadad dadad a dadasd <a class="small-text-button" href="">23</a></div>
             </fieldset>
-        </div>
-
-        <div class="pure-u-1">
-            <a class="button" href=""><</a>
-            <!-- TODO full-width -->
-            <a class="button" href="">Lancer un dés six faces</a>
-            <a class="button" href="">></a>
-        </div>
-
-        <div class="pure-u-1">
-            <label for="dices"></label>
-            <div id="dices">
-                <!-- TODO less gap between text and border (button2)-->
-                <a class="small-icon-button" href="" onclick="rollDice(); return false"><span class="icon-dice"></span></a>
-                <!-- TODO full-width -->
-                <a id="diceValues" class="small-icon-button" href="" onclick="clearDiceValues()">...</a>
-            </div>
         </div>
     </div>
 </div>
@@ -111,8 +77,8 @@
         Le Sorcier de la Montagne de Feu
     </div>
     <div class="footer-right nowrap-text">
-        <a href="#"><span class="icon-sphere"></span>&nbsp;English&nbsp;</a>
-        <a href="../.."><span class="icon-home3"></span>&nbsp;Acceuil&nbsp&nbsp;</a>
+        <a href="#"><span class="icon-globe"></span>&nbsp;English&nbsp;</a>
+        <a href="../.."><span class="icon-home"></span>&nbsp;Acceuil&nbsp;</a>
     </div>
 </div>
 

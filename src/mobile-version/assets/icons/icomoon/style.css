@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?xlpyb7');
-  src:  url('fonts/icomoon.eot?xlpyb7#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?xlpyb7') format('truetype'),
-    url('fonts/icomoon.woff?xlpyb7') format('woff'),
-    url('fonts/icomoon.svg?xlpyb7#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?yuw6pm');
+  src:  url('fonts/icomoon.eot?yuw6pm#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?yuw6pm') format('truetype'),
+    url('fonts/icomoon.woff?yuw6pm') format('woff'),
+    url('fonts/icomoon.svg?yuw6pm#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,51 +24,54 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-home3:before {
-  content: "\e902";
+.icon-plus2:before {
+  content: "\f067";
 }
-.icon-pencil:before {
-  content: "\e905";
+.icon-check:before {
+  content: "\f00c";
 }
-.icon-dice:before {
-  content: "\e915";
+.icon-trash-o:before {
+  content: "\f014";
 }
-.icon-quotes-left:before {
-  content: "\e977";
+.icon-home:before {
+  content: "\f015";
 }
-.icon-quotes-right:before {
-  content: "\e978";
+.icon-lock2:before {
+  content: "\f023";
 }
-.icon-bin:before {
-  content: "\e9ac";
+.icon-pencil2:before {
+  content: "\f040";
 }
-.icon-sphere:before {
-  content: "\e9c9";
+.icon-check-square-o:before {
+  content: "\f046";
 }
-.icon-plus:before {
-  content: "\ea0a";
+.icon-chevron-up:before {
+  content: "\f077";
 }
-.icon-minus:before {
-  content: "\ea0b";
+.icon-chevron-down:before {
+  content: "\f078";
 }
-.icon-cross:before {
-  content: "\ea0f";
+.icon-github2:before {
+  content: "\f09b";
 }
-.icon-checkmark:before {
-  content: "\ea10";
+.icon-unlock:before {
+  content: "\f09c";
 }
-.icon-circle-up:before {
-  content: "\ea41";
+.icon-globe:before {
+  content: "\f0ac";
 }
-.icon-circle-down:before {
-  content: "\ea43";
+.icon-circle-o:before {
+  content: "\f10c";
 }
-.icon-radio-checked:before {
-  content: "\ea54";
+.icon-quote-left:before {
+  content: "\f10d";
 }
-.icon-radio-unchecked:before {
-  content: "\ea56";
+.icon-quote-right:before {
+  content: "\f10e";
 }
-.icon-github:before {
-  content: "\eab0";
+.icon-dot-circle-o:before {
+  content: "\f192";
+}
+.icon-mouse-pointer:before {
+  content: "\f245";
 }
