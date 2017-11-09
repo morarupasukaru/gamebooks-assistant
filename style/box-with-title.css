@@ -4,13 +4,18 @@
     border: 1px solid #bbb;
 }
 
-.box-with-title:hover,
-.box-with-title:focus {
-    color: #333;
-    border-color: #888;
-    outline: 0;
+.box-with-title:not(.box-collapsed):last-child {
+    padding-bottom: 10px;
 }
 
-.box-with-title:last-child {
-    padding-bottom: 10px;
+fieldset.box-collapsed>div {
+    display: none;
+}
+
+legend>a {
+    color: inherit;
+}
+
+legend>a:hover {
+    color: inherit;
 }
