@@ -72,10 +72,25 @@
                 <legend>&nbsp;<a href="#">Lancer des dés&nbsp;<span class="icon-chevron-up"></span></a>&nbsp;</legend>
                 <div class="u-full-width" id="dicesRoll">
                     <a class="small-icon-button" href="#"><span class="icon-random"></span></a>
-                    <!-- TODO toggle button -->
-                    <a class="small-text-button"><span><sup>d6</sup>&nbsp;1&nbsp;</span></a>
-                    <a class="small-text-button"><span><sup>d4</sup>&nbsp;1&nbsp;</span></a>
-                    <a class="small-text-button"><span><sup>d[0-10]</sup>&nbsp;1&nbsp;</span></a>
+                    <span>
+                        <input class="checkbox-toggle-button" id="dice1" type="checkbox" />
+                        <label for="dice1" class="small-text-button toggle-button"><span><sup>d6</sup>&nbsp;1&nbsp;</span></label>
+                    </span>
+
+                    <span>
+                        <input class="checkbox-toggle-button" id="dice2" type="checkbox" />
+                        <label for="dice2" class="small-text-button toggle-button"><span><sup>d6</sup>&nbsp;4&nbsp;</span></label>
+                    </span>
+
+                    <span>
+                        <input class="checkbox-toggle-button" id="dice3" type="checkbox" />
+                        <label for="dice3" class="small-text-button toggle-button"><span><sup>d4</sup>&nbsp;2&nbsp;</span></label>
+                    </span>
+
+                    <span>
+                        <input class="checkbox-toggle-button" id="dice4" type="checkbox" />
+                        <label for="dice4" class="small-text-button toggle-button"><span><sup>d[0-10]</sup>&nbsp;8&nbsp;</span></label>
+                    </span>
                 </div>
             </fieldset>
         </div>
