@@ -3200,7 +3200,7 @@ webpackJsonp([0],[
 	    _createClass(GameDetailController, [{
 	        key: 'initData',
 	        value: function initData() {
-	            debugger;
+	            alert(JSON.stringify(this.$stateParams));
 	            this.game = this.gamePersistenceService.getGame(decodeURIComponent(this.$stateParams.gameId));
 	            if (!!this.game.stats) {
 	                this.stats = this.stats.concat(this.game.stats);
@@ -3208,6 +3208,7 @@ webpackJsonp([0],[
 	            this.adventureId = this.$stateParams.adventureId;
 	            this.paragraph = this.adventurePersistenceService.getOrCreateParagraph(this.adventureId, this.$stateParams.paragraphNr);
 	            this.adventure = this.adventurePersistenceService.getAdventure(this.adventureId);
+	            debugger;
 	            this.visibleSections = this.adventurePersistenceService.getOrCreateVisibleSections(this.adventureId, this.paragraph.tag);
 	            this.checkAvailableAdventure();
 	        }
