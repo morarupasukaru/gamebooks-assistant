@@ -45,6 +45,7 @@
     <link rel="stylesheet" href="../../style/box-with-title.css">
     <link rel="stylesheet" href="../../style/muted-text.css">
     <link rel="stylesheet" href="../../style/toggle-button.css">
+    <link rel="stylesheet" href="../../style/new-paragraph-choice.css">
 
     <!-- Favicon
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -62,15 +63,14 @@
             <h2 class="sub-title"><span class="icon-quote-left muted-text"><span class="muted-text">&nbsp;aucun label&nbsp;</span><span class="icon-quote-right muted-text"></span>&nbsp;&nbsp;</span><a class="small-icon-button" href="../label-selection"><span class="icon-pencil2"></span></a></h2>
         </div>
 
-        <div class="pure-u-1 pure-u-md-1-2">
+        <div class="pure-u-1">
             <fieldset class="box-with-title">
                 <legend>&nbsp;<a href="#">Description&nbsp;<span class="icon-chevron-down"></span></a>&nbsp;</legend>
-                <div class="u-full-width" id="paragraphDescription">blah blah <a class="small-text-button" href="tbd">199 <span class="icon-quote-left"></span> Piège <span class="icon-quote-right"></a> dassadsa dadad a dadasd <a class="small-text-button" href="">23</a></div>
+                <div class="u-full-width" id="paragraphDescription">blah blah <a class="small-text-button new-paragraph-choice" href="tbd">199 <span class="icon-quote-left"></span> Piège <span class="icon-quote-right"></a> dassadsa dasadad dadad a dadasd <a class="small-text-button" href="">23</a></div>
             </fieldset>
         </div>
 
-        <!-- TODO same height if two columns? -->
-        <div class="pure-u-1 pure-u-md-1-2">
+        <div class="pure-u-1">
             <fieldset class="box-with-title">
                 <legend>&nbsp;<a href="#">Lancer des dés</span></a><!-- TODO collapse -->
                     <a href="#"><span class="icon-sliders"></span></a><!-- TODO config -->
@@ -97,8 +97,19 @@
                         <input class="checkbox-toggle-button" id="dice4" type="checkbox" />
                         <label for="dice4" class="small-text-button toggle-button"><span><sup>d[0-10]</sup>&nbsp;8&nbsp;</span></label>
                     </span>
-                    <!-- TODO correct alignement fieldset -->
-                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="pure-u-1">
+            <fieldset style="min-height:100%;">
+                <legend>Inventaire</legend>
+                <div>
+                    <ul>
+                        <li>Epée</li>
+                        <li>Bouclier</li>
+                        <li>...</li>
+                    </ul>
                 </div>
             </fieldset>
         </div>
