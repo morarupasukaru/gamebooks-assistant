@@ -52,15 +52,10 @@ class AdventurePersistenceService {
         }
     }
 
-    updateDownloadableAdventure(adventure) {
-        try {
-            this.updateAdventureWithoutParagraphs(adventure);
-        } catch (error) {
-            if (this.constants.errors.adventureAlreadyExist === error) {
-                let existingAdventure = this.getAdventure(adventure.id);
-                existingAdventure.downloadUrl = adventure.downloadUrl;
-                this.updateAdventureWithoutParagraphs(existingAdventure);
-            }
+    updateDownloadableAdventure(downloadedAdventure) {
+        let existingAdventure = this.getAdventure(downloadedAdventure.id);
+        if (!existingAdventure || !existingAdventure.downloaded) {
+            this.updateAdventureWithoutParagraphs(downloadedAdventure);
         }
     }
 

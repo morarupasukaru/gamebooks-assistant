@@ -364,6 +364,18 @@ class GamesListController {
         let adventure = this.adventurePersistenceService.getAdventure(game.adventureId);
         if (!adventure) {
             this.messagesService.errorMessage(this.$translate.instant('CannotFindAdventure', { adventure: game.adventureId}), false)
+        } else if (!!adventure.downloadUrl && !adventure.downloaded) {
+            let self = this;
+            let promise = this.adventurePersistenceService.downloadAdventureWithId(adventure.id);
+            promise.then(
+                function(json) {
+                    let nextUrl = self.gamePersistenceService.getUrlOfGame(game.id);
+                    self.$location.url(nextUrl);
+                },
+                function(reason) {
+                    self.initData();
+                }
+            );
         } else {
             let nextUrl = this.gamePersistenceService.getUrlOfGame(game.id);
             this.$location.url(nextUrl);
