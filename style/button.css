@@ -9,3 +9,9 @@ button:disabled {
     pointer-events: none;
     border: 1px solid #bbb;
 }
+
+.small-button {
+    padding: 0 10px;
+    font-size: inherit;
+    font-weight: inherit;
+}
