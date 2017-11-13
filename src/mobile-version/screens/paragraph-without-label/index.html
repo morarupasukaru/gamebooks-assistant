@@ -56,7 +56,9 @@
     <div class="pure-g">
         <div class="pure-u-1">
             <h1 class="main-title">Paragraphe 1</h1>
+
         </div>
+
         <div class="pure-u-1">
             <h2 class="sub-title"><span class="icon-quote-left muted-text"><span class="muted-text">&nbsp;aucun label&nbsp;</span><span class="icon-quote-right muted-text"></span>&nbsp;&nbsp;</span><a class="button small-button" href="../label-selection"><span class="icon-pencil2"></span></a></h2>
         </div>
@@ -75,6 +77,7 @@
                 </legend>
                 <div class="u-full-width" id="dicesRoll">
                     <a class="button small-button" href="#"><span class="icon-random"></span></a>
+
                     <span>
                         <input class="checkbox-toggle-button" id="dice1" type="checkbox" />
                         <label for="dice1" class="button small-button toggle-button"><span><sup>d6</sup>&nbsp;1&nbsp;</span></label>
@@ -94,20 +97,89 @@
                         <input class="checkbox-toggle-button" id="dice4" type="checkbox" />
                         <label for="dice4" class="button small-button toggle-button"><span><sup>d[0-10]</sup>&nbsp;8&nbsp;</span></label>
                     </span>
+
                     <a class="button small-button" href="#"><span class="icon-sliders"></span></a>
                 </div>
             </fieldset>
         </div>
 
         <div class="pure-u-1">
-            <fieldset style="min-height:100%;">
-                <legend>Inventaire</legend>
+            <fieldset class="box-with-title">
+                <legend><select class="u-full-width" id="selectedBox1" value="inventory">
+                    <option value="paragraphSelection" selected>Choix paragraphe</option>
+                    <option value="characters">Personnages</option>
+                    <option value="inventory">Inventaire</option>
+                    <option value="notes">Notes</option>
+                    <option value="options">Options jeu</option>
+                </select></legend>
+                <div>
+                    <a class="button small-button" href="#"><span class="icon-undo"></span></a>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="pure-u-1">
+            <fieldset class="box-with-title">
+                <legend><select class="u-full-width" id="selectedBox2" value="inventory">
+                    <option value="paragraphSelection">Choix paragraphe</option>
+                    <option value="characters" selected>Personnages</option>
+                    <option value="inventory">Inventaire</option>
+                    <option value="notes">Notes</option>
+                    <option value="options">Options jeu</option>
+                </select></legend>
+                <div>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="pure-u-1">
+            <fieldset class="box-with-title">
+                <legend><select class="u-full-width" id="selectedBox3" value="inventory">
+                    <option value="paragraphSelection">Choix paragraphe</option>
+                    <option value="characters">Personnages</option>
+                    <option value="inventory" selected>Inventaire</option>
+                    <option value="notes">Notes</option>
+                    <option value="options">Options jeu</option>
+                </select></legend>
                 <div>
                     <ul>
                         <li>Epée</li>
                         <li>Bouclier</li>
                         <li>...</li>
                     </ul>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="pure-u-1">
+            <fieldset class="box-with-title">
+                <legend><select class="u-full-width" id="selectedBox4" value="inventory">
+                    <option value="paragraphSelection">Choix paragraphe</option>
+                    <option value="characters">Personnages</option>
+                    <option value="inventory" >Inventaire</option>
+                    <option value="notes" selected>Notes</option>
+                    <option value="options">Options jeu</option>
+                </select></legend>
+                <div>
+                    <ul>
+                        <li>Blah blah</li>
+                        <li>Quelques choses d'important à savoir ...</li>
+                        <li>...</li>
+                    </ul>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="pure-u-1">
+            <fieldset class="box-with-title">
+                <legend><select class="u-full-width" id="selectedBox5" value="inventory">
+                    <option value="paragraphSelection">Choix paragraphe</option>
+                    <option value="characters">Personnages</option>
+                    <option value="inventory">Inventaire</option>
+                    <option value="notes">Notes</option>
+                    <option value="options" selected>Options jeu</option>
+                </select></legend>
+                <div>
                 </div>
             </fieldset>
         </div>
