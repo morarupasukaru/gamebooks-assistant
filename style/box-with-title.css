@@ -9,7 +9,7 @@
 }
 
 fieldset.box-collapsed>div {
-    visibility:hidden;
+    display: none;
 }
 
 legend>a {

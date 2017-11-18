@@ -39,11 +39,10 @@
     <link rel="stylesheet" href="../../style/button.css">
     <link rel="stylesheet" href="../../style/fullwidth.css">
     <link rel="stylesheet" href="../../style/margin-right.css">
-    <link rel="stylesheet" href="../../style/radiobutton.css">
-    <link rel="stylesheet" href="../../style/box-with-title.css">
     <link rel="stylesheet" href="../../style/muted-text.css">
     <link rel="stylesheet" href="../../style/toggle-button.css">
     <link rel="stylesheet" href="../../style/new-paragraph-choice.css">
+    <link rel="stylesheet" href="../../style/expanded-table.css">
 
     <!-- Favicon
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -64,96 +63,118 @@
         </div>
 
         <div class="pure-u-1">
-            <fieldset class="box-with-title">
-                <legend>&nbsp;<a href="#">Description&nbsp;<span class="icon-chevron-down"></span></a>&nbsp;</legend>
-                <div class="u-full-width" id="paragraphDescription">blah blah <a class="button small-button new-paragraph-choice" href="tbd">199 <span class="icon-quote-left"></span> Piège <span class="icon-quote-right"></a> dassadsa dasadad dadad a dadasd <a class="button small-button" href="">23</a></div>
-            </fieldset>
-        </div>
+            <table class="expanded-table">
+                <tr>
+                    <th>&nbsp;<span class="icon-chevron-down"></span>&nbsp;Description</th>
+                </tr>
+                <tr>
+                    <td>
+                        blah blah <a class="button small-button new-paragraph-choice" href="tbd">199 <span class="icon-quote-left"></span> Piège <span class="icon-quote-right"></a> dassadsa dasadad dadad a dadasd <a class="button small-button" href="">23</a>
+                    </td>
+                </tr>
+            </table>
+            <table class="expanded-table">
+                <tr>
+                    <th>&nbsp;<span class="icon-chevron-down"></span>&nbsp;Lancer des dés</th>
+                </tr>
+                <tr>
+                    <td>
+                        <a class="button small-button" href="#"><span class="icon-random"></span></a>
 
-        <div class="pure-u-1">
-            <fieldset class="box-with-title">
-                <legend>&nbsp;<a href="#">Lancer des dés</span></a>
-                    <a href="#"><span class="icon-chevron-down"></span>&nbsp;</a>
-                </legend>
-                <div class="u-full-width" id="dicesRoll">
-                    <a class="button small-button" href="#"><span class="icon-random"></span></a>
+                        <span>
+                            <input class="checkbox-toggle-button" id="dice1" type="checkbox" />
+                            <label for="dice1" class="button small-button toggle-button"><span><sup>d6</sup>&nbsp;1&nbsp;</span></label>
+                        </span>
 
-                    <span>
-                        <input class="checkbox-toggle-button" id="dice1" type="checkbox" />
-                        <label for="dice1" class="button small-button toggle-button"><span><sup>d6</sup>&nbsp;1&nbsp;</span></label>
-                    </span>
+                        <span>
+                            <input class="checkbox-toggle-button" id="dice2" type="checkbox" />
+                            <label for="dice2" class="button small-button toggle-button"><span><sup>d6</sup>&nbsp;4&nbsp;</span></label>
+                        </span>
 
-                    <span>
-                        <input class="checkbox-toggle-button" id="dice2" type="checkbox" />
-                        <label for="dice2" class="button small-button toggle-button"><span><sup>d6</sup>&nbsp;4&nbsp;</span></label>
-                    </span>
+                        <span>
+                            <input class="checkbox-toggle-button" id="dice3" type="checkbox" />
+                            <label for="dice3" class="button small-button toggle-button"><span><sup>d4</sup>&nbsp;2&nbsp;</span></label>
+                        </span>
 
-                    <span>
-                        <input class="checkbox-toggle-button" id="dice3" type="checkbox" />
-                        <label for="dice3" class="button small-button toggle-button"><span><sup>d4</sup>&nbsp;2&nbsp;</span></label>
-                    </span>
+                        <span>
+                            <input class="checkbox-toggle-button" id="dice4" type="checkbox" />
+                            <label for="dice4" class="button small-button toggle-button"><span><sup>d[0-10]</sup>&nbsp;8&nbsp;</span></label>
+                        </span>
 
-                    <span>
-                        <input class="checkbox-toggle-button" id="dice4" type="checkbox" />
-                        <label for="dice4" class="button small-button toggle-button"><span><sup>d[0-10]</sup>&nbsp;8&nbsp;</span></label>
-                    </span>
-
-                    <a class="button small-button" href="#"><span class="icon-sliders"></span></a>
-                </div>
-            </fieldset>
-        </div>
-
-        <div class="pure-u-1">
-            <fieldset class="box-with-title">
-                <legend>&nbsp;<a href="#"><span class="icon-chevron-left"></span>&nbsp;Choix paragraphe&nbsp;<span class="icon-chevron-right"></span></a>&nbsp;</legend>
-                <div>
-                    <a class="button small-button" href="#"><span class="icon-undo"></span></a>
-                </div>
-            </fieldset>
-        </div>
-
-        <div class="pure-u-1">
-            <fieldset class="box-with-title">
-                <legend>&nbsp;<a href="#"><span class="icon-chevron-left"></span>&nbsp;Personnages&nbsp;<span class="icon-chevron-right"></span></a>&nbsp;</legend>
-                <div>
-                    &nbsp;
-                </div>
-            </fieldset>
-        </div>
-
-        <div class="pure-u-1">
-            <fieldset class="box-with-title">
-                <legend>&nbsp;<a href="#"><span class="icon-chevron-left"></span>&nbsp;Inventaire&nbsp;<span class="icon-chevron-right"></span></a>&nbsp;</legend>
-                <div>
-                    <ul>
-                        <li>Epée</li>
-                        <li>Bouclier</li>
-                        <li>...</li>
-                    </ul>
-                </div>
-            </fieldset>
-        </div>
-
-        <div class="pure-u-1">
-            <fieldset class="box-with-title">
-                <legend>&nbsp;<a href="#"><span class="icon-chevron-left"></span>&nbsp;Notes&nbsp;<span class="icon-chevron-right"></span></a>&nbsp;</legend>
-                <div>
-                    <ul>
-                        <li>Blah blah</li>
-                        <li>Quelques choses d'important à savoir ...</li>
-                        <li>...</li>
-                    </ul>
-                </div>
-            </fieldset>
-        </div>
-
-        <div class="pure-u-1">
-            <fieldset class="box-with-title">
-                <legend>&nbsp;<a href="#"><span class="icon-chevron-left"></span>&nbsp;Options jeu&nbsp;<span class="icon-chevron-right"></span></a>&nbsp;</legend>
-                <div>
-                    &nbsp;
-                </div>
-            </fieldset>
+                        <a class="button small-button" href="#"><span class="icon-sliders"></span></a>
+                    </td>
+                </tr>
+            </table>
+            <table class="expanded-table collapse">
+                <tr>
+                    <th>&nbsp;<span class="icon-chevron-up"></span>&nbsp;Choix paragraphe</th>
+                </tr>
+                <tr>
+                    <td>xxx</td>
+                </tr>
+                <tr>
+                    <td>xxx</td>
+                </tr>
+                <tr>
+                    <td>xxx</td>
+                </tr>
+            </table>
+            <table class="expanded-table collapse">
+                <tr>
+                    <th>&nbsp;<span class="icon-chevron-up"></span>&nbsp;Personnages</th>
+                </tr>
+                <tr>
+                    <td>xxx</td>
+                </tr>
+                <tr>
+                    <td>xxx</td>
+                </tr>
+                <tr>
+                    <td>xxx</td>
+                </tr>
+            </table>
+            <table class="expanded-table">
+                <tr>
+                    <th>&nbsp;<span class="icon-chevron-down"></span>&nbsp;Inventaire</th>
+                </tr>
+                <tr>
+                    <td>Epée</td>
+                </tr>
+                <tr>
+                    <td>Bouclier</td>
+                </tr>
+                <tr>
+                    <td>10 repas</td>
+                </tr>
+            </table>
+            <table class="expanded-table">
+                <tr>
+                    <th>&nbsp;<span class="icon-chevron-down"></span>&nbsp;Notes</th>
+                </tr>
+                <tr>
+                    <td>Blah blah</td>
+                </tr>
+                <tr>
+                    <td>Quelques choses d'important à savoir ...</td>
+                </tr>
+                <tr>
+                    <td>xxx</td>
+                </tr>
+            </table>
+            <table class="expanded-table collapse">
+                <tr>
+                    <th>&nbsp;<span class="icon-chevron-up"></span>&nbsp;Options jeu</th>
+                </tr>
+                <tr>
+                    <td>xxx</td>
+                </tr>
+                <tr>
+                    <td>xxx</td>
+                </tr>
+                <tr>
+                    <td>xxx</td>
+                </tr>
+            </table>
         </div>
     </div>
 </div>
