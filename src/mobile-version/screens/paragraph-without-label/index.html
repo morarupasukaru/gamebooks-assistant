@@ -46,6 +46,7 @@
     <link rel="stylesheet" href="../../style/striped-table.css">
     <link rel="stylesheet" href="numeric-pad.css">
     <link rel="stylesheet" href="list-table.css">
+    <link rel="stylesheet" href="buttons-table.css">
 
     <!-- Favicon
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -113,7 +114,7 @@
                 </tr>
             </table>
 
-            <table class="expanded-table numeric-pad">
+            <table class="expanded-table numeric-pad buttons-table">
                 <tr>
                     <th>&nbsp;<span class="icon-chevron-down"></span>&nbsp;Saut au paragraphe</th>
                 </tr>
@@ -140,7 +141,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <a id="numericpad-cancel" class="button margin-right" href="#"><span class="icon-close"></span></a>
+                        <a id="numericpad-cancel" class="button margin-right button-danger" href="#"><span class="icon-close"></span></a>
                         <a class="button margin-right" href="#">0</a>
                         <a id="numericpad-ok" class="button margin-right" href="#"><span class="icon-check"></span></a>
                     </td>
@@ -229,18 +230,25 @@
                     </tr>
                 </tbody>
             </table>
-            <table class="expanded-table">
+
+            <table class="expanded-table buttons-table">
                 <tr>
                     <th>&nbsp;<span class="icon-chevron-down"></span>&nbsp;Options jeu</th>
                 </tr>
                 <tr>
-                    <td>xxx</td>
+                    <td>
+                        <a class="button fullwidth" href="#">Annuler le dernier saut de paragraphe</a>
+                    </td>
                 </tr>
                 <tr>
-                    <td>xxx</td>
+                    <td>
+                        <a class="button fullwidth" href="#">Recommencer la partie</a>
+                    </td>
                 </tr>
                 <tr>
-                    <td>xxx</td>
+                    <td>
+                        <a class="button fullwidth button-danger" href="#">Abandonner la lecture du livre-jeu</a>
+                    </td>
                 </tr>
             </table>
         </div>

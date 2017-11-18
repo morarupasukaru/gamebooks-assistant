@@ -10,7 +10,7 @@ Actions jeu à "layouter":
 4) gestion des combats => retenir les points de degats via des traits (dégats)
 5) abandonner partie courante
 6) recommencer le livre-jeu (en gardant les caractéristiques, notes, etc.)
-7) continuer l'aventure avec un autre tome
+7) continuer l'aventure avec un autre tome > choix devra être lors de la sélection du jeu (écran additionel)
 8) supprimer un saut (afin de ne pas polluer des choix faux, supprimer le paragraphe si celui-ci vient d'être ajouter par le saut, s'il ne fait pas partie des données de base, s'il n'est pas référencé par d'autres paragraphes)
 
 Actions jeu prise en compte:
