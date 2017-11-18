@@ -2,10 +2,11 @@
     background-color: inherit;
 }
 
-.list-table tr:last-child > td {
-    text-align: center;
-}
-
 .list-table .small-button {
     margin-bottom: 0px;
+}
+
+
+.list-table td {
+    padding: 3px 0px 3px 0px;
 }

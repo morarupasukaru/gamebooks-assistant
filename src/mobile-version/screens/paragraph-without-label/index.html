@@ -47,6 +47,7 @@
     <link rel="stylesheet" href="numeric-pad.css">
     <link rel="stylesheet" href="list-table.css">
     <link rel="stylesheet" href="buttons-table.css">
+    <link rel="stylesheet" href="characters-table.css">
 
     <!-- Favicon
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -148,7 +149,7 @@
                 </tr>
             </table>
 
-            <table class="expanded-table">
+            <table class="expanded-table list-table characters-table">
                 <col style="width:90%">
                 <col style="width:5%">
                 <col style="width:5%">
@@ -160,7 +161,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class="character">
                         <td>Héro</td>
                         <td></td>
                         <td>
@@ -168,7 +169,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Habilité</td>
+                        <td>Habilité: 11 / 12</td>
                         <td>
                             <a class="button small-button" href="#"><span class="icon-plus2"></span></a>
                         </td>
@@ -177,7 +178,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Endurance</td>
+                        <td>Endurance: 13 / 18</td>
                         <td>
                             <a class="button small-button" href="#"><span class="icon-plus2"></span></a>
                         </td>
@@ -186,12 +187,45 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Chance</td>
+                        <td>Chance: 6 / 8</td>
                         <td>
                             <a class="button small-button" href="#"><span class="icon-plus2"></span></a>
                         </td>
                         <td>
                             <a class="button small-button" href="#"><span class="icon-minus"></span></a>
+                        </td>
+                    </tr>
+
+                    <tr class="character">
+                        <td>Milou</td>
+                        <td></td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-chevron-right"></span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Habilité: 5 / 5</td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-plus2"></span></a>
+                        </td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-minus"></span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Endurance: 9 / 12</td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-plus2"></span></a>
+                        </td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-minus"></span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="muted-text">Ajout personnage</td>
+                        <td></td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-plus2"></span></a>
                         </td>
                     </tr>
                 </tbody>
@@ -226,10 +260,10 @@
                         </td>
                     </tr>
                     <tr>
+                        <td class="muted-text">Ajout objet</td>
                         <td>
-                            <a class="button" href="#"><span class="icon-plus2"></span></a>
+                            <a class="button small-button" href="#"><span class="icon-plus2"></span></a>
                         </td>
-                        <td></td>
                     </tr>
                 </tbody>
             </table>
@@ -271,10 +305,10 @@
                         </td>
                     </tr>
                     <tr>
+                        <td class="muted-text">Ajout note</td>
                         <td>
-                            <a class="button" href="#"><span class="icon-plus2"></span></a>
+                            <a class="button small-button" href="#"><span class="icon-plus2"></span></a>
                         </td>
-                        <td></td>
                     </tr>
                 </tbody>
             </table>
