@@ -1,0 +1,7 @@
+.list-table tr:last-child {
+    background-color: inherit;
+}
+
+.list-table tr:last-child > td {
+    text-align: center;
+}
