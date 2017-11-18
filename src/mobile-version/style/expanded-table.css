@@ -19,11 +19,10 @@
 
 .expanded-table th {
     text-transform: uppercase;
-    background: #bbb;
-    color: white;
+    background: #e7e7e7;
     cursor: pointer;
 }
 
 .expanded-table tr:nth-child(odd) {
-    background-color: #f2f2f2;
+    background-color: #f6f6f6;
 }
