@@ -43,7 +43,11 @@
     <link rel="stylesheet" href="../../style/toggle-button.css">
     <link rel="stylesheet" href="../../style/new-paragraph-choice.css">
     <link rel="stylesheet" href="../../style/expanded-table.css">
+    <link rel="stylesheet" href="../../style/striped-table.css">
     <link rel="stylesheet" href="numeric-pad.css">
+    <link rel="stylesheet" href="list-table.css">
+    <link rel="stylesheet" href="buttons-table.css">
+    <link rel="stylesheet" href="characters-table.css">
 
     <!-- Favicon
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -77,6 +81,7 @@
                     </td>
                 </tr>
             </table>
+
             <table class="expanded-table">
                 <tr>
                     <th>&nbsp;<span class="icon-chevron-down"></span>&nbsp;Lancer des dés</th>
@@ -109,7 +114,8 @@
                     </td>
                 </tr>
             </table>
-            <table class="expanded-table numeric-pad">
+
+            <table class="expanded-table numeric-pad buttons-table">
                 <tr>
                     <th>&nbsp;<span class="icon-chevron-down"></span>&nbsp;Saut au paragraphe</th>
                 </tr>
@@ -136,66 +142,195 @@
                 </tr>
                 <tr>
                     <td>
-                        <a id="numericpad-cancel" class="button margin-right" href="#"><span class="icon-close"></span></a>
+                        <a id="numericpad-cancel" class="button margin-right button-danger" href="#"><span class="icon-close"></span></a>
                         <a class="button margin-right" href="#">0</a>
                         <a id="numericpad-ok" class="button margin-right" href="#"><span class="icon-check"></span></a>
                     </td>
                 </tr>
             </table>
-            <table class="expanded-table">
+
+            <table class="expanded-table list-table characters-table">
+                <col style="width:90%">
+                <col style="width:5%">
+                <col style="width:5%">
+                <thead>
                 <tr>
                     <th>&nbsp;<span class="icon-chevron-down"></span>&nbsp;Personnages</th>
+                    <th></th>
+                    <th></th>
                 </tr>
-                <tr>
-                    <td>xxx</td>
-                </tr>
-                <tr>
-                    <td>xxx</td>
-                </tr>
-                <tr>
-                    <td>xxx</td>
-                </tr>
+                </thead>
+                <tbody>
+                    <tr class="character">
+                        <td>Héro</td>
+                        <td></td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-chevron-right"></span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Habilité: 11 / 12</td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-plus2"></span></a>
+                        </td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-minus"></span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Endurance: 13 / 18</td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-plus2"></span></a>
+                        </td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-minus"></span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Chance: 6 / 8</td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-plus2"></span></a>
+                        </td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-minus"></span></a>
+                        </td>
+                    </tr>
+
+                    <tr class="character">
+                        <td>Milou</td>
+                        <td></td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-chevron-right"></span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Habilité: 5 / 5</td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-plus2"></span></a>
+                        </td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-minus"></span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Endurance: 9 / 12</td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-plus2"></span></a>
+                        </td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-minus"></span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="muted-text">Ajout personnage</td>
+                        <td></td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-plus2"></span></a>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
-            <table class="expanded-table striped-table">
+
+            <table class="expanded-table striped-table list-table">
+                <col style="width:95%">
+                <col style="width:5%">
+                <thead>
                 <tr>
                     <th>&nbsp;<span class="icon-chevron-down"></span>&nbsp;Inventaire</th>
+                    <th></th>
                 </tr>
-                <tr>
-                    <td>Epée</td>
-                </tr>
-                <tr>
-                    <td>Bouclier</td>
-                </tr>
-                <tr>
-                    <td>10 repas</td>
-                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Epée</td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-chevron-right"></span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Bouclier</td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-chevron-right"></span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>10 repas</td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-chevron-right"></span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="muted-text">Ajout objet</td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-plus2"></span></a>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
-            <table class="expanded-table striped-table">
-                <tr>
-                    <th>&nbsp;<span class="icon-chevron-down"></span>&nbsp;Notes</th>
-                </tr>
-                <tr>
-                    <td>Blah blah</td>
-                </tr>
-                <tr>
-                    <td>Quelques choses d'important à savoir ...</td>
-                </tr>
-                <tr>
-                    <td>xxx</td>
-                </tr>
+
+            <table class="expanded-table striped-table list-table">
+                <col style="width:95%">
+                <col style="width:5%">
+                <thead>
+                    <tr>
+                        <th>&nbsp;<span class="icon-chevron-down"></span>&nbsp;Notes</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Blah blah</td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-chevron-right"></span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-chevron-right"></span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Note quelconque</td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-chevron-right"></span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Dernière note</td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-chevron-right"></span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="muted-text">Ajout note</td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-plus2"></span></a>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
-            <table class="expanded-table">
+
+            <table class="expanded-table buttons-table">
                 <tr>
                     <th>&nbsp;<span class="icon-chevron-down"></span>&nbsp;Options jeu</th>
                 </tr>
                 <tr>
-                    <td>xxx</td>
+                    <td>
+                        <a class="button fullwidth" href="#">Annuler le dernier saut de paragraphe</a>
+                    </td>
                 </tr>
                 <tr>
-                    <td>xxx</td>
+                    <td>
+                        <a class="button fullwidth" href="#">Recommencer la partie</a>
+                    </td>
                 </tr>
                 <tr>
-                    <td>xxx</td>
+                    <td>
+                        <a class="button fullwidth button-danger" href="#">Abandonner la lecture du livre-jeu</a>
+                    </td>
                 </tr>
             </table>
         </div>
