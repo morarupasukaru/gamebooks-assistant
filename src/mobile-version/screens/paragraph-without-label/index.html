@@ -43,10 +43,14 @@
     <link rel="stylesheet" href="../../style/toggle-button.css">
     <link rel="stylesheet" href="../../style/new-paragraph-choice.css">
     <link rel="stylesheet" href="../../style/expanded-table.css">
+    <link rel="stylesheet" href="numeric-pad.css">
 
     <!-- Favicon
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <style>
+    </style>
 </head>
 
 <body>
@@ -105,23 +109,42 @@
                     </td>
                 </tr>
             </table>
-            <table class="expanded-table collapse">
+            <table class="expanded-table numeric-pad">
                 <tr>
-                    <th>&nbsp;<span class="icon-chevron-up"></span>&nbsp;Choix paragraphe</th>
+                    <th>&nbsp;<span class="icon-chevron-down"></span>&nbsp;Saut au paragraphe</th>
                 </tr>
                 <tr>
-                    <td>xxx</td>
+                    <td>
+                        <a class="button margin-right" href="#">1</a>
+                        <a class="button margin-right" href="#">2</a>
+                        <a class="button margin-right" href="#">3</a>
+                    </td>
                 </tr>
                 <tr>
-                    <td>xxx</td>
+                    <td>
+                        <a class="button margin-right" href="#">4</a>
+                        <a class="button margin-right" href="#">5</a>
+                        <a class="button margin-right" href="#">6</a>
+                    </td>
                 </tr>
                 <tr>
-                    <td>xxx</td>
+                    <td>
+                        <a class="button margin-right" href="#">7</a>
+                        <a class="button margin-right" href="#">8</a>
+                        <a class="button margin-right" href="#">9</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a id="numericpad-cancel" class="button margin-right" href="#"><span class="icon-close"></span></a>
+                        <a class="button margin-right" href="#">0</a>
+                        <a id="numericpad-ok" class="button margin-right" href="#"><span class="icon-check"></span></a>
+                    </td>
                 </tr>
             </table>
-            <table class="expanded-table collapse">
+            <table class="expanded-table">
                 <tr>
-                    <th>&nbsp;<span class="icon-chevron-up"></span>&nbsp;Personnages</th>
+                    <th>&nbsp;<span class="icon-chevron-down"></span>&nbsp;Personnages</th>
                 </tr>
                 <tr>
                     <td>xxx</td>
@@ -161,9 +184,9 @@
                     <td>xxx</td>
                 </tr>
             </table>
-            <table class="expanded-table collapse">
+            <table class="expanded-table">
                 <tr>
-                    <th>&nbsp;<span class="icon-chevron-up"></span>&nbsp;Options jeu</th>
+                    <th>&nbsp;<span class="icon-chevron-down"></span>&nbsp;Options jeu</th>
                 </tr>
                 <tr>
                     <td>xxx</td>
