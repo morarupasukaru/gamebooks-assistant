@@ -1,0 +1,18 @@
+.expanded-table {
+    width:100%;
+}
+
+.expanded-table table, .expanded-table th, .expanded-table td {
+    border: 0px;
+}
+
+.expanded-table th {
+    text-transform: uppercase;
+    background: #bbb;
+    color: white;
+    cursor: pointer;
+}
+
+.expanded-table tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
