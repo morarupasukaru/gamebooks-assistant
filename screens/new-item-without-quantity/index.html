@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="../../style/button.css">
     <link rel="stylesheet" href="../../style/fullwidth.css">
     <link rel="stylesheet" href="../../style/margin-right.css">
+    <link rel="stylesheet" href="../../style/form.css">
 
 
   <!-- Favicon
@@ -49,27 +50,30 @@
 
 <body>
 
-<div class="container">
-    <div class="pure-g">
-        <div class="pure-u-1">
-            <h1 class="main-title">Nouvelle note</h1>
-        </div>
-        <div class="pure-u-1">
-            <textarea class="fullwidth" placeholder="Saisissez une nouvelle note ici"></textarea>
-        </div>
-
-        <div class="pure-u-1 pure-u-lg-1-2">
-            <div class="margin-right">
-                <a class="button fullwidth" href="..\paragraph-without-label"><span class="icon-close"></span>&nbsp;Annuler</a>
+<form action="..\paragraph-without-label">
+    <div class="container">
+        <div class="pure-g">
+            <div class="pure-u-1">
+                <h1 class="main-title">Nouvelle note</h1>
             </div>
-        </div>
-        <div class="pure-u-1 pure-u-lg-1-2">
-            <div>
-                <a class="button fullwidth button-primary" href="..\paragraph-without-label"><span class="icon-check"></span>&nbsp;OK</a>
+            <div class="pure-u-1">
+                <input class="fullwidth" type="text" placeholder="Saisissez une nouvelle note ici" autofocus>
+            </div>
+
+            <div class="pure-u-1 pure-u-lg-1-2">
+                <div class="margin-right">
+                    <a class="button fullwidth" href="..\paragraph-without-label"><span class="icon-undo"></span>&nbsp;Annuler</a>
+                </div>
+            </div>
+            <div class="pure-u-1 pure-u-lg-1-2">
+                <div>
+                    <a class="button fullwidth button-primary" href="..\paragraph-without-label"><span class="icon-check"></span>&nbsp;OK</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
+    <input type="submit">
+</form>
 
 <!-- line-break to have the footer not overlaping the last adventure choice -->
 <br/>
