@@ -15,3 +15,7 @@ button:disabled {
     font-size: inherit;
     font-weight: inherit;
 }
+
+.button-danger {
+    background: #ffe6e6;
+}

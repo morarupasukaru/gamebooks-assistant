@@ -22,6 +22,10 @@ Actions implicites (javascript):
     => définir quand a lieu la sauvegarde, chargement
 - ajout choix dans la description (possibilité de supprimer un choix?)
 
+Point technique:
+- libellé sans redefinissable par langue et livre-jeu voir liste (p.ex. placeholder de l'écran de saisi d'une nouvelle note)
+
+
 Actions non disponible v1:
 - gestion de plusieurs héros à la fois
 - voir la map (comment sur un smartphone?)
