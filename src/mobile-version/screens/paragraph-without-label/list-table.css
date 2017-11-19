@@ -10,3 +10,23 @@
 .list-table td {
     padding: 3px 0px 3px 0px;
 }
+
+.item {
+    color: inherit;
+}
+
+
+.item:hover {
+    color: inherit;
+}
+
+
+.new-item {
+    color: #bbb;
+    font-style: italic;
+}
+
+
+.new-item:hover {
+    color: #bbb;
+}
