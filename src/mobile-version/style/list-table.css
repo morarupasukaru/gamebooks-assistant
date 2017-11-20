@@ -30,3 +30,7 @@
 .new-item:hover {
     color: #bbb;
 }
+
+.left-icon-column {
+    margin-right: 4px;
+}

@@ -39,9 +39,11 @@
     <link rel="stylesheet" href="../../style/titles.css">
     <link rel="stylesheet" href="../../style/button.css">
     <link rel="stylesheet" href="../../style/fullwidth.css">
-    <link rel="stylesheet" href="../../style/margin-right.css">
     <link rel="stylesheet" href="../../style/form.css">
-
+    <link rel="stylesheet" href="../../style/expanded-table.css">
+    <link rel="stylesheet" href="../../style/striped-table.css">
+    <link rel="stylesheet" href="../../style/list-table.css">
+    <link rel="stylesheet" href="../../style/margins.css">
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -63,18 +65,52 @@
             </div>
 
             <div class="pure-u-1">
-                <label for="initialHability">Habilité initial</label>
-                <input class="fullwidth" type="number" id="initialHability">
-            </div>
-
-            <div class="pure-u-1">
-                <label for="initialEndurance">Endurance initial</label>
-                <input class="fullwidth" type="number" id="initialEndurance">
-            </div>
-
-            <div class="pure-u-1">
-                <label for="initialLuck">Chance initial</label>
-                <input class="fullwidth" type="number" id="initialLuck">
+                <table class="expanded-table striped-table list-table">
+                    <col style="width:93%">
+                    <col style="width:1%">
+                    <col style="width:1%">
+                    <col style="width:5%">
+                    <thead>
+                    <tr>
+                        <th>Caractéristiques</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Habilité: - / -</td>
+                        </td><td>
+                        <td>
+                            <a class="button small-button left-icon-column" href="#"><span class="icon-chevron-down"></span></a>
+                        </td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-chevron-right"></span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Endurance: - / -</td>
+                        <td>
+                            <a class="button small-button left-icon-column" href="#"><span class="icon-chevron-up"></span></a>
+                        </td>
+                        <td></td>
+                        <td>
+                            <a class="button small-button" href="#"><span class="icon-chevron-right"></span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a class="fullwidth new-item" href="../new-character-stats">Ajout caractéristique</a>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <a class="button small-button" href="../new-character-stats"><span class="icon-plus2"></span></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
 
             <div class="pure-u-1 pure-u-lg-1-2">
