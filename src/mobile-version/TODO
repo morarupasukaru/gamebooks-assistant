@@ -25,6 +25,7 @@ Actions implicites (javascript):
 Point technique:
 - libellé sans redefinissable par langue et livre-jeu voir liste (p.ex. placeholder de l'écran de saisi d'une nouvelle note)
 - animation css lors de changement d'écran
+- en cas de besoin d'espace, les données des "aventures" peuvent être supprimés du localstorage automatiquement, mais pas les parties
 
 
 Actions non disponible v1:
