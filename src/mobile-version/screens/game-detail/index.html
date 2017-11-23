@@ -99,21 +99,45 @@
             </table>
         </div>
 
+        <!-- TODO button-primary seulement le context,
+        Nouvelle partie > si pas de partie dispo
+        Importer partie d'un précédent livre-jeu > si pas de partie dispo & que l'option est dispo
+        Poursuivre une partie > si partie dispo
+        -->
+
         <div class="pure-u-1 pure-u-lg-1-2">
             <div class="margin-right">
-                <a class="button fullwidth" href="..\game-selection">Retour</a>
+                <!-- TODO si le livre a une précédente aventure, alors un écran avec choix des parties dispo + Nouvelle lecture est affiché -->
+                <a class="button button-primary fullwidth" href="..\paragraph-without-label">Nouvelle lecture</a>
             </div>
         </div>
 
         <div class="pure-u-1 pure-u-lg-1-2">
             <div class="margin-right">
-                <!-- TODO possibilité de reprendre une partie en cours -->
-                <!-- TODO possibilité d'importer une partie d'une autre aventure -->
-                <!-- TODO possibilité de gérer les parties sauvées -->
-                <!-- TODO possibilité de débuter une nouvelle partie -->
-                <!-- TODO via écran séparé ou liste supplémentaire dans l'écran présent -->
-                <!-- TODO écran "dév" pour éditer les paragraphes -->
-                <a class="button button-primary fullwidth" href="..\paragraph-without-label">Jouer</a>
+                <!-- Poursuivre une lecture si plusieurs parties -->
+                <!-- TODO non grisé, seulement si parties sauvegarder, afficher un écran avec les parties sauvées si plusieurs ou continue directement la partie -->
+                <a class="button fullwidth" href="..\paragraph-without-label">Poursuivre la lecture</a>
+            </div>
+        </div>
+
+        <div class="pure-u-1 pure-u-lg-1-2">
+            <div class="margin-right">
+                <!-- TODO non grisé, seulement si parties sauvegarder -->
+                <a class="button fullwidth" href="..\paragraph-without-label">Gérer les lectures</a>
+            </div>
+        </div>
+
+        <div class="pure-u-1 pure-u-lg-1-2">
+            <div class="margin-right">
+                <!-- TODO que dispo en mode développeur -->
+                <a class="button fullwidth" href="../localdata">Données du livre-jeu</a>
+            </div>
+        </div>
+
+
+        <div class="pure-u-1 pure-u-lg-1-2">
+            <div class="margin-right">
+                <a class="button fullwidth" href="..\game-selection">Retour</a>
             </div>
         </div>
     </div>
