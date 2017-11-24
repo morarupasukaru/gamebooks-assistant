@@ -27,12 +27,11 @@ Point technique:
 - animation css lors de changement d'écran
 - en cas de besoin d'espace, les données des "aventures" peuvent être supprimés du localstorage automatiquement, mais pas les parties
 
-
 Actions non disponible v1:
-- gestion de plusieurs héros à la fois
 - voir la map (comment sur un smartphone?)
-- lancer des dés quelconque (à choix, possibilité de retenir les points)
 - voir les règles
+- gestion des livres-jeu (edition, suppression)
+- édition des paragraphes
 
 Actions non disponible par rapport à la version desktop:
 - édition livre-jeu
@@ -43,4 +42,4 @@ Actions non disponible par rapport à la version desktop:
 
 Technical Todo:
 * laptop & mobile version share the same localstorage
-=> save a flag in the game object to indicate that the game is the unique game
+=> non, réutiliser les structures mais pas 100% si besoin
