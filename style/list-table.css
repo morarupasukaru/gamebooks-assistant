@@ -1,0 +1,36 @@
+.list-table tr:last-child {
+    background-color: inherit;
+}
+
+.list-table .small-button {
+    margin-bottom: 0px;
+}
+
+
+.list-table td {
+    padding: 3px 0px 3px 0px;
+}
+
+.item {
+    color: inherit;
+}
+
+
+.item:hover {
+    color: inherit;
+}
+
+
+.new-item {
+    color: #bbb;
+    font-style: italic;
+}
+
+
+.new-item:hover {
+    color: #bbb;
+}
+
+.left-icon-column {
+    margin-right: 4px;
+}

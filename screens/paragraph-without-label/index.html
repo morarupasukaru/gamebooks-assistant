@@ -38,14 +38,14 @@
     <link rel="stylesheet" href="../../style/titles.css">
     <link rel="stylesheet" href="../../style/button.css">
     <link rel="stylesheet" href="../../style/fullwidth.css">
-    <link rel="stylesheet" href="../../style/margin-right.css">
+    <link rel="stylesheet" href="../../style/margins.css">
     <link rel="stylesheet" href="../../style/muted-text.css">
     <link rel="stylesheet" href="../../style/toggle-button.css">
     <link rel="stylesheet" href="../../style/new-paragraph-choice.css">
     <link rel="stylesheet" href="../../style/expanded-table.css">
     <link rel="stylesheet" href="../../style/striped-table.css">
+    <link rel="stylesheet" href="../../style/list-table.css">
     <link rel="stylesheet" href="numeric-pad.css">
-    <link rel="stylesheet" href="list-table.css">
     <link rel="stylesheet" href="buttons-table.css">
     <link rel="stylesheet" href="characters-table.css">
 
@@ -110,8 +110,7 @@
                             <label for="dice4" class="button small-button toggle-button"><span><sup>d[0-10]</sup>&nbsp;8&nbsp;</span></label>
                         </span>
 
-                        <!-- TODO screen dices-config -->
-                        <a class="button small-button" href="#"><span class="icon-sliders"></span></a>
+                        <a class="button small-button" href="../dices-configuration"><span class="icon-sliders"></span></a>
                     </td>
                 </tr>
             </table>
@@ -172,7 +171,7 @@
                     <tr>
                         <td>Habilité: 11 / 12</td>
                         <td>
-                            <a class="button small-button column-plus" href="#"><span class="icon-plus2"></span></a>
+                            <a class="button small-button left-icon-column" href="#"><span class="icon-plus2"></span></a>
                         </td>
                         <td>
                             <a class="button small-button" href="#"><span class="icon-minus"></span></a>
@@ -181,7 +180,7 @@
                     <tr>
                         <td>Endurance: 13 / 18</td>
                         <td>
-                            <a class="button small-button column-plus" href="#"><span class="icon-plus2"></span></a>
+                            <a class="button small-button left-icon-column" href="#"><span class="icon-plus2"></span></a>
                         </td>
                         <td>
                             <a class="button small-button" href="#"><span class="icon-minus"></span></a>
@@ -190,7 +189,7 @@
                     <tr>
                         <td>Chance: 6 / 8</td>
                         <td>
-                            <a class="button small-button column-plus" href="#"><span class="icon-plus2"></span></a>
+                            <a class="button small-button left-icon-column" href="#"><span class="icon-plus2"></span></a>
                         </td>
                         <td>
                             <a class="button small-button" href="#"><span class="icon-minus"></span></a>
@@ -226,7 +225,7 @@
                         <td>
                             <a class="fullwidth new-item" href="../new-character">Ajout personnage</a>
                         </td>
-                        <td></td>
+                        <td><a class="fullwidth item" href="../new-character">&nbsp;</a></td>
                         <td>
                             <a class="button small-button" href="../new-character"><span class="icon-plus2"></span></a>
                         </td>
@@ -325,25 +324,32 @@
                 </tr>
                 <tr>
                     <td>
+                        <a class="button fullwidth" href="../interface-configuration">Configuration de l'interface</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
                         <a class="button fullwidth" href="#">Annuler le dernier saut de paragraphe</a>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <a class="button fullwidth" href="../confirmation">Recommencer la partie</a>
+                        <!-- TODO Voulez-vous reprendre la partie avec les données de la partie courante? -->
+                        <a class="button fullwidth button-danger" href="../confirmation">Recommencer la partie</a>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <a class="button fullwidth button-danger" href="../confirmation">Abandonner la lecture du livre-jeu</a>
+                        <a class="button fullwidth" href="../confirmation">Quitter la lecture du livre-jeu</a>
                     </td>
                 </tr>
+
                 <tr>
                     <td>
-                        <a class="button fullwidth" href="../localdata">Afficher les données (développeur)</a>
+                        <!-- TODO que dispo en mode développeur -->
+                        <a class="button fullwidth" href="../localdata">Données de la lecture</a>
                     </td>
                 </tr>
-                <!-- TODO continue to new gamebook (saga?) & manageable of localstore data -->
             </table>
         </div>
     </div>

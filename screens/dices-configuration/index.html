@@ -52,16 +52,11 @@
 
 <body>
 
-<form action="..\paragraph-without-label">
+<form action="../paragraph-without-label">
     <div class="container">
         <div class="pure-g">
             <div class="pure-u-1">
-                <h1 class="main-title">Nouveau personnage</h1>
-            </div>
-
-            <div class="pure-u-1">
-                <label for="name">Nom</label>
-                <input class="fullwidth" type="text" placeholder="Nom du personnage" id="name" autofocus>
+                <h1 class="main-title">Configuration des dés</h1>
             </div>
 
             <div class="pure-u-1">
@@ -72,7 +67,7 @@
                     <col style="width:5%">
                     <thead>
                     <tr>
-                        <th>Caractéristiques</th>
+                        <th>Dés</th>
                         <th></th>
                         <th></th>
                         <th></th>
@@ -80,13 +75,57 @@
                     </thead>
                     <tbody>
                     <tr>
+                        <td><a class="fullwidth item" href="../edit-dice"><span><sup>d6</sup>&nbsp;[1-6]</span></a></td>
+                        <td><a class="fullwidth item" href="../edit-dice">&nbsp;</a></td>
                         <td>
-                            <a class="fullwidth new-item" href="../new-stats">Ajout caractéristique</a>
+                            <a class="button small-button left-icon-column" href="#"><span class="icon-chevron-down"></span></a>
                         </td>
-                        <td><a class="fullwidth item" href="../new-stats">&nbsp;</a></td>
-                        <td><a class="fullwidth item" href="../new-stats">&nbsp;</a></td>
                         <td>
-                            <a class="button small-button" href="../new-stats"><span class="icon-plus2"></span></a>
+                            <a class="button small-button" href="../edit-dice"><span class="icon-chevron-right"></span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a class="fullwidth item" href="../edit-dice"><sup>d6</sup>&nbsp;[1-6]</span></td>
+                        <td>
+                            <a class="button small-button left-icon-column" href="#"><span class="icon-chevron-up"></span></a>
+                        </td>
+                        <td>
+                            <a class="button small-button left-icon-column" href="#"><span class="icon-chevron-down"></span></a>
+                        </td>
+                        <td>
+                            <a class="button small-button" href="../edit-dice"><span class="icon-chevron-right"></span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a class="fullwidth item" href="../edit-dice"><sup>d4</sup>&nbsp;[1-4]</span></a></td>
+                        <td>
+                            <a class="button small-button left-icon-column" href="#"><span class="icon-chevron-up"></span></a>
+                        </td>
+                        <td>
+                            <a class="button small-button left-icon-column" href="#"><span class="icon-chevron-down"></span></a>
+                        </td>
+                        <td>
+                            <a class="button small-button" href="../edit-dice"><span class="icon-chevron-right"></span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a class="fullwidth item" href="../edit-dice"><sup>d[0-10]</sup>&nbsp;[0-9]</span></a></td>
+                        <td><a class="fullwidth item" href="../edit-dice">&nbsp;</a></td>
+                        <td>
+                            <a class="button small-button left-icon-column" href="#"><span class="icon-chevron-up"></span></a>
+                        </td>
+                        <td>
+                            <a class="button small-button" href="../edit-dice"><span class="icon-chevron-right"></span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a class="fullwidth new-item" href="../new-dice">Ajout dé</a>
+                        </td>
+                        <td><a class="fullwidth item" href="../new-dice">&nbsp;</a></td>
+                        <td><a class="fullwidth item" href="../new-dice">&nbsp;</a></td>
+                        <td>
+                            <a class="button small-button" href="../new-dice"><span class="icon-plus2"></span></a>
                         </td>
                     </tr>
                     </tbody>
@@ -94,13 +133,14 @@
             </div>
 
             <div class="pure-u-1 pure-u-lg-1-2">
+                <!-- TODO back can edit-dual-numbered-stats, edit-numbered-stats, new-... -->
                 <div class="margin-right">
-                    <a class="button fullwidth" href="..\paragraph-without-label"><span class="icon-undo"></span>&nbsp;Annuler</a>
+                    <a class="button fullwidth" href="../paragraph-without-label"><span class="icon-undo"></span>&nbsp;Annuler</a>
                 </div>
             </div>
             <div class="pure-u-1 pure-u-lg-1-2">
                 <div>
-                    <a class="button fullwidth button-primary" href="..\paragraph-without-label"><span class="icon-check"></span>&nbsp;OK</a>
+                    <a class="button fullwidth button-primary" href="../paragraph-without-label"><span class="icon-check"></span>&nbsp;OK</a>
                 </div>
             </div>
         </div>
