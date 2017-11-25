@@ -43,3 +43,4 @@ Actions non disponible par rapport à la version desktop:
 Technical Todo:
 * laptop & mobile version share the same localstorage
 => non, réutiliser les structures mais pas 100% si besoin
+* id : uuid > non editable
