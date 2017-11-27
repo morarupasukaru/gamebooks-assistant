@@ -1,5 +1,4 @@
 confirmation (a screen or only a template)
-gamebook/edit
 gamebook/reading/continue (continue-game)
 gamebook/reading/edit (edit-game)
 gamebook/reading/new (new-game)
