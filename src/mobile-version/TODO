@@ -1,46 +1,23 @@
-Actions jeu à "layouter":
-1) lancer 1 dé x (d'après paramatres de l'aventure)
-	=> si possible dispo dans écran personnage (voir partout) -> extend?
-2) gestion de listes
-	- gérer des notes
-	- gérer l'inventaire
-	- gérer d'autres listes
-3) gérer les caractéristiques du personnage (1 liste par héros)
-	=> liste avec valeur courante et valeur max (ajout +/-)
-4) gestion des combats => retenir les points de degats via des traits (dégats)
-5) abandonner partie courante
-6) recommencer le livre-jeu (en gardant les caractéristiques, notes, etc.)
-7) continuer l'aventure avec un autre tome > choix devra être lors de la sélection du jeu (écran additionel)
-8) supprimer un saut (afin de ne pas polluer des choix faux, supprimer le paragraphe si celui-ci vient d'être ajouter par le saut, s'il ne fait pas partie des données de base, s'il n'est pas référencé par d'autres paragraphes)
+Technical aspects
+- autosave (when)
+- html template
+- single css
+- single vanilly-js (unique id)
+- html validator
+- css validator
+- js validator
+- detect unsupported js feature (e.g. for safari)
+- add choice in description while jumping and remove choice if undo the "jump"
+- i18n of static user-interface (available with core app data)
+- i18n of dynamic user-interface, gamebook content (available in gamebook data), include "placeholder"
+- css animation when changing screen
+- css loading animation when loading adventure data
+- autodata deletion if localstorage too small
+- gamebook-id : uuid (non editable)
 
-Actions jeu prise en compte:
-9) sélectionner un choix d'un paragraphe dans la description
-10) édition label
-
-Actions implicites (javascript):
-- sauver / charger (non-> auto-save)
-    => définir quand a lieu la sauvegarde, chargement
-- ajout choix dans la description (possibilité de supprimer un choix?)
-
-Point technique:
-- libellé sans redefinissable par langue et livre-jeu voir liste (p.ex. placeholder de l'écran de saisi d'une nouvelle note)
-- animation css lors de changement d'écran
-- en cas de besoin d'espace, les données des "aventures" peuvent être supprimés du localstorage automatiquement, mais pas les parties
-
-Actions non disponible v1:
-- voir la map (comment sur un smartphone?)
-- voir les règles
-- gestion des livres-jeu (edition, suppression)
-- édition des paragraphes
-
-Actions non disponible par rapport à la version desktop:
-- édition livre-jeu
-- édition description livre-jeu
+Non-available with fist version:
 - import, export données (dispo en admin, via texte à copier-coller)
-- gestion des jeux, aventures (ajout, suppression)
-- gestion de plus d'une partie à la fois
+- map screen
 
-Technical Todo:
-* laptop & mobile version share the same localstorage
-=> non, réutiliser les structures mais pas 100% si besoin
-* id : uuid > non editable
+Non-available:
+- share localstorage data with angular-js version
