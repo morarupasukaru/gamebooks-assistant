@@ -1,0 +1,31 @@
+confirmation
+gamebooks (game-selection)
+gamebook (game-detail)
+gamebook/edit
+gamebook/reading/continue (continue-game)
+gamebook/reading/edit (edit-game)
+gamebook/reading/new (new-game)
+gamebook/readings (games-edit)
+gamebook/reading/user-interface (interface-configuration)
+gamebook/reading/user-interface/edit
+gamebook/reading/user-interface/new
+gamebook/reading/character/edit
+gamebook/reading/character/new
+gamebook/reading/stats/edit (edit dual-numbered-stats, edit-numbered-stats, edit-text-stats)
+gamebook/reading/stats/new (new-dual-numbered-stats, new-stats)
+gamebook/reading/item/edit (edit-item-with-quantity, edit-item-without-quantity)
+gamebook/reading/item/new (new-item-with-quantity, new-item-without-quantity)
+gamebook/reading/dices/configuration
+gamebook/reading/dice/edit
+gamebook/reading/dice/new
+gamebook/reading/import-or-new
+gamebook/reading/paragraph/label
+gamebook/reading/paragraph (paragraph, paragraph-without-label)
+gamebook/attribut/edit
+gamebook/attribut/new (new-gamebook-attribut)
+gamebook/paragraphs
+gamebook/paragraph/edit
+gamebook/paragraph/new (new-gamebook-paragraph)
+gamebook/new (new-gamebook)
+gamebook/data (localdata)
+gamebook/reading/data (localdata)
