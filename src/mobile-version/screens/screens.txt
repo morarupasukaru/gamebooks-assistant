@@ -1,4 +1,3 @@
-gamebook/reading/stats/edit (edit dual-numbered-stats, edit-numbered-stats, edit-text-stats)
 gamebook/reading/stats/new (new-dual-numbered-stats, new-stats)
 gamebook/reading/item/edit (edit-item-with-quantity, edit-item-without-quantity)
 gamebook/reading/item/new (new-item-with-quantity, new-item-without-quantity)
