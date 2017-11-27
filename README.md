@@ -17,4 +17,4 @@ URL of the application: http://morarupasukaru.github.io/gamebooks-assistant/
 
 ### Year 2018
 * Hope to be able to provide a mobil offline spa plurilingual version
-* "Desktop" version will be refactored to integrate some part of the mobil version
+* Mobile version will replace the Desktop version
