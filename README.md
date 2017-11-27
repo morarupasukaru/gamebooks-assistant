@@ -13,7 +13,7 @@ URL of the application: http://morarupasukaru.github.io/gamebooks-assistant/
 
 ### Year 2017
 * Try to use [AngularJS material](https://material.angularjs.org/latest/) but abandonned due to lack of support as angularjs and related projects has been deprecated by google.
-* Focus on a minimal mobil version with [material components web](https://material.io/components/) or simple css framework like [Skeleton](http://getskeleton.com/) and without additional framework
+* Focus on a minimal mobil version with [Skeleton](http://getskeleton.com/) and [purecss](https://purecss.io/)
 
 ### Year 2018
 * Hope to be able to provide a mobil offline spa plurilingual version
