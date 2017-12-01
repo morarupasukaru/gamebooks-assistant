@@ -1,7 +1,7 @@
 {
   "name": "gamebooks-assistant",
   "version": "1.0.0",
-  "description": "Gamebooks Assistant",
+  "description": "Gamebooks Assistant - AngularJS Version",
   "homepage": "https://github.com/morarupasukaru/gamebooks-assistant",
   "dependencies": {
     "angular": "1.5.8",

@@ -1,22 +1,19 @@
 {
   "name": "gamebooks-assistant",
   "version": "1.0.0",
-  "description": "",
-  "homepage": "",
-  "author": {
-    "name": "",
-    "email": "",
-    "url": ""
-  },
-  "main": "src/js/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "Gamebooks Assistant - Vanilla Javascript Version",
+  "homepage": "https://github.com/morarupasukaru/gamebooks-assistant",
   "devDependencies": {
-    "grunt": "^1.0.1",
-    "grunt-contrib-clean": "^1.1.0",
-    "grunt-contrib-cssmin": "^2.2.0"
+    "grunt": "1.0.1",
+    "grunt-contrib-clean": "1.1.0",
+    "grunt-contrib-cssmin": "2.2.1"
   },
-  "repository": "",
-  "license": ""
+  "keywords": [
+    "gamebooks-assistant"
+  ],
+  "author": {
+    "name": "Pascal Morard",
+    "email": "moraru.pasukaru@gmail.com"
+  },
+  "license": "MIT"
 }
