@@ -2,8 +2,8 @@ module.exports = function(grunt) {
     grunt.initConfig({
         // Clean temporary folders
         clean: {
-            before: ['build', 'target'],
-            after: ['build']
+            before: ['target'],
+            after: []
         },
 
         // Concat css files into a single minified css file
