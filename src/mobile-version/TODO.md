@@ -1,5 +1,11 @@
 # Mobile Version development
 
+in progress
+* single css
+* css validator
+* browser compliant css
+* replace html css import with unique css file
+
 ## Requirement of minimal mobile version
 * nice minimalist layout
 * playability: require only one hand (the other hand has the book)
@@ -7,12 +13,11 @@
 * no framework
 
 ## Technical aspects
+* other assets as bundle?
 * autosave (when)
 * html template
-* single css
 * single vanilly-js (unique id)
 * html validator
-* css validator
 * js validator
 * detect unsupported js feature (e.g. for safari)
 * add choice in description while jumping and remove choice if undo the "jump"
