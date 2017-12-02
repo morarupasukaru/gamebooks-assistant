@@ -58,6 +58,7 @@ module.exports = function(grunt) {
               import: 2
             },
             src: [
+                'assets/icons/icomoon/style.css',
                 'style/**/*.css',
                 'screens/**/*.css'
             ]
@@ -67,6 +68,7 @@ module.exports = function(grunt) {
               import: false
             },
             src: [
+                'assets/icons/icomoon/style.css',
                 'style/**/*.css',
                 'screens/**/*.css'
             ]
