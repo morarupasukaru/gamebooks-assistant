@@ -1,9 +1,9 @@
 # Mobile Version development
 
 in progress
-* single css
-* css validator
-* browser compliant css
+* css validator (w3c)?
+* non minified pure css
+* simplify css of skeleton, pure, google font
 * replace html css import with unique css file
 
 ## Requirement of minimal mobile version
