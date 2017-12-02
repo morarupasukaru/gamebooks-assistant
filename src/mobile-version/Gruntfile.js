@@ -17,9 +17,9 @@ module.exports = function(grunt) {
                     src: [
                         'assets/googlefont/roboto/Roboto-300-400-500-700-400italic.css',
                         'assets/icons/icomoon/style.css',
-                        'assets/pure/base-min.css',
-                        'assets/pure/grids-min.css',
-                        'assets/pure/grids-responsive-min.css',
+                        'assets/pure/base.css',
+                        'assets/pure/grids.css',
+                        'assets/pure/grids-responsive.css',
                         'assets/skeleton/normalize.css',
                         'assets/skeleton/skeleton.css',
                         'style/font.css',
