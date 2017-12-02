@@ -1,44 +1,43 @@
-[type="radio"]:checked,
-[type="radio"]:not(:checked) {
+input[type="radio"] {
     display: none;
 }
 
 [type="radio"]:checked + label,
 [type="radio"]:not(:checked) + label
 {
-    position: relative;
-    padding-left: 20px;
     cursor: pointer;
     display: inline-block;
+    padding-left: 20px;
+    position: relative;
 }
 
 
 [type="radio"]:checked + label:before,
 [type="radio"]:not(:checked) + label:before {
     content: '';
-    position: absolute;
     left: 0;
+    position: absolute;
     top: 0;
 }
 [type="radio"]:checked + label:after {
-    font-family: 'icomoon' !important;
     content: "\f192";
+    font-family: 'icomoon';
+    left: 0px;
     position: absolute;
     top: 0px;
-    left: 0px;
 }
 
 [type="radio"]:not(:checked) + label:after {
-    font-family: 'icomoon' !important;
     content: '\f10c';
+    font-family: 'icomoon';
+    left: 0px;
     position: absolute;
     top: 0px;
-    left: 0px;
 }
 
 /* override skeleton js label (find another solution if label must be used like normal form with fields) */
 label {
   display: inherit;
-  margin-bottom: inherit;
   font-weight: inherit;
+  margin-bottom: inherit;
 }

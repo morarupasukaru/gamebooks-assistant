@@ -49,18 +49,32 @@ module.exports = function(grunt) {
             }
         },
 
-        watch: {
-            scripts: {
-                files: ['src/**/*.*'],
-                tasks: ['default'],
-                options: {
-                    livereload: true,
-                    spawn: true
-                },
-            }
+        csslint: {
+          options: {
+            csslintrc: '.csslintrc'
+          },
+          strict: {
+            options: {
+              import: 2
+            },
+            src: [
+                'style/**/*.css',
+                'screens/**/*.css'
+            ]
+          },
+          lax: {
+            options: {
+              import: false
+            },
+            src: [
+                'style/**/*.css',
+                'screens/**/*.css'
+            ]
+          }
         }
     }),
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.registerTask('default', ['clean:before', 'cssmin', 'clean:after']);
+    grunt.loadNpmTasks('grunt-contrib-csslint');
+    grunt.registerTask('default', ['clean:before', 'cssmin', 'csslint:strict', 'clean:after']);
 };

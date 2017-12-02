@@ -6,7 +6,8 @@
   "devDependencies": {
     "grunt": "1.0.1",
     "grunt-contrib-clean": "1.1.0",
-    "grunt-contrib-cssmin": "2.2.1"
+    "grunt-contrib-cssmin": "2.2.1",
+    "grunt-contrib-csslint": "2.0.0"
   },
   "keywords": [
     "gamebooks-assistant"
