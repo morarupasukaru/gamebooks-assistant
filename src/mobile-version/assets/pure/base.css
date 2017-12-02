@@ -1,5 +1,5 @@
 /*!
-Pure v1.0.0
+Pure v1.0.0, patched for the needs of Gamebooks Assistant
 Copyright 2013 Yahoo!
 Licensed under the BSD License.
 https://github.com/yahoo/pure/blob/master/LICENSE.md
@@ -11,13 +11,13 @@ Copyright (c) Nicolas Gallagher and Jonathan Neal
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
 /**
- * 1. Set default font family to sans-serif.
+ * 1. Set default font family to 'Roboto'.
  * 2. Prevent iOS and IE text size adjust after device orientation change,
  *    without disabling user zoom.
  */
 
 html {
-  font-family: sans-serif; /* 1 */
+  font-family: 'Roboto', sans-serif; /* 1 */
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
