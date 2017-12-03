@@ -17,6 +17,7 @@ module.exports = function(grunt) {
                     src: [
                         'assets/googlefont/roboto/Roboto-300-400-500-700-400italic.css',
                         'assets/icons/icomoon/style.css',
+                        'assets/normalize/normalize.css',
                         'assets/pure/base.css',
                         'assets/pure/grids.css',
                         'assets/pure/grids-responsive.css',
@@ -59,7 +60,7 @@ module.exports = function(grunt) {
             },
             src: [
                 'assets/icons/**/*.css',
-                'assets/pure/**/*.css',
+                'assets/normalize/**/*.css',
                 'style/**/*.css',
                 'screens/**/*.css'
             ]
@@ -70,6 +71,7 @@ module.exports = function(grunt) {
             },
             src: [
                 'assets/icons/**/*.css',
+                'assets/normalize/**/*.css',
                 'assets/pure/**/*.css',
                 'style/**/*.css',
                 'screens/**/*.css'

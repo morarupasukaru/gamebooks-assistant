@@ -27,7 +27,16 @@ in progress
 * css loading animation when loading adventure data
 * autodata deletion if localstorage too small
 * gamebook-id : uuid (non editable)
-
+* Copyrights in Git Projekt readme
+    pure css
+    skeleton
+    normalize
+    pureicons (and google material)
+    google font
+    grunts, ...
+    npm
+    node
+    
 ## Non-available with fist version:
 * import, export données (dispo en admin, via texte à copier-coller)
 * map screen
