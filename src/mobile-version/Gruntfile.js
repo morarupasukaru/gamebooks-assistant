@@ -60,7 +60,8 @@ module.exports = function(grunt) {
             },
             src: [
                 'assets/icons/**/*.css',
-                'assets/normalize/**/*.css',
+                'assets/xnormalize/**/*.css',
+                'assets/pure/**/*.css',
                 'style/**/*.css',
                 'screens/**/*.css'
             ]
