@@ -62,6 +62,7 @@ module.exports = function(grunt) {
                 'assets/icons/**/*.css',
                 'assets/normalize/**/*.css',
                 'assets/pure/**/*.css',
+                'assets/skeleton/**/*.css',
                 'style/**/*.css',
                 'screens/**/*.css'
             ]
@@ -74,6 +75,7 @@ module.exports = function(grunt) {
                 'assets/icons/**/*.css',
                 'assets/normalize/**/*.css',
                 'assets/pure/**/*.css',
+                'assets/skeleton/**/*.css',
                 'style/**/*.css',
                 'screens/**/*.css'
             ]
