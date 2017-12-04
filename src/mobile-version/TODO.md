@@ -1,9 +1,8 @@
 # Mobile Version development
 
 in progress
-* css validator (w3c)?
-* non minified pure css
-* simplify css of skeleton, pure, google font
+* way to have only minimal of skeleton (typography?), alternative pure css
+* simplify css of skeleton, google font
 * replace html css import with unique css file
 
 ## Requirement of minimal mobile version
