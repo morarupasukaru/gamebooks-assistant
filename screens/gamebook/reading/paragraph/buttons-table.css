@@ -1,0 +1,20 @@
+.buttons-table button {
+    margin-bottom: 0px;
+}
+
+.buttons-table tr {
+    padding: 0px 15px 0px 15px;
+}
+
+.buttons-table td {
+    padding: 0px 0px 0px 0px;
+}
+
+.buttons-table tr:nth-child(2) > td {
+    padding-top: 12px;
+}
+
+.buttons-table tr:last-child > td {
+    padding-bottom: 12px;
+}
+

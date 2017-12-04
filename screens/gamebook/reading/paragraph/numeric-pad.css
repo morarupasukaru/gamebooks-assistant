@@ -1,0 +1,6 @@
+.numeric-pad .button {
+    font-size: inherit;
+    font-weight: bold;
+    padding: 0;
+    width: 80px;
+}
