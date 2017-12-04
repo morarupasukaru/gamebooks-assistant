@@ -1,9 +1,9 @@
 .expanded-table {
-    width:100%;
     margin-bottom: 1rem;
+    width:100%;
 }
 
-.expanded-table.collapse {
+.expanded-table-collapsed {
     margin-bottom: 0.3rem;
 }
 
@@ -12,13 +12,12 @@
     border: 0px;
 }
 
-.expanded-table.collapse td {
+.expanded-table-collapsed td {
     display: none;
 }
 
-
 .expanded-table th {
-    text-transform: uppercase;
     background: #e7e7e7;
     cursor: pointer;
+    text-transform: uppercase;
 }

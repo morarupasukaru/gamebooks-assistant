@@ -5,17 +5,22 @@ button, .button {
 
 button:disabled {
     background: #DFDFDF;
+    border: 1px solid #bbb;
     color: #9F9F9F;
     pointer-events: none;
-    border: 1px solid #bbb;
 }
 
 .small-button {
-    padding: 0 10px;
     font-size: inherit;
     font-weight: inherit;
+    padding: 0 10px;
 }
 
 .button-danger {
     background: #ffe6e6;
+}
+
+
+.button-ok {
+    background: #f0fff0;
 }
