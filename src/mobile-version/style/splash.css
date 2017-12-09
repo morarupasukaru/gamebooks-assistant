@@ -25,14 +25,14 @@ Sources:
 }
 
 /* Larger than mobile */
-@media only screen and (orientation: portrait) and (min-width: 360px) {
+@media only screen and (orientation: portrait) and (min-width: 22.5em) {
     .splash-head {
         padding: 1em 1em;
     }
 }
 
 /* Larger than mobile */
-@media only screen and (orientation: portrait) and (min-width: 400px) {
+@media only screen and (orientation: portrait) and (min-width: 25em) {
   .splash {
        /* absolute center .splash within .splash-container */
        bottom: 0;
@@ -47,7 +47,7 @@ Sources:
   }
 }
 
-@media only screen and (orientation: landscape) and (min-width: 768px) {
+@media only screen and (orientation: landscape) and (min-width: 48em) {
   .splash {
        /* absolute center .splash within .splash-container */
        bottom: 0;

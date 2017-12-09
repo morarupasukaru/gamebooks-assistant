@@ -18,7 +18,7 @@ h1, h2 {
 }
 
 /* Larger than phablet */
-@media (min-width: 550px) {
+@media (min-width: 34.375em) {
     .main-title {
         /* same size as h3 of skeleton */
         font-size: 3.0rem;
@@ -28,7 +28,7 @@ h1, h2 {
 }
 
 /* Larger than desktop */
-@media (min-width: 1000px) {
+@media (min-width: 64em) {
     .main-title {
         /* same size as h2 of skeleton */
         font-size: 3.6rem;
