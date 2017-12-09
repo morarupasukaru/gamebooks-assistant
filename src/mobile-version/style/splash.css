@@ -4,7 +4,6 @@ Sources:
 - Source of the layout of the splash screen copied from https://purecss.io/layouts/marketing/
 */
 .splash {
-    height: 50%;
     margin: auto;
     padding-top: 0.5em;
     text-align: center;
