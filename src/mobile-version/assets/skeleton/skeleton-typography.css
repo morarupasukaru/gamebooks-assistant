@@ -1,11 +1,20 @@
 /* Typography
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 h1, h2 {
-  margin-top: 0;
+  font-weight: 300;
   margin-bottom: 2rem;
-  font-weight: 300; }
-h1 { font-size: 4.0rem; line-height: 1.2;  letter-spacing: -.1rem;}
-h2 { font-size: 3.6rem; line-height: 1.25; letter-spacing: -.1rem; }
+  margin-top: 0;
+}
+h1 {
+    font-size: 4.0rem;
+    letter-spacing: -.1rem;
+    line-height: 1.2;
+}
+h2 {
+    font-size: 3.6rem;
+    letter-spacing: -.1rem;
+    line-height: 1.25;
+}
 
 /* Larger than phablet */
 @media (min-width: 34.375em) {

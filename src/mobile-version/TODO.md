@@ -1,6 +1,8 @@
 # Mobile Version development
 
 in progress
+* clear css (normalize)
+* css validation on styles.css
 * replace html css import with unique css file
 
 ## Requirement of minimal mobile version

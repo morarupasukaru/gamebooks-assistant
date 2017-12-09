@@ -11,18 +11,20 @@
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .container {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 0 20px;
   position: relative;
   width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 20px;
-  box-sizing: border-box; }
+  }
 
 /* For devices larger than 400px */
 @media (min-width: 25em) {
   .container {
+    padding: 0;
     width: 85%;
-    padding: 0; }
+    }
 }
 
 /* For devices larger than 550px */
