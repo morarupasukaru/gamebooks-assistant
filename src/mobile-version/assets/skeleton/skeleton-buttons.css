@@ -33,21 +33,12 @@ input[type="button"]:focus {
   border-color: #888;
   color: #333;
   outline: 0; }
-.button.button-primary,
-button.button-primary,
-input[type="submit"].button-primary,
-input[type="button"].button-primary {
+.button-primary {
   background-color: #33C3F0;
   border-color: #33C3F0;
   color: #FFF; }
-.button.button-primary:hover,
-button.button-primary:hover,
-input[type="submit"].button-primary:hover,
-input[type="button"].button-primary:hover,
-.button.button-primary:focus,
-button.button-primary:focus,
-input[type="submit"].button-primary:focus,
-input[type="button"].button-primary:focus {
+.button-primary:hover,
+.button-primary:focus {
   background-color: #1EAEDB;
   border-color: #1EAEDB;
   color: #FFF; }

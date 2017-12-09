@@ -1,4 +1,6 @@
-/*! CSS of Gamebooks Assistant */
+/*!
+CSS of Gamebooks Assistant
+*/
 .trim-text {
     overflow: hidden;
     text-overflow: ellipsis;

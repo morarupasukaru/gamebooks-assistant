@@ -70,7 +70,8 @@ module.exports = function(grunt) {
                 'assets/pure/**/*.css',
                 'assets/skeleton/**/*.css',
                 'style/**/*.css',
-                'screens/**/*.css'
+                'screens/**/*.css',
+                'target/styles.css'
             ]
           },
           lax: {
@@ -83,7 +84,8 @@ module.exports = function(grunt) {
                 'assets/pure/**/*.css',
                 'assets/skeleton/**/*.css',
                 'style/**/*.css',
-                'screens/**/*.css'
+                'screens/**/*.css',
+                'target/styles.css'
             ]
           }
         }
