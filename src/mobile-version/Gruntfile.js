@@ -33,8 +33,6 @@ module.exports = function(grunt) {
                         'assets/skeleton/skeleton-tables.css',
                         'assets/skeleton/skeleton-spacing.css',
                         'assets/skeleton/skeleton-utilities.css',
-                        'assets/skeleton/skeleton-clearing.css',
-                        'assets/skeleton/skeleton-media-queries.css',
                         'style/font.css',
                         'style/trim-text.css',
                         'style/nowrap-text.css',
