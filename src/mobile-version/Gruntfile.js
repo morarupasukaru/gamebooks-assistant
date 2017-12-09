@@ -28,7 +28,6 @@ module.exports = function(grunt) {
                         'assets/skeleton/skeleton-links.css',
                         'assets/skeleton/skeleton-buttons.css',
                         'assets/skeleton/skeleton-forms.css',
-                        'assets/skeleton/skeleton-lists.css',
                         'assets/skeleton/skeleton-code.css',
                         'assets/skeleton/skeleton-tables.css',
                         'assets/skeleton/skeleton-spacing.css',
