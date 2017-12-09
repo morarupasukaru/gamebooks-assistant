@@ -42,7 +42,6 @@ module.exports = function(grunt) {
                         'style/footer.css',
                         'style/titles.css',
                         'style/button.css',
-                        'style/fullwidth.css',
                         'style/margins.css',
                         'style/radiobutton.css',
                         'style/muted-text.css',
