@@ -35,7 +35,6 @@ module.exports = function(grunt) {
                         'style/nowrap-text.css',
                         'style/anchor.css',
                         'style/footer.css',
-                        'style/titles.css',
                         'style/button.css',
                         'style/margins.css',
                         'style/radiobutton.css',

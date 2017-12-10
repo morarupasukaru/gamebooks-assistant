@@ -1,8 +1,3 @@
-/* disable uppercase transformation that come per default with skeleton */
-button, .button {
-    text-transform: none;
-}
-
 button:disabled {
     background: #DFDFDF;
     border: 1px solid #bbb;

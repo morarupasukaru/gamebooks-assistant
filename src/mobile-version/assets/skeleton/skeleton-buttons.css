@@ -19,7 +19,6 @@ input[type="button"] {
   padding: 0 30px;
   text-align: center;
   text-decoration: none;
-  text-transform: uppercase;
   white-space: nowrap;
   }
 .button:hover,
