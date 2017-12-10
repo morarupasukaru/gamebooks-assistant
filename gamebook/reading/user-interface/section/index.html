@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+    <!-- Basic Page Needs
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>Gamebook assistant</title>
+    <meta name="description" content="Gamebook assistant">
+    <meta name="author" content="morarupasukaru">
+
+    <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../../../assets/styles.css">
+
+    <!-- Favicon
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+
+<body>
+
+<form action="../edit-character">
+    <div class="container">
+        <div class="pure-g">
+            <div class="pure-u-1">
+                <h1 class="main-title">Edition de section</h1>
+            </div>
+
+            <div class="pure-u-1">
+                <label for="value">Nom</label>
+                <input class="u-full-width" type="text" placeholder="Nom de la section" id="value" autofocus
+                       value="Description">
+            </div>
+
+            <div class="pure-u-1 pure-u-lg-1-3">
+                <div class="margin-right">
+                    <a class="button u-full-width" href="../../user-interface"><span class="icon icon-undo"></span>&nbsp;Annuler</a>
+                </div>
+            </div>
+            <div class="pure-u-1 pure-u-lg-1-3">
+                <div class="margin-right">
+                    <a class="button u-full-width button-danger" href="../../user-interface"><span
+                            class="icon icon-trash-o"></span>&nbsp;Supprimer</a>
+                </div>
+            </div>
+            <div class="pure-u-1 pure-u-lg-1-3">
+                <div>
+                    <a class="button u-full-width button-primary" href="../../user-interface"><span
+                            class="icon icon-check"></span>&nbsp;OK</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="submit">
+</form>
+
+<!-- line-break to have the footer not overlaping the last adventure choice -->
+<br/>
+
+<div class="footer">
+    <div class="footer-left trim-text">
+        Le Sorcier de la Montagne de Feu
+    </div>
+    <div class="footer-right nowrap-text">
+        <a href="#"><span class="icon icon-globe"></span>&nbsp;English&nbsp;</a>
+        <a href="../../../.."><span class="icon icon-home"></span>&nbsp;Acceuil&nbsp;</a>
+    </div>
+</div>
+
+</body>
+</html>
