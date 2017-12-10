@@ -1,4 +1,0 @@
-body, a, sup, button, input, textarea, label, h1, h2, th, td, table, div, span {
-    /* correct css conflict between pure and skeleton */
-    font-family: 'Roboto', sans-serif;
-}
