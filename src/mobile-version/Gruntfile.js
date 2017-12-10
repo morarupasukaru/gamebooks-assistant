@@ -3,7 +3,7 @@ module.exports = function(grunt) {
         // Clean temporary folders
         clean: {
             before: ['target'],
-            after: []
+            after: ['target/screens']
         },
 
         // Concat css files into a single minified css file
@@ -50,7 +50,7 @@ module.exports = function(grunt) {
                         'style/form.css',
                         'screens/**/*.css'
                     ],
-                    dest: 'target/styles.css'
+                    dest: 'target/assets/styles.css'
                 }]
             }
         },
@@ -70,7 +70,7 @@ module.exports = function(grunt) {
                 'assets/skeleton/**/*.css',
                 'style/**/*.css',
                 'screens/**/*.css',
-                'target/styles.css'
+                'target/**/*.css'
             ]
           },
           lax: {
@@ -84,13 +84,38 @@ module.exports = function(grunt) {
                 'assets/skeleton/**/*.css',
                 'style/**/*.css',
                 'screens/**/*.css',
-                'target/styles.css'
+                'target/**/*.css'
             ]
           }
-        }
+        },
+        copy: {
+          main: {
+            files: [
+              // includes files within path
+              {expand: true, flatten: true, src: ['assets/icons/icomoon/fonts/*'], dest: 'target/assets/fonts', filter: 'isFile'},
+
+              // includes files within path and its sub-directories
+              {expand: true, src: ['screens/**'], dest: 'target/'}
+            ],
+          },
+        },
+        processhtml: {
+            target: {
+              files: [
+                {
+                  expand: true,     // Enable dynamic expansion.
+                  cwd: 'target/screens/',      // Src matches are relative to this path.
+                  src: ['**/*.html'], // Actual pattern(s) to match.
+                  dest: 'target/',   // Destination path prefix.
+                }
+              ]
+            }
+        },
     }),
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-csslint');
-    grunt.registerTask('default', ['clean:before', 'cssmin', 'csslint:strict', 'clean:after']);
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-processhtml');
+    grunt.registerTask('default', ['clean:before', 'cssmin', 'csslint:strict', 'copy', 'processhtml', 'clean:after']);
 };
