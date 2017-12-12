@@ -1,9 +1,15 @@
 # Mobile Version development
 
 in progress
-* clear css (normalize)
-* css validation on styles.css
-* replace html css import with unique css file
+* watch
+* htmlmin
+* htmlvalidation
+* html include (header)
+* favicon
+* json minify
+* json validation
+* include css, json, js, html inside one html page
+* base64 image, font support?
 
 ## Requirement of minimal mobile version
 * nice minimalist layout

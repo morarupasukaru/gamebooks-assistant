@@ -111,11 +111,22 @@ module.exports = function(grunt) {
               ]
             }
         },
+        watch: {
+            scripts: {
+                files: ['assets/**/*.*', 'screens/**/*.*', 'style/**/*.*'],
+                tasks: ['default'],
+                options: {
+                    livereload: true,
+                    spawn: true
+                },
+            }
+        }
     }),
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-csslint');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-processhtml');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.registerTask('default', ['clean:before', 'cssmin', 'csslint:strict', 'copy', 'processhtml', 'clean:after']);
 };
