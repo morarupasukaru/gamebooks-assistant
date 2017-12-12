@@ -1,7 +1,6 @@
 # Mobile Version development
 
 in progress
-* watch
 * htmlmin
 * htmlvalidation
 * html include (header)
