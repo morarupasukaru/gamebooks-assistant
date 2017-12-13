@@ -92,10 +92,7 @@ module.exports = function(grunt) {
           main: {
             files: [
               // includes files within path
-              {expand: true, flatten: true, src: ['assets/icons/icomoon/fonts/*'], dest: 'target/assets/fonts', filter: 'isFile'},
-
-              // includes files within path and its sub-directories
-              {expand: true, src: ['screens/**'], dest: 'target/'}
+              {expand: true, flatten: true, src: ['assets/icons/icomoon/fonts/*'], dest: 'target/assets/fonts', filter: 'isFile'}
             ],
           },
         },
@@ -104,7 +101,7 @@ module.exports = function(grunt) {
               files: [
                 {
                   expand: true,     // Enable dynamic expansion.
-                  cwd: 'target/screens/',      // Src matches are relative to this path.
+                  cwd: 'screens/',      // Src matches are relative to this path.
                   src: ['**/*.html'], // Actual pattern(s) to match.
                   dest: 'target/',   // Destination path prefix.
                 }
