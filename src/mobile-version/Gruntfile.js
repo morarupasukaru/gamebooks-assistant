@@ -108,10 +108,35 @@ module.exports = function(grunt) {
               ]
             }
         },
+        vnuserver: {
+        },
+        htmllint: {
+            all: {
+              options: {
+                // connect to a validator instance running in server mode on localhost:8888
+                server: {}
+              },
+              src: ['screens/**/*.html', 'target/**/*.html']
+            }
+        },
+        htmlmin: {
+            dist: {
+                options: {
+                    removeComments: true,
+                    collapseWhitespace: true
+                },
+                files: [{
+                  expand: true,
+                  cwd: 'target',
+                  src: ['**/*.html'],
+                  dest: 'target/'
+              }]
+            }
+        },
         watch: {
             scripts: {
                 files: ['assets/**/*.*', 'screens/**/*.*', 'style/**/*.*'],
-                tasks: ['default'],
+                tasks: ['buildPipeline'],
                 options: {
                     livereload: true,
                     spawn: true
@@ -119,11 +144,15 @@ module.exports = function(grunt) {
             }
         }
     }),
+    grunt.loadNpmTasks('grunt-vnuserver');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-csslint');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-processhtml');
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    grunt.loadNpmTasks('grunt-html');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.registerTask('default', ['clean:before', 'cssmin', 'csslint:strict', 'copy', 'processhtml', 'clean:after']);
+    grunt.registerTask('default', ['vnuserver', 'buildPipeline', 'watch']);
+    grunt.registerTask('buildPipeline', ['clean:before', 'cssmin', 'csslint:strict', 'copy', 'processhtml', 'htmlmin', 'htmllint', 'clean:after']);
 };
