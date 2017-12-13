@@ -1,13 +1,10 @@
 # Mobile Version development
 
 in progress
-* htmlmin
-* htmlvalidation
-* html include (header)
 * favicon
 * json minify
 * json validation
-* include css, json, js, html inside one html page
+* include css, json, js, html inside one html page > grunt-processhtml
 * base64 image, font support?
 
 ## Requirement of minimal mobile version
