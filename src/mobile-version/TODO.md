@@ -1,10 +1,11 @@
 # Mobile Version development
 
 in progress
+* favicon distrib does not work
 * json minify
 * json validation
 * include css, json, js, html inside one html page > grunt-processhtml
-* base64 image, font support?
+* base64 image, font support
 
 ## Requirement of minimal mobile version
 * nice minimalist layout

@@ -3,8 +3,16 @@ module.exports = function(grunt) {
         // Clean temporary folders
         clean: {
             before: ['target'],
-            after: ['target/screens']
+            after: ['target/screens', 'target/assets/temporary-font.css']
         },
+
+        embedFonts: {
+            all: {
+              files: {
+                'target/assets/temporary-font.css': ['assets/icons/icomoon/style.css']
+              }
+            }
+          },
 
         // Concat css files into a single minified css file
         cssmin: {
@@ -15,7 +23,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: false,
                     src: [
-                        'assets/icons/icomoon/style.css',
+                        'target/assets/temporary-font.css',
                         'assets/normalize/normalize.css',
                         'assets/pure/base.css',
                         'assets/pure/grids.css',
@@ -91,9 +99,6 @@ module.exports = function(grunt) {
         copy: {
           main: {
             files: [
-              // includes files within path
-              { expand: true, flatten: true, src: ['assets/icons/icomoon/fonts/*'], dest: 'target/assets/fonts', filter: 'isFile'},
-
               { expand: true, flatten: true, src: 'assets/favicon/favicon.ico', dest: 'target/'}
             ],
           },
@@ -148,6 +153,7 @@ module.exports = function(grunt) {
     }),
     grunt.loadNpmTasks('grunt-vnuserver');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-embed-fonts');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-csslint');
     grunt.loadNpmTasks('grunt-contrib-copy');
@@ -156,5 +162,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-html');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.registerTask('default', ['vnuserver', 'buildPipeline', 'watch']);
-    grunt.registerTask('buildPipeline', ['clean:before', 'cssmin', 'csslint:strict', 'copy', 'processhtml', 'htmlmin', 'htmllint', 'clean:after']);
+    grunt.registerTask('buildPipeline', ['clean:before', 'embedFonts', 'cssmin', 'csslint:strict', 'copy', 'processhtml', 'htmlmin', 'htmllint', 'clean:after']);
 };
