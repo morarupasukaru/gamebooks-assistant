@@ -9,7 +9,9 @@ License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
   font-style: normal;
   font-weight: normal;
   src:
-    url('fonts/icomoon.woff') format('woff');
+    url('fonts/icomoon.ttf?kvj0zl') format('truetype'),
+    url('fonts/icomoon.woff?kvj0zl') format('woff'),
+    url('fonts/icomoon.svg?kvj0zl#icomoon') format('svg');
 }
 
 .icon {
