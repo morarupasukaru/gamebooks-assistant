@@ -92,7 +92,9 @@ module.exports = function(grunt) {
           main: {
             files: [
               // includes files within path
-              {expand: true, flatten: true, src: ['assets/icons/icomoon/fonts/*'], dest: 'target/assets/fonts', filter: 'isFile'}
+              { expand: true, flatten: true, src: ['assets/icons/icomoon/fonts/*'], dest: 'target/assets/fonts', filter: 'isFile'},
+
+              { expand: true, flatten: true, src: 'assets/favicon/favicon.ico', dest: 'target/'}
             ],
           },
         },

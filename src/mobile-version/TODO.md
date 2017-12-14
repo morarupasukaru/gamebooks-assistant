@@ -1,7 +1,6 @@
 # Mobile Version development
 
 in progress
-* favicon
 * json minify
 * json validation
 * include css, json, js, html inside one html page > grunt-processhtml
