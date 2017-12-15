@@ -48,6 +48,7 @@ module.exports = function(grunt) {
                         'style/textarea.css',
                         'style/splash.css',
                         'style/form.css',
+                        'i18n/*.css',
                         'screens/**/*.css'
                     ],
                     dest: 'target/assets/styles.css'
@@ -70,6 +71,7 @@ module.exports = function(grunt) {
                 'assets/skeleton/**/*.css',
                 'style/**/*.css',
                 'screens/**/*.css',
+                'i18n/*.css',
                 'target/**/*.css'
             ]
           },
@@ -84,6 +86,7 @@ module.exports = function(grunt) {
                 'assets/skeleton/**/*.css',
                 'style/**/*.css',
                 'screens/**/*.css',
+                'i18n/*.css',
                 'target/**/*.css'
             ]
           }
@@ -137,7 +140,7 @@ module.exports = function(grunt) {
         },
         watch: {
             scripts: {
-                files: ['assets/**/*.*', 'screens/**/*.*', 'style/**/*.*'],
+                files: ['assets/**/*.*', 'screens/**/*.*', 'style/**/*.*', 'i18n/**/*.*'],
                 tasks: ['buildPipeline'],
                 options: {
                     livereload: true,
