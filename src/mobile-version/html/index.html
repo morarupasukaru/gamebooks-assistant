@@ -33,23 +33,8 @@
     <link rel="shortcut icon" href="favicon.ico">
 
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-
-    <script>
-        /**
-         * polyfill : String.prototype.startsWith()
-         * see https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/startsWith
-         */
-        if (!String.prototype.startsWith) {
-          String.prototype.startsWith = function (searchString, position) {
-              position = position || 0;
-              return this.substr(position, searchString.length) === searchString;
-          };
-        }
-
-        $(function() {
-          initLanguage();
-        });
-    </script>
+    <script src="../js/polyfill.js"></script>
+    <script src="../js/i18n.js"></script>
 </head>
 
 <body>
@@ -74,28 +59,5 @@
         <a href="#" id="link_fr" hreflang="fr" onClick="setLanguage('fr');"><span class="icon icon-globe"></span>&nbsp;Français&nbsp;</a>
     </div>
 </div>
-
-<script>
-function initLanguage() {
-    var language = navigator.languages && navigator.languages[0] || navigator.language || navigator.userLanguage;
-    if (language === 'fr' || language.startsWith('fr-')) {
-        setLanguage('fr');
-    } else if (language === 'en' || language.startsWith('en-')) {
-        setLanguage('en');
-    }
-}
-
-function setLanguage(language) {
-    var currentLanguage = $("html").attr("lang");
-    if (!currentLanguage) {
-        currentLanguage = "en";
-    }
-    if (currentLanguage !== language) {
-        $("html").attr("lang", language);
-        $("#link_" + currentLanguage).toggleClass("hidden");
-        $("#link_" + language).toggleClass("hidden");
-    }
-}
-</script>
 </body>
 </html>
