@@ -2,6 +2,7 @@
 
 in progress
 * add js to change language of current page
+    > bug with android, alert (html.lang?)
 * add i18n to all text (placeholder?)
 * json minify
 * json validation

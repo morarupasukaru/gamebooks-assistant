@@ -3,7 +3,7 @@ module.exports = function(grunt) {
         // Clean temporary folders
         clean: {
             before: ['target'],
-            after: ['target/screens']
+            after: ['target/html']
         },
 
         // Concat css files into a single minified css file
@@ -31,25 +31,25 @@ module.exports = function(grunt) {
                         'assets/skeleton/skeleton-tables.css',
                         'assets/skeleton/skeleton-spacing.css',
                         'assets/skeleton/skeleton-utilities.css',
-                        'style/trim-text.css',
-                        'style/nowrap-text.css',
-                        'style/anchor.css',
-                        'style/footer.css',
-                        'style/button.css',
-                        'style/margins.css',
-                        'style/radiobutton.css',
-                        'style/muted-text.css',
-                        'style/toggle-button.css',
-                        'style/new-paragraph-choice.css',
-                        'style/expanded-table.css',
-                        'style/striped-table.css',
-                        'style/list-table.css',
-                        'style/right-aligned-text.css',
-                        'style/textarea.css',
-                        'style/splash.css',
-                        'style/form.css',
-                        'i18n/*.css',
-                        'screens/**/*.css'
+                        'css/trim-text.css',
+                        'css/nowrap-text.css',
+                        'css/anchor.css',
+                        'css/footer.css',
+                        'css/button.css',
+                        'css/margins.css',
+                        'css/radiobutton.css',
+                        'css/muted-text.css',
+                        'css/toggle-button.css',
+                        'css/new-paragraph-choice.css',
+                        'css/expanded-table.css',
+                        'css/striped-table.css',
+                        'css/list-table.css',
+                        'css/right-aligned-text.css',
+                        'css/textarea.css',
+                        'css/splash.css',
+                        'css/form.css',
+                        'css/i18n.css',
+                        'html/**/*.css'
                     ],
                     dest: 'target/assets/styles.css'
                 }]
@@ -69,9 +69,8 @@ module.exports = function(grunt) {
                 'assets/normalize/**/*.css',
                 'assets/pure/**/*.css',
                 'assets/skeleton/**/*.css',
-                'style/**/*.css',
-                'screens/**/*.css',
-                'i18n/*.css',
+                'css/**/*.css',
+                'html/**/*.css',
                 'target/**/*.css'
             ]
           },
@@ -84,9 +83,8 @@ module.exports = function(grunt) {
                 'assets/normalize/**/*.css',
                 'assets/pure/**/*.css',
                 'assets/skeleton/**/*.css',
-                'style/**/*.css',
-                'screens/**/*.css',
-                'i18n/*.css',
+                'css/**/*.css',
+                'html/**/*.css',
                 'target/**/*.css'
             ]
           }
@@ -106,7 +104,7 @@ module.exports = function(grunt) {
               files: [
                 {
                   expand: true,     // Enable dynamic expansion.
-                  cwd: 'screens/',      // Src matches are relative to this path.
+                  cwd: 'html/',      // Src matches are relative to this path.
                   src: ['**/*.html'], // Actual pattern(s) to match.
                   dest: 'target/',   // Destination path prefix.
                 }
@@ -121,7 +119,7 @@ module.exports = function(grunt) {
                 // connect to a validator instance running in server mode on localhost:8888
                 server: {}
               },
-              src: ['screens/**/*.html', 'target/**/*.html']
+              src: ['html/**/*.html', 'target/**/*.html']
             }
         },
         htmlmin: {
@@ -140,7 +138,7 @@ module.exports = function(grunt) {
         },
         watch: {
             scripts: {
-                files: ['assets/**/*.*', 'screens/**/*.*', 'style/**/*.*', 'i18n/**/*.*'],
+                files: ['assets/**/*.*', 'html/**/*.*', 'css/**/*.*'],
                 tasks: ['buildPipeline'],
                 options: {
                     livereload: true,
