@@ -10,6 +10,8 @@
     "grunt-contrib-csslint": "2.0.0",
     "grunt-contrib-cssmin": "2.2.1",
     "grunt-contrib-htmlmin": "^2.4.0",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-uglify": "^3.2.1",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-html": "^8.6.1",
     "grunt-processhtml": "^0.4.1",
