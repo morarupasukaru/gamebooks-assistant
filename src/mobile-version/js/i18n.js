@@ -29,10 +29,39 @@ function setLanguage(newLanguage) {
         $("html").attr("lang", newLanguage);
         $("#link_" + currentLanguage).toggleClass("hidden");
         $("#link_" + newLanguage).toggleClass("hidden");
-        reloadCSS();
+        forceReloadStylesheetIfNeeded(newLanguage);
     }
 }
 
-function reloadCSS() {
-  $('#i18n-css').replaceWith('<link id="i18n-css" rel="stylesheet" href="assets/i18n.css?t=' + Date.now() + '">');
+/**
+ * Hack for a bug android nexus browser to force a re-evaluation of the stylesheets after a change of "lang" attribute
+ * value with i18n.js by reloading a non-existent stylesheet.
+ */
+function forceReloadStylesheetIfNeeded(newLanguage) {
+    var id = "test-i18n";
+    addI18nTestInvisibleDiv(id);
+    var text = window.getComputedStyle(document.getElementById("#" + id), ':before').getPropertyValue('content');
+    if (!text || text !== '"' + newLanguage + '"') {
+        forceReloadStylesheet(newLanguage);
+    }
+}
+
+function forceReloadStylesheet(newLanguage) {
+    var dummyStylesheetId = "forceReloadStylesheets";
+    var dummyStylesheetElement = $("#" + dummyStylesheetId);
+    var dummyStylesheet = '<link id="' + dummyStylesheetId + '" rel="stylesheet" href="' + dummyStylesheetId + '.css?' + newLanguage + '">';
+    var elementExist = !!dummyStylesheetElement.length;
+    if (elementExist) {
+        dummyStylesheetElement.replaceWith(dummyStylesheet);
+    } else {
+        $('head').append(dummyStylesheet);
+    }
+}
+
+function addI18nTestInvisibleDiv(id) {
+    var element = $("#" + id);
+    var elementExist = !!element.length;
+    if (!elementExist) {
+        $('body').append('<div id="'+ id + '" class="i18n hidden" data-fr=fr data-en=en></div>');
+    }
 }
