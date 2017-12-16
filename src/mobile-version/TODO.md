@@ -1,9 +1,16 @@
 # Mobile Version development
 
 in progress
+* add js to change language of current page
+* add i18n to all text (placeholder?)
 * json minify
 * json validation
 * include css, json, js, html inside one html page > grunt-processhtml
+* bug click slow on android
+    https://www.smashingmagazine.com/2012/02/finger-friendly-design-ideal-mobile-touchscreen-target-sizes/
+    https://www.smashingmagazine.com/2012/02/finger-friendly-design-ideal-mobile-touchscreen-target-sizes/
+    https://y-designs.com/blog/slow-response-when-clicking-on-mobile/
+* jquery custom build: https://github.com/jquery/jquery#modules
 
 ## Requirement of minimal mobile version
 * nice minimalist layout
