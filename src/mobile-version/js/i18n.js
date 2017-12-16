@@ -38,9 +38,8 @@ function setLanguage(newLanguage) {
  * value with i18n.js by reloading a non-existent stylesheet.
  */
 function forceReloadStylesheetIfNeeded(newLanguage) {
-    var id = "test-i18n";
-    addI18nTestInvisibleDiv(id);
-    var text = window.getComputedStyle(document.getElementById("#" + id), ':before').getPropertyValue('content');
+    var element = getOrAddI18nTestInvisibleDiv("test-i18n");
+    var text = window.getComputedStyle(element, ':before').getPropertyValue('content');
     if (!text || text !== '"' + newLanguage + '"') {
         forceReloadStylesheet(newLanguage);
     }
@@ -58,10 +57,11 @@ function forceReloadStylesheet(newLanguage) {
     }
 }
 
-function addI18nTestInvisibleDiv(id) {
+function getOrAddI18nTestInvisibleDiv(id) {
     var element = $("#" + id);
     var elementExist = !!element.length;
     if (!elementExist) {
-        $('body').append('<div id="'+ id + '" class="i18n hidden" data-fr=fr data-en=en></div>');
+        element = $('body').append('<div id="'+ id + '" class="i18n hidden" data-fr=fr data-en=en></div>');
     }
+    return element[0];
 }
