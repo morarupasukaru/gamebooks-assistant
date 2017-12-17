@@ -53,7 +53,7 @@ module.exports = function(grunt) {
                         'css/i18n.css',
                         'html/**/*.css'
                     ],
-                    dest: '<%= target %>/assets/styles.css'
+                    dest: '<%= target %>/assets/style.css'
                 }]
             }
         },

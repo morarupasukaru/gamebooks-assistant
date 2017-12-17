@@ -31,7 +31,7 @@
         var element = $("#test-i18n")[0];
         var text = window.getComputedStyle(element, ':before').getPropertyValue('content');
         if (!text || text !== '"' + newLanguage + '"') {
-            this.forceReloadStylesheet(newLanguage);
+            this._forceReloadStylesheet(newLanguage);
         }
     };
 
