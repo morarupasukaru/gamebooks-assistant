@@ -11,14 +11,15 @@
      * Change the language of the application
      */
     i18n.setLanguage = function(newLanguage) {
-        var currentLanguage = $("html").attr("lang");
+        var htmlElement = document.getElementsByTagName("html")[0];
+        var currentLanguage = htmlElement.lang;
         if (!currentLanguage) {
             currentLanguage = "en";
         }
         if (currentLanguage !== newLanguage) {
-            $("html").attr("lang", newLanguage);
-            $("#link_" + currentLanguage).toggleClass("hidden");
-            $("#link_" + newLanguage).toggleClass("hidden");
+            htmlElement.lang = newLanguage;
+            document.getElementById("link_" + currentLanguage).classList.toggle("hidden");
+            document.getElementById("link_" + newLanguage).classList.toggle("hidden");
             this._forceReloadStylesheetIfNeeded(newLanguage);
         }
     };
@@ -28,7 +29,7 @@
      * value with i18n.js by reloading a non-existent stylesheet.
      */
     i18n._forceReloadStylesheetIfNeeded = function(newLanguage) {
-        var element = $("#test-i18n")[0];
+        var element = document.getElementById("test-i18n");
         var text = window.getComputedStyle(element, ':before').getPropertyValue('content');
         if (!text || text !== '"' + newLanguage + '"') {
             this._forceReloadStylesheet(newLanguage);
@@ -37,13 +38,21 @@
 
     i18n._forceReloadStylesheet = function(newLanguage) {
         var dummyStylesheetId = "forceReloadStylesheets";
-        var dummyStylesheetElement = $("#" + dummyStylesheetId);
-        var dummyStylesheet = '<link id="' + dummyStylesheetId + '" rel="stylesheet" href="' + dummyStylesheetId + '.css?' + newLanguage + '">';
-        var elementExist = !!dummyStylesheetElement.length;
-        if (elementExist) {
-            dummyStylesheetElement.replaceWith(dummyStylesheet);
+        var dummyStylesheetElement = document.getElementById(dummyStylesheetId);
+        var hrefValue = dummyStylesheetId + '.css?' + newLanguage;
+        if (!!dummyStylesheetElement) {
+            dummyStylesheetElement.href = hrefValue;
         } else {
-            $('head').append(dummyStylesheet);
+            this.appendHtml(document.getElementsByTagName('head')[0], '<link id="' + dummyStylesheetId + '" rel="stylesheet" href="' + hrefValue + '">');
+        }
+    };
+
+    i18n.appendHtml = function(element, html) {
+        // TODO move to common lib
+        var div = document.createElement('div');
+        div.innerHTML = html;
+        while (div.children.length > 0) {
+            element.appendChild(div.children[0]);
         }
     };
 } (this));
@@ -51,7 +60,7 @@
 /**
  * Initialise the language of the application based on the language configuration of the browser
  */
-$(function() {
+window.onload = function() {
     "use strict";
     var language = navigator.languages && navigator.languages[0] || navigator.language || navigator.userLanguage;
     if (language === 'fr' || language.startsWith('fr-')) {
@@ -59,4 +68,4 @@ $(function() {
     } else if (language === 'en' || language.startsWith('en-')) {
         _.i18n.setLanguage('en');
     }
-});
+};
