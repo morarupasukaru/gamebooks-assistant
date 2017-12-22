@@ -1,11 +1,14 @@
 # Mobile Version development
 
 in progress
+* add i18n errors message (key-value in i18n)
+* add popup non browser specific
+
+later
 * add i18n to all text (placeholder?)
 * json minify
 * json validation
 * include css, json, js, html inside one html page > grunt-processhtml
-* jquery custom build: https://github.com/jquery/jquery#modules
 
 ## Requirement of minimal mobile version
 * nice minimalist layout
