@@ -34,7 +34,6 @@
         if (!text || text !== '"' + newLanguage + '"') {
             this._forceReloadStylesheet(newLanguage);
         }
-            this._forceReloadStylesheet(newLanguage);
     };
 
     i18n._forceReloadStylesheet = function(newLanguage) {
