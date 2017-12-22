@@ -6,8 +6,8 @@
     globals._ = globals._ || {};
     globals._.dom = globals._.dom || {};
 
-    var dom = globals._.dom;
-    dom.appendHtml = function(element, html) {
+    var api = globals._.dom;
+    api.appendHtml = function(element, html) {
         var div = document.createElement('div');
         div.innerHTML = html;
         while (div.children.length > 0) {

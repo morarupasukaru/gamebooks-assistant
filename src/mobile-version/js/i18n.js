@@ -6,11 +6,11 @@
     globals._ = globals._ || {};
     globals._.i18n = globals._.i18n || {};
 
-    var i18n = globals._.i18n;
+    var api = globals._.i18n;
     /**
      * Change the language of the application
      */
-    i18n.setLanguage = function(newLanguage) {
+    api.setLanguage = function(newLanguage) {
         var htmlElement = document.getElementsByTagName("html")[0];
         var currentLanguage = htmlElement.lang;
         if (!currentLanguage) {
@@ -28,7 +28,7 @@
      * Hack for a bug android nexus browser to force a re-evaluation of the stylesheets after a change of "lang" attribute
      * value with i18n.js by reloading a non-existent stylesheet.
      */
-    i18n._forceReloadStylesheetIfNeeded = function(newLanguage) {
+    api._forceReloadStylesheetIfNeeded = function(newLanguage) {
         var element = document.getElementById("test-i18n");
         var text = window.getComputedStyle(element, ':before').getPropertyValue('content');
         if (!text || text !== '"' + newLanguage + '"') {
@@ -36,7 +36,7 @@
         }
     };
 
-    i18n._forceReloadStylesheet = function(newLanguage) {
+    api._forceReloadStylesheet = function(newLanguage) {
         var dummyStylesheetId = "forceReloadStylesheets";
         var dummyStylesheetElement = document.getElementById(dummyStylesheetId);
         var hrefValue = dummyStylesheetId + '.css?' + newLanguage;

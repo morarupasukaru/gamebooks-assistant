@@ -106,6 +106,7 @@ module.exports = function(grunt) {
                 '<%= target %>/assets/app.js': [
                     'js/**/polyfill.js',
                     'js/**/dom.js',
+                    'js/**/data.js',
                     'js/**/i18n.js'
                 ]
               }
