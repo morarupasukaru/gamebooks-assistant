@@ -23,6 +23,9 @@
         _.msg.error('LocalStorage is required by the application but is unavailable');
     }
 
+    /**
+     * Retrieve a data with given key in the localstorage
+     */
     api.get = function(key) {
         if (!this.isLocalStorageAvailable) {
             return null;
@@ -40,6 +43,9 @@
         }
     };
 
+    /**
+     * Save some data with given key in the localstorage
+     */
     api.save = function(key, value) {
         if (!this.isLocalStorageAvailable) {
             return ;
@@ -52,6 +58,10 @@
     }
 
     var applicationDataPrefix = 'gamebooks-assistant';
+
+    /**
+     * Constants of common ids of data stored in the localstorage
+     */
     api.ids = {
         language : applicationDataPrefix + '.language'
     };

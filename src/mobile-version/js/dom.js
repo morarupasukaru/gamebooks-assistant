@@ -7,6 +7,10 @@
     globals._.dom = globals._.dom || {};
 
     var api = globals._.dom;
+
+    /**
+     * Append given html to a dom element
+     */
     api.appendHtml = function(element, html) {
         var div = document.createElement('div');
         div.innerHTML = html;

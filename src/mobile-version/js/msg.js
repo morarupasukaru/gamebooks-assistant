@@ -14,6 +14,9 @@
         alert(severity + ': ' + message);
     };
 
+    /**
+     * Display an error message
+     */
     api.error = function(message) {
         this._displayMessage('error', message);
     };
