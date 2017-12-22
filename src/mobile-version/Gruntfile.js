@@ -103,7 +103,11 @@ module.exports = function(grunt) {
             options: {},
             my_target: {
               files: {
-                '<%= target %>/assets/app.js': ['js/**/*.js']
+                '<%= target %>/assets/app.js': [
+                    'js/**/polyfill.js',
+                    'js/**/dom.js',
+                    'js/**/i18n.js'
+                ]
               }
             }
         },

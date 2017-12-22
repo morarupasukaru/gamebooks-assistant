@@ -34,6 +34,7 @@
         if (!text || text !== '"' + newLanguage + '"') {
             this._forceReloadStylesheet(newLanguage);
         }
+            this._forceReloadStylesheet(newLanguage);
     };
 
     i18n._forceReloadStylesheet = function(newLanguage) {
@@ -43,16 +44,7 @@
         if (!!dummyStylesheetElement) {
             dummyStylesheetElement.href = hrefValue;
         } else {
-            this.appendHtml(document.getElementsByTagName('head')[0], '<link id="' + dummyStylesheetId + '" rel="stylesheet" href="' + hrefValue + '">');
-        }
-    };
-
-    i18n.appendHtml = function(element, html) {
-        // TODO move to common lib
-        var div = document.createElement('div');
-        div.innerHTML = html;
-        while (div.children.length > 0) {
-            element.appendChild(div.children[0]);
+            _.dom.appendHtml(document.getElementsByTagName('head')[0], '<link id="' + dummyStylesheetId + '" rel="stylesheet" href="' + hrefValue + '">');
         }
     };
 } (this));
