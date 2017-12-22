@@ -7,22 +7,6 @@
     globals._.data = globals._.data || {};
     var api = globals._.data;
 
-    function testLocalStorageAvailable() {
-        try {
-            let storage = window['localStorage'];
-            let x = '__storage_test__';
-            storage.setItem(x, x);
-            storage.removeItem(x);
-            return true;
-        } catch(e) {
-            return false;
-        }
-    };
-    api.isLocalStorageAvailable = testLocalStorageAvailable();
-    if (!api.isLocalStorageAvailable) {
-        _.msg.error('LocalStorage is required by the application but is unavailable');
-    }
-
     /**
      * Retrieve a data with given key in the localstorage
      */
@@ -55,7 +39,7 @@
         } else {
             localStorage.setItem(key, JSON.stringify(value));
         }
-    }
+    };
 
     var applicationDataPrefix = 'gamebooks-assistant';
 
@@ -64,6 +48,30 @@
      */
     api.ids = {
         language : applicationDataPrefix + '.language'
+    };
+
+    /**
+     * Module initialisation method
+     */
+    api.init = function() {
+        if (!_.msg) {
+            throw 'msg is unavailable';
+        }
+        function testLocalStorageAvailable() {
+            try {
+                var storage = window.localStorage;
+                var x = '__storage_test__';
+                storage.setItem(x, x);
+                storage.removeItem(x);
+                return true;
+            } catch(e) {
+                return false;
+            }
+        }
+        this.isLocalStorageAvailable = testLocalStorageAvailable();
+        if (!this.isLocalStorageAvailable) {
+            _.msg.error('LocalStorage is required by the application but is unavailable');
+        }
     };
 
     // TODO load json data with an http get call

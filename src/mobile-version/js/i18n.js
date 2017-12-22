@@ -47,24 +47,26 @@
             _.dom.appendHtml(document.getElementsByTagName('head')[0], '<link id="' + dummyStylesheetId + '" rel="stylesheet" href="' + hrefValue + '">');
         }
     };
-} (this));
 
-/**
- * Initialise the language of the application based on the language configuration of the browser
- */
-window.onload = function() {
-    "use strict";
-    var savedLanguage = _.data.get(_.data.ids.language);
-    if (!!savedLanguage) {
-        _.i18n.setLanguage(savedLanguage);
-    } else {
-        var newLanguage;
-        var navigatorLanguage = navigator.languages && navigator.languages[0] || navigator.language || navigator.userLanguage;
-        if (navigatorLanguage === 'fr' || navigatorLanguage.startsWith('fr-')) {
-            newLanguage = 'fr';
-        } else {
-            newLanguage = 'en';
+    /**
+     * Module initialisation method
+     */
+    api.init = function() {
+        if (!_.data) {
+            throw 'data is unavailable';
         }
-        _.i18n.setLanguage(newLanguage);
-    }
-};
+        var savedLanguage = _.data.get(_.data.ids.language);
+        if (!!savedLanguage) {
+            this.setLanguage(savedLanguage);
+        } else {
+            var newLanguage;
+            var navigatorLanguage = navigator.languages && navigator.languages[0] || navigator.language || navigator.userLanguage;
+            if (navigatorLanguage === 'fr' || navigatorLanguage.startsWith('fr-')) {
+                newLanguage = 'fr';
+            } else {
+                newLanguage = 'en';
+            }
+            this.setLanguage(newLanguage);
+        }
+    };
+} (this));
