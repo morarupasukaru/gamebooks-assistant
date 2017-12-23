@@ -79,7 +79,7 @@
         if (!_.msg) {
             throw 'msg is unavailable';
         }
-        if (!!this.isLocalStorageAvailable) {
+        if (!this.isLocalStorageAvailable) {
             _.msg.error('error-localstorage-unavailable');
         }
     };
