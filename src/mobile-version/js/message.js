@@ -9,9 +9,10 @@
     var api = globals._.msg;
 
     api._displayMessage = function(severity, message) {
-        // TODO i18n of message
         // TODO modal or other mechanismus
-        alert(severity + ': ' + message);
+        var language = _.i18n.currentLanguage;
+        var i18nMessage = _.i18n.texts[language][message];
+        alert(severity + ': ' + i18nMessage);
     };
 
     /**

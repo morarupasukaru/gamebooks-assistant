@@ -11,16 +11,17 @@
      * Change the language of the application
      */
     api.setLanguage = function(newLanguage) {
-        var htmlElement = document.getElementsByTagName("html")[0];
-        var currentLanguage = htmlElement.lang;
-        if (!currentLanguage) {
-            currentLanguage = "en";
-        }
-        if (currentLanguage !== newLanguage) {
+        if (this.currentLanguage !== newLanguage) {
+            this.currentLanguage = newLanguage;
             _.data.save(_.data.ids.language, newLanguage);
+            var htmlElement = document.getElementsByTagName("html")[0];
             htmlElement.lang = newLanguage;
-            document.getElementById("link_" + currentLanguage).classList.toggle("hidden");
-            document.getElementById("link_" + newLanguage).classList.toggle("hidden");
+            document.getElementById("link_" + newLanguage).classList.add("hidden");
+            for (var i = 0; i < api.supportedLanguages.length; i++) {
+                if (newLanguage !== api.supportedLanguages[i]) {
+                    document.getElementById("link_" + api.supportedLanguages[i]).classList.remove("hidden");
+                }
+            }
             this._forceReloadStylesheetIfNeeded(newLanguage);
         }
     };
@@ -48,10 +49,25 @@
         }
     };
 
+    api.supportedLanguages = [
+        'fr',
+        'en'
+    ];
+    api.defaultLanguage = 'en';
+
+    api.texts = {
+        en : {
+            "error-localstorage-unavailable" : "LocalStorage is required by the application but is unavailable"
+        },
+        fr : {
+            "error-localstorage-unavailable" : "LocalStorage est requis à l'application mais n'est pas disponible"
+        }
+    };
+
     /**
      * Module initialisation method
      */
-    api.init = function() {
+    api.initialize = function() {
         if (!_.data) {
             throw 'data is unavailable';
         }
@@ -61,10 +77,16 @@
         } else {
             var newLanguage;
             var navigatorLanguage = navigator.languages && navigator.languages[0] || navigator.language || navigator.userLanguage;
-            if (navigatorLanguage === 'fr' || navigatorLanguage.startsWith('fr-')) {
-                newLanguage = 'fr';
-            } else {
-                newLanguage = 'en';
+
+            for (var i = 0; i < api.supportedLanguages.length; i++) {
+                var language = api.supportedLanguages[i];
+                if (navigatorLanguage === language || navigatorLanguage.startsWith(language + '-')) {
+                    newLanguage = language;
+                    break;
+                }
+            }
+            if (!newLanguage) {
+                newLanguage = this.defaultLanguage;
             }
             this.setLanguage(newLanguage);
         }

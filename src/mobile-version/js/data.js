@@ -6,11 +6,13 @@
     globals._ = globals._ || {};
     globals._.data = globals._.data || {};
     var api = globals._.data;
+    api.initialized = false;
 
     /**
      * Retrieve a data with given key in the localstorage
      */
     api.get = function(key) {
+        this.lazyInitialisation();
         if (!this.isLocalStorageAvailable) {
             return null;
         }
@@ -31,6 +33,7 @@
      * Save some data with given key in the localstorage
      */
     api.save = function(key, value) {
+        this.lazyInitialisation();
         if (!this.isLocalStorageAvailable) {
             return ;
         }
@@ -50,13 +53,7 @@
         language : applicationDataPrefix + '.language'
     };
 
-    /**
-     * Module initialisation method
-     */
-    api.init = function() {
-        if (!_.msg) {
-            throw 'msg is unavailable';
-        }
+    api.lazyInitialisation = function() {
         function testLocalStorageAvailable() {
             try {
                 var storage = window.localStorage;
@@ -68,9 +65,22 @@
                 return false;
             }
         }
-        this.isLocalStorageAvailable = testLocalStorageAvailable();
+        if (!this.initialized) {
+            this.isLocalStorageAvailable = testLocalStorageAvailable();
+            this.initialized = true;
+        }
+    };
+
+    /**
+     * Module initialisation method
+     */
+    api.initialize = function() {
+        this.lazyInitialisation();
+        if (!_.msg) {
+            throw 'msg is unavailable';
+        }
         if (!this.isLocalStorageAvailable) {
-            _.msg.error('LocalStorage is required by the application but is unavailable');
+            _.msg.error('error-localstorage-unavailable');
         }
     };
 
