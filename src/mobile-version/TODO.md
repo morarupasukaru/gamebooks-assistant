@@ -1,9 +1,5 @@
 # Mobile Version development
 
-in progress
-* add i18n errors message (key-value in i18n)
-* add popup non browser specific
-
 later
 * add i18n to all text (placeholder?)
 * json minify

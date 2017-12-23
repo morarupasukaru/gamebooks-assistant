@@ -1,0 +1,28 @@
+ /* CSS - The Modal (background) */
+.modal {
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    display: none; /* Hidden by default */
+    height: 100%; /* Full height */
+    left: 0;
+    overflow: auto; /* Enable scroll if needed */
+    position: fixed; /* Stay in place */
+    top: 0;
+    width: 100%; /* Full width */
+    z-index: 9999; /* Sit on top */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    border: 1px solid #888;
+    box-sizing: border-box;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    width: 30%; /* Could be more or less, depending on screen size */
+}
+
+.modal-title {
+    background-color: #ffe6e6;
+    padding: 2px 16px;
+}

@@ -9,3 +9,7 @@
 .i18n:lang(fr)::before {
    content: attr(data-fr);
 }
+
+.i18n-ok::before, .i18n:lang(en)::before, .i18n-ok:lang(fr)::before {
+   content: 'OK'
+}

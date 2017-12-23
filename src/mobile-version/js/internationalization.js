@@ -57,10 +57,12 @@
 
     api.texts = {
         en : {
-            "error-localstorage-unavailable" : "LocalStorage is required by the application but is unavailable"
+            "error-localstorage-unavailable" : "LocalStorage is required by the application but is unavailable",
+            "modal-title-error" : "ERROR"
         },
         fr : {
-            "error-localstorage-unavailable" : "LocalStorage est requis à l'application mais n'est pas disponible"
+            "error-localstorage-unavailable" : "LocalStorage est requis à l'application mais n'est pas disponible",
+            "modal-title-error" : "ERREUR"
         }
     };
 

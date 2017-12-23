@@ -51,6 +51,7 @@ module.exports = function(grunt) {
                         'css/splash.css',
                         'css/form.css',
                         'css/i18n.css',
+                        'css/modal.css',
                         'html/**/*.css'
                     ],
                     dest: '<%= target %>/assets/style.css'
@@ -143,7 +144,8 @@ module.exports = function(grunt) {
             all: {
               options: {
                 // connect to a validator instance running in server mode on localhost:8888
-                server: {}
+                server: {},
+                ignore: 'Empty heading.'
               },
               src: ['html/**/*.html', '<%= target %>/**/*.html']
             }

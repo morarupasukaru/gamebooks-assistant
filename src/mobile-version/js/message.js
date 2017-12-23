@@ -8,11 +8,10 @@
 
     var api = globals._.msg;
 
-    api._displayMessage = function(severity, message) {
-        // TODO modal or other mechanismus
-        var language = _.i18n.currentLanguage;
-        var i18nMessage = _.i18n.texts[language][message];
-        alert(severity + ': ' + i18nMessage);
+    api.ids = {
+        modal: "modal",
+        title: "modalTitle",
+        text: "modalText"
     };
 
     /**
@@ -20,6 +19,25 @@
      */
     api.error = function(message) {
         this._displayMessage('error', message);
+    };
+
+    api._displayMessage = function(severity, message) {
+        var language = _.i18n.currentLanguage;
+        var i18nMessage = _.i18n.texts[language][message];
+        var i18nTitle = _.i18n.texts[language]['modal-title-' + severity];
+
+        var modalTitle = window.document.getElementById(this.ids.title);
+        modalTitle.innerText = i18nTitle;
+        var modalText = window.document.getElementById(this.ids.text);
+        modalText.innerText = i18nMessage;
+
+        var modalElement = window.document.getElementById(this.ids.modal);
+        modalElement.style.display = "block";
+    };
+
+    api.closeModal = function() {
+        var modalElement = window.document.getElementById(this.ids.modal);
+        modalElement.style.display = "none";
     };
 
 } (this));
