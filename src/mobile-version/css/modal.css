@@ -19,10 +19,35 @@
     box-sizing: border-box;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
-    width: 30%; /* Could be more or less, depending on screen size */
+    width: 95%;
 }
 
 .modal-title {
     background-color: #ffe6e6;
     padding: 2px 16px;
+}
+
+/* For devices larger than 400px */
+@media (min-width: 25em) {
+    .modal-content {
+        width: 70%;
+    }
+}
+
+/* For devices larger than 550px */
+@media (min-width: 34.375em) {
+    .modal-content {
+        width: 50%;
+    }
+}
+
+@media only screen and (orientation: landscape) and (min-width: 48em) {
+    .modal-content {
+        width: 40%;
+    }
+}
+@media (min-width: 64em) {
+    .modal-content {
+        width: 30%;
+    }
 }
