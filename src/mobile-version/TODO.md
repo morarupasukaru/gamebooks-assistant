@@ -1,6 +1,7 @@
 # Mobile Version development
 
 later
+* test performance of saving / get into localstorage (different size, same value or different value saved) > comparison android, iphone, ipad, (laptop)
 * add i18n to all text (placeholder?)
 * json minify
 * json validation
