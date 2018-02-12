@@ -6,7 +6,6 @@
     globals._ = globals._ || {};
     globals._.data = globals._.data || {};
     var api = globals._.data;
-    api.initialized = false;
 
     /**
      * Retrieve a data with given key in the localstorage
@@ -53,21 +52,21 @@
         language : applicationDataPrefix + '.language'
     };
 
-    api.lazyInitialisation = function() {
-        function testLocalStorageAvailable() {
-            try {
-                var storage = window.localStorage;
-                var x = '__storage_test__';
-                storage.setItem(x, x);
-                storage.removeItem(x);
-                return true;
-            } catch(e) {
-                return false;
-            }
+    var _testLocalStorageAvailable = function() {
+        try {
+            var storage = window.localStorage;
+            var x = '__storage_test__';
+            storage.setItem(x, x);
+            storage.removeItem(x);
+            return true;
+        } catch(e) {
+            return false;
         }
-        if (!this.initialized) {
-            this.isLocalStorageAvailable = testLocalStorageAvailable();
-            this.initialized = true;
+    };
+
+    api.lazyInitialisation = function() {
+        if (this.isLocalStorageAvailable === undefined) {
+            this.isLocalStorageAvailable = _testLocalStorageAvailable();
         }
     };
 
