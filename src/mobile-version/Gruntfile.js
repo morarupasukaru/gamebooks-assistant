@@ -166,7 +166,7 @@ module.exports = function(grunt) {
         },
         watch: {
             scripts: {
-                files: ['assets/**/*.*', 'html/**/*.*', 'css/**/*.*'],
+                files: ['assets/**/*.*', 'html/**/*.*', 'css/**/*.*', 'js/**/*'],
                 tasks: ['buildPipeline'],
                 options: {
                     livereload: true,
