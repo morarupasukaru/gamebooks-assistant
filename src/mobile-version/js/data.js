@@ -68,8 +68,9 @@
         this.lazyInitialisation();
         if (!this.isLocalStorageAvailable) {
             // TODO not hard-coded key
-            throw 'error-localstorage-unavailable';
+            throw _.config.texts.localstorageUnavailable;
         }
+        throw _.config.texts.localstorageUnavailable;
     };
 
     // TODO load json data with an http get call

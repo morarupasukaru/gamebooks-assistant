@@ -23,8 +23,8 @@
 
     api._displayMessage = function(severity, message) {
         var language = _.i18n.currentLanguage;
-        var i18nMessage = _.i18n.texts[language][message];
-        var i18nTitle = _.i18n.texts[language]['modal-title-' + severity];
+        var i18nMessage = _.config.translatedTexts[language][message];
+        var i18nTitle = _.config.translatedTexts[language][_.config.texts.modalTitlePrefix + severity];
 
         var modalTitle = window.document.getElementById(this.ids.title);
         modalTitle.innerText = i18nTitle;

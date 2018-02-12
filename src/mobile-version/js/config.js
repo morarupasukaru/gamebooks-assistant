@@ -16,15 +16,15 @@
         supported : ['fr', 'en']
     };
 
-    api.exceptions = {
-        en : {
-            "error-localstorage-unavailable" : "LocalStorage is required by the application but is unavailable",
-            "modal-title-error" : "ERROR"
-        },
-        fr : {
-            "error-localstorage-unavailable" : "LocalStorage est requis à l'application mais n'est pas disponible",
-            "modal-title-error" : "ERREUR"
-        }
+    api.texts = {
+        localstorageUnavailable : "error-localstorage-unavailable",
+        modalTitlePrefix : "modal-title-",
+        modalTitleError : "modal-title-error"
     };
 
+    api.translatedTexts = { en: {}, fr: {} };
+    api.translatedTexts.en[api.texts.localstorageUnavailable] = "LocalStorage is required by the application but is unavailable";
+    api.translatedTexts.fr[api.texts.localstorageUnavailable] = "LocalStorage est requis à l'application mais n'est pas disponible";
+    api.translatedTexts.en[api.texts.modalTitleError] = "ERROR"
+    api.translatedTexts.fr[api.texts.modalTitleError] = "ERREUR"
 } (this));
