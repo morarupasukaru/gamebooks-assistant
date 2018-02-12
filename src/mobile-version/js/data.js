@@ -75,11 +75,9 @@
      */
     api.initialize = function() {
         this.lazyInitialisation();
-        if (!_.msg) {
-            throw 'msg is unavailable';
-        }
         if (!this.isLocalStorageAvailable) {
-            _.msg.error('error-localstorage-unavailable');
+            // TODO not hard-coded key
+            throw 'error-localstorage-unavailable';
         }
     };
 

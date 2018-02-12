@@ -40,4 +40,9 @@
         modalElement.style.display = "none";
     };
 
+    if (!!globals.addEventListener) {
+        globals.addEventListener('error', function (e) {
+            _.msg.error(e.error.toString());
+        });
+    }
 } (this));
