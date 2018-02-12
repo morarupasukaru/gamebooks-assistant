@@ -65,7 +65,6 @@
         } else {
             var newLanguage;
             var navigatorLanguage = navigator.languages && navigator.languages[0] || navigator.language || navigator.userLanguage;
-
             for (var i = 0; i < _.config.languages.supported.length; i++) {
                 var language = _.config.languages.supported[i];
                 if (navigatorLanguage === language || navigatorLanguage.startsWith(language + '-')) {

@@ -17,14 +17,18 @@
     };
 
     api.texts = {
-        localstorageUnavailable : "error-localstorage-unavailable",
+        errorLocalstorageUnavailable : "error-localstorage-unavailable",
         modalTitlePrefix : "modal-title-",
         modalTitleError : "modal-title-error"
     };
 
-    api.translatedTexts = { en: {}, fr: {} };
-    api.translatedTexts.en[api.texts.localstorageUnavailable] = "LocalStorage is required by the application but is unavailable";
-    api.translatedTexts.fr[api.texts.localstorageUnavailable] = "LocalStorage est requis à l'application mais n'est pas disponible";
+    api.translatedTexts = {
+        en: {},
+        fr: {}
+    };
+
+    api.translatedTexts.en[api.texts.errorLocalstorageUnavailable] = "LocalStorage is required by the application but is unavailable";
+    api.translatedTexts.fr[api.texts.errorLocalstorageUnavailable] = "LocalStorage est requis à l'application mais n'est pas disponible";
     api.translatedTexts.en[api.texts.modalTitleError] = "ERROR";
     api.translatedTexts.fr[api.texts.modalTitleError] = "ERREUR";
 } (this));

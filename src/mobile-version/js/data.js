@@ -67,10 +67,8 @@
     api.initialize = function() {
         this.lazyInitialisation();
         if (!this.isLocalStorageAvailable) {
-            // TODO not hard-coded key
-            throw _.config.texts.localstorageUnavailable;
+            throw _.config.texts.errorLocalstorageUnavailable;
         }
-        throw _.config.texts.localstorageUnavailable;
     };
 
     // TODO load json data with an http get call
