@@ -43,15 +43,6 @@
         }
     };
 
-    var applicationDataPrefix = 'gamebooks-assistant';
-
-    /**
-     * Constants of common ids of data stored in the localstorage
-     */
-    api.ids = {
-        language : applicationDataPrefix + '.language'
-    };
-
     var _testLocalStorageAvailable = function() {
         try {
             var storage = window.localStorage;
