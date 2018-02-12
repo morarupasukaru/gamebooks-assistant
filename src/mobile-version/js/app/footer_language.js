@@ -11,7 +11,8 @@
         linkElement.setAttribute('hreflang', language);
         linkElement.setAttribute('onClick', "_.i18n.setLanguage('" + language + "');");
         linkElement.innerHTML = '<span class="icon icon-globe"></span><span class="spanLang">&nbsp;' + languageText + '&nbsp;</span>';
-        footerDiv.appendChild(linkElement);
+        var existingLink = footerDiv.firstChild;
+        footerDiv.insertBefore(linkElement, existingLink);
     };
 
     var supportedLanguages = globals._.config.languages.supported;
