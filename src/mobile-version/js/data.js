@@ -16,7 +16,7 @@
             return null;
         }
         var value = localStorage.getItem(key);
-        if (value === null || value === "undefined" || value === undefined) {
+        if (value === null || value === undefined || value === "undefined") {
             return null;
         } else {
             try {
