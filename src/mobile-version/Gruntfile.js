@@ -110,6 +110,7 @@ module.exports = function(grunt) {
                     'js/**/dom.js',
                     'js/**/message.js',
                     'js/**/data.js',
+                    'js/**/ajax.js',
                     'js/**/internationalization.js',
                     'js/**/app/footer_language.js',
                     'js/**/app/gamebooks.js',

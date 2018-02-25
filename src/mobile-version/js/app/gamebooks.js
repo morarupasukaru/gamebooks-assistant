@@ -32,66 +32,27 @@
         }
     };
 
-    var addSeries = function() {
-        addSerie(divId, {
-            name: 'Défis Fantastiques',
-            gamebooks: [
-                { name: 'Le Sorcier de la Montagne de Feu' },
-                { name: 'Retour à la Montagne de Feu' },
-                { name: 'La Légende de Zagor' },
-                { name: 'Interlude Sylvain' },
-                { name: 'La Forêt de la Malédiction' },
-                { name: 'Le Temple de la Terreur' },
-                { name: 'Le Labyrinthe de la Mort' },
-                { name: 'L\'épreuve des Champions' },
-                { name: 'Les Sombres Cohortes' },
-                { name: 'Le Talisman de la Mort' },
-                { name: 'Retour à Griseguilde' },
-                { name: 'La Créature venue du Chaos' },
-                { name: 'La Nuit du Nécromancien' },
-                { name: 'Le Manoir de l\'Enfer' },
-                { name: 'Le Manoir aux maléfices' }
-            ]});
-
-        addSerie(divId, {
-            name: 'Les Portes Interdites',
-            gamebooks: [
-                { name: 'L\'Horreur dans la Vallée' },
-                { name: 'Terreur hors du Temps' }
-            ]});
-
-        addSerie(divId, {
-            name: 'Sorcellerie!',
-            gamebooks: [
-                { name: 'Les Collines Maléfiques' },
-                { name: 'La Cité des Pièges' },
-                { name: 'Les Sept Serpents' },
-                { name: 'La Couronne des Rois' }
-            ]});
-
-        addSerie(divId, {
-            name: 'Quête du Graal',
-            gamebooks: [
-                { name: 'Le Château des Ténèbres' },
-                { name: 'La Guilde des Voleurs' },
-                { name: 'L\'Antre des Dragons' },
-                { name: 'Les Portes de l\'Au-delà' },
-                { name: 'Le Voyage de l\'Effroi' },
-                { name: 'Au Royaume de l\'Epouvante' },
-                { name: 'Le Temps de la Malédiction' },
-                { name: 'Le Tombeau des Maléfices' },
-                { name: 'La Légion des Morts' }
-            ]});
+    var addSeries = function(series) {
+        var i;
+        for (i = 0; i < series.length; i++) {
+            addSerie(divId, series[i]);
+        }
     };
 
     var initialise = function() {
-        addSeries();
+        var elementOfGamebooksScreen = document.getElementById(divId);
+        if (!elementOfGamebooksScreen) {
+            return ;
+        }
+        // TODO retrieve data with json & http (if possible) or read-it from localstorage (offline)
+        var callback = function(json) {
+            addSeries(json);
+        }
+        globals._.ajax.loadJson('http://morarupasukaru.github.io/gamebooks-assistant/assets/library.json', callback);
     };
 
     globals._ = globals._ || {};
     globals._.screens = globals._.screens || [];
     globals._.screens.push(initialise);
-
-    // TODO retrieve data with json & http (if possible) or read-it from localstorage (offline)
 
 } (this, 'screen.gamebooks.title.choose-adventure'));
