@@ -92,4 +92,6 @@
     globals._.screens = globals._.screens || [];
     globals._.screens.push(initialise);
 
+    // TODO retrieve data with json & http (if possible) or read-it from localstorage (offline)
+
 } (this, 'screen.gamebooks.title.choose-adventure'));
