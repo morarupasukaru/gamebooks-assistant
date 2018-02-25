@@ -112,6 +112,7 @@ module.exports = function(grunt) {
                     'js/**/data.js',
                     'js/**/internationalization.js',
                     'js/**/app/footer_language.js',
+                    'js/**/app/gamebooks.js',
                     'js/**/initialisation.js'
                 ]
               }
