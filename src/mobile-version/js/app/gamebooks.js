@@ -47,7 +47,7 @@
         // TODO retrieve data with json & http (if possible) or read-it from localstorage (offline)
         var callback = function(json) {
             addSeries(json);
-        }
+        };
         globals._.ajax.loadJson('http://morarupasukaru.github.io/gamebooks-assistant/assets/library.json', callback);
     };
 
