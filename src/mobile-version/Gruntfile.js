@@ -125,6 +125,8 @@ module.exports = function(grunt) {
             files: [
               // includes files within path
               { expand: true, flatten: true, src: ['assets/icons/icomoon/fonts/*'], dest: '<%= target %>/assets/fonts', filter: 'isFile'},
+                
+              { expand: true, flatten: true, src: ['data/*.json'], dest: '<%= target %>/assets/data'},
 
               { expand: true, flatten: true, src: 'assets/favicon/favicon.ico', dest: '<%= target %>/'}
             ],
@@ -168,6 +170,11 @@ module.exports = function(grunt) {
               }]
             }
         },
+        'json-minify': {
+          build: {
+            files: 'target/**/*.json'
+          }
+        },
         watch: {
             scripts: {
                 files: ['assets/**/*.*', 'html/**/*.*', 'css/**/*.*', 'js/**/*'],
@@ -190,8 +197,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-html');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-json-minify');
     grunt.registerTask('default', ['vnuserver', 'buildPipeline', 'watch']);
-    grunt.registerTask('buildPipeline', ['clean:before', 'cssmin', 'csslint:strict', 'jshint', 'uglify', 'copy', 'processhtml', 'htmlmin', 'htmllint', 'clean:after']);
+    grunt.registerTask('buildPipeline', ['clean:before', 'cssmin', 'csslint:strict', 'jshint', 'uglify', 'copy', 'processhtml', 'htmlmin', 'htmllint', 'json-minify', 'clean:after']);
 };
 
 // copy to distrib

@@ -48,8 +48,10 @@
         var callback = function(json) {
             addSeries(json);
         };
-        globals._.ajax.loadJson('http://morarupasukaru.github.io/gamebooks-assistant/assets/library.json', callback);
+        // TODO json minified
+        globals._.ajax.loadJson('http://morarupasukaru.github.io/gamebooks-assistant/assets/data/library.json', callback);
         
+        // url api (hasAdmin, getScreen)
         var withAdmin = false;
         if (!!globals.location && !!globals.location.search) {
             withAdmin = globals.location.search.indexOf('admin') !== -1;
