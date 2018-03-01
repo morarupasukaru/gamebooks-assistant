@@ -129,7 +129,7 @@ module.exports = function(grunt) {
               // includes files within path
               { expand: true, flatten: true, src: ['assets/icons/icomoon/fonts/*'], dest: '<%= target %>/assets/fonts', filter: 'isFile'},
                 
-              { expand: true, flatten: true, src: ['data/*.json'], dest: '<%= target %>/assets/data'},
+              { expand: true, flatten: true, src: ['assets/data/*.json'], dest: '<%= target %>/assets/data'},
 
               { expand: true, flatten: true, src: 'assets/favicon/favicon.ico', dest: '<%= target %>/'}
             ],
@@ -204,6 +204,3 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['vnuserver', 'buildPipeline', 'watch']);
     grunt.registerTask('buildPipeline', ['clean:before', 'cssmin', 'csslint:strict', 'jshint', 'uglify', 'copy', 'processhtml', 'htmlmin', 'htmllint', 'json-minify', 'clean:after']);
 };
-
-// copy to distrib
-// rm -Rf ../../../gamebooks-assistant-dist/assets && rm -Rf ../../../gamebooks-assistant-dist/confirmation && rm -Rf ../../../gamebooks-assistant-dist/gamebook && rm -Rf ../../../gamebooks-assistant-dist/gamebooks && rm -Rf ../../../gamebooks-assistant-dist/*.* && cp -R target/*.* ../../../gamebooks-assistant-dist && cp -R target/assets ../../../gamebooks-assistant-dist/assets && cp -R target/confirmation ../../../gamebooks-assistant-dist/confirmation && cp -R target/gamebook ../../../gamebooks-assistant-dist/gamebook && cp -R target/gamebooks ../../../gamebooks-assistant-dist/gamebooks
