@@ -1,4 +1,0 @@
-rm -Rf node_modules
-rm -Rf dist
-npm install
-gulp build
