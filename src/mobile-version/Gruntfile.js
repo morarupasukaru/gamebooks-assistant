@@ -105,16 +105,16 @@ module.exports = function(grunt) {
             my_target: {
               files: {
                 '<%= target %>/assets/app.js': [
-                    'js/**/polyfill.js',
-                    'js/**/config.js',
-                    'js/**/dom.js',
-                    'js/**/message.js',
-                    'js/**/data.js',
-                    'js/**/ajax.js',
-                    'js/**/internationalization.js',
-                    'js/**/app/footer_language.js',
-                    'js/**/app/gamebooks.js',
-                    'js/**/initialisation.js'
+                    'js/**/core/polyfill.js',
+                    'js/**/core/config.js',
+                    'js/**/core/dom.js',
+                    'js/**/core/message.js',
+                    'js/**/core/data.js',
+                    'js/**/core/ajax.js',
+                    'js/**/core/internationalization.js',
+                    'js/**/components/footer_language.js',
+                    'js/**/screens/gamebooks.js',
+                    'js/**/core/initialisation.js'
                 ]
               }
             }
