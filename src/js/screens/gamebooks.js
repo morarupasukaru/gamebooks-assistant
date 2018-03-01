@@ -39,6 +39,15 @@
         }
     };
 
+    var configureAdminMode = function() {
+        var adminMode = globals._.route.isAdminMode();
+        if (!!adminMode) {
+            document.getElementById("screen.gamebooks.admin").classList.remove("hidden");
+        } else {
+            document.getElementById("screen.gamebooks.admin").classList.add("hidden");
+        }
+    };
+
     var initialise = function() {
         var elementOfGamebooksScreen = document.getElementById(divId);
         if (!elementOfGamebooksScreen) {
@@ -49,15 +58,8 @@
             addSeries(json);
         };
         globals._.ajax.loadJson('http://morarupasukaru.github.io/gamebooks-assistant/assets/data/library.json', callback);
-        
-        // url api (hasAdmin, getScreen)
-        var withAdmin = false;
-        if (!!globals.location && !!globals.location.search) {
-            withAdmin = globals.location.search.indexOf('admin') !== -1;
-        }
-        if (!withAdmin) {
-            document.getElementById("screen.gamebooks.admin").classList.add("hidden");
-        }
+        globals._.route.onhashchange = configureAdminMode;
+        configureAdminMode();
     };
 
     globals._ = globals._ || {};

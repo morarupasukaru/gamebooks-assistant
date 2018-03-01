@@ -115,6 +115,7 @@ module.exports = function(grunt) {
                     'js/**/core/data.js',
                     'js/**/core/ajax.js',
                     'js/**/core/internationalization.js',
+                    'js/**/core/route.js',
                     'js/**/components/footer_language.js',
                     'js/**/screens/gamebooks.js',
                     'js/**/core/initialisation.js'

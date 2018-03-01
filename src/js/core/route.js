@@ -1,0 +1,88 @@
+/**
+ * Initialise the functions to access information about current url into the global variable "_.route"
+ */
+(function(globals){
+    "use strict";
+    globals._ = globals._ || {};
+    globals._.route = globals._.route || {};
+
+    var api = globals._.route;
+    var extractKeyValues = function(search) {
+        var result = {};
+        if (!!search) {
+            if (search.startsWith('?')) {
+                search = search.substr(1, search.length);
+            }
+            var searchParams = search.split("&");
+            if (!!searchParams) {
+                var i;
+                for (i = 0; i < searchParams.length; i++) {
+                    var keyValue = searchParams[i];
+                    var parts = keyValue.split("=");
+                    var key = parts[0];
+                    var value = null;
+                    if (parts.length > 1) {
+                        value = parts[1];
+                    }
+                    result[key] = value;
+                }
+            }
+        }
+        return result;
+    };
+    
+    var getSearchParamsCommon = function() {
+        var result = {};
+        if (!!globals.location && !!globals.location.search) {
+            result = extractKeyValues(globals.location.search);
+        }
+        return result;
+    };
+    
+    var getSearchParamsFromHash = function() {
+        var result = {};
+        if (!!globals.location && !!globals.location.hash) {
+            var hash = globals.location.hash;
+            var parts = hash.split('?');
+            if (parts.length > 1) {
+                result = extractKeyValues(parts[1]);
+            }
+        }
+        return result;
+    };
+    
+    var merge = function(obj, src) {
+        Object.keys(src).forEach(function(key) { obj[key] = src[key]; });
+        return obj;
+    };
+    
+    var getSearchParams = function() {
+        var keyValuesCommon = getSearchParamsCommon();
+        var keyValuesFromHash = getSearchParamsFromHash();
+        return merge(keyValuesCommon, keyValuesFromHash);
+    };
+    
+    var routeData = {
+        adminMode : undefined
+    };
+    
+    var computeAdminMode = function() {
+        var keyValues = getSearchParams();
+        var keys = Object.keys(keyValues);
+        routeData.adminMode = keys.indexOf('admin') !== -1;
+    };
+    
+    globals.onhashchange = function() {
+        computeAdminMode();
+        if (!!api.onhashchange) {
+            api.onhashchange();
+        }
+    };
+
+    api.isAdminMode = function() {
+        if (routeData.adminMode === undefined) {
+            computeAdminMode();
+        }
+        return routeData.adminMode;
+    };
+} (this));
