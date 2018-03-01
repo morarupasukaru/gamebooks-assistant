@@ -48,7 +48,6 @@
         var callback = function(json) {
             addSeries(json);
         };
-        // TODO json minified
         globals._.ajax.loadJson('http://morarupasukaru.github.io/gamebooks-assistant/assets/data/library.json', callback);
         
         // url api (hasAdmin, getScreen)
