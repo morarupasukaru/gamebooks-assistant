@@ -17,6 +17,7 @@
     };
 
     api.texts = {
+        errorFeatureNotImplemented : "error-feature-not-implemented",
         errorLocalstorageUnavailable : "error-localstorage-unavailable",
         modalTitlePrefix : "modal-title-",
         modalTitleError : "modal-title-error",
@@ -31,6 +32,8 @@
 
     api.translatedTexts.en[api.texts.errorLocalstorageUnavailable] = "LocalStorage is required by the application but is unavailable";
     api.translatedTexts.fr[api.texts.errorLocalstorageUnavailable] = "LocalStorage est requis à l'application mais n'est pas disponible";
+    api.translatedTexts.en[api.texts.errorFeatureNotImplemented] = "Functionality is not yet implemented";
+    api.translatedTexts.fr[api.texts.errorFeatureNotImplemented] = "La fonctionnalité n'est pas encore implémentée";
     api.translatedTexts.en[api.texts.modalTitleError] = "ERROR";
     api.translatedTexts.fr[api.texts.modalTitleError] = "ERREUR";
     api.translatedTexts.fr[api.texts.modalTitleError] = "ERREUR";

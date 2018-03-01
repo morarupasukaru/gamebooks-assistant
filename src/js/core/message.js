@@ -13,6 +13,10 @@
         title: "modalTitle",
         text: "modalText"
     };
+    
+    api.errorUnsupportedFeature = function() {
+        throw _.config.texts.errorFeatureNotImplemented;
+    };
 
     /**
      * Display an error message
