@@ -49,6 +49,14 @@
             addSeries(json);
         };
         globals._.ajax.loadJson('http://morarupasukaru.github.io/gamebooks-assistant/assets/library.json', callback);
+        
+        var withAdmin = false;
+        if (!!globals.location && !!globals.location.search) {
+            withAdmin = globals.location.search.indexOf('admin') !== -1;
+        }
+        if (!withAdmin) {
+            document.getElementById("screen.gamebooks.admin").classList.add("hidden");
+        }
     };
 
     globals._ = globals._ || {};
