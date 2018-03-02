@@ -211,7 +211,8 @@ module.exports = function(grunt) {
           server: {
             options: {
               port: 9001,
-              base: '../target'
+              base: '../target',
+              open: true
             }
           }
           // TODO start another instance with non-minified version
