@@ -252,7 +252,16 @@ module.exports = function(grunt) {
               open: true
             }
           }
-        }
+        },
+        
+        run: {
+			options: {
+				wait: false
+			},
+			cypress: {
+			  exec: 'npm run cypress:open'
+			}
+		  }
 
         // Run front-end tests
         // TODO with target/non-minified www.cypress.io/
@@ -272,6 +281,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-json-minify');
     grunt.loadNpmTasks('grunt-contrib-connect');
-    grunt.registerTask('default', ['vnuserver', 'buildPipeline', 'connect', 'watch']);
+    grunt.loadNpmTasks('grunt-run');
+    grunt.registerTask('default', ['vnuserver', 'buildPipeline', 'connect', 'run', 'watch']);
     grunt.registerTask('buildPipeline', ['clean:before', 'cssmin', 'csslint:strict', 'jshint', 'uglify', 'copy', 'processhtml', 'htmlmin', 'json-minify', 'htmllint', 'copy:distrib', 'clean:after']);
 };

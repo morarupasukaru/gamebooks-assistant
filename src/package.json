@@ -18,11 +18,12 @@
     "grunt-html": "^8.6.1",
     "grunt-json-minify": "^1.1.0",
     "grunt-processhtml": "^0.4.1",
+    "grunt-run": "^0.8.0",
     "grunt-vnuserver": "^1.0.3"
   },
   "scripts": {
-	  "cypress:open": "cypress open"
-  },  
+    "cypress:open": "cypress open"
+  },
   "keywords": [
     "gamebooks-assistant"
   ],
