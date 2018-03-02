@@ -1,15 +1,43 @@
 module.exports = function(grunt) {
     grunt.initConfig({
         target: '../target',
+        targetNonMinified: '<%= target %>/nonMinified',
+        targetMinified: '<%= target %>/minified',
 
         // Clean temporary folders
         clean: {
             before: ['<%= target %>'],
-            after: ['<%= target %>/html'],
+            after: ['<%= targetMinified %>/html'],
             options: {
               force: true
             }
         },
+        
+        /////////////////////////////////////////////////////////////////
+        // Copy non-minified files into target
+        /////////////////////////////////////////////////////////////////
+        
+        // Copy Assets into target
+        copy: {
+          main: {
+            files: [
+              { expand: true, flatten: true, src: ['css/*.css'], dest: '<%= targetNonMinified %>/css'},
+              { expand: true, cwd: 'assets/', src: ['**'], dest: '<%= targetNonMinified %>/assets'},
+              { expand: true, cwd: 'html/', src: ['**'], dest: '<%= targetNonMinified %>'},
+              { expand: true, flatten: false, src: ['js/**/*.js'], dest: '<%= targetNonMinified %>'},
+              { expand: true, flatten: true, src: 'assets/favicon/favicon.ico', dest: '<%= targetNonMinified %>/'},
+              
+              { expand: true, flatten: true, src: ['assets/icons/icomoon/fonts/*'], dest: '<%= targetMinified %>/assets/fonts', filter: 'isFile'},
+              { expand: true, flatten: true, src: ['assets/data/*.json'], dest: '<%= targetMinified %>/assets/data'},
+              { expand: true, flatten: true, src: 'assets/favicon/favicon.ico', dest: '<%= targetMinified %>/'}
+            ],
+          }
+        },
+
+        
+        /////////////////////////////////////////////////////////////////
+        // Minification
+        /////////////////////////////////////////////////////////////////
 
         // Concat css files into a single minified css file
         cssmin: {
@@ -57,10 +85,74 @@ module.exports = function(grunt) {
                         'css/modal.css',
                         'html/**/*.css'
                     ],
-                    dest: '<%= target %>/assets/style.css'
+                    dest: '<%= targetMinified %>/assets/style.css'
                 }]
             }
         },
+        
+        // Minify JS
+        uglify: {
+            options: {},
+            my_target: {
+              files: {
+                '<%= targetMinified %>/assets/app.js': [
+                    'js/**/core/polyfill.js',
+                    'js/**/core/config.js',
+                    'js/**/core/dom.js',
+                    'js/**/core/message.js',
+                    'js/**/core/data.js',
+                    'js/**/core/ajax.js',
+                    'js/**/core/internationalization.js',
+                    'js/**/core/route.js',
+                    'js/**/components/footer_language.js',
+                    'js/**/screens/gamebooks.js',
+                    'js/**/core/initialisation.js'
+                ]
+              }
+            }
+        },
+
+        // Replace some content into HTML files (e.g. css, script includes)
+        processhtml: {
+            target: {
+              files: [
+                {
+                  expand: true,     // Enable dynamic expansion.
+                  cwd: 'html/',      // Src matches are relative to this path.
+                  src: ['**/*.html'], // Actual pattern(s) to match.
+                  dest: '<%= targetMinified %>/',   // Destination path prefix.
+                }
+              ]
+            }
+        },
+
+        // Minify html files from target directory
+        htmlmin: {
+            dist: {
+                options: {
+                    removeComments: true,
+                    collapseWhitespace: true
+                },
+                files: [{
+                  expand: true,
+                  cwd: '<%= targetMinified %>',
+                  src: ['**/*.html'],
+                  dest: '<%= targetMinified %>/'
+              }]
+            }
+        },
+
+        // Minify json files from target directory
+        'json-minify': {
+          build: {
+            files: '<%= targetMinified %>/**/*.json'
+          }
+        },
+
+        
+        /////////////////////////////////////////////////////////////////
+        // Validation
+        /////////////////////////////////////////////////////////////////
 
         // Validate non-minified and minified CSS
         csslint: {
@@ -78,7 +170,7 @@ module.exports = function(grunt) {
                 'assets/skeleton/**/*.css',
                 'css/**/*.css',
                 'html/**/*.css',
-                '<%= target %>/**/*.css'
+                '<%= targetMinified %>/**/*.css'
             ]
           },
           lax: {
@@ -92,7 +184,7 @@ module.exports = function(grunt) {
                 'assets/skeleton/**/*.css',
                 'css/**/*.css',
                 'html/**/*.css',
-                '<%= target %>/**/*.css'
+                '<%= targetMinified %>/**/*.css'
             ]
           }
         },
@@ -105,78 +197,10 @@ module.exports = function(grunt) {
             }
         },
 
-        // Minify JS
-        uglify: {
-            options: {},
-            my_target: {
-              files: {
-                '<%= target %>/assets/app.js': [
-                    'js/**/core/polyfill.js',
-                    'js/**/core/config.js',
-                    'js/**/core/dom.js',
-                    'js/**/core/message.js',
-                    'js/**/core/data.js',
-                    'js/**/core/ajax.js',
-                    'js/**/core/internationalization.js',
-                    'js/**/core/route.js',
-                    'js/**/components/footer_language.js',
-                    'js/**/screens/gamebooks.js',
-                    'js/**/core/initialisation.js'
-                ]
-              }
-            }
-        },
-
-        // Copy Assets into target
-        copy: {
-          main: {
-            files: [
-              // includes files within path
-              { expand: true, flatten: true, src: ['assets/icons/icomoon/fonts/*'], dest: '<%= target %>/assets/fonts', filter: 'isFile'},
-
-              { expand: true, flatten: true, src: ['assets/data/*.json'], dest: '<%= target %>/assets/data'},
-
-              { expand: true, flatten: true, src: 'assets/favicon/favicon.ico', dest: '<%= target %>/'}
-            ],
-          },
-        },
-
-        // Replace some content into HTML files (e.g. css, script includes)
-        processhtml: {
-            target: {
-              files: [
-                {
-                  expand: true,     // Enable dynamic expansion.
-                  cwd: 'html/',      // Src matches are relative to this path.
-                  src: ['**/*.html'], // Actual pattern(s) to match.
-                  dest: '<%= target %>/',   // Destination path prefix.
-                }
-              ]
-            }
-        },
-
-        // Minify html files from target directory
-        htmlmin: {
-            dist: {
-                options: {
-                    removeComments: true,
-                    collapseWhitespace: true
-                },
-                files: [{
-                  expand: true,
-                  cwd: '<%= target %>',
-                  src: ['**/*.html'],
-                  dest: '<%= target %>/'
-              }]
-            }
-        },
-
-        // Minify json files from target directory
-        'json-minify': {
-          build: {
-            files: '<%= target %>/**/*.json'
-          }
-        },
+        
+        /////////////////////////////////////////////////////////////////
+        // Serving
+        /////////////////////////////////////////////////////////////////
 
         // Start a server to validate html files
         vnuserver: {
@@ -190,7 +214,7 @@ module.exports = function(grunt) {
                 server: {},
                 ignore: 'Empty heading.'
               },
-              src: ['html/**/*.html', '<%= target %>/**/*.html']
+              src: ['html/**/*.html', '<%= targetMinified %>/**/*.html']
             }
         },
 
@@ -211,7 +235,7 @@ module.exports = function(grunt) {
           server: {
             options: {
               port: 9001,
-              base: '../target',
+              base: '<%= targetNonMinified %>',
               open: true
             }
           }
