@@ -232,16 +232,22 @@ module.exports = function(grunt) {
 
         // Start a server from the target directory
         connect: {
-          server: {
+          siteNonMinified: {
+            options: {
+              port: 9000,
+              base: '<%= targetNonMinified %>',
+              open: true
+            }
+          },
+          siteMinified: {
             options: {
               port: 9001,
-              base: '<%= targetNonMinified %>',
+              base: '<%= targetMinified %>',
               open: true
             }
           }
           // TODO start another instance with non-minified version
         }
-
         // Copy target into external folder (we deletion of content)
         // TODO
 
