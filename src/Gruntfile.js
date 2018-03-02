@@ -62,6 +62,7 @@ module.exports = function(grunt) {
             }
         },
 
+        // Validate non-minified and minified CSS
         csslint: {
           options: {
             csslintrc: '.csslintrc'
@@ -96,6 +97,7 @@ module.exports = function(grunt) {
           }
         },
 
+        // Validate non-minified JS
         jshint: {
             files: ['js/**/*.js'],
             options: {
@@ -103,6 +105,7 @@ module.exports = function(grunt) {
             }
         },
 
+        // Minify JS
         uglify: {
             options: {},
             my_target: {
@@ -124,6 +127,7 @@ module.exports = function(grunt) {
             }
         },
 
+        // Copy Assets into target
         copy: {
           main: {
             files: [
@@ -136,6 +140,8 @@ module.exports = function(grunt) {
             ],
           },
         },
+
+        // Replace some content into HTML files (e.g. css, script includes)
         processhtml: {
             target: {
               files: [
@@ -148,18 +154,8 @@ module.exports = function(grunt) {
               ]
             }
         },
-        vnuserver: {
-        },
-        htmllint: {
-            all: {
-              options: {
-                // connect to a validator instance running in server mode on localhost:8888
-                server: {},
-                ignore: 'Empty heading.'
-              },
-              src: ['html/**/*.html', '<%= target %>/**/*.html']
-            }
-        },
+
+        // Minify html files from target directory
         htmlmin: {
             dist: {
                 options: {
@@ -174,11 +170,31 @@ module.exports = function(grunt) {
               }]
             }
         },
+
+        // Minify json files from target directory
         'json-minify': {
           build: {
             files: '<%= target %>/**/*.json'
           }
         },
+
+        // Start a server to validate html files
+        vnuserver: {
+        },
+
+        // Validate non-minified and minified html files
+        htmllint: {
+            all: {
+              options: {
+                // connect to a validator instance running in server mode on localhost:8888
+                server: {},
+                ignore: 'Empty heading.'
+              },
+              src: ['html/**/*.html', '<%= target %>/**/*.html']
+            }
+        },
+
+        // Watch changes and project files and start the build process if required
         watch: {
             scripts: {
                 files: ['assets/**/*.*', 'html/**/*.*', 'css/**/*.*', 'js/**/*'],
@@ -189,6 +205,8 @@ module.exports = function(grunt) {
                 },
             }
         },
+
+        // Start a server from the target directory
         connect: {
           server: {
             options: {
@@ -196,7 +214,19 @@ module.exports = function(grunt) {
               base: '../target'
             }
           }
+          // TODO start another instance with non-minified version
         }
+
+        // Copy target into external folder (we deletion of content)
+        // TODO
+
+        // Separate target/non-minified & target/minified
+        // TODO
+
+        // Run front-end tests
+        // TODO with target/non-minified www.cypress.io/
+        // TODO with target/minified www.cypress.io/
+        // TODO with github version
     }),
     grunt.loadNpmTasks('grunt-vnuserver');
     grunt.loadNpmTasks('grunt-contrib-clean');
@@ -212,5 +242,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-json-minify');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.registerTask('default', ['vnuserver', 'buildPipeline', 'connect', 'watch']);
-    grunt.registerTask('buildPipeline', ['clean:before', 'cssmin', 'csslint:strict', 'jshint', 'uglify', 'copy', 'processhtml', 'htmlmin', 'htmllint', 'json-minify', 'clean:after']);
+    grunt.registerTask('buildPipeline', ['clean:before', 'cssmin', 'csslint:strict', 'jshint', 'uglify', 'copy', 'processhtml', 'htmlmin', 'json-minify', 'htmllint', 'clean:after']);
 };
