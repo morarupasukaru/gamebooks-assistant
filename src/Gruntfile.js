@@ -129,7 +129,7 @@ module.exports = function(grunt) {
             files: [
               // includes files within path
               { expand: true, flatten: true, src: ['assets/icons/icomoon/fonts/*'], dest: '<%= target %>/assets/fonts', filter: 'isFile'},
-                
+
               { expand: true, flatten: true, src: ['assets/data/*.json'], dest: '<%= target %>/assets/data'},
 
               { expand: true, flatten: true, src: 'assets/favicon/favicon.ico', dest: '<%= target %>/'}
@@ -188,6 +188,14 @@ module.exports = function(grunt) {
                     spawn: true
                 },
             }
+        },
+        connect: {
+          server: {
+            options: {
+              port: 9001,
+              base: '../target'
+            }
+          }
         }
     }),
     grunt.loadNpmTasks('grunt-vnuserver');
@@ -202,6 +210,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-html');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-json-minify');
-    grunt.registerTask('default', ['vnuserver', 'buildPipeline', 'watch']);
+    grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.registerTask('default', ['vnuserver', 'buildPipeline', 'connect', 'watch']);
     grunt.registerTask('buildPipeline', ['clean:before', 'cssmin', 'csslint:strict', 'jshint', 'uglify', 'copy', 'processhtml', 'htmlmin', 'htmllint', 'json-minify', 'clean:after']);
 };
