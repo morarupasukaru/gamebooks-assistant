@@ -57,6 +57,7 @@
         var callback = function(json) {
             addSeries(json);
         };
+        // TODO local, remote url
         globals._.ajax.loadJson('http://morarupasukaru.github.io/gamebooks-assistant/assets/data/library.json', callback);
         globals._.route.onhashchange = configureAdminMode;
         configureAdminMode();

@@ -3,10 +3,11 @@ module.exports = function(grunt) {
         target: '../target',
         targetNonMinified: '<%= target %>/nonMinified',
         targetMinified: '<%= target %>/minified',
+        distrib: '../../gamebooks-assistant-distrib',
 
         // Clean temporary folders
         clean: {
-            before: ['<%= target %>'],
+            before: ['<%= target %>', '<%= distrib %>/*'],
             after: ['<%= targetMinified %>/html'],
             options: {
               force: true
@@ -31,7 +32,12 @@ module.exports = function(grunt) {
               { expand: true, flatten: true, src: ['assets/data/*.json'], dest: '<%= targetMinified %>/assets/data'},
               { expand: true, flatten: true, src: 'assets/favicon/favicon.ico', dest: '<%= targetMinified %>/'}
             ],
-          }
+          },
+          distrib: {
+            files: [
+              { expand: true, cwd: '<%= targetMinified %>', src: ['**'], dest: '<%= distrib %>'}
+            ],
+		  }
         },
 
         
@@ -246,13 +252,7 @@ module.exports = function(grunt) {
               open: true
             }
           }
-          // TODO start another instance with non-minified version
         }
-        // Copy target into external folder (we deletion of content)
-        // TODO
-
-        // Separate target/non-minified & target/minified
-        // TODO
 
         // Run front-end tests
         // TODO with target/non-minified www.cypress.io/
@@ -273,5 +273,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-json-minify');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.registerTask('default', ['vnuserver', 'buildPipeline', 'connect', 'watch']);
-    grunt.registerTask('buildPipeline', ['clean:before', 'cssmin', 'csslint:strict', 'jshint', 'uglify', 'copy', 'processhtml', 'htmlmin', 'json-minify', 'htmllint', 'clean:after']);
+    grunt.registerTask('buildPipeline', ['clean:before', 'cssmin', 'csslint:strict', 'jshint', 'uglify', 'copy', 'processhtml', 'htmlmin', 'json-minify', 'htmllint', 'copy:distrib', 'clean:after']);
 };
