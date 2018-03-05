@@ -1,3 +1,8 @@
+var localMinifiedUrl = "http://localhost:9001";
+var localNonMinifiedUrl = "http://localhost:9000";
+var distribGithubUrl = 'http://morarupasukaru.github.io/gamebooks-assistant';
+var baseUrl = localMinifiedUrl;
+
 describe('Test Gamebooks Assistant Screens', function() {
 
 	var getLanguage = function() {
@@ -48,7 +53,7 @@ describe('Test Gamebooks Assistant Screens', function() {
 		cy.clearLocalStorage().should(function (ls) {
 			expect(ls.getItem('savedLanguage')).to.be.null
 		});
-		cy.visit('http://localhost:9001');
+		cy.visit(baseUrl	);
     })
 	
 	it('Title', function() {
@@ -74,7 +79,7 @@ describe('Test Gamebooks Assistant Screens', function() {
 	it('Content - Selectbook Button', function() {
 		checkI18nElementText('#home_selectbook_btn', 'Sélection du livre-jeu', 'Select the gamebook');
 		cy.get('#home_selectbook_btn').click();
-		cy.url().should('eq', 'http://localhost:9001/gamebooks/');
+		cy.url().should('eq', baseUrl + '/gamebooks/');
 	})
 	
 	it('Footer - GitHub Project Link', function() {
