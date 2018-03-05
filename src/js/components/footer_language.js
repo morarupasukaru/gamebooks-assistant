@@ -7,7 +7,7 @@
         var footerDiv = document.getElementById(divId);
         var linkElement = document.createElement('a');
         linkElement.setAttribute('href', '#');
-        linkElement.setAttribute('id', 'link_' + language);
+        linkElement.setAttribute('id', 'link_lang_' + language);
         linkElement.setAttribute('hreflang', language);
         linkElement.setAttribute('onClick', "_.i18n.setLanguage('" + language + "');");
         linkElement.innerHTML = '<span class="icon icon-globe"></span><span class="spanLang">&nbsp;' + languageText + '&nbsp;</span>';

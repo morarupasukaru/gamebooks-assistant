@@ -16,10 +16,10 @@
             _.data.save(_.config.storageKeys.savedLanguage, newLanguage);
             var htmlElement = document.getElementsByTagName("html")[0];
             htmlElement.lang = newLanguage;
-            document.getElementById("link_" + newLanguage).classList.add("hidden");
+            document.getElementById("link_lang_" + newLanguage).classList.add("hidden");
             for (var i = 0; i < _.config.languages.supported.length; i++) {
                 if (newLanguage !== _.config.languages.supported[i]) {
-                    document.getElementById("link_" + _.config.languages.supported[i]).classList.remove("hidden");
+                    document.getElementById("link_lang_" + _.config.languages.supported[i]).classList.remove("hidden");
                 }
             }
             this._forceReloadStylesheetIfNeeded(newLanguage);
