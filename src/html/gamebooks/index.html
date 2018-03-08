@@ -43,7 +43,7 @@
 
 <div class="container">
     <div class="pure-g">
-        <div id="screen.gamebooks.title.choose-adventure" class="pure-u-1">
+        <div id="screen-gamebooks-chooseAdventureDiv" class="pure-u-1">
             <h1 class="i18n" data-fr="Choisissez une aventure" data-en="Choose an adventure"></h1>
         </div>
     </div>
@@ -57,12 +57,12 @@
 
         <div class="pure-u-1">
             <div class="margin-right">
-                <a class="button u-full-width i18n" href="../gamebook/new" data-fr="Ajout aventure" data-en="Add adventure"></a>
+                <a id="screen-gamebooks-addAdventureBtn" class="button u-full-width i18n" href="../gamebook/new" data-fr="Ajout aventure" data-en="Add adventure"></a>
             </div>
         </div>
 
         <div class="pure-u-1">
-            <div id="screen.gamebooks.admin" class="margin-right">
+            <div id="screen-gamebooks-adminBtn" class="margin-right">
                 <!-- TODO href="../gamebook/data" -->
                 <a class="button u-full-width i18n" onclick="_.msg.errorUnsupportedFeature();" data-fr="Données de la liste des livres-jeux" data-en="Gamebooks list data"></a>
             </div>
@@ -77,8 +77,8 @@
     <div class="footer-left trim-text">
         Gamebook assistant
     </div>
-    <div id="footer_language" class="footer-right nowrap-text">
-        <a id="footer_home_link" href=".."><span class="icon icon-home"></span>&nbsp;<span class="i18n" data-fr="Acceuil" data-en="Home"></span>&nbsp;</a>
+    <div id="footer-language" class="footer-right nowrap-text">
+        <a id="footer-homeLink" href=".."><span class="icon icon-home"></span>&nbsp;<span class="i18n" data-fr="Acceuil" data-en="Home"></span>&nbsp;</a>
     </div>
 </div>
 
@@ -91,7 +91,7 @@
 </div>
 
 <!-- required to test i18n functionality -->
-<div id="test-i18n" class="i18n hidden" data-fr=fr data-en=en></div>
+<div id="i18n-testDiv" class="i18n hidden" data-fr=fr data-en=en></div>
 
 <!-- build:js ../assets/app.js -->
 <script src="../../js/core/polyfill.js"></script>

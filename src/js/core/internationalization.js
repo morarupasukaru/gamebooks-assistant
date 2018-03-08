@@ -16,10 +16,10 @@
             _.data.save(_.config.storageKeys.savedLanguage, newLanguage);
             var htmlElement = document.getElementsByTagName("html")[0];
             htmlElement.lang = newLanguage;
-            document.getElementById("link_lang_" + newLanguage).classList.add("hidden");
+            document.getElementById("footer-lang-" + newLanguage).classList.add("hidden");
             for (var i = 0; i < _.config.languages.supported.length; i++) {
                 if (newLanguage !== _.config.languages.supported[i]) {
-                    document.getElementById("link_lang_" + _.config.languages.supported[i]).classList.remove("hidden");
+                    document.getElementById("footer-lang-" + _.config.languages.supported[i]).classList.remove("hidden");
                 }
             }
             this._forceReloadStylesheetIfNeeded(newLanguage);
@@ -31,7 +31,7 @@
      * value with i18n.js by reloading a non-existent stylesheet.
      */
     api._forceReloadStylesheetIfNeeded = function(newLanguage) {
-        var element = document.getElementById("test-i18n");
+        var element = document.getElementById("i18n-testDiv");
         var text = window.getComputedStyle(element, ':before').getPropertyValue('content');
         if (!text || text !== '"' + newLanguage + '"') {
             this._forceReloadStylesheet(newLanguage);
