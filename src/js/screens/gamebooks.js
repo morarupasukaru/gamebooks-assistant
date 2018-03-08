@@ -42,9 +42,9 @@
     var configureAdminMode = function() {
         var adminMode = globals._.route.isAdminMode();
         if (!!adminMode) {
-            document.getElementById("screen.gamebooks.admin").classList.remove("hidden");
+            document.getElementById("screen-gamebooks-adminBtn").classList.remove("hidden");
         } else {
-            document.getElementById("screen.gamebooks.admin").classList.add("hidden");
+            document.getElementById("screen-gamebooks-adminBtn").classList.add("hidden");
         }
     };
 
@@ -66,4 +66,4 @@
     globals._.screens = globals._.screens || [];
     globals._.screens.push(initialise);
 
-} (this, 'screen.gamebooks.title.choose-adventure'));
+} (this, 'screen-gamebooks-chooseAdventureDiv'));

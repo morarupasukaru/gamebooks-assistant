@@ -57,7 +57,7 @@
 
         <div class="pure-u-1">
             <div class="margin-right">
-                <a id="screen-gamebooks-addAdventureBtn" class="button u-full-width i18n" href="../gamebook/new" data-fr="Ajout aventure" data-en="Add adventure"></a>
+                <a id="screen-gamebooks-addAdventureBtn" class="button u-full-width i18n" onclick="_.msg.errorUnsupportedFeature();" data-fr="Ajout aventure" data-en="Add adventure"></a>
             </div>
         </div>
 
@@ -84,9 +84,9 @@
 
 <div id="modal" class="modal">
     <div class="modal-content">
-        <p id="modalTitle" class="u-full-width modal-title"></p>
-        <p id="modalText"></p>
-        <a class="button u-full-width i18n-ok" href="#" id="closeModal" onClick="_.msg.closeModal();"></a>
+        <p id="modal-title" class="u-full-width modal-title"></p>
+        <p id="modal-text"></p>
+        <a class="button u-full-width i18n-ok" href="#" id="modal-closeBtn" onClick="_.msg.closeModal();"></a>
     </div>
 </div>
 

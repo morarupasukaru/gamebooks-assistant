@@ -10,8 +10,8 @@
 
     api.ids = {
         modal: "modal",
-        title: "modalTitle",
-        text: "modalText"
+        title: "modal-title",
+        text: "modal-text"
     };
     
     api.errorUnsupportedFeature = function() {

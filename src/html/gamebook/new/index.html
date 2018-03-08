@@ -36,13 +36,7 @@
     <link rel="stylesheet" href="../../../css/form.css">
     <link rel="stylesheet" href="../../../css/margins.css">
     <link rel="stylesheet" href="../../../css/i18n.css">
-    <!-- /build -->
-
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-
-    <!-- build:js ../../assets/app.js -->
-    <script src="../../../js/polyfill.js"></script>
-    <script src="../../../js/i18n.js"></script>
+    <link rel="stylesheet" href="../../../css/modal.css">
     <!-- /build -->
 </head>
 
@@ -80,18 +74,36 @@
 
 <div class="footer">
     <div class="footer-left trim-text">
-        Le Sorcier de la Montagne de Feu
+        Gamebook assistant
     </div>
-    <div class="footer-right nowrap-text">
-        <a href="#" id="link_en" hreflang="en" onClick="_.i18n.setLanguage('en');" class="hidden"><span
-                class="icon icon-globe"></span>&nbsp;English&nbsp;</a> <a href="#" id="link_fr" hreflang="fr"
-                                                                          onClick="_.i18n.setLanguage('fr');"><span
-            class="icon icon-globe"></span>&nbsp;Français&nbsp;</a>
-        <a href="../.."><span class="icon icon-home"></span>&nbsp;Acceuil&nbsp;</a>
+    <div id="footer-language" class="footer-right nowrap-text">
+        <a id="footer-homeLink" href=".."><span class="icon icon-home"></span>&nbsp;<span class="i18n" data-fr="Acceuil" data-en="Home"></span>&nbsp;</a>
+    </div>
+</div>
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <p id="modal-title" class="u-full-width modal-title"></p>
+        <p id="modal-text"></p>
+        <a class="button u-full-width i18n-ok" href="#" id="modal-closeBtn" onClick="_.msg.closeModal();"></a>
     </div>
 </div>
 
 <!-- required to test i18n functionality -->
-<div id="test-i18n" class="i18n hidden" data-fr=fr data-en=en></div>
+<div id="i18n-testDiv" class="i18n hidden" data-fr=fr data-en=en></div>
+
+<!-- build:js ../assets/app.js -->
+<script src="../../../js/core/polyfill.js"></script>
+<script src="../../../js/core/config.js"></script>
+<script src="../../../js/core/dom.js"></script>
+<script src="../../../js/core/message.js"></script>
+<script src="../../../js/core/data.js"></script>
+<script src="../../../js/core/ajax.js"></script>
+<script src="../../../js/core/internationalization.js"></script>
+<script src="../../../js/core/route.js"></script>
+<script src="../../../js/components/footer_language.js"></script>
+<script src="../../../js/core/initialisation.js"></script>
+<!-- /build -->
+
 </body>
 </html>
