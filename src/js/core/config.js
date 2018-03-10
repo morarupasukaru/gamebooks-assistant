@@ -36,5 +36,4 @@
     api.translatedTexts.fr[api.texts.errorFeatureNotImplemented] = "La fonctionnalité n'est pas encore implémentée";
     api.translatedTexts.en[api.texts.modalTitleError] = "ERROR";
     api.translatedTexts.fr[api.texts.modalTitleError] = "ERREUR";
-    api.translatedTexts.fr[api.texts.modalTitleError] = "ERREUR";
 } (this));

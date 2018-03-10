@@ -201,6 +201,8 @@ module.exports = function(grunt) {
             options: {
                 jshintrc: true
             }
+			
+			// TODO validate cypress js with a different .jshintrc
         },
 
         
