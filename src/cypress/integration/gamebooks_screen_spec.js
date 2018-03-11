@@ -7,7 +7,7 @@ describe('Gamebook Selection screen', function () {
 	
 	it('Title', function() {
 		cy.title().should('eq', 'Gamebooks Assistant');
-		common.toogleLanguage();
+		cy.toogleLanguage();
 		// title does not change on language selection change
 		cy.title().should('eq', 'Gamebooks Assistant');
 	})
@@ -20,17 +20,10 @@ describe('Gamebook Selection screen', function () {
 	it('Content - Add Adventure Button - Click', function() {
 		cy.get('#modal').should('not.be.visible');
 		cy.get('#screen-gamebooks-addAdventureBtn').click();
-		var language = common.getLanguage();
-		common.modalFeatureNotImplemented(language);
-		common.toogleLanguage();
-		// TODO why is localStorage not correctly updated
-		if (language === 'fr') {
-			language = 'en';
-		} else {
-			language = 'fr';
-		}
+		cy.modalFeatureNotImplemented();
+		cy.toogleLanguage();
 		cy.get('#screen-gamebooks-addAdventureBtn').click();
-		common.modalFeatureNotImplemented(language);
+		cy.modalFeatureNotImplemented();
 	})
 
 	// TODO ...

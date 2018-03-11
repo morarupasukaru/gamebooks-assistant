@@ -25,14 +25,6 @@ export function selectLanguage(language) {
 	cy.get(langLinkId).should('not.be.visible');
 };
 
-export function toogleLanguage() {
-	if (getLanguage() === 'fr') {
-		selectLanguage('en');
-	} else {
-		selectLanguage('fr');
-	}
-};
-
 export function checkI18nElementTextWithDataAttribute(elementSelector, frText, enText) {
 	cy.get(elementSelector).should('be.visible');
 	if (getLanguage() === 'fr') {
@@ -62,7 +54,7 @@ export function checkI18nElementText(elementSelector, frText, enText) {
 export function checkNoI18nElementText(elementSelector, text) {
 	cy.get(elementSelector).should('be.visible');
 	cy.get(elementSelector).contains(text);
-	toogleLanguage();
+	cy.toogleLanguage();
 	// title does not change on language selection change
 	cy.get(elementSelector).contains(text);
 };
@@ -86,16 +78,3 @@ export function testFooterLanguageLinks() {
 		cy.get('#footer-lang-fr').should('not.be.visible');
 	}
 };
-
-export function modalFeatureNotImplemented(lang) {
-	cy.get('#modal').should('be.visible');
-	if (lang === 'fr') {
-		cy.get('#modal-title').contains("ERREUR");
-		cy.get('#modal-text').contains("La fonctionnalité n'est pas encore implémentée");
-	} else {
-		cy.get('#modal-title').contains("ERROR");
-		cy.get('#modal-text').contains("Functionality is not yet implemented");
-	} 
-	cy.get('#modal-closeBtn').click();
-	cy.get('#modal').should('not.be.visible');
-}

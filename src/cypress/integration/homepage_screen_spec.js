@@ -7,7 +7,7 @@ describe('Homepage screen', function () {
 	
 	it('Title', function() {
 		cy.title().should('eq', 'Gamebooks Assistant');
-		common.toogleLanguage();
+		cy.toogleLanguage();
 		// title does not change on language selection change
 		cy.title().should('eq', 'Gamebooks Assistant');
 	})
