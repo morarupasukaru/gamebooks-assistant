@@ -8,7 +8,8 @@
     var api = globals._.config;
 
     api.storageKeys = {
-        savedLanguage : 'savedLanguage'
+        savedLanguage : 'savedLanguage',
+		gamebooksList : 'gamebooks.list'
     };
 
     api.languages = {

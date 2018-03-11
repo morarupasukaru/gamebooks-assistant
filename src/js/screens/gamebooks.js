@@ -19,19 +19,6 @@
         );
     };
 
-/*
-    var addSerie = function(divId, serie) {
-        if (!serie || !serie.gamebooks) {
-            return ;
-        }
-        appendSerieTitle(divId, serie.name);
-
-        var i;
-        for (i = 0; i < serie.gamebooks.length; i++) {
-            appendGamebook(divId, serie.gamebooks[i]);
-        }
-    };
-*/	
 	var addGamebooks = function(gamebooks) {
 		if (!!gamebooks) {
 			var series = [];
@@ -64,10 +51,11 @@
 
     var configureAdminMode = function() {
         var adminMode = globals._.route.isAdminMode();
+		var adminBtnId = "screen-gamebooks-adminBtn";
         if (!!adminMode) {
-            document.getElementById("screen-gamebooks-adminBtn").classList.remove("hidden");
+            document.getElementById(adminBtnId).classList.remove("hidden");
         } else {
-            document.getElementById("screen-gamebooks-adminBtn").classList.add("hidden");
+            document.getElementById(adminBtnId).classList.add("hidden");
         }
     };
 
@@ -76,11 +64,9 @@
         if (!elementOfGamebooksScreen) {
             return ;
         }
-        // TODO retrieve data with json & http (if possible) or read-it from localstorage (offline)
-        var callback = function(json) {
-            addGamebooks(json);
-        };
-        globals._.ajax.loadJson('../assets/data/library.json', callback);
+		var gamebooks = globals._.data.get(globals._.config.storageKeys.gamebooksList);
+		debugger;
+		addGamebooks(gamebooks);
         globals._.route.onhashchange = configureAdminMode;
         configureAdminMode();
     };
