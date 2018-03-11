@@ -4,8 +4,9 @@
 (function(globals){
     "use strict";
     globals._ = globals._ || {};
-    globals._.config = globals._.config || {};
-    var api = globals._.config;
+	var __ = globals._;
+    __.config = __.config || {};
+    var api = __.config;
 
     api.storageKeys = {
         savedLanguage : 'savedLanguage',

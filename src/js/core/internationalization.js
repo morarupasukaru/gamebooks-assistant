@@ -4,22 +4,22 @@
 (function(globals){
     "use strict";
     globals._ = globals._ || {};
-    globals._.i18n = globals._.i18n || {};
-
-    var api = globals._.i18n;
+	var __ = globals._;
+    __.i18n = __.i18n || {};
+    var api = __.i18n;
     /**
      * Change the language of the application
      */
     api.setLanguage = function(newLanguage) {
         if (this.currentLanguage !== newLanguage) {
             this.currentLanguage = newLanguage;
-            globals._.data.setLanguage(newLanguage);
+            __.data.setLanguage(newLanguage);
             var htmlElement = document.getElementsByTagName("html")[0];
             htmlElement.lang = newLanguage;
             document.getElementById("footer-lang-" + newLanguage).classList.add("hidden");
-            for (var i = 0; i < globals._.config.languages.supported.length; i++) {
-                if (newLanguage !== globals._.config.languages.supported[i]) {
-                    document.getElementById("footer-lang-" + globals._.config.languages.supported[i]).classList.remove("hidden");
+            for (var i = 0; i < __.config.languages.supported.length; i++) {
+                if (newLanguage !== __.config.languages.supported[i]) {
+                    document.getElementById("footer-lang-" + __.config.languages.supported[i]).classList.remove("hidden");
                 }
             }
             this._forceReloadStylesheetIfNeeded(newLanguage);
@@ -45,7 +45,7 @@
         if (!!dummyStylesheetElement) {
             dummyStylesheetElement.href = hrefValue;
         } else {
-            globals._.dom.appendHtml(document.getElementsByTagName('head')[0], '<link id="' + dummyStylesheetId + '" rel="stylesheet" href="' + hrefValue + '">');
+            __.dom.appendHtml(document.getElementsByTagName('head')[0], '<link id="' + dummyStylesheetId + '" rel="stylesheet" href="' + hrefValue + '">');
         }
     };
 
@@ -53,20 +53,20 @@
      * Module initialisation method
      */
     api.initialize = function() {
-        if (!globals._.config) {
+        if (!__.config) {
             throw 'config is unavailable';
         }
-        if (!globals._.data) {
+        if (!__.data) {
             throw 'data is unavailable';
         }
-        var savedLanguage = globals._.data.getLanguage();
+        var savedLanguage = __.data.getLanguage();
         if (!!savedLanguage) {
             this.setLanguage(savedLanguage);
         } else {
             var newLanguage;
             var navigatorLanguage = navigator.languages && navigator.languages[0] || navigator.language || navigator.userLanguage;
-            for (var i = 0; i < globals._.config.languages.supported.length; i++) {
-                var language = globals._.config.languages.supported[i];
+            for (var i = 0; i < __.config.languages.supported.length; i++) {
+                var language = __.config.languages.supported[i];
                 if (navigatorLanguage === language || navigatorLanguage.startsWith(language + '-')) {
                     newLanguage = language;
                     break;

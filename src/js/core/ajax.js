@@ -3,10 +3,10 @@
  */
 (function(globals){
     "use strict";
-    globals._ = globals._ || {};
-    globals._.ajax = globals._.ajax || {};
-
-    var api = globals._.ajax;
+	globals._ = globals._ || {};
+	var __ = globals._;
+    __.ajax = __.ajax || {};
+    var api = __.ajax;
 
     api.loadJson = function(jsonUrl, callback) {
         var xmlhttp = new XMLHttpRequest();

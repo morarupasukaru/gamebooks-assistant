@@ -4,9 +4,9 @@
 (function(globals){
     "use strict";
     globals._ = globals._ || {};
-    globals._.msg = globals._.msg || {};
-
-    var api = globals._.msg;
+	var __ = globals._;
+    __.msg = __.msg || {};
+    var api = __.msg;
 
     api.ids = {
         modal: "modal",
@@ -15,7 +15,7 @@
     };
     
     api.errorUnsupportedFeature = function() {
-        throw globals._.config.texts.errorFeatureNotImplemented;
+        throw __.config.texts.errorFeatureNotImplemented;
     };
 
     /**
@@ -26,12 +26,12 @@
     };
 
     api._displayMessage = function(severity, message) {
-        var language = globals._.i18n.currentLanguage;
-        var displayedMessage = globals._.config.translatedTexts[language][message];
+        var language = __.i18n.currentLanguage;
+        var displayedMessage = __.config.translatedTexts[language][message];
         if (!displayedMessage) {
             displayedMessage = message;
         }
-        var i18nTitle = globals._.config.translatedTexts[language][globals._.config.texts.modalTitlePrefix + severity];
+        var i18nTitle = __.config.translatedTexts[language][__.config.texts.modalTitlePrefix + severity];
 
         var modalTitle = window.document.getElementById(this.ids.title);
         modalTitle.innerText = i18nTitle;
@@ -52,7 +52,7 @@
      */
     if (!!globals.addEventListener) {
         globals.addEventListener('error', function (e) {
-            globals._.msg.error(e.error.toString());
+            __.msg.error(e.error.toString());
         });
     }
 } (this));

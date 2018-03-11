@@ -4,9 +4,10 @@
 (function(globals){
     "use strict";
     globals._ = globals._ || {};
-    globals._.route = globals._.route || {};
-
-    var api = globals._.route;
+	var __ = globals._;
+    __.route = __.route || {};
+    var api = __.route;
+	
     var extractKeyValues = function(search) {
         var result = {};
         if (!!search) {
@@ -66,9 +67,9 @@
         var keyValues = getSearchParams();
         var keys = Object.keys(keyValues);
 		if (keys.indexOf('adminEnabled') !== -1) {
-			globals._.data.setAdminEnabled(true);
+			__.data.setAdminEnabled(true);
 		} else if (keys.indexOf('adminDisabled') !== -1) {
-			globals._.data.setAdminEnabled(false);
+			__.data.setAdminEnabled(false);
 		}
     };
     

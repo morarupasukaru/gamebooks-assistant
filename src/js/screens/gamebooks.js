@@ -3,14 +3,18 @@
  */
 (function(globals, divId){
     "use strict";
+	globals._ = globals._ || {};
+	var __ = globals._;
+    __.screens = __.screens || [];
+
     var appendSerieTitle = function(title) {
-        globals._.dom.appendHtml(document.getElementById(divId), '<div class="pure-u-1"><h2>' + title + '</h2></div>');
+        __.dom.appendHtml(document.getElementById(divId), '<div class="pure-u-1"><h2>' + title + '</h2></div>');
     };
     var appendGamebook = function(gamebook) {
         if (!gamebook) {
             return ;
         }
-        globals._.dom.appendHtml(document.getElementById(divId),
+        __.dom.appendHtml(document.getElementById(divId),
             '<div class="pure-u-1 pure-u-lg-1-3">' +
                 '<div class="margin-right">' +
                     '<a class="button u-full-width screen-gamebooks-book" href="../gamebook">' + gamebook.name +'</a>' +
@@ -50,7 +54,7 @@
 	};
 
     var configureAdminMode = function() {
-		var adminEnabled = globals._.data.isAdminEnabled();
+		var adminEnabled = __.data.isAdminEnabled();
 		var adminBtnId = "screen-gamebooks-adminBtn";
         if (!!adminEnabled) {
             document.getElementById(adminBtnId).classList.remove("hidden");
@@ -65,15 +69,13 @@
             return ;
         }
 		
-		var gamebooks = globals._.data.getGamebooksList();
+		var gamebooks = __.data.getGamebooksList();
 		addGamebooks(gamebooks);
 		
-        globals._.route.onhashchange = configureAdminMode;
+        __.route.onhashchange = configureAdminMode;
         configureAdminMode();
     };
 
-    globals._ = globals._ || {};
-    globals._.screens = globals._.screens || [];
-    globals._.screens.push(initialise);
+    __.screens.push(initialise);
 
 } (this, 'screen-gamebooks-chooseAdventureDiv'));

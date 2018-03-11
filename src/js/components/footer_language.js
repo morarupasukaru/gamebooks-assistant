@@ -3,6 +3,8 @@
  */
 (function(globals, divId){
     "use strict";
+	var __ = globals._;
+	
     var addLanguageToFooter = function(language, languageText) {
         var footerDiv = document.getElementById(divId);
         var linkElement = document.createElement('a');
@@ -15,8 +17,8 @@
         footerDiv.insertBefore(linkElement, existingLink);
     };
 
-    var supportedLanguages = globals._.config.languages.supported;
+    var supportedLanguages = __.config.languages.supported;
     for (var i = 0; i < supportedLanguages.length; i++) {
-        addLanguageToFooter(supportedLanguages[i], globals._.config.texts[supportedLanguages[i]]);
+        addLanguageToFooter(supportedLanguages[i], __.config.texts[supportedLanguages[i]]);
     }
 } (this, 'footer-language'));

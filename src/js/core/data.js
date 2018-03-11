@@ -4,8 +4,9 @@
 (function(globals){
     "use strict";
     globals._ = globals._ || {};
-    globals._.data = globals._.data || {};
-    var api = globals._.data;
+	var __ = globals._;
+    __.data = __.data || {};
+    var api = __.data;
 	
     var testLocalStorageAvailable = function() {
         try {
@@ -74,27 +75,27 @@
     };
 	
 	api.getLanguage = function() {
-		return get(globals._.config.storageKeys.savedLanguage);
+		return get(__.config.storageKeys.savedLanguage);
 	};
 	
 	api.setLanguage = function(language) {
-		set(globals._.config.storageKeys.savedLanguage, language);
+		set(__.config.storageKeys.savedLanguage, language);
 	};
 	
 	api.getGamebooksList = function() {
-		return get(globals._.config.storageKeys.gamebooksList);
+		return get(__.config.storageKeys.gamebooksList);
 	};
 	
 	api.setGamebooksList = function(gamebooksList) {
-		set(globals._.config.storageKeys.gamebooksList, gamebooksList);
+		set(__.config.storageKeys.gamebooksList, gamebooksList);
 	};
 	
 	api.isAdminEnabled = function() {
-		return get(globals._.config.storageKeys.adminEnabled);
+		return get(__.config.storageKeys.adminEnabled);
 	};
 	
 	api.setAdminEnabled = function(adminEnabled) {
-		set(globals._.config.storageKeys.adminEnabled, adminEnabled);
+		set(__.config.storageKeys.adminEnabled, adminEnabled);
 	};
 
     /**
@@ -103,7 +104,7 @@
     api.initialize = function() {
         lazyInitialisation();
         if (!api.isLocalStorageAvailable) {
-            throw globals._.config.texts.errorLocalstorageUnavailable;
+            throw __.config.texts.errorLocalstorageUnavailable;
         }
     };
 

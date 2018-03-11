@@ -4,9 +4,9 @@
 (function(globals){
     "use strict";
     globals._ = globals._ || {};
-    globals._.dom = globals._.dom || {};
-
-    var api = globals._.dom;
+	var __ = globals._;
+    __.dom = __.dom || {};
+    var api = __.dom;
 
     /**
      * Append given html to a dom element

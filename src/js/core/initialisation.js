@@ -3,12 +3,12 @@
  */
  (function(globals){
     "use strict";
-	globals._.i18n.initialize();
-	globals._.data.initialize();
-	if (!!globals._.screens) {
-		var i;
-		for (i = 0; i < globals._.screens.length; i++) {
-			globals._.screens[i]();
+	var __ = globals._;
+	__.i18n.initialize();
+	__.data.initialize();
+	if (!!__.screens) {
+		for (var i = 0; i < __.screens.length; i++) {
+			__.screens[i]();
 		}
 	}
 } (this));
