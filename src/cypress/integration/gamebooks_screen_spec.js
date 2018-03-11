@@ -15,9 +15,7 @@ describe('Gamebook Selection screen', function () {
 	it('Content - Add Adventure Button', function() {
 		var elementId = '#screen-gamebooks-addAdventureBtn';
 		common.checkI18nElementTextWithDataAttribute(elementId, 'Ajout aventure', 'Add adventure');
-	})
-	
-	it('Content - Add Adventure Button - Click', function() {
+		
 		cy.get('#modal').should('not.be.visible');
 		cy.get('#screen-gamebooks-addAdventureBtn').click();
 		cy.modalFeatureNotImplemented();
