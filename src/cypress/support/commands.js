@@ -39,10 +39,10 @@ Cypress.Commands.add("modalFeatureNotImplemented", () => {
 	cy.get('#modal').should('be.visible');
 	if (lang === 'fr') {
 		cy.get('#modal-title').contains("ERREUR");
-		cy.get('#modal-text').contains("La fonctionnalité n'est pas encore implémentée");
+		cy.get('#modal-text').contains("La fonctionnalité n'est pas encore implémentée.");
 	} else {
 		cy.get('#modal-title').contains("ERROR");
-		cy.get('#modal-text').contains("Functionality is not yet implemented");
+		cy.get('#modal-text').contains("Functionality is not yet implemented.");
 	} 
 	cy.get('#modal-closeBtn').click();
 	cy.get('#modal').should('not.be.visible');
