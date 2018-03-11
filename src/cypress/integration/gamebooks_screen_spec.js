@@ -1,5 +1,14 @@
 import * as common from '../sharedFunctions';
 
+/*
+TODO
+* there is no more library.json anymore
+* there is no more "admin" parameter with 'Gamebooks list data'
+* data are loaded only from localStorage (list of gamebooks, no "parent" serie hierarchy)
+* add adventure button will display a screen to choose wether the adventure data are created from scratch or read from remote json url
+* refresh of localStorage with remote json url is done in a separate screen (e.g. in gamebook detail or with the help of "refresh" button and field message "new version available")
+ */
+
 describe('Gamebook Selection screen', function () {
 	context('Content', function () {
 		beforeEach(function () {

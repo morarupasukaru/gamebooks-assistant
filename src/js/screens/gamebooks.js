@@ -3,11 +3,10 @@
  */
 (function(globals, divId){
     "use strict";
-    var appendSerieTitle = function(divId, title) {
+    var appendSerieTitle = function(title) {
         _.dom.appendHtml(document.getElementById(divId), '<div class="pure-u-1"><h2>' + title + '</h2></div>');
     };
-
-    var appendGamebook = function(divId, gamebook) {
+    var appendGamebook = function(gamebook) {
         if (!gamebook) {
             return ;
         }
@@ -20,6 +19,7 @@
         );
     };
 
+/*
     var addSerie = function(divId, serie) {
         if (!serie || !serie.gamebooks) {
             return ;
@@ -31,13 +31,36 @@
             appendGamebook(divId, serie.gamebooks[i]);
         }
     };
-
-    var addSeries = function(series) {
-        var i;
-        for (i = 0; i < series.length; i++) {
-            addSerie(divId, series[i]);
-        }
-    };
+*/	
+	var addGamebooks = function(gamebooks) {
+		if (!!gamebooks) {
+			var series = [];
+			var gamebooksOfSeries = {};
+			var i;
+			var j;
+			var serie;
+			for (i = 0; i < gamebooks.length; i++) {
+				serie = gamebooks[i].serie;
+				if (series.indexOf(serie) === -1) {
+					series.push(serie);
+					gamebooksOfSeries[serie] = [];
+				}
+				gamebooksOfSeries[serie].push(gamebooks[i]);
+			}
+			series.sort();
+			for (i = 0; i < series.length; i++) {
+				serie = series[i];
+				appendSerieTitle(serie);
+				var gamebooksOfSerie = gamebooksOfSeries[serie];
+				gamebooksOfSerie = gamebooksOfSerie.sort(function(obj1, obj2) {
+					return obj1.order - obj2.order;
+				});
+				for (j = 0; j < gamebooksOfSerie.length; j++) {
+					appendGamebook(gamebooksOfSerie[j]);
+				}
+			}
+		}
+	};
 
     var configureAdminMode = function() {
         var adminMode = globals._.route.isAdminMode();
@@ -55,7 +78,7 @@
         }
         // TODO retrieve data with json & http (if possible) or read-it from localstorage (offline)
         var callback = function(json) {
-            addSeries(json);
+            addGamebooks(json);
         };
         globals._.ajax.loadJson('../assets/data/library.json', callback);
         globals._.route.onhashchange = configureAdminMode;

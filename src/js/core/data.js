@@ -6,7 +6,19 @@
     globals._ = globals._ || {};
     globals._.data = globals._.data || {};
     var api = globals._.data;
-
+	
+	/**
+	 * See "broofa" solution of uuid generator: https://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
+	 */
+	api.uuid = function() {
+		return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+			/*jslint bitwise: true */
+			var r = Math.random() * 16 | 0;
+			var v = c === 'x' ? r : (r & 0x3 | 0x8);
+			return v.toString(16);
+		});
+	};
+	
     /**
      * Retrieve a data with given key in the localstorage
      */
