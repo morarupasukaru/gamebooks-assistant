@@ -24,7 +24,7 @@
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
-import * as common from '../sharedFunctions';
+import * as common from '../sharedTests';
 
 Cypress.Commands.add("toogleLanguage", () => { 
 	if (common.getLanguage() === 'fr') {
@@ -34,7 +34,20 @@ Cypress.Commands.add("toogleLanguage", () => {
 	}
 });
 
-Cypress.Commands.add("modalFeatureNotImplemented", () => {
+Cypress.Commands.add("modalWithErrorLocalstorageUnavailable", (lang) => {
+	cy.get('#modal').should('be.visible');
+	if (lang === 'fr') {
+		cy.get('#modal-title').contains("ERREUR");
+		cy.get('#modal-text').contains("LocalStorage est requis à l'application mais n'est pas disponible.");
+	} else {
+		cy.get('#modal-title').contains("ERROR");
+		cy.get('#modal-text').contains("LocalStorage is required by the application but is unavailable.");
+	} 
+	cy.get('#modal-closeBtn').click();
+	cy.get('#modal').should('not.be.visible');
+});
+
+Cypress.Commands.add("modalWithErrorFeatureNotImplemented", () => {
 	var lang = common.getLanguage();
 	cy.get('#modal').should('be.visible');
 	if (lang === 'fr') {
@@ -46,4 +59,14 @@ Cypress.Commands.add("modalFeatureNotImplemented", () => {
 	} 
 	cy.get('#modal-closeBtn').click();
 	cy.get('#modal').should('not.be.visible');
+});
+
+Cypress.Commands.add("setLocalStorageItem", (key, value) => {
+	localStorage.setItem(key, value);
+});
+
+Cypress.Commands.add("disableLocalStorage", () => {
+	window._ = window._ || {};
+	window._.data = window._.data || {};
+	window._.data.isLocalStorageAvailable = false;
 });

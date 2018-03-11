@@ -79,4 +79,11 @@
             api.onhashchange();
         }
     };
+
+    /**
+     * Module initialisation method
+     */
+    api.initialize = function() {
+		computeAdminMode();
+    };
 } (this));

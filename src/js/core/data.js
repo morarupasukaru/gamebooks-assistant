@@ -10,7 +10,7 @@
 	
     var testLocalStorageAvailable = function() {
         try {
-            var storage = window.localStorage;
+            var storage = globals.localStorage;
             var x = '__storage_test__';
             storage.setItem(x, x);
             storage.removeItem(x);

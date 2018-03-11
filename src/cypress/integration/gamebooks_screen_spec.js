@@ -1,13 +1,4 @@
-import * as common from '../sharedFunctions';
-
-/*
-TODO
-* there is no more library.json anymore
-* there is no more "admin" parameter with 'Gamebooks list data'
-* data are loaded only from localStorage (list of gamebooks, no "parent" serie hierarchy)
-* add adventure button will display a screen to choose wether the adventure data are created from scratch or read from remote json url
-* refresh of localStorage with remote json url is done in a separate screen (e.g. in gamebook detail or with the help of "refresh" button and field message "new version available")
- */
+import * as common from '../sharedTests';
 
 describe('Gamebook Selection screen', function () {
 	context('Content', function () {
@@ -32,78 +23,53 @@ describe('Gamebook Selection screen', function () {
 			
 			cy.get('#modal').should('not.be.visible');
 			cy.get('#screen-gamebooks-addAdventureBtn').click();
-			cy.modalFeatureNotImplemented();
+			cy.modalWithErrorFeatureNotImplemented();
 			cy.toogleLanguage();
 			cy.get('#screen-gamebooks-addAdventureBtn').click();
-			cy.modalFeatureNotImplemented();
-		})
-		
-		it('Gamebooks Selection', function() {
-			var selectionFirstGamebook = '.screen-gamebooks-book:first';
-			cy.get(selectionFirstGamebook).should('be.visible');
-			cy.get(selectionFirstGamebook).click();
-			cy.url().should('eq', common.getBaseUrl() + '/gamebook/');
-		})
-		
-		it('Footer - GitHub Project Link', function() {
-			cy.get('#footer-githubLink').should('not.be.visible');
-		})
-		
-		it('Footer - Left', function() {
-			common.checkNoI18nElementText('.footer-left', 'Gamebook assistant');
-		})
-		
-		it('Footer - Home Link', function() {
-			common.checkI18nElementTextWithDataAttribute('#footer-homeLink>span:last', 'Acceuil', 'Home');
-			cy.get('#footer-homeLink').click();
-			cy.url().should('eq', common.getBaseUrl() + '/');
-		})
-		
-		it('Footer - Language Links', function() {
-			common.testFooterLanguageLinks();
-		})
-		
-		it('Modal - Not visible', function() {
-			cy.get('#modal').should('not.be.visible');
+			cy.modalWithErrorFeatureNotImplemented();
 		})
 	}),
 
-	context('Tests with Admin Button', function () {
-		it('Content - Admin Button - hidden per default', function() {
+	context('Admin Button', function () {
+		it('Admin Button - hidden per default', function() {
 			cy.visit('/gamebooks');
 			cy.get('#screen-gamebooks-adminBtn').should('not.be.visible');
 		})
 		
-		it('Content - Admin Button - hidden with /gamebooks?adminx', function() {
-			cy.visit('/gamebooks?adminx');
+		it('Admin Button - hidden with /...?adminDisabled', function() {
+			cy.visit('/gamebooks?adminDisabled').should(function () {
+				expect(localStorage.getItem('adminEnabled')).to.eq('false');
+			});
 			cy.get('#screen-gamebooks-adminBtn').should('not.be.visible');
 		})
-
-		it('Content - Admin Button - hidden with /gamebooks#test?adminx', function() {
-			cy.visit('/gamebooks#test?adminx');
-			cy.get('#screen-gamebooks-adminBtn').should('not.be.visible');
-		})
-
-		it('Content - Admin Button - visible with /gamebooks?admin', function() {
-			cy.visit('/gamebooks?admin');
-			cy.get('#screen-gamebooks-adminBtn').should('be.visible');
-		})
-
-		it('Content - Admin Button - visible with /gamebooks#test?admin', function() {
-			cy.visit('/gamebooks#test?admin');
+		
+		it('Admin Button - hidden with /...?adminEnabled', function() {
+			cy.visit('/gamebooks?adminEnabled').should(function () {
+				expect(localStorage.getItem('adminEnabled')).to.eq('true');
+			});
 			cy.get('#screen-gamebooks-adminBtn').should('be.visible');
 		})
 		
-		it('Content - Admin Button - unsupported on click', function() {
-			cy.visit('/gamebooks?admin');
-			cy.get('#screen-gamebooks-adminBtn').click();
-			cy.modalFeatureNotImplemented();
-			cy.toogleLanguage();
-			cy.get('#screen-gamebooks-adminBtn').click();
-			cy.modalFeatureNotImplemented();
+		it('Admin Button - hidden with localStorage.adminEnabled = false', function() {
+			cy.setLocalStorageItem('adminEnabled', 'false');
+			cy.visit('/gamebooks');
+			cy.get('#screen-gamebooks-adminBtn').should('not.be.visible');
+		})
+		
+		it('Admin Button - visible with localStorage.adminEnabled = true', function() {
+			cy.setLocalStorageItem('adminEnabled', 'true');
+			cy.visit('/gamebooks');
+			cy.get('#screen-gamebooks-adminBtn').should('be.visible');
 		})
 	}),
+	
+	context('Footer', common.footerTests('/gamebooks')),
+	
+	context('Modal', common.modalTests('/gamebooks')),
+	
+	context('adminEnabled Settings', common.adminSettingTests('/gamebooks'))
 
+	/*
 	context('Tests with data loading', function () {
 		it('No popup message with offline & no data in localStorage & if not specified remote url for data', function() {
 			// TODO
@@ -156,7 +122,14 @@ describe('Gamebook Selection screen', function () {
 		it('add new gamebook from loaded data in localStorage', function() {
 			// TODO
 		})
+		
+		it('Gamebooks Selection', function() {
+			var selectionFirstGamebook = '.screen-gamebooks-book:first';
+			cy.get(selectionFirstGamebook).should('be.visible');
+			cy.get(selectionFirstGamebook).click();
+			cy.url().should('eq', common.getBaseUrl() + '/gamebook/');
+		})
 	})
-	
+	*/
 });
 
