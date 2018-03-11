@@ -1,13 +1,16 @@
 /**
  * Initialisation of the modules (specific order required).
  */
-_.i18n.initialize();
-_.data.initialize();
-if (!!_.screens) {
-    var i;
-    for (i = 0; i < _.screens.length; i++) {
-        _.screens[i]();
-    }
-}
+ (function(globals){
+    "use strict";
+	globals._.i18n.initialize();
+	globals._.data.initialize();
+	if (!!globals._.screens) {
+		var i;
+		for (i = 0; i < globals._.screens.length; i++) {
+			globals._.screens[i]();
+		}
+	}
+} (this));
 
 // TODO still too complex

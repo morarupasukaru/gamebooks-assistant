@@ -62,14 +62,14 @@
         return merge(keyValuesCommon, keyValuesFromHash);
     };
     
-    var routeData = {
-        adminMode : undefined
-    };
-    
     var computeAdminMode = function() {
         var keyValues = getSearchParams();
         var keys = Object.keys(keyValues);
-        routeData.adminMode = keys.indexOf('admin') !== -1;
+		if (keys.indexOf('adminEnabled') !== -1) {
+			globals._.data.setAdminEnabled(true);
+		} else if (keys.indexOf('adminDisabled') !== -1) {
+			globals._.data.setAdminEnabled(false);
+		}
     };
     
     globals.onhashchange = function() {
@@ -77,12 +77,5 @@
         if (!!api.onhashchange) {
             api.onhashchange();
         }
-    };
-
-    api.isAdminMode = function() {
-        if (routeData.adminMode === undefined) {
-            computeAdminMode();
-        }
-        return routeData.adminMode;
     };
 } (this));

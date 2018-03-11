@@ -15,7 +15,7 @@
     };
     
     api.errorUnsupportedFeature = function() {
-        throw _.config.texts.errorFeatureNotImplemented;
+        throw globals._.config.texts.errorFeatureNotImplemented;
     };
 
     /**
@@ -26,12 +26,12 @@
     };
 
     api._displayMessage = function(severity, message) {
-        var language = _.i18n.currentLanguage;
-        var displayedMessage = _.config.translatedTexts[language][message];
+        var language = globals._.i18n.currentLanguage;
+        var displayedMessage = globals._.config.translatedTexts[language][message];
         if (!displayedMessage) {
             displayedMessage = message;
         }
-        var i18nTitle = _.config.translatedTexts[language][_.config.texts.modalTitlePrefix + severity];
+        var i18nTitle = globals._.config.translatedTexts[language][globals._.config.texts.modalTitlePrefix + severity];
 
         var modalTitle = window.document.getElementById(this.ids.title);
         modalTitle.innerText = i18nTitle;
@@ -52,7 +52,7 @@
      */
     if (!!globals.addEventListener) {
         globals.addEventListener('error', function (e) {
-            _.msg.error(e.error.toString());
+            globals._.msg.error(e.error.toString());
         });
     }
 } (this));

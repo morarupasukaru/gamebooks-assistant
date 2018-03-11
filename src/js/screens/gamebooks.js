@@ -4,13 +4,13 @@
 (function(globals, divId){
     "use strict";
     var appendSerieTitle = function(title) {
-        _.dom.appendHtml(document.getElementById(divId), '<div class="pure-u-1"><h2>' + title + '</h2></div>');
+        globals._.dom.appendHtml(document.getElementById(divId), '<div class="pure-u-1"><h2>' + title + '</h2></div>');
     };
     var appendGamebook = function(gamebook) {
         if (!gamebook) {
             return ;
         }
-        _.dom.appendHtml(document.getElementById(divId),
+        globals._.dom.appendHtml(document.getElementById(divId),
             '<div class="pure-u-1 pure-u-lg-1-3">' +
                 '<div class="margin-right">' +
                     '<a class="button u-full-width screen-gamebooks-book" href="../gamebook">' + gamebook.name +'</a>' +
@@ -50,9 +50,9 @@
 	};
 
     var configureAdminMode = function() {
-        var adminMode = globals._.route.isAdminMode();
+		var adminEnabled = globals._.data.isAdminEnabled();
 		var adminBtnId = "screen-gamebooks-adminBtn";
-        if (!!adminMode) {
+        if (!!adminEnabled) {
             document.getElementById(adminBtnId).classList.remove("hidden");
         } else {
             document.getElementById(adminBtnId).classList.add("hidden");
@@ -64,9 +64,10 @@
         if (!elementOfGamebooksScreen) {
             return ;
         }
-		var gamebooks = globals._.data.get(globals._.config.storageKeys.gamebooksList);
-		debugger;
+		
+		var gamebooks = globals._.data.getGamebooksList();
 		addGamebooks(gamebooks);
+		
         globals._.route.onhashchange = configureAdminMode;
         configureAdminMode();
     };

@@ -9,7 +9,8 @@
 
     api.storageKeys = {
         savedLanguage : 'savedLanguage',
-		gamebooksList : 'gamebooks.list'
+		gamebooksList : 'gamebooksList',
+		adminEnabled : 'adminEnabled'
     };
 
     api.languages = {

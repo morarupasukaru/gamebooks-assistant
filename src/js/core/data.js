@@ -7,6 +7,24 @@
     globals._.data = globals._.data || {};
     var api = globals._.data;
 	
+    var testLocalStorageAvailable = function() {
+        try {
+            var storage = window.localStorage;
+            var x = '__storage_test__';
+            storage.setItem(x, x);
+            storage.removeItem(x);
+            return true;
+        } catch(e) {
+            return false;
+        }
+    };
+
+    var lazyInitialisation = function() {
+        if (api.isLocalStorageAvailable === undefined) {
+            api.isLocalStorageAvailable = testLocalStorageAvailable();
+        }
+    };
+
 	/**
 	 * See "broofa" solution of uuid generator: https://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
 	 */
@@ -22,9 +40,9 @@
     /**
      * Retrieve a data with given key in the localstorage
      */
-    api.get = function(key) {
-        this.lazyInitialisation();
-        if (!this.isLocalStorageAvailable) {
+    var get = function(key) {
+        lazyInitialisation();
+        if (!api.isLocalStorageAvailable) {
             return null;
         }
         var value = localStorage.getItem(key);
@@ -43,9 +61,9 @@
     /**
      * Save some data with given key in the localstorage
      */
-    api.save = function(key, value) {
-        this.lazyInitialisation();
-        if (!this.isLocalStorageAvailable) {
+    var set = function(key, value) {
+        lazyInitialisation();
+        if (!api.isLocalStorageAvailable) {
             return ;
         }
         if (typeof value === 'string') {
@@ -54,32 +72,38 @@
             localStorage.setItem(key, JSON.stringify(value));
         }
     };
-
-    var _testLocalStorageAvailable = function() {
-        try {
-            var storage = window.localStorage;
-            var x = '__storage_test__';
-            storage.setItem(x, x);
-            storage.removeItem(x);
-            return true;
-        } catch(e) {
-            return false;
-        }
-    };
-
-    api.lazyInitialisation = function() {
-        if (this.isLocalStorageAvailable === undefined) {
-            this.isLocalStorageAvailable = _testLocalStorageAvailable();
-        }
-    };
+	
+	api.getLanguage = function() {
+		return get(globals._.config.storageKeys.savedLanguage);
+	};
+	
+	api.setLanguage = function(language) {
+		set(globals._.config.storageKeys.savedLanguage, language);
+	};
+	
+	api.getGamebooksList = function() {
+		return get(globals._.config.storageKeys.gamebooksList);
+	};
+	
+	api.setGamebooksList = function(gamebooksList) {
+		set(globals._.config.storageKeys.gamebooksList, gamebooksList);
+	};
+	
+	api.isAdminEnabled = function() {
+		return get(globals._.config.storageKeys.adminEnabled);
+	};
+	
+	api.setAdminEnabled = function(adminEnabled) {
+		set(globals._.config.storageKeys.adminEnabled, adminEnabled);
+	};
 
     /**
      * Module initialisation method
      */
     api.initialize = function() {
-        this.lazyInitialisation();
-        if (!this.isLocalStorageAvailable) {
-            throw _.config.texts.errorLocalstorageUnavailable;
+        lazyInitialisation();
+        if (!api.isLocalStorageAvailable) {
+            throw globals._.config.texts.errorLocalstorageUnavailable;
         }
     };
 
