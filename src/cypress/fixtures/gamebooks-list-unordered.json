@@ -1,0 +1,32 @@
+[
+  {
+	"id": "f579ad68-45af-4f0d-9cf7-79dc85cfe0db",
+	"name": "Les Collines Maléfiques",
+	"serie": "Sorcellerie!",
+	"order": "1"
+  },
+  {
+	"id": "2d5c0130-b607-4f06-964a-672b8bf2637c",
+	"name": "La Cité des Pièges",
+	"serie": "Sorcellerie!",
+	"order": "2"
+  },
+  {
+	"id": "e6726ee7-45f5-44d6-a0c0-2e9f348fc125",
+	"name": "La Légende de Zagor",
+	"serie": "Défis Fantastiques",
+	"order": "3"
+  },
+  {
+	"id": "13a8297d-020e-4386-8541-af6a5ca4bbf2",
+	"name": "Retour à la Montagne de Feu",
+	"serie": "Défis Fantastiques",
+	"order": "2"
+  },
+  {
+	"id": "fa2dc5d4-4af1-44ad-be1d-a0ee8de12c0d",
+	"name": "Le Sorcier de la Montagne de Feu",
+	"serie": "Défis Fantastiques",
+	"order": "1"
+  }
+]

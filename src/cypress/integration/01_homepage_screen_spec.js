@@ -1,6 +1,6 @@
 import * as common from '../sharedTests';
 
-describe('Homepage screen', function () {
+describe('01 - Homepage screen', function () {
 	context('Content', function () {
 		beforeEach(function () {
 			cy.visit('/');

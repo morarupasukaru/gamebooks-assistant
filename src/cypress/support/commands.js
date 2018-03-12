@@ -64,9 +64,3 @@ Cypress.Commands.add("modalWithErrorFeatureNotImplemented", () => {
 Cypress.Commands.add("setLocalStorageItem", (key, value) => {
 	localStorage.setItem(key, value);
 });
-
-Cypress.Commands.add("disableLocalStorage", () => {
-	window._ = window._ || {};
-	window._.data = window._.data || {};
-	window._.data.isLocalStorageAvailable = false;
-});

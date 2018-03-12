@@ -8,7 +8,7 @@
     __.screens = __.screens || [];
 
     var appendSerieTitle = function(title) {
-        __.dom.appendHtml(document.getElementById(divId), '<div class="pure-u-1"><h2>' + title + '</h2></div>');
+        __.dom.appendHtml(document.getElementById(divId), '<div class="pure-u-1"><h2 class="screen-gamebooks-serie">' + title + '</h2></div>');
     };
     var appendGamebook = function(gamebook) {
         if (!gamebook) {
