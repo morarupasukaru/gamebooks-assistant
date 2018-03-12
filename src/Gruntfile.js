@@ -263,12 +263,7 @@ module.exports = function(grunt) {
 			cypress: {
 			  exec: 'npm run cypress:open'
 			}
-		  }
-
-        // Run front-end tests
-        // TODO with target/non-minified www.cypress.io/
-        // TODO with target/minified www.cypress.io/
-        // TODO with github version
+		}
     }),
     grunt.loadNpmTasks('grunt-vnuserver');
     grunt.loadNpmTasks('grunt-contrib-clean');
