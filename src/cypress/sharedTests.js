@@ -96,7 +96,7 @@ export function footerTests(url) {
 		it('Footer - Home Link', function() {
 			checkI18nElementTextWithDataAttribute('#footer-homeLink>span:last', 'Acceuil', 'Home');
 			cy.get('#footer-homeLink').click();
-			cy.url().should('eq', getBaseUrl() + '/');
+			cy.url().should('eq', getBaseUrl() + '/#');
 		})
 		
 		it('Footer - Language Links', function() {

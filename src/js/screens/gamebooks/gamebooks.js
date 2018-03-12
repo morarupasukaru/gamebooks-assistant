@@ -16,7 +16,7 @@
         __.dom.appendHtml(document.getElementById(divId),
             '<div class="pure-u-1 pure-u-lg-1-3">' +
                 '<div class="margin-right">' +
-                    '<a class="button u-full-width screen-gamebooks-book" href="../gamebook">' + gamebook.name +'</a>' +
+                    '<a class="button u-full-width screen-gamebooks-book" href="gamebook">' + gamebook.name +'</a>' +
                 '</div>' +
             '</div>'
         );

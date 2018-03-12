@@ -1,9 +1,12 @@
 # Mobile Version development
 
+todo
+* problem with popup in safari ipad (not iphone)
+* problem with url of github (home, add adventure)
+
 later
 * test performance of saving / get into localstorage (different size, same value or different value saved) > comparison android, iphone, ipad, (laptop)
 * add i18n to all text (placeholder?)
-* include css, json, js, html inside one html page > grunt-processhtml
 
 ## Requirement of minimal mobile version
 * nice minimalist layout
