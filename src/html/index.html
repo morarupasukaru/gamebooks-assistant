@@ -12,7 +12,7 @@
     <!-- mobile specific metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- build:css assets/style.css -->
+    <!-- build:css:dist assets/style.css -->
     <link rel="stylesheet" href="../assets/icons/icomoon/style.css">
     <link rel="stylesheet" href="../assets/normalize/normalize.css">
     <link rel="stylesheet" href="../assets/pure/base.css">
@@ -37,17 +37,13 @@
 </head>
 
 <body>
-<div>
-    <div class="splash">
-        <h1 class="splash-head">Gamebook assistant</h1>
-        <p class="splash-subhead i18n"
-           data-fr="facilite la résolution de livre-jeu"
-           data-en="ease the resolution of gamebooks"></p>
-        <p>
-            <a id="screen-home-selectbookBtn" class="button i18n" href="gamebooks" data-fr="Sélection du livre-jeu" data-en="Select the gamebook"></a>
-        </p>
-    </div>
-</div>
+
+<!-- build:include homepage.template -->
+<!-- /build -->
+<!-- build:include pageNotFound.template -->
+<!-- /build -->
+<!-- build:include gamebooks.template -->
+<!-- /build -->
 
 <div class="footer">
     <div class="footer-left trim-text">
@@ -55,22 +51,25 @@
             &nbsp;<span class="icon icon-github2"></span>
             <span class="i18n" data-fr="Projet GitHub" data-en="GitHub Project"></span>
         </a>
+		<span id="footer-lefttext">Gamebook assistant</span>
     </div>
-    <div id="footer-language" class="footer-right nowrap-text"></div>
+    <div id="footer-language" class="footer-right nowrap-text">
+        <a id="footer-homeLink" href=".."><span class="icon icon-home"></span>&nbsp;<span class="i18n" data-fr="Acceuil" data-en="Home"></span>&nbsp;</a>
+	</div>
 </div>
 
 <div id="modal" class="modal">
     <div class="modal-content">
         <p id="modal-title" class="u-full-width modal-title"></p>
         <p id="modal-text"></p>
-        <a class="button u-full-width i18n-ok" href="#" id="modal-closeBtn" onClick="_.msg.closeModal();"></a>
+        <a class="button u-full-width i18n-ok" id="modal-closeBtn" onClick="_.msg.closeModal();"></a>
     </div>
 </div>
 
 <!-- required to test i18n functionality -->
 <div id="i18n-testDiv" class="i18n hidden" data-fr=fr data-en=en></div>
 
-<!-- build:js assets/app.js -->
+<!-- build:js:dist assets/app.js -->
 <script src="../js/core/polyfill.js"></script>
 <script src="../js/core/config.js"></script>
 <script src="../js/core/dom.js"></script>
@@ -79,6 +78,9 @@
 <script src="../js/core/internationalization.js"></script>
 <script src="../js/core/route.js"></script>
 <script src="../js/components/footer_language.js"></script>
+<script src="../js/screens/homepage.js"></script>
+<script src="../js/screens/pageNotFound/pageNotFound.js"></script>
+<script src="../js/screens/gamebooks/gamebooks.js"></script>
 <script src="../js/core/initialisation.js"></script>
 <!-- /build -->
 

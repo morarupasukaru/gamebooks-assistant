@@ -62,6 +62,42 @@
         var keyValuesFromHash = getSearchParamsFromHash();
         return merge(keyValuesCommon, keyValuesFromHash);
     };
+	
+	var getFirstPathFromUrlWithHash = function(url) {
+        var result = null;
+        if (!!url && url.indexOf('#') !== -1) {
+			if (url.startsWith('#')) {
+				result = url.substring(1);
+			} else {
+				result = url.split('#')[1];
+			}
+			
+			if (result.indexOf('?') !== -1) {
+				if (result.startsWith('?')) {
+					result = null;
+				} else {
+					result = result.split('?')[0];
+				}
+			}
+			
+			if (!!result && result.indexOf('/') !== -1) {
+				if (result.startsWith('/')) {
+					result = null;
+				} else {
+					result = result.split('/')[0];
+				}
+			}
+        }
+        return result;
+	};
+	
+	var getFirstPathFromHash = function() {
+        var result = null;
+        if (!!globals.location && !!globals.location.hash) {
+			result = getFirstPathFromUrlWithHash(globals.location.hash);
+        }
+        return result;
+	};
     
     var computeAdminMode = function() {
         var keyValues = getSearchParams();
@@ -72,9 +108,54 @@
 			__.data.setAdminEnabled(false);
 		}
     };
+	
+	var initializeScreen = function(screen) {
+		if (!!__.screens[screen] && !!__.screens[screen].initialize) {
+			__.screens[screen].initialize();
+		}
+	};
+	
+	var displayScreen = function(screen) {
+		if (!!__.screens[screen] && !!__.screens[screen].display) {
+			__.screens[screen].display();
+		}
+	};
+	
+	var hideScreen = function(screen) {
+		if (!!__.screens[screen] && !!__.screens[screen].hide) {
+			__.screens[screen].hide();
+		}
+	};
+	
+	var initializeAndDisplayScreen = function(screen) {
+		initializeScreen(screen);
+		displayScreen(screen);
+	};
+    
+    var computeScreen = function() {
+		var firstPathFromHash = getFirstPathFromHash();
+		var screen = __.config.urlOfScreens[firstPathFromHash];
+		if (!screen) {
+			screen = __.config.screens.pageNotFound;
+		}
+		var currentScreen = __.data.getCurrentScreen();
+		if (!!currentScreen && screen !== currentScreen) {
+			initializeScreen(screen);
+			hideScreen(currentScreen);
+			displayScreen(screen);
+		} else {
+			initializeAndDisplayScreen(screen);
+		}
+		__.data.setCurrentScreen(screen);
+    };
+	
+	var computeHashChange = function() {
+		computeAdminMode();
+		computeScreen();
+	};
     
     globals.onhashchange = function() {
-        computeAdminMode();
+        computeHashChange();
         if (!!api.onhashchange) {
             api.onhashchange();
         }
@@ -84,6 +165,6 @@
      * Module initialisation method
      */
     api.initialize = function() {
-		computeAdminMode();
+		computeHashChange();
     };
 } (this));

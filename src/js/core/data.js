@@ -97,6 +97,14 @@
 	api.setAdminEnabled = function(adminEnabled) {
 		set(__.config.storageKeys.adminEnabled, adminEnabled);
 	};
+	
+	api.getCurrentScreen = function() {
+		return get(__.config.storageKeys.currentScreen);
+	};
+	
+	api.setCurrentScreen = function(screen) {
+		set(__.config.storageKeys.currentScreen, screen);
+	};
 
     /**
      * Module initialisation method

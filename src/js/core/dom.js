@@ -18,4 +18,24 @@
             element.appendChild(div.children[0]);
         }
     };
+	
+    api.display = function(elementId) {
+		var foundElement = document.getElementById(elementId);
+		if (!!foundElement) {
+			foundElement.classList.remove("hidden");
+			return true;
+		} else {
+			return false;
+		}
+	};
+	
+    api.hide = function(elementId) {
+		var foundElement = document.getElementById(elementId);
+		if (!!foundElement) {
+			foundElement.classList.add("hidden");
+			return true;
+		} else {
+			return false;
+		}
+	};
 } (this));

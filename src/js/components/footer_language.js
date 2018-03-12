@@ -4,7 +4,9 @@
 (function(globals, divId){
     "use strict";
 	var __ = globals._;
-	
+	__.footer = __.footer || {};
+    var api = __.footer;
+
     var addLanguageToFooter = function(language, languageText) {
         var footerDiv = document.getElementById(divId);
         var linkElement = document.createElement('a');
@@ -21,4 +23,16 @@
     for (var i = 0; i < supportedLanguages.length; i++) {
         addLanguageToFooter(supportedLanguages[i], __.config.texts[supportedLanguages[i]]);
     }
+	
+	api.displayHomepageFooter = function() {
+		__.dom.display('footer-githubLink');
+		__.dom.hide('footer-lefttext');
+		__.dom.hide('footer-homeLink');
+	};
+	
+	api.displayChildFooter = function() {
+		__.dom.display('footer-lefttext');
+		__.dom.display('footer-homeLink');
+		__.dom.hide('footer-githubLink');
+	};
 } (this, 'footer-language'));

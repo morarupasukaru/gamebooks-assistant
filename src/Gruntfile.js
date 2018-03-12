@@ -24,7 +24,6 @@ module.exports = function(grunt) {
             files: [
               { expand: true, flatten: true, src: ['css/*.css'], dest: '<%= targetNonMinified %>/css'},
               { expand: true, cwd: 'assets/', src: ['**'], dest: '<%= targetNonMinified %>/assets'},
-              { expand: true, cwd: 'html/', src: ['**'], dest: '<%= targetNonMinified %>'},
               { expand: true, flatten: false, src: ['js/**/*.js'], dest: '<%= targetNonMinified %>'},
               { expand: true, flatten: true, src: 'assets/favicon/favicon.ico', dest: '<%= targetNonMinified %>/'},
               
@@ -111,7 +110,9 @@ module.exports = function(grunt) {
                     'js/**/core/internationalization.js',
                     'js/**/core/route.js',
                     'js/**/components/footer_language.js',
-                    'js/**/screens/gamebooks.js',
+                    'js/**/screens/homepage.js',
+                    'js/**/screens/pageNotFound/pageNotFound.js',
+                    'js/**/screens/gamebooks/gamebooks.js',
                     'js/**/core/initialisation.js'
                 ]
               }
@@ -121,6 +122,16 @@ module.exports = function(grunt) {
         // Replace some content into HTML files (e.g. css, script includes)
         processhtml: {
             target: {
+              files: [
+                {
+                  expand: true,     // Enable dynamic expansion.
+                  cwd: 'html/',      // Src matches are relative to this path.
+                  src: ['**/*.html'], // Actual pattern(s) to match.
+                  dest: '<%= targetNonMinified %>/',   // Destination path prefix.
+                }
+              ]
+            },
+            dist: {
               files: [
                 {
                   expand: true,     // Enable dynamic expansion.
@@ -222,7 +233,7 @@ module.exports = function(grunt) {
                 server: {},
                 ignore: 'Empty heading.'
               },
-              src: ['html/**/*.html', '<%= targetMinified %>/**/*.html']
+              src: ['<%= targetNonMinified %>/**/*.html', '<%= targetMinified %>/**/*.html']
             }
         },
 

@@ -5,7 +5,6 @@
     "use strict";
 	globals._ = globals._ || {};
 	var __ = globals._;
-    __.screens = __.screens || [];
 
     var appendSerieTitle = function(title) {
         __.dom.appendHtml(document.getElementById(divId), '<div class="pure-u-1"><h2 class="screen-gamebooks-serie">' + title + '</h2></div>');
@@ -57,13 +56,24 @@
 		var adminEnabled = __.data.isAdminEnabled();
 		var adminBtnId = "screen-gamebooks-adminBtn";
         if (!!adminEnabled) {
-            document.getElementById(adminBtnId).classList.remove("hidden");
+			__.dom.display(adminBtnId);
         } else {
-            document.getElementById(adminBtnId).classList.add("hidden");
+			__.dom.hide(adminBtnId);
         }
     };
+	
+    var display = function() {
+		var found = __.dom.display("screen-gamebooks");
+		if (!!found) {
+			__.footer.displayChildFooter();
+		}
+	};
+	
+    var hide = function() {
+		__.dom.hide("screen-gamebooks");
+	};
 
-    var initialise = function() {
+    var initialize = function() {
         var elementOfGamebooksScreen = document.getElementById(divId);
         if (!elementOfGamebooksScreen) {
             return ;
@@ -76,6 +86,11 @@
         configureAdminMode();
     };
 
-    __.screens.push(initialise);
+    __.screens = __.screens || {};
+	__.screens[__.config.screens.gamebooks] = {
+		initialize: initialize,
+		display: display,
+		hide: hide
+	};
 
 } (this, 'screen-gamebooks-chooseAdventureDiv'));

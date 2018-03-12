@@ -1,0 +1,11 @@
+<div id="screen-homepage" class="hidden">
+    <div class="splash">
+        <h1 class="splash-head">Gamebook assistant</h1>
+        <p class="splash-subhead i18n"
+           data-fr="facilite la résolution de livre-jeu"
+           data-en="ease the resolution of gamebooks"></p>
+        <p>
+            <a id="screen-home-selectbookBtn" class="button i18n" href="#gamebooks" data-fr="Sélection du livre-jeu" data-en="Select the gamebook"></a>
+        </p>
+    </div>
+</div>
