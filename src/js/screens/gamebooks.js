@@ -1,6 +1,3 @@
-/**
- * Javascript function that will add for every supported language, an anchor html tag in the div with id 'footer_language'
- */
 (function(globals){
     "use strict";
 	globals._ = globals._ || {};
@@ -18,7 +15,7 @@
         __.dom.appendHtml(document.getElementById(chooseAdventureDiv),
             '<div class="pure-u-1 pure-u-lg-1-3">' +
                 '<div class="margin-right">' +
-                    '<a class="button u-full-width screen-gamebooks-book" href="' + __.route.getHomeUrl() + '/gamebook">' + gamebook.name +'</a>' +
+                    '<a class="button u-full-width screen-gamebooks-book" href="' + __.route.getScreenUrl('gamebook') + '">' + gamebook.name +'</a>' +
                 '</div>' +
             '</div>'
         );
@@ -74,16 +71,21 @@
     var hide = function() {
 		__.dom.hide("screen-gamebooks");
 	};
-
+	
+	var gamebooksListVersion;
+	
     var initialize = function() {
-		// TODO clean if list has changed, do not initialise twice
         var elementOfGamebooksScreen = document.getElementById(chooseAdventureDiv);
         if (!elementOfGamebooksScreen) {
             return ;
         }
 		
 		var gamebooks = __.data.getGamebooksList();
-		addGamebooks(gamebooks);
+		if (!gamebooksListVersion || gamebooksListVersion !== gamebooks.version) {
+			// TODO clean books
+			addGamebooks(gamebooks.gamebooks);
+			gamebooksListVersion = gamebooks.version;
+		}
 		
         __.route.onhashchange = configureAdminMode;
         configureAdminMode();

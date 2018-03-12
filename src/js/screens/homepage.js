@@ -1,6 +1,3 @@
-/**
- * Javascript function that will add for every supported language, an anchor html tag in the div with id 'footer_language'
- */
 (function(globals){
     "use strict";
 	globals._ = globals._ || {};

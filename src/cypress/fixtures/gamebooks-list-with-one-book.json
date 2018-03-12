@@ -1,8 +1,1 @@
-[
-  {
-	"id": "fa2dc5d4-4af1-44ad-be1d-a0ee8de12c0d",
-	"name": "Le Sorcier de la Montagne de Feu",
-	"serie": "Défis Fantastiques",
-	"order": "10"
-  }
-]
+{ "version": "1", "gamebooks": [{ "id": "fa2dc5d4-4af1-44ad-be1d-a0ee8de12c0d", "name": "Le Sorcier de la Montagne de Feu", "serie": "Défis Fantastiques", "order": "10" }]}

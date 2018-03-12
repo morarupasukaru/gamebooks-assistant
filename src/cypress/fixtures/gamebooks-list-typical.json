@@ -1,183 +1,186 @@
-[
-  {
-	"id": "fa2dc5d4-4af1-44ad-be1d-a0ee8de12c0d",
-	"name": "Le Sorcier de la Montagne de Feu",
-	"serie": "Défis Fantastiques",
-	"order": "1"
-  },
-  {
-	"id": "13a8297d-020e-4386-8541-af6a5ca4bbf2",
-	"name": "Retour à la Montagne de Feu",
-	"serie": "Défis Fantastiques",
-	"order": "2"
-  },
-  {
-	"id": "e6726ee7-45f5-44d6-a0c0-2e9f348fc125",
-	"name": "La Légende de Zagor",
-	"serie": "Défis Fantastiques",
-	"order": "3"
-  },
-  {
-	"id": "48ee31ef-066b-4ea2-9d2b-b05d0442b0d8",
-	"name": "Interlude Sylvain",
-	"serie": "Défis Fantastiques",
-	"order": "4"
-  },
-  {
-	"id": "0af26d05-2b99-4845-8c15-26c6fa2f5be3",
-	"name": "La Forêt de la Malédiction",
-	"serie": "Défis Fantastiques",
-	"order": "5"
-  },
-  {
-	"id": "5a3dbd09-576e-45d8-a5ba-123679c72797",
-	"name": "Le Temple de la Terreur",
-	"serie": "Défis Fantastiques",
-	"order": "6"
-  },
-  {
-	"id": "30b4becb-c2c8-4cc8-8ce0-c6785cfcbbc2",
-	"name": "Le Labyrinthe de la Mort",
-	"serie": "Défis Fantastiques",
-	"order": "7"
-  },
-  {
-	"id": "c0b98802-6bd1-44c1-bfa2-e664d9436ce7",
-	"name": "L'épreuve des Champions",
-	"serie": "Défis Fantastiques",
-	"order": "8"
-  },
-  {
-	"id": "de6bd298-3684-4964-9508-78cc317b966f",
-	"name": "Les Sombres Cohortes",
-	"serie": "Défis Fantastiques",
-	"order": "9"
-  },
-  {
-	"id": "a91eb3af-2a76-4244-9e8e-18079516c33e",
-	"name": "Le Talisman de la Mort",
-	"serie": "Défis Fantastiques",
-	"order": "10"
-  },
-  {
-	"id": "cc9cd2b2-2ead-4811-a3af-5e50b639c3b2",
-	"name": "Retour à Griseguilde",
-	"serie": "Défis Fantastiques",
-	"order": "11"
-  },
-  {
-	"id": "5d310ebc-a9a4-4c83-a48b-dded18c781cb",
-	"name": "La Créature venue du Chaos",
-	"serie": "Défis Fantastiques",
-	"order": "12"
-  },
-  {
-	"id": "9bd356ac-a080-4676-9fed-e79addb5a6f6",
-	"name": "La Nuit du Nécromancien",
-	"serie": "Défis Fantastiques",
-	"order": "13"
-  },
-  {
-	"id": "5d7893a4-acfa-4fe3-a64b-4a225bebcc8e",
-	"name": "Le Manoir de l'Enfer",
-	"serie": "Défis Fantastiques",
-	"order": "14"
-  },
-  {
-	"id": "af3bce34-0699-4875-8adf-70dbccf07f61",
-	"name": "Le Manoir aux maléfices",
-	"serie": "Défis Fantastiques",
-	"order": "15"
-  },
-  {
-	"id": "0c056bb6-6edd-4277-9a26-b1c08d67e34d",
-	"name": "L'Horreur dans la Vallée",
-	"serie": "Les Portes Interdites",
-	"order": "1"
-  },
-  {
-	"id": "72c843ef-661f-45b3-a4cb-6b3201fc9db5",
-	"name": "Terreur hors du Temps",
-	"serie": "Les Portes Interdites",
-	"order": "2"
+{
+	"version": "1",
+	"gamebooks": [
+	  {
+		"id": "fa2dc5d4-4af1-44ad-be1d-a0ee8de12c0d",
+		"name": "Le Sorcier de la Montagne de Feu",
+		"serie": "Défis Fantastiques",
+		"order": "1"
+	  },
+	  {
+		"id": "13a8297d-020e-4386-8541-af6a5ca4bbf2",
+		"name": "Retour à la Montagne de Feu",
+		"serie": "Défis Fantastiques",
+		"order": "2"
+	  },
+	  {
+		"id": "e6726ee7-45f5-44d6-a0c0-2e9f348fc125",
+		"name": "La Légende de Zagor",
+		"serie": "Défis Fantastiques",
+		"order": "3"
+	  },
+	  {
+		"id": "48ee31ef-066b-4ea2-9d2b-b05d0442b0d8",
+		"name": "Interlude Sylvain",
+		"serie": "Défis Fantastiques",
+		"order": "4"
+	  },
+	  {
+		"id": "0af26d05-2b99-4845-8c15-26c6fa2f5be3",
+		"name": "La Forêt de la Malédiction",
+		"serie": "Défis Fantastiques",
+		"order": "5"
+	  },
+	  {
+		"id": "5a3dbd09-576e-45d8-a5ba-123679c72797",
+		"name": "Le Temple de la Terreur",
+		"serie": "Défis Fantastiques",
+		"order": "6"
+	  },
+	  {
+		"id": "30b4becb-c2c8-4cc8-8ce0-c6785cfcbbc2",
+		"name": "Le Labyrinthe de la Mort",
+		"serie": "Défis Fantastiques",
+		"order": "7"
+	  },
+	  {
+		"id": "c0b98802-6bd1-44c1-bfa2-e664d9436ce7",
+		"name": "L'épreuve des Champions",
+		"serie": "Défis Fantastiques",
+		"order": "8"
+	  },
+	  {
+		"id": "de6bd298-3684-4964-9508-78cc317b966f",
+		"name": "Les Sombres Cohortes",
+		"serie": "Défis Fantastiques",
+		"order": "9"
+	  },
+	  {
+		"id": "a91eb3af-2a76-4244-9e8e-18079516c33e",
+		"name": "Le Talisman de la Mort",
+		"serie": "Défis Fantastiques",
+		"order": "10"
+	  },
+	  {
+		"id": "cc9cd2b2-2ead-4811-a3af-5e50b639c3b2",
+		"name": "Retour à Griseguilde",
+		"serie": "Défis Fantastiques",
+		"order": "11"
+	  },
+	  {
+		"id": "5d310ebc-a9a4-4c83-a48b-dded18c781cb",
+		"name": "La Créature venue du Chaos",
+		"serie": "Défis Fantastiques",
+		"order": "12"
+	  },
+	  {
+		"id": "9bd356ac-a080-4676-9fed-e79addb5a6f6",
+		"name": "La Nuit du Nécromancien",
+		"serie": "Défis Fantastiques",
+		"order": "13"
+	  },
+	  {
+		"id": "5d7893a4-acfa-4fe3-a64b-4a225bebcc8e",
+		"name": "Le Manoir de l'Enfer",
+		"serie": "Défis Fantastiques",
+		"order": "14"
+	  },
+	  {
+		"id": "af3bce34-0699-4875-8adf-70dbccf07f61",
+		"name": "Le Manoir aux maléfices",
+		"serie": "Défis Fantastiques",
+		"order": "15"
+	  },
+	  {
+		"id": "0c056bb6-6edd-4277-9a26-b1c08d67e34d",
+		"name": "L'Horreur dans la Vallée",
+		"serie": "Les Portes Interdites",
+		"order": "1"
+	  },
+	  {
+		"id": "72c843ef-661f-45b3-a4cb-6b3201fc9db5",
+		"name": "Terreur hors du Temps",
+		"serie": "Les Portes Interdites",
+		"order": "2"
 
-  },
-  {
-	"id": "f579ad68-45af-4f0d-9cf7-79dc85cfe0db",
-	"name": "Les Collines Maléfiques",
-	"serie": "Sorcellerie!",
-	"order": "1"
-  },
-  {
-	"id": "2d5c0130-b607-4f06-964a-672b8bf2637c",
-	"name": "La Cité des Pièges",
-	"serie": "Sorcellerie!",
-	"order": "2"
-  },
-  {
-	"id": "cd539f23-eb17-4307-9a6d-91b18b6e3dfc",
-	"name": "Les Sept Serpents",
-	"serie": "Sorcellerie!",
-	"order": "3"
-  },
-  {
-	"id": "9dfeb1b5-86a4-4ea8-a3e4-91fb13cab6c5",
-	"name": "La Couronne des Rois",
-	"serie": "Sorcellerie!",
-	"order": "4"
-  },
-  {
-	"id": "1be6035b-d7e4-4e95-880b-ea7840ee81f3",
-	"name": "Le Château des Ténèbres",
-	"serie": "Quête du Graal",
-	"order": "1"
-  },
-  {
-	"id": "1fb7616a-9c7b-4159-95a2-edb458f21142",
-	"name": "L'Antre des Dragons",
-	"serie": "Quête du Graal",
-	"order": "2"
-  },
-  {
-	"id": "6efe59e7-03f3-4ee5-b9c8-01a7decf0c34",
-	"name": "Les Portes de l'Au-delà",
-	"serie": "Quête du Graal",
-	"order": "3"
-  },
-  {
-	"id": "4bf7e172-b4ae-4407-93d5-df26441433a5",
-	"name": "Le Voyage de l'Effroi",
-	"serie": "Quête du Graal",
-	"order": "4"
-  },
-  {
-	"id": "abd4be03-dd1c-474c-b776-f73e12502551",
-	"name": "La Guilde des Voleurs",
-	"serie": "Quête du Graal",
-	"order": "1.5"
-  },
-  {
-	"id": "69ee5da9-5513-4074-a1bb-a5a8117a7ac5",
-	"name": "Au Royaume de l'Epouvante",
-	"serie": "Quête du Graal",
-	"order": "5"
-  },
-  {
-	"id": "a30f0adb-eb1d-4c86-8a1f-a3eb20e4f5c4",
-	"name": "Le Temps de la Malédiction",
-	"serie": "Quête du Graal",
-	"order": "6"
-  },
-  {
-	"id": "89e503d4-0812-4581-b0d1-84929f800781",
-	"name": "Le Tombeau des Maléfices",
-	"serie": "Quête du Graal",
-	"order": "7"
-  },
-  {
-	"id": "298e0a62-c52b-4d07-a58b-c1b49c2b2cb8",
-	"name": "La Légion des Morts",
-	"serie": "Quête du Graal",
-	"order": "8"
-  }
-]
+	  },
+	  {
+		"id": "f579ad68-45af-4f0d-9cf7-79dc85cfe0db",
+		"name": "Les Collines Maléfiques",
+		"serie": "Sorcellerie!",
+		"order": "1"
+	  },
+	  {
+		"id": "2d5c0130-b607-4f06-964a-672b8bf2637c",
+		"name": "La Cité des Pièges",
+		"serie": "Sorcellerie!",
+		"order": "2"
+	  },
+	  {
+		"id": "cd539f23-eb17-4307-9a6d-91b18b6e3dfc",
+		"name": "Les Sept Serpents",
+		"serie": "Sorcellerie!",
+		"order": "3"
+	  },
+	  {
+		"id": "9dfeb1b5-86a4-4ea8-a3e4-91fb13cab6c5",
+		"name": "La Couronne des Rois",
+		"serie": "Sorcellerie!",
+		"order": "4"
+	  },
+	  {
+		"id": "1be6035b-d7e4-4e95-880b-ea7840ee81f3",
+		"name": "Le Château des Ténèbres",
+		"serie": "Quête du Graal",
+		"order": "1"
+	  },
+	  {
+		"id": "1fb7616a-9c7b-4159-95a2-edb458f21142",
+		"name": "L'Antre des Dragons",
+		"serie": "Quête du Graal",
+		"order": "2"
+	  },
+	  {
+		"id": "6efe59e7-03f3-4ee5-b9c8-01a7decf0c34",
+		"name": "Les Portes de l'Au-delà",
+		"serie": "Quête du Graal",
+		"order": "3"
+	  },
+	  {
+		"id": "4bf7e172-b4ae-4407-93d5-df26441433a5",
+		"name": "Le Voyage de l'Effroi",
+		"serie": "Quête du Graal",
+		"order": "4"
+	  },
+	  {
+		"id": "abd4be03-dd1c-474c-b776-f73e12502551",
+		"name": "La Guilde des Voleurs",
+		"serie": "Quête du Graal",
+		"order": "1.5"
+	  },
+	  {
+		"id": "69ee5da9-5513-4074-a1bb-a5a8117a7ac5",
+		"name": "Au Royaume de l'Epouvante",
+		"serie": "Quête du Graal",
+		"order": "5"
+	  },
+	  {
+		"id": "a30f0adb-eb1d-4c86-8a1f-a3eb20e4f5c4",
+		"name": "Le Temps de la Malédiction",
+		"serie": "Quête du Graal",
+		"order": "6"
+	  },
+	  {
+		"id": "89e503d4-0812-4581-b0d1-84929f800781",
+		"name": "Le Tombeau des Maléfices",
+		"serie": "Quête du Graal",
+		"order": "7"
+	  },
+	  {
+		"id": "298e0a62-c52b-4d07-a58b-c1b49c2b2cb8",
+		"name": "La Légion des Morts",
+		"serie": "Quête du Graal",
+		"order": "8"
+	  }
+	]
+}

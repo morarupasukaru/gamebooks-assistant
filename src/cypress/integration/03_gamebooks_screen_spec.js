@@ -75,12 +75,12 @@ function testGamebookList(json, firstSerieName, serieCount, firstgamebookName, g
 			cy.get(selectionFirstGamebook).should('be.visible');
 			cy.get(selectionFirstGamebook).contains(firstgamebookName);
 			cy.get(selectionFirstGamebook).click();
-			cy.url().should('eq', common.getBaseUrl() + '/gamebook/');
+			cy.url().should('eq', common.getBaseUrl() + '/#gamebook');
 		}
 	};
 }
 
-describe('02 - Gamebook Selection screen', function () {
+describe('03 - Gamebook Selection screen', function () {
 	context('Content', function () {
 		beforeEach(function () {
 			cy.visit('/#gamebooks');

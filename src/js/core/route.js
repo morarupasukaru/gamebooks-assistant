@@ -122,8 +122,18 @@
 	};
 	
 	api.getScreenUrl = function(screenId) {
-		var homeUrl = api.getHomeUrl();
-		return homeUrl + screenId; // TODO
+		var screenUrl;
+		if (!!__.screens) {
+			var homeUrl = api.getHomeUrl();
+			for (var i = 0; i < __.screens.length; i++) {
+				var screen = __.screens[i];
+				if (screen.id === screenId) {
+					screenUrl = homeUrl + screen.routeUrl;
+					break;
+				}
+			}
+		}
+		return screenUrl;
 	};
 	
 	var getScreenFromHash = function(firstPathFromHash) {

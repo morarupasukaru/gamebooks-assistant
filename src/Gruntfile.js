@@ -110,8 +110,8 @@ module.exports = function(grunt) {
                     'js/**/core/internationalization.js',
                     'js/**/components/footer_language.js',
                     'js/**/screens/homepage.js',
-                    'js/**/screens/pageNotFound/pageNotFound.js',
-                    'js/**/screens/gamebooks/gamebooks.js',
+                    'js/**/screens/pageNotFound.js',
+                    'js/**/screens/gamebooks.js',
                     'js/**/core/route.js',
                     'js/**/core/initialisation.js'
                 ]
