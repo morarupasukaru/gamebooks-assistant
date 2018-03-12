@@ -169,7 +169,5 @@ export function adminSettingTests(url) {
 			});
 		})
 	};
-	
-	// TODO unsupported localStorage (modify localStorage api)
 };
 

@@ -10,7 +10,6 @@
     var addLanguageToFooter = function(language, languageText) {
         var footerDiv = document.getElementById(divId);
         var linkElement = document.createElement('a');
-        linkElement.setAttribute('href', '#');
         linkElement.setAttribute('id', 'footer-lang-' + language);
         linkElement.setAttribute('hreflang', language);
         linkElement.setAttribute('onClick', "_.i18n.setLanguage('" + language + "');");

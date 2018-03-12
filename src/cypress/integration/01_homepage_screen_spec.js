@@ -24,7 +24,7 @@ describe('01 - Homepage screen', function () {
 		it('Content - Selectbook Button', function() {
 			common.checkI18nElementTextWithDataAttribute('#screen-home-selectbookBtn', 'Sélection du livre-jeu', 'Select the gamebook');
 			cy.get('#screen-home-selectbookBtn').click();
-			cy.url().should('eq', common.getBaseUrl() + '/gamebooks/');
+			cy.url().should('eq', common.getBaseUrl() + '/#gamebooks');
 		})
 	}),
 	

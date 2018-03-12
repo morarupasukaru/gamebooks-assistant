@@ -7,7 +7,7 @@ function testGamebookList(json, firstSerieName, serieCount, firstgamebookName, g
 				localStorage.setItem('gamebooksList', JSON.stringify(json));
 			});
 		}
-		cy.visit('/gamebooks');
+		cy.visit('/#gamebooks');
 		
 		if (serieCount == 0) {
 			expect(firstSerieName).to.be.undefined;
@@ -83,7 +83,7 @@ function testGamebookList(json, firstSerieName, serieCount, firstgamebookName, g
 describe('02 - Gamebook Selection screen', function () {
 	context('Content', function () {
 		beforeEach(function () {
-			cy.visit('/gamebooks');
+			cy.visit('/#gamebooks');
 		})
 		
 		it('Title', function() {
@@ -112,19 +112,19 @@ describe('02 - Gamebook Selection screen', function () {
 
 	context('Admin Button', function () {
 		it('Admin Button - hidden per default', function() {
-			cy.visit('/gamebooks');
+			cy.visit('/#gamebooks');
 			cy.get('#screen-gamebooks-adminBtn').should('not.be.visible');
 		})
 		
 		it('Admin Button - hidden with /...?adminDisabled', function() {
-			cy.visit('/gamebooks?adminDisabled').should(function () {
+			cy.visit('/#gamebooks?adminDisabled').should(function () {
 				expect(localStorage.getItem('adminEnabled')).to.eq('false');
 			});
 			cy.get('#screen-gamebooks-adminBtn').should('not.be.visible');
 		})
 		
 		it('Admin Button - hidden with /...?adminEnabled', function() {
-			cy.visit('/gamebooks?adminEnabled').should(function () {
+			cy.visit('/#gamebooks?adminEnabled').should(function () {
 				expect(localStorage.getItem('adminEnabled')).to.eq('true');
 			});
 			cy.get('#screen-gamebooks-adminBtn').should('be.visible');
@@ -132,13 +132,13 @@ describe('02 - Gamebook Selection screen', function () {
 		
 		it('Admin Button - hidden with localStorage.adminEnabled = false', function() {
 			cy.setLocalStorageItem('adminEnabled', 'false');
-			cy.visit('/gamebooks');
+			cy.visit('/#gamebooks');
 			cy.get('#screen-gamebooks-adminBtn').should('not.be.visible');
 		})
 		
 		it('Admin Button - visible with localStorage.adminEnabled = true', function() {
 			cy.setLocalStorageItem('adminEnabled', 'true');
-			cy.visit('/gamebooks');
+			cy.visit('/#gamebooks');
 			cy.get('#screen-gamebooks-adminBtn').should('be.visible');
 		})
 	}),
@@ -155,10 +155,10 @@ describe('02 - Gamebook Selection screen', function () {
 		it('Gamebooks list unordered', testGamebookList('gamebooks-list-unordered.json', 'Défis Fantastiques', 2, 'Le Sorcier de la Montagne de Feu', 5))
 	}),
 	
-	context('Footer', common.footerTests('/gamebooks')),
+	context('Footer', common.footerTests('/#gamebooks')),
 	
-	context('Modal', common.modalTests('/gamebooks')),
+	context('Modal', common.modalTests('/#gamebooks')),
 	
-	context('adminEnabled Settings', common.adminSettingTests('/gamebooks'))
+	context('adminEnabled Settings', common.adminSettingTests('/#gamebooks'))
 });
 
