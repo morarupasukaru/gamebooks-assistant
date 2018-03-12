@@ -12,25 +12,13 @@
         savedLanguage : 'savedLanguage',
 		gamebooksList : 'gamebooksList',
 		adminEnabled : 'adminEnabled',
-		currentScreen: 'currentScreen'
+		currentScreenId: 'currentScreenId'
     };
 
     api.languages = {
         default : 'en',
         supported : ['fr', 'en']
     };
-	
-	api.screens = {
-		homepage: 'homepage',
-		gamebooks: 'gamebooks',
-		pageNotFound: 'pageNotFound'
-	};
-	
-	api.urlOfScreens = {
-		null: api.screens.homepage,
-		'gamebooks': api.screens.gamebooks,
-		'404': api.screens.pageNotFound
-	};
 
     api.texts = {
         errorFeatureNotImplemented : "error-feature-not-implemented",

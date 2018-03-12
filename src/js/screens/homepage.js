@@ -17,11 +17,13 @@
 		__.dom.hide("screen-homepage");
 	};
 
-    __.screens = __.screens || {};
-	__.screens[__.config.screens.homepage] = {
-		initialize: null,
+    __.screens = __.screens || [];
+	__.screens.push({
+		id: 'home',
+		routeUrl: null,
+		initialize: function() {},
 		display: display,
 		hide: hide
-	};
+	});
 
 } (this));

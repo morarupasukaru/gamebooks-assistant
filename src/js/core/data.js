@@ -98,12 +98,12 @@
 		set(__.config.storageKeys.adminEnabled, adminEnabled);
 	};
 	
-	api.getCurrentScreen = function() {
-		return get(__.config.storageKeys.currentScreen);
+	api.getCurrentScreenId = function() {
+		return get(__.config.storageKeys.currentScreenId);
 	};
 	
-	api.setCurrentScreen = function(screen) {
-		set(__.config.storageKeys.currentScreen, screen);
+	api.setCurrentScreenId = function(screen) {
+		set(__.config.storageKeys.currentScreenId, screen);
 	};
 
     /**

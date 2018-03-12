@@ -17,11 +17,13 @@
 		__.dom.hide("screen-pageNotFound");
 	};
 
-    __.screens = __.screens || {};
-	__.screens[__.config.screens.pageNotFound] = {
-		initialize: null,
+    __.screens = __.screens || [];
+	__.screens.push({
+		id: 'pageNotFound',
+		routeUrl: '404',
+		initialize: function() {},
 		display: display,
 		hide: hide
-	};
+	});
 
 } (this));

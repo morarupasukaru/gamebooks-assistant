@@ -109,44 +109,68 @@
 		}
     };
 	
-	var initializeScreen = function(screen) {
-		if (!!__.screens[screen] && !!__.screens[screen].initialize) {
-			__.screens[screen].initialize();
+	var baseUrlPrefix = {};
+	baseUrlPrefix['http://morarupasukaru.github.io'] = '/gamebooks-assistant#';
+	
+	api.getHomeUrl = function() {
+		var host = globals.location.host;
+		var homeUrl = baseUrlPrefix[host];
+		if (!homeUrl) {
+			homeUrl = '#';
 		}
+		return homeUrl;
 	};
 	
-	var displayScreen = function(screen) {
-		if (!!__.screens[screen] && !!__.screens[screen].display) {
-			__.screens[screen].display();
-		}
+	api.getScreenUrl = function(screenId) {
+		var homeUrl = api.getHomeUrl();
+		return homeUrl + screenId; // TODO
 	};
 	
-	var hideScreen = function(screen) {
-		if (!!__.screens[screen] && !!__.screens[screen].hide) {
-			__.screens[screen].hide();
+	var getScreenFromHash = function(firstPathFromHash) {
+		if (!!__.screens) {
+			for (var i = 0; i < __.screens.length; i++) {
+				var screen = __.screens[i];
+				if (screen.routeUrl === firstPathFromHash) {
+					return screen;
+				}
+			}
 		}
+		return null;
 	};
 	
-	var initializeAndDisplayScreen = function(screen) {
-		initializeScreen(screen);
-		displayScreen(screen);
+	var getScreenFromId = function(screenId) {
+		if (!!__.screens) {
+			for (var i = 0; i < __.screens.length; i++) {
+				var screen = __.screens[i];
+				if (screen.id === screenId) {
+					return screen;
+				}
+			}
+		}
+		return null;
 	};
+	
+	var pageNotFound = getScreenFromHash('404');
     
     var computeScreen = function() {
-		var firstPathFromHash = getFirstPathFromHash();
-		var screen = __.config.urlOfScreens[firstPathFromHash];
+		var screen = getScreenFromHash(getFirstPathFromHash());
 		if (!screen) {
-			screen = __.config.screens.pageNotFound;
+			screen = pageNotFound;
 		}
-		var currentScreen = __.data.getCurrentScreen();
-		if (!!currentScreen && screen !== currentScreen) {
-			initializeScreen(screen);
-			hideScreen(currentScreen);
-			displayScreen(screen);
+		var currentScreenId = __.data.getCurrentScreenId();
+		var currentScreen;
+		if (!!currentScreenId) {
+			currentScreen = getScreenFromId(currentScreenId);
+		}
+		if (!!currentScreen && screen.id !== currentScreen.id) {
+			screen.initialize();
+			currentScreen.hide();
+			screen.display();
 		} else {
-			initializeAndDisplayScreen(screen);
+			screen.initialize();
+			screen.display();
 		}
-		__.data.setCurrentScreen(screen);
+		__.data.setCurrentScreenId(screen.id);
     };
 	
 	var computeHashChange = function() {

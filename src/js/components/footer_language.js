@@ -23,6 +23,7 @@
         addLanguageToFooter(supportedLanguages[i], __.config.texts[supportedLanguages[i]]);
     }
 	
+	
 	api.displayHomepageFooter = function() {
 		__.dom.display('footer-githubLink');
 		__.dom.hide('footer-lefttext');
@@ -34,4 +35,12 @@
 		__.dom.display('footer-homeLink');
 		__.dom.hide('footer-githubLink');
 	};
+
+    /**
+     * Module initialisation method
+     */
+    api.initialize = function() {
+		var homeLinkElement = document.getElementById('footer-homeLink');
+		homeLinkElement.setAttribute('href', __.route.getHomeUrl());
+    };
 } (this, 'footer-language'));
