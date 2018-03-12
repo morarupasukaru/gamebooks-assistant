@@ -73,7 +73,6 @@
 	};
 	
 	var gamebooksListVersion;
-	
     var initialize = function() {
         var elementOfGamebooksScreen = document.getElementById(chooseAdventureDiv);
         if (!elementOfGamebooksScreen) {
@@ -81,7 +80,7 @@
         }
 		
 		var gamebooks = __.data.getGamebooksList();
-		if (!gamebooksListVersion || gamebooksListVersion !== gamebooks.version) {
+		if (!!gamebooks && (!gamebooksListVersion || gamebooksListVersion !== gamebooks.version)) {
 			// TODO clean books
 			addGamebooks(gamebooks.gamebooks);
 			gamebooksListVersion = gamebooks.version;

@@ -1,5 +1,65 @@
 import * as common from '../sharedTests';
 	
+function testGamebookListContent(firstSerieName, serieCount, firstgamebookName, gamebooksCount) {
+	expect(firstSerieName).not.to.be.undefined;
+	expect(firstgamebookName).not.to.be.undefined;
+	expect(gamebooksCount > 0).to.be.true;
+	
+	cy.get('.screen-gamebooks-serie').then(($series) => {
+		var seriesName = $series.map((i, el) => {
+			return Cypress.$(el).text()
+		});
+		var previous;
+		expect(seriesName.length).to.equal(serieCount);
+		
+		if (!!firstSerieName) {
+			expect(seriesName[0]).to.equal(firstSerieName);
+		}
+		for (var i = 0; i < seriesName.length; i++) {
+			if (!!previous) {
+				expect(previous <= seriesName[i]).to.be.true;
+			} else {
+			}
+			previous = seriesName[i];
+		}
+	});
+	
+	cy.get('.screen-gamebooks-book').then(($gamebooks) => {
+		var gamebooksStr = localStorage.getItem('gamebooksList');
+		var gamebooksData = JSON.parse(gamebooksStr);
+		var gamebooks = gamebooksData.gamebooks;
+		gamebooks = gamebooks.sort(function(obj1, obj2) {
+			if (obj1.serie < obj2.serie) {
+				return -1;
+			} else if (obj1.serie > obj2.serie) {
+				return 1;
+			} else {
+				return obj1.order - obj2.order;
+				if (obj1.order < obj2.order) {
+					return -1;
+				} else if (obj1.order > obj2.order) {
+					return 1;
+				} else {
+					return 0;
+				}
+			}
+		});
+		
+		var gamebooksName = $gamebooks.map((i, el) => {
+			return Cypress.$(el).text()
+		});
+		expect(gamebooks.length).to.equal(gamebooksCount);
+		expect(gamebooksName.length).to.equal(gamebooks.length);
+		
+		if (!!firstgamebookName) {
+			expect(gamebooksName[0]).to.equal(firstgamebookName);
+		}
+		for (var i = 0; i < gamebooksName.length; i++) {
+			expect(gamebooksName[i]).to.equal(gamebooks[i].name);
+		}
+	});
+}
+
 function testGamebookList(json, firstSerieName, serieCount, firstgamebookName, gamebooksCount) {
 	return function() {
 		if (!!json) {
@@ -14,68 +74,16 @@ function testGamebookList(json, firstSerieName, serieCount, firstgamebookName, g
 			cy.get('.screen-gamebooks-serie').should('not.be.visible');
 			cy.get('.screen-gamebooks-book').should('not.be.visible');
 		} else {
-			expect(firstSerieName).not.to.be.undefined;
-			expect(firstgamebookName).not.to.be.undefined;
-			expect(gamebooksCount > 0).to.be.true;
-			
-			cy.get('.screen-gamebooks-serie').then(($series) => {
-				var seriesName = $series.map((i, el) => {
-					return Cypress.$(el).text()
-				});
-				var previous;
-				expect(seriesName.length).to.equal(serieCount);
-				
-				if (!!firstSerieName) {
-					expect(seriesName[0]).to.equal(firstSerieName);
-				}
-				for (var i = 0; i < seriesName.length; i++) {
-					if (!!previous) {
-						expect(previous <= seriesName[i]).to.be.true;
-					} else {
-					}
-					previous = seriesName[i];
-				}
-			});
-			
-			cy.get('.screen-gamebooks-book').then(($gamebooks) => {
-				var gamebooksStr = localStorage.getItem('gamebooksList');
-				var gamebooks = JSON.parse(gamebooksStr);
-				gamebooks = gamebooks.sort(function(obj1, obj2) {
-					if (obj1.serie < obj2.serie) {
-						return -1;
-					} else if (obj1.serie > obj2.serie) {
-						return 1;
-					} else {
-						return obj1.order - obj2.order;
-						if (obj1.order < obj2.order) {
-							return -1;
-						} else if (obj1.order > obj2.order) {
-							return 1;
-						} else {
-							return 0;
-						}
-					}
-				});
-				
-				var gamebooksName = $gamebooks.map((i, el) => {
-					return Cypress.$(el).text()
-				});
-				expect(gamebooks.length).to.equal(gamebooksCount);
-				expect(gamebooksName.length).to.equal(gamebooks.length);
-				
-				if (!!firstgamebookName) {
-					expect(gamebooksName[0]).to.equal(firstgamebookName);
-				}
-				for (var i = 0; i < gamebooksName.length; i++) {
-					expect(gamebooksName[i]).to.equal(gamebooks[i].name);
-				}
-			});
+			testGamebookListContent(firstSerieName, serieCount, firstgamebookName, gamebooksCount);
 			
 			var selectionFirstGamebook = '.screen-gamebooks-book:first';
 			cy.get(selectionFirstGamebook).should('be.visible');
 			cy.get(selectionFirstGamebook).contains(firstgamebookName);
 			cy.get(selectionFirstGamebook).click();
 			cy.url().should('eq', common.getBaseUrl() + '/#gamebook');
+			
+			cy.visit('/#gamebooks');
+			testGamebookListContent(firstSerieName, serieCount, firstgamebookName, gamebooksCount);
 		}
 	};
 }

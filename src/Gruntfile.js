@@ -111,6 +111,7 @@ module.exports = function(grunt) {
                     'js/**/components/footer_language.js',
                     'js/**/screens/homepage.js',
                     'js/**/screens/pageNotFound.js',
+                    'js/**/screens/gamebook.js',
                     'js/**/screens/gamebooks.js',
                     'js/**/core/route.js',
                     'js/**/core/initialisation.js'
