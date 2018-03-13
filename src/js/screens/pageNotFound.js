@@ -14,9 +14,14 @@
 		__.dom.hide("screen-pageNotFound");
 	};
 	
+	var initialized = false;
     var initialize = function() {
+		if (!!initialized) {
+			return ;
+		}
 		var homeBtn = document.getElementById('screen-pageNotFound-backToHomeBtn');
 		homeBtn.setAttribute('href', __.route.getHomeUrl());
+		initialized = true;
     };
 
     __.screens = __.screens || [];

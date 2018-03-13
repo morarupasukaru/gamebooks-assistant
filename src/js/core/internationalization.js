@@ -52,7 +52,11 @@
     /**
      * Module initialisation method
      */
+	var initialized = false;
     api.initialize = function() {
+		if (!!initialized) {
+			return ;
+		}
         if (!__.config) {
             throw 'config is unavailable';
         }
@@ -77,5 +81,6 @@
             }
             this.setLanguage(newLanguage);
         }
+		initialized = true;
     };
 } (this));

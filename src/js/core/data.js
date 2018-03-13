@@ -58,6 +58,17 @@
             }
         }
     };
+	
+	api.getAllData = function() {
+		var dump = {};
+		var keys = Object.keys(localStorage);
+		keys = keys.sort();
+		for (var i = 0; i < keys.length; i++) {
+			var key = keys[i];
+			dump[key] = get(key);
+		}
+		return dump;
+	};
 
     /**
      * Save some data with given key in the localstorage
@@ -109,11 +120,16 @@
     /**
      * Module initialisation method
      */
+	var initialized = false;
     api.initialize = function() {
+		if (!!initialized) {
+			return ;
+		}
         lazyInitialisation();
         if (!api.isLocalStorageAvailable) {
             throw __.config.texts.errorLocalstorageUnavailable;
         }
+		initialized = true;
     };
 
     // TODO load json data with an http get call

@@ -39,8 +39,13 @@
     /**
      * Module initialisation method
      */
+	var initialized = false;
     api.initialize = function() {
+		if (!!initialized) {
+			return ;
+		}
 		var homeLinkElement = document.getElementById('footer-homeLink');
 		homeLinkElement.setAttribute('href', __.route.getHomeUrl());
+		initialized = true;
     };
 } (this, 'footer-language'));

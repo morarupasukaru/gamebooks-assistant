@@ -98,14 +98,35 @@
         }
         return result;
 	};
+	
+
+    var changeElementVisibleOnlyToAdmin = function(adminEnabled) {
+		var cssSelector = ".only-visible-by-admin";
+        if (!!adminEnabled) {
+			__.dom.displayAllByCssSelector(cssSelector);
+        } else {
+			__.dom.hideAllByCssSelector(cssSelector);
+        }
+    };
     
-    var computeAdminMode = function() {
+    var computeAdminMode = function(forceRefresh) {
         var keyValues = getSearchParams();
         var keys = Object.keys(keyValues);
+		var wasAdminEnabled = !!__.data.isAdminEnabled();
+		var adminEnabled;
 		if (keys.indexOf('adminEnabled') !== -1) {
-			__.data.setAdminEnabled(true);
+			adminEnabled = true;
+			__.data.setAdminEnabled(adminEnabled);
 		} else if (keys.indexOf('adminDisabled') !== -1) {
-			__.data.setAdminEnabled(false);
+			adminEnabled = false;
+			__.data.setAdminEnabled(adminEnabled);
+		}
+		if (!!forceRefresh || adminEnabled !== undefined) {
+			if (adminEnabled !== undefined && wasAdminEnabled !== adminEnabled) {
+				changeElementVisibleOnlyToAdmin(!!adminEnabled);
+			} else {
+				changeElementVisibleOnlyToAdmin(wasAdminEnabled);
+			}
 		}
     };
 	
@@ -183,22 +204,24 @@
 		__.data.setCurrentScreenId(screen.id);
     };
 	
-	var computeHashChange = function() {
-		computeAdminMode();
+	var computeHashChange = function(forceRefresh) {
+		computeAdminMode(forceRefresh);
 		computeScreen();
 	};
     
     globals.onhashchange = function() {
         computeHashChange();
-        if (!!api.onhashchange) {
-            api.onhashchange();
-        }
     };
 
     /**
      * Module initialisation method
      */
+	var initialized = false;
     api.initialize = function() {
-		computeHashChange();
+		if (!!initialized) {
+			return ;
+		}
+		computeHashChange(true);
+		initialized = true;
     };
 } (this));

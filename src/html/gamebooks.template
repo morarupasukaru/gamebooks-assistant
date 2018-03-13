@@ -19,9 +19,8 @@
         </div>
 
         <div class="pure-u-1">
-            <div id="screen-gamebooks-adminBtn" class="margin-right">
-                <!-- TODO href="../gamebook/data" -->
-                <a class="button u-full-width i18n" onclick="_.msg.errorUnsupportedFeature();" data-fr="Données de la liste des livres-jeux" data-en="Gamebooks list data"></a>
+            <div class="only-visible-by-admin margin-right hidden">
+                <a id="screen-gamebooks-showDataBtn" class="button u-full-width i18n" href="#" data-fr="Données de la liste des livres-jeux" data-en="Gamebooks list data"></a>
             </div>
         </div>
     </div>

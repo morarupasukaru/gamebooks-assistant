@@ -13,12 +13,21 @@
     var hide = function() {
 		__.dom.hide("screen-homepage");
 	};
+	
+	var showDataBtnInitialized = false;
+    var initialize = function() {
+		if (!showDataBtnInitialized) {
+			var showDataBtn = document.getElementById('screen-home-showDataBtn');
+			showDataBtn.href = __.route.getScreenUrl('dataOfApplication');
+			showDataBtnInitialized = true;
+		}
+    };
 
     __.screens = __.screens || [];
 	__.screens.push({
 		id: 'home',
 		routeUrl: null,
-		initialize: function() {},
+		initialize: initialize,
 		display: display,
 		hide: hide
 	});

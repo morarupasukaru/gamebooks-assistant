@@ -8,12 +8,20 @@
     var appendSerieTitle = function(title) {
         __.dom.appendHtml(document.getElementById(chooseAdventureDiv), '<div class="pure-u-1"><h2 class="screen-gamebooks-serie">' + title + '</h2></div>');
     };
-    var appendGamebook = function(gamebook) {
+    var appendGamebook = function(gamebook, gamebooksCount) {
         if (!gamebook) {
             return ;
         }
+		var additionalClass;
+		if (gamebooksCount > 2) {
+			additionalClass = ' pure-u-lg-1-3';
+		} else if (gamebooksCount > 1) {
+			additionalClass = ' pure-u-lg-1-2';
+		} else {
+			additionalClass = '';
+		}
         __.dom.appendHtml(document.getElementById(chooseAdventureDiv),
-            '<div class="pure-u-1 pure-u-lg-1-3">' +
+            '<div class="pure-u-1' + additionalClass + '">' +
                 '<div class="margin-right">' +
                     '<a class="button u-full-width screen-gamebooks-book" href="' + __.route.getScreenUrl('gamebook') + '">' + gamebook.name +'</a>' +
                 '</div>' +
@@ -45,21 +53,11 @@
 					return obj1.order - obj2.order;
 				});
 				for (j = 0; j < gamebooksOfSerie.length; j++) {
-					appendGamebook(gamebooksOfSerie[j]);
+					appendGamebook(gamebooksOfSerie[j], gamebooksOfSerie.length);
 				}
 			}
 		}
 	};
-
-    var configureAdminMode = function() {
-		var adminEnabled = __.data.isAdminEnabled();
-		var adminBtnId = "screen-gamebooks-adminBtn";
-        if (!!adminEnabled) {
-			__.dom.display(adminBtnId);
-        } else {
-			__.dom.hide(adminBtnId);
-        }
-    };
 	
     var display = function() {
 		var found = __.dom.display("screen-gamebooks");
@@ -73,6 +71,7 @@
 	};
 	
 	var gamebooksListVersion;
+	var showDataBtnInitialized = false;
     var initialize = function() {
         var elementOfGamebooksScreen = document.getElementById(chooseAdventureDiv);
         if (!elementOfGamebooksScreen) {
@@ -86,8 +85,11 @@
 			gamebooksListVersion = gamebooks.version;
 		}
 		
-        __.route.onhashchange = configureAdminMode;
-        configureAdminMode();
+		if (!showDataBtnInitialized) {
+			var showDataBtn = document.getElementById('screen-gamebooks-showDataBtn');
+			showDataBtn.href = __.route.getScreenUrl('dataOfGamebooks');
+			showDataBtnInitialized = true;
+		}
     };
 
     __.screens = __.screens || [];

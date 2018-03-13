@@ -38,4 +38,22 @@
 			return false;
 		}
 	};
+	
+    api.displayAllByCssSelector = function(cssSelector) {
+		var foundElements = document.querySelectorAll(cssSelector);
+		if (!!foundElements) {
+			for (var i = 0; i < foundElements.length; i++) {
+				foundElements[i].classList.remove("hidden");
+			}
+		}
+	};
+	
+    api.hideAllByCssSelector = function(cssSelector) {
+		var foundElements = document.querySelectorAll(cssSelector);
+		if (!!foundElements) {
+			for (var i = 0; i < foundElements.length; i++) {
+				foundElements[i].classList.add("hidden");
+			}
+		}
+	};
 } (this));

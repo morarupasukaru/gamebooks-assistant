@@ -6,6 +6,9 @@
            data-en="ease the resolution of gamebooks"></p>
         <p>
             <a id="screen-home-selectbookBtn" class="button i18n" href="#gamebooks" data-fr="Sélection du livre-jeu" data-en="Select the gamebook"></a>
+			<span class="only-visible-by-admin hidden">
+				<a id="screen-home-showDataBtn" class="button i18n" href="#" data-fr="Données de l'application" data-en="Data of the application"></a>
+			</span>
         </p>
     </div>
 </div>
