@@ -1,5 +1,5 @@
 {
-	"baseUrl": "http://localhost:9000",
+	"baseUrl": "http://localhost:9001",
 	"baseUrl_minified": "http://localhost:9001",
 	"baseUrl_nonMinified": "http://localhost:9000",
 	"baseUrl_distrib": "http://morarupasukaru.github.io/gamebooks-assistant"

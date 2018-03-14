@@ -3,6 +3,8 @@ export function getBaseUrl() {
 };
 
 export function getLanguage() {
+	var lang = localStorage.getItem('savedLanguage');
+	console.log(lang);
 	return localStorage.getItem('savedLanguage');
 };
 	

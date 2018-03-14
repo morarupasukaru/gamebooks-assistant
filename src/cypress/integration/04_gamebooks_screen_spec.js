@@ -88,7 +88,7 @@ function testGamebookList(json, firstSerieName, serieCount, firstgamebookName, g
 	};
 }
 
-describe('03 - Gamebook Selection screen', function () {
+describe('04 - Gamebook Selection screen', function () {
 	context('Content', function () {
 		beforeEach(function () {
 			cy.visit('/#gamebooks');
@@ -117,37 +117,33 @@ describe('03 - Gamebook Selection screen', function () {
 			cy.modalWithErrorFeatureNotImplemented();
 		})
 	}),
-
-	context('Admin Button', function () {
-		it('Admin Button - hidden per default', function() {
+	
+	context("Show application's data Button", function () {
+		beforeEach(function () {
 			cy.visit('/#gamebooks');
-			cy.get('#screen-gamebooks-adminBtn').should('not.be.visible');
 		})
 		
-		it('Admin Button - hidden with /...?adminDisabled', function() {
-			cy.visit('/#gamebooks?adminDisabled').should(function () {
-				expect(localStorage.getItem('adminEnabled')).to.eq('false');
-			});
-			cy.get('#screen-gamebooks-adminBtn').should('not.be.visible');
+		it('Button hidden per default', function() {
+			cy.get('#screen-gamebooks-showDataBtn').should('not.be.visible');
 		})
 		
-		it('Admin Button - hidden with /...?adminEnabled', function() {
-			cy.visit('/#gamebooks?adminEnabled').should(function () {
-				expect(localStorage.getItem('adminEnabled')).to.eq('true');
-			});
-			cy.get('#screen-gamebooks-adminBtn').should('be.visible');
+		it('Button visible when adminEnabled', function() {
+			cy.visit('/#gamebooks?adminEnabled');
+			common.checkI18nElementTextWithDataAttribute('#screen-gamebooks-showDataBtn', "Données de la liste des livres-jeux", "Gamebooks list data");
+			cy.get('#screen-gamebooks-showDataBtn').click();
+			cy.url().should('eq', common.getBaseUrl() + '/#data-gamebooks');
+			cy.get('#screen-localStorageData-backToHomeBtn').click();
+			cy.url().should('eq', common.getBaseUrl() + '/#gamebooks');
+			cy.get('#screen-gamebooks-showDataBtn').should('be.visible');
 		})
 		
-		it('Admin Button - hidden with localStorage.adminEnabled = false', function() {
-			cy.setLocalStorageItem('adminEnabled', 'false');
+		it('Button hidden when adminDisabled', function() {
+			cy.visit('/#gamebooks?adminDisabled');
+			cy.get('#screen-gamebooks-showDataBtn').should('not.be.visible');
+			cy.get('#footer-homeLink').click();
+			cy.url().should('eq', common.getBaseUrl() + '/#');
 			cy.visit('/#gamebooks');
-			cy.get('#screen-gamebooks-adminBtn').should('not.be.visible');
-		})
-		
-		it('Admin Button - visible with localStorage.adminEnabled = true', function() {
-			cy.setLocalStorageItem('adminEnabled', 'true');
-			cy.visit('/#gamebooks');
-			cy.get('#screen-gamebooks-adminBtn').should('be.visible');
+			cy.get('#screen-gamebooks-showDataBtn').should('not.be.visible');
 		})
 	}),
 

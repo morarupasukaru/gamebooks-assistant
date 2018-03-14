@@ -1,6 +1,7 @@
 import * as common from '../sharedTests';
 
 describe('01 - Homepage screen', function () {
+	
 	context('Content', function () {
 		beforeEach(function () {
 			cy.visit('/');
@@ -39,6 +40,35 @@ describe('01 - Homepage screen', function () {
 		
 		it('Footer - Language Links', function() {
 			common.testFooterLanguageLinks();
+		})
+	}),
+	
+	context("Show application's data Button", function () {
+		beforeEach(function () {
+			cy.visit('/#');
+		})
+		
+		it('Button hidden per default', function() {
+			cy.get('#screen-home-showDataBtn').should('not.be.visible');
+		})
+		
+		it('Button visible when adminEnabled', function() {
+			cy.visit('/#?adminEnabled');
+			common.checkI18nElementTextWithDataAttribute('#screen-home-showDataBtn', "Données de l'application", "Data of the application");
+			cy.get('#screen-home-showDataBtn').click();
+			cy.url().should('eq', common.getBaseUrl() + '/#data-application');
+			cy.get('#screen-localStorageData-backToHomeBtn').click();
+			cy.url().should('eq', common.getBaseUrl() + '/#');
+			cy.get('#screen-home-showDataBtn').should('be.visible');
+		})
+		
+		it('Button hidden when adminDisabled', function() {
+			cy.visit('/#?adminDisabled');
+			cy.get('#screen-home-showDataBtn').should('not.be.visible');
+			cy.get('#screen-home-selectbookBtn').click();
+			cy.url().should('eq', common.getBaseUrl() + '/#gamebooks');
+			cy.visit('/');
+			cy.get('#screen-home-showDataBtn').should('not.be.visible');
 		})
 	}),
 	
