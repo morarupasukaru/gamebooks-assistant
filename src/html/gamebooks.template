@@ -14,7 +14,7 @@
 
         <div class="pure-u-1">
             <div class="margin-right">
-                <a id="screen-gamebooks-addAdventureBtn" class="button u-full-width i18n" onclick="_.msg.errorUnsupportedFeature();" data-fr="Ajout aventure" data-en="Add adventure"></a>
+                <a id="screen-gamebooks-addAdventureBtn" class="button u-full-width i18n" href="#" data-fr="Ajout d'un livre-jeu" data-en="Add gamebook"></a>
             </div>
         </div>
 

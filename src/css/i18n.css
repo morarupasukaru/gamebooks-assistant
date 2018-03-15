@@ -13,3 +13,11 @@
 .i18n-ok::before, .i18n-ok:lang(en)::before, .i18n-ok:lang(fr)::before {
    content: 'OK'
 }
+
+.i18n-cancel::before, .i18n-cancel:lang(en)::before {
+   content: 'Cancel'
+}
+
+.i18n-cancel::before, .i18n-cancel:lang(fr)::before {
+   content: 'Annuler'
+}

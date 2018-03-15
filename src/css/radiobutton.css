@@ -36,7 +36,7 @@ input[type="radio"] {
 }
 
 /* override skeleton js label (find another solution if label must be used like normal form with fields) */
-label {
+input[type="radio"] + label {
   display: inherit;
   font-weight: inherit;
   margin-bottom: inherit;

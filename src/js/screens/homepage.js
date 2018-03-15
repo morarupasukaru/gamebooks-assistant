@@ -26,7 +26,7 @@
     __.screens = __.screens || [];
 	__.screens.push({
 		id: 'home',
-		routeUrl: null,
+		routeUrl: [],
 		initialize: initialize,
 		display: display,
 		hide: hide

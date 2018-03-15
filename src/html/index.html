@@ -30,6 +30,10 @@
     <link rel="stylesheet" href="../css/nowrap-text.css">
     <link rel="stylesheet" href="../css/anchor.css">
     <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/button.css">
+    <link rel="stylesheet" href="../css/form.css">
+    <link rel="stylesheet" href="../css/margins.css">
+    <link rel="stylesheet" href="../css/right-aligned-text.css">
     <link rel="stylesheet" href="../css/splash.css">
     <link rel="stylesheet" href="../css/i18n.css">
     <link rel="stylesheet" href="../css/modal.css">
@@ -38,16 +42,21 @@
 
 <body>
 
-<!-- build:include homepage.template -->
-<!-- /build -->
-<!-- build:include pageNotFound.template -->
-<!-- /build -->
-<!-- build:include localStorageData.template -->
-<!-- /build -->
-<!-- build:include gamebooks.template -->
-<!-- /build -->
-<!-- build:include gamebook.template -->
-<!-- /build -->
+<form onsubmit="_.form.onSubmit();">
+	<!-- build:include homepage.template -->
+	<!-- /build -->
+	<!-- build:include pageNotFound.template -->
+	<!-- /build -->
+	<!-- build:include localStorageData.template -->
+	<!-- /build -->
+	<!-- build:include gamebooks.template -->
+	<!-- /build -->
+	<!-- build:include gamebook.template -->
+	<!-- /build -->
+	<!-- build:include newGamebook.template -->
+	<!-- /build -->
+    <input id="submit-button" type="submit">
+</form>
 
 <!-- line-break to have the footer not overlaping the last adventure choice -->
 <br/>
@@ -89,7 +98,9 @@
 <script src="../js/screens/localStorageData.js"></script>
 <script src="../js/screens/gamebooks.js"></script>
 <script src="../js/screens/gamebook.js"></script>
+<script src="../js/screens/newGamebook.js"></script>
 <script src="../js/core/route.js"></script>
+<script src="../js/core/form.js"></script>
 <script src="../js/core/initialisation.js"></script>
 <!-- /build -->
 

@@ -114,7 +114,9 @@ module.exports = function(grunt) {
                     'js/**/screens/localStorageData.js',
                     'js/**/screens/gamebook.js',
                     'js/**/screens/gamebooks.js',
+                    'js/**/screens/newGamebook.js',
                     'js/**/core/route.js',
+                    'js/**/core/form.js',
                     'js/**/core/initialisation.js'
                 ]
               }

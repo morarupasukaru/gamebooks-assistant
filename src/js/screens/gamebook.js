@@ -17,7 +17,7 @@
     __.screens = __.screens || [];
 	__.screens.push({
 		id: 'gamebook',
-		routeUrl: 'gamebook',
+		routeUrl: ['gamebook'],
 		initialize: function() {},
 		display: display,
 		hide: hide

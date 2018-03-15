@@ -56,4 +56,21 @@
 			}
 		}
 	};
+	
+	api.setText = function(elementId, fr, en) {
+		var titleElement = document.getElementById(elementId);
+		if(!!titleElement) {
+			titleElement.setAttribute('data-fr', fr);
+			titleElement.setAttribute('data-en', en);
+		}
+	};
+	
+	api.setHrefOfScreen = function(elementId, screenId) {
+		var linkElement  = document.getElementById(elementId);
+		if(!!linkElement) {
+			var url = __.route.getScreenUrl(screenId);
+			linkElement.setAttribute('href', url);
+		}
+	};
+	
 } (this));

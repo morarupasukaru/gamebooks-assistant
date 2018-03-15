@@ -19,15 +19,14 @@
 		if (!!initialized) {
 			return ;
 		}
-		var homeBtn = document.getElementById('screen-pageNotFound-backToHomeBtn');
-		homeBtn.setAttribute('href', __.route.getHomeUrl());
+		__.dom.setHrefOfScreen('screen-pageNotFound-backToHomeBtn', 'home');
 		initialized = true;
     };
 
     __.screens = __.screens || [];
 	__.screens.push({
 		id: 'pageNotFound',
-		routeUrl: '404',
+		routeUrl: ['404'],
 		initialize: initialize,
 		display: display,
 		hide: hide

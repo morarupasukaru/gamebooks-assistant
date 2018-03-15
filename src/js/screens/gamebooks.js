@@ -71,7 +71,7 @@
 	};
 	
 	var gamebooksListVersion;
-	var showDataBtnInitialized = false;
+	var hrefInitialized = false;
     var initialize = function() {
         var elementOfGamebooksScreen = document.getElementById(chooseAdventureDiv);
         if (!elementOfGamebooksScreen) {
@@ -85,17 +85,17 @@
 			gamebooksListVersion = gamebooks.version;
 		}
 		
-		if (!showDataBtnInitialized) {
-			var showDataBtn = document.getElementById('screen-gamebooks-showDataBtn');
-			showDataBtn.href = __.route.getScreenUrl('dataOfGamebooks');
-			showDataBtnInitialized = true;
+		if (!hrefInitialized) {
+			__.dom.setHrefOfScreen('screen-gamebooks-showDataBtn', 'dataOfGamebooks');
+			__.dom.setHrefOfScreen('screen-gamebooks-addAdventureBtn', 'newGamebook');
+			hrefInitialized = true;
 		}
     };
 
     __.screens = __.screens || [];
 	__.screens.push({
 		id: 'gamebooks',
-		routeUrl: 'gamebooks',
+		routeUrl: ['gamebooks'],
 		initialize: initialize,
 		display: display,
 		hide: hide

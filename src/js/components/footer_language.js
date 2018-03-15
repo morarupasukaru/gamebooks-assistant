@@ -44,8 +44,7 @@
 		if (!!initialized) {
 			return ;
 		}
-		var homeLinkElement = document.getElementById('footer-homeLink');
-		homeLinkElement.setAttribute('href', __.route.getHomeUrl());
+		__.dom.setHrefOfScreen('footer-homeLink', 'home');
 		initialized = true;
     };
 } (this, 'footer-language'));

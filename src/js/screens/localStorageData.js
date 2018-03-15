@@ -27,46 +27,35 @@
 		codeElement.innerHTML = text;
 	};
 	
-	var setText = function(elementId, fr, en) {
-		// TODO into dom with object for the language
-		var titleElement = document.getElementById(elementId);
-		titleElement.setAttribute('data-fr', fr);
-		titleElement.setAttribute('data-en', en);
-	};
-	
 	var initializeDataOfGamebooks = function() {
 		initialize();
-		setText("screen-localStorageData-title", "Données de la liste des livres-jeux", "Gamebooks list data");
-		setText("screen-localStorageData-backToHomeBtn", "Retour à la liste des livres-jeux", "Back to gamebooks list");
+		__.dom.setText("screen-localStorageData-title", "Données de la liste des livres-jeux", "Gamebooks list data");
+		__.dom.setText("screen-localStorageData-backToHomeBtn", "Retour à la liste des livres-jeux", "Back to gamebooks list");
 		setCodeText(JSON.stringify(__.data.getGamebooksList(), null, '\t'));
 		
-		var backBtn = document.getElementById('screen-localStorageData-backToHomeBtn');
-		var backUrl = __.route.getScreenUrl('gamebooks');
-		backBtn.setAttribute('href', backUrl);
+		__.dom.setHrefOfScreen('screen-localStorageData-backToHomeBtn', 'gamebooks');
 	};
 	
 	var initializeDataApplication = function() {
 		initialize();
-		setText("screen-localStorageData-title", "Données de l'application", "Data of the application");
-		setText("screen-localStorageData-backToHomeBtn", "Retour à l'acceuil", "Back to home");
+		__.dom.setText("screen-localStorageData-title", "Données de l'application", "Data of the application");
+		__.dom.setText("screen-localStorageData-backToHomeBtn", "Retour à l'acceuil", "Back to home");
 		setCodeText(JSON.stringify(__.data.getAllData(), null, '\t'));
 		
-		var backBtn = document.getElementById('screen-localStorageData-backToHomeBtn');
-		var backUrl = __.route.getHomeUrl();
-		backBtn.setAttribute('href', backUrl);
+		__.dom.setHrefOfScreen('screen-localStorageData-backToHomeBtn', 'home');
 	};
 
     __.screens = __.screens || [];
 	__.screens.push({
 		id: 'dataOfGamebooks',
-		routeUrl: 'data-gamebooks',
+		routeUrl: ['data-gamebooks'],
 		initialize: initializeDataOfGamebooks,
 		display: display,
 		hide: hide
 	});
 	__.screens.push({
 		id: 'dataOfApplication',
-		routeUrl: 'data-application',
+		routeUrl: ['data-application'],
 		initialize: initializeDataApplication,
 		display: display,
 		hide: hide

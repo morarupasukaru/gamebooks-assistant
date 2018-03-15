@@ -63,38 +63,38 @@
         return merge(keyValuesCommon, keyValuesFromHash);
     };
 	
-	var getFirstPathFromUrlWithHash = function(url) {
-        var result = null;
+	var getHashPathsFromUrl = function(url) {
+        var result = [];
         if (!!url && url.indexOf('#') !== -1) {
+			var urlAfterHash;
 			if (url.startsWith('#')) {
-				result = url.substring(1);
+				urlAfterHash = url.substring(1);
 			} else {
-				result = url.split('#')[1];
+				urlAfterHash = url.split('#')[1];
 			}
 			
-			if (result.indexOf('?') !== -1) {
-				if (result.startsWith('?')) {
-					result = null;
+			var urlAfterHashWithQueryParameters;
+			if (urlAfterHash.indexOf('?') !== -1) {
+				if (urlAfterHash.startsWith('?')) {
+					urlAfterHashWithQueryParameters = null;
 				} else {
-					result = result.split('?')[0];
+					urlAfterHashWithQueryParameters = urlAfterHash.split('?')[0];
 				}
+			} else {
+				urlAfterHashWithQueryParameters = urlAfterHash;
 			}
 			
-			if (!!result && result.indexOf('/') !== -1) {
-				if (result.startsWith('/')) {
-					result = null;
-				} else {
-					result = result.split('/')[0];
-				}
+			if (!!urlAfterHashWithQueryParameters) {
+				result = urlAfterHashWithQueryParameters.split('/');
 			}
         }
         return result;
 	};
 	
-	var getFirstPathFromHash = function() {
-        var result = null;
+	var getPathsFromHash = function() {
+        var result = [];
         if (!!globals.location && !!globals.location.hash) {
-			result = getFirstPathFromUrlWithHash(globals.location.hash);
+			result = getHashPathsFromUrl(globals.location.hash);
         }
         return result;
 	};
@@ -149,7 +149,7 @@
 			for (var i = 0; i < __.screens.length; i++) {
 				var screen = __.screens[i];
 				if (screen.id === screenId) {
-					screenUrl = homeUrl + screen.routeUrl;
+					screenUrl = homeUrl + screen.routeUrl.join('/');
 					break;
 				}
 			}
@@ -157,12 +157,25 @@
 		return screenUrl;
 	};
 	
-	var getScreenFromHash = function(firstPathFromHash) {
+	var getScreenFromHash = function(partsOfHashWithoutQueryParameters) {
 		if (!!__.screens) {
 			for (var i = 0; i < __.screens.length; i++) {
 				var screen = __.screens[i];
-				if (screen.routeUrl === firstPathFromHash) {
-					return screen;
+				var screenRouteUrlParts = screen.routeUrl;
+				if (!Array.isArray(screenRouteUrlParts)) {
+					screenRouteUrlParts = [ screenRouteUrlParts ];
+				}
+				if (screenRouteUrlParts.length === partsOfHashWithoutQueryParameters.length) {
+					var sameParts = true;
+					for (var j = 0; j < screenRouteUrlParts.length; j++) {
+						if (screenRouteUrlParts[j] !== partsOfHashWithoutQueryParameters[j]) {
+							sameParts = false;
+							break;
+						}
+					}
+					if (sameParts) {
+						return screen;
+					}
 				}
 			}
 		}
@@ -181,18 +194,19 @@
 		return null;
 	};
 	
-	var pageNotFound = getScreenFromHash('404');
-    
-    var computeScreen = function() {
-		var screen = getScreenFromHash(getFirstPathFromHash());
-		if (!screen) {
-			screen = pageNotFound;
-		}
+	api.getCurrentScreen = function() {
 		var currentScreenId = __.data.getCurrentScreenId();
 		var currentScreen;
 		if (!!currentScreenId) {
 			currentScreen = getScreenFromId(currentScreenId);
 		}
+		return currentScreen;
+	};
+	
+	var pageNotFound = getScreenFromHash(['404']);
+	
+	api.setCurrentScreen = function(screen) {
+		var currentScreen = api.getCurrentScreen();
 		if (!!currentScreen && screen.id !== currentScreen.id) {
 			screen.initialize();
 			currentScreen.hide();
@@ -202,6 +216,22 @@
 			screen.display();
 		}
 		__.data.setCurrentScreenId(screen.id);
+	};
+	
+	api.setCurrentScreenWithId = function(screenId) {
+		var screen = getScreenFromId(screenId);
+		if (!!screen) {
+			window.location.assign(__.route.getScreenUrl(screenId));
+			api.setCurrentScreen(screen);
+		}
+	};
+    
+    var computeScreen = function() {
+		var screen = getScreenFromHash(getPathsFromHash());
+		if (!screen) {
+			screen = pageNotFound;
+		}
+		api.setCurrentScreen(screen);
     };
 	
 	var computeHashChange = function(forceRefresh) {

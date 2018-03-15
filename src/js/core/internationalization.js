@@ -23,6 +23,10 @@
                 }
             }
             this._forceReloadStylesheetIfNeeded(newLanguage);
+			var currentScreen = __.route.getCurrentScreen();
+			if (!!currentScreen && !!currentScreen.onLanguageChange) {
+				currentScreen.onLanguageChange(newLanguage);
+			}
         }
     };
 
