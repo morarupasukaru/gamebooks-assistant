@@ -19,16 +19,8 @@
 	};
 	
 	var setPlaceholderToCurrentLanguage = function() {
-		var titleInput = document.getElementById('screen-newGamebook-title');
-		var serieInput = document.getElementById('screen-newGamebook-serie');
-		var language = __.data.getLanguage();
-		if (language === 'fr') {
-			titleInput.setAttribute("placeholder", "Titre du livre-jeu");
-			serieInput.setAttribute("placeholder", "Serie du livre-jeu");
-		} else {
-			titleInput.setAttribute("placeholder", "Title of the gamebook");
-			serieInput.setAttribute("placeholder", "Serie of the gamebook");
-		}
+		__.dom.setPlaceholderText('screen-newGamebook-title', "Titre du livre-jeu", "Title of the gamebook");
+		__.dom.setPlaceholderText('screen-newGamebook-serie', "Serie du livre-jeu", "Serie of the gamebook");
 	};
 	
 	var initialized = false;

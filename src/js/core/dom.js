@@ -58,6 +58,15 @@
 	};
 	
 	api.setText = function(elementId, fr, en) {
+		var inputElement = document.getElementById('screen-newGamebook-title');
+		if (__.data.getLanguage() === 'fr') {
+			inputElement.setAttribute("placeholder", fr);
+		} else {
+			inputElement.setAttribute("placeholder", en);
+		}
+	};
+	
+	api.setPlaceholderText = function(elementId, fr, en) {
 		var titleElement = document.getElementById(elementId);
 		if(!!titleElement) {
 			titleElement.setAttribute('data-fr', fr);
