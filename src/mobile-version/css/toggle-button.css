@@ -1,9 +1,0 @@
-input[type="checkbox"].checkbox-toggle-button {
-    display: none;
-}
-
-input[type="checkbox"].checkbox-toggle-button:checked + .toggle-button {
-  background-color: #33C3F0;
-  border-color: #33C3F0;
-  color: #FFF;
-}
