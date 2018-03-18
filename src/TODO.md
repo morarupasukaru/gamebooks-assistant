@@ -23,19 +23,34 @@
     npm
     node
     
-## Non-available with fist version:
+## Non-available with first version:
 * map screen
 * image (localstorage? online?)
 
 ## Improvment features
 
+### Embedded Gui Test
+
+Gui Test is integrated in a special screen.
+See if Cypress test can be replaced by this solution.
+
+
+### Admin Screen
+
+Display Version of the application, browser version, javascript error, localStorage
+
+Same info as the one send by email with bug report
+
+
 ### Popup warn: JS disabled, unavailable
 
 display a popup or a special screen if js is not available.
 
+
 ### Popup warn: unsupported browser
 
 display a popup or a special screen if current browser is not supported (e.g. ie version < x)
+
 
 ### i18n
 
@@ -43,11 +58,13 @@ i18n text must be provided in json
 available languages are defined in in the i18n json file (not hard-coded as currently)
 data-xx must be set a the application initialization.
 
+
 ### html form validation
 
 generic solution for form validations.
 
 See why required attribute does not work in some browser (safari of ipad v?)
+
 
 ### Version of html, js, css
 
@@ -63,7 +80,8 @@ e.g.
 Try to catch javascript errors (actual solution for errors does not work in safari of ipad v?) and allow user to send a report to a given email
 with several technical info (browser version, language, localStorage, javascript error, apps version)
 
-=> this functionnality can be disabled in the email of the developper is not given
+=> if email not configured, receiver is empty.
+
 
 ### Errors
 
@@ -87,7 +105,7 @@ id will be used also for i18n, it's better to haved a suffix .id in order to dif
 
 => Describe that in TECHNICAL.md & apply that on existing screens (make a list of the id of all screens)
 
-
+	
 ### Data
 
 The goal is to provide a way to load data as json from a given url and stores them in the localStorage.
@@ -100,6 +118,7 @@ reducation of data-loaded
 
 localStorage "cached"
 * make some test to decide wether the localStorage should be cached or not (make a simple github page and test it with several browser)
+
 
 ### JSON of application
 

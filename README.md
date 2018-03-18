@@ -1,6 +1,6 @@
 # Gamebooks Assistant
 
-Webapplication to ease the resolution of gamebooks
+Webapplication to ease the resolution of [gamebooks](https://en.wikipedia.org/wiki/Gamebook).
 
 URL of the application: http://morarupasukaru.github.io/gamebooks-assistant/
 
