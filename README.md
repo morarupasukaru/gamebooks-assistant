@@ -11,11 +11,15 @@ The "Business" goal is to be able to play a gamebook with a book in a hand and a
 
 TODO
 
+
 ### Documentation
 
 TODO
 
-See the [CHANGELOG](CHANGELOG.md).
+
+### Project History
+
+See the [HISTORY](HISTORY.md).
 
 
 ### Contributing
@@ -26,6 +30,7 @@ TODO
 ### Credits
 
 TODO
+
 
 ### License
 
