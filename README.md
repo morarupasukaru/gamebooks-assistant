@@ -1,17 +1,40 @@
 # Gamebooks Assistant
 
-Webapplication to ease the resolution of [gamebooks](https://en.wikipedia.org/wiki/Gamebook).
+[Gamebooks Assistant](http://morarupasukaru.github.io/gamebooks-assistant/) is webapplication to ease the  resolution of [gamebooks](https://en.wikipedia.org/wiki/Gamebook).
 
-URL of the application: http://morarupasukaru.github.io/gamebooks-assistant/
+The motivation of this "private" project is to help me to learn how-to to develop a professional responsive-design single page application in plain javascript and with as few tools as possible.
+
+The "Business" goal is to be able to play a gamebook with a book in a hand and a smartphone in the other hand.
 
 
-## Technical goals
-* mobile application
-* nice minimalist layout
-* playability: require only one hand (the other hand has the book)
-* as few lib, tool as possible
-* no framework
+### Installation
 
+TODO
+
+### Documentation
+
+TODO
+
+See the [CHANGELOG](CHANGELOG).
+
+
+### Contributing
+
+TODO
+
+
+### Credits
+
+TODO
+
+### License
+
+[![license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/morarupasukaru/gamebooks-assistant/blob/master/LICENSE.md)
+
+This project is licensed under the terms of the [MIT license](/LICENSE).
+
+
+-> TODO move in documentation
 
 ## Project status
 
@@ -26,3 +49,4 @@ URL of the application: http://morarupasukaru.github.io/gamebooks-assistant/
 ### Year 2016
 * A first version is developed with [AngularJS](https://angularjs.org/) framework and [Bootstrap v3](https://getbootstrap.com/docs/3.3/)
 * This version works well on desktop but not very well on mobile (the use of the apps required to many user-interaction)
+
