@@ -69,6 +69,7 @@ module.exports = function(grunt) {
                         'assets/skeleton/skeleton-tables.css',
                         'assets/skeleton/skeleton-spacing.css',
                         'assets/skeleton/skeleton-utilities.css',
+                        'css/version.css',
                         'css/trim-text.css',
                         'css/nowrap-text.css',
                         'css/anchor.css',
