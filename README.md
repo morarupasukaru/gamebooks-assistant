@@ -28,6 +28,7 @@ npm install
 cd ...\gamebooks-assistant\src
 grunt
 ```
+- A not-minified version of the application will be available at http://localhost:9000/ and a minified version at http://localhost:9001/
 
 
 ### Documentation
