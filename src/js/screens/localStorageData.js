@@ -4,14 +4,14 @@
 	var __ = globals._;
 	
     var display = function() {
-		var found = __.dom.display("screen-localStorageData");
+		var found = __.dom.display("data-id");
 		if (!!found) {
 			__.footer.displayChildFooter();
 		}
 	};
 	
     var hide = function() {
-		__.dom.hide("screen-localStorageData");
+		__.dom.hide("data-id");
 	};
 	
 	var initialized = false;
@@ -23,26 +23,26 @@
     };
 	
 	var setCodeText = function(text) {
-		var codeElement = document.getElementById('screen-localStorageData-code');
+		var codeElement = document.getElementById('data-code-id');
 		codeElement.innerHTML = text;
 	};
 	
 	var initializeDataOfGamebooks = function() {
 		initialize();
-		__.dom.setText("screen-localStorageData-title", "Données de la liste des livres-jeux", "Gamebooks list data");
-		__.dom.setText("screen-localStorageData-backToHomeBtn", "Retour à la liste des livres-jeux", "Back to gamebooks list");
+		__.dom.setText("data-title-id", "Données de la liste des livres-jeux", "Gamebooks list data");
+		__.dom.setText("data-back-id", "Retour à la liste des livres-jeux", "Back to gamebooks list");
 		setCodeText(JSON.stringify(__.data.getGamebooksList(), null, '\t'));
 		
-		__.dom.setHrefOfScreen('screen-localStorageData-backToHomeBtn', 'gamebooks');
+		__.dom.setHrefOfScreen('data-back-id', 'gamebooks');
 	};
 	
 	var initializeDataApplication = function() {
 		initialize();
-		__.dom.setText("screen-localStorageData-title", "Données de l'application", "Data of the application");
-		__.dom.setText("screen-localStorageData-backToHomeBtn", "Retour à l'acceuil", "Back to home");
+		__.dom.setText("data-title-id", "Données de l'application", "Data of the application");
+		__.dom.setText("data-back-id", "Retour à l'acceuil", "Back to home");
 		setCodeText(JSON.stringify(__.data.getAllData(), null, '\t'));
 		
-		__.dom.setHrefOfScreen('screen-localStorageData-backToHomeBtn', 'home');
+		__.dom.setHrefOfScreen('data-back-id', 'home');
 	};
 
     __.screens = __.screens || [];
@@ -62,7 +62,5 @@
 	});
 	
 	// TODO change title of footer-left when displaying data of a given gamebook
-	
-	// TODO change back text & url
 
 } (this));

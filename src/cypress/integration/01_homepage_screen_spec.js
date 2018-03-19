@@ -57,7 +57,7 @@ describe('01 - Homepage screen', function () {
 			common.checkI18nElementTextWithDataAttribute('#home-showdata-id', "Données de l'application", "Data of the application");
 			cy.get('#home-showdata-id').click();
 			cy.url().should('eq', common.getBaseUrl() + '/#data-application');
-			cy.get('#screen-localStorageData-backToHomeBtn').click();
+			cy.get('#data-back-id').click();
 			cy.url().should('eq', common.getBaseUrl() + '/#');
 			cy.get('#home-showdata-id').should('be.visible');
 		})

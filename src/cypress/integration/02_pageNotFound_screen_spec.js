@@ -14,13 +14,13 @@ describe('02 - Page not found screen', function () {
 		})
 		
 		it('PageNotFound Title', function() {
-			common.checkI18nElementTextWithDataAttribute('#screen-pageNotFound-title', 'Page introuvable', 'Page cannot be found');
+			common.checkI18nElementTextWithDataAttribute('#404-title-id', 'Page introuvable', 'Page cannot be found');
 		})
 			
 		it('Home Button', function() {
-			var elementId = '#screen-pageNotFound-backToHomeBtn';
+			var elementId = '#404-back-id';
 			common.checkI18nElementTextWithDataAttribute(elementId, "Retour à l'acceuil", 'Back to home');
-			cy.get('#modal').should('not.be.visible');
+			cy.get('#modal-id').should('not.be.visible');
 			cy.get(elementId).click();
 			cy.url().should('eq', common.getBaseUrl() + '/#');
 		})
@@ -32,7 +32,7 @@ describe('02 - Page not found screen', function () {
 		})
 		
 		it('Unknown Page - with /#test', function() {
-			common.checkI18nElementTextWithDataAttribute('#screen-pageNotFound-title', 'Page introuvable', 'Page cannot be found');
+			common.checkI18nElementTextWithDataAttribute('#404-title-id', 'Page introuvable', 'Page cannot be found');
 		})
 	}),
 	

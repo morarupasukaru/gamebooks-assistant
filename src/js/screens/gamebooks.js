@@ -3,10 +3,10 @@
 	globals._ = globals._ || {};
 	var __ = globals._;
 	
-	var chooseAdventureDiv = 'screen-gamebooks-chooseAdventureDiv';
+	var chooseAdventureDiv = 'books-choose-id';
 
     var appendSerieTitle = function(title) {
-        __.dom.appendHtml(document.getElementById(chooseAdventureDiv), '<div class="pure-u-1"><h2 class="screen-gamebooks-serie">' + title + '</h2></div>');
+        __.dom.appendHtml(document.getElementById(chooseAdventureDiv), '<div class="pure-u-1"><h2 class="books-serie">' + title + '</h2></div>');
     };
     var appendGamebook = function(gamebook, gamebooksCount) {
         if (!gamebook) {
@@ -23,7 +23,7 @@
         __.dom.appendHtml(document.getElementById(chooseAdventureDiv),
             '<div class="pure-u-1' + additionalClass + '">' +
                 '<div class="margin-right">' +
-                    '<a class="button u-full-width screen-gamebooks-book" href="' + __.route.getScreenUrl('gamebook') + '">' + gamebook.name +'</a>' +
+                    '<a class="button u-full-width books-book" href="' + __.route.getScreenUrl('gamebook') + '">' + gamebook.name +'</a>' +
                 '</div>' +
             '</div>'
         );
@@ -60,14 +60,14 @@
 	};
 	
     var display = function() {
-		var found = __.dom.display("screen-gamebooks");
+		var found = __.dom.display("books-id");
 		if (!!found) {
 			__.footer.displayChildFooter();
 		}
 	};
 	
     var hide = function() {
-		__.dom.hide("screen-gamebooks");
+		__.dom.hide("books-id");
 	};
 	
 	var gamebooksListVersion;
@@ -86,8 +86,8 @@
 		}
 		
 		if (!hrefInitialized) {
-			__.dom.setHrefOfScreen('screen-gamebooks-showDataBtn', 'dataOfGamebooks');
-			__.dom.setHrefOfScreen('screen-gamebooks-addAdventureBtn', 'newGamebook');
+			__.dom.setHrefOfScreen('books-showdata-id', 'dataOfGamebooks');
+			__.dom.setHrefOfScreen('books-add-id', 'newGamebook');
 			hrefInitialized = true;
 		}
     };

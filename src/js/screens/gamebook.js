@@ -4,14 +4,14 @@
 	var __ = globals._;
 	
     var display = function() {
-		var found = __.dom.display("screen-gamebook");
+		var found = __.dom.display("book-id");
 		if (!!found) {
 			__.footer.displayChildFooter();
 		}
 	};
 	
     var hide = function() {
-		__.dom.hide("screen-gamebook");
+		__.dom.hide("book-id");
 	};
 	
     __.screens = __.screens || [];

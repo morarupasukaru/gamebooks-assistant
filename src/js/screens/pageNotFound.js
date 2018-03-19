@@ -4,14 +4,14 @@
 	var __ = globals._;
 	
     var display = function() {
-		var found = __.dom.display("screen-pageNotFound");
+		var found = __.dom.display("404-id");
 		if (!!found) {
 			__.footer.displayChildFooter();
 		}
 	};
 	
     var hide = function() {
-		__.dom.hide("screen-pageNotFound");
+		__.dom.hide("404-id");
 	};
 	
 	var initialized = false;
@@ -19,7 +19,7 @@
 		if (!!initialized) {
 			return ;
 		}
-		__.dom.setHrefOfScreen('screen-pageNotFound-backToHomeBtn', 'home');
+		__.dom.setHrefOfScreen('404-back-id', 'home');
 		initialized = true;
     };
 

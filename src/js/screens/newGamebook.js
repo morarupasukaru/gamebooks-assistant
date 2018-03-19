@@ -4,23 +4,23 @@
 	var __ = globals._;
 	
     var display = function() {
-		var found = __.dom.display("screen-newGamebook");
+		var found = __.dom.display("book-new-id");
 		if (!!found) {
 			__.footer.displayChildFooter();
 		}
-		document.getElementById('screen-newGamebook-title').value = '';
-		document.getElementById('screen-newGamebook-serie').value = '';
-		document.getElementById('screen-newGamebook-title').focus();
+		// TODO move to forms
+		document.getElementById('book-new-title-id').value = '';
+		document.getElementById('book-new-serie-id').value = '';
+		document.getElementById('book-new-title-id').focus();
 	};
 	
     var hide = function() {
-		__.dom.hide("screen-newGamebook");
-		document.getElementById('screen-newGamebook-title').removeAttribute("autofocus");	
+		__.dom.hide("book-new-id");
 	};
 	
 	var setPlaceholderToCurrentLanguage = function() {
-		__.dom.setPlaceholderText('screen-newGamebook-title', "Titre du livre-jeu", "Title of the gamebook");
-		__.dom.setPlaceholderText('screen-newGamebook-serie', "Serie du livre-jeu", "Serie of the gamebook");
+		__.dom.setPlaceholderText('book-new-title-id', "Titre du livre-jeu", "Title of the gamebook");
+		__.dom.setPlaceholderText('book-new-serie-id', "Serie du livre-jeu", "Serie of the gamebook");
 	};
 	
 	var initialized = false;
@@ -29,7 +29,7 @@
 			return ;
 		}
 		setPlaceholderToCurrentLanguage();
-		__.dom.setHrefOfScreen('screen-newGamebook-cancelBtn', 'gamebooks');
+		__.dom.setHrefOfScreen('book-new-cancel-id', 'gamebooks');
 		initialized = true;
     };
 	

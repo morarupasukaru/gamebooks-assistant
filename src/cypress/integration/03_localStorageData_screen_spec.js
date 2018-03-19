@@ -37,12 +37,12 @@ function testLocalStorageDataScreen(config) {
 describe("03.1 - LocalStorageData - Application's data", testLocalStorageDataScreen({
 	url : '/#data-application',
 	title: {
-		selector : '#screen-localStorageData-title',
+		selector : '#data-title-id',
 		fr: "Données de l'application",
 		en: "Data of the application"
 	},
 	backBtn: {
-		selector : '#screen-localStorageData-backToHomeBtn',
+		selector : '#data-back-id',
 		fr: "Retour à l'acceuil",
 		en: 'Back to home',
 		urlAfterClick: common.getBaseUrl() + '/#'
@@ -52,12 +52,12 @@ describe("03.1 - LocalStorageData - Application's data", testLocalStorageDataScr
 describe("03.2 - LocalStorageData screen - Gamebooks's data", testLocalStorageDataScreen({
 	url : '/#data-gamebooks',
 	title: {
-		selector : '#screen-localStorageData-title',
+		selector : '#data-title-id',
 		fr: "Données de la liste des livres-jeux",
 		en: "Gamebooks list data"
 	},
 	backBtn: {
-		selector : '#screen-localStorageData-backToHomeBtn',
+		selector : '#data-back-id',
 		fr: "Retour à la liste des livres-jeux",
 		en: 'Back to gamebooks list',
 		urlAfterClick: common.getBaseUrl() + '/#gamebooks'

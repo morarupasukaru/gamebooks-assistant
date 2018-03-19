@@ -5,7 +5,7 @@ function testGamebookListContent(firstSerieName, serieCount, firstgamebookName, 
 	expect(firstgamebookName).not.to.be.undefined;
 	expect(gamebooksCount > 0).to.be.true;
 	
-	cy.get('.screen-gamebooks-serie').then(($series) => {
+	cy.get('.books-serie').then(($series) => {
 		var seriesName = $series.map((i, el) => {
 			return Cypress.$(el).text()
 		});
@@ -24,7 +24,7 @@ function testGamebookListContent(firstSerieName, serieCount, firstgamebookName, 
 		}
 	});
 	
-	cy.get('.screen-gamebooks-book').then(($gamebooks) => {
+	cy.get('.books-book').then(($gamebooks) => {
 		var gamebooksStr = localStorage.getItem('gamebooksList');
 		var gamebooksData = JSON.parse(gamebooksStr);
 		var gamebooks = gamebooksData.gamebooks;
@@ -71,12 +71,12 @@ function testGamebookList(json, firstSerieName, serieCount, firstgamebookName, g
 		
 		if (serieCount == 0) {
 			expect(firstSerieName).to.be.undefined;
-			cy.get('.screen-gamebooks-serie').should('not.be.visible');
-			cy.get('.screen-gamebooks-book').should('not.be.visible');
+			cy.get('.books-serie').should('not.be.visible');
+			cy.get('.books-book').should('not.be.visible');
 		} else {
 			testGamebookListContent(firstSerieName, serieCount, firstgamebookName, gamebooksCount);
 			
-			var selectionFirstGamebook = '.screen-gamebooks-book:first';
+			var selectionFirstGamebook = '.books-book:first';
 			cy.get(selectionFirstGamebook).should('be.visible');
 			cy.get(selectionFirstGamebook).contains(firstgamebookName);
 			cy.get(selectionFirstGamebook).click();
@@ -102,19 +102,18 @@ describe('04 - Gamebook Selection screen', function () {
 		})
 		
 		it('Choose Adventure Title', function() {
-			common.checkI18nElementTextWithDataAttribute('#screen-gamebooks-chooseAdventureDiv>h1:first', 'Choisissez une aventure', 'Choose an adventure');
+			common.checkI18nElementTextWithDataAttribute('#books-choose-id>h1:first', 'Choisissez une aventure', 'Choose an adventure');
 		})
 			
 		it('Add Adventure Button', function() {
-			var elementId = '#screen-gamebooks-addAdventureBtn';
+			var elementId = '#books-add-id';
 			common.checkI18nElementTextWithDataAttribute(elementId, "Ajout d'un livre-jeu", 'Add gamebook');
 			
-			cy.get('#modal').should('not.be.visible');
-			cy.get('#screen-gamebooks-addAdventureBtn').click();
-			cy.modalWithErrorFeatureNotImplemented();
-			cy.toogleLanguage();
-			cy.get('#screen-gamebooks-addAdventureBtn').click();
-			cy.modalWithErrorFeatureNotImplemented();
+			cy.get('#modal-id').should('not.be.visible');
+			cy.get('#books-add-id').click();
+			cy.url().should('eq', common.getBaseUrl() + '/#gamebook/new');
+			cy.get('#book-new-cancel-id').click();
+			cy.url().should('eq', common.getBaseUrl() + '/#gamebooks');
 		})
 	}),
 	
@@ -124,26 +123,26 @@ describe('04 - Gamebook Selection screen', function () {
 		})
 		
 		it('Button hidden per default', function() {
-			cy.get('#screen-gamebooks-showDataBtn').should('not.be.visible');
+			cy.get('#books-showdata-id').should('not.be.visible');
 		})
 		
 		it('Button visible when adminEnabled', function() {
 			cy.visit('/#gamebooks?adminEnabled');
-			common.checkI18nElementTextWithDataAttribute('#screen-gamebooks-showDataBtn', "Données de la liste des livres-jeux", "Gamebooks list data");
-			cy.get('#screen-gamebooks-showDataBtn').click();
+			common.checkI18nElementTextWithDataAttribute('#books-showdata-id', "Données de la liste des livres-jeux", "Gamebooks list data");
+			cy.get('#books-showdata-id').click();
 			cy.url().should('eq', common.getBaseUrl() + '/#data-gamebooks');
-			cy.get('#screen-localStorageData-backToHomeBtn').click();
+			cy.get('#data-back-id').click();
 			cy.url().should('eq', common.getBaseUrl() + '/#gamebooks');
-			cy.get('#screen-gamebooks-showDataBtn').should('be.visible');
+			cy.get('#books-showdata-id').should('be.visible');
 		})
 		
 		it('Button hidden when adminDisabled', function() {
 			cy.visit('/#gamebooks?adminDisabled');
-			cy.get('#screen-gamebooks-showDataBtn').should('not.be.visible');
+			cy.get('#books-showdata-id').should('not.be.visible');
 			cy.get('#footer-home-id').click();
 			cy.url().should('eq', common.getBaseUrl() + '/#');
 			cy.visit('/#gamebooks');
-			cy.get('#screen-gamebooks-showDataBtn').should('not.be.visible');
+			cy.get('#books-showdata-id').should('not.be.visible');
 		})
 	}),
 

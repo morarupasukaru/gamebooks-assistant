@@ -1,6 +1,6 @@
-<div id="screen-gamebooks" class="container hidden">
+<div id="books-id" class="container hidden">
     <div class="pure-g">
-        <div id="screen-gamebooks-chooseAdventureDiv" class="pure-u-1">
+        <div id="books-choose-id" class="pure-u-1">
             <h1 class="i18n" data-fr="Choisissez une aventure" data-en="Choose an adventure"></h1>
         </div>
     </div>
@@ -14,13 +14,13 @@
 
         <div class="pure-u-1">
             <div class="margin-right">
-                <a id="screen-gamebooks-addAdventureBtn" class="button u-full-width i18n" href="#" data-fr="Ajout d'un livre-jeu" data-en="Add gamebook"></a>
+                <a id="books-add-id" class="button u-full-width i18n" href="#" data-fr="Ajout d'un livre-jeu" data-en="Add gamebook"></a>
             </div>
         </div>
 
         <div class="pure-u-1">
             <div class="only-visible-by-admin margin-right hidden">
-                <a id="screen-gamebooks-showDataBtn" class="button u-full-width i18n" href="#" data-fr="Données de la liste des livres-jeux" data-en="Gamebooks list data"></a>
+                <a id="books-showdata-id" class="button u-full-width i18n" href="#" data-fr="Données de la liste des livres-jeux" data-en="Gamebooks list data"></a>
             </div>
         </div>
     </div>
