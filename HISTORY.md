@@ -13,6 +13,6 @@ I abandonned this version due to fact that angularjs and angular material are de
 
 Version developed with [AngularJS](https://angularjs.org/) framework and [Bootstrap v3](https://getbootstrap.com/docs/3.3/).
  
-This version works well on desktop but not very well on mobile (the use of the apps required to many user-interaction.
+This version works well on desktop but not very well on mobile (too many click and user-interaction required).
 
 See [git-branch](https://github.com/morarupasukaru/gamebooks-assistant/tree/abandoned-version/angularjs-bootstrap3)
