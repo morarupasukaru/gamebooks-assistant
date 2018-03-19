@@ -9,8 +9,6 @@ The "Business" goal is to be able to play a gamebook with a book in a hand and a
 
 ### Installation
 
-Several quick start options are available:
-
 - Clone the repo: `git clone https://github.com/morarupasukaru/gamebooks-assistant.git`
 - Install [node.js](https://nodejs.org) with [npm](https://www.npmjs.com/), see https://nodejs.org
 - Install a Java 8 JDK that is required to run the HTML validation locally
