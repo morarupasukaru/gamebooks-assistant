@@ -13,6 +13,6 @@
 	};
 	
 	api.submit = function() {
-		document.getElementById("submit-button").click();
+		document.getElementById("submit-id").click();
 	};
 } (this));

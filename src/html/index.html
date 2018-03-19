@@ -55,7 +55,7 @@
 	<!-- /build -->
 	<!-- build:include newGamebook.template -->
 	<!-- /build -->
-    <input id="submit-button" type="submit">
+    <input id="submit-id" type="submit">
 </form>
 
 <!-- line-break to have the footer not overlaping the last adventure choice -->
@@ -63,27 +63,27 @@
 
 <div class="footer">
     <div class="footer-left trim-text">
-        <a id="footer-githubLink" href="https://github.com/morarupasukaru/gamebooks-assistant/">
+        <a id="footer-github-id" href="https://github.com/morarupasukaru/gamebooks-assistant/">
             &nbsp;<span class="icon icon-github2"></span>
             <span class="i18n" data-fr="Projet GitHub" data-en="GitHub Project"></span>
         </a>
-		<span id="footer-lefttext">Gamebook assistant</span>
+		<span id="footer-left-id">Gamebook assistant</span>
     </div>
-    <div id="footer-language" class="footer-right nowrap-text">
-        <a id="footer-homeLink" href="#"><span class="icon icon-home"></span>&nbsp;<span class="i18n" data-fr="Acceuil" data-en="Home"></span>&nbsp;</a>
+    <div id="footer-lang-id" class="footer-right nowrap-text">
+        <a id="footer-home-id" href="#"><span class="icon icon-home"></span>&nbsp;<span class="i18n" data-fr="Acceuil" data-en="Home"></span>&nbsp;</a>
 	</div>
 </div>
 
-<div id="modal" class="modal">
+<div id="modal-id" class="modal">
     <div class="modal-content">
-        <p id="modal-title" class="u-full-width modal-title"></p>
-        <p id="modal-text"></p>
-        <a class="button u-full-width i18n-ok" id="modal-closeBtn" onClick="_.msg.closeModal();"></a>
+        <p id="modal-title-id" class="u-full-width modal-title"></p>
+        <p id="modal-text-id"></p>
+        <a class="button u-full-width i18n-ok" id="modal-close-id" onClick="_.msg.closeModal();"></a>
     </div>
 </div>
 
 <!-- required to test i18n functionality -->
-<div id="i18n-testDiv" class="i18n hidden" data-fr=fr data-en=en></div>
+<div id="i18n-test-id" class="i18n hidden" data-fr=fr data-en=en></div>
 
 <!-- build:js:dist assets/app.js -->
 <script src="../js/core/polyfill.js"></script>

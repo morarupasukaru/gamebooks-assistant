@@ -1,16 +1,16 @@
 /**
  * Javascript function that will add for every supported language, an anchor html tag in the div with id 'footer.language'
  */
-(function(globals, divId){
+(function(globals){
     "use strict";
 	var __ = globals._;
 	__.footer = __.footer || {};
     var api = __.footer;
 
     var addLanguageToFooter = function(language, languageText) {
-        var footerDiv = document.getElementById(divId);
+        var footerDiv = document.getElementById('footer-lang-id');
         var linkElement = document.createElement('a');
-        linkElement.setAttribute('id', 'footer-lang-' + language);
+        linkElement.setAttribute('id', 'footer-lang-' + language + '-id');
         linkElement.setAttribute('hreflang', language);
         linkElement.setAttribute('onClick', "_.i18n.setLanguage('" + language + "');");
         linkElement.innerHTML = '<span class="icon icon-globe"></span><span class="spanLang">&nbsp;' + languageText + '&nbsp;</span>';
@@ -25,15 +25,15 @@
 	
 	
 	api.displayHomepageFooter = function() {
-		__.dom.display('footer-githubLink');
-		__.dom.hide('footer-lefttext');
-		__.dom.hide('footer-homeLink');
+		__.dom.display('footer-github-id');
+		__.dom.hide('footer-left-id');
+		__.dom.hide('footer-home-id');
 	};
 	
 	api.displayChildFooter = function() {
-		__.dom.display('footer-lefttext');
-		__.dom.display('footer-homeLink');
-		__.dom.hide('footer-githubLink');
+		__.dom.display('footer-left-id');
+		__.dom.display('footer-home-id');
+		__.dom.hide('footer-github-id');
 	};
 
     /**
@@ -44,7 +44,7 @@
 		if (!!initialized) {
 			return ;
 		}
-		__.dom.setHrefOfScreen('footer-homeLink', 'home');
+		__.dom.setHrefOfScreen('footer-home-id', 'home');
 		initialized = true;
     };
-} (this, 'footer-language'));
+} (this));

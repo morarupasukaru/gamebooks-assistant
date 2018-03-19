@@ -19,7 +19,7 @@ export function equalsCssBeforeContentValue(element, expectedCssBeforeContentVal
 };
 
 export function selectLanguage(language) {
-	var langLinkId = '#footer-lang-' + language;
+	var langLinkId = '#footer-lang-' + language + '-id';
 	cy.get(langLinkId).should('be.visible');
 	cy.get(langLinkId).click().should(function () {
 		expect(localStorage.getItem('savedLanguage')).to.eq(language);
@@ -63,21 +63,21 @@ export function checkNoI18nElementText(elementSelector, text) {
 
 export function testFooterLanguageLinks() {
 	if (getLanguage() === 'fr') {
-		cy.get('#footer-lang-en').should('be.visible');
-		cy.get('#footer-lang-en').should('contain', 'English');
-		cy.get('#footer-lang-fr').should('not.be.visible');
+		cy.get('#footer-lang-en-id').should('be.visible');
+		cy.get('#footer-lang-en-id').should('contain', 'English');
+		cy.get('#footer-lang-fr-id').should('not.be.visible');
 		selectLanguage('en');
-		cy.get('#footer-lang-fr').should('be.visible');
-		cy.get('#footer-lang-fr').should('contain', 'Francais');
-		cy.get('#footer-lang-en').should('not.be.visible');
+		cy.get('#footer-lang-fr-id').should('be.visible');
+		cy.get('#footer-lang-fr-id').should('contain', 'Francais');
+		cy.get('#footer-lang-en-id').should('not.be.visible');
 	} else {
-		cy.get('#footer-lang-fr').should('be.visible');
-		cy.get('#footer-lang-fr').should('contain', 'Francais');
-		cy.get('#footer-lang-en').should('not.be.visible');
+		cy.get('#footer-lang-fr-id').should('be.visible');
+		cy.get('#footer-lang-fr-id').should('contain', 'Francais');
+		cy.get('#footer-lang-en-id').should('not.be.visible');
 		selectLanguage('fr');
-		cy.get('#footer-lang-en').should('be.visible');
-		cy.get('#footer-lang-en').should('contain', 'English');
-		cy.get('#footer-lang-fr').should('not.be.visible');
+		cy.get('#footer-lang-en-id').should('be.visible');
+		cy.get('#footer-lang-en-id').should('contain', 'English');
+		cy.get('#footer-lang-fr-id').should('not.be.visible');
 	}
 };
 
@@ -88,7 +88,7 @@ export function footerTests(url) {
 		})
 		
 		it('Footer - GitHub Project Link', function() {
-			cy.get('#footer-githubLink').should('not.be.visible');
+			cy.get('#footer-github-id').should('not.be.visible');
 		})
 		
 		it('Footer - Left', function() {
@@ -96,8 +96,8 @@ export function footerTests(url) {
 		})
 		
 		it('Footer - Home Link', function() {
-			checkI18nElementTextWithDataAttribute('#footer-homeLink>span:last', 'Acceuil', 'Home');
-			cy.get('#footer-homeLink').click();
+			checkI18nElementTextWithDataAttribute('#footer-home-id>span:last', 'Acceuil', 'Home');
+			cy.get('#footer-home-id').click();
 			cy.url().should('eq', getBaseUrl() + '/#');
 		})
 		
@@ -111,7 +111,7 @@ export function modalTests(url) {
 	return function() {
 		it('Modal - Not visible per default', function() {
 			cy.visit(url);
-			cy.get('#modal').should('not.be.visible');
+			cy.get('#modal-id').should('not.be.visible');
 		})
 
 		it('Modal - display unsupported localStorage if localStorage unavailable', function() {

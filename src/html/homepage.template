@@ -1,13 +1,13 @@
-<div id="screen-homepage" class="hidden">
+<div id="home-id" class="hidden">
     <div class="splash">
         <h1 class="splash-head">Gamebook assistant</h1>
         <p class="splash-subhead i18n"
            data-fr="facilite la résolution de livre-jeu"
            data-en="ease the resolution of gamebooks"></p>
         <p>
-            <a id="screen-home-selectbookBtn" class="button i18n" href="#gamebooks" data-fr="Sélection du livre-jeu" data-en="Select the gamebook"></a>
+            <a id="home-selectbook-id" class="button i18n" href="#gamebooks" data-fr="Sélection du livre-jeu" data-en="Select the gamebook"></a>
 			<span class="only-visible-by-admin hidden">
-				<a id="screen-home-showDataBtn" class="button i18n" href="#" data-fr="Données de l'application" data-en="Data of the application"></a>
+				<a id="home-showdata-id" class="button i18n" href="#" data-fr="Données de l'application" data-en="Data of the application"></a>
 			</span>
         </p>
     </div>

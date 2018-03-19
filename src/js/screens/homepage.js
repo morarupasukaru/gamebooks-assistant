@@ -4,20 +4,20 @@
 	var __ = globals._;
 	
     var display = function() {
-		var found = __.dom.display("screen-homepage");
+		var found = __.dom.display("home-id");
 		if (!!found) {
 			__.footer.displayHomepageFooter();
 		}
 	};
 	
     var hide = function() {
-		__.dom.hide("screen-homepage");
+		__.dom.hide("home-id");
 	};
 	
 	var showDataBtnInitialized = false;
     var initialize = function() {
 		if (!showDataBtnInitialized) {
-			var showDataBtn = document.getElementById('screen-home-showDataBtn');
+			var showDataBtn = document.getElementById('home-showdata-id');
 			showDataBtn.href = __.route.getScreenUrl('dataOfApplication');
 			showDataBtnInitialized = true;
 		}

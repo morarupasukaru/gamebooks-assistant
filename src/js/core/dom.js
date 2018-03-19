@@ -57,8 +57,8 @@
 		}
 	};
 	
-	api.setText = function(elementId, fr, en) {
-		var inputElement = document.getElementById('screen-newGamebook-title');
+	api.setPlaceholderText = function(elementId, fr, en) {
+		var inputElement = document.getElementById(elementId);
 		if (__.data.getLanguage() === 'fr') {
 			inputElement.setAttribute("placeholder", fr);
 		} else {
@@ -66,7 +66,7 @@
 		}
 	};
 	
-	api.setPlaceholderText = function(elementId, fr, en) {
+	api.setText = function(elementId, fr, en) {
 		var titleElement = document.getElementById(elementId);
 		if(!!titleElement) {
 			titleElement.setAttribute('data-fr', fr);

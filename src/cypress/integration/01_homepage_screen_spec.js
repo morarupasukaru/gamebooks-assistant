@@ -23,8 +23,8 @@ describe('01 - Homepage screen', function () {
 		})
 		
 		it('Content - Selectbook Button', function() {
-			common.checkI18nElementTextWithDataAttribute('#screen-home-selectbookBtn', 'Sélection du livre-jeu', 'Select the gamebook');
-			cy.get('#screen-home-selectbookBtn').click();
+			common.checkI18nElementTextWithDataAttribute('#home-selectbook-id', 'Sélection du livre-jeu', 'Select the gamebook');
+			cy.get('#home-selectbook-id').click();
 			cy.url().should('eq', common.getBaseUrl() + '/#gamebooks');
 		})
 	}),
@@ -35,7 +35,7 @@ describe('01 - Homepage screen', function () {
 		})
 		
 		it('Footer - GitHub Project Link', function() {
-			common.checkI18nElementTextWithDataAttribute('#footer-githubLink>span:last', 'Projet GitHub', 'GitHub Project');
+			common.checkI18nElementTextWithDataAttribute('#footer-github-id>span:last', 'Projet GitHub', 'GitHub Project');
 		})
 		
 		it('Footer - Language Links', function() {
@@ -49,26 +49,26 @@ describe('01 - Homepage screen', function () {
 		})
 		
 		it('Button hidden per default', function() {
-			cy.get('#screen-home-showDataBtn').should('not.be.visible');
+			cy.get('#home-showdata-id').should('not.be.visible');
 		})
 		
 		it('Button visible when adminEnabled', function() {
 			cy.visit('/#?adminEnabled');
-			common.checkI18nElementTextWithDataAttribute('#screen-home-showDataBtn', "Données de l'application", "Data of the application");
-			cy.get('#screen-home-showDataBtn').click();
+			common.checkI18nElementTextWithDataAttribute('#home-showdata-id', "Données de l'application", "Data of the application");
+			cy.get('#home-showdata-id').click();
 			cy.url().should('eq', common.getBaseUrl() + '/#data-application');
 			cy.get('#screen-localStorageData-backToHomeBtn').click();
 			cy.url().should('eq', common.getBaseUrl() + '/#');
-			cy.get('#screen-home-showDataBtn').should('be.visible');
+			cy.get('#home-showdata-id').should('be.visible');
 		})
 		
 		it('Button hidden when adminDisabled', function() {
 			cy.visit('/#?adminDisabled');
-			cy.get('#screen-home-showDataBtn').should('not.be.visible');
-			cy.get('#screen-home-selectbookBtn').click();
+			cy.get('#home-showdata-id').should('not.be.visible');
+			cy.get('#home-selectbook-id').click();
 			cy.url().should('eq', common.getBaseUrl() + '/#gamebooks');
 			cy.visit('/');
-			cy.get('#screen-home-showDataBtn').should('not.be.visible');
+			cy.get('#home-showdata-id').should('not.be.visible');
 		})
 	}),
 	

@@ -8,10 +8,11 @@
     __.msg = __.msg || {};
     var api = __.msg;
 
+	// TODO remove if unused
     api.ids = {
-        modal: "modal",
-        title: "modal-title",
-        text: "modal-text"
+        modal: "modal-id",
+        title: "modal-title-id",
+        text: "modal-text-id"
     };
     
     api.errorUnsupportedFeature = function() {

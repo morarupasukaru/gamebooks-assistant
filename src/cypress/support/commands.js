@@ -34,31 +34,30 @@ Cypress.Commands.add("toogleLanguage", () => {
 	}
 });
 
-Cypress.Commands.add("modalWithErrorLocalstorageUnavailable", (lang) => {
-	cy.get('#modal').should('be.visible');
+function testModalError(lang, fr, en) {
+	if (!lang) {
+		lang = common.getLanguage();
+	}
+	cy.get('#modal-id').should('be.visible');
 	if (lang === 'fr') {
-		cy.get('#modal-title').contains("ERREUR");
-		cy.get('#modal-text').contains("LocalStorage est requis à l'application mais n'est pas disponible.");
+		cy.get('#modal-title-id').contains("ERREUR");
+		cy.get('#modal-text-id').contains(fr);
 	} else {
-		cy.get('#modal-title').contains("ERROR");
-		cy.get('#modal-text').contains("LocalStorage is required by the application but is unavailable.");
+		cy.get('#modal-title-id').contains("ERROR");
+		cy.get('#modal-text-id').contains(en);
 	} 
-	cy.get('#modal-closeBtn').click();
-	cy.get('#modal').should('not.be.visible');
+	cy.get('#modal-close-id').click();
+	cy.get('#modal-id').should('not.be.visible');
+};
+
+Cypress.Commands.add("modalWithErrorLocalstorageUnavailable", (lang) => { 
+	testModalError(lang, "LocalStorage est requis à l'application mais n'est pas disponible.", 
+		"LocalStorage is required by the application but is unavailable.");
 });
 
-Cypress.Commands.add("modalWithErrorFeatureNotImplemented", () => {
-	var lang = common.getLanguage();
-	cy.get('#modal').should('be.visible');
-	if (lang === 'fr') {
-		cy.get('#modal-title').contains("ERREUR");
-		cy.get('#modal-text').contains("La fonctionnalité n'est pas encore implémentée.");
-	} else {
-		cy.get('#modal-title').contains("ERROR");
-		cy.get('#modal-text').contains("Functionality is not yet implemented.");
-	} 
-	cy.get('#modal-closeBtn').click();
-	cy.get('#modal').should('not.be.visible');
+Cypress.Commands.add("modalWithErrorFeatureNotImplemented", () => { 
+	testModalError(undefined, "La fonctionnalité n'est pas encore implémentée.", 
+		"Functionality is not yet implemented.");
 });
 
 Cypress.Commands.add("setLocalStorageItem", (key, value) => {

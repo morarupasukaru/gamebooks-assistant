@@ -140,7 +140,7 @@ describe('04 - Gamebook Selection screen', function () {
 		it('Button hidden when adminDisabled', function() {
 			cy.visit('/#gamebooks?adminDisabled');
 			cy.get('#screen-gamebooks-showDataBtn').should('not.be.visible');
-			cy.get('#footer-homeLink').click();
+			cy.get('#footer-home-id').click();
 			cy.url().should('eq', common.getBaseUrl() + '/#');
 			cy.visit('/#gamebooks');
 			cy.get('#screen-gamebooks-showDataBtn').should('not.be.visible');

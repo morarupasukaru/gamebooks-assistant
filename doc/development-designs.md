@@ -16,7 +16,7 @@ gamebooks-title-id
 | Screen / Component                           | id prefix      |
 | :------------------------------------------- | -------------: |
 | footer                                       | footer         |
-| error modal                                  | error          |
+| modal of messages                            | modal          |
 | homepage                                     | home           |
 | pageNotFound                                 | 404            |
 | confirmation                                 | confirm        |

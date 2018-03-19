@@ -16,10 +16,10 @@
             __.data.setLanguage(newLanguage);
             var htmlElement = document.getElementsByTagName("html")[0];
             htmlElement.lang = newLanguage;
-            document.getElementById("footer-lang-" + newLanguage).classList.add("hidden");
+            document.getElementById("footer-lang-" + newLanguage + "-id").classList.add("hidden");
             for (var i = 0; i < __.config.languages.supported.length; i++) {
                 if (newLanguage !== __.config.languages.supported[i]) {
-                    document.getElementById("footer-lang-" + __.config.languages.supported[i]).classList.remove("hidden");
+                    document.getElementById("footer-lang-" + __.config.languages.supported[i] + "-id").classList.remove("hidden");
                 }
             }
             this._forceReloadStylesheetIfNeeded(newLanguage);
@@ -35,7 +35,7 @@
      * value with i18n.js by reloading a non-existent stylesheet.
      */
     api._forceReloadStylesheetIfNeeded = function(newLanguage) {
-        var element = document.getElementById("i18n-testDiv");
+        var element = document.getElementById("i18n-test-id");
         var text = window.getComputedStyle(element, ':before').getPropertyValue('content');
         if (!text || text !== '"' + newLanguage + '"') {
             this._forceReloadStylesheet(newLanguage);
@@ -43,7 +43,7 @@
     };
 
     api._forceReloadStylesheet = function(newLanguage) {
-        var dummyStylesheetId = "forceReloadStylesheets";
+        var dummyStylesheetId = "i18n-forcecssreload-id";
         var dummyStylesheetElement = document.getElementById(dummyStylesheetId);
         var hrefValue = dummyStylesheetId + '.css?' + newLanguage;
         if (!!dummyStylesheetElement) {
