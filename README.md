@@ -46,7 +46,7 @@ See the [HISTORY](HISTORY.md).
 
 - [Ravenmore's image](//opengameart.org/content/fantasy-icon-pack-by-ravenmore-0) used for the favicon
 - [realfavicongenerator](https://realfavicongenerator.net/) for the favicon generation
-- [fontawesome])(http://fontawesome.io) for used icons.
+- [fontawesome](http://fontawesome.io) for used icons.
 - [icomoon](https://icomoon.io/) for conversions of icons as css fonts.
 - [normalize.css](https://necolas.github.io/normalize.css/) used to reset CSS
 - [pure.css](https://purecss.io/) used for its responsive css grids
