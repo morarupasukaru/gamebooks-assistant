@@ -56,8 +56,8 @@ See the [HISTORY](HISTORY.md).
 - [Article of Smashingmagazine](https://www.smashingmagazine.com/2014/06/css-driven-internationalization-in-javascript/) for the solution of CSS internationalization
 - [PlainJS](https://plainjs.com/javascript/) for code snippets
 - [W3schools](https://www.w3schools.com/) for code snippets
-- [Grunt](https://gruntjs.com/) and various pluggins used for the applications build, see (/src/package.json)[package.json]
-- [Github](Github) for great tooling
+- [Grunt](https://gruntjs.com/) and various pluggins used for the applications build, see [package.json](/src/package.json)
+- [GitHub](https://github.com/) for the great tools available and the repository
 
 
 ### License
