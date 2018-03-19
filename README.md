@@ -16,7 +16,7 @@ The "Business" goal is to be able to play a gamebook with a book in a hand and a
 ```bash
 npm install -g grunt-cli
 ```
-- Install Project dependency
+- Install the project's dependencies
 ```bash
 cd ...\gamebooks-assistant\src
 npm install
