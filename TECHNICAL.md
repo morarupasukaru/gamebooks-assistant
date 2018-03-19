@@ -1,6 +1,6 @@
 # Development design choices
 
-### naming convention for id of html element
+### Naming convention for id of html elements
 
 As all the html of the whole application is merged into a single index.html file, all id must be unique along all screens.
 
