@@ -52,12 +52,12 @@ See the [HISTORY](HISTORY.md).
 - [pure.css](https://purecss.io/) used for its responsive css grids
 - [Skeleton](http://getskeleton.com/) used for the look-and-feel of the application
 - [Cypress](https://www.cypress.io/) used for the front-end tests
-- Splash screen of homepage copied from [purecss marketing layout](https://purecss.io/layouts/marketing/)
+- [pure.css marketing layout](https://purecss.io/layouts/marketing/) for the "splash" solution used in the homepage screen
 - [Article of Smashingmagazine](https://www.smashingmagazine.com/2014/06/css-driven-internationalization-in-javascript/) for the solution of CSS internationalization
 - [PlainJS](https://plainjs.com/javascript/) for code snippets
 - [W3schools](https://www.w3schools.com/) for code snippets
 - [Grunt](https://gruntjs.com/) and various pluggins used for the applications build, see (/src/package.json)[package.json]
-- [Github](Github for the nice )
+- [Github](Github) for great tooling
 
 
 ### License
