@@ -31,4 +31,4 @@ TODO
 
 [![license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/morarupasukaru/gamebooks-assistant/blob/master/LICENSE.md)
 
-This project is licensed under the terms of the [MIT license](/LICENSE).
+This project is licensed under the terms of the [MIT license](/LICENSE.md).
