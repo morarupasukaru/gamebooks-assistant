@@ -1,0 +1,29 @@
+.bigtop-margin {
+    margin: auto;
+    padding-top: 0.5em;
+    text-align: center;
+    width: 80%;
+}
+
+/* Larger than mobile */
+@media only screen and (orientation: portrait) and (min-width: 25em) {
+  .bigtop-margin {
+       /* absolute center .splash within .splash-container */
+       bottom: 0;
+       left: 0;
+       position: absolute;
+       right: 0;
+       top: 100px;
+  }
+}
+
+@media only screen and (orientation: landscape) and (min-width: 48em) {
+  .bigtop-margin {
+       /* absolute center .splash within .splash-container */
+       bottom: 0;
+       left: 0;
+       position: absolute;
+       right: 0;
+       top: 100px;
+  }
+}

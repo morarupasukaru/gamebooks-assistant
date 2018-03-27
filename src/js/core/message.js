@@ -24,7 +24,6 @@
      */
     api.error = function(message) {
         this._displayMessage('error', message);
-		throw message;
     };
 
     api._displayMessage = function(severity, message) {

@@ -8,6 +8,9 @@
     __.data = __.data || {};
     var api = __.data;
 	
+	var fallbackLocalstorage = {
+	};
+	
     var testLocalStorageAvailable = function() {
         try {
             var storage = globals.localStorage;
@@ -42,26 +45,26 @@
      * Retrieve a data with given key in the localstorage
      */
     var get = function(key) {
-        lazyInitialisation();
         if (!api.isLocalStorageAvailable) {
-            return null;
-        }
-        var value = localStorage.getItem(key);
-        if (value === null || value === undefined || value === "undefined") {
-            return null;
+            return fallbackLocalstorage[key];
         } else {
-            try {
-                return JSON.parse(value);
-            } catch (e) {
-                // cannot be parsed, must be a string
-                return value;
-            }
-        }
+			var value = localStorage.getItem(key);
+			if (value === null || value === undefined || value === "undefined") {
+				return null;
+			} else {
+				try {
+					return JSON.parse(value);
+				} catch (e) {
+					// cannot be parsed, must be a string
+					return value;
+				}
+			}
+		}
     };
 	
-	api.getAllData = function() {
+	var copyData = function(data) {
 		var dump = {};
-		var keys = Object.keys(localStorage);
+		var keys = Object.keys(data);
 		keys = keys.sort();
 		for (var i = 0; i < keys.length; i++) {
 			var key = keys[i];
@@ -69,20 +72,28 @@
 		}
 		return dump;
 	};
+	
+	api.getAllData = function() {
+        if (!api.isLocalStorageAvailable) {
+            return copyData(fallbackLocalstorage);
+		} else {
+            return copyData(localStorage);
+		}
+	};
 
     /**
      * Save some data with given key in the localstorage
      */
     var set = function(key, value) {
-        lazyInitialisation();
         if (!api.isLocalStorageAvailable) {
-            return ;
-        }
-        if (typeof value === 'string') {
-            localStorage.setItem(key, value);
+            fallbackLocalstorage[key] = value;
         } else {
-            localStorage.setItem(key, JSON.stringify(value));
-        }
+			if (typeof value === 'string') {
+				localStorage.setItem(key, value);
+			} else {
+				localStorage.setItem(key, JSON.stringify(value));
+			}
+		}
     };
 	
 	api.getLanguage = function() {
@@ -138,7 +149,6 @@
     // TODO delete data from localstorage
     // TODO retrieve a list of localstorage ids with a given prefix
     // TODO catch error if space in localstorage is no more available
-
     // TODO test performance of localstorage (is it better to store all gamebook data in a single variable or several, ones per paragraph?)
 
 } (this));
