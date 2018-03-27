@@ -127,7 +127,7 @@
 		}
         lazyInitialisation();
         if (!api.isLocalStorageAvailable) {
-            throw __.config.texts.errorLocalstorageUnavailable;
+            __.msg.error(__.config.texts.errorLocalstorageUnavailable);
         }
 		initialized = true;
     };

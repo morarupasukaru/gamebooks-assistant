@@ -61,12 +61,6 @@
 		if (!!initialized) {
 			return ;
 		}
-        if (!__.config) {
-            throw 'config is unavailable';
-        }
-        if (!__.data) {
-            throw 'data is unavailable';
-        }
         var savedLanguage = __.data.getLanguage();
         if (!!savedLanguage) {
             this.setLanguage(savedLanguage);

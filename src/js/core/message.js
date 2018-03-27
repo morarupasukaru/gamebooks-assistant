@@ -16,7 +16,7 @@
     };
     
     api.errorUnsupportedFeature = function() {
-        throw __.config.texts.errorFeatureNotImplemented;
+        this._displayMessage('error', __.config.texts.errorFeatureNotImplemented);
     };
 
     /**
@@ -24,6 +24,7 @@
      */
     api.error = function(message) {
         this._displayMessage('error', message);
+		throw message;
     };
 
     api._displayMessage = function(severity, message) {
@@ -53,7 +54,8 @@
      */
     if (!!globals.addEventListener) {
         globals.addEventListener('error', function (e) {
-            __.msg.error(e.error.toString());
+			// TODO save errors for admin screen
+			console.log(e.error.toString());
         });
     }
 } (this));
