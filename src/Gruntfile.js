@@ -89,6 +89,7 @@ module.exports = function(grunt) {
                         'css/form.css',
                         'css/i18n.css',
                         'css/modal.css',
+                        'css/bigtop-margin.css',
                         'html/**/*.css'
                     ],
                     dest: '<%= targetMinified %>/assets/style.css'
