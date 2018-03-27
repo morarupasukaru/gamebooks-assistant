@@ -44,6 +44,8 @@
 <body>
 
 <form onsubmit="_.form.onSubmit();">
+	<!-- build:include noJavascriptError.template -->
+	<!-- /build -->
 	<!-- build:include homepage.template -->
 	<!-- /build -->
 	<!-- build:include pageNotFound.template -->
@@ -62,7 +64,7 @@
 <!-- line-break to have the footer not overlaping the last adventure choice -->
 <br/>
 
-<div class="footer">
+<div id="footer-id" class="footer hidden">
     <div class="footer-left trim-text">
         <a id="footer-github-id" href="https://github.com/morarupasukaru/gamebooks-assistant/">
             &nbsp;<span class="icon icon-github2"></span>

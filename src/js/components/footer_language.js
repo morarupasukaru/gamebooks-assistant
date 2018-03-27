@@ -45,6 +45,7 @@
 			return ;
 		}
 		__.dom.setHrefOfScreen('footer-home-id', 'home');
+		__.dom.display('footer-id');
 		initialized = true;
     };
 } (this));
