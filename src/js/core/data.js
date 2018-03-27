@@ -45,6 +45,7 @@
      * Retrieve a data with given key in the localstorage
      */
     var get = function(key) {
+		lazyInitialisation();
         if (!api.isLocalStorageAvailable) {
             return fallbackLocalstorage[key];
         } else {
@@ -74,6 +75,7 @@
 	};
 	
 	api.getAllData = function() {
+		lazyInitialisation();
         if (!api.isLocalStorageAvailable) {
             return copyData(fallbackLocalstorage);
 		} else {
@@ -85,6 +87,7 @@
      * Save some data with given key in the localstorage
      */
     var set = function(key, value) {
+		lazyInitialisation();
         if (!api.isLocalStorageAvailable) {
             fallbackLocalstorage[key] = value;
         } else {

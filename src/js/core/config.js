@@ -7,8 +7,6 @@
 	var __ = globals._;
     __.config = __.config || {};
     var api = __.config;
-	
-	api.javascriptAvailable = true;
 
     api.storageKeys = {
         savedLanguage : 'savedLanguage',
