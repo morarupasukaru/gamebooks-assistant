@@ -1,7 +1,6 @@
 import * as common from '../sharedTests';
 
 describe('01 - Homepage screen', function () {
-	
 	context('Content', function () {
 		beforeEach(function () {
 			cy.visit('/');
@@ -73,6 +72,5 @@ describe('01 - Homepage screen', function () {
 	}),
 	
 	context('Modal', common.modalTests('/')),
-	
 	context('debugEnabled Settings', common.debugSettingTests('/'))
 });

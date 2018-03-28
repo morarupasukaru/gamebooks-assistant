@@ -128,6 +128,10 @@ export function modalTests(url) {
 
 export function debugSettingTests(url) {
 	return function() {
+		beforeEach(function () {
+			localStorage.clear();
+		})
+		
 		it('debugEnabled = null per default', function() {
 			cy.visit(url).should(function () {
 				expect(localStorage.getItem('debugEnabled')).to.eq(null);
