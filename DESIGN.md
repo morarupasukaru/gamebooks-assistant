@@ -15,6 +15,8 @@ gamebooks-title-id
 
 | Screen / Component                           | id prefix      |
 | :------------------------------------------- | -------------: |
+| debug screen                                 | debug          |
+| no javascript error screen                   | nojs           |
 | footer                                       | footer         |
 | modal of messages                            | modal          |
 | homepage                                     | home           |

@@ -126,8 +126,8 @@ describe('04 - Gamebook Selection screen', function () {
 			cy.get('#books-showdata-id').should('not.be.visible');
 		})
 		
-		it('Button visible when adminEnabled', function() {
-			cy.visit('/#gamebooks?adminEnabled');
+		it('Button visible when debugEnabled', function() {
+			cy.visit('/#gamebooks?debugEnabled');
 			common.checkI18nElementTextWithDataAttribute('#books-showdata-id', "Données de la liste des livres-jeux", "Gamebooks list data");
 			cy.get('#books-showdata-id').click();
 			cy.url().should('eq', common.getBaseUrl() + '/#data-gamebooks');
@@ -136,8 +136,8 @@ describe('04 - Gamebook Selection screen', function () {
 			cy.get('#books-showdata-id').should('be.visible');
 		})
 		
-		it('Button hidden when adminDisabled', function() {
-			cy.visit('/#gamebooks?adminDisabled');
+		it('Button hidden when debugDisabled', function() {
+			cy.visit('/#gamebooks?debugDisabled');
 			cy.get('#books-showdata-id').should('not.be.visible');
 			cy.get('#footer-home-id').click();
 			cy.url().should('eq', common.getBaseUrl() + '/#');
@@ -162,6 +162,6 @@ describe('04 - Gamebook Selection screen', function () {
 	
 	context('Modal', common.modalTests('/#gamebooks')),
 	
-	context('adminEnabled Settings', common.adminSettingTests('/#gamebooks'))
+	context('debugEnabled Settings', common.debugSettingTests('/#gamebooks'))
 });
 

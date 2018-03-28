@@ -1,0 +1,11 @@
+<div id="debug-id" class="container bigtop-margin hidden">
+    <div class="pure-g">
+        <div class="pure-u-1">
+            <h1 id="debug-title-id" class="i18n" data-fr="Ecran de déverminage" data-en="Debugging screen"></h1>
+        </div>
+		
+        <div class="pure-u-1">
+            <a id="debug-back-id" class="button i18n" href="/#" data-fr="Retour à l'acceuil" data-en="Back to home"></a>
+        </div>
+    </div>
+</div>

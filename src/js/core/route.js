@@ -100,32 +100,32 @@
 	};
 	
 
-    var changeElementVisibleOnlyToAdmin = function(adminEnabled) {
-		var cssSelector = ".only-visible-by-admin";
-        if (!!adminEnabled) {
+    var changeElementVisibleOnlyToDebug = function(debugEnabled) {
+		var cssSelector = ".only-visible-by-debug";
+        if (!!debugEnabled) {
 			__.dom.displayAllByCssSelector(cssSelector);
         } else {
 			__.dom.hideAllByCssSelector(cssSelector);
         }
     };
     
-    var computeAdminMode = function(forceRefresh) {
+    var computeDebugMode = function(forceRefresh) {
         var keyValues = getSearchParams();
         var keys = Object.keys(keyValues);
-		var wasAdminEnabled = !!__.data.isAdminEnabled();
-		var adminEnabled;
-		if (keys.indexOf('adminEnabled') !== -1) {
-			adminEnabled = true;
-			__.data.setAdminEnabled(adminEnabled);
-		} else if (keys.indexOf('adminDisabled') !== -1) {
-			adminEnabled = false;
-			__.data.setAdminEnabled(adminEnabled);
+		var wasDebugEnabled = !!__.data.isDebugEnabled();
+		var debugEnabled;
+		if (keys.indexOf('debugEnabled') !== -1) {
+			debugEnabled = true;
+			__.data.setDebugEnabled(debugEnabled);
+		} else if (keys.indexOf('debugDisabled') !== -1) {
+			debugEnabled = false;
+			__.data.setDebugEnabled(debugEnabled);
 		}
-		if (!!forceRefresh || adminEnabled !== undefined) {
-			if (adminEnabled !== undefined && wasAdminEnabled !== adminEnabled) {
-				changeElementVisibleOnlyToAdmin(!!adminEnabled);
+		if (!!forceRefresh || debugEnabled !== undefined) {
+			if (debugEnabled !== undefined && wasDebugEnabled !== debugEnabled) {
+				changeElementVisibleOnlyToDebug(!!debugEnabled);
 			} else {
-				changeElementVisibleOnlyToAdmin(wasAdminEnabled);
+				changeElementVisibleOnlyToDebug(wasDebugEnabled);
 			}
 		}
     };
@@ -235,7 +235,7 @@
     };
 	
 	var computeHashChange = function(forceRefresh) {
-		computeAdminMode(forceRefresh);
+		computeDebugMode(forceRefresh);
 		computeScreen();
 	};
     

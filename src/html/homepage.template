@@ -6,7 +6,7 @@
            data-en="ease the resolution of gamebooks"></p>
         <p>
             <a id="home-selectbook-id" class="button i18n" href="#gamebooks" data-fr="Sélection du livre-jeu" data-en="Select the gamebook"></a>
-			<span class="only-visible-by-admin hidden">
+			<span class="only-visible-by-debug hidden">
 				<a id="home-showdata-id" class="button i18n" href="#" data-fr="Données de l'application" data-en="Data of the application"></a>
 			</span>
         </p>

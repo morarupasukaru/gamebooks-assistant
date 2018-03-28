@@ -11,7 +11,7 @@
     api.storageKeys = {
         savedLanguage : 'savedLanguage',
 		gamebooksList : 'gamebooksList',
-		adminEnabled : 'adminEnabled',
+		debugEnabled : 'debugEnabled',
 		currentScreenId: 'currentScreenId'
     };
 

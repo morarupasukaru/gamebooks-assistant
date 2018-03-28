@@ -19,7 +19,7 @@
         </div>
 
         <div class="pure-u-1">
-            <div class="only-visible-by-admin margin-right hidden">
+            <div class="only-visible-by-debug margin-right hidden">
                 <a id="books-showdata-id" class="button u-full-width i18n" href="#" data-fr="Données de la liste des livres-jeux" data-en="Gamebooks list data"></a>
             </div>
         </div>

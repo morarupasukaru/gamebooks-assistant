@@ -40,6 +40,6 @@ describe('02 - Page not found screen', function () {
 	
 	context('Modal', common.modalTests('/#404')),
 	
-	context('adminEnabled Settings', common.adminSettingTests('/#404'))
+	context('debugEnabled Settings', common.debugSettingTests('/#404'))
 });
 

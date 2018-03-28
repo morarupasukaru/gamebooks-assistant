@@ -52,8 +52,8 @@ describe('01 - Homepage screen', function () {
 			cy.get('#home-showdata-id').should('not.be.visible');
 		})
 		
-		it('Button visible when adminEnabled', function() {
-			cy.visit('/#?adminEnabled');
+		it('Button visible when debugEnabled', function() {
+			cy.visit('/#?debugEnabled');
 			common.checkI18nElementTextWithDataAttribute('#home-showdata-id', "Données de l'application", "Data of the application");
 			cy.get('#home-showdata-id').click();
 			cy.url().should('eq', common.getBaseUrl() + '/#data-application');
@@ -62,8 +62,8 @@ describe('01 - Homepage screen', function () {
 			cy.get('#home-showdata-id').should('be.visible');
 		})
 		
-		it('Button hidden when adminDisabled', function() {
-			cy.visit('/#?adminDisabled');
+		it('Button hidden when debugDisabled', function() {
+			cy.visit('/#?debugDisabled');
 			cy.get('#home-showdata-id').should('not.be.visible');
 			cy.get('#home-selectbook-id').click();
 			cy.url().should('eq', common.getBaseUrl() + '/#gamebooks');
@@ -74,5 +74,5 @@ describe('01 - Homepage screen', function () {
 	
 	context('Modal', common.modalTests('/')),
 	
-	context('adminEnabled Settings', common.adminSettingTests('/'))
+	context('debugEnabled Settings', common.debugSettingTests('/'))
 });

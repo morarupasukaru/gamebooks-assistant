@@ -115,12 +115,12 @@
 		set(__.config.storageKeys.gamebooksList, gamebooksList);
 	};
 	
-	api.isAdminEnabled = function() {
-		return get(__.config.storageKeys.adminEnabled);
+	api.isDebugEnabled = function() {
+		return get(__.config.storageKeys.debugEnabled);
 	};
 	
-	api.setAdminEnabled = function(adminEnabled) {
-		set(__.config.storageKeys.adminEnabled, adminEnabled);
+	api.setDebugEnabled = function(debugEnabled) {
+		set(__.config.storageKeys.debugEnabled, debugEnabled);
 	};
 	
 	api.getCurrentScreenId = function() {

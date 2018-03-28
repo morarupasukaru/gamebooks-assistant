@@ -126,47 +126,47 @@ export function modalTests(url) {
 	};
 };
 
-export function adminSettingTests(url) {
+export function debugSettingTests(url) {
 	return function() {
-		it('adminEnabled = null per default', function() {
+		it('debugEnabled = null per default', function() {
 			cy.visit(url).should(function () {
-				expect(localStorage.getItem('adminEnabled')).to.eq(null);
+				expect(localStorage.getItem('debugEnabled')).to.eq(null);
 			});
 		})
 		
-		it('adminEnabled = null with .../?adminEnabled__wrong', function() {
-			cy.visit(url + '?adminEnabled__wrong').should(function () {
-				expect(localStorage.getItem('adminEnabled')).to.eq(null);
+		it('debugEnabled = null with .../?debugEnabled__wrong', function() {
+			cy.visit(url + '?debugEnabled__wrong').should(function () {
+				expect(localStorage.getItem('debugEnabled')).to.eq(null);
 			});
 		})
 		
-		it('adminEnabled = true with .../?adminEnabled', function() {
-			cy.visit(url + '?adminEnabled').should(function () {
-				expect(localStorage.getItem('adminEnabled')).to.eq('true');
+		it('debugEnabled = true with .../?debugEnabled', function() {
+			cy.visit(url + '?debugEnabled').should(function () {
+				expect(localStorage.getItem('debugEnabled')).to.eq('true');
 			});
 		})
 		
-		it('adminEnabled = false with .../?adminDisabled', function() {
-			cy.visit(url + '?adminDisabled').should(function () {
-				expect(localStorage.getItem('adminEnabled')).to.eq('false');
+		it('debugEnabled = false with .../?debugDisabled', function() {
+			cy.visit(url + '?debugDisabled').should(function () {
+				expect(localStorage.getItem('debugEnabled')).to.eq('false');
 			});
 		})
 		
-		it('adminEnabled = null with .../#test?adminEnabled__wrong', function() {
-			cy.visit(url + '#test?adminEnabled__wrong').should(function () {
-				expect(localStorage.getItem('adminEnabled')).to.eq(null);
+		it('debugEnabled = null with .../#test?debugEnabled__wrong', function() {
+			cy.visit(url + '#test?debugEnabled__wrong').should(function () {
+				expect(localStorage.getItem('debugEnabled')).to.eq(null);
 			});
 		})
 		
-		it('adminEnabled = true with .../#test?adminEnabled', function() {
-			cy.visit(url + '#test?adminEnabled').should(function () {
-				expect(localStorage.getItem('adminEnabled')).to.eq('true');
+		it('debugEnabled = true with .../#test?debugEnabled', function() {
+			cy.visit(url + '#test?debugEnabled').should(function () {
+				expect(localStorage.getItem('debugEnabled')).to.eq('true');
 			});
 		})
 		
-		it('adminEnabled = false with .../#test?adminDisabled', function() {
-			cy.visit(url + '#test?adminDisabled').should(function () {
-				expect(localStorage.getItem('adminEnabled')).to.eq('false');
+		it('debugEnabled = false with .../#test?debugDisabled', function() {
+			cy.visit(url + '#test?debugDisabled').should(function () {
+				expect(localStorage.getItem('debugEnabled')).to.eq('false');
 			});
 		})
 	};

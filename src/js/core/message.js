@@ -53,7 +53,7 @@
      */
     if (!!globals.addEventListener) {
         globals.addEventListener('error', function (e) {
-			// TODO save errors for admin screen
+			// TODO save errors for debug screen
 			console.log(e.error.toString());
         });
     }

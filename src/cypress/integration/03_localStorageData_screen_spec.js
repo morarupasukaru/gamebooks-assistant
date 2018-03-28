@@ -30,7 +30,7 @@ function testLocalStorageDataScreen(config) {
 		
 		context('Modal', common.modalTests(config.url)),
 		
-		context('adminEnabled Settings', common.adminSettingTests(config.url))
+		context('debugEnabled Settings', common.debugSettingTests(config.url))
 	};
 }
 
