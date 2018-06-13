@@ -39,10 +39,10 @@
 	var initializeDataApplication = function() {
 		initialize();
 		__.dom.setText("data-title-id", "Données de l'application", "Data of the application");
-		__.dom.setText("data-back-id", "Retour à l'acceuil", "Back to home");
+		__.dom.setText("data-back-id", "Retour à l'écran de débogage", "Back to debug screen");
 		setCodeText(JSON.stringify(__.data.getAllData(), null, '\t'));
 		
-		__.dom.setHrefOfScreen('data-back-id', 'home');
+		__.dom.setHrefOfScreen('data-back-id', 'debug');
 	};
 
     __.screens = __.screens || [];

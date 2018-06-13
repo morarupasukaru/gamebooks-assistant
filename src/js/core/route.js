@@ -129,6 +129,18 @@
 			}
 		}
     };
+    
+	/**
+	 * Throw an exception if url contains an "error" parameter; used to test bugReport.
+	 */
+    var throwExceptionOnRequest = function() {
+        var keyValues = getSearchParams();
+        var keys = Object.keys(keyValues);
+		var debugEnabled = !!__.data.isDebugEnabled();
+		if (!!debugEnabled && keys.indexOf('error') !== -1) {
+			throw 'error_' + __.data.uuid();
+		}
+    };
 	
 	var baseUrlPrefix = {};
 	baseUrlPrefix['http://morarupasukaru.github.io'] = '/gamebooks-assistant#';
@@ -236,6 +248,7 @@
 	
 	var computeHashChange = function(forceRefresh) {
 		computeDebugMode(forceRefresh);
+		throwExceptionOnRequest();
 		computeScreen();
 	};
     

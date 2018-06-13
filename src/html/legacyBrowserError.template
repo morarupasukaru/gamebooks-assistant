@@ -1,0 +1,23 @@
+<div id="legacybrowser-id" class="container bigtop-margin hidden">
+    <div class="pure-g">
+        <div class="pure-u-1">
+            <h1 id="legacybrowser-title-id">Gamebooks Assistant</h1>
+			
+            <h2 id="legacybrowser-subtitle-id">Navigateur non supporté / Unsupported web browser</h2>
+			<!-- TODO set the browser description -->
+			<p>
+			 Français: Votre navigateur Internet <span class="legacybrowser-description"></span> n'est pas supporté par l'application. 
+			 Veuilliez installer une version plus récente du navigateur ou utiliser une autre naviateur.
+			</p>
+			<p>
+			 English: Your web browser <span class="legacybrowser-description"></span> is not supported by the application. 
+			 Please install a new version of the web browser or use another one.
+			</p>
+			<p>
+				<a href="https://github.com/morarupasukaru/gamebooks-assistant/">
+					&nbsp;<span class="icon icon-github2"></span>&nbsp;<span>GitHub</span>
+				</a>
+			</p>
+        </div>
+    </div>
+</div>

@@ -4,28 +4,30 @@
 	var __ = globals._;
 	
     var display = function() {
-		var found = __.dom.display("home-id");
+		var found = __.dom.display("debug-id");
 		if (!!found) {
-			__.footer.displayHomepageFooter();
+			__.footer.displayChildFooter();
 		}
 	};
 	
     var hide = function() {
-		__.dom.hide("home-id");
+		__.dom.hide("debug-id");
 	};
 	
-	var showDataBtnInitialized = false;
+	var initialized = false;
     var initialize = function() {
-		if (!showDataBtnInitialized) {
-			__.dom.setHrefOfScreen('home-showdebug-id', 'debug');
-			showDataBtnInitialized = true;
+		if (!!initialized) {
+			return ;
 		}
+		__.dom.setHrefOfScreen('debug-showdata-id', 'dataOfApplication');
+		__.dom.setHrefOfScreen('debug-back-id', 'home');
+		initialized = true;
     };
 
     __.screens = __.screens || [];
 	__.screens.push({
-		id: 'home',
-		routeUrl: [],
+		id: 'debug',
+		routeUrl: ['debug'],
 		initialize: initialize,
 		display: display,
 		hide: hide

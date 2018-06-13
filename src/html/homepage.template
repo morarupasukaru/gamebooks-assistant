@@ -7,7 +7,7 @@
         <p>
             <a id="home-selectbook-id" class="button i18n" href="#gamebooks" data-fr="Sélection du livre-jeu" data-en="Select the gamebook"></a>
 			<span class="only-visible-by-debug hidden">
-				<a id="home-showdata-id" class="button i18n" href="#" data-fr="Données de l'application" data-en="Data of the application"></a>
+				<a id="home-showdebug-id" class="button i18n" href="#" data-fr="Ecran de débogage" data-en="Debug screen"></a>
 			</span>
         </p>
     </div>

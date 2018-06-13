@@ -11,9 +11,8 @@
 	var fallbackLocalstorage = {
 	};
 	
-    var testLocalStorageAvailable = function() {
+    var testStorageAvailable = function(storage) {
         try {
-            var storage = globals.localStorage;
             var x = '__storage_test__';
             storage.setItem(x, x);
             storage.removeItem(x);
@@ -24,8 +23,12 @@
     };
 
     var lazyInitialisation = function() {
-        if (api.isLocalStorageAvailable === undefined) {
-            api.isLocalStorageAvailable = testLocalStorageAvailable();
+        if (api.isWebStorageAvailable === undefined) {
+			try {
+				api.isWebStorageAvailable = testStorageAvailable(globals.sessionStorage) && testStorageAvailable(globals.localStorage);
+			} catch(e) {
+				api.isWebStorageAvailable = false;
+			}
         }
     };
 
@@ -46,7 +49,7 @@
      */
     var get = function(key) {
 		lazyInitialisation();
-        if (!api.isLocalStorageAvailable) {
+        if (!api.isWebStorageAvailable) {
             return fallbackLocalstorage[key];
         } else {
 			var value = localStorage.getItem(key);
@@ -76,7 +79,7 @@
 	
 	api.getAllData = function() {
 		lazyInitialisation();
-        if (!api.isLocalStorageAvailable) {
+        if (!api.isWebStorageAvailable) {
             return copyData(fallbackLocalstorage);
 		} else {
             return copyData(localStorage);
@@ -88,7 +91,7 @@
      */
     var set = function(key, value) {
 		lazyInitialisation();
-        if (!api.isLocalStorageAvailable) {
+        if (!api.isWebStorageAvailable) {
             fallbackLocalstorage[key] = value;
         } else {
 			if (typeof value === 'string') {
@@ -96,6 +99,15 @@
 			} else {
 				localStorage.setItem(key, JSON.stringify(value));
 			}
+		}
+    };
+	
+    var remove = function(key) {
+		lazyInitialisation();
+        if (!api.isWebStorageAvailable) {
+            delete fallbackLocalstorage[key];
+        } else {
+			localStorage.removeItem(key);
 		}
     };
 	
@@ -130,6 +142,31 @@
 	api.setCurrentScreenId = function(screen) {
 		set(__.config.storageKeys.currentScreenId, screen);
 	};
+	
+	var javascriptErrorsKey = 'javascript-errors';
+	api.getJavascriptErrors = function() {
+		var errors = get(javascriptErrorsKey);
+		if (!!errors) {
+			return errors;
+		} else {
+			return [];
+		}
+	};
+	
+	api.addJavascriptError = function(javascriptError) {
+		var errors = api.getJavascriptErrors();
+		var errorMessage = !!javascriptError && !!javascriptError.error ?  javascriptError.error.toString() : 'error without detail';
+		errors.push({ 
+			date: new Date(),
+			url: globals.location.href,
+			error: errorMessage 
+		});
+		set(javascriptErrorsKey, errors);
+	};
+	
+	api.clearJavascriptErrors = function() {
+		remove(javascriptErrorsKey);
+	};
 
     /**
      * Module initialisation method
@@ -140,9 +177,6 @@
 			return ;
 		}
         lazyInitialisation();
-        if (!api.isLocalStorageAvailable) {
-            __.msg.error(__.config.texts.errorLocalstorageUnavailable);
-        }
 		initialized = true;
     };
 

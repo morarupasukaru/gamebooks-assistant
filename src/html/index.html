@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="../assets/icons/icomoon/style.css">
     <link rel="stylesheet" href="../assets/normalize/normalize.css">
     <link rel="stylesheet" href="../assets/pure/base.css">
+    <link rel="stylesheet" href="../assets/pure/grids.css">
+    <link rel="stylesheet" href="../assets/pure/grids-responsive.css">
     <link rel="stylesheet" href="../assets/skeleton/skeleton-grid.css">
     <link rel="stylesheet" href="../assets/skeleton/skeleton-base-styles.css">
     <link rel="stylesheet" href="../assets/skeleton/skeleton-typography.css">
@@ -45,6 +47,10 @@
 
 <form onsubmit="_.form.onSubmit();">
 	<!-- build:include noJavascriptError.template -->
+	<!-- /build -->
+	<!-- build:include legacyBrowserError.template -->
+	<!-- /build -->
+	<!-- build:include noStorageError.template -->
 	<!-- /build -->
 	<!-- build:include debug.template -->
 	<!-- /build -->
@@ -100,6 +106,7 @@
 <script src="../js/components/footer_language.js"></script>
 <script src="../js/screens/homepage.js"></script>
 <script src="../js/screens/pageNotFound.js"></script>
+<script src="../js/screens/debug.js"></script>
 <script src="../js/screens/localStorageData.js"></script>
 <script src="../js/screens/gamebooks.js"></script>
 <script src="../js/screens/gamebook.js"></script>

@@ -1,9 +1,9 @@
 <div id="nojs-id" class="container bigtop-margin">
     <div class="pure-g">
         <div class="pure-u-1">
-            <h1 id="nojs-title-id">Gamebooks Assistant</h1>
-            <h2 id="nojs-subtitle-id">JavaScript requis / JavaScript required</h2>
+            <h1>Gamebooks Assistant</h1>
 			
+            <h2>JavaScript requis / JavaScript required</h2>
 			<noscript>
 			 Français: Le JavaScript est désactivé dans votre navigateur Internet.
 			 Voici les <a href="https://www.enable-javascript.com/fr/" target="_blank">instructions pour autoriser le JavaScript dans votre navigateur</a>.
@@ -13,6 +13,13 @@
 			 English: Javascript is disabled in your web browser.
 			 Here are the <a href="https://www.enable-javascript.com/" target="_blank">instructions how to enable JavaScript in your web browser</a>.
 			</noscript>
+
+			<p>
+				<br/>
+				<a href="https://github.com/morarupasukaru/gamebooks-assistant/">
+					&nbsp;<span class="icon icon-github2"></span>&nbsp;<span>GitHub</span>
+				</a>
+			</p>
         </div>
     </div>
 </div>

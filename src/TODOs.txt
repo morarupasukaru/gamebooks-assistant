@@ -1,0 +1,10 @@
+- rajout des favicons si ceux-ci n'empeche pas offline mode
+- debug screen
+	btn - test error
+- si debug enabled, pas de bugReport auto
+- si pas de debug & erreur javascript > bugReport avec localStorage & sessionStorage + commentaire utilisateur, clear sessionStorage après coup
+- erreur js sauvé dans le sessionStorage
+- js error saved: time, url, javascript stacktrace
+- bug report email: json avec localStorage, sessionStorage & info browser
+- afficher les données localStorage en list? (sinon mode list avec expand ou raw)
+	- raw: nouveau tab avec donnée en text

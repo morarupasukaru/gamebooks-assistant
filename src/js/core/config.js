@@ -9,6 +9,7 @@
     var api = __.config;
 
     api.storageKeys = {
+		// TODO move to data
         savedLanguage : 'savedLanguage',
 		gamebooksList : 'gamebooksList',
 		debugEnabled : 'debugEnabled',
@@ -16,13 +17,14 @@
     };
 
     api.languages = {
+		// TODO this variable will be removed as soon as i18n will be retrieved in external json file
         default : 'en',
         supported : ['fr', 'en']
     };
 
     api.texts = {
+		// TODO no modal in the future (dedicated screen instead)
         errorFeatureNotImplemented : "error-feature-not-implemented",
-        errorLocalstorageUnavailable : "error-localstorage-unavailable",
         modalTitlePrefix : "modal-title-",
         modalTitleError : "modal-title-error",
         fr : 'Francais',
@@ -30,12 +32,11 @@
     };
 
     api.translatedTexts = {
+		// TODO this variable will be removed as soon as i18n will be retrieved in external json file
         en: {},
         fr: {}
     };
 
-    api.translatedTexts.en[api.texts.errorLocalstorageUnavailable] = "LocalStorage is required by the application but is unavailable.";
-    api.translatedTexts.fr[api.texts.errorLocalstorageUnavailable] = "LocalStorage est requis à l'application mais n'est pas disponible.";
     api.translatedTexts.en[api.texts.errorFeatureNotImplemented] = "Functionality is not yet implemented.";
     api.translatedTexts.fr[api.texts.errorFeatureNotImplemented] = "La fonctionnalité n'est pas encore implémentée.";
     api.translatedTexts.en[api.texts.modalTitleError] = "ERROR";

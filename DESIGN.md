@@ -17,6 +17,8 @@ gamebooks-title-id
 | :------------------------------------------- | -------------: |
 | debug screen                                 | debug          |
 | no javascript error screen                   | nojs           |
+| no localStorage/cookies screen               | nostorage      |
+| unsupported browser screen                   | legacy-nav     |
 | footer                                       | footer         |
 | modal of messages                            | modal          |
 | homepage                                     | home           |

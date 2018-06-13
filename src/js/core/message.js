@@ -53,8 +53,7 @@
      */
     if (!!globals.addEventListener) {
         globals.addEventListener('error', function (e) {
-			// TODO save errors for debug screen
-			console.log(e.error.toString());
+			__.data.addJavascriptError(e);
         });
     }
 } (this));
