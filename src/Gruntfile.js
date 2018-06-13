@@ -114,7 +114,7 @@ module.exports = function(grunt) {
                     'js/**/screens/homepage.js',
                     'js/**/screens/debug.js',
                     'js/**/screens/pageNotFound.js',
-                    'js/**/screens/localStorageData.js',
+                    'js/**/screens/applicationData.js',
                     'js/**/screens/gamebook.js',
                     'js/**/screens/gamebooks.js',
                     'js/**/screens/newGamebook.js',
