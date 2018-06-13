@@ -50,11 +50,6 @@ function testModalError(lang, fr, en) {
 	cy.get('#modal-id').should('not.be.visible');
 };
 
-Cypress.Commands.add("modalWithErrorLocalstorageUnavailable", (lang) => { 
-	testModalError(lang, "LocalStorage est requis à l'application mais n'est pas disponible.", 
-		"LocalStorage is required by the application but is unavailable.");
-});
-
 Cypress.Commands.add("modalWithErrorFeatureNotImplemented", () => { 
 	testModalError(undefined, "La fonctionnalité n'est pas encore implémentée.", 
 		"Functionality is not yet implemented.");

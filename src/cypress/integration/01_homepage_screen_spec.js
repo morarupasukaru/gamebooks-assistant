@@ -42,7 +42,7 @@ describe('01 - Homepage screen', function () {
 		})
 	}),
 	
-	context("Show application's data Button", function () {
+	context("Show debug screen Button", function () {
 		beforeEach(function () {
 			cy.visit('/#');
 		})
@@ -53,24 +53,24 @@ describe('01 - Homepage screen', function () {
 		
 		it('Button visible when debugEnabled', function() {
 			cy.visit('/#?debugEnabled');
-			common.checkI18nElementTextWithDataAttribute('#home-showdata-id', "Données de l'application", "Data of the application");
-			cy.get('#home-showdata-id').click();
-			cy.url().should('eq', common.getBaseUrl() + '/#data-application');
-			cy.get('#data-back-id').click();
+			common.checkI18nElementTextWithDataAttribute('#home-showdebug-id', "Ecran de débogage", "Debug screen");
+			cy.get('#home-showdebug-id').click();
+			cy.url().should('eq', common.getBaseUrl() + '/#debug');
+			cy.get('#debug-back-id').click();
 			cy.url().should('eq', common.getBaseUrl() + '/#');
-			cy.get('#home-showdata-id').should('be.visible');
+			cy.get('#home-showdebug-id').should('be.visible');
 		})
 		
 		it('Button hidden when debugDisabled', function() {
 			cy.visit('/#?debugDisabled');
-			cy.get('#home-showdata-id').should('not.be.visible');
+			cy.get('#home-showdebug-id').should('not.be.visible');
 			cy.get('#home-selectbook-id').click();
 			cy.url().should('eq', common.getBaseUrl() + '/#gamebooks');
 			cy.visit('/');
-			cy.get('#home-showdata-id').should('not.be.visible');
+			cy.get('#home-showdebug-id').should('not.be.visible');
 		})
 	}),
 	
-	context('Modal', common.modalTests('/')),
+	context('No Webstorage screen', common.noWebstorageTests('/')),
 	context('debugEnabled Settings', common.debugSettingTests('/'))
 });

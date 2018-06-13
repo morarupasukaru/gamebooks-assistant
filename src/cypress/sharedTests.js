@@ -106,25 +106,29 @@ export function footerTests(url) {
 	};
 };
 
-export function modalTests(url) {
+export function noWebstorageTests(url) {
 	return function() {
-		it('Modal - Not visible per default', function() {
+		it('No Webstorage screen - Not visible per default', function() {
 			cy.visit(url);
-			cy.get('#modal-id').should('not.be.visible');
+			cy.get('#nostorage-id').should('not.be.visible');
 		})
 
-		it('Modal - display unsupported localStorage if localStorage unavailable', function() {
+		it('No Webstorage screen - display unsupported localStorage if localStorage unavailable', function() {
 			cy.visit(url, {
 				onBeforeLoad: (contentWindow) => {
 					contentWindow._ = contentWindow._ || {};
 					contentWindow._.data = contentWindow._.data || {};
-					contentWindow._.data.isLocalStorageAvailable = false;
+					contentWindow._.data.isWebStorageAvailable = false;
 				}
 			});
-			cy.modalWithErrorLocalstorageUnavailable('fr');
+			cy.get('#nostorage-id').should('be.visible');
+			cy.get('#nostorage-subtitle-id').should('be.visible');
+			cy.get('#nostorage-subtitle-id').contains('Cookies requis / Cookies required');
 		})
 	};
 };
+
+// TODO do we need a modal?
 
 export function debugSettingTests(url) {
 	return function() {

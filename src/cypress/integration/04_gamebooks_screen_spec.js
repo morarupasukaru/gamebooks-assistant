@@ -160,7 +160,7 @@ describe('04 - Gamebook Selection screen', function () {
 	
 	context('Footer', common.footerTests('/#gamebooks')),
 	
-	context('Modal', common.modalTests('/#gamebooks')),
+	context('No Webstorage screen', common.noWebstorageTests('/#gamebooks')),
 	
 	context('debugEnabled Settings', common.debugSettingTests('/#gamebooks'))
 });

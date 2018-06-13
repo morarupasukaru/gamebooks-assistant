@@ -28,7 +28,7 @@ function testLocalStorageDataScreen(config) {
 		
 		context('Footer', common.footerTests(config.url)),
 		
-		context('Modal', common.modalTests(config.url)),
+		context('No Webstorage screen', common.noWebstorageTests(config.url)),
 		
 		context('debugEnabled Settings', common.debugSettingTests(config.url))
 	};
@@ -43,9 +43,9 @@ describe("03.1 - LocalStorageData - Application's data", testLocalStorageDataScr
 	},
 	backBtn: {
 		selector : '#data-back-id',
-		fr: "Retour à l'acceuil",
-		en: 'Back to home',
-		urlAfterClick: common.getBaseUrl() + '/#'
+		fr: "Retour à l'écran de débogage",
+		en: 'Back to debug screen',
+		urlAfterClick: common.getBaseUrl() + '/#debug'
 	}
 }));
 

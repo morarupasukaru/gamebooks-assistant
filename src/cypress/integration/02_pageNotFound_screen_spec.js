@@ -38,7 +38,7 @@ describe('02 - Page not found screen', function () {
 	
 	context('Footer', common.footerTests('/#404')),
 	
-	context('Modal', common.modalTests('/#404')),
+	context('No Webstorage screen', common.noWebstorageTests('/#404')),
 	
 	context('debugEnabled Settings', common.debugSettingTests('/#404'))
 });
