@@ -8,14 +8,6 @@
     __.config = __.config || {};
     var api = __.config;
 
-    api.storageKeys = {
-		// TODO move to data
-        savedLanguage : 'savedLanguage',
-		gamebooksList : 'gamebooksList',
-		debugEnabled : 'debugEnabled',
-		currentScreenId: 'currentScreenId'
-    };
-
     api.languages = {
 		// TODO this variable will be removed as soon as i18n will be retrieved in external json file
         default : 'en',

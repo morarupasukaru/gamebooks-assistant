@@ -111,36 +111,40 @@
 		}
     };
 	
+	var savedLanguageKey = 'savedLanguage';
 	api.getLanguage = function() {
-		return get(__.config.storageKeys.savedLanguage);
+		return get(savedLanguageKey);
 	};
 	
 	api.setLanguage = function(language) {
-		set(__.config.storageKeys.savedLanguage, language);
+		set(savedLanguageKey, language);
 	};
 	
+	var gamebooksListKey = 'gamebooksList';
 	api.getGamebooksList = function() {
-		return get(__.config.storageKeys.gamebooksList);
+		return get(gamebooksListKey);
 	};
 	
 	api.setGamebooksList = function(gamebooksList) {
-		set(__.config.storageKeys.gamebooksList, gamebooksList);
+		set(gamebooksListKey, gamebooksList);
 	};
 	
+	var debugEnabledKey = 'debugEnabled';
 	api.isDebugEnabled = function() {
-		return get(__.config.storageKeys.debugEnabled);
+		return get(debugEnabledKey);
 	};
 	
 	api.setDebugEnabled = function(debugEnabled) {
-		set(__.config.storageKeys.debugEnabled, debugEnabled);
+		set(debugEnabledKey, debugEnabled);
 	};
 	
+	var currentScreenIdKey = 'currentScreenId';
 	api.getCurrentScreenId = function() {
-		return get(__.config.storageKeys.currentScreenId);
+		return get(currentScreenIdKey);
 	};
 	
 	api.setCurrentScreenId = function(screen) {
-		set(__.config.storageKeys.currentScreenId, screen);
+		set(currentScreenIdKey, screen);
 	};
 	
 	var javascriptErrorsKey = 'javascript-errors';
