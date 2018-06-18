@@ -1,9 +1,10 @@
 module.exports = function(grunt) {
     grunt.initConfig({
-        target: '../target',
+        src: 'src',
+        target: 'target',
         targetNonMinified: '<%= target %>/nonMinified',
         targetMinified: '<%= target %>/minified',
-        distrib: '../../gamebooks-assistant-distrib',
+        distrib: '../gamebooks-assistant-distrib',
 
         // Clean temporary folders
         clean: {
@@ -22,14 +23,14 @@ module.exports = function(grunt) {
         copy: {
           main: {
             files: [
-              { expand: true, flatten: true, src: ['css/*.css'], dest: '<%= targetNonMinified %>/css'},
-              { expand: true, cwd: 'assets/', src: ['**'], dest: '<%= targetNonMinified %>/assets'},
-              { expand: true, flatten: false, src: ['js/**/*.js'], dest: '<%= targetNonMinified %>'},
-              { expand: true, flatten: true, src: 'assets/favicon/*.*', dest: '<%= targetNonMinified %>/'},
+              { expand: true, flatten: true, src: ['<%= src %>/css/*.css'], dest: '<%= targetNonMinified %>/css'},
+              { expand: true, cwd: '<%= src %>/assets/', src: ['**'], dest: '<%= targetNonMinified %>/assets'},
+              { expand: true, flatten: false, src: ['<%= src %>/js/**/*.js'], dest: '<%= targetNonMinified %>'},
+              { expand: true, flatten: true, src: '<%= src %>/assets/favicon/*.*', dest: '<%= targetNonMinified %>/'},
               
-              { expand: true, flatten: true, src: ['assets/icons/icomoon/fonts/*'], dest: '<%= targetMinified %>/assets/fonts', filter: 'isFile'},
-              { expand: true, flatten: true, src: ['assets/data/*.json'], dest: '<%= targetMinified %>/assets/data'},
-              { expand: true, flatten: true, src: 'assets/favicon/*.*', dest: '<%= targetMinified %>/'}
+              { expand: true, flatten: true, src: ['<%= src %>/assets/icons/icomoon/fonts/*'], dest: '<%= targetMinified %>/assets/fonts', filter: 'isFile'},
+              { expand: true, flatten: true, src: ['<%= src %>/assets/data/*.json'], dest: '<%= targetMinified %>/assets/data'},
+              { expand: true, flatten: true, src: '<%= src %>/assets/favicon/*.*', dest: '<%= targetMinified %>/'}
             ],
           },
           distrib: {
@@ -53,44 +54,44 @@ module.exports = function(grunt) {
                 files: [{
                     expand: false,
                     src: [
-                        'assets/icons/icomoon/style.css',
-                        'assets/normalize/normalize.css',
-                        'assets/pure/base.css',
-                        'assets/pure/grids.css',
-                        'assets/pure/grids-responsive.css',
-                        'assets/skeleton/normalize.css',
-                        'assets/skeleton/skeleton-grid.css',
-                        'assets/skeleton/skeleton-base-styles.css',
-                        'assets/skeleton/skeleton-typography.css',
-                        'assets/skeleton/skeleton-links.css',
-                        'assets/skeleton/skeleton-buttons.css',
-                        'assets/skeleton/skeleton-forms.css',
-                        'assets/skeleton/skeleton-code.css',
-                        'assets/skeleton/skeleton-tables.css',
-                        'assets/skeleton/skeleton-spacing.css',
-                        'assets/skeleton/skeleton-utilities.css',
-                        'css/version.css',
-                        'css/trim-text.css',
-                        'css/nowrap-text.css',
-                        'css/anchor.css',
-                        'css/footer.css',
-                        'css/button.css',
-                        'css/margins.css',
-                        'css/radiobutton.css',
-                        'css/muted-text.css',
-                        'css/toggle-button.css',
-                        'css/new-paragraph-choice.css',
-                        'css/expanded-table.css',
-                        'css/striped-table.css',
-                        'css/list-table.css',
-                        'css/right-aligned-text.css',
-                        'css/textarea.css',
-                        'css/splash.css',
-                        'css/form.css',
-                        'css/i18n.css',
-                        'css/modal.css',
-                        'css/bigtop-margin.css',
-                        'html/**/*.css'
+                        '<%= src %>/assets/icons/icomoon/style.css',
+                        '<%= src %>/assets/normalize/normalize.css',
+                        '<%= src %>/assets/pure/base.css',
+                        '<%= src %>/assets/pure/grids.css',
+                        '<%= src %>/assets/pure/grids-responsive.css',
+                        '<%= src %>/assets/skeleton/normalize.css',
+                        '<%= src %>/assets/skeleton/skeleton-grid.css',
+                        '<%= src %>/assets/skeleton/skeleton-base-styles.css',
+                        '<%= src %>/assets/skeleton/skeleton-typography.css',
+                        '<%= src %>/assets/skeleton/skeleton-links.css',
+                        '<%= src %>/assets/skeleton/skeleton-buttons.css',
+                        '<%= src %>/assets/skeleton/skeleton-forms.css',
+                        '<%= src %>/assets/skeleton/skeleton-code.css',
+                        '<%= src %>/assets/skeleton/skeleton-tables.css',
+                        '<%= src %>/assets/skeleton/skeleton-spacing.css',
+                        '<%= src %>/assets/skeleton/skeleton-utilities.css',
+                        '<%= src %>/css/version.css',
+                        '<%= src %>/css/trim-text.css',
+                        '<%= src %>/css/nowrap-text.css',
+                        '<%= src %>/css/anchor.css',
+                        '<%= src %>/css/footer.css',
+                        '<%= src %>/css/button.css',
+                        '<%= src %>/css/margins.css',
+                        '<%= src %>/css/radiobutton.css',
+                        '<%= src %>/css/muted-text.css',
+                        '<%= src %>/css/toggle-button.css',
+                        '<%= src %>/css/new-paragraph-choice.css',
+                        '<%= src %>/css/expanded-table.css',
+                        '<%= src %>/css/striped-table.css',
+                        '<%= src %>/css/list-table.css',
+                        '<%= src %>/css/right-aligned-text.css',
+                        '<%= src %>/css/textarea.css',
+                        '<%= src %>/css/splash.css',
+                        '<%= src %>/css/form.css',
+                        '<%= src %>/css/i18n.css',
+                        '<%= src %>/css/modal.css',
+                        '<%= src %>/css/bigtop-margin.css',
+                        '<%= src %>/html/**/*.css'
                     ],
                     dest: '<%= targetMinified %>/assets/style.css'
                 }]
@@ -103,24 +104,24 @@ module.exports = function(grunt) {
             my_target: {
               files: {
                 '<%= targetMinified %>/assets/app.js': [
-                    'js/**/core/polyfill.js',
-                    'js/**/core/config.js',
-                    'js/**/core/dom.js',
-                    'js/**/core/message.js',
-                    'js/**/core/data.js',
-                    'js/**/core/ajax.js',
-                    'js/**/core/internationalization.js',
-                    'js/**/components/footer_language.js',
-                    'js/**/screens/homepage.js',
-                    'js/**/screens/debug.js',
-                    'js/**/screens/pageNotFound.js',
-                    'js/**/screens/applicationData.js',
-                    'js/**/screens/gamebook.js',
-                    'js/**/screens/gamebooks.js',
-                    'js/**/screens/newGamebook.js',
-                    'js/**/core/route.js',
-                    'js/**/core/form.js',
-                    'js/**/core/initialisation.js'
+                    '<%= src %>/js/**/core/polyfill.js',
+                    '<%= src %>/js/**/core/config.js',
+                    '<%= src %>/js/**/core/dom.js',
+                    '<%= src %>/js/**/core/message.js',
+                    '<%= src %>/js/**/core/data.js',
+                    '<%= src %>/js/**/core/ajax.js',
+                    '<%= src %>/js/**/core/internationalization.js',
+                    '<%= src %>/js/**/components/footer_language.js',
+                    '<%= src %>/js/**/screens/homepage.js',
+                    '<%= src %>/js/**/screens/debug.js',
+                    '<%= src %>/js/**/screens/pageNotFound.js',
+                    '<%= src %>/js/**/screens/applicationData.js',
+                    '<%= src %>/js/**/screens/gamebook.js',
+                    '<%= src %>/js/**/screens/gamebooks.js',
+                    '<%= src %>/js/**/screens/newGamebook.js',
+                    '<%= src %>/js/**/core/route.js',
+                    '<%= src %>/js/**/core/form.js',
+                    '<%= src %>/js/**/core/initialisation.js'
                 ]
               }
             }
@@ -188,12 +189,12 @@ module.exports = function(grunt) {
               import: 2
             },
             src: [
-                'assets/icons/**/*.css',
-                'assets/normalize/**/*.css',
-                'assets/pure/**/*.css',
-                'assets/skeleton/**/*.css',
-                'css/**/*.css',
-                'html/**/*.css',
+                '<%= src %>/assets/icons/**/*.css',
+                '<%= src %>/assets/normalize/**/*.css',
+                '<%= src %>/assets/pure/**/*.css',
+                '<%= src %>/assets/skeleton/**/*.css',
+                '<%= src %>/css/**/*.css',
+                '<%= src %>/html/**/*.css',
                 '<%= targetMinified %>/**/*.css'
             ]
           },
@@ -202,12 +203,12 @@ module.exports = function(grunt) {
               import: false
             },
             src: [
-                'assets/icons/**/*.css',
-                'assets/normalize/**/*.css',
-                'assets/pure/**/*.css',
-                'assets/skeleton/**/*.css',
-                'css/**/*.css',
-                'html/**/*.css',
+                '<%= src %>/assets/icons/**/*.css',
+                '<%= src %>/assets/normalize/**/*.css',
+                '<%= src %>/assets/pure/**/*.css',
+                '<%= src %>/assets/skeleton/**/*.css',
+                '<%= src %>/css/**/*.css',
+                '<%= src %>/html/**/*.css',
                 '<%= targetMinified %>/**/*.css'
             ]
           }
@@ -215,7 +216,7 @@ module.exports = function(grunt) {
 
         // Validate non-minified JS
         jshint: {
-            files: ['js/**/*.js'],
+            files: ['<%= src %>/js/**/*.js'],
             options: {
                 jshintrc: true
             }
@@ -247,7 +248,7 @@ module.exports = function(grunt) {
         // Watch changes and project files and start the build process if required
         watch: {
             scripts: {
-                files: ['assets/**/*.*', 'html/**/*.*', 'css/**/*.*', 'js/**/*'],
+                files: ['<%= src %>/assets/**/*.*', '<%= src %>/html/**/*.*', '<%= src %>/css/**/*.*', '<%= src %>/js/**/*'],
                 tasks: ['buildPipeline'],
                 options: {
                     livereload: true,
