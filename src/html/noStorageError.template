@@ -3,15 +3,12 @@
         <div class="pure-u-1">
             <h1 id="nostorage-title-id">Gamebooks Assistant</h1>
 			
-            <h2 id="nostorage-subtitle-id">Cookies requis / Cookies required</h2>
-			<!-- TODO find url to configure cookies -->
+            <h2 id="nostorage-subtitle-id">Web storage requis / Web storage required</h2>
 			<p>
-			 Français: Les Cookies sont désactivés dans votre navigateur Internet.
-			 Voici les <a href="todo" target="_blank">instructions pour autoriser les Cookies dans votre navigateur</a>.
+			 Français: Veuilliez activer le Web storage dans votre navigateur (Web storage est un type de <a href="https://fr.wikipedia.org/wiki/Cookie_(informatique)" target="_blank">Cookies</a>).
 			</p>
 			<p>
-			 English: Cookies are disabled in your web browser.
-			 Here are the <a href="todo" target="_blank">instructions how to enable Cookies in your web browser</a>.
+			 English: Please enable the Web storage in your web browser (Web storage is a type of <a href="https://en.wikipedia.org/wiki/HTTP_cookie#Web_storage" target="_blank">Cookies</a>).
 			</p>
 			<p>
 				<a href="https://github.com/morarupasukaru/gamebooks-assistant/">
