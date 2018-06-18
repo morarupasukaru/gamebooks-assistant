@@ -12,18 +12,18 @@ The "Business" goal is to be able to play a gamebook with a book in a hand and a
 - Clone the repo: `git clone https://github.com/morarupasukaru/gamebooks-assistant.git`
 - Install [node.js](https://nodejs.org) with [npm](https://www.npmjs.com/), see https://nodejs.org
 - Install a Java 8 JDK that is required to run the HTML validation locally
-- Install [Grunt](https://gruntjs.com/)'s command line interface (CLI): npm install -g grunt-cli
+- Install [Grunt](https://gruntjs.com/)'s command line interface (CLI):
 ```bash
 npm install -g grunt-cli
 ```
 - Install the project's dependencies
 ```bash
-cd ...\gamebooks-assistant\src
+# at the root of the project
 npm install
 ```
 - Start the applications' build
 ```bash
-cd ...\gamebooks-assistant\src
+# at the root of the project
 grunt
 ```
 - A not-minified version of the application will be available at http://localhost:9000/ 
