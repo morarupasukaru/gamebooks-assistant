@@ -25,7 +25,7 @@ module.exports = function(grunt) {
             files: [
               { expand: true, flatten: true, src: ['<%= src %>/css/*.css'], dest: '<%= targetNonMinified %>/css'},
               { expand: true, cwd: '<%= src %>/assets/', src: ['**'], dest: '<%= targetNonMinified %>/assets'},
-              { expand: true, flatten: false, src: ['<%= src %>/js/**/*.js'], dest: '<%= targetNonMinified %>'},
+              { expand: true, cwd: '<%= src %>/js/', src: ['**'], dest: '<%= targetNonMinified %>/js'},
               { expand: true, flatten: true, src: '<%= src %>/assets/favicon/*.*', dest: '<%= targetNonMinified %>/'},
               
               { expand: true, flatten: true, src: ['<%= src %>/assets/icons/icomoon/fonts/*'], dest: '<%= targetMinified %>/assets/fonts', filter: 'isFile'},
@@ -133,7 +133,7 @@ module.exports = function(grunt) {
               files: [
                 {
                   expand: true,     // Enable dynamic expansion.
-                  cwd: 'html/',      // Src matches are relative to this path.
+                  cwd: '<%= src %>/html/',      // Src matches are relative to this path.
                   src: ['**/*.html'], // Actual pattern(s) to match.
                   dest: '<%= targetNonMinified %>/',   // Destination path prefix.
                 }
@@ -143,7 +143,7 @@ module.exports = function(grunt) {
               files: [
                 {
                   expand: true,     // Enable dynamic expansion.
-                  cwd: 'html/',      // Src matches are relative to this path.
+                  cwd: '<%= src %>/html/',      // Src matches are relative to this path.
                   src: ['**/*.html'], // Actual pattern(s) to match.
                   dest: '<%= targetMinified %>/',   // Destination path prefix.
                 }

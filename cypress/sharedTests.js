@@ -123,7 +123,7 @@ export function noWebstorageTests(url) {
 			});
 			cy.get('#nostorage-id').should('be.visible');
 			cy.get('#nostorage-subtitle-id').should('be.visible');
-			cy.get('#nostorage-subtitle-id').contains('Cookies requis / Cookies required');
+			cy.get('#nostorage-subtitle-id').contains('Web storage requis / Web storage required');
 		})
 	};
 };
