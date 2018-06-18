@@ -5,6 +5,9 @@
     "use strict";
     globals._ = globals._ || {};
 	var __ = globals._;
+	
+	// TODO rename message to exception-handling
+	// TODO add stacktrace to saved data in sessionStorage
 
     /**
      * Exception handling: uncatched exception are displayed in a modal view

@@ -16,10 +16,10 @@
             __.data.setLanguage(newLanguage);
             var htmlElement = document.getElementsByTagName("html")[0];
             htmlElement.lang = newLanguage;
-            document.getElementById("footer-lang-" + newLanguage + "-id").classList.add("hidden");
+            __.dom.hide("footer-lang-" + newLanguage + "-id");
             for (var i = 0; i < __.config.languages.supported.length; i++) {
                 if (newLanguage !== __.config.languages.supported[i]) {
-                    document.getElementById("footer-lang-" + __.config.languages.supported[i] + "-id").classList.remove("hidden");
+					__.dom.display("footer-lang-" + __.config.languages.supported[i] + "-id");
                 }
             }
             this._forceReloadStylesheetIfNeeded(newLanguage);

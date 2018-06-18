@@ -14,7 +14,7 @@ describe('01 - Homepage screen', function () {
 		})
 		
 		it('Content - Splash-head', function() {
-			common.checkNoI18nElementText('.splash-head', 'Gamebook assistant');
+			common.checkNoI18nElementText('.splash-head', 'Gamebooks Assistant');
 		})
 		
 		it('Content - Splash-subhead', function() {

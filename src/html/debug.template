@@ -13,7 +13,7 @@
         <div class="pure-u-1 pure-u-lg-1-3">
 			<!-- TODO indicate somehow that there is some js errors or not -->
             <div class="margin-right">
-				<a id="debug-showerrors-id" class="button u-full-width i18n" href="#" data-fr="Erreurs JavaScript" data-en="JavaScript Errors"></a>
+				<a id="debug-showerrors-id" class="button u-full-width i18n disabled" href="#" data-fr="0 erreurs javascript" data-en="0 javascript errors"></a>
 			</div>
         </div>
 		

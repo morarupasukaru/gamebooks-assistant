@@ -19,10 +19,24 @@
         }
     };
 	
-    api.display = function(elementId) {
+    api.removeCssClass = function(elementId, cssClass) {
 		var foundElement = document.getElementById(elementId);
 		if (!!foundElement) {
-			foundElement.classList.remove("hidden");
+			foundElement.classList.remove(cssClass);
+			return true;
+		} else {
+			return false;
+		}
+	};
+	
+    api.display = function(elementId) {
+		return api.removeCssClass(elementId, "hidden");
+	};
+	
+    api.addCssClass = function(elementId, cssClass) {
+		var foundElement = document.getElementById(elementId);
+		if (!!foundElement) {
+			foundElement.classList.add(cssClass);
 			return true;
 		} else {
 			return false;
@@ -30,13 +44,7 @@
 	};
 	
     api.hide = function(elementId) {
-		var foundElement = document.getElementById(elementId);
-		if (!!foundElement) {
-			foundElement.classList.add("hidden");
-			return true;
-		} else {
-			return false;
-		}
+		return api.addCssClass(elementId, "hidden");
 	};
 	
     api.displayAllByCssSelector = function(cssSelector) {

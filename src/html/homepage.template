@@ -1,6 +1,6 @@
 <div id="home-id" class="hidden">
     <div class="splash">
-        <h1 class="splash-head">Gamebook assistant</h1>
+        <h1 class="splash-head">Gamebooks Assistant</h1>
         <p class="splash-subhead i18n"
            data-fr="facilite la résolution de livre-jeu"
            data-en="ease the resolution of gamebooks"></p>

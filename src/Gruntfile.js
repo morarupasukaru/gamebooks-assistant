@@ -25,11 +25,11 @@ module.exports = function(grunt) {
               { expand: true, flatten: true, src: ['css/*.css'], dest: '<%= targetNonMinified %>/css'},
               { expand: true, cwd: 'assets/', src: ['**'], dest: '<%= targetNonMinified %>/assets'},
               { expand: true, flatten: false, src: ['js/**/*.js'], dest: '<%= targetNonMinified %>'},
-              { expand: true, flatten: true, src: 'assets/favicon/favicon.ico', dest: '<%= targetNonMinified %>/'},
+              { expand: true, flatten: true, src: 'assets/favicon/*.*', dest: '<%= targetNonMinified %>/'},
               
               { expand: true, flatten: true, src: ['assets/icons/icomoon/fonts/*'], dest: '<%= targetMinified %>/assets/fonts', filter: 'isFile'},
               { expand: true, flatten: true, src: ['assets/data/*.json'], dest: '<%= targetMinified %>/assets/data'},
-              { expand: true, flatten: true, src: 'assets/favicon/favicon.ico', dest: '<%= targetMinified %>/'}
+              { expand: true, flatten: true, src: 'assets/favicon/*.*', dest: '<%= targetMinified %>/'}
             ],
           },
           distrib: {

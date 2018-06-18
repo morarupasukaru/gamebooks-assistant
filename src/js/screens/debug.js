@@ -8,6 +8,17 @@
 		if (!!found) {
 			__.footer.displayChildFooter();
 		}
+		
+		var javascriptErrors = __.data.getJavascriptErrors();
+		var javascriptErrorCount = !!javascriptErrors ? javascriptErrors.length: 0;
+		__.dom.setText("debug-showerrors-id", javascriptErrorCount + " erreurs javascript", javascriptErrorCount + " javascript errors");
+		if (!!javascriptErrorCount) {
+			__.dom.addCssClass("debug-showerrors-id", "button-primary");
+			// TODO remove attribute disabled
+		} else {
+			__.dom.removeCssClass("debug-showerrors-id", "button-primary");
+			// TODO add attribute disabled
+		}
 	};
 	
     var hide = function() {

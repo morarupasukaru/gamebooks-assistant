@@ -91,7 +91,7 @@ export function footerTests(url) {
 		})
 		
 		it('Footer - Left', function() {
-			checkNoI18nElementText('.footer-left', 'Gamebook assistant');
+			checkNoI18nElementText('.footer-left', 'Gamebooks Assistant');
 		})
 		
 		it('Footer - Home Link', function() {
