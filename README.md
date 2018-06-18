@@ -18,12 +18,12 @@ npm install -g grunt-cli
 ```
 - Install the project's dependencies
 ```bash
-# at the root of the project
+# execute following command at the root of the project
 npm install
 ```
 - Start the applications' build
 ```bash
-# at the root of the project
+# execute following command at the root of the project
 grunt
 ```
 - A not-minified version of the application will be available at http://localhost:9000/ 
