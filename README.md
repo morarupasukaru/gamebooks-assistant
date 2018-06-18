@@ -32,12 +32,12 @@ grunt
 
 ### Documentation
 
-- [Development design choices](DESIGN.md).
+- [Development design choices](documentation/DESIGN.md).
 
 
 ### Project History
 
-See the [HISTORY](HISTORY.md).
+See the [HISTORY](documentation/HISTORY.md).
 
 
 ### Credits
@@ -62,4 +62,4 @@ See the [HISTORY](HISTORY.md).
 
 [![license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/morarupasukaru/gamebooks-assistant/blob/master/LICENSE.md)
 
-This project is licensed under the terms of the [MIT license](/LICENSE.md).
+This project is licensed under the terms of the [MIT license](documentation/LICENSE.md).
