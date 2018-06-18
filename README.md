@@ -60,6 +60,6 @@ See the [HISTORY](documentation/HISTORY.md).
 
 ### License
 
-[![license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/morarupasukaru/gamebooks-assistant/blob/master/LICENSE.md)
+[![license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/morarupasukaru/gamebooks-assistant/blob/master/documentation/LICENSE.md)
 
 This project is licensed under the terms of the [MIT license](documentation/LICENSE.md).
