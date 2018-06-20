@@ -7,6 +7,18 @@
 	var __ = globals._;
     __.i18n = __.i18n || {};
     var api = __.i18n;
+	
+    api.languages = {
+		// TODO this variable will be removed as soon as i18n will be retrieved in external json file
+        default : 'en',
+        supported : ['fr', 'en']
+    };
+	
+    api.texts = {
+        fr : 'Francais',
+        en : 'English'
+    };
+		
     /**
      * Change the language of the application
      */
@@ -17,9 +29,9 @@
             var htmlElement = document.getElementsByTagName("html")[0];
             htmlElement.lang = newLanguage;
             __.dom.hide("footer-lang-" + newLanguage + "-id");
-            for (var i = 0; i < __.config.languages.supported.length; i++) {
-                if (newLanguage !== __.config.languages.supported[i]) {
-					__.dom.display("footer-lang-" + __.config.languages.supported[i] + "-id");
+            for (var i = 0; i < api.languages.supported.length; i++) {
+                if (newLanguage !== api.languages.supported[i]) {
+					__.dom.display("footer-lang-" + api.languages.supported[i] + "-id");
                 }
             }
             this._forceReloadStylesheetIfNeeded(newLanguage);
@@ -67,8 +79,8 @@
         } else {
             var newLanguage;
             var navigatorLanguage = navigator.languages && navigator.languages[0] || navigator.language || navigator.userLanguage;
-            for (var i = 0; i < __.config.languages.supported.length; i++) {
-                var language = __.config.languages.supported[i];
+            for (var i = 0; i < api.languages.supported.length; i++) {
+                var language = api.languages.supported[i];
                 if (navigatorLanguage === language || navigatorLanguage.startsWith(language + '-')) {
                     newLanguage = language;
                     break;

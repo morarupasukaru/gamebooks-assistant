@@ -18,11 +18,10 @@
         footerDiv.insertBefore(linkElement, existingLink);
     };
 
-    var supportedLanguages = __.config.languages.supported;
+    var supportedLanguages = __.i18n.languages.supported;
     for (var i = 0; i < supportedLanguages.length; i++) {
-        addLanguageToFooter(supportedLanguages[i], __.config.texts[supportedLanguages[i]]);
+        addLanguageToFooter(supportedLanguages[i], __.i18n.texts[supportedLanguages[i]]);
     }
-	
 	
 	api.displayHomepageFooter = function() {
 		__.dom.display('footer-github-id');
