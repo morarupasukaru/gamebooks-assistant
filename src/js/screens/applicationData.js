@@ -1,3 +1,4 @@
+// TODO move to ..\application\screens
 (function(globals){
     "use strict";
 	globals._ = globals._ || {};

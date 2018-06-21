@@ -1,7 +1,9 @@
+// TODO move to ..\application\errorhandling.js
 /**
  * Initialise the functions to inform to the user messages and make it available into the global variable "_.msg"
  */
 (function(globals){
+	// depends on data.js
     "use strict";
     globals._ = globals._ || {};
 	var __ = globals._;

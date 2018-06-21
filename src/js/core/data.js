@@ -1,7 +1,9 @@
+// TODO split into two file, one "\webapi\data.js" with localStorage / sessionStorage abstraction, one "application\application-data.js" with get/set of application specific datas
 /**
  * Initialise the functions to access data of the application and be published in the global variable "_.data"
  */
 (function(globals){
+	// no dependency 
     "use strict";
     globals._ = globals._ || {};
 	var __ = globals._;

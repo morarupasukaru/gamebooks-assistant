@@ -1,7 +1,9 @@
+// TODO move to ..\application
 /**
  * Initialise the functions to access information about current url into the global variable "_.route"
  */
 (function(globals){
+	// depends on dom.js, data.js, "screens"
     "use strict";
     globals._ = globals._ || {};
 	var __ = globals._;

@@ -1,3 +1,4 @@
+// TODO move to ..\application\components
 /**
  * Javascript function that will add for every supported language, an anchor html tag in the div with id 'footer.language'
  */

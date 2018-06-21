@@ -1,7 +1,9 @@
+// TODO move to \webapi\dom.js
 /**
  * Initialise the functions to modify dom into the global variable "_.dom"
  */
 (function(globals){
+	// no dependency 
     "use strict";
     globals._ = globals._ || {};
 	var __ = globals._;

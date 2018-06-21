@@ -1,7 +1,9 @@
+// TODO move to ..\application
 /**
  * Initialisation of the modules (specific order required).
  */
  (function(globals){
+	// depends on all js files
     "use strict";
 	var __ = globals._;
 	__.dom.hide("nojs-id");
@@ -11,6 +13,8 @@
 		return false;
 	};
 	if (!!isLegacyBrowser()) {
+		// TODO wait for dom loading
+		
 		// TODO
 		var browserDescription = 'toto';
 		if (!!browserDescription) {
@@ -23,6 +27,8 @@
 		}
 		__.dom.display("legacybrowser-id");
 	} else {
+		// TODO wait for all js files loading
+		
 		__.data.initialize();
 		if (!__.data.isWebStorageAvailable) {
 			__.dom.display("nostorage-id");

@@ -1,7 +1,9 @@
+// move to ..\application
 /**
  * Initialise the i18n functions into the global variable "_.i18n"
  */
 (function(globals){
+	// depends on data.js, dom.js, route.js
     "use strict";
     globals._ = globals._ || {};
 	var __ = globals._;

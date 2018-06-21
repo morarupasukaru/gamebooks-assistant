@@ -1,7 +1,9 @@
+// TODO move to \webapi
 /**
  * Initialise the functions to load asynchronous data into the global variable "_.ajax"
  */
 (function(globals){
+	// no dependency 
     "use strict";
 	globals._ = globals._ || {};
 	var __ = globals._;
