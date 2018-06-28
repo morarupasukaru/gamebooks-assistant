@@ -41,7 +41,7 @@
      */
 	var initialized = false;
     api.initialize = function() {
-		if (!!initialized) {
+		if (initialized) {
 			return ;
 		}
 		__.dom.setHrefOfScreen('footer-home-id', 'home');

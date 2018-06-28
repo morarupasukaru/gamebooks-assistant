@@ -13,6 +13,7 @@
     api.loadJson = function(jsonUrl, callback) {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
+			// TODO constant
             if (this.readyState === 4 && this.status === 200) {
                 var json = JSON.parse(this.responseText);
                 callback(json);

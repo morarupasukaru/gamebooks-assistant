@@ -3,24 +3,43 @@
  * Initialise the functions to modify dom into the global variable "_.dom"
  */
 (function(globals){
-	// no dependency 
+	// depends on data, route
     "use strict";
     globals._ = globals._ || {};
 	var __ = globals._;
-    __.dom = __.dom || {};
-    var api = __.dom;
+//	__.webapi = __.webapi || {};
+//	__.webapi.dom = __.webapi.dom || {};
+//    var api = __.webapi.dom;
 
+	__.dom = __.dom || {};
+    var api = __.dom;
+	
+	// publics methods
+	
     /**
      * Append given html to a dom element
      */
     api.appendHtml = function(element, html) {
-        var div = document.createElement('div');
-        div.innerHTML = html;
-        while (div.children.length > 0) {
-            element.appendChild(div.children[0]);
-        }
-    };
+		debugger;
+		return api.initialisation('appendHtml', element, html);
+	};
 	
+	
+	// implementation
+	
+	api.initialisation = function(calledFunctionName, parameters) {
+		api.appendHtml = function(element, html) {
+		debugger;
+			var div = document.createElement('div');
+			div.innerHTML = html;
+			while (div.children.length > 0) {
+				element.appendChild(div.children[0]);
+			}
+		};
+		
+		return api[calledFunctionName](parameters);
+	};
+
     api.removeCssClass = function(elementId, cssClass) {
 		var foundElement = document.getElementById(elementId);
 		if (!!foundElement) {

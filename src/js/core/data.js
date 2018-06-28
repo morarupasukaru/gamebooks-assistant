@@ -34,7 +34,7 @@
     var getStorage = function(session) {
 		lazyInitialisation();
 		var storage;
-		if (!!session) {
+		if (session === undefined) {
 			storage = sessionStorage;
 		} else {
 			storage = localStorage;
@@ -171,7 +171,7 @@
      */
 	var initialized = false;
     api.initialize = function() {
-		if (!!initialized) {
+		if (initialized) {
 			return ;
 		}
         lazyInitialisation();

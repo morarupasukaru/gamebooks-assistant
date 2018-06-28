@@ -72,7 +72,7 @@
      */
 	var initialized = false;
     api.initialize = function() {
-		if (!!initialized) {
+		if (initialized) {
 			return ;
 		}
         var savedLanguage = __.data.getLanguage();

@@ -17,7 +17,7 @@
 	
 	var initialized = false;
     var initialize = function() {
-		if (!!initialized) {
+		if (initialized) {
 			return ;
 		}
 		initialized = true;

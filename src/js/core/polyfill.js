@@ -4,6 +4,7 @@
  */
 // jshint freeze:false
 (function(){
+	// TODO remove polyfill
     "use strict";
     if (!String.prototype.startsWith) {
         String.prototype.startsWith = function (searchString, position) {

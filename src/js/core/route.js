@@ -104,7 +104,7 @@
 
     var changeElementVisibleOnlyToDebug = function(debugEnabled) {
 		var cssSelector = ".only-visible-by-debug";
-        if (!!debugEnabled) {
+        if (debugEnabled) {
 			__.dom.displayAllByCssSelector(cssSelector);
         } else {
 			__.dom.hideAllByCssSelector(cssSelector);
@@ -132,6 +132,12 @@
 		}
     };
     
+	function MyError(message) {
+		this.message = message; 
+	}
+	
+	MyError.prototype = new Error(); 
+	
 	/**
 	 * Throw an exception if url contains an "error" parameter; used to test bugReport.
 	 */
@@ -139,8 +145,8 @@
         var keyValues = getSearchParams();
         var keys = Object.keys(keyValues);
 		var debugEnabled = !!__.data.isDebugEnabled();
-		if (!!debugEnabled && keys.indexOf('error') !== -1) {
-			throw 'error_' + __.data.uuid();
+		if (debugEnabled && keys.indexOf('error') !== -1) {
+			throw new MyError('error_' + __.data.uuid());
 		}
     };
 	
@@ -263,7 +269,7 @@
      */
 	var initialized = false;
     api.initialize = function() {
-		if (!!initialized) {
+		if (initialized) {
 			return ;
 		}
 		computeHashChange(true);

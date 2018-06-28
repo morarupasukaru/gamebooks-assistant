@@ -12,7 +12,7 @@
 		// TODO
 		return false;
 	};
-	if (!!isLegacyBrowser()) {
+	if (isLegacyBrowser()) {
 		// TODO wait for dom loading
 		
 		// TODO

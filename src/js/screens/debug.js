@@ -27,7 +27,7 @@
 	
 	var initialized = false;
     var initialize = function() {
-		if (!!initialized) {
+		if (initialized) {
 			return ;
 		}
 		__.dom.setHrefOfScreen('debug-showdata-id', 'dataOfApplication');
