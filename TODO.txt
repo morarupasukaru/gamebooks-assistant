@@ -1,0 +1,15 @@
+d'après maintable javascript:
+* no polyfill (p.111)
+* dom wrapper (p.110)
+* jsonp?
+* fct var au debut
+* separate config from code (p.91)
+* zero global approach (p.77)
+* event handling (p.82)
+* browser detect (p.116) que ie8&--
+* feature dectection (p.117)
+* compression (p.158)
+* documentation (p.161)
+
+
+> bitbucket?

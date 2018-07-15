@@ -13,33 +13,18 @@
 
 	__.dom = __.dom || {};
     var api = __.dom;
-	
+	var dom = globals.gamebooksAssistant.webapi.dom;
+
 	// publics methods
 	
     /**
      * Append given html to a dom element
      */
     api.appendHtml = function(element, html) {
-		debugger;
-		return api.initialisation('appendHtml', element, html);
+		// TODO replace appendHtml of webapi
+		dom.appendHtml(element, html);
 	};
 	
-	
-	// implementation
-	
-	api.initialisation = function(calledFunctionName, parameters) {
-		api.appendHtml = function(element, html) {
-		debugger;
-			var div = document.createElement('div');
-			div.innerHTML = html;
-			while (div.children.length > 0) {
-				element.appendChild(div.children[0]);
-			}
-		};
-		
-		return api[calledFunctionName](parameters);
-	};
-
     api.removeCssClass = function(elementId, cssClass) {
 		var foundElement = document.getElementById(elementId);
 		if (!!foundElement) {

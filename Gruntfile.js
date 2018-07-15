@@ -104,11 +104,12 @@ module.exports = function(grunt) {
             my_target: {
               files: {
                 '<%= targetMinified %>/assets/app.js': [
+                    '<%= src %>/js/**/webapi/ajax.js',
+                    '<%= src %>/js/**/webapi/dom.js',
                     '<%= src %>/js/**/core/polyfill.js',
                     '<%= src %>/js/**/core/dom.js',
                     '<%= src %>/js/**/core/message.js',
                     '<%= src %>/js/**/core/data.js',
-                    '<%= src %>/js/**/core/ajax.js',
                     '<%= src %>/js/**/core/internationalization.js',
                     '<%= src %>/js/**/components/footer_language.js',
                     '<%= src %>/js/**/screens/homepage.js',
