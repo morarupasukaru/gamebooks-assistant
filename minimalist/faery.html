@@ -97,8 +97,8 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 			};
 			
 			api.controller.nextParagraph = function() {
-				var requiredFieldIds = ["characterName", "dexterity", "stamina", "luck", "nextParagrapheNo"];
-				var fieldIds = ["equipement", "notes", "paragrapheNo"].concat(requiredFieldIds);
+				var requiredFieldIds = ["characterName", "dexterity", "stamina", "luck", "nextParagraphNo"];
+				var fieldIds = ["equipement", "notes"].concat(requiredFieldIds);
 				var fieldValues = api.webapi.getElementsValue(fieldIds);
 				for (var i = 0; i < requiredFieldIds.length; i++) {
 					var fieldValue = fieldValues[requiredFieldIds[i]];
@@ -106,11 +106,8 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 						return ;
 					}
 				}
-				fieldValues.paragrapheNo = fieldValues.nextParagrapheNo;
-				fieldValues.nextParagrapheNo = "";
 				api.service.saveGameState(fieldValues);
-				api.webapi.setElementValue("paragrapheNo", fieldValues.paragrapheNo);
-				api.webapi.setElementValue("nextParagrapheNo", fieldValues.nextParagrapheNo);
+				api.webapi.initializeScreen();
 			}
 			
 			api.controller.previousParagraph = function() {
@@ -157,21 +154,56 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 				return gameState;
 			}
 			
-			api.service.saveGameState = function(gameState) {
+			api.service.loadPath = function() {
 				var bookData = api.service.loadBookData();
-				bookData.gameStates.push(gameState);
-				var paragrapheNo = gameState.paragrapheNo;
-				var nextParagrapheNo = gameState.nextParagrapheNo;
-				if (paragrapheNo !== "") {
-					paragraph = bookData.paragraphs[paragrapheNo];
-					if (!paragraph) {
-						paragraph = [];
-						bookData.paragraphs[paragrapheNo] = paragraph;
+				var path = '';
+				if (!!bookData && !!bookData.gameStates && bookData.gameStates.length > 0) {
+					var pathLength = bookData.gameStates.length;
+					var displayParagraphNb = Math.min(pathLength, 3);
+					for (var i = 0; i < displayParagraphNb; i++) {
+						var paragraphNo = bookData.gameStates[pathLength - (i+1)].paragraphNo;
+						if (i !== 0) {
+							path = ', ' + path;
+						}
+						path = paragraphNo + path;
 					}
-					if (paragraph.indexOf(nextParagrapheNo) === -1) {
-						paragraph.push(nextParagrapheNo);
+					var lastParagraphNo = bookData.gameStates[bookData.gameStates.length - 1].paragraphNo;
+					var choiceOfLastParagraph = bookData.paragraphs[lastParagraphNo];
+					if (!!choiceOfLastParagraph) {
+						path = path + ' => [';
+						for (var i = 0; i < choiceOfLastParagraph.length; i++) {
+							var paragraphNo = choiceOfLastParagraph[i];
+							if (i !== 0) {
+								path = path + ', ';
+							}
+							path = path + paragraphNo;
+						}
+						path = path + ']';
 					}
 				}
+				return path;
+			}
+			
+			api.service.saveGameState = function(gameState) {
+				var bookData = api.service.loadBookData();
+				var lastParagraphNo;
+				if (!!bookData && !!bookData.gameStates && bookData.gameStates.length > 0) {
+					lastParagraphNo = bookData.gameStates[bookData.gameStates.length - 1].paragraphNo;
+				}
+				var nextParagraphNo = gameState.nextParagraphNo;
+				if (lastParagraphNo !== undefined) {
+					paragraph = bookData.paragraphs[lastParagraphNo];
+					if (!paragraph) {
+						paragraph = [];
+						bookData.paragraphs[lastParagraphNo] = paragraph;
+					}
+					if (paragraph.indexOf(nextParagraphNo) === -1) {
+						paragraph.push(nextParagraphNo);
+					}
+				}
+				gameState.paragraphNo = gameState.nextParagraphNo;
+				delete gameState.nextParagraphNo;
+				bookData.gameStates.push(gameState);
 				api.service.saveBookData(bookData);
 			}
 						
@@ -179,14 +211,14 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 				var gameState = api.service.loadGameState();
 				if (!gameState) {
 					api.webapi.enableElement("characterName");
-					api.webapi.setElementValue("nextParagrapheNo", "1");
+					api.webapi.setElementValue("nextParagraphNo", "1");
 					api.webapi.setElementValue("characterName", "");
 					api.webapi.setElementValue("dexterity", "");
 					api.webapi.setElementValue("stamina", "");
 					api.webapi.setElementValue("luck", "");
 					api.webapi.setElementValue("equipement", "");
 					api.webapi.setElementValue("notes", "");
-					api.webapi.setElementValue("paragrapheNo", "");
+					api.webapi.setElementValue("path", "");
 				} else {
 					api.webapi.disableElement("characterName");
 					api.webapi.setElementValue("characterName", gameState.characterName);
@@ -195,7 +227,9 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 					api.webapi.setElementValue("luck", gameState.luck);
 					api.webapi.setElementValue("equipement", gameState.equipement);
 					api.webapi.setElementValue("notes", gameState.notes);
-					api.webapi.setElementValue("paragrapheNo", gameState.paragrapheNo);
+					api.webapi.setElementValue("nextParagraphNo", "");
+					var path = api.service.loadPath();
+					api.webapi.setElementValue("path", path);
 				}
 			}
 
@@ -222,10 +256,10 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 				</div>
 				
 				<div>
-					<h3>Progression</h3>
+					<h3>Lecture</h3>
 					<fieldset>
-						<label class="required">Paragraphe courant<input id="paragrapheNo" type="text" disabled></label>
-						<label class="required">Choix du prochain paragraphe<input id="nextParagrapheNo" type="text" placeholder="Numéro de paragraphe" required></label>
+						<label class="required">Progression<input id="path" type="text" disabled></label>
+						<label class="required">Choix du prochain paragraphe<input id="nextParagraphNo" type="text" placeholder="Numéro de paragraphe" required></label>
 					</fieldset>
 					<input type="submit" value="Saut au prochain paragraphe" />
 					<button onclick="api.controller.previousParagraph(); return false;">Revenir un paragraphe en arrière</button>
