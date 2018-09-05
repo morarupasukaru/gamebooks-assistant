@@ -97,7 +97,7 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 			};
 			
 			api.controller.nextParagraph = function() {
-				var requiredFieldIds = ["characterName", "dexterity", "stamina", "luck", "nextParagraphNo"];
+				var requiredFieldIds = ["characterName", "dexterity", "stamina", "luck", "drunkenness", "nextParagraphNo"];
 				var fieldIds = ["equipement", "notes"].concat(requiredFieldIds);
 				var fieldValues = api.webapi.getElementsValue(fieldIds);
 				for (var i = 0; i < requiredFieldIds.length; i++) {
@@ -213,17 +213,22 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 					api.webapi.enableElement("characterName");
 					api.webapi.setElementValue("nextParagraphNo", "1");
 					api.webapi.setElementValue("characterName", "");
-					api.webapi.setElementValue("dexterity", "");
-					api.webapi.setElementValue("stamina", "");
-					api.webapi.setElementValue("luck", "");
-					api.webapi.setElementValue("equipement", "");
-					api.webapi.setElementValue("notes", "");
+					var dexterityValue = api.service.getRandomInt(1, 6) + 6;
+					api.webapi.setElementValue("dexterity", (dexterityValue-2) + " / " + dexterityValue);
+					var staminaValue = api.service.getRandomInt(1, 6) + api.service.getRandomInt(1, 6) + 12;
+					api.webapi.setElementValue("stamina", staminaValue + " / " +staminaValue);
+					var luckValue = api.service.getRandomInt(1, 6) + 6;
+					api.webapi.setElementValue("luck", luckValue + " / " + luckValue);
+					api.webapi.setElementValue("drunkenness", "4 / 4");
+					api.webapi.setElementValue("equipement", "gourde pleine de vin (aller au paragraphe 58 pour en boire)");
+					api.webapi.setElementValue("notes", "habilité: ivresse / 2 arrondi supérieur\nIVRESSE diminue de 1 tous les 5 paragraphes");
 					api.webapi.setElementValue("path", "");
 				} else {
 					api.webapi.disableElement("characterName");
 					api.webapi.setElementValue("characterName", gameState.characterName);
 					api.webapi.setElementValue("dexterity", gameState.dexterity);
 					api.webapi.setElementValue("stamina", gameState.stamina);
+					api.webapi.setElementValue("drunkenness", gameState.drunkenness);
 					api.webapi.setElementValue("luck", gameState.luck);
 					api.webapi.setElementValue("equipement", gameState.equipement);
 					api.webapi.setElementValue("notes", gameState.notes);
@@ -250,6 +255,7 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 						<label class="required">Habilité<input id="dexterity" type="text" placeholder="Valeur courante / valeur initiale" required></label>
 						<label class="required">Endurance<input id="stamina" type="text" placeholder="Valeur courante / valeur initiale" required></label>
 						<label class="required">Chance<input id="luck" type="text" placeholder="Valeur courante / valeur initiale" required></label>
+						<label class="required">Ivresse<input id="drunkenness" type="text" placeholder="Valeur courante / valeur initiale" required></label>
 						<label>Equipement<textarea id="equipement" rows="4"></textarea></label>
 						<label>Notes<textarea id="notes" rows="4"></textarea></label>
 					</fieldset>
