@@ -7,7 +7,7 @@ The motivation of this "private" project is to help me to learn how-to to develo
 The "Business" goal is to be able to play a gamebook with a book in a hand and a smartphone in the other hand.
 
 
-### Installation
+## Installation
 
 - Clone the repo: `git clone https://github.com/morarupasukaru/gamebooks-assistant.git`
 - Install [node.js](https://nodejs.org) with [npm](https://www.npmjs.com/), see https://nodejs.org
@@ -30,17 +30,36 @@ grunt
 - ... and a minified version at http://localhost:9001/
 
 
-### Documentation
+## Documentation
 
 - [Development design choices](documentation/DESIGN.md).
 
 
-### Project History
+## Project History
 
-See the [HISTORY](documentation/HISTORY.md).
+### Year 2018
+
+Started the develop of a plain vanilly JavaScript version of the application. Project was suspended due to loss of interests and time.
+
+### Year 2017
+
+Version partially finished that use [AngularJS material](https://material.angularjs.org/latest/).
+
+See [angularjs-angularmaterial git-branch](https://github.com/morarupasukaru/gamebooks-assistant/tree/abandoned-version/angularjs-angularmaterial)
+
+I abandonned this version due to fact that angularjs and angular material are deprecated by google.
 
 
-### Credits
+### Year 2016
+
+Version developed with [AngularJS](https://angularjs.org/) framework and [Bootstrap v3](https://getbootstrap.com/docs/3.3/).
+ 
+This version works well on desktop but not very well on mobile (too many click and user-interaction required).
+
+See [angularjs-bootstrap3 git-branch](https://github.com/morarupasukaru/gamebooks-assistant/tree/abandoned-version/angularjs-bootstrap3)
+
+
+## Credits
 
 - [Ravenmore's image](//opengameart.org/content/fantasy-icon-pack-by-ravenmore-0) used for the favicon
 - [realfavicongenerator](https://realfavicongenerator.net/) for the favicon generation
@@ -58,7 +77,7 @@ See the [HISTORY](documentation/HISTORY.md).
 - [GitHub](https://github.com/) for the great tools available and the repository
 
 
-### License
+## License
 
 [![license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/morarupasukaru/gamebooks-assistant/blob/master/documentation/LICENSE.md)
 
