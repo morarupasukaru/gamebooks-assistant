@@ -6,6 +6,10 @@ The motivation of this "private" project is to help me to learn how-to to develo
 
 The "Business" goal is to be able to play a gamebook with a book in a hand and a smartphone in the other hand.
 
+## Version available on GitHub
+
+As the VanillaJS version is not finished (see Project History); the provided version of the application on [GitHub](http://morarupasukaru.github.io/gamebooks-assistant/) is the version of 2016 with AngularJS framework. 
+
 
 ## Installation
 
