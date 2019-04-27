@@ -34,5 +34,8 @@
     "name": "Pascal Morard",
     "email": "moraru.pasukaru@gmail.com"
   },
+  "scripts": {
+    "gulp": "gulp"
+  },
   "license": "MIT"
 }
