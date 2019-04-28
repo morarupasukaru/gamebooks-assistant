@@ -70,7 +70,7 @@ class GamesListController {
         if (!!$stateParams.importAdventure) {
             this.importAdventureFromUrl($stateParams.importAdventure, $stateParams.importGame);
         } else if (!!$stateParams.importGame) {
-            this.importGameFromUrl($stateParams.importGame);
+            this.importGameFromUrl($stateParams.importGame, true);
         } 
 
         this.initData();
@@ -442,7 +442,7 @@ class GamesListController {
         promise.then(
             function(json) {
                 if (!!gameUrl) {
-                    self.importGameFromUrl(gameUrl);
+                    self.importGameFromUrl(gameUrl, false);
                 } else {
                     self.initData();
                     self.clearUrl();
@@ -454,9 +454,9 @@ class GamesListController {
         );
     }
 
-    importGameFromUrl(url) {
+    importGameFromUrl(url, checkDupplicate) {
         let self = this;
-        let promise = this.gamePersistenceService.downloadGame(url);
+        let promise = this.gamePersistenceService.downloadGame(url, checkDupplicate);
         promise.then(
             function(json) {
                 self.initData();

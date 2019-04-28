@@ -11,13 +11,13 @@ class GamePersistenceService {
         this.$translate = $translate;
     }
 
-    downloadGame(url) {
+    downloadGame(url, checkDupplicate) {
         let self = this;
         let deferred = this.$q.defer();
         let promise = this.remoteJsonRetrieverService.retrieveJson(url);
         promise.then(
             function(json) {
-                self.importGame(JSON.stringify(json));
+                self.importGame(JSON.stringify(json), checkDupplicate);
                 deferred.resolve('Success');
             },
             function(reason) {
@@ -90,7 +90,7 @@ class GamePersistenceService {
         return result;
     }
 
-    importGame(gameAsStr) {
+    importGame(gameAsStr, checkDupplicate) {
         try {
             let game = JSON.parse(gameAsStr);
             let missingMandatoryFields = [];
@@ -105,7 +105,7 @@ class GamePersistenceService {
             }
             if (missingMandatoryFields.length > 0) {
                 this.messagesService.errorMessage(this.$translate.instant("ImportGameFailedMissingFields", {missingMandatoryFields: missingMandatoryFields.join(', ') }), false);
-            } else if (!!this.getGame(game.id)) {
+            } else if (!!this.getGame(game.id) && !!checkDupplicate) {
                 this.messagesService.errorMessage(this.$translate.instant("GameAlreadyExists", { gameId : game.id }), false);
             } else {
                 this.updateGame(game);
