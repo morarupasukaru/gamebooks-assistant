@@ -69,7 +69,7 @@ class GamesListController {
 
         if (!!$stateParams.importAdventure) {
             this.importAdventureFromUrl($stateParams.importAdventure, $stateParams.importGame);
-        } elseif (!!$stateParams.importGame) {
+        } else if (!!$stateParams.importGame) {
             this.importGameFromUrl($stateParams.importGame);
         } 
 
