@@ -442,7 +442,7 @@ class GamesListController {
         promise.then(
             function(json) {
                 if (!!gameUrl) {
-                    this.importGameFromUrl(gameUrl);
+                    self.importGameFromUrl(gameUrl);
                 } else {
                     self.initData();
                     self.clearUrl();
