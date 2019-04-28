@@ -10,6 +10,7 @@ The "Business" goal is to be able to play a gamebook with a book in a hand and a
 
 As the VanillaJS version is not finished (see Project History); the provided version of the application on [GitHub](http://morarupasukaru.github.io/gamebooks-assistant/) is the version of 2016 with AngularJS framework (branch [angularjs-bootstrap3 git-branch](https://github.com/morarupasukaru/gamebooks-assistant/tree/abandoned-version/angularjs-bootstrap3)). 
 
+The french gamebook (Un poignard dans le dos)[http://litteraction.fr/livre-jeu/un-poignard-dans-le-dos] is provided as an example of gamebook; under [![Creative Commons Attribution-ShareAlike 1.0 Generic License](https://i.creativecommons.org/l/by-sa/1.0/88x31.png)](http://creativecommons.org/licenses/by-sa/1.0/).
 
 ## Installation
 
