@@ -68,9 +68,8 @@ class GamesListController {
         this.popupImportAdventureConfig = { id : 'popupImportAdventure' };
 
         if (!!$stateParams.importAdventure) {
-            this.importAdventureFromUrl($stateParams.importAdventure);
-        }
-        if (!!$stateParams.importGame) {
+            this.importAdventureFromUrl($stateParams.importAdventure, $stateParams.importGame);
+        } elseif (!!$stateParams.importGame) {
             this.importGameFromUrl($stateParams.importGame);
         } 
 
@@ -437,13 +436,17 @@ class GamesListController {
         );
     }
 
-    importGameFromUrl(url) {
+    importAdventureFromUrl(url, gameUrl) {
         let self = this;
-        let promise = this.gamePersistenceService.downloadGame(url);
+        let promise = this.adventurePersistenceService.downloadAdventure(null, url);
         promise.then(
             function(json) {
-                self.initData();
-                self.clearUrl();
+                if (!!gameUrl) {
+                    this.importGameFromUrl(gameUrl);
+                } else {
+                    self.initData();
+                    self.clearUrl();
+                }
             },
             function(reason) {
                 self.messagesService.errorMessage(reason, false);
@@ -451,9 +454,9 @@ class GamesListController {
         );
     }
 
-    importAdventureFromUrl(url) {
+    importGameFromUrl(url) {
         let self = this;
-        let promise = this.adventurePersistenceService.downloadAdventure(null, url);
+        let promise = this.gamePersistenceService.downloadGame(url);
         promise.then(
             function(json) {
                 self.initData();
