@@ -67,11 +67,12 @@ class GamesListController {
 
         this.popupImportAdventureConfig = { id : 'popupImportAdventure' };
 
-        if (!!$stateParams.importGame) {
-            this.importGameFromUrl($stateParams.importGame);
-        } else if (!!$stateParams.importAdventure) {
+        if (!!$stateParams.importAdventure) {
             this.importAdventureFromUrl($stateParams.importAdventure);
         }
+        if (!!$stateParams.importGame) {
+            this.importGameFromUrl($stateParams.importGame);
+        } 
 
         this.initData();
     }
